@@ -4,49 +4,42 @@
 ACLOCAL_AMFLAGS = -I m4
 
 # The list of header files that belong to the library (to be installed later)
-HEADER_FILES	=	../Includes/libCommands/commandsTypes.h
+HEADER_FILES	=	../Includes/libARCommands/commandsTypes.h	\
+					../Includes/libARCommands/commandsList.h	\
+					../Includes/libARCommands/commands.h
 
 # The sources to add to the library and to add to the source distribution
 SOURCE_FILES	=	$(HEADER_FILES)		\
-					../Sources/commands.c
+					../Sources/commands.c	\
+					../Sources/commandsList.c
 
 # The library names to build (note we are building static and shared libs)
 if DEBUG_MODE
-lib_LTLIBRARIES			= libcommands_dbg.la
-libcommands_dbg_ladir		= $(includedir)/libCommands
-libcommands_dbg_la_HEADERS	= $(HEADER_FILES)
-libcommands_dbg_la_SOURCES	= $(SOURCE_FILES)
+lib_LTLIBRARIES				=	libarcommands_dbg.la
+libarcommands_dbg_ladir		=	$(includedir)/libARCommands
+libarcommands_dbg_la_HEADERS	=	$(HEADER_FILES)
+libarcommands_dbg_la_SOURCES	=	$(SOURCE_FILES)
 else
-lib_LTLIBRARIES			= libcommands.la
-libcommands_ladir			= $(includedir)/libCommands
-libcommands_la_HEADERS		= $(HEADER_FILES)
-libcommands_la_SOURCES		= $(SOURCE_FILES)
+lib_LTLIBRARIES				=	libarcommands.la
+libarcommands_ladir			=	$(includedir)/libARCommands
+libarcommands_la_HEADERS		=	$(HEADER_FILES)
+libarcommands_la_SOURCES		=	$(SOURCE_FILES)
 endif
 
 
 
-check_PROGRAMS	=	
+check_PROGRAMS	=					../TestBench/test1
 
-#___TestBench_test1_SOURCES 	= ../TestBench/test1.c
-#___TestBench_test2_manager_SOURCES 	= ../TestBench/test2/mainManager.c
-#___TestBench_test2_repeater_SOURCES = ../TestBench/test2/mainRepeater.c
-#if DEBUG_MODE
-#___TestBench_test1_LDADD =	-lsal_dbg  \
-								libcommands_dbg.la
-#___TestBench_test2_manager_LDADD =	-lsal_dbg  \
-										libcommands_dbg.la
-#___TestBench_test2_repeater_LDADD = -lsal_dbg  \
-									libcommands_dbg.la
-#else
-#___TestBench_test1_LDADD	=	-lsal \
-								libcommands.la
-#___TestBench_test2_manager_LDADD =	-lsal  \
-									libcommands.la
-#___TestBench_test2_repeater_LDADD = -lsal  \
-									libcommands.la
-#endif
+___TestBench_test1_SOURCES		=	../TestBench/test1.c
+if DEBUG_MODE
+___TestBench_test1_LDADD		=	-lsal_dbg  \
+									libarcommands_dbg.la
+else
+___TestBench_test1_LDADD		=	-lsal \
+									libarcommands.la
+endif
 
-CLEAN_FILES = libcommands.la libcommands_dbg.la
+CLEAN_FILES = libarcommands.la libarcommands_dbg.la
 
 EXTRA_DIST = bootstrap
 

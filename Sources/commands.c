@@ -1,2 +1,92 @@
-#include <libARCommands/commandsTypes.h>
+#include <libARCommands/commands.h>
+#include <libSAL/print.h>
+#include <stdarg.h>
+#include <inttypes.h>
 
+void
+generateCommand (eLIBARCOMMANDS_COMMAND_TYPE type, int id, ...)
+{
+    if (0 == libARCommandsListInitOk)
+    {
+        int res = libARCommandsListInit ();
+        if (0 == res)
+        {
+            SAL_PRINT (PRINT_ERROR, "Unable to initialize libARCommandsList\n");
+            return;
+        }
+    }
+
+    if (COMMAND_TYPE_MAX <= type)
+    {
+        SAL_PRINT (PRINT_ERROR, "Unknown command type : %d\n", type);
+        return;
+    }
+
+    if (libARCommandsCmdTypesMaxId[type] <= id)
+    {
+        SAL_PRINT (PRINT_ERROR, "Unknown command (%d) for type %d\n", id, type);
+        return;
+    }
+
+    libARCommandsCmd_t *cmd = libARCommandsCmdList [type][id];
+
+    int i = 0;
+    va_list ap;
+    va_start (ap, id);
+    while (i < MAX_ARGS_PER_COMMAND && LIBARCOMMANDS_ARG_TYPE_END != (*cmd)[i])
+    {
+        eLIBARCOMMANDS_ARG_TYPE argtype = (*cmd)[i];
+        SAL_PRINT (PRINT_WARNING, "Arg [%d] type = %d\n", i, argtype);
+
+        switch (argtype)
+        {
+        case LIBARCOMMANDS_ARG_TYPE_U8: {
+            uint8_t u8 = (uint8_t)va_arg (ap, uint32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %u\n", i, u8);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_I8: {
+            int8_t i8 = (int8_t)va_arg (ap, int32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %d\n", i, i8);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_U16: {
+            uint16_t u16 = (uint16_t)va_arg (ap, uint32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %u\n", i, u16);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_I16: {
+            int16_t i16 = (int16_t)va_arg (ap, int32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %d\n", i, i16);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_U32: {
+            uint32_t u32 = (uint32_t)va_arg (ap, uint32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %u\n", i, u32);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_I32: {
+            int32_t i32 = (int32_t)va_arg (ap, int32_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %d\n", i, i32);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_U64: {
+            uint64_t u64 = (uint64_t)va_arg (ap, uint64_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %llu\n", i, u64);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_I64: {
+            int64_t i64 = (int64_t)va_arg (ap, int64_t);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %lld\n", i, i64);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_FLOAT: {
+            float flt = (float)va_arg (ap, double);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %f\n", i, flt);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_DOUBLE: {
+            double dbl = (double)va_arg (ap, double);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %lf\n", i, dbl);
+        } break;
+        case LIBARCOMMANDS_ARG_TYPE_STRING: {
+            char *str = (char *)va_arg (ap, char *);
+            SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %s\n", i, str);
+        } break;
+        default: {
+            } break;
+        }
+        i++;
+    }
+}
