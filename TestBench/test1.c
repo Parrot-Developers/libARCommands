@@ -3,8 +3,6 @@
 int
 main (int argc, char *argv[])
 {
-    libARCommandsListInit ();
-
     generateCommand (COMMAND_TYPE_TEST, TEST_CMD_U8, 42);
     generateCommand (COMMAND_TYPE_TEST, TEST_CMD_I8, -42);
     generateCommand (COMMAND_TYPE_TEST, TEST_CMD_U16, 4200);
@@ -17,6 +15,5 @@ main (int argc, char *argv[])
     generateCommand (COMMAND_TYPE_TEST, TEST_CMD_DOUBLE, -42.000001);
     generateCommand (COMMAND_TYPE_TEST, TEST_CMD_STRING, "Quarante deux !");
 
-    libARCommandsListDestroy ();
     return 0;
 }

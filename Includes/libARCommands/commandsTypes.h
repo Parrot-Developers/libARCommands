@@ -11,7 +11,7 @@
  * @brief List of all args types for commands
  */
 typedef enum {
-    LIBARCOMMANDS_ARG_TYPE_END = LIBARCOMMANDS_ARG_TYPE_NONE, /*!< End of arg list */
+    LIBARCOMMANDS_ARG_TYPE_END = 0, /*!< End of arg list */
     LIBARCOMMANDS_ARG_TYPE_U8, /*!< 8bit Unsigned int */
     LIBARCOMMANDS_ARG_TYPE_I8, /*!< 8bit Signed int */
     LIBARCOMMANDS_ARG_TYPE_U16, /*!< 16bit Unsigned int */

@@ -6,33 +6,17 @@
 void
 generateCommand (eLIBARCOMMANDS_COMMAND_TYPE type, int id, ...)
 {
-    if (0 == libARCommandsListInitOk)
-    {
-        int res = libARCommandsListInit ();
-        if (0 == res)
-        {
-            SAL_PRINT (PRINT_ERROR, "Unable to initialize libARCommandsList\n");
-            return;
-        }
-    }
-
-    if (COMMAND_TYPE_MAX <= type)
-    {
-        SAL_PRINT (PRINT_ERROR, "Unknown command type : %d\n", type);
-        return;
-    }
-
-    if (libARCommandsCmdTypesMaxId[type] <= id)
-    {
-        SAL_PRINT (PRINT_ERROR, "Unknown command (%d) for type %d\n", id, type);
-        return;
-    }
-
-    libARCommandsCmd_t *cmd = libARCommandsCmdList [type][id];
-
+    libARCommandsCmd_t *cmd = getCommandArgsWithTypeAndId (type, id);
     int i = 0;
     va_list ap;
+
+    if (NULL == cmd)
+    {
+        return;
+    }
+
     va_start (ap, id);
+    SAL_PRINT (PRINT_WARNING, "New command : [%d][%d]\n", type, id);
     while (i < MAX_ARGS_PER_COMMAND && LIBARCOMMANDS_ARG_TYPE_END != (*cmd)[i])
     {
         eLIBARCOMMANDS_ARG_TYPE argtype = (*cmd)[i];
@@ -85,8 +69,9 @@ generateCommand (eLIBARCOMMANDS_COMMAND_TYPE type, int id, ...)
             SAL_PRINT (PRINT_WARNING, "Arg [%d] val = %s\n", i, str);
         } break;
         default: {
-            } break;
+        } break;
         }
         i++;
     }
+    SAL_PRINT (PRINT_WARNING, "\n");
 }
