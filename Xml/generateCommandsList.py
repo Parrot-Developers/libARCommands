@@ -32,20 +32,20 @@ cfile.write ('int libARCommandsCmdListInitOk = 0;\n')
 cfile.write ('\n')
 cfile.write ('\n')
 for cmdtype in types:
-    typename = cmdtype.getElementsByTagName('tname')[0].firstChild.data
+    typename = cmdtype.attributes["name"].nodeValue
     cfile.write ('libARCommandsCmd_t **' + typename + 'CommandsList = NULL;\n')
     cfile.write ('\n')
     alltypesNames.append (typename)
     currtype = []
     commands = cmdtype.getElementsByTagName('cmd')
     for command in commands:
-        commandname = command.getElementsByTagName('cname')[0].firstChild.data
+        commandname = command.attributes["name"].nodeValue
         commandname = commandname.replace (' ', '_')
         cfile.write ('libARCommandsCmd_t ' + typename + '_' + commandname + '_cmd = { ')
         currtype.append (commandname)
         args = command.getElementsByTagName('arg')
         for arg in args:
-            argtype = arg.firstChild.data.upper()
+            argtype = arg.attributes["type"].nodeValue.upper ()
             cfile.write ('LIBARCOMMANDS_ARG_TYPE_' + argtype + ', ')
         cfile.write ('LIBARCOMMANDS_ARG_TYPE_END };\n')
     alltypes.append(currtype)

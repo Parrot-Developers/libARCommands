@@ -1,84 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <typeList>
-  <type>
-	<tname>piloting</tname>
+  <type name="piloting">
 	<cmdList>
-	  <cmd>
-		<cname>takeoff</cname>
+	  <cmd name="takeoff" />
+	  <cmd name="pcmd">
+		<arg type="float">roll</arg>
+		<arg type="float">pitch</arg>
+		<arg type="float">yaw</arg>
+		<arg type="float">gaz</arg>
+		<arg type="float">psi</arg>
 	  </cmd>
-	  <cmd>
-		<cname>pcmd</cname>
-		<arg>float</arg>
-		<arg>float</arg>
-		<arg>float</arg>
-		<arg>float</arg>
-		<arg>float</arg>
-		<arg>float</arg>
+	  <cmd name="landing" />
+	</cmdList>
+  </type>
+  <type name="config">
+	<cmdList>
+	  <cmd name="ssid">
+		<arg type="string">newSsid</arg>
 	  </cmd>
-	  <cmd>
-		<cname>landing</cname>
+	  <cmd name="angle max">
+		<arg type="float">newAngleMax</arg>
 	  </cmd>
 	</cmdList>
   </type>
-  <type>
-	<tname>config</tname>
+  <type name="test">
 	<cmdList>
-	  <cmd>
-		<cname>ssid</cname>
-		<arg>string</arg>
+	  <cmd name="u8">
+		<arg type="u8">testu8</arg>
 	  </cmd>
-	  <cmd>
-		<cname>angle max</cname>
-		<arg>float</arg>
+	  <cmd name="i8">
+		<arg type="i8">testi8</arg>
 	  </cmd>
-	</cmdList>
-  </type>
-  <type>
-	<tname>test</tname>
-	<cmdList>
-	  <cmd>
-		<cname>u8</cname>
-		<arg>u8</arg>
+	  <cmd name="u16">
+		<arg type="u16">testu16</arg>
 	  </cmd>
-	  <cmd>
-		<cname>i8</cname>
-		<arg>i8</arg>
+	  <cmd name="i16">
+		<arg type="i16">testi16</arg>
 	  </cmd>
-	  <cmd>
-		<cname>u16</cname>
-		<arg>u16</arg>
+	  <cmd name="u32">
+		<arg type="u32">testu32</arg>
 	  </cmd>
-	  <cmd>
-		<cname>i16</cname>
-		<arg>i16</arg>
+	  <cmd name="i32">
+		<arg type="i32">testi32</arg>
 	  </cmd>
-	  <cmd>
-		<cname>u32</cname>
-		<arg>u32</arg>
+	  <cmd name="u64">
+		<arg type="u64">testu64</arg>
 	  </cmd>
-	  <cmd>
-		<cname>i32</cname>
-		<arg>i32</arg>
+	  <cmd name="i64">
+		<arg type="i64">testi64</arg>
 	  </cmd>
-	  <cmd>
-		<cname>u64</cname>
-		<arg>u64</arg>
+	  <cmd name="float">
+		<arg type="float">testFloat</arg>
 	  </cmd>
-	  <cmd>
-		<cname>i64</cname>
-		<arg>i64</arg>
+	  <cmd name="double">
+		<arg type="double">testDouble</arg>
 	  </cmd>
-	  <cmd>
-		<cname>float</cname>
-		<arg>float</arg>
-	  </cmd>
-	  <cmd>
-		<cname>double</cname>
-		<arg>double</arg>
-	  </cmd>
-	  <cmd>
-		<cname>string</cname>
-		<arg>string</arg>
+	  <cmd name="string">
+		<arg type="string">testString</arg>
 	  </cmd>
 	</cmdList>
   </type>
