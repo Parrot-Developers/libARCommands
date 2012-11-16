@@ -4,9 +4,9 @@
 #include <inttypes.h>
 
 void
-generateCommand (eLIBARCOMMANDS_COMMAND_TYPE type, int id, ...)
+generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...)
 {
-    libARCommandsCmd_t *cmd = getCommandArgsWithTypeAndId (type, id);
+    libARCommandsCmd_t *cmd = getCommandArgsWithClassAndId (class, id);
     int i = 0;
     va_list ap;
 
@@ -16,7 +16,7 @@ generateCommand (eLIBARCOMMANDS_COMMAND_TYPE type, int id, ...)
     }
 
     va_start (ap, id);
-    SAL_PRINT (PRINT_WARNING, "New command : [%d][%d]\n", type, id);
+    SAL_PRINT (PRINT_WARNING, "New command : [%d][%d]\n", class, id);
     while (i < MAX_ARGS_PER_COMMAND && LIBARCOMMANDS_ARG_TYPE_END != (*cmd)[i])
     {
         eLIBARCOMMANDS_ARG_TYPE argtype = (*cmd)[i];
