@@ -6,18 +6,17 @@
    NEVER MODIFY EXISTING class/command !
 
    How to add a new class :
-   <class name="myNewClassName">          | No spaces within class names
+   <class name="myNewClassName">           | No spaces !
    </class>
 
    How to add a new command (without args) to a class :
-   <cmd name="myNewCommandName">          | No spaces !
-   </cmd>
+   <cmd name="myNewCommandName" />         | No spaces !
 
    How to add a new command (with args) to a class :
-   <cmd name="myNewCommandWithArgs">      | No spaces !
-     <arg type="argType">argName</arg>    | Repeat for each arg
-     ...                                  | argType must be a valid type (see below)
-     ...                                  | argName must be a valid C variable name
+   <cmd name="myNewCommandWithArgs">       | No spaces !
+     <arg name="argName" type="argType" /> | Repeat for each arg
+     ...                                   | argType must be a valid type (see below)
+     ...                                   | argName must be a valid C variable name
    </cmd>
 
    List of valid types (associated C type) :
@@ -35,55 +34,20 @@
   <class name="piloting">
     <cmd name="takeoff" />
     <cmd name="pcmd">
-      <arg type="float">roll</arg>
-      <arg type="float">pitch</arg>
-      <arg type="float">yaw</arg>
-      <arg type="float">gaz</arg>
-      <arg type="float">psi</arg>
+      <arg name="roll" type="float" />
+      <arg name="pitch" type="float" />
+      <arg name="yaw" type="float" />
+      <arg name="gaz" type="float" />
+      <arg name="psi" type="float" />
     </cmd>
     <cmd name="landing" />
   </class>
   <class name="config">
     <cmd name="ssid">
-      <arg type="string">newSsid</arg>
+      <arg name="newSsid" type="string" />
     </cmd>
     <cmd name="angleMax">
-      <arg type="float">newAngleMax</arg>
-    </cmd>
-  </class>
-  <class name="test">
-    <cmd name="u8">
-      <arg type="u8">testu8</arg>
-    </cmd>
-    <cmd name="i8">
-      <arg type="i8">testi8</arg>
-    </cmd>
-    <cmd name="u16">
-      <arg type="u16">testu16</arg>
-    </cmd>
-    <cmd name="i16">
-      <arg type="i16">testi16</arg>
-    </cmd>
-    <cmd name="u32">
-      <arg type="u32">testu32</arg>
-    </cmd>
-    <cmd name="i32">
-      <arg type="i32">testi32</arg>
-    </cmd>
-    <cmd name="u64">
-      <arg type="u64">testu64</arg>
-    </cmd>
-    <cmd name="i64">
-      <arg type="i64">testi64</arg>
-    </cmd>
-    <cmd name="float">
-      <arg type="float">testFloat</arg>
-    </cmd>
-    <cmd name="double">
-      <arg type="double">testDouble</arg>
-    </cmd>
-    <cmd name="string">
-      <arg type="string">testString</arg>
+      <arg name="newAngleMax" type="float" />
     </cmd>
   </class>
 </classList>

@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <inttypes.h>
 
-void
+int
 generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...)
 {
     libARCommandsCmd_t *cmd = getCommandArgsWithClassAndId (class, id);
@@ -12,7 +12,7 @@ generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...)
 
     if (NULL == cmd)
     {
-        return;
+        return -1;
     }
 
     va_start (ap, id);
@@ -74,4 +74,5 @@ generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...)
         i++;
     }
     SAL_PRINT (PRINT_WARNING, "\n");
+    return 0;
 }

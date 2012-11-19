@@ -32,3 +32,6 @@ rm -rf \
 find .. -name '.deps' -exec rm -rf {} \;
 find .. -name '.dirstamp' -exec rm -rf {} \;
 
+#Python generated C/H files
+rm -rf $(python ../Xml/generateCommandsList.py -fname)
+

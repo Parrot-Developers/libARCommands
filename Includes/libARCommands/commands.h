@@ -9,6 +9,6 @@
 
 #include <libARCommands/commandsList.h>
 
-void generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...);
+int generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...);
 
 #endif /* _LIBARCOMMANDS_COMMANDS_H_ */
