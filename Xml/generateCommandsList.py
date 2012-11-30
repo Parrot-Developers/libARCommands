@@ -125,6 +125,18 @@ if 2 <= len (sys.argv):
             print fil,
         print ''
         sys.exit (0)
+#################################
+# If "-dname" is passed as an   #
+# argument, just output the     #
+# name of the files to generate #
+#################################
+if 2 <= len (sys.argv):
+    if "-dname" == sys.argv[1]:
+        print TB__DIR,
+        print SRC_DIR,
+        print INC_DIR+LIB_NAME,
+        print INC_DIR
+        sys.exit (0)
 
 #################################
 # 1ST PART :                    #
