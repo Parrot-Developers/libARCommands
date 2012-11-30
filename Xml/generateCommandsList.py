@@ -6,22 +6,42 @@ import sys
 # CONFIGURATION :               #
 #################################
 # Setup XML and C/HFiles Names  #
+# Public H files must include   #
+# the libARCommands/ prefix     #
 #################################
 
 #Name (and path) of the xml file
-XMLFILENAME='./commands.xml'
+XMLFILENAME='../Xml/commands.xml'
 
-#Name (and path) of the output C/H file for commandsList
-COMMANDSLIST_CFILE='../Sources/commandsList.c'
-COMMANDSLIST_HFILE='../Includes/libARCommands/commandsList.h'
+#Name of the output C/H file for commandsList
+COMMANDSLIST_CFILE_NAME='commandsList.c'
+COMMANDSLIST_HFILE_NAME='libARCommands/commandsList.h'
 
 #Name (and path) of the output C/H files for commandsHelpers
-HELPERS_CFILE='../Sources/commandsHelpers.c'
-HELPERS_HFILE='../Includes/libARCommands/commandsHelpers.h'
+HELPERS_CFILE_NAME='commandsHelpers.c'
+HELPERS_HFILE_NAME='libARCommands/commandsHelpers.h'
 
 #Name (and path) of the output C testbench file
-TB_CFILE='../TestBench/autoTest.c'
+TB_CFILE_NAME='autoTest.c'
 
+##### END OF CONFIG #####
+GENERATED_FILES = []
+COMMANDSLIST_HFILE='../Includes/'+COMMANDSLIST_HFILE_NAME
+GENERATED_FILES.append (COMMANDSLIST_HFILE)
+COMMANDSLIST_CFILE='../Sources/'+COMMANDSLIST_CFILE_NAME
+GENERATED_FILES.append (COMMANDSLIST_CFILE)
+HELPERS_CFILE='../Sources/'+HELPERS_CFILE_NAME
+GENERATED_FILES.append (HELPERS_CFILE)
+HELPERS_HFILE='../Includes/'+HELPERS_HFILE_NAME
+GENERATED_FILES.append (HELPERS_HFILE)
+TB_CFILE='../TestBench/'+TB_CFILE_NAME
+GENERATED_FILES.append (TB_CFILE)
+
+
+
+
+COMMANDSLIST_DEFINE='_'+COMMANDSLIST_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
+HELPERS_DEFINE='_'+HELPERS_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
 
 #XML to C type conversion
 XMLTYPES = ['u8',       'i8',
@@ -61,7 +81,9 @@ def xmlToSample(typ):
 #################################
 if 2 <= len (sys.argv):
     if "-fname" == sys.argv[1]:
-        print COMMANDSLIST_CFILE + ' ' + COMMANDSLIST_HFILE + ' ' + HELPERS_CFILE + ' ' + HELPERS_HFILE + ' ' + TB_CFILE
+        for fil in GENERATED_FILES:
+            print fil,
+        print ''
         sys.exit (0)
 
 #################################
@@ -78,53 +100,102 @@ xmlfile = parseString (data)
 
 # List of all classes names
 allClassesNames = []
+# List of all classes comment arrays
+allClassesComments = []
 # List of all commands names (for each class)
 commandsNameByClass = []
+# List of all commands comment arrays (for each class)
+commandsCommentsByClass = []
 # List of all arg names (for each class / command)
 argNamesByClassAndCommand = []
 # List of all arg types (for each class / command)
 argTypesByClassAndCommand = []
+# List of all arg comment arrays (for each class / command)
+argCommentsByClassAndCommand = []
 
 classes = xmlfile.getElementsByTagName('class')
 for cmdclass in classes:
     classname = cmdclass.attributes["name"].nodeValue
+    classcommArrayUnstripped = cmdclass.firstChild.data.splitlines ()
+    classcommArray = []
+    for classComm in classcommArrayUnstripped:
+        stripName = classComm.strip ()
+        if len(stripName) != 0:
+            classcommArray.append (stripName)
     allClassesNames.append (classname)
+    allClassesComments.append (classcommArray)
     CNCurrClass = []
+    CCCurrClass = []
     ANCurrClass = []
     ATCurrClass = []
+    ACCurrClass = []
     commands = cmdclass.getElementsByTagName('cmd')
     for command in commands:
         commandname = command.attributes["name"].nodeValue
+        commandcommArrayUnstripped = command.firstChild.data.splitlines ()
+        commandcommArray = []
+        for commandComm in commandcommArrayUnstripped:
+            stripName = commandComm.strip ()
+            if len (stripName) != 0:
+                commandcommArray.append (stripName)
         CNCurrClass.append (commandname)
+        CCCurrClass.append (commandcommArray)
         ANCurrCommand = []
         ATCurrCommand = []
+        ACCurrCommand = []
         args = command.getElementsByTagName('arg')
         for arg in args:
             argName = arg.attributes["name"].nodeValue
             ANCurrCommand.append (argName)
             argType = arg.attributes["type"].nodeValue
             ATCurrCommand.append (argType)
+            argCommArrayUnstripped = arg.firstChild.data.splitlines()
+            argCommArray = []
+            for argComm in argCommArrayUnstripped:
+                stripName = argComm.strip ()
+                if len (stripName) != 0:
+                    argCommArray.append (stripName)
+            ACCurrCommand.append (argCommArray)
         ANCurrClass.append (ANCurrCommand)
         ATCurrClass.append (ATCurrCommand)
+        ACCurrClass.append (ACCurrCommand)
     commandsNameByClass.append (CNCurrClass)
+    commandsCommentsByClass.append (CCCurrClass)
     argNamesByClassAndCommand.append (ANCurrClass)
     argTypesByClassAndCommand.append (ATCurrClass)
+    argCommentsByClassAndCommand.append (ACCurrClass)
 
 """
 print 'Commands parsed:'
 for cl in allClassesNames:
-    print '-> ' + cl
     cIndex = allClassesNames.index(cl)
+    print '-> ' + cl
+    print '   /* '
+    for classComm in allClassesComments[cIndex]:
+        print '    * ' + classComm
+    print '    */'
     cmdList = commandsNameByClass[cIndex]
+    cmdCommList = commandsCommentsByClass[cIndex]
     for cmd in cmdList:
-        print ' --> ' + cmd
         cmIndex = cmdList.index(cmd)
+        print ' --> ' + cmd
+        print '     /* '
+        for cmdComm in cmdCommList[cmIndex]:
+            print '      * ' + cmdComm
+        print '      */'
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
         for argN in ANList:
             aIndex = ANList.index(argN)
             argT = ATList [aIndex]
             print '   (' + argT + ' ' + argN + ')'
+            print '    /* '
+            for argC in ACList [aIndex]:
+                print '     * ' + argC
+            print '     */'
+
+sys.exit (0)
 """
 
 #################################
@@ -144,7 +215,7 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <libARCommands/commandsList.h>\n')
+cfile.write ('#include <'+COMMANDSLIST_HFILE_NAME+'>\n')
 cfile.write ('#include <libSAL/print.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('\n')
@@ -254,7 +325,6 @@ cfile.write ('\n')
 
 cfile.write ('libARCommandsCmd_t *getCommandArgsWithClassAndId (eLIBARCOMMANDS_COMMAND_CLASS class, int id)\n')
 cfile.write ('{\n')
-cfile.write ('    libARCommandsCmd_t *retVal = NULL;\n')
 cfile.write ('    int maxId = 0;\n')
 cfile.write ('\n')
 cfile.write ('    if (0 == libARCommandsListInitOk && 1 != libARCommandsListInit ())\n')
@@ -296,8 +366,8 @@ hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
 hfile.write ('\n')
-hfile.write ('#ifndef _LIBARCOMMANDS_COMMANDS_LIST_H_\n')
-hfile.write ('#define _LIBARCOMMANDS_COMMANDS_LIST_H_ (1)\n')
+hfile.write ('#ifndef '+COMMANDSLIST_DEFINE+'\n')
+hfile.write ('#define '+COMMANDSLIST_DEFINE+' (1)\n')
 hfile.write ('\n')
 hfile.write ('#include <libARCommands/commandsTypes.h>\n')
 hfile.write ('\n')
@@ -338,7 +408,7 @@ hfile.write ('int libARCommandsListInit ();\n')
 hfile.write ('void libARCommandsListDestroy ();\n')
 hfile.write ('libARCommandsCmd_t *getCommandArgsWithClassAndId (eLIBARCOMMANDS_COMMAND_CLASS class, int id);\n')
 hfile.write ('\n')
-hfile.write ('#endif /* _LIBARCOMMANDS_COMMANDS_LIST_H_ */\n')
+hfile.write ('#endif /* '+COMMANDSLIST_DEFINE+' */\n')
 
 hfile.close ()
 
@@ -359,8 +429,8 @@ hfile.write (' *  - Modify ../../Xml/commands.xml file    *\n')
 hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
-hfile.write ('#ifndef _LIBARCOMMANDS_COMMANDS_HELPERS_H_\n')
-hfile.write ('#define _LIBARCOMMANDS_COMMANDS_HELPERS_H_ (1)\n')
+hfile.write ('#ifndef '+HELPERS_DEFINE+'\n')
+hfile.write ('#define '+HELPERS_DEFINE+' (1)\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
@@ -370,9 +440,23 @@ for cl in allClassesNames:
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
         cmdIndex = cmdList.index (cmd)
-        hfile.write ('int libARCommands' + cl.capitalize() + 'Send' + cmd.capitalize() + ' (')
+        hfile.write ('\n/**\n')
+        commList = commandsCommentsByClass [clIndex][cmdIndex]
+        commZero = commList [0]
         ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
+        ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
+        hfile.write (' * @brief ' + commZero + '\n')
+        hfile.write (' * @warning This function allocate memory. You need to call free() on the buffer !\n')
+        for comm in commList:
+            hfile.write (' * ' + comm + '\n')
+        for argN in ANList:
+            ACListCurrArg = ACList [ANList.index (argN)]
+            for argC in ACListCurrArg:
+                hfile.write (' * @param ' + argN + ' ' + argC + '\n')
+        hfile.write (' * @return Pointer to the command buffer (NULL if any error occured)\n')
+        hfile.write (' */\n')
+        hfile.write ('uint8_t *libARCommands' + cl.capitalize() + 'Send' + cmd.capitalize() + ' (')
         first = 1
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
@@ -384,7 +468,7 @@ for cl in allClassesNames:
         hfile.write (');\n')
     hfile.write ('\n')
 
-hfile.write ('#endif /* _LIBARCOMMANDS_COMMANDS_HELPERS_H_ */\n')
+hfile.write ('#endif /* '+HELPERS_DEFINE+' */\n')
 
 hfile.close ()
 
@@ -405,8 +489,9 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <libARCommands/commandsHelpers.h>\n')
-cfile.write ('#include <libARCommands/commandsList.h>\n')
+cfile.write ('#include <'+HELPERS_HFILE_NAME+'>\n')
+cfile.write ('#include <'+COMMANDSLIST_HFILE_NAME+'>\n')
+cfile.write ('#include <libARCommands/commands.h>')
 cfile.write ('\n')
 cfile.write ('\n')
 for cl in allClassesNames:
@@ -415,7 +500,7 @@ for cl in allClassesNames:
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
         cmdIndex = cmdList.index (cmd)
-        cfile.write ('int libARCommands' + cl.capitalize() + 'Send' + cmd.capitalize() + ' (')
+        cfile.write ('uint8_t *libARCommands' + cl.capitalize() + 'Send' + cmd.capitalize() + ' (')
         ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         first = 1
@@ -456,14 +541,15 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <libARCommands/commandsHelpers.h>\n')
+cfile.write ('#include <'+HELPERS_HFILE_NAME+'>\n')
 cfile.write ('#include <libSAL/print.h>\n')
+cfile.write ('#include <stdlib.h>')
 cfile.write ('\n')
 cfile.write ('\n')
 cfile.write ('int\n')
 cfile.write ('main (int argc, char *argv[])\n')
 cfile.write ('{\n')
-cfile.write ('    int res = -1;\n')
+cfile.write ('    uint8_t *res = NULL;\n')
 cfile.write ('    int errcount = 0;\n')
 for cl in allClassesNames:
     clIndex = allClassesNames.index (cl)
@@ -483,7 +569,7 @@ for cl in allClassesNames:
                 cfile.write (', ')
             cfile.write (xmlToSample(argT))
         cfile.write (');\n')
-        cfile.write ('    if (-1 == res)\n')
+        cfile.write ('    if (NULL == res)\n')
         cfile.write ('    {\n')
         cfile.write ('        SAL_PRINT (PRINT_ERROR, "Error while sending command ' + cl.capitalize() + '.' + cmd.capitalize() + '\\n");\n')
         cfile.write ('        errcount++;\n')
@@ -491,6 +577,7 @@ for cl in allClassesNames:
         cfile.write ('    else\n')
         cfile.write ('    {\n')
         cfile.write ('        SAL_PRINT (PRINT_DEBUG, "Sending command ' + cl.capitalize() + '.' + cmd.capitalize() + ' succeded\\n");\n')
+        cfile.write ('        free (res); res = NULL;\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
     cfile.write ('\n')

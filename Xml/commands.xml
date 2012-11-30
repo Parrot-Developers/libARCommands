@@ -2,21 +2,32 @@
 
 <!--
    Important notes :
-   ALWAYS ADD NEW THINGS AT THE END OF THE <xxxList> TAG !
-   NEVER MODIFY EXISTING class/command !
+   ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
+   NEVER MODIFY EXISTING class/command/arg !
+
+   Comments ("comm" attributes) are mandatory for all classes/commands/args
+   For each comment : 1st line will be used as brief (if applicable) +
+   1st line of complete desc. Other lines will be used as complete desc
 
    How to add a new class :
-   <class name="myNewClassName">           | No spaces !
+   <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
+     Comment about the class                | Inlcuded in Doxygen doc
+     <cmd> ... </cmd>                       | List of commands
+     <cmd> ... </cmd>
    </class>
 
    How to add a new command (without args) to a class :
-   <cmd name="myNewCommandName" />         | No spaces !
+   <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
+     Comment about the command              | Included in Doxygen doc
+   </cmd>
 
    How to add a new command (with args) to a class :
-   <cmd name="myNewCommandWithArgs">       | No spaces !
-     <arg name="argName" type="argType" /> | Repeat for each arg
-     ...                                   | argType must be a valid type (see below)
-     ...                                   | argName must be a valid C variable name
+   <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
+     Comment about the command              | Included in Doxygen doc
+     <arg name="argName" type="argType" >   | Repeat for each arg
+       Comment about the arg                | argName must be a valid C variable name
+     </arg>                                 | argType must be a valid type (see below)
+     ...                                    | Comment included in Doxygen doc
    </cmd>
 
    List of valid types (associated C type) :
@@ -31,23 +42,64 @@
 
 
 <classList>
+
   <class name="piloting">
-    <cmd name="takeoff" />
+    All commands related to piloting the totoDrone
+
+    <cmd name="takeoff">
+      Ask the drone to take off
+    </cmd>
+
     <cmd name="pcmd">
-      <arg name="roll" type="float" />
-      <arg name="pitch" type="float" />
-      <arg name="yaw" type="float" />
-      <arg name="gaz" type="float" />
-      <arg name="psi" type="float" />
+      Ask the drone to move around
+
+      <arg name="roll" type="float">
+        Roll consign for the drone [-1;1]
+      </arg>
+
+      <arg name="pitch" type="float">
+        Pitch consign for the drone [-1;1]
+      </arg>
+
+      <arg name="yaw" type="float">
+        Yaw consign for the drone [-1;1]
+      </arg>
+
+      <arg name="gaz" type="float">
+        Gaz consign for the drone [-1;1]
+      </arg>
+
+      <arg name="psi" type="float">
+        Magnetic north heading of the controlling device (deg)
+      </arg>
+
     </cmd>
-    <cmd name="landing" />
+
+    <cmd name="landing">
+      Ask the drone to land
+    </cmd>
+
   </class>
+
   <class name="config">
+    All configuration commands
+
     <cmd name="ssid">
-      <arg name="newSsid" type="string" />
+      Change drone SSID
+
+      <arg name="newSsid" type="string">
+        New SSID for the drone
+      </arg>
+
     </cmd>
+
     <cmd name="angleMax">
-      <arg name="newAngleMax" type="float" />
+      Change the maximum angle of the drone
+
+      <arg name="newAngleMax" type="float">
+        New maximum angle for the drone (rad)
+      </arg>
+
     </cmd>
   </class>
 </classList>

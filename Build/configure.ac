@@ -64,10 +64,10 @@ AC_ARG_WITH([libSalBin],
 # Define includes directories
 ##########################################################################
 
+# include local headers first
+CFLAGS="$CFLAGS -I../Includes"
 # add the headers directory of libSal
 CFLAGS="$CFLAGS -I$libSalHeader"
-
-CFLAGS="$CFLAGS -I../Includes"
 
 CPPFLAGS="$CFLAGS"
 ##########################################################################
@@ -104,6 +104,10 @@ DX_PDF_FEATURE(OFF)
 DX_PS_FEATURE(OFF)
 DX_INIT_DOXYGEN([libARCommands], [doxygen.cfg], [../Doc])
 AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
+
+AC_CHECK_PROGS([PYTHON], [python])
+AM_CONDITIONAL([HAVE_PYTHON], [test -n "$PYTHON"])
+AM_COND_IF([HAVE_PYTHON], [$PYTHON ../Xml/generateCommandsList.py], AC_MSG_ERROR(python is required to generate source files for this library))
 
 # Checks for header files.
 AC_HEADER_STDC

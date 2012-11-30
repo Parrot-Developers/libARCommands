@@ -8,7 +8,8 @@
 #define _LIBARCOMMANDS_COMMANDS_H_ (1)
 
 #include <libARCommands/commandsList.h>
+#include <inttypes.h>
 
-int generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...);
+uint8_t *generateCommand (eLIBARCOMMANDS_COMMAND_CLASS class, int id, ...);
 
 #endif /* _LIBARCOMMANDS_COMMANDS_H_ */
