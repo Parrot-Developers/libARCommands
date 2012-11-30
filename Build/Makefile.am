@@ -4,16 +4,12 @@
 ACLOCAL_AMFLAGS = -I m4
 
 # The list of header files that belong to the library (to be installed later)
-HEADER_FILES	=	../Includes/libARCommands/commandsTypes.h	\
-					../Includes/libARCommands/commandsList.h	\
-					../Includes/libARCommands/commandsHelpers.h \
-					../Includes/libARCommands/commands.h
+HEADER_FILES	=	../Includes/libARCommands/ARCommandsGen.h
 
 # The sources to add to the library and to add to the source distribution
 SOURCE_FILES	=	$(HEADER_FILES)								\
-					../Sources/commands.c						\
-					../Sources/commandsList.c					\
-					../Sources/commandsHelpers.c
+					../Sources/ARCommandsGen.c					\
+					../Sources/ARCommandsId.h
 
 # The library names to build (note we are building static and shared libs)
 if DEBUG_MODE

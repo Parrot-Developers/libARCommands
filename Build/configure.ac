@@ -24,10 +24,10 @@ AC_MSG_RESULT([$debugit])
 
 if test x"$debugit" = x"yes"; then
     AC_DEFINE([DEBUG],[],[Debug Mode])
-    CFLAGS="$CFLAGS -g -Wall -Werror -Wno-uninitialized -O0 -fno-inline"
+    CFLAGS+=" -g -Wall -Werror -Wno-uninitialized -O0 -fno-inline"
 else
     AC_DEFINE([NDEBUG],[],[No-debug Mode])
-    CFLAGS="$CFLAGS -O3"
+    CFLAGS+=" -O3"
 fi
 AM_CONDITIONAL([DEBUG_MODE], [test "$debugit" = "yes"])
 
@@ -65,9 +65,9 @@ AC_ARG_WITH([libSalBin],
 ##########################################################################
 
 # include local headers first
-CFLAGS="$CFLAGS -I../Includes"
+CFLAGS+=" -I ../Includes -I../Sources"
 # add the headers directory of libSal
-CFLAGS="$CFLAGS -I$libSalHeader"
+CFLAGS+=" -I$libSalHeader"
 
 CPPFLAGS="$CFLAGS"
 ##########################################################################
@@ -75,7 +75,7 @@ CPPFLAGS="$CFLAGS"
 ##########################################################################
 
 # add the binaries directory of libSal
-LDFLAGS="$LDFLAGS -L$libSalBin"
+LDFLAGS+=" -L$libSalBin"
 
 ##########################################################################
 # Check headers

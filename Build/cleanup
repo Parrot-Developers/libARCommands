@@ -19,6 +19,8 @@ rm -f \
     libtool \
     stamp-h1
 
+find .. -name '*~' -delete
+
 # Generated directories.
 rm -rf \
 	doxygen-doc \
