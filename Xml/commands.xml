@@ -102,4 +102,85 @@
 
     </cmd>
   </class>
+
+  <class name="test">
+	Some test commands
+
+	<cmd name="testU8">
+	  Test uint8_t arg type
+	  <arg name="u8" type="u8">
+		Dummy uint8_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testI8">
+	  Test int8_t arg type
+	  <arg name="i8" type="i8">
+		Dummy int8_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testU16">
+	  Test uint16_t arg type
+	  <arg name="u16" type="u16">
+		Dummy uint16_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testI16">
+	  Test int16_t arg type
+	  <arg name="i16" type="i16">
+		Dummy int16_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testU32">
+	  Test uint32_t arg type
+	  <arg name="u32" type="u32">
+		Dummy uint32_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testI32">
+	  Test int32_t arg type
+	  <arg name="i32" type="i32">
+		Dummy int32_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testU64">
+	  Test uint64_t arg type
+	  <arg name="u64" type="u64">
+		Dummy uint64_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testI64">
+	  Test int64_t arg type
+	  <arg name="i64" type="i64">
+		Dummy int64_t for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testFlt">
+	  Test float arg type
+	  <arg name="flt" type="float">
+		Dummy float for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testDbl">
+	  Test double arg type
+	  <arg name="dbl" type="double">
+		Dummy double for test
+	  </arg>
+	</cmd>
+
+	<cmd name="testString">
+	  Test char * arg type
+	  <arg name="stringTest" type="string">
+		Dummy char * for test
+	  </arg>
+	</cmd>
+  </class>
 </classList>
