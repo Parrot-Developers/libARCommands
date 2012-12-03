@@ -247,7 +247,7 @@ for cmdclass in classes:
     argTypesByClassAndCommand.append (ATCurrClass)
     argCommentsByClassAndCommand.append (ACCurrClass)
 
-
+"""
 print 'Commands parsed:'
 for cl in allClassesNames:
     cIndex = allClassesNames.index(cl)
@@ -276,6 +276,7 @@ for cl in allClassesNames:
             for argC in ACList [aIndex]:
                 print '     * ' + argC
             print '     */'
+"""
 
 if "yes" == noGen: # called with "-nogen"
     sys.exit (0)
