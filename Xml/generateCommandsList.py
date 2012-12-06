@@ -595,6 +595,7 @@ for cl in allClassesNames:
         cfile.write ('        return NULL;\n')
         cfile.write ('    }\n')
         cfile.write ('    buffer = malloc (LIBARCOMMANDS_GEN_BUFFER_SIZE * sizeof (uint8_t));\n')
+        cfile.write ('    *buffLen = LIBARCOMMANDS_GEN_BUFFER_SIZE;\n')
         cfile.write ('    if (NULL == buffer)\n')
         cfile.write ('        noError = 0;\n')
         cfile.write ('\n')
