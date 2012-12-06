@@ -9,7 +9,7 @@ rm -rf $(python ../Xml/generateCommandsList.py -fname)
 #Python generated Directories (if empty)
 PDIR=$(python ../Xml/generateCommandsList.py -dname)
 for DIR in $PDIR; do
-	rmdir --ignore-fail-on-non-empty $DIR
+	rmdir $DIR 2>/dev/null
 done
 
 # Generated files.

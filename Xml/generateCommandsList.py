@@ -374,7 +374,7 @@ for cl in allClassesNames:
         for comm in commList:
             hfile.write (' * ' + comm + '\n')
         hfile.write (' * @warning This function allocate memory. You need to call free() on the buffer !\n')
-        hfile.write (' * @param buffLen pointer to an unsigned integer that will contain the size of the allocated command\n')
+        hfile.write (' * @param buffLen pointer to an integer that will contain the size of the allocated command\n')
         for argN in ANList:
             ACListCurrArg = ACList [ANList.index (argN)]
             for argC in ACListCurrArg:
