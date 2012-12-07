@@ -1028,6 +1028,7 @@ for cl in allClassesNames:
         cfile.write ('            break; /* ' + cl.upper () + '_CMD_' + cmd.upper () + ' */\n')
     cfile.write ('            default:\n')
     cfile.write ('                retVal = LIBARCOMMANDS_COMMANDSDEC_UNKNOWN;\n')
+    cfile.write ('                break;\n')
     cfile.write ('            }\n')
     cfile.write ('        }\n')
     cfile.write ('        break; /* COMMAND_CLASS_' + cl.upper () + ' */\n')
