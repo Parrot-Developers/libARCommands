@@ -77,10 +77,10 @@ CTYPES   = ['uint8_t',  'int8_t',
             'uint64_t', 'int64_t',
             'float',    'double',
             'char *']
-SZETYPES = ['8',        '8',
-            '16',       '16',
-            '32',       '32',
-            '64',       '64',
+SZETYPES = ['U8',       'U8',
+            'U16',      'U16',
+            'U32',      'U32',
+            'U64',      'U64',
             'Float',    'Double',
             'String']
 CREADERS = ['read8FromBuffer',     '(int8_t)read8FromBuffer',
@@ -107,7 +107,7 @@ SAMPLEARGS = ['42',              '-42',
               '4200',            '-4200',
               '420000',          '-420000',
               '420102030405ULL', '-420102030405LL',
-              '42.000001',       '-42.000001',
+              '42.125',          '-42.000001',
               '"Test string with spaces"']
 PRINTFF    = ['%u',   '%d',
               '%u',   '%d',
@@ -425,7 +425,7 @@ cfile.write ('#define LIBARCOMMANDS_GEN_BUFFER_SIZE (128)\n')
 cfile.write ('\n')
 cfile.write ('// Add an 8 bit value to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
-cfile.write ('int32_t add8ToBuffer (uint8_t **buffer, uint8_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
+cfile.write ('int32_t addU8ToBuffer (uint8_t **buffer, uint8_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
 cfile.write ('    while (*buffCap <= (oldOffset + sizeof (newVal)))\n')
 cfile.write ('    {\n')
@@ -452,7 +452,7 @@ cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('// Add a 16 bit value to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
-cfile.write ('int32_t add16ToBuffer (uint8_t **buffer, uint16_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
+cfile.write ('int32_t addU16ToBuffer (uint8_t **buffer, uint16_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
 cfile.write ('    while (*buffCap <= (oldOffset + sizeof (newVal)))\n')
 cfile.write ('    {\n')
@@ -479,7 +479,7 @@ cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('// Add a 32 bit value to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
-cfile.write ('int32_t add32ToBuffer (uint8_t **buffer, uint32_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
+cfile.write ('int32_t addU32ToBuffer (uint8_t **buffer, uint32_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
 cfile.write ('    while (*buffCap <= (oldOffset + sizeof (newVal)))\n')
 cfile.write ('    {\n')
@@ -506,7 +506,7 @@ cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('// Add a 64 bit value to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
-cfile.write ('int32_t add64ToBuffer (uint8_t **buffer, uint64_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
+cfile.write ('int32_t addU64ToBuffer (uint8_t **buffer, uint64_t newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
 cfile.write ('    while (*buffCap <= (oldOffset + sizeof (newVal)))\n')
 cfile.write ('    {\n')
@@ -562,14 +562,14 @@ cfile.write ('// Add a float to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
 cfile.write ('int32_t addFloatToBuffer (uint8_t **buffer, float newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
-cfile.write ('    return add32ToBuffer (buffer, *(uint32_t *)&newVal, oldOffset, buffCap);\n')
+cfile.write ('    return addU32ToBuffer (buffer, *(uint32_t *)&newVal, oldOffset, buffCap);\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('// Add a double to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
 cfile.write ('int32_t addDoubleToBuffer (uint8_t **buffer, double newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
-cfile.write ('    return add64ToBuffer (buffer, *(uint64_t *)&newVal, oldOffset, buffCap);\n')
+cfile.write ('    return addU64ToBuffer (buffer, *(uint64_t *)&newVal, oldOffset, buffCap);\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 for cl in allClassesNames:
@@ -602,7 +602,7 @@ for cl in allClassesNames:
         cfile.write ('    // Write class header\n')
         cfile.write ('    if (1 == noError)\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = add16ToBuffer (&buffer, COMMAND_CLASS_' + cl.upper() + ', currIndexInBuffer, &currBufferSize);\n')
+        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, COMMAND_CLASS_' + cl.upper() + ', currIndexInBuffer, &currBufferSize);\n')
         cfile.write ('        if (-1 == currIndexInBuffer)\n')
         cfile.write ('        {\n')
         cfile.write ('            noError = 0;\n')
@@ -611,7 +611,7 @@ for cl in allClassesNames:
         cfile.write ('    // Write id header\n')
         cfile.write ('    if (1 == noError)\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = add16ToBuffer (&buffer, ' + cl.upper () + '_CMD_' + cmd.upper() + ', currIndexInBuffer, &currBufferSize);\n')
+        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, ' + cl.upper () + '_CMD_' + cmd.upper() + ', currIndexInBuffer, &currBufferSize);\n')
         cfile.write ('        if (-1 == currIndexInBuffer)\n')
         cfile.write ('        {\n')
         cfile.write ('            noError = 0;\n')
@@ -1068,6 +1068,8 @@ cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
 cfile.write ('#include <libSAL/print.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('\n')
+cfile.write ('int errcount;\n')
+cfile.write ('\n')
 for cl in allClassesNames:
     clIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass [clIndex]
@@ -1092,6 +1094,17 @@ for cl in allClassesNames:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             cfile.write ('    SAL_PRINT (PRINT_WARNING, "' + argN + ' value : <' + xmlToPrintf(argT) + '>\\n", ' + argN + ');\n')
+            if "string" == argT:
+                cfile.write ('    if (0 != strcmp (' + xmlToSample (argT) + ', ' + argN + '))\n')
+            else:
+                cfile.write ('    if (' + xmlToSample (argT) + ' != ' + argN + ')\n')
+            cfile.write ('    {\n')
+            if "string" == argT:
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample(argT) + ');\n')
+            else:
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "BAD ARG VALUE !!! --> Expected <' + xmlToSample(argT) + '>\\n");\n')
+            cfile.write ('        errcount++;\n')
+            cfile.write ('    }\n')
         cfile.write ('}\n');
 
 cfile.write ('\n')
@@ -1109,7 +1122,7 @@ cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *res = NULL;\n')
 cfile.write ('    int32_t resSize = 0;\n')
-cfile.write ('    int errcount = 0;\n')
+cfile.write ('    errcount = 0;\n')
 cfile.write ('    initCb ();\n')
 for cl in allClassesNames:
     clIndex = allClassesNames.index (cl)
@@ -1140,6 +1153,14 @@ for cl in allClassesNames:
         cfile.write ('\n')
     cfile.write ('\n')
 
+cfile.write ('    if (0 == errcount)\n')
+cfile.write ('    {\n')
+cfile.write ('        SAL_PRINT (PRINT_WARNING, "No errors !\\n");\n')
+cfile.write ('    }\n')
+cfile.write ('    else\n')
+cfile.write ('    {\n')
+cfile.write ('        SAL_PRINT (PRINT_ERROR, "%d errors detected during autoTest\\n", errcount);\n')
+cfile.write ('    }\n')
 cfile.write ('    return errcount;\n')
 cfile.write ('}\n')
 
