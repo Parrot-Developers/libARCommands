@@ -373,7 +373,7 @@ for cl in allClassesNames:
         hfile.write (' * @brief ' + commZero + '\n')
         for comm in commList:
             hfile.write (' * ' + comm + '\n')
-        hfile.write (' * @warning This function allocate memory. You need to call free() on the buffer !\n')
+        hfile.write (' * @warning This function allocate memory. You need to call libARCommandsFree() on the buffer pointer !\n')
         hfile.write (' * @param buffLen pointer to an integer that will contain the size of the allocated command\n')
         for argN in ANList:
             ACListCurrArg = ACList [ANList.index (argN)]
@@ -387,6 +387,13 @@ for cl in allClassesNames:
             hfile.write (', ' + xmlToC(argT) + ' ' + argN)
         hfile.write (');\n')
     hfile.write ('\n')
+
+hfile.write ('/**\n')
+hfile.write (' * @brief Free a command, and sets its pointer to NULL\n')
+hfile.write (' * @param cmdBuf pointer to the command pointer to be freed\n')
+hfile.write (' */\n')
+hfile.write ('void libARCommandsFree (uint8_t **cmdBuf);\n')
+hfile.write ('\n')
 
 hfile.write ('#endif /* '+COMMANDSGEN_DEFINE+' */\n')
 
@@ -636,6 +643,16 @@ for cl in allClassesNames:
         cfile.write ('    return buffer;\n')
         cfile.write ('}\n\n')
     cfile.write ('\n')
+
+cfile.write ('void libARCommandsFree (uint8_t **cmdBuf)\n')
+cfile.write ('{\n')
+cfile.write ('    if (NULL != cmdBuf &&\n')
+cfile.write ('        NULL != *cmdBuf)\n')
+cfile.write ('    {\n')
+cfile.write ('        free (*cmdBuf);\n')
+cfile.write ('        *cmdBuf = NULL;\n')
+cfile.write ('    }\n')
+cfile.write ('}\n')
 
 cfile.write ('// END GENERATED CODE\n')
 
@@ -1148,7 +1165,7 @@ for cl in allClassesNames:
         cfile.write ('        eLIBARCOMMANDS_COMMANDSDEC_ERRTYPE err;\n')
         cfile.write ('        err = libARCommandsDecodeBuffer (res, resSize);\n')
         cfile.write ('        SAL_PRINT (PRINT_WARNING, "Decode return value : %d\\n\\n", err);\n')
-        cfile.write ('        free (res); res = NULL;\n')
+        cfile.write ('        libARCommandsFree (&res);\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
     cfile.write ('\n')

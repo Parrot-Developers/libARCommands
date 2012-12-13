@@ -103,6 +103,22 @@
     </cmd>
   </class>
 
+  <class name="navdata">
+	Navigation data from drone
+
+	<cmd name="position">
+	  Position (X,Y) of the drone
+	  
+	  <arg name="X" type="i32">
+		Current X position
+	  </arg>
+	  
+	  <arg name="Y" type="i32">
+		Current Y position
+	  </arg>
+	</cmd>
+  </class>
+
   <class name="test">
 	Some test commands
 
