@@ -51,7 +51,7 @@
     </cmd>
 
     <cmd name="pcmd">
-      Ask the drone to move around
+      Ask the drone to move around.
 
       <arg name="roll" type="float">
         Roll consign for the drone [-1;1]

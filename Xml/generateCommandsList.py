@@ -368,8 +368,12 @@ for cl in allClassesNames:
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
         hfile.write (' * @brief ' + commZero + '\n')
+        first = 1
         for comm in commList:
-            hfile.write (' * ' + comm + '\n')
+            if 1 == first:
+                first = 0
+            else:
+                hfile.write (' * ' + comm + '\n')
         hfile.write (' * @warning This function allocate memory. You need to call libARCommandsFree() on the buffer pointer !\n')
         hfile.write (' * @param buffLen pointer to an integer that will contain the size of the allocated command\n')
         for argN in ANList:
