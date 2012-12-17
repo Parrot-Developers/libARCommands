@@ -5,9 +5,9 @@ if [ -e Makefile ] ; then
 fi
 
 #Python generated C/H files
-rm -rf $(python ../Xml/generateCommandsList.py -fname)
+rm -rf $(python ../Xml/generateLibARCommands.py -fname)
 #Python generated Directories (if empty)
-PDIR=$(python ../Xml/generateCommandsList.py -dname)
+PDIR=$(python ../Xml/generateLibARCommands.py -dname)
 for DIR in $PDIR; do
 	rmdir $DIR 2>/dev/null
 done

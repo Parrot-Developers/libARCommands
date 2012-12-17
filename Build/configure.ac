@@ -107,7 +107,7 @@ AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
 
 AC_CHECK_PROGS([PYTHON], [python])
 AM_CONDITIONAL([HAVE_PYTHON], [test -n "$PYTHON"])
-AM_COND_IF([HAVE_PYTHON], [$PYTHON ../Xml/generateCommandsList.py], AC_MSG_ERROR(python is required to generate source files for this library))
+AM_COND_IF([HAVE_PYTHON], [$PYTHON ../Xml/generateLibARCommands.py], AC_MSG_ERROR(python is required to generate source files for this library))
 
 # Checks for header files.
 AC_HEADER_STDC
