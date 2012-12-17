@@ -105,9 +105,11 @@ DX_PS_FEATURE(OFF)
 DX_INIT_DOXYGEN([libARCommands], [doxygen.cfg], [../Doc])
 AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
 
-AC_CHECK_PROGS([PYTHON], [python])
-AM_CONDITIONAL([HAVE_PYTHON], [test -n "$PYTHON"])
-AM_COND_IF([HAVE_PYTHON], [$PYTHON ../Xml/generateLibARCommands.py], AC_MSG_ERROR(python is required to generate source files for this library))
+# Check for python and run PY script
+AM_PATH_PYTHON(,, AC_MSG_ERROR(Python is required to generate source files for this library))
+AC_MSG_NOTICE([generating source files from XML description of commands])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON ../Xml/generateLibARCommands.py])
+AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file probably contains errors))
 
 # Checks for header files.
 AC_HEADER_STDC

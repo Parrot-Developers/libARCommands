@@ -2,7 +2,6 @@ from xml.dom.minidom import parseString
 import sys
 import os
 
-
 #################################
 # CONFIGURATION :               #
 #################################
