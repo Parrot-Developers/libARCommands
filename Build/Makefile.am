@@ -30,7 +30,8 @@ endif
 
 check_PROGRAMS	=					../TestBench/autoTest
 
-___TestBench_autoTest_SOURCES   =   ../TestBench/autoTest.c
+___TestBench_autoTest_SOURCES   =   ../TestBench/autoTest.c		\
+									../TestBench/autoTest_ep.c
 if DEBUG_MODE
 ___TestBench_autoTest_LDADD		=	-lsal_dbg  \
 									libarcommands_dbg.la
