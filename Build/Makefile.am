@@ -28,16 +28,16 @@ endif
 
 
 
-check_PROGRAMS	=					../TestBench/autoTest
+check_PROGRAMS	=							../TestBench/linux/autoTest
 
-___TestBench_autoTest_SOURCES   =   ../TestBench/autoTest.c		\
-									../TestBench/autoTest_ep.c
+___TestBench_linux_autoTest_SOURCES		=	../TestBench/common/autoTest.c		\
+											../TestBench/linux/autoTest_linux.c
 if DEBUG_MODE
-___TestBench_autoTest_LDADD		=	-lsal_dbg  \
-									libarcommands_dbg.la
+___TestBench_linux_autoTest_LDADD		=	-lsal_dbg  \
+											libarcommands_dbg.la
 else
-___TestBench_autoTest_LDADD		=	-lsal \
-									libarcommands.la
+___TestBench_linux_autoTest_LDADD		=	-lsal \
+											libarcommands.la
 endif
 
 CLEAN_FILES = libarcommands.la libarcommands_dbg.la
