@@ -65,7 +65,7 @@ AC_ARG_WITH([libSalBin],
 ##########################################################################
 
 # include local headers first
-CFLAGS+=" -I ../Includes -I../Sources"
+CFLAGS+=" -I$srcdir/../Includes -I$srcdir/../Sources"
 # add the headers directory of libSal
 CFLAGS+=" -I$libSalHeader"
 
@@ -102,13 +102,13 @@ DX_RTF_FEATURE(OFF)
 DX_XML_FEATURE(OFF)
 DX_PDF_FEATURE(OFF)
 DX_PS_FEATURE(OFF)
-DX_INIT_DOXYGEN([libARCommands], [doxygen.cfg], [../Doc])
+DX_INIT_DOXYGEN([libARCommands], [doxygen.cfg], [$srcdir/../Doc])
 AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
 
 # Check for python and run PY script
 AM_PATH_PYTHON(,, AC_MSG_ERROR(Python is required to generate source files for this library))
 AC_MSG_NOTICE([generating source files from XML description of commands])
-AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON ../Xml/generateLibARCommands.py])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py])
 AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file probably contains errors))
 
 # Checks for header files.
