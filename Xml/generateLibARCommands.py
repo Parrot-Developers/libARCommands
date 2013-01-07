@@ -11,6 +11,7 @@ import os
 #################################
 
 LIB_NAME='libARCommands'
+JNI_PACKAGE_NAME='com.parrot.ardsdk.'+LIB_NAME.lower()
 
 #Name (and path) of the xml file
 XMLFILENAME='../Xml/commands.xml'
@@ -37,6 +38,12 @@ TB_HFILE_NAME='autoTest.h'
 #Name of the linux entry point file for autotest
 TB_LIN_CFILE_NAME='autoTest_linux.c'
 
+#Name of the JNI C File
+JNI_CFILE_NAME='ARCommandsJNI.c'
+
+#Name of the JNI JAVA File
+JNI_JFILE_NAME='ARCommand.java'
+
 #Relative path of SOURCE dir
 SRC_DIR='../Sources/'
 
@@ -51,6 +58,15 @@ LIN_TB_DIR=TB__DIR+'linux/'
 
 #Relative path of multiplatform code for testbenches
 COM_TB_DIR=TB__DIR+'common/'
+
+#Relative path of JNI dir
+JNI_DIR="../JNI/"
+
+#Relative path of JNI/C dir
+JNIC_DIR=JNI_DIR+'c/'
+
+#Relative path of JNI/Java dir
+JNIJ_DIR=JNI_DIR+'java/'
 
 ##### END OF CONFIG #####
 
@@ -71,6 +87,10 @@ TB_HFILE=COM_TB_DIR+TB_HFILE_NAME
 GENERATED_FILES.append (TB_HFILE)
 TB_LIN_CFILE=LIN_TB_DIR+TB_LIN_CFILE_NAME
 GENERATED_FILES.append (TB_LIN_CFILE)
+JNI_CFILE=JNIC_DIR+JNI_CFILE_NAME
+GENERATED_FILES.append (JNI_CFILE)
+JNI_JFILE=JNIJ_DIR+JNI_JFILE_NAME
+GENERATED_FILES.append (JNI_JFILE)
 
 
 COMMANDSID_DEFINE='_'+COMMANDSID_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
@@ -90,7 +110,7 @@ CTYPES   = ['uint8_t',  'int8_t',
             'uint32_t', 'int32_t',
             'uint64_t', 'int64_t',
             'float',    'double',
-            'char *']
+            'const char *']
 SZETYPES = ['U8',       'U8',
             'U16',      'U16',
             'U32',      'U32',
@@ -103,6 +123,19 @@ CREADERS = ['read8FromBuffer',     '(int8_t)read8FromBuffer',
             'read64FromBuffer',    '(int64_t)read64FromBuffer',
             'readFloatFromBuffer', 'readDoubleFromBuffer',
             'readStringFromBuffer']
+# No unsigned types in java, so use signed types everywhere
+JAVATYPES = ['byte',    'byte',
+             'short',   'short',
+             'int',     'int',
+             'long',    'long',
+             'float',   'double',
+             'String']
+JNITYPES  = ['jbyte',    'jbyte',
+             'jshort',   'jshort',
+             'jint',     'jint',
+             'jlong',    'jlong',
+             'jfloat',   'jdouble',
+             'jstring']
 
 def xmlToC(typ):
     xmlIndex = XMLTYPES.index(typ)
@@ -115,6 +148,14 @@ def xmlToSize(typ):
 def xmlToReader(typ):
     xmlIndex = XMLTYPES.index(typ)
     return CREADERS [xmlIndex]
+
+def xmlToJava(typ):
+    xmlIndex = XMLTYPES.index(typ)
+    return JAVATYPES [xmlIndex]
+
+def xmlToJni(typ):
+    xmlIndex = XMLTYPES.index(typ)
+    return JNITYPES [xmlIndex]
 
 #Sample args for testbench
 SAMPLEARGS = ['42',              '-42',
@@ -162,7 +203,10 @@ if 2 <= len (sys.argv):
         print INC_DIR,
         print LIN_TB_DIR,
         print COM_TB_DIR,
-        print TB__DIR        
+        print TB__DIR,
+        print JNIJ_DIR,
+        print JNIC_DIR,
+        print JNI_DIR
         sys.exit (0)
 #################################
 # If "-nogen" is passed as an   #
@@ -187,6 +231,12 @@ if not os.path.exists (LIN_TB_DIR):
     os.mkdir(LIN_TB_DIR)
 if not os.path.exists (COM_TB_DIR):
     os.mkdir(COM_TB_DIR)
+if not os.path.exists (JNI_DIR):
+    os.mkdir(JNI_DIR)
+if not os.path.exists (JNIC_DIR):
+    os.mkdir(JNIC_DIR)
+if not os.path.exists (JNIJ_DIR):
+    os.mkdir(JNIJ_DIR)
 
 #################################
 # 1ST PART :                    #
@@ -1082,7 +1132,7 @@ cfile.write ('// END GENERATED CODE\n')
 cfile.close ()
 
 #################################
-# LAST PART :                   #
+# 5TH PART :                    #
 #################################
 # Generate C Testbench          #
 #################################
@@ -1238,5 +1288,283 @@ cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
 cfile.write ('    return autoTest ();\n')
 cfile.write ('}\n')
+
+cfile.close ()
+
+#################################
+# 6TH PART :                    #
+#################################
+# Generate JNI C/Java code      #
+#################################
+
+JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
+
+jfile = open (JNI_JFILE, 'w')
+
+jfile.write ('package '+JNI_PACKAGE_NAME+';\n')
+jfile.write ('\n');
+jfile.write ('public class '+JNIClassName+' {\n')
+jfile.write ('    private long pdata;\n')
+jfile.write ('    private int dataSize;\n')
+jfile.write ('    private boolean valid;\n')
+jfile.write ('    private boolean createdFromArray;\n')
+jfile.write ('\n')
+jfile.write ('    public ARCommand () {\n')
+jfile.write ('        pdata = 0;\n')
+jfile.write ('        dataSize = 0;\n')
+jfile.write ('        valid = false;\n')
+jfile.write ('        createdFromArray = false;\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+jfile.write ('    public ARCommand (byte [] oldData) {\n')
+jfile.write ('        pdata = 0;\n')
+jfile.write ('        dataSize = 0;\n')
+jfile.write ('        valid = copyFromArray (oldData);\n')
+jfile.write ('        createdFromArray = true;\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+jfile.write ('    public void close () {\n')
+jfile.write ('        if (0 != pdata) {\n')
+jfile.write ('            freeData (pdata, createdFromArray);\n')
+jfile.write ('            pdata = 0;\n')
+jfile.write ('            dataSize = 0;\n')
+jfile.write ('            valid = false;\n')
+jfile.write ('        }\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+jfile.write ('    public void finalize () {\n')
+jfile.write ('        close ();\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+jfile.write ('    public byte [] getData () {\n')
+jfile.write ('        if (false == valid) {\n')
+jfile.write ('            return null;\n')
+jfile.write ('        }\n')
+jfile.write ('        return nativeGetData (pdata, dataSize);\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+jfile.write ('    public boolean decode () {\n')
+jfile.write ('        return nativeDecode (pdata, dataSize);\n')
+jfile.write ('    }\n')
+jfile.write ('\n')
+for cl in allClassesNames:
+    cIndex = allClassesNames.index(cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cmIndex = cmdList.index(cmd)
+        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
+        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        jfile.write ('    public boolean set'+cl.capitalize ()+cmd.capitalize ()+' (')
+        first = 1
+        for argN in ANList:
+            aIndex = ANList.index(argN)
+            argT = ATList [aIndex]
+            jargT = xmlToJava (argT)
+            if 1 == first:
+                first = 0
+            else:
+                jfile.write (', ')
+            jfile.write (jargT+' '+argN)
+        jfile.write (') {\n')
+        jfile.write ('        close ();\n')
+        jfile.write ('        valid = nativeSet'+cl.capitalize ()+cmd.capitalize ()+' (')
+        first = 1
+        for argN in ANList:
+            if 1 == first:
+                first = 0
+            else:
+                jfile.write (', ')
+            jfile.write (argN)
+        jfile.write (');\n')
+        jfile.write ('        return valid;\n')
+        jfile.write ('    }\n')
+        jfile.write ('\n')
+jfile.write ('\n')
+jfile.write ('    private native boolean nativeDecode (long jpdata, int jdataSize);\n')
+jfile.write ('    private native boolean copyFromArray (byte [] oldData);\n')
+jfile.write ('    private native void freeData (long dataToFree, boolean wasCreatedFromArray);\n')
+jfile.write ('    private native byte [] nativeGetData (long jpdata, int jdataSize);\n')
+jfile.write ('\n')
+for cl in allClassesNames:
+    cIndex = allClassesNames.index(cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        jfile.write ('    private native boolean nativeSet'+cl.capitalize ()+cmd.capitalize ()+' (')
+        cmIndex = cmdList.index(cmd)
+        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
+        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        first = 1
+        for argN in ANList:
+            aIndex = ANList.index(argN)
+            argT = ATList [aIndex]
+            jargT = xmlToJava (argT)
+            if 1 == first:
+                first = 0
+            else:
+                jfile.write (', ')
+            jfile.write (jargT+' '+argN)
+        jfile.write (');\n')
+jfile.write ('}\n')
+
+jfile.close ()
+
+cfile = open (JNI_CFILE, 'w')
+
+JNI_FUNC_PREFIX='Java_'+JNI_PACKAGE_NAME.replace ('.', '_')+'_'
+JNI_FIRST_ARGS='JNIEnv *env, jobject thizz'
+
+cfile.write ('/********************************************\n')
+cfile.write (' *            AUTOGENERATED FILE            *\n')
+cfile.write (' *             DO NOT MODIFY IT             *\n')
+cfile.write (' *                                          *\n')
+cfile.write (' * To add new commands :                    *\n')
+cfile.write (' *  - Modify ../../Xml/commands.xml file    *\n')
+cfile.write (' *  - Re-run generateCommandsList.py script *\n')
+cfile.write (' *                                          *\n')
+cfile.write (' ********************************************/\n')
+cfile.write ('#include <'+COMMANDSGEN_HFILE_NAME+'>\n')
+cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
+cfile.write ('#include <jni.h>\n')
+cfile.write ('#include <stdlib.h>\n')
+cfile.write ('\n')
+cfile.write ('static jfieldID j_pdata_id = 0;\n')
+cfile.write ('static jfieldID j_dataSize_id = 0;\n')
+cfile.write ('\n')
+cfile.write ('JNIEXPORT jboolean JNICALL\n')
+cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_copyFromArray ('+JNI_FIRST_ARGS+', jbyteArray oldData)\n')
+cfile.write ('{\n')
+cfile.write ('    jboolean valid = JNI_TRUE;\n')
+cfile.write ('    jint len = (*env)->GetArrayLength (env, oldData);\n')
+cfile.write ('    uint8_t *c_pdata = malloc (len * sizeof (uint8_t));\n')
+cfile.write ('    jbyte *j_pdata = NULL;\n')
+cfile.write ('    if (NULL == c_pdata)\n')
+cfile.write ('    {\n')
+cfile.write ('        valid = JNI_FALSE;\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+cfile.write ('    if (JNI_TRUE == valid)\n')
+cfile.write ('    {\n')
+cfile.write ('        j_pdata = (*env)->GetByteArrayElements (env, oldData, NULL);\n')
+cfile.write ('        if (NULL == j_pdata)\n')
+cfile.write ('        {\n')
+cfile.write ('            valid = JNI_FALSE;\n')
+cfile.write ('        }\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+cfile.write ('    if (JNI_TRUE == valid)\n')
+cfile.write ('    {\n')
+cfile.write ('        memcpy (c_pdata, j_pdata, len);\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+cfile.write ('    if (JNI_FALSE == valid &&\n')
+cfile.write ('        NULL != c_pdata)\n')
+cfile.write ('    {\n')
+cfile.write ('        free (c_pdata);\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+cfile.write ('    if (NULL != j_pdata)\n')
+cfile.write ('    {\n')
+cfile.write ('        (*env)->ReleaseByteArrayElements (env, oldData, j_pdata, JNI_ABORT); // Use JNI_ABORT because we NEVER want to modify oldData\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+cfile.write ('    return valid;\n')
+cfile.write ('}\n')
+cfile.write ('\n')
+cfile.write ('JNIEXPORT void JNICALL\n')
+cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_freeData ('+JNI_FIRST_ARGS+', jlong dataToFree, jboolean jcreatedFromArray)\n')
+cfile.write ('{\n')
+cfile.write ('    uint8_t *c_pdata = (uint8_t *)(intptr_t)dataToFree;\n')
+cfile.write ('    if (JNI_FALSE == jcreatedFromArray)\n')
+cfile.write ('    {\n')
+cfile.write ('        ARCommandsFree (&c_pdata);\n')
+cfile.write ('    }\n')
+cfile.write ('    else\n')
+cfile.write ('    {\n')
+cfile.write ('        free (c_pdata);\n')
+cfile.write ('    }\n')
+cfile.write ('}\n')
+cfile.write ('\n')
+cfile.write ('JNIEXPORT jbyteArray JNICALL\n')
+cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeGetData ('+JNI_FIRST_ARGS+', jlong jpdata, jint jdataSize)\n')
+cfile.write ('{\n')
+cfile.write ('    jbyteArray retArray = (*env)->NewByteArray (env, jdataSize);\n')
+cfile.write ('    if (NULL != retArray)\n')
+cfile.write ('    {\n')
+cfile.write ('        (*env)->SetByteArrayRegion(env, retArray, 0, jdataSize, (jbyte *)(intptr_t)jpdata);\n')
+cfile.write ('    }\n')
+cfile.write ('    return retArray;\n')
+cfile.write ('}\n')
+cfile.write ('\n')
+cfile.write ('JNIEXPORT jboolean JNICALL\n')
+cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeDecode ('+JNI_FIRST_ARGS+', jlong jpdata, int jdataSize)\n')
+cfile.write ('{\n')
+cfile.write ('    // TODO !!!\n')
+cfile.write ('    return JNI_TRUE;\n')
+cfile.write ('}\n')
+cfile.write ('\n')
+for cl in allClassesNames:
+    cIndex = allClassesNames.index (cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cmIndex = cmdList.index (cmd)
+        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
+        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        cfile.write ('JNIEXPORT jboolean JNICALL\n')
+        cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeSet'+cl.capitalize ()+cmd.capitalize ()+' ('+JNI_FIRST_ARGS)
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            jargT = xmlToJni (argT)
+            cfile.write (', '+jargT+' '+argN)
+        cfile.write (')\n')
+        cfile.write ('{\n')
+        cfile.write ('    jboolean retVal = JNI_TRUE;\n')
+        cfile.write ('    int32_t c_dataSize = 0;\n')
+        cfile.write ('    if (0 == j_pdata_id && 0 == j_dataSize_id)\n')
+        cfile.write ('    {\n')
+        cfile.write ('        jclass clz = (*env)->GetObjectClass (env, thizz);\n')
+        cfile.write ('        if (0 != clz)\n')
+        cfile.write ('        {\n')
+        cfile.write ('            j_pdata_id = (*env)->GetFieldID (env, clz, "pdata", "J");\n')
+        cfile.write ('            j_dataSize_id = (*env)->GetFieldID (env, clz, "dataSize", "I");\n')
+        cfile.write ('            (*env)->DeleteLocalRef (env, clz);\n')
+        cfile.write ('        }\n')
+        cfile.write ('        else\n')
+        cfile.write ('        {\n')
+        cfile.write ('            return JNI_FALSE;\n')
+        cfile.write ('        }\n')
+        cfile.write ('    }\n')
+        cfile.write ('\n')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            if 'string' == argT:
+                cfile.write ('    const char *c_'+argN+' = (*env)->GetStringUTFChars (env, '+argN+', NULL);\n')
+        cfile.write ('    uint8_t *c_pdata = ARCommandsGenerate'+cl.capitalize ()+cmd.capitalize ()+' (&c_dataSize')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            cargT = xmlToC (argT)
+            if 'string' == argT:
+                cfile.write (', c_'+argN)
+            else:
+                cfile.write (', ('+cargT+')'+argN)
+        cfile.write (');\n')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            if 'string' == argT:
+                cfile.write ('    (*env)->ReleaseStringUTFChars (env, '+argN+', c_'+argN+');\n')
+        cfile.write ('    if (NULL == c_pdata)\n')
+        cfile.write ('    {\n')
+        cfile.write ('        retVal = JNI_FALSE;\n')
+        cfile.write ('    }\n')
+        cfile.write ('    (*env)->SetLongField (env, thizz, j_pdata_id, (jlong)(intptr_t)c_pdata);\n')
+        cfile.write ('    (*env)->SetIntField (env, thizz, j_dataSize_id, (jint)c_dataSize);\n')
+        cfile.write ('    return retVal;\n')
+        cfile.write ('}\n')
+        cfile.write ('\n')
+
+cfile.write ('/* END OF GENERATED CODE */\n')
 
 cfile.close ()
