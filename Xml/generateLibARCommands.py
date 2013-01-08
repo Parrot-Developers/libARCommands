@@ -1083,7 +1083,7 @@ for cl in allClassesNames:
         CBTYPE='ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback'
         cfile.write ('                sal_mutex_lock (&clbMutex);\n')
         cfile.write ('                ' + CBTYPE + ' ' + LOCCB + ' = ' + CBNAME + ';\n')
-        cfile.write ('                void *cbCustom = '+cl+cmd.capitalize()+'Cutom;\n')
+        cfile.write ('                void *cbCustom = '+cl+cmd.capitalize()+'Custom;\n')
         cfile.write ('                sal_mutex_unlock (&clbMutex);\n')
         cfile.write ('                if (NULL != ' + LOCCB + ')\n')
         cfile.write ('                {\n')
@@ -1191,9 +1191,11 @@ for cl in allClassesNames:
             else:
                 cfile.write (', ')
             cfile.write (xmlToC (argT) + ' ' + argN)
-        cfile.write (')\n')
+        if 0 == first:
+            cfile.write (', ')
+        cfile.write ('void *custom)\n')
         cfile.write ('{\n')
-        cfile.write ('    SAL_PRINT (PRINT_WARNING, "Callback for command ' + cl + '.' + cmd + '\\n");\n')
+        cfile.write ('    SAL_PRINT (PRINT_WARNING, "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
@@ -1214,11 +1216,12 @@ for cl in allClassesNames:
 cfile.write ('\n')
 cfile.write ('void initCb (void)\n')
 cfile.write ('{\n')
+cfile.write ('    int cbCustom = 0;\n')
 for cl in allClassesNames:
     clIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
-        cfile.write ('    ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback ((ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback) ' + cl + cmd.capitalize () + 'Cb);\n')
+        cfile.write ('    ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback ((ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback) ' + cl + cmd.capitalize () + 'Cb, (void *)cbCustom++);\n')
 cfile.write ('}\n')
 
 cfile.write ('\n')
