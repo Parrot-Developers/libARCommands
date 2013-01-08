@@ -110,6 +110,12 @@ CTYPES   = ['uint8_t',  'int8_t',
             'uint32_t', 'int32_t',
             'uint64_t', 'int64_t',
             'float',    'double',
+            'char *']
+CTYPES_WC = ['uint8_t',  'int8_t',
+            'uint16_t', 'int16_t',
+            'uint32_t', 'int32_t',
+            'uint64_t', 'int64_t',
+            'float',    'double',
             'const char *']
 SZETYPES = ['U8',       'U8',
             'U16',      'U16',
@@ -140,6 +146,10 @@ JNITYPES  = ['jbyte',    'jbyte',
 def xmlToC(typ):
     xmlIndex = XMLTYPES.index(typ)
     return CTYPES [xmlIndex]
+
+def xmlToCwithConst(typ):
+    xmlIndex = XMLTYPES.index(typ)
+    return CTYPES_WC [xmlIndex]
 
 def xmlToSize(typ):
     xmlIndex = XMLTYPES.index(typ)
@@ -455,7 +465,7 @@ for cl in allClassesNames:
         hfile.write ('uint8_t *ARCommandsGenerate' + cl.capitalize() + cmd.capitalize() + ' (int32_t *buffLen')
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
-            hfile.write (', ' + xmlToC(argT) + ' ' + argN)
+            hfile.write (', ' + xmlToCwithConst(argT) + ' ' + argN)
         hfile.write (');\n')
     hfile.write ('\n')
 
@@ -661,7 +671,7 @@ for cl in allClassesNames:
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
-            cfile.write (', ' + xmlToC(argT) + ' ' + argN)
+            cfile.write (', ' + xmlToCwithConst(argT) + ' ' + argN)
         cfile.write (')\n')
         cfile.write ('{\n')
         cfile.write ('    uint8_t *buffer = NULL;\n')
@@ -804,9 +814,9 @@ hfile.write ('#endif /* '+COMMANDSDEC_DEFINE+' */\n')
 hfile.close ()
 
 #################################
-# 4TH PART :                    #
+# 6TH PART :                    #
 #################################
-# Generate coder C part         #
+# Generate decoder C part       #
 #################################
 
 cfile = open (COMMANDSDEC_CFILE, 'w')
@@ -1132,7 +1142,7 @@ cfile.write ('// END GENERATED CODE\n')
 cfile.close ()
 
 #################################
-# 5TH PART :                    #
+# 7TH PART :                    #
 #################################
 # Generate C Testbench          #
 #################################
@@ -1152,6 +1162,7 @@ cfile.write ('#include <'+COMMANDSGEN_HFILE_NAME+'>\n')
 cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
 cfile.write ('#include <libSAL/print.h>\n')
 cfile.write ('#include <stdlib.h>\n')
+cfile.write ('#include <string.h>\n')
 cfile.write ('\n')
 cfile.write ('int errcount;\n')
 cfile.write ('\n')
@@ -1292,7 +1303,7 @@ cfile.write ('}\n')
 cfile.close ()
 
 #################################
-# 6TH PART :                    #
+# 8TH PART :                    #
 #################################
 # Generate JNI C/Java code      #
 #################################
