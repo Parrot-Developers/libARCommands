@@ -801,12 +801,15 @@ for cl in allClassesNames:
             else:
                 hfile.write (', ')
             hfile.write (xmlToC(argT) + ' ' + argN)
-        hfile.write (');\n')
+        if 0 == first:
+            hfile.write (', ')
+        hfile.write ('void *custom);\n')
         hfile.write ('/**\n')
         hfile.write (' * @brief callback setter for the command ' + cl + '.' + cmd + '\n')
         hfile.write (' * @param callback new callback for the command ' + cl + '.' + cmd + '\n')
+        hfile.write (' * @param custom pointer that will be passed to all calls to the callback\n')
         hfile.write (' */\n')
-        hfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback);\n')
+        hfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback, void *custom);\n')
     hfile.write ('\n')
 
 hfile.write ('#endif /* '+COMMANDSDEC_DEFINE+' */\n')
@@ -1010,12 +1013,14 @@ for cl in allClassesNames:
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
         cfile.write ('static ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback ' + cl + cmd.capitalize() + 'Cb = NULL;\n')
-        cfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback)\n')
+        cfile.write ('static void *' + cl + cmd.capitalize() + 'Custom = NULL;\n')
+        cfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback, void *custom)\n')
         cfile.write ('{\n')
         cfile.write ('    if (1 == ARCommandsDecInit ())\n')
         cfile.write ('    {\n')
         cfile.write ('        sal_mutex_lock (&clbMutex);\n')
         cfile.write ('        ' + cl + cmd.capitalize () + 'Cb = callback;\n')
+        cfile.write ('        ' + cl + cmd.capitalize () + 'Custom = custom;\n')
         cfile.write ('        sal_mutex_unlock (&clbMutex);\n')
         cfile.write ('    }\n')
         cfile.write ('}\n')
@@ -1078,6 +1083,7 @@ for cl in allClassesNames:
         CBTYPE='ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback'
         cfile.write ('                sal_mutex_lock (&clbMutex);\n')
         cfile.write ('                ' + CBTYPE + ' ' + LOCCB + ' = ' + CBNAME + ';\n')
+        cfile.write ('                void *cbCustom = '+cl+cmd.capitalize()+'Cutom;\n')
         cfile.write ('                sal_mutex_unlock (&clbMutex);\n')
         cfile.write ('                if (NULL != ' + LOCCB + ')\n')
         cfile.write ('                {\n')
@@ -1107,7 +1113,9 @@ for cl in allClassesNames:
             else:
                 cfile.write (', ')
             cfile.write (argN)
-        cfile.write (');\n')
+        if 0 == first:
+            cfile.write (', ')
+        cfile.write ('cbCustom);\n')
         cfile.write ('                    }\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
