@@ -50,6 +50,10 @@
       Ask the drone to take off
     </cmd>
 
+	<cmd name="emergency">
+	  Put the drone in emergency state
+	</cmd>
+
     <cmd name="pcmd">
       Ask the drone to move around.
 
