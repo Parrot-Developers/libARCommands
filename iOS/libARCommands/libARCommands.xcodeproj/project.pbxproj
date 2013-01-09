@@ -1,0 +1,111 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXGroup section */
+		3706E5D1169D867A009E32CD = {
+			isa = PBXGroup;
+			children = (
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		3706E5D8169D867A009E32CD /* libARCommands */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ARD_SDK_DIR)\U0013 $(ACTION) $(CONFIGURATION)\U0013";
+			buildConfigurationList = 3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands" */;
+			buildPhases = (
+			);
+			buildToolPath = ../iOSBuild.sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = libARCommands;
+			passBuildSettingsInEnvironment = 1;
+			productName = libARCommands;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		3706E5D3169D867A009E32CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Parrot SA";
+			};
+			buildConfigurationList = 3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3706E5D1169D867A009E32CD;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3706E5D8169D867A009E32CD /* libARCommands */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		3706E5D9169D867A009E32CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARD_SDK_DIR = /Users/nicolas/workspace/git/SDK3_ios_test_app/SDK3/;
+			};
+			name = Debug;
+		};
+		3706E5DA169D867A009E32CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARD_SDK_DIR = /Users/nicolas/workspace/git/SDK3_ios_test_app/SDK3/;
+			};
+			name = Release;
+		};
+		3706E5DC169D867A009E32CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARD_SDK_DIR = "$(inherited)";
+			};
+			name = Debug;
+		};
+		3706E5DD169D867A009E32CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARD_SDK_DIR = "$(inherited)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3706E5D9169D867A009E32CD /* Debug */,
+				3706E5DA169D867A009E32CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3706E5DC169D867A009E32CD /* Debug */,
+				3706E5DD169D867A009E32CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3706E5D3169D867A009E32CD /* Project object */;
+}
