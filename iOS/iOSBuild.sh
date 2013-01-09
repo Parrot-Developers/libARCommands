@@ -2,6 +2,8 @@
 
 CURDIR=$(pwd)
 BUILDDIR=$CURDIR/../../Build
+LIBNAME=$(cat $BUILDDIR/configure.ac | grep AC_INIT | sed 's:.*(\[\([^]]*\).*:\1:')
+LIBNAME_LOWER=$(echo $LIBNAME | tr [:upper:] [:lower:])
 
 # $1 will always be the --prefix=... arg
 # we assume that the prefix is ALSO the install dir of other libs
@@ -26,12 +28,12 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 	./cleanup
 	cd $CURDIR
 	cd $PREFIX
-	LIBS=$(find ./lib -name 'libarcommands*')
+	LIBS=$(find ./lib -name "lib$LIBNAME_LOWER*")
 	for LIBFILE in $LIBS; do
 		rm -f $LIBFILE
 	done
-	if [ -d ./include/libARCommands/ ]; then
-		rm -r ./include/libARCommands/
+	if [ -d ./include/lib$LIBNAME/ ]; then
+		rm -r ./include/lib$LIBNAME/
 	fi
 	exit 0
 fi
