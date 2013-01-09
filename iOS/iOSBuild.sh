@@ -13,7 +13,7 @@ LIBNAME_LOWER=$(echo $LIBNAME | tr [:upper:] [:lower:])
 PREFIX=$(echo $1 | perl -pe 's:\x13::g' -) #Strip hexa characters added by XCode
 CONFIGURATION=$(echo $2 | perl -pe 's:\x13::g' | tr [:upper:] [:lower:])
 
-echo "Building lib with prefix : <"$PREFIX">"
+echo "Building "$LIBNAME" with prefix : <"$PREFIX">"
 echo "And target : <"$CONFIGURATION">"
 
 # If any arg is missing, return
@@ -49,20 +49,22 @@ else
 	CONF_DEBUG=""
 fi
 
+
 cd $BUILDDIR
 # If configure file does not exist, run bootstrap
 if [ ! -f configure ]; then
-	./bootstrap || exit 1
+    # XCode treats some "normal" output of configure as error, so we modify them to avoid false error detection
+	./bootstrap 2>&1 | sed 's:configure\.ac\:\([0-9]*\)\::configure.ac[\1]:g' || exit 1
 fi
 
 # If config.log or Makefile does not exist, run configure
 if [ ! -f config.log ] || [ ! -f Makefile ]; then
 	CSCRIPT=./tmp_cfscript.sh
 	echo "#!/bin/sh
-	./configure $CONF_ARGS\"$CONF_CFLAGS\"$CONF_DEBUG" > $CSCRIPT
+./configure $CONF_ARGS\"$CONF_CFLAGS\"$CONF_DEBUG" > $CSCRIPT
 	chmod +x $CSCRIPT
 	./$CSCRIPT || exit 1
-	rm $CSCRIPT
+	#rm $CSCRIPT
 else # config.log exist, check if args were good
 	PREV_CONF_ARGS=$(cat config.log | grep "\$ \./configure" | sed 's:[\ \t]*$[\ \t]*\./configure ::')
 	STRIP_CONF_ARGS=$(echo "$CONF_ARGS""$CONF_CFLAGS""$CONF_DEBUG" | sed 's:"::g')
@@ -72,10 +74,10 @@ else # config.log exist, check if args were good
 	if [ "$STRIP_CONF_ARGS" != "$PREV_CONF_ARGS" ]; then
 		CSCRIPT=./tmp_cfscript.sh
 		echo "#!/bin/sh
-	./configure $CONF_ARGS\"$CONF_CFLAGS\"$CONF_DEBUG" > $CSCRIPT
+./configure $CONF_ARGS\"$CONF_CFLAGS\"$CONF_DEBUG" > $CSCRIPT
 		chmod +x $CSCRIPT
 		./$CSCRIPT || exit 1
-	    rm $CSCRIPT
+	    #rm $CSCRIPT
 	fi
 fi
 
