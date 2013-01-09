@@ -46,13 +46,13 @@
   <class name="piloting">
     All commands related to piloting the totoDrone
 
+    <cmd name="flattrim">
+      Do a flat trim
+    </cmd>
+    
     <cmd name="takeoff">
       Ask the drone to take off
     </cmd>
-
-	<cmd name="emergency">
-	  Put the drone in emergency state
-	</cmd>
 
     <cmd name="pcmd">
       Ask the drone to move around.
@@ -82,9 +82,13 @@
     <cmd name="landing">
       Ask the drone to land
     </cmd>
+    
+    <cmd name="emergency">
+      Put drone in emergency state
+    </cmd>    
 
   </class>
-
+  
   <class name="config">
     All configuration commands
 
@@ -123,6 +127,15 @@
 	</cmd>
   </class>
 
+  <class name="event">
+	Occasional information
+
+	<cmd name="flattrimack">
+	  Drone acknowledges that flat trim was correctly processed
+	</cmd>
+	
+  </class>
+  
   <class name="test">
 	Some test commands
 
