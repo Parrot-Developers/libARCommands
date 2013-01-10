@@ -29,7 +29,7 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 	cd $CURDIR
 	if [ -d $PREFIX ]; then
 		cd $PREFIX
-		LIBS=$(find ./lib -name "lib$LIBNAME_LOWER*")
+		LIBS=$(find ./lib -name "$LIBNAME_LOWER*")
 		for LIBFILE in $LIBS; do
 			rm -f $LIBFILE
 		done
@@ -44,15 +44,15 @@ fi
 CONF_ARGS="--prefix=$PREFIX --with-libSalInstall=$PREFIX CC=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc --host=arm-apple CFLAGS="
 CONF_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk"
 
-CURRINC_FOLDER="lib"$LIBNAME
+CURRINC_FOLDER=$LIBNAME
 
 # Add debug flag if needed
 if [ "xdebug" = "x$CONFIGURATION" ]; then
 	CONF_DEBUG=" --enable-debug"
-	CURRLIB_PATTERN="lib"$LIBNAME_LOWER"_dbg.*"
+	CURRLIB_PATTERN=$LIBNAME_LOWER"_dbg.*"
 else
 	CONF_DEBUG=""
-	CURRLIB_PATTERN="lib"$LIBNAME_LOWER".*"
+	CURRLIB_PATTERN=$LIBNAME_LOWER".*"
 fi
 
 
@@ -102,9 +102,12 @@ fi
 # - We can't find lib<our_lib>[_dbg].* ($CURRLIB_PATTERN variable) in $PREFIX/lib/
 # - We can't find lib<Our_Lib>/ folder ($CURRINC_FOLDER variable) in $PREFIX/include/
 if [ ! -d $PREFIX/lib/ ] || [ ! -d $PREFIX/include/$CURRINC_FOLDER ]; then
+	echo "Force make because directory does not exist :"
+	[ -d $PREFIX/lib/ ] || echo $PREFIX/lib
+	[ -d $PREFIX/include/$CURRINC_FOLDER ] || echo $PREFIX/include/$CURRINC_FOLDER
 	FORCE_MAKE="YES"
 else
-	HAS_MY_LIB=$(ls $PREFIX/lib/$CURRLIB_PATTERN | wc -w | bc)
+	HAS_MY_LIB=$(ls $PREFIX/lib/$CURRLIB_PATTERN 2>/dev/null | wc -w | bc)
 	if [ 0 -eq $HAS_MY_LIB ]; then
 		FORCE_MAKE="YES"
 	fi
