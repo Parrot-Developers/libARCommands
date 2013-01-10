@@ -29,6 +29,8 @@ rm -f \
 
 find .. -name '*~' -delete
 
+find .. -name '.dirstamp' -delete
+
 # Generated directories.
 rm -rf \
 	doxygen-doc \
@@ -39,6 +41,5 @@ rm -rf \
     libNetWork_dbg.la \
     libNetWork.la
 
-find .. -name '.deps' -exec rm -rf {} \;
-find .. -name '.dirstamp' -exec rm -rf {} \;
+find .. -name '.deps' -exec rm -rf {} \; 2> /dev/null
 
