@@ -16,19 +16,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		3706E5D8169D867A009E32CD /* libARCommands */ = {
+		3706E5D8169D867A009E32CD /* libARCommands_iOS */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ARD_SDK_DIR)\U0013 $(ACTION) $(CONFIGURATION)\U0013";
-			buildConfigurationList = 3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands" */;
+			buildArgumentsString = "$(ARD_SDK_DIR) $(ACTION) $(CONFIGURATION)";
+			buildConfigurationList = 3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands_iOS" */;
 			buildPhases = (
 			);
 			buildToolPath = ../iOSBuild.sh;
 			buildWorkingDirectory = "";
 			dependencies = (
 			);
-			name = libARCommands;
+			name = libARCommands_iOS;
 			passBuildSettingsInEnvironment = 1;
-			productName = libARCommands;
+			productName = libARCommands_iOS;
 		};
 /* End PBXLegacyTarget section */
 
@@ -39,7 +39,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Parrot SA";
 			};
-			buildConfigurationList = 3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands" */;
+			buildConfigurationList = 3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands_iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -50,7 +50,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3706E5D8169D867A009E32CD /* libARCommands */,
+				3706E5D8169D867A009E32CD /* libARCommands_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -59,14 +59,14 @@
 		3706E5D9169D867A009E32CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARD_SDK_DIR = /Users/nicolas/workspace/git/SDK3_ios_test_app/SDK3/;
+				ARD_SDK_DIR = "${SHARED_DERIVED_FILE_DIR}";
 			};
 			name = Debug;
 		};
 		3706E5DA169D867A009E32CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARD_SDK_DIR = /Users/nicolas/workspace/git/SDK3_ios_test_app/SDK3/;
+				ARD_SDK_DIR = "${SHARED_DERIVED_FILE_DIR}";
 			};
 			name = Release;
 		};
@@ -87,20 +87,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands" */ = {
+		3706E5D6169D867A009E32CD /* Build configuration list for PBXProject "libARCommands_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3706E5D9169D867A009E32CD /* Debug */,
 				3706E5DA169D867A009E32CD /* Release */,
+				3706E5D9169D867A009E32CD /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands" */ = {
+		3706E5DB169D867A009E32CD /* Build configuration list for PBXLegacyTarget "libARCommands_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3706E5DC169D867A009E32CD /* Debug */,
 				3706E5DD169D867A009E32CD /* Release */,
+				3706E5DC169D867A009E32CD /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
