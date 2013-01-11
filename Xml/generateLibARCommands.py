@@ -34,6 +34,8 @@ COMMANDSDEC_CFILE_NAME='ARCommandsDec.c'
 #Name of the output C/H common testbench file
 TB_CFILE_NAME='autoTest.c'
 TB_HFILE_NAME='autoTest.h'
+#Tag for tb SAL_PRINT calls
+TB_TAG='AutoTest'
 
 #Name of the linux entry point file for autotest
 TB_LIN_CFILE_NAME='autoTest_linux.c'
@@ -1195,20 +1197,20 @@ for cl in allClassesNames:
             cfile.write (', ')
         cfile.write ('void *custom)\n')
         cfile.write ('{\n')
-        cfile.write ('    SAL_PRINT (PRINT_WARNING, "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
+        cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
-            cfile.write ('    SAL_PRINT (PRINT_WARNING, "' + argN + ' value : <' + xmlToPrintf(argT) + '>\\n", ' + argN + ');\n')
+            cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "' + argN + ' value : <' + xmlToPrintf(argT) + '>\\n", ' + argN + ');\n')
             if "string" == argT:
                 cfile.write ('    if (0 != strcmp (' + xmlToSample (argT) + ', ' + argN + '))\n')
             else:
                 cfile.write ('    if (' + xmlToSample (argT) + ' != ' + argN + ')\n')
             cfile.write ('    {\n')
             if "string" == argT:
-                cfile.write ('        SAL_PRINT (PRINT_ERROR, "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample(argT) + ');\n')
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample(argT) + ');\n')
             else:
-                cfile.write ('        SAL_PRINT (PRINT_ERROR, "BAD ARG VALUE !!! --> Expected <' + xmlToSample(argT) + '>\\n");\n')
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "BAD ARG VALUE !!! --> Expected <' + xmlToSample(argT) + '>\\n");\n')
             cfile.write ('        errcount++;\n')
             cfile.write ('    }\n')
         cfile.write ('}\n');
@@ -1246,15 +1248,15 @@ for cl in allClassesNames:
         cfile.write (');\n')
         cfile.write ('    if (NULL == res)\n')
         cfile.write ('    {\n')
-        cfile.write ('        SAL_PRINT (PRINT_ERROR, "Error while generating command ' + cl.capitalize() + '.' + cmd.capitalize() + '\\n\\n");\n')
+        cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "Error while generating command ' + cl.capitalize() + '.' + cmd.capitalize() + '\\n\\n");\n')
         cfile.write ('        errcount++;\n')
         cfile.write ('    }\n')
         cfile.write ('    else\n')
         cfile.write ('    {\n')
-        cfile.write ('        SAL_PRINT (PRINT_DEBUG, "Generating command ' + cl.capitalize() + '.' + cmd.capitalize() + ' succeded\\n");\n')
+        cfile.write ('        SAL_PRINT (PRINT_DEBUG, "'+TB_TAG+'", "Generating command ' + cl.capitalize() + '.' + cmd.capitalize() + ' succeded\\n");\n')
         cfile.write ('        eARCOMMANDS_COMMANDSDEC_ERRTYPE err;\n')
         cfile.write ('        err = ARCommandsDecodeBuffer (res, resSize);\n')
-        cfile.write ('        SAL_PRINT (PRINT_WARNING, "Decode return value : %d\\n\\n", err);\n')
+        cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "Decode return value : %d\\n\\n", err);\n')
         cfile.write ('        ARCommandsFree (&res);\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
@@ -1262,11 +1264,11 @@ for cl in allClassesNames:
 
 cfile.write ('    if (0 == errcount)\n')
 cfile.write ('    {\n')
-cfile.write ('        SAL_PRINT (PRINT_WARNING, "No errors !\\n");\n')
+cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "No errors !\\n");\n')
 cfile.write ('    }\n')
 cfile.write ('    else\n')
 cfile.write ('    {\n')
-cfile.write ('        SAL_PRINT (PRINT_ERROR, "%d errors detected during autoTest\\n", errcount);\n')
+cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "%d errors detected during autoTest\\n", errcount);\n')
 cfile.write ('    }\n')
 cfile.write ('    return errcount;\n')
 cfile.write ('}\n')
