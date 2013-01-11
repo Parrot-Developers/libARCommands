@@ -57,6 +57,10 @@
     <cmd name="pcmd">
       Ask the drone to move around.
 
+	  <arg name="flag" type="u8">
+		Boolean flag to activate roll/pitch movement
+	  </arg>
+
       <arg name="roll" type="float">
         Roll consign for the drone [-1;1]
       </arg>
