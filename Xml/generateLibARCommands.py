@@ -46,6 +46,12 @@ JNI_CFILE_NAME='ARCommandsJNI.c'
 #Name of the JNI JAVA File
 JNI_JFILE_NAME='ARCommand.java'
 
+#Name of the JNI JAVA Interfaces files (DO NOT MODIFY)
+JAVA_INTERFACES_FILES_NAME=LIB_NAME+'*Listener.java'
+
+#Name of the JNI-Android Makefile (DO NOT MODIFY)
+JNI_MAKEFILE_NAME='Android.mk'
+
 #Relative path of SOURCE dir
 SRC_DIR='../Sources/'
 
@@ -93,6 +99,9 @@ JNI_CFILE=JNIC_DIR+JNI_CFILE_NAME
 GENERATED_FILES.append (JNI_CFILE)
 JNI_JFILE=JNIJ_DIR+JNI_JFILE_NAME
 GENERATED_FILES.append (JNI_JFILE)
+JNI_MAKEFILE=JNIC_DIR+JNI_MAKEFILE_NAME
+GENERATED_FILES.append (JNI_MAKEFILE)
+JAVA_INTERFACES_FILES=JNIJ_DIR+JAVA_INTERFACES_FILES_NAME
 
 
 COMMANDSID_DEFINE='_'+COMMANDSID_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
@@ -138,6 +147,12 @@ JAVATYPES = ['byte',    'byte',
              'long',    'long',
              'float',   'double',
              'String']
+JAVASIG   = ['B',        'B',
+             'S',        'S',
+             'I',        'I',
+             'J',        'J',
+             'F',        'D',
+             'Ljava/lang/String;']
 JNITYPES  = ['jbyte',    'jbyte',
              'jshort',   'jshort',
              'jint',     'jint',
@@ -164,6 +179,10 @@ def xmlToReader(typ):
 def xmlToJava(typ):
     xmlIndex = XMLTYPES.index(typ)
     return JAVATYPES [xmlIndex]
+
+def xmlToJavaSig(typ):
+    xmlIndex = XMLTYPES.index(typ)
+    return JAVASIG [xmlIndex]
 
 def xmlToJni(typ):
     xmlIndex = XMLTYPES.index(typ)
@@ -201,6 +220,7 @@ if 2 <= len (sys.argv):
     if "-fname" == sys.argv[1]:
         for fil in GENERATED_FILES:
             print fil,
+        print JAVA_INTERFACES_FILES,
         print ''
         sys.exit (0)
 #################################
@@ -1327,10 +1347,43 @@ cfile.close ()
 
 JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
 
+def interfaceName(cls, cmd):
+    return JNIClassName+cls.capitalize()+cmd.capitalize()+'Listener'
+def interfaceVar(cls, cmd):
+    return '_'+interfaceName(cls,cmd)
+def javaCbName(cls, cmd):
+    return 'on'+cls.capitalize()+cmd.capitalize()+'Update'
+
+for cl in allClassesNames:
+    cIndex = allClassesNames.index (cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cmIndex = cmdList.index(cmd)
+        jfile = open (JNIJ_DIR+interfaceName(cl,cmd)+'.java', 'w')
+        jfile.write ('package '+JNI_PACKAGE_NAME+';\n')
+        jfile.write ('\n')
+        jfile.write ('public interface ' + interfaceName(cl,cmd) + ' {\n')
+        jfile.write ('    void ' + javaCbName(cl,cmd) + ' (')
+        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
+        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        first = 1
+        for argN in ANList:
+            aIndex = ANList.index(argN)
+            argT = ATList [aIndex]
+            jargT = xmlToJava (argT)
+            if 1 == first:
+                first = 0
+            else:
+                jfile.write (', ')
+            jfile.write (jargT+' '+argN)
+        jfile.write (');\n')
+        jfile.write ('}\n')
+        jfile.close ()
+
 jfile = open (JNI_JFILE, 'w')
 
 jfile.write ('package '+JNI_PACKAGE_NAME+';\n')
-jfile.write ('\n');
+jfile.write ('\n')
 jfile.write ('public class '+JNIClassName+' {\n')
 jfile.write ('    private long pdata;\n')
 jfile.write ('    private int dataSize;\n')
@@ -1407,6 +1460,19 @@ for cl in allClassesNames:
         jfile.write ('        return valid;\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
+
+
+for cl in allClassesNames:
+    cIndex = allClassesNames.index (cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cmIndex = cmdList.index(cmd)
+        jfile.write ('    private static ' + interfaceName(cl,cmd) + ' ' + interfaceVar(cl,cmd) + ' = null;\n')
+        jfile.write ('    public static void set' + cl.capitalize() + cmd.capitalize() + 'Listener (' + interfaceName(cl,cmd) + ' ' + interfaceVar(cl,cmd) + '_PARAM) {\n')
+        jfile.write ('        '+interfaceVar(cl,cmd) + ' = ' + interfaceVar(cl,cmd) + '_PARAM;\n')
+        jfile.write ('    }\n')
+        jfile.write ('\n')
+    jfile.write ('\n')
 jfile.write ('\n')
 jfile.write ('    private native boolean nativeDecode (long jpdata, int jdataSize);\n')
 jfile.write ('    private native boolean copyFromArray (byte [] oldData);\n')
@@ -1457,6 +1523,7 @@ cfile.write ('#include <stdlib.h>\n')
 cfile.write ('\n')
 cfile.write ('static jfieldID j_pdata_id = 0;\n')
 cfile.write ('static jfieldID j_dataSize_id = 0;\n')
+cfile.write ('static JavaVM *g_vm = NULL;\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
 cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_copyFromArray ('+JNI_FIRST_ARGS+', jbyteArray oldData)\n')
@@ -1524,10 +1591,11 @@ cfile.write ('    return retArray;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeDecode ('+JNI_FIRST_ARGS+', jlong jpdata, int jdataSize)\n')
+cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeDecode ('+JNI_FIRST_ARGS+', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
-cfile.write ('    // TODO !!!\n')
-cfile.write ('    return JNI_TRUE;\n')
+cfile.write ('    uint8_t *pdata = (uint8_t *)(intptr_t)jpdata;\n')
+cfile.write ('    eARCOMMANDS_COMMANDSDEC_ERRTYPE err = ARCommandsDecodeBuffer (pdata, jdataSize);\n')
+cfile.write ('    return (ARCOMMANDS_COMMANDSDEC_NOERROR == err) ? JNI_TRUE: JNI_FALSE;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 for cl in allClassesNames:
@@ -1593,6 +1661,121 @@ for cl in allClassesNames:
         cfile.write ('}\n')
         cfile.write ('\n')
 
-cfile.write ('/* END OF GENERATED CODE */\n')
+def cCallbackName(cls,cmd):
+    return LIB_NAME+cls.capitalize()+cmd.capitalize()+'nativeCb'
+
+for cl in allClassesNames:
+    cIndex = allClassesNames.index (cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cmIndex = cmdList.index (cmd)
+        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
+        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+        cfile.write ('void ' + cCallbackName (cl,cmd) + ' (')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            cargT = xmlToC (argT)
+            cfile.write (cargT+' '+argN+', ')
+        cfile.write ('void *custom)\n')
+        cfile.write ('{\n')
+        cfile.write ('    jclass clazz = (jclass)custom;\n')
+        cfile.write ('    jint res;\n')
+        cfile.write ('    JNIEnv *env = NULL;\n')
+        cfile.write ('    res = (*g_vm)->GetEnv(g_vm, (void **)&env, JNI_VERSION_1_6);\n')
+        cfile.write ('    if (res < 0) { return; }\n')
+        cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID(env, clazz, "' + interfaceVar(cl,cmd) + '", "L'+ JNI_PACKAGE_NAME.replace('.', '/') + '/' + interfaceName(cl,cmd) +';");\n')
+        cfile.write ('    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);\n')
+        cfile.write ('    if (NULL == delegate) { return; }\n')
+        cfile.write ('\n')
+        cfile.write ('    jclass d_clazz = (*env)->GetObjectClass(env, delegate);\n')
+        cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID(env, d_clazz, "' + javaCbName(cl,cmd) + '", "(')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            sigT = xmlToJavaSig (argT)
+            cfile.write (''+sigT)
+        cfile.write (')V");\n')
+        cfile.write ('    (*env)->DeleteLocalRef(env, d_clazz);\n')
+        cfile.write ('    if (NULL != d_methodid)\n')
+        cfile.write ('    {\n')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            if 'string' == argT:
+                cfile.write ('        jstring j_' + argN + ' = (*env)->NewStringUTF(env, ' + argN + ');\n')
+        cfile.write ('        (*env)->CallVoidMethod(env, delegate, d_methodid')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            if 'string' == argT:
+                cfile.write (', j_' + argN)
+            else:
+                cfile.write (', ' + argN)
+        cfile.write (');\n')
+        for argN in ANList:
+            aIndex = ANList.index (argN)
+            argT = ATList [aIndex]
+            if 'string' == argT:
+                cfile.write ('        (*env)->DeleteLocalRef(env, j_' + argN + ');\n')
+        cfile.write ('    }\n')
+        cfile.write ('}\n')
+        cfile.write ('\n')
+
+cfile.write ('JNIEXPORT jint JNICALL\n')
+cfile.write ('JNI_OnLoad (JavaVM *vm, void *reserved)\n')
+cfile.write ('{\n')
+cfile.write ('    g_vm = vm;\n')
+cfile.write ('    JNIEnv *env = NULL;\n')
+cfile.write ('    if (JNI_OK != (*vm)->GetEnv(vm, (void **)&env, JNI_VERSION_1_6))\n')
+cfile.write ('    {\n')
+cfile.write ('        return -1;\n')
+cfile.write ('    }\n')
+cfile.write ('    jclass clazz = (*env)->FindClass (env, "' + JNI_PACKAGE_NAME.replace ('.', '/') + '/' + JNIClassName + '");\n')
+cfile.write ('    if (NULL == clazz)\n')
+cfile.write ('    {\n')
+cfile.write ('        return -1;\n')
+cfile.write ('    }\n')
+cfile.write ('    jclass g_class = (*env)->NewGlobalRef(env, clazz);\n')
+cfile.write ('    if (NULL == g_class)\n')
+cfile.write ('    {\n')
+cfile.write ('        return -1;\n')
+cfile.write ('    }\n')
+cfile.write ('\n')
+for cl in allClassesNames:
+    cIndex = allClassesNames.index (cl)
+    cmdList = commandsNameByClass[cIndex]
+    for cmd in cmdList:
+        cfile.write ('    ARCommandsSet'+cl.capitalize()+cmd.capitalize()+'Callback (' + cCallbackName(cl,cmd) + ', (void *)g_class);\n')
+    cfile.write ('\n')
+cfile.write ('\n')
+cfile.write ('    return JNI_VERSION_1_6;\n')
+cfile.write ('}\n')
+cfile.write ('/* END OF GENERAED CODE */\n')
 
 cfile.close ()
+
+mfile = open (JNI_MAKEFILE, 'w')
+
+mfile.write ('LOCAL_PATH := $(call my-dir)\n')
+mfile.write ('\n')
+mfile.write ('#' + LIB_NAME + '\n')
+mfile.write ('include $(CLEAR_VARS)\n')
+mfile.write ('\n')
+mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper() + '-prebuilt\n')
+mfile.write ('LOCAL_SRC_FILE := <path/to/' + LIB_NAME.lower() + '[_dbg].a>\n')
+mfile.write ('\n')
+mfile.write ('include $(PREBUILT_STATIC_LIBRARY)\n')
+mfile.write ('\n')
+mfile.write ('#JNI Wrapper\n')
+mfile.write ('include $(CLEAR_VARS)\n')
+mfile.write ('\n')
+mfile.write ('LOCAL_C_INCLUDES := <path/to/'+ LIB_NAME + '/include/dir> <path/to/libSAL/include/dir>\n')
+mfile.write ('LOCAL_LDLIBD := -llog\n')
+mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper()+'\n')
+mfile.write ('LOCAL_SRC_FILES := ' + JNI_CFILE_NAME + '\n')
+mfile.write ('LOCAL_STATIC_LIBRARIES := ' + LIB_NAME.upper() + '-prebuilt\n')
+mfile.write ('\n')
+mfile.write ('include $(BUILD_SHARED_LIBRARY)\n')
+
+mfile.close ()
