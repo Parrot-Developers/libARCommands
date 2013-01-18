@@ -11,7 +11,7 @@ import os
 #################################
 
 LIB_NAME='libARCommands'
-JNI_PACKAGE_NAME='com.parrot.ardsdk.'+LIB_NAME.lower()
+JNI_PACKAGE_NAME='com.parrot.arsdk.'+LIB_NAME.lower()
 
 #Name (and path) of the xml file
 XMLFILENAME='../Xml/commands.xml'
@@ -1763,18 +1763,19 @@ mfile.write ('#' + LIB_NAME + '\n')
 mfile.write ('include $(CLEAR_VARS)\n')
 mfile.write ('\n')
 mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper() + '-prebuilt\n')
-mfile.write ('LOCAL_SRC_FILE := <path/to/' + LIB_NAME.lower() + '[_dbg].a>\n')
+mfile.write ('LOCAL_SRC_FILE := lib/' + LIB_NAME.lower() + '[_dbg].a # CHECK/EDIT THIS\n')
 mfile.write ('\n')
 mfile.write ('include $(PREBUILT_STATIC_LIBRARY)\n')
 mfile.write ('\n')
 mfile.write ('#JNI Wrapper\n')
 mfile.write ('include $(CLEAR_VARS)\n')
 mfile.write ('\n')
-mfile.write ('LOCAL_C_INCLUDES := <path/to/'+ LIB_NAME + '/include/dir> <path/to/libSAL/include/dir>\n')
+mfile.write ('LOCAL_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/../libSAL/include/ # CHECK/EDIT THIS\n')
 mfile.write ('LOCAL_LDLIBD := -llog\n')
-mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper()+'\n')
+mfile.write ('LOCAL_MODULE := ' + LIB_NAME.lower()+'_android\n')
 mfile.write ('LOCAL_SRC_FILES := ' + JNI_CFILE_NAME + '\n')
 mfile.write ('LOCAL_STATIC_LIBRARIES := ' + LIB_NAME.upper() + '-prebuilt\n')
+mfile.write ('LOCAL_SHARED_LIBRARIES := LIBSAL-prebuilt\n')
 mfile.write ('\n')
 mfile.write ('include $(BUILD_SHARED_LIBRARY)\n')
 
