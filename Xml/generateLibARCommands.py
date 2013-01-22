@@ -13,7 +13,8 @@ MYDIR=os.path.dirname(sys.argv[0])
 #################################
 
 LIB_NAME='libARCommands'
-JNI_PACKAGE_NAME='com.parrot.arsdk.'+ LIB_NAME.lower ()
+SDK_PACKAGE_ROOT='com.parrot.arsdk.'
+JNI_PACKAGE_NAME=SDK_PACKAGE_ROOT + LIB_NAME.lower ()
 
 #Name (and path) of the xml file
 XMLFILENAME=MYDIR+'/../Xml/commands.xml'
@@ -1386,7 +1387,9 @@ jfile = open (JNI_JFILE, 'w')
 
 jfile.write ('package '+ JNI_PACKAGE_NAME+ ';\n')
 jfile.write ('\n')
-jfile.write ('public class '+ JNIClassName+ ' {\n')
+jfile.write ('import ' + SDK_PACKAGE_ROOT + 'libsal.SALNativeData;\n')
+jfile.write ('\n')
+jfile.write ('public class '+ JNIClassName+ ' implements SALNativeData {\n')
 jfile.write ('    private long pdata;\n')
 jfile.write ('    private int dataSize;\n')
 jfile.write ('    private boolean valid;\n')
@@ -1410,7 +1413,7 @@ jfile.write ('    public String toString () {\n')
 jfile.write ('        return "{ pdata : " + pdata + " | dataSize : " + dataSize + " | valid : " + valid + " | fromArray : " + createdFromArray + " }";\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
-jfile.write ('    public void close () {\n')
+jfile.write ('    public void dispose () {\n')
 jfile.write ('        if (0 != pdata) {\n')
 jfile.write ('            freeData (pdata, createdFromArray);\n')
 jfile.write ('            pdata = 0;\n')
@@ -1421,7 +1424,7 @@ jfile.write ('        }\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
 jfile.write ('    public void finalize () {\n')
-jfile.write ('        close ();\n')
+jfile.write ('        dispose ();\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
 jfile.write ('    public byte [] getData () {\n')
@@ -1454,7 +1457,7 @@ for cl in allClassesNames:
                 jfile.write (', ')
             jfile.write (jargT+ ' '+ argN)
         jfile.write (') {\n')
-        jfile.write ('        close ();\n')
+        jfile.write ('        dispose ();\n')
         jfile.write ('        valid = nativeSet'+ cl.capitalize () + cmd.capitalize () + ' (')
         first = 1
         for argN in ANList:
