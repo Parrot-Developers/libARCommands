@@ -2,6 +2,8 @@ from xml.dom.minidom import parseString
 import sys
 import os
 
+MYDIR=os.path.dirname(sys.argv[0])
+
 #################################
 # CONFIGURATION :               #
 #################################
@@ -11,19 +13,19 @@ import os
 #################################
 
 LIB_NAME='libARCommands'
-JNI_PACKAGE_NAME='com.parrot.arsdk.'+LIB_NAME.lower()
+JNI_PACKAGE_NAME='com.parrot.arsdk.'+ LIB_NAME.lower ()
 
 #Name (and path) of the xml file
-XMLFILENAME='../Xml/commands.xml'
+XMLFILENAME=MYDIR+'/../Xml/commands.xml'
 
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCommandsId.h'
 
 #Name of the output public header containing encoder helpers
-COMMANDSGEN_HFILE_NAME=LIB_NAME+'/ARCommandsGen.h'
+COMMANDSGEN_HFILE_NAME=LIB_NAME+ '/ARCommandsGen.h'
 
 #Name of the output public header containing decoder helpers
-COMMANDSDEC_HFILE_NAME=LIB_NAME+'/ARCommandsDec.h'
+COMMANDSDEC_HFILE_NAME=LIB_NAME+ '/ARCommandsDec.h'
 
 #Name of the output C file containing encoder helpers
 COMMANDSGEN_CFILE_NAME='ARCommandsGen.c'
@@ -47,67 +49,67 @@ JNI_CFILE_NAME='ARCommandsJNI.c'
 JNI_JFILE_NAME='ARCommand.java'
 
 #Name of the JNI JAVA Interfaces files (DO NOT MODIFY)
-JAVA_INTERFACES_FILES_NAME=LIB_NAME+'*Listener.java'
+JAVA_INTERFACES_FILES_NAME=LIB_NAME+ '*Listener.java'
 
 #Name of the JNI-Android Makefile (DO NOT MODIFY)
 JNI_MAKEFILE_NAME='Android.mk'
 
 #Relative path of SOURCE dir
-SRC_DIR='../Sources/'
+SRC_DIR=MYDIR+'/../Sources/'
 
 #Relative path of INCLUDES dir
-INC_DIR='../Includes/'
+INC_DIR=MYDIR+'/../Includes/'
 
 #Relative path of TESTBENCH dir
-TB__DIR='../TestBench/'
+TB__DIR=MYDIR+'/../TestBench/'
 
 #Relative path of unix-like (Linux / os-x) TESTBENCH dir
-LIN_TB_DIR=TB__DIR+'linux/'
+LIN_TB_DIR=TB__DIR+ 'linux/'
 
 #Relative path of multiplatform code for testbenches
-COM_TB_DIR=TB__DIR+'common/'
+COM_TB_DIR=TB__DIR+ 'common/'
 
 #Relative path of JNI dir
 JNI_DIR="../JNI/"
 
 #Relative path of JNI/C dir
-JNIC_DIR=JNI_DIR+'c/'
+JNIC_DIR=JNI_DIR+ 'c/'
 
 #Relative path of JNI/Java dir
-JNIJ_DIR=JNI_DIR+'java/'
+JNIJ_DIR=JNI_DIR+ 'java/'
 
 ##### END OF CONFIG #####
 
 GENERATED_FILES = []
-COMMANDSID_HFILE=SRC_DIR+COMMANDSID_HFILE_NAME
+COMMANDSID_HFILE=SRC_DIR+ COMMANDSID_HFILE_NAME
 GENERATED_FILES.append (COMMANDSID_HFILE)
-COMMANDSGEN_HFILE=INC_DIR+COMMANDSGEN_HFILE_NAME
+COMMANDSGEN_HFILE=INC_DIR+ COMMANDSGEN_HFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_HFILE)
-COMMANDSGEN_CFILE=SRC_DIR+COMMANDSGEN_CFILE_NAME
+COMMANDSGEN_CFILE=SRC_DIR+ COMMANDSGEN_CFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_CFILE)
-COMMANDSDEC_HFILE=INC_DIR+COMMANDSDEC_HFILE_NAME
+COMMANDSDEC_HFILE=INC_DIR+ COMMANDSDEC_HFILE_NAME
 GENERATED_FILES.append (COMMANDSDEC_HFILE)
-COMMANDSDEC_CFILE=SRC_DIR+COMMANDSDEC_CFILE_NAME
+COMMANDSDEC_CFILE=SRC_DIR+ COMMANDSDEC_CFILE_NAME
 GENERATED_FILES.append (COMMANDSDEC_CFILE)
-TB_CFILE=COM_TB_DIR+TB_CFILE_NAME
+TB_CFILE=COM_TB_DIR+ TB_CFILE_NAME
 GENERATED_FILES.append (TB_CFILE)
-TB_HFILE=COM_TB_DIR+TB_HFILE_NAME
+TB_HFILE=COM_TB_DIR+ TB_HFILE_NAME
 GENERATED_FILES.append (TB_HFILE)
-TB_LIN_CFILE=LIN_TB_DIR+TB_LIN_CFILE_NAME
+TB_LIN_CFILE=LIN_TB_DIR+ TB_LIN_CFILE_NAME
 GENERATED_FILES.append (TB_LIN_CFILE)
-JNI_CFILE=JNIC_DIR+JNI_CFILE_NAME
+JNI_CFILE=JNIC_DIR+ JNI_CFILE_NAME
 GENERATED_FILES.append (JNI_CFILE)
-JNI_JFILE=JNIJ_DIR+JNI_JFILE_NAME
+JNI_JFILE=JNIJ_DIR+ JNI_JFILE_NAME
 GENERATED_FILES.append (JNI_JFILE)
-JNI_MAKEFILE=JNIC_DIR+JNI_MAKEFILE_NAME
+JNI_MAKEFILE=JNIC_DIR+ JNI_MAKEFILE_NAME
 GENERATED_FILES.append (JNI_MAKEFILE)
-JAVA_INTERFACES_FILES=JNIJ_DIR+JAVA_INTERFACES_FILES_NAME
+JAVA_INTERFACES_FILES=JNIJ_DIR+ JAVA_INTERFACES_FILES_NAME
 
 
-COMMANDSID_DEFINE='_'+COMMANDSID_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
-COMMANDSDEC_DEFINE='_'+COMMANDSDEC_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
-COMMANDSGEN_DEFINE='_'+COMMANDSGEN_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
-TB_DEFINE='_'+TB_HFILE_NAME.upper().replace('/', '_').replace('.', '_')+'_'
+COMMANDSID_DEFINE='_'+ COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSDEC_DEFINE='_'+ COMMANDSDEC_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSGEN_DEFINE='_'+ COMMANDSGEN_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+TB_DEFINE='_'+ TB_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 
 #XML to C type conversion
 XMLTYPES = ['u8',       'i8',
@@ -134,10 +136,10 @@ SZETYPES = ['U8',       'U8',
             'U64',      'U64',
             'Float',    'Double',
             'String']
-CREADERS = ['read8FromBuffer',     '(int8_t)read8FromBuffer',
-            'read16FromBuffer',    '(int16_t)read16FromBuffer',
-            'read32FromBuffer',    '(int32_t)read32FromBuffer',
-            'read64FromBuffer',    '(int64_t)read64FromBuffer',
+CREADERS = ['read8FromBuffer',     ' (int8_t)read8FromBuffer',
+            'read16FromBuffer',    ' (int16_t)read16FromBuffer',
+            'read32FromBuffer',    ' (int32_t)read32FromBuffer',
+            'read64FromBuffer',    ' (int64_t)read64FromBuffer',
             'readFloatFromBuffer', 'readDoubleFromBuffer',
             'readStringFromBuffer']
 # No unsigned types in java, so use signed types everywhere
@@ -160,32 +162,32 @@ JNITYPES  = ['jbyte',    'jbyte',
              'jfloat',   'jdouble',
              'jstring']
 
-def xmlToC(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToC (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return CTYPES [xmlIndex]
 
-def xmlToCwithConst(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToCwithConst (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return CTYPES_WC [xmlIndex]
 
-def xmlToSize(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToSize (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return SZETYPES [xmlIndex]
 
-def xmlToReader(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToReader (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return CREADERS [xmlIndex]
 
-def xmlToJava(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToJava (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return JAVATYPES [xmlIndex]
 
-def xmlToJavaSig(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToJavaSig (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return JAVASIG [xmlIndex]
 
-def xmlToJni(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToJni (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return JNITYPES [xmlIndex]
 
 #Sample args for testbench
@@ -202,12 +204,12 @@ PRINTFF    = ['%u',   '%d',
               '%f',   '%f',
               '%s']
 
-def xmlToSample(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToSample (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return SAMPLEARGS [xmlIndex]
 
-def xmlToPrintf(typ):
-    xmlIndex = XMLTYPES.index(typ)
+def xmlToPrintf (typ):
+    xmlIndex = XMLTYPES.index (typ)
     return PRINTFF [xmlIndex]
 
 
@@ -231,7 +233,7 @@ if 2 <= len (sys.argv):
 if 2 <= len (sys.argv):
     if "-dname" == sys.argv[1]:
         print SRC_DIR,
-        print INC_DIR+LIB_NAME,
+        print INC_DIR+ LIB_NAME,
         print INC_DIR,
         print LIN_TB_DIR,
         print COM_TB_DIR,
@@ -252,23 +254,23 @@ if 2 <= len (sys.argv):
 
 
 if not os.path.exists (SRC_DIR):
-    os.mkdir(SRC_DIR)
+    os.mkdir (SRC_DIR)
 if not os.path.exists (INC_DIR):
-    os.mkdir(INC_DIR)
-if not os.path.exists (INC_DIR+LIB_NAME):
-    os.mkdir(INC_DIR+LIB_NAME)
+    os.mkdir (INC_DIR)
+if not os.path.exists (INC_DIR+ LIB_NAME):
+    os.mkdir (INC_DIR+ LIB_NAME)
 if not os.path.exists (TB__DIR):
-    os.mkdir(TB__DIR)
+    os.mkdir (TB__DIR)
 if not os.path.exists (LIN_TB_DIR):
-    os.mkdir(LIN_TB_DIR)
+    os.mkdir (LIN_TB_DIR)
 if not os.path.exists (COM_TB_DIR):
-    os.mkdir(COM_TB_DIR)
+    os.mkdir (COM_TB_DIR)
 if not os.path.exists (JNI_DIR):
-    os.mkdir(JNI_DIR)
+    os.mkdir (JNI_DIR)
 if not os.path.exists (JNIC_DIR):
-    os.mkdir(JNIC_DIR)
+    os.mkdir (JNIC_DIR)
 if not os.path.exists (JNIJ_DIR):
-    os.mkdir(JNIJ_DIR)
+    os.mkdir (JNIJ_DIR)
 
 #################################
 # 1ST PART :                    #
@@ -297,14 +299,14 @@ argTypesByClassAndCommand = []
 # List of all arg comment arrays (for each class / command)
 argCommentsByClassAndCommand = []
 
-classes = xmlfile.getElementsByTagName('class')
+classes = xmlfile.getElementsByTagName ('class')
 for cmdclass in classes:
     classname = cmdclass.attributes["name"].nodeValue
     classcommArrayUnstripped = cmdclass.firstChild.data.splitlines ()
     classcommArray = []
     for classComm in classcommArrayUnstripped:
         stripName = classComm.strip ()
-        if len(stripName) != 0:
+        if len (stripName) != 0:
             classcommArray.append (stripName)
     allClassesNames.append (classname)
     allClassesComments.append (classcommArray)
@@ -313,7 +315,7 @@ for cmdclass in classes:
     ANCurrClass = []
     ATCurrClass = []
     ACCurrClass = []
-    commands = cmdclass.getElementsByTagName('cmd')
+    commands = cmdclass.getElementsByTagName ('cmd')
     for command in commands:
         commandname = command.attributes["name"].nodeValue
         commandcommArrayUnstripped = command.firstChild.data.splitlines ()
@@ -327,13 +329,13 @@ for cmdclass in classes:
         ANCurrCommand = []
         ATCurrCommand = []
         ACCurrCommand = []
-        args = command.getElementsByTagName('arg')
+        args = command.getElementsByTagName ('arg')
         for arg in args:
             argName = arg.attributes["name"].nodeValue
             ANCurrCommand.append (argName)
             argType = arg.attributes["type"].nodeValue
             ATCurrCommand.append (argType)
-            argCommArrayUnstripped = arg.firstChild.data.splitlines()
+            argCommArrayUnstripped = arg.firstChild.data.splitlines ()
             argCommArray = []
             for argComm in argCommArrayUnstripped:
                 stripName = argComm.strip ()
@@ -352,7 +354,7 @@ for cmdclass in classes:
 """
 print 'Commands parsed:'
 for cl in allClassesNames:
-    cIndex = allClassesNames.index(cl)
+    cIndex = allClassesNames.index (cl)
     print '-> ' + cl
     print '   /* '
     for classComm in allClassesComments[cIndex]:
@@ -361,7 +363,7 @@ for cl in allClassesNames:
     cmdList = commandsNameByClass[cIndex]
     cmdCommList = commandsCommentsByClass[cIndex]
     for cmd in cmdList:
-        cmIndex = cmdList.index(cmd)
+        cmIndex = cmdList.index (cmd)
         print ' --> ' + cmd
         print '     /* '
         for cmdComm in cmdCommList[cmIndex]:
@@ -371,7 +373,7 @@ for cl in allClassesNames:
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
         ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
         for argN in ANList:
-            aIndex = ANList.index(argN)
+            aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             print '   (' + argT + ' ' + argN + ')'
             print '    /* '
@@ -402,8 +404,8 @@ hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
 hfile.write ('\n')
-hfile.write ('#ifndef '+COMMANDSID_DEFINE+'\n')
-hfile.write ('#define '+COMMANDSID_DEFINE+' (1)\n')
+hfile.write ('#ifndef '+ COMMANDSID_DEFINE+ '\n')
+hfile.write ('#define '+ COMMANDSID_DEFINE+ ' (1)\n')
 hfile.write ('\n')
 hfile.write ('typedef enum {\n')
 first = 1
@@ -434,7 +436,7 @@ for cl in allClassesNames:
     hfile.write ('\n')
 
 hfile.write ('\n')
-hfile.write ('#endif /* '+COMMANDSID_DEFINE+' */\n')
+hfile.write ('#endif /* '+ COMMANDSID_DEFINE+ ' */\n')
 
 hfile.close ()
 
@@ -452,8 +454,8 @@ hfile.write (' * @brief libARCommands encoder header.\n')
 hfile.write (' * This file contains all declarations needed to encode commands\n')
 hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
-hfile.write ('#ifndef '+COMMANDSGEN_DEFINE+'\n')
-hfile.write ('#define '+COMMANDSGEN_DEFINE+'\n')
+hfile.write ('#ifndef '+ COMMANDSGEN_DEFINE+ '\n')
+hfile.write ('#define '+ COMMANDSGEN_DEFINE+ '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
@@ -476,7 +478,7 @@ for cl in allClassesNames:
                 first = 0
             else:
                 hfile.write (' * ' + comm + '\n')
-        hfile.write (' * @warning This function allocate memory. You need to call libARCommandsFree() on the buffer pointer !\n')
+        hfile.write (' * @warning This function allocate memory. You need to call libARCommandsFree () on the buffer pointer !\n')
         hfile.write (' * @param buffLen pointer to an integer that will contain the size of the allocated command\n')
         for argN in ANList:
             ACListCurrArg = ACList [ANList.index (argN)]
@@ -484,10 +486,10 @@ for cl in allClassesNames:
                 hfile.write (' * @param ' + argN + ' ' + argC + '\n')
         hfile.write (' * @return Pointer to the command buffer (NULL if any error occured)\n')
         hfile.write (' */\n')
-        hfile.write ('uint8_t *ARCommandsGenerate' + cl.capitalize() + cmd.capitalize() + ' (int32_t *buffLen')
+        hfile.write ('uint8_t *ARCommandsGenerate' + cl.capitalize () + cmd.capitalize () + ' (int32_t *buffLen')
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
-            hfile.write (', ' + xmlToCwithConst(argT) + ' ' + argN)
+            hfile.write (', ' + xmlToCwithConst (argT) + ' ' + argN)
         hfile.write (');\n')
     hfile.write ('\n')
 
@@ -498,7 +500,7 @@ hfile.write (' */\n')
 hfile.write ('void ARCommandsFree (uint8_t **cmdBuf);\n')
 hfile.write ('\n')
 
-hfile.write ('#endif /* '+COMMANDSGEN_DEFINE+' */\n')
+hfile.write ('#endif /* '+ COMMANDSGEN_DEFINE+ ' */\n')
 
 hfile.close ()
 
@@ -523,8 +525,8 @@ cfile.write ('#include <config.h>\n')
 cfile.write ('#include <inttypes.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
-cfile.write ('#include <'+COMMANDSGEN_HFILE_NAME+'>\n')
-cfile.write ('#include <'+COMMANDSID_HFILE_NAME+'>\n')
+cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
+cfile.write ('#include <'+ COMMANDSID_HFILE_NAME+ '>\n')
 cfile.write ('#include <libSAL/endianness.h>\n')
 cfile.write ('\n')
 cfile.write ('/*\n')
@@ -555,7 +557,7 @@ cfile.write ('            *buffer = newBuf;\n')
 cfile.write ('            *buffCap = newSize;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
-cfile.write ('    uint8_t *buffptr = (uint8_t *)&((*buffer) [oldOffset]);\n')
+cfile.write ('    uint8_t *buffptr = (uint8_t *)& ((*buffer) [oldOffset]);\n')
 cfile.write ('    uint8_t localVal = newVal;\n')
 cfile.write ('    memcpy (buffptr, &localVal, sizeof (localVal));\n')
 cfile.write ('    return oldOffset + sizeof (localVal);\n')
@@ -583,7 +585,7 @@ cfile.write ('            *buffer = newBuf;\n')
 cfile.write ('            *buffCap = newSize;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
-cfile.write ('    uint16_t *buffptr = (uint16_t *)&((*buffer) [oldOffset]);\n')
+cfile.write ('    uint16_t *buffptr = (uint16_t *)& ((*buffer) [oldOffset]);\n')
 cfile.write ('    uint16_t localVal = htods (newVal);\n')
 cfile.write ('    memcpy (buffptr, &localVal, sizeof (localVal));\n')
 cfile.write ('    return oldOffset + sizeof (localVal);\n')
@@ -611,7 +613,7 @@ cfile.write ('            *buffer = newBuf;\n')
 cfile.write ('            *buffCap = newSize;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
-cfile.write ('    uint32_t *buffptr = (uint32_t *)&((*buffer) [oldOffset]);\n')
+cfile.write ('    uint32_t *buffptr = (uint32_t *)& ((*buffer) [oldOffset]);\n')
 cfile.write ('    uint32_t localVal = htodl (newVal);\n')
 cfile.write ('    memcpy (buffptr, &localVal, sizeof (localVal));\n')
 cfile.write ('    return oldOffset + sizeof (localVal);\n')
@@ -639,7 +641,7 @@ cfile.write ('            *buffer = newBuf;\n')
 cfile.write ('            *buffCap = newSize;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
-cfile.write ('    uint64_t *buffptr = (uint64_t *)&((*buffer) [oldOffset]);\n')
+cfile.write ('    uint64_t *buffptr = (uint64_t *)& ((*buffer) [oldOffset]);\n')
 cfile.write ('    uint64_t localVal = htodll (newVal);\n')
 cfile.write ('    memcpy (buffptr, &localVal, sizeof (localVal));\n')
 cfile.write ('    return oldOffset + sizeof (localVal);\n')
@@ -667,7 +669,7 @@ cfile.write ('            *buffer = newBuf;\n')
 cfile.write ('            *buffCap = newSize;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
-cfile.write ('    char *buffptr = (char *)&((*buffer) [oldOffset]);\n')
+cfile.write ('    char *buffptr = (char *)& ((*buffer) [oldOffset]);\n')
 cfile.write ('    strcpy (buffptr, newVal);\n')
 cfile.write ('    return oldOffset + strlen (newVal) + 1;\n')
 cfile.write ('}\n')
@@ -676,14 +678,14 @@ cfile.write ('// Add a float to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
 cfile.write ('int32_t addFloatToBuffer (uint8_t **buffer, float newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
-cfile.write ('    return addU32ToBuffer (buffer, *(uint32_t *)&newVal, oldOffset, buffCap);\n')
+cfile.write ('    return addU32ToBuffer (buffer, * (uint32_t *)&newVal, oldOffset, buffCap);\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('// Add a double to the buffer (auto expand buffer if needed)\n')
 cfile.write ('// Return -1 and set buffCap to zero if a realloc fails\n')
 cfile.write ('int32_t addDoubleToBuffer (uint8_t **buffer, double newVal, int32_t oldOffset, int32_t *buffCap)\n')
 cfile.write ('{\n')
-cfile.write ('    return addU64ToBuffer (buffer, *(uint64_t *)&newVal, oldOffset, buffCap);\n')
+cfile.write ('    return addU64ToBuffer (buffer, * (uint64_t *)&newVal, oldOffset, buffCap);\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 for cl in allClassesNames:
@@ -692,12 +694,12 @@ for cl in allClassesNames:
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
         cmdIndex = cmdList.index (cmd)
-        cfile.write ('uint8_t *ARCommandsGenerate' +  cl.capitalize() + cmd.capitalize() + ' (int32_t *buffLen')
+        cfile.write ('uint8_t *ARCommandsGenerate' +  cl.capitalize () + cmd.capitalize () + ' (int32_t *buffLen')
         ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
-            cfile.write (', ' + xmlToCwithConst(argT) + ' ' + argN)
+            cfile.write (', ' + xmlToCwithConst (argT) + ' ' + argN)
         cfile.write (')\n')
         cfile.write ('{\n')
         cfile.write ('    uint8_t *buffer = NULL;\n')
@@ -716,7 +718,7 @@ for cl in allClassesNames:
         cfile.write ('    // Write class header\n')
         cfile.write ('    if (1 == noError)\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, COMMAND_CLASS_' + cl.upper() + ', currIndexInBuffer, &currBufferSize);\n')
+        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, COMMAND_CLASS_' + cl.upper () + ', currIndexInBuffer, &currBufferSize);\n')
         cfile.write ('        if (-1 == currIndexInBuffer)\n')
         cfile.write ('        {\n')
         cfile.write ('            noError = 0;\n')
@@ -725,7 +727,7 @@ for cl in allClassesNames:
         cfile.write ('    // Write id header\n')
         cfile.write ('    if (1 == noError)\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, ' + cl.upper () + '_CMD_' + cmd.upper() + ', currIndexInBuffer, &currBufferSize);\n')
+        cfile.write ('        currIndexInBuffer = addU16ToBuffer (&buffer, ' + cl.upper () + '_CMD_' + cmd.upper () + ', currIndexInBuffer, &currBufferSize);\n')
         cfile.write ('        if (-1 == currIndexInBuffer)\n')
         cfile.write ('        {\n')
         cfile.write ('            noError = 0;\n')
@@ -779,13 +781,13 @@ hfile.write (' * @brief libARCommands decoder header.\n')
 hfile.write (' * This file contains all declarations needed to decode commands\n')
 hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
-hfile.write ('#ifndef '+COMMANDSDEC_DEFINE+'\n')
-hfile.write ('#define '+COMMANDSDEC_DEFINE+'\n')
+hfile.write ('#ifndef '+ COMMANDSDEC_DEFINE+ '\n')
+hfile.write ('#define '+ COMMANDSDEC_DEFINE+ '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
 hfile.write ('/**\n')
-hfile.write (' * @brief Error codes for libARCommandsDecodeBuffer() function\n')
+hfile.write (' * @brief Error codes for libARCommandsDecodeBuffer () function\n')
 hfile.write (' **/\n')
 hfile.write ('typedef enum {\n')
 hfile.write ('    ARCOMMANDS_COMMANDSDEC_NOERROR = 0, ///< No error occured\n')
@@ -818,7 +820,7 @@ for cl in allClassesNames:
         hfile.write ('\n/**\n')
         hfile.write (' * @brief callback type for the command ' + cl + '.' + cmd + '\n')
         hfile.write (' */\n')
-        hfile.write ('typedef void (*ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback) (')
+        hfile.write ('typedef void (*ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback) (')
         first = 1
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
@@ -826,7 +828,7 @@ for cl in allClassesNames:
                 first = 0
             else:
                 hfile.write (', ')
-            hfile.write (xmlToC(argT) + ' ' + argN)
+            hfile.write (xmlToC (argT) + ' ' + argN)
         if 0 == first:
             hfile.write (', ')
         hfile.write ('void *custom);\n')
@@ -835,10 +837,10 @@ for cl in allClassesNames:
         hfile.write (' * @param callback new callback for the command ' + cl + '.' + cmd + '\n')
         hfile.write (' * @param custom pointer that will be passed to all calls to the callback\n')
         hfile.write (' */\n')
-        hfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback, void *custom);\n')
+        hfile.write ('void ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback (ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback callback, void *custom);\n')
     hfile.write ('\n')
 
-hfile.write ('#endif /* '+COMMANDSDEC_DEFINE+' */\n')
+hfile.write ('#endif /* '+ COMMANDSDEC_DEFINE+ ' */\n')
 
 hfile.close ()
 
@@ -863,8 +865,8 @@ cfile.write ('#include <config.h>\n')
 cfile.write ('#include <inttypes.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
-cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
-cfile.write ('#include <'+COMMANDSID_HFILE_NAME+'>\n')
+cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
+cfile.write ('#include <'+ COMMANDSID_HFILE_NAME+ '>\n')
 cfile.write ('#include <libSAL/endianness.h>\n')
 cfile.write ('#include <libSAL/mutex.h>\n')
 cfile.write ('\n')
@@ -994,7 +996,7 @@ cfile.write ('    int newOffset = *offset;\n')
 cfile.write ('    int str_len = 0;\n')
 cfile.write ('    while (newOffset < capacity && \'\\0\' != (char) buffer [newOffset])\n')
 cfile.write ('    {\n')
-cfile.write ('        str_len++;\n');
+cfile.write ('        str_len++ ;\n');
 cfile.write ('        newOffset += sizeof (char);\n');
 cfile.write ('    }\n')
 cfile.write ('    if (newOffset == capacity)\n')
@@ -1038,9 +1040,9 @@ for cl in allClassesNames:
         ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
-        cfile.write ('static ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback ' + cl + cmd.capitalize() + 'Cb = NULL;\n')
-        cfile.write ('static void *' + cl + cmd.capitalize() + 'Custom = NULL;\n')
-        cfile.write ('void ARCommandsSet' + cl.capitalize() + cmd.capitalize() + 'Callback (ARCommands' + cl.capitalize() + cmd.capitalize() + 'Callback callback, void *custom)\n')
+        cfile.write ('static ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback ' + cl + cmd.capitalize () + 'Cb = NULL;\n')
+        cfile.write ('static void *' + cl + cmd.capitalize () + 'Custom = NULL;\n')
+        cfile.write ('void ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback (ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback callback, void *custom)\n')
         cfile.write ('{\n')
         cfile.write ('    if (1 == ARCommandsDecInit ())\n')
         cfile.write ('    {\n')
@@ -1104,12 +1106,12 @@ for cl in allClassesNames:
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         cfile.write ('            case ' + cl.upper () + '_CMD_' + cmd.upper () + ':\n')
         cfile.write ('            {\n')
-        CBNAME=cl+cmd.capitalize()+'Cb'
-        LOCCB='_'+CBNAME
+        CBNAME=cl+ cmd.capitalize () + 'Cb'
+        LOCCB='_'+ CBNAME
         CBTYPE='ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback'
         cfile.write ('                sal_mutex_lock (&clbMutex);\n')
         cfile.write ('                ' + CBTYPE + ' ' + LOCCB + ' = ' + CBNAME + ';\n')
-        cfile.write ('                void *cbCustom = '+cl+cmd.capitalize()+'Custom;\n')
+        cfile.write ('                void *cbCustom = '+ cl+ cmd.capitalize () + 'Custom;\n')
         cfile.write ('                sal_mutex_unlock (&clbMutex);\n')
         cfile.write ('                if (NULL != ' + LOCCB + ')\n')
         cfile.write ('                {\n')
@@ -1125,7 +1127,7 @@ for cl in allClassesNames:
             argT = ATList [aIndex]
             cfile.write ('                    if (ARCOMMANDS_COMMANDSDEC_NOERROR == retVal)\n')
             cfile.write ('                    {\n')
-            cfile.write ('                        ' + argN + ' = ' + xmlToReader(argT) + '(buffer, buffLen, &_offset, &_error);\n')
+            cfile.write ('                        ' + argN + ' = ' + xmlToReader (argT) + ' (buffer, buffLen, &_offset, &_error);\n')
             cfile.write ('                        if (1 == _error)\n')
             cfile.write ('                            retVal = ARCOMMANDS_COMMANDSDEC_NOTENOUGHDATA;\n')
             cfile.write ('                    }\n')
@@ -1192,8 +1194,8 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <'+COMMANDSGEN_HFILE_NAME+'>\n')
-cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
+cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
+cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
 cfile.write ('#include <libSAL/print.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
@@ -1221,21 +1223,21 @@ for cl in allClassesNames:
             cfile.write (', ')
         cfile.write ('void *custom)\n')
         cfile.write ('{\n')
-        cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
+        cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+ TB_TAG+ '", "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
-            cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "' + argN + ' value : <' + xmlToPrintf(argT) + '>\\n", ' + argN + ');\n')
+            cfile.write ('    SAL_PRINT (PRINT_WARNING, "'+ TB_TAG+ '", "' + argN + ' value : <' + xmlToPrintf (argT) + '>\\n", ' + argN + ');\n')
             if "string" == argT:
                 cfile.write ('    if (0 != strcmp (' + xmlToSample (argT) + ', ' + argN + '))\n')
             else:
                 cfile.write ('    if (' + xmlToSample (argT) + ' != ' + argN + ')\n')
             cfile.write ('    {\n')
             if "string" == argT:
-                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample(argT) + ');\n')
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+ TB_TAG+ '", "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample (argT) + ');\n')
             else:
-                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "BAD ARG VALUE !!! --> Expected <' + xmlToSample(argT) + '>\\n");\n')
-            cfile.write ('        errcount++;\n')
+                cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+ TB_TAG+ '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (argT) + '>\\n");\n')
+            cfile.write ('        errcount++ ;\n')
             cfile.write ('    }\n')
         cfile.write ('}\n');
 
@@ -1247,7 +1249,7 @@ for cl in allClassesNames:
     clIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
-        cfile.write ('    ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback ((ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback) ' + cl + cmd.capitalize () + 'Cb, (void *)cbCustom++);\n')
+        cfile.write ('    ARCommandsSet' + cl.capitalize () + cmd.capitalize () + 'Callback ( (ARCommands' + cl.capitalize () + cmd.capitalize () + 'Callback) ' + cl + cmd.capitalize () + 'Cb, (void *)cbCustom++ );\n')
 cfile.write ('}\n')
 
 cfile.write ('\n')
@@ -1263,24 +1265,24 @@ for cl in allClassesNames:
     cmdList = commandsNameByClass [clIndex]
     for cmd in cmdList:
         cmdIndex = cmdList.index (cmd)
-        cfile.write ('    res = ARCommandsGenerate' + cl.capitalize() + cmd.capitalize() + ' (&resSize')
+        cfile.write ('    res = ARCommandsGenerate' + cl.capitalize () + cmd.capitalize () + ' (&resSize')
         ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
         ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
         for argN in ANList:
             argT = ATList [ANList.index (argN)]
-            cfile.write (', ' + xmlToSample(argT))
+            cfile.write (', ' + xmlToSample (argT))
         cfile.write (');\n')
         cfile.write ('    if (NULL == res)\n')
         cfile.write ('    {\n')
-        cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "Error while generating command ' + cl.capitalize() + '.' + cmd.capitalize() + '\\n\\n");\n')
-        cfile.write ('        errcount++;\n')
+        cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+ TB_TAG+ '", "Error while generating command ' + cl.capitalize () + '.' + cmd.capitalize () + '\\n\\n");\n')
+        cfile.write ('        errcount++ ;\n')
         cfile.write ('    }\n')
         cfile.write ('    else\n')
         cfile.write ('    {\n')
-        cfile.write ('        SAL_PRINT (PRINT_DEBUG, "'+TB_TAG+'", "Generating command ' + cl.capitalize() + '.' + cmd.capitalize() + ' succeded\\n");\n')
+        cfile.write ('        SAL_PRINT (PRINT_DEBUG, "'+ TB_TAG+ '", "Generating command ' + cl.capitalize () + '.' + cmd.capitalize () + ' succeded\\n");\n')
         cfile.write ('        eARCOMMANDS_COMMANDSDEC_ERRTYPE err;\n')
         cfile.write ('        err = ARCommandsDecodeBuffer (res, resSize);\n')
-        cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "Decode return value : %d\\n\\n", err);\n')
+        cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+ TB_TAG+ '", "Decode return value : %d\\n\\n", err);\n')
         cfile.write ('        ARCommandsFree (&res);\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
@@ -1288,11 +1290,11 @@ for cl in allClassesNames:
 
 cfile.write ('    if (0 == errcount)\n')
 cfile.write ('    {\n')
-cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+TB_TAG+'", "No errors !\\n");\n')
+cfile.write ('        SAL_PRINT (PRINT_WARNING, "'+ TB_TAG+ '", "No errors !\\n");\n')
 cfile.write ('    }\n')
 cfile.write ('    else\n')
 cfile.write ('    {\n')
-cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+TB_TAG+'", "%d errors detected during autoTest\\n", errcount);\n')
+cfile.write ('        SAL_PRINT (PRINT_ERROR, "'+ TB_TAG+ '", "%d errors detected during autoTest\\n", errcount);\n')
 cfile.write ('    }\n')
 cfile.write ('    return errcount;\n')
 cfile.write ('}\n')
@@ -1310,12 +1312,12 @@ hfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
-hfile.write ('#ifndef '+TB_DEFINE+'\n')
-hfile.write ('#define '+TB_DEFINE+' (1)\n')
+hfile.write ('#ifndef '+ TB_DEFINE+ '\n')
+hfile.write ('#define '+ TB_DEFINE+ ' (1)\n')
 hfile.write ('\n')
 hfile.write ('int autoTest ();\n')
 hfile.write ('\n')
-hfile.write ('#endif /* '+TB_DEFINE+' */\n')
+hfile.write ('#endif /* '+ TB_DEFINE+ ' */\n')
 
 hfile.close ()
 
@@ -1330,7 +1332,7 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include "../'+COM_TB_DIR+TB_HFILE_NAME+'"\n')
+cfile.write ('#include "../'+ COM_TB_DIR+ TB_HFILE_NAME+ '"\n')
 cfile.write ('\n')
 cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
@@ -1347,44 +1349,44 @@ cfile.close ()
 
 JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
 
-def interfaceName(cls, cmd):
-    return JNIClassName+cls.capitalize()+cmd.capitalize()+'Listener'
-def interfaceVar(cls, cmd):
-    return '_'+interfaceName(cls,cmd)
-def javaCbName(cls, cmd):
-    return 'on'+cls.capitalize()+cmd.capitalize()+'Update'
+def interfaceName (cls, cmd):
+    return JNIClassName+ cls.capitalize () + cmd.capitalize () + 'Listener'
+def interfaceVar (cls, cmd):
+    return '_'+ interfaceName (cls,cmd)
+def javaCbName (cls, cmd):
+    return 'on'+ cls.capitalize () + cmd.capitalize () + 'Update'
 
 for cl in allClassesNames:
     cIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass[cIndex]
     for cmd in cmdList:
-        cmIndex = cmdList.index(cmd)
-        jfile = open (JNIJ_DIR+interfaceName(cl,cmd)+'.java', 'w')
-        jfile.write ('package '+JNI_PACKAGE_NAME+';\n')
+        cmIndex = cmdList.index (cmd)
+        jfile = open (JNIJ_DIR+ interfaceName (cl,cmd) + '.java', 'w')
+        jfile.write ('package '+ JNI_PACKAGE_NAME+ ';\n')
         jfile.write ('\n')
-        jfile.write ('public interface ' + interfaceName(cl,cmd) + ' {\n')
-        jfile.write ('    void ' + javaCbName(cl,cmd) + ' (')
+        jfile.write ('public interface ' + interfaceName (cl,cmd) + ' {\n')
+        jfile.write ('    void ' + javaCbName (cl,cmd) + ' (')
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
         first = 1
         for argN in ANList:
-            aIndex = ANList.index(argN)
+            aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             jargT = xmlToJava (argT)
             if 1 == first:
                 first = 0
             else:
                 jfile.write (', ')
-            jfile.write (jargT+' '+argN)
+            jfile.write (jargT+ ' '+ argN)
         jfile.write (');\n')
         jfile.write ('}\n')
         jfile.close ()
 
 jfile = open (JNI_JFILE, 'w')
 
-jfile.write ('package '+JNI_PACKAGE_NAME+';\n')
+jfile.write ('package '+ JNI_PACKAGE_NAME+ ';\n')
 jfile.write ('\n')
-jfile.write ('public class '+JNIClassName+' {\n')
+jfile.write ('public class '+ JNIClassName+ ' {\n')
 jfile.write ('    private long pdata;\n')
 jfile.write ('    private int dataSize;\n')
 jfile.write ('    private boolean valid;\n')
@@ -1429,26 +1431,26 @@ jfile.write ('        return nativeDecode (pdata, dataSize);\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
 for cl in allClassesNames:
-    cIndex = allClassesNames.index(cl)
+    cIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass[cIndex]
     for cmd in cmdList:
-        cmIndex = cmdList.index(cmd)
+        cmIndex = cmdList.index (cmd)
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
-        jfile.write ('    public boolean set'+cl.capitalize ()+cmd.capitalize ()+' (')
+        jfile.write ('    public boolean set'+ cl.capitalize () + cmd.capitalize () + ' (')
         first = 1
         for argN in ANList:
-            aIndex = ANList.index(argN)
+            aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             jargT = xmlToJava (argT)
             if 1 == first:
                 first = 0
             else:
                 jfile.write (', ')
-            jfile.write (jargT+' '+argN)
+            jfile.write (jargT+ ' '+ argN)
         jfile.write (') {\n')
         jfile.write ('        close ();\n')
-        jfile.write ('        valid = nativeSet'+cl.capitalize ()+cmd.capitalize ()+' (')
+        jfile.write ('        valid = nativeSet'+ cl.capitalize () + cmd.capitalize () + ' (')
         first = 1
         for argN in ANList:
             if 1 == first:
@@ -1466,10 +1468,10 @@ for cl in allClassesNames:
     cIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass[cIndex]
     for cmd in cmdList:
-        cmIndex = cmdList.index(cmd)
-        jfile.write ('    private static ' + interfaceName(cl,cmd) + ' ' + interfaceVar(cl,cmd) + ' = null;\n')
-        jfile.write ('    public static void set' + cl.capitalize() + cmd.capitalize() + 'Listener (' + interfaceName(cl,cmd) + ' ' + interfaceVar(cl,cmd) + '_PARAM) {\n')
-        jfile.write ('        '+interfaceVar(cl,cmd) + ' = ' + interfaceVar(cl,cmd) + '_PARAM;\n')
+        cmIndex = cmdList.index (cmd)
+        jfile.write ('    private static ' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + ' = null;\n')
+        jfile.write ('    public static void set' + cl.capitalize () + cmd.capitalize () + 'Listener (' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + '_PARAM) {\n')
+        jfile.write ('        '+ interfaceVar (cl,cmd) + ' = ' + interfaceVar (cl,cmd) + '_PARAM;\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
     jfile.write ('\n')
@@ -1480,23 +1482,23 @@ jfile.write ('    private native void freeData (long dataToFree, boolean wasCrea
 jfile.write ('    private native byte [] nativeGetData (long jpdata, int jdataSize);\n')
 jfile.write ('\n')
 for cl in allClassesNames:
-    cIndex = allClassesNames.index(cl)
+    cIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass[cIndex]
     for cmd in cmdList:
-        jfile.write ('    private native boolean nativeSet'+cl.capitalize ()+cmd.capitalize ()+' (')
-        cmIndex = cmdList.index(cmd)
+        jfile.write ('    private native boolean nativeSet'+ cl.capitalize () + cmd.capitalize () + ' (')
+        cmIndex = cmdList.index (cmd)
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
         first = 1
         for argN in ANList:
-            aIndex = ANList.index(argN)
+            aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             jargT = xmlToJava (argT)
             if 1 == first:
                 first = 0
             else:
                 jfile.write (', ')
-            jfile.write (jargT+' '+argN)
+            jfile.write (jargT+ ' '+ argN)
         jfile.write (');\n')
 jfile.write ('}\n')
 
@@ -1504,7 +1506,7 @@ jfile.close ()
 
 cfile = open (JNI_CFILE, 'w')
 
-JNI_FUNC_PREFIX='Java_'+JNI_PACKAGE_NAME.replace ('.', '_')+'_'
+JNI_FUNC_PREFIX='Java_'+ JNI_PACKAGE_NAME.replace ('.', '_') + '_'
 JNI_FIRST_ARGS='JNIEnv *env, jobject thizz'
 
 cfile.write ('/********************************************\n')
@@ -1516,8 +1518,8 @@ cfile.write (' *  - Modify ../../Xml/commands.xml file    *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <'+COMMANDSGEN_HFILE_NAME+'>\n')
-cfile.write ('#include <'+COMMANDSDEC_HFILE_NAME+'>\n')
+cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
+cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
 cfile.write ('#include <jni.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('\n')
@@ -1526,7 +1528,7 @@ cfile.write ('static jfieldID j_dataSize_id = 0;\n')
 cfile.write ('static JavaVM *g_vm = NULL;\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_copyFromArray ('+JNI_FIRST_ARGS+', jbyteArray oldData)\n')
+cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_copyFromArray ('+ JNI_FIRST_ARGS+ ', jbyteArray oldData)\n')
 cfile.write ('{\n')
 cfile.write ('    jboolean valid = JNI_TRUE;\n')
 cfile.write ('    jint len = (*env)->GetArrayLength (env, oldData);\n')
@@ -1566,9 +1568,9 @@ cfile.write ('    return valid;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT void JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_freeData ('+JNI_FIRST_ARGS+', jlong dataToFree, jboolean jcreatedFromArray)\n')
+cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_freeData ('+ JNI_FIRST_ARGS+ ', jlong dataToFree, jboolean jcreatedFromArray)\n')
 cfile.write ('{\n')
-cfile.write ('    uint8_t *c_pdata = (uint8_t *)(intptr_t)dataToFree;\n')
+cfile.write ('    uint8_t *c_pdata = (uint8_t *) (intptr_t)dataToFree;\n')
 cfile.write ('    if (JNI_FALSE == jcreatedFromArray)\n')
 cfile.write ('    {\n')
 cfile.write ('        ARCommandsFree (&c_pdata);\n')
@@ -1580,20 +1582,20 @@ cfile.write ('    }\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jbyteArray JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeGetData ('+JNI_FIRST_ARGS+', jlong jpdata, jint jdataSize)\n')
+cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeGetData ('+ JNI_FIRST_ARGS+ ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    jbyteArray retArray = (*env)->NewByteArray (env, jdataSize);\n')
 cfile.write ('    if (NULL != retArray)\n')
 cfile.write ('    {\n')
-cfile.write ('        (*env)->SetByteArrayRegion(env, retArray, 0, jdataSize, (jbyte *)(intptr_t)jpdata);\n')
+cfile.write ('        (*env)->SetByteArrayRegion (env, retArray, 0, jdataSize, (jbyte *) (intptr_t)jpdata);\n')
 cfile.write ('    }\n')
 cfile.write ('    return retArray;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeDecode ('+JNI_FIRST_ARGS+', jlong jpdata, jint jdataSize)\n')
+cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeDecode ('+ JNI_FIRST_ARGS+ ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
-cfile.write ('    uint8_t *pdata = (uint8_t *)(intptr_t)jpdata;\n')
+cfile.write ('    uint8_t *pdata = (uint8_t *) (intptr_t)jpdata;\n')
 cfile.write ('    eARCOMMANDS_COMMANDSDEC_ERRTYPE err = ARCommandsDecodeBuffer (pdata, jdataSize);\n')
 cfile.write ('    return (ARCOMMANDS_COMMANDSDEC_NOERROR == err) ? JNI_TRUE: JNI_FALSE;\n')
 cfile.write ('}\n')
@@ -1606,12 +1608,12 @@ for cl in allClassesNames:
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
         cfile.write ('JNIEXPORT jboolean JNICALL\n')
-        cfile.write (JNI_FUNC_PREFIX+JNIClassName+'_nativeSet'+cl.capitalize ()+cmd.capitalize ()+' ('+JNI_FIRST_ARGS)
+        cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeSet'+ cl.capitalize () + cmd.capitalize () + ' ('+ JNI_FIRST_ARGS)
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             jargT = xmlToJni (argT)
-            cfile.write (', '+jargT+' '+argN)
+            cfile.write (', '+ jargT+ ' '+ argN)
         cfile.write (')\n')
         cfile.write ('{\n')
         cfile.write ('    jboolean retVal = JNI_TRUE;\n')
@@ -1635,34 +1637,34 @@ for cl in allClassesNames:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             if 'string' == argT:
-                cfile.write ('    const char *c_'+argN+' = (*env)->GetStringUTFChars (env, '+argN+', NULL);\n')
-        cfile.write ('    uint8_t *c_pdata = ARCommandsGenerate'+cl.capitalize ()+cmd.capitalize ()+' (&c_dataSize')
+                cfile.write ('    const char *c_'+ argN+ ' = (*env)->GetStringUTFChars (env, '+ argN+ ', NULL);\n')
+        cfile.write ('    uint8_t *c_pdata = ARCommandsGenerate'+ cl.capitalize () + cmd.capitalize () + ' (&c_dataSize')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             cargT = xmlToC (argT)
             if 'string' == argT:
-                cfile.write (', c_'+argN)
+                cfile.write (', c_'+ argN)
             else:
-                cfile.write (', ('+cargT+')'+argN)
+                cfile.write (', ('+ cargT+ ')'+ argN)
         cfile.write (');\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             if 'string' == argT:
-                cfile.write ('    (*env)->ReleaseStringUTFChars (env, '+argN+', c_'+argN+');\n')
+                cfile.write ('    (*env)->ReleaseStringUTFChars (env, '+ argN+ ', c_'+ argN+ ');\n')
         cfile.write ('    if (NULL == c_pdata)\n')
         cfile.write ('    {\n')
         cfile.write ('        retVal = JNI_FALSE;\n')
         cfile.write ('    }\n')
-        cfile.write ('    (*env)->SetLongField (env, thizz, j_pdata_id, (jlong)(intptr_t)c_pdata);\n')
+        cfile.write ('    (*env)->SetLongField (env, thizz, j_pdata_id, (jlong) (intptr_t)c_pdata);\n')
         cfile.write ('    (*env)->SetIntField (env, thizz, j_dataSize_id, (jint)c_dataSize);\n')
         cfile.write ('    return retVal;\n')
         cfile.write ('}\n')
         cfile.write ('\n')
 
-def cCallbackName(cls,cmd):
-    return LIB_NAME+cls.capitalize()+cmd.capitalize()+'nativeCb'
+def cCallbackName (cls,cmd):
+    return LIB_NAME+ cls.capitalize () + cmd.capitalize () + 'nativeCb'
 
 for cl in allClassesNames:
     cIndex = allClassesNames.index (cl)
@@ -1676,35 +1678,35 @@ for cl in allClassesNames:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             cargT = xmlToC (argT)
-            cfile.write (cargT+' '+argN+', ')
+            cfile.write (cargT+ ' '+ argN+ ', ')
         cfile.write ('void *custom)\n')
         cfile.write ('{\n')
         cfile.write ('    jclass clazz = (jclass)custom;\n')
         cfile.write ('    jint res;\n')
         cfile.write ('    JNIEnv *env = NULL;\n')
-        cfile.write ('    res = (*g_vm)->GetEnv(g_vm, (void **)&env, JNI_VERSION_1_6);\n')
+        cfile.write ('    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);\n')
         cfile.write ('    if (res < 0) { return; }\n')
-        cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID(env, clazz, "' + interfaceVar(cl,cmd) + '", "L'+ JNI_PACKAGE_NAME.replace('.', '/') + '/' + interfaceName(cl,cmd) +';");\n')
+        cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "' + interfaceVar (cl,cmd) + '", "L'+ JNI_PACKAGE_NAME.replace ('.', '/') + '/' + interfaceName (cl,cmd) + ';");\n')
         cfile.write ('    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);\n')
         cfile.write ('    if (NULL == delegate) { return; }\n')
         cfile.write ('\n')
-        cfile.write ('    jclass d_clazz = (*env)->GetObjectClass(env, delegate);\n')
-        cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID(env, d_clazz, "' + javaCbName(cl,cmd) + '", "(')
+        cfile.write ('    jclass d_clazz = (*env)->GetObjectClass (env, delegate);\n')
+        cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "' + javaCbName (cl,cmd) + '", " (')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             sigT = xmlToJavaSig (argT)
-            cfile.write (''+sigT)
+            cfile.write (''+ sigT)
         cfile.write (')V");\n')
-        cfile.write ('    (*env)->DeleteLocalRef(env, d_clazz);\n')
+        cfile.write ('    (*env)->DeleteLocalRef (env, d_clazz);\n')
         cfile.write ('    if (NULL != d_methodid)\n')
         cfile.write ('    {\n')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             if 'string' == argT:
-                cfile.write ('        jstring j_' + argN + ' = (*env)->NewStringUTF(env, ' + argN + ');\n')
-        cfile.write ('        (*env)->CallVoidMethod(env, delegate, d_methodid')
+                cfile.write ('        jstring j_' + argN + ' = (*env)->NewStringUTF (env, ' + argN + ');\n')
+        cfile.write ('        (*env)->CallVoidMethod (env, delegate, d_methodid')
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
@@ -1717,8 +1719,9 @@ for cl in allClassesNames:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
             if 'string' == argT:
-                cfile.write ('        (*env)->DeleteLocalRef(env, j_' + argN + ');\n')
+                cfile.write ('        (*env)->DeleteLocalRef (env, j_' + argN + ');\n')
         cfile.write ('    }\n')
+        cfile.write ('    (*env)->DeleteLocalRef (env, delegate);\n')
         cfile.write ('}\n')
         cfile.write ('\n')
 
@@ -1727,7 +1730,7 @@ cfile.write ('JNI_OnLoad (JavaVM *vm, void *reserved)\n')
 cfile.write ('{\n')
 cfile.write ('    g_vm = vm;\n')
 cfile.write ('    JNIEnv *env = NULL;\n')
-cfile.write ('    if (JNI_OK != (*vm)->GetEnv(vm, (void **)&env, JNI_VERSION_1_6))\n')
+cfile.write ('    if (JNI_OK != (*vm)->GetEnv (vm, (void **)&env, JNI_VERSION_1_6))\n')
 cfile.write ('    {\n')
 cfile.write ('        return -1;\n')
 cfile.write ('    }\n')
@@ -1736,7 +1739,7 @@ cfile.write ('    if (NULL == clazz)\n')
 cfile.write ('    {\n')
 cfile.write ('        return -1;\n')
 cfile.write ('    }\n')
-cfile.write ('    jclass g_class = (*env)->NewGlobalRef(env, clazz);\n')
+cfile.write ('    jclass g_class = (*env)->NewGlobalRef (env, clazz);\n')
 cfile.write ('    if (NULL == g_class)\n')
 cfile.write ('    {\n')
 cfile.write ('        return -1;\n')
@@ -1746,7 +1749,7 @@ for cl in allClassesNames:
     cIndex = allClassesNames.index (cl)
     cmdList = commandsNameByClass[cIndex]
     for cmd in cmdList:
-        cfile.write ('    ARCommandsSet'+cl.capitalize()+cmd.capitalize()+'Callback (' + cCallbackName(cl,cmd) + ', (void *)g_class);\n')
+        cfile.write ('    ARCommandsSet'+ cl.capitalize () + cmd.capitalize () + 'Callback (' + cCallbackName (cl,cmd) + ', (void *)g_class);\n')
     cfile.write ('\n')
 cfile.write ('\n')
 cfile.write ('    return JNI_VERSION_1_6;\n')
@@ -1762,8 +1765,8 @@ mfile.write ('\n')
 mfile.write ('#' + LIB_NAME + '\n')
 mfile.write ('include $(CLEAR_VARS)\n')
 mfile.write ('\n')
-mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper() + '-prebuilt\n')
-mfile.write ('LOCAL_SRC_FILE := lib/' + LIB_NAME.lower() + '[_dbg].a # CHECK/EDIT THIS\n')
+mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper () + '-prebuilt\n')
+mfile.write ('LOCAL_SRC_FILE := lib/' + LIB_NAME.lower () + '[_dbg].a # CHECK/EDIT THIS\n')
 mfile.write ('\n')
 mfile.write ('include $(PREBUILT_STATIC_LIBRARY)\n')
 mfile.write ('\n')
@@ -1772,9 +1775,9 @@ mfile.write ('include $(CLEAR_VARS)\n')
 mfile.write ('\n')
 mfile.write ('LOCAL_C_INCLUDES := $(LOCAL_PATH)/include $(LOCAL_PATH)/../libSAL/include/ # CHECK/EDIT THIS\n')
 mfile.write ('LOCAL_LDLIBD := -llog\n')
-mfile.write ('LOCAL_MODULE := ' + LIB_NAME.lower()+'_android\n')
+mfile.write ('LOCAL_MODULE := ' + LIB_NAME.lower () + '_android\n')
 mfile.write ('LOCAL_SRC_FILES := ' + JNI_CFILE_NAME + '\n')
-mfile.write ('LOCAL_STATIC_LIBRARIES := ' + LIB_NAME.upper() + '-prebuilt\n')
+mfile.write ('LOCAL_STATIC_LIBRARIES := ' + LIB_NAME.upper () + '-prebuilt\n')
 mfile.write ('LOCAL_SHARED_LIBRARIES := LIBSAL-prebuilt\n')
 mfile.write ('\n')
 mfile.write ('include $(BUILD_SHARED_LIBRARY)\n')
