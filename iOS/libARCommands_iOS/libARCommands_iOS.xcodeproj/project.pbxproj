@@ -6,10 +6,15 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libSAL_iOS.xcodeproj; path = ../../../libSAL/iOS/libSAL_iOS/libSAL_iOS.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		3706E5D1169D867A009E32CD = {
 			isa = PBXGroup;
 			children = (
+				370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
