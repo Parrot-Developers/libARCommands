@@ -18,6 +18,13 @@
 			);
 			sourceTree = "<group>";
 		};
+		37E0192116B12C3C00724B7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -53,6 +60,12 @@
 			);
 			mainGroup = 3706E5D1169D867A009E32CD;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 37E0192116B12C3C00724B7C /* Products */;
+					ProjectRef = 370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3706E5D8169D867A009E32CD /* libARCommands_iOS */,
