@@ -25,7 +25,9 @@ rm -f \
     config.status \
     configure \
     libtool \
-    stamp-h1
+    stamp-h1 \
+    libarcommands_dbg.la \
+    libarcommands.la
 
 find .. -name '*~' -delete
 
@@ -37,9 +39,7 @@ rm -rf \
     autom4te.cache \
     *DSYM* \
     config \
-    m4 \
-    libNetWork_dbg.la \
-    libNetWork.la
+    m4
 
 find .. -name '.deps' -exec rm -rf {} \; 2> /dev/null
 

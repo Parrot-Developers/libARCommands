@@ -81,6 +81,13 @@ JNIJ_DIR=JNI_DIR+ 'java/'
 
 ##### END OF CONFIG #####
 
+def ARPrint (msg, noNewLine=0):
+    sys.stdout.write (msg)
+    if 0 == noNewLine:
+        sys.stdout.write ('\n')
+    else:
+        sys.stdout.write (' ')
+
 GENERATED_FILES = []
 COMMANDSID_HFILE=SRC_DIR+ COMMANDSID_HFILE_NAME
 GENERATED_FILES.append (COMMANDSID_HFILE)
@@ -222,9 +229,9 @@ def xmlToPrintf (typ):
 if 2 <= len (sys.argv):
     if "-fname" == sys.argv[1]:
         for fil in GENERATED_FILES:
-            print fil,
-        print JAVA_INTERFACES_FILES,
-        print ''
+            ARPrint (fil, 1)
+        ARPrint (JAVA_INTERFACES_FILES, 1)
+        ARPrint ('')
         sys.exit (0)
 #################################
 # If "-dname" is passed as an   #
@@ -233,15 +240,15 @@ if 2 <= len (sys.argv):
 #################################
 if 2 <= len (sys.argv):
     if "-dname" == sys.argv[1]:
-        print SRC_DIR,
-        print INC_DIR+ LIB_NAME,
-        print INC_DIR,
-        print LIN_TB_DIR,
-        print COM_TB_DIR,
-        print TB__DIR,
-        print JNIJ_DIR,
-        print JNIC_DIR,
-        print JNI_DIR
+        ARPrint (SRC_DIR, 1)
+        ARPrint (INC_DIR+ LIB_NAME, 1)
+        ARPrint (INC_DIR, 1)
+        ARPrint (LIN_TB_DIR, 1)
+        ARPrint (COM_TB_DIR, 1)
+        ARPrint (TB__DIR, 1)
+        ARPrint (JNIJ_DIR, 1)
+        ARPrint (JNIC_DIR, 1)
+        ARPrint (JNI_DIR)
         sys.exit (0)
 #################################
 # If "-nogen" is passed as an   #
@@ -353,34 +360,34 @@ for cmdclass in classes:
     argCommentsByClassAndCommand.append (ACCurrClass)
 
 """
-print 'Commands parsed:'
+ARPrint ('Commands parsed:')
 for cl in allClassesNames:
     cIndex = allClassesNames.index (cl)
-    print '-> ' + cl
-    print '   /* '
+    ARPrint ('-> ' + cl)
+    ARPrint ('   /* ')
     for classComm in allClassesComments[cIndex]:
-        print '    * ' + classComm
-    print '    */'
+        ARPrint ('    * ' + classComm)
+    ARPrint ('    */')
     cmdList = commandsNameByClass[cIndex]
     cmdCommList = commandsCommentsByClass[cIndex]
     for cmd in cmdList:
         cmIndex = cmdList.index (cmd)
-        print ' --> ' + cmd
-        print '     /* '
+        ARPrint (' --> ' + cmd)
+        ARPrint ('     /* ')
         for cmdComm in cmdCommList[cmIndex]:
-            print '      * ' + cmdComm
-        print '      */'
+            ARPrint ('      * ' + cmdComm)
+        ARPrint ('      */')
         ANList = argNamesByClassAndCommand [cIndex][cmIndex]
         ATList = argTypesByClassAndCommand [cIndex][cmIndex]
         ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
         for argN in ANList:
             aIndex = ANList.index (argN)
             argT = ATList [aIndex]
-            print '   (' + argT + ' ' + argN + ')'
-            print '    /* '
+            ARPrint ('   (' + argT + ' ' + argN + ')')
+            ARPrint ('    /* ')
             for argC in ACList [aIndex]:
-                print '     * ' + argC
-            print '     */'
+                ARPrint ('     * ' + argC)
+            ARPrint ('     */')
 """
 
 if "yes" == noGen: # called with "-nogen"
