@@ -30,6 +30,15 @@ else
     CFLAGS+=" -O3"
 fi
 AM_CONDITIONAL([DEBUG_MODE], [test "$debugit" = "yes"])
+_
+##########################################################################
+# Project selection
+##########################################################################
+AC_ARG_WITH([project],
+			[AS_HELP_STRING([--with-project=PROJECT_NAME],
+							[generate commands for the specified project @<:@default=mykonos3@:>@])],
+			[],
+			[with_project=mykonos3])
 
 ##########################################################################
 # Define libraries directories
@@ -107,8 +116,20 @@ AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
 
 # Check for python and run PY script
 AM_PATH_PYTHON(,, AC_MSG_ERROR(Python is required to generate source files for this library))
+
+# Check presence of the input XML file.
+AC_MSG_CHECKING([presence of XML commands file])
+xmlfile="$srcdir/../Xml/""$with_project""_commands.xml"
+if test -f "$xmlfile"; then
+	AC_MSG_RESULT(["$xmlfile"])
+else
+	AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
+Please check the value of the --with-project option or create the file yourself.])
+fi
+
+# Generate source files from XML
 AC_MSG_NOTICE([generating source files from XML description of commands])
-AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -projectname "$with_project"])
 AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file probably contains errors))
 
 # Checks for header files.

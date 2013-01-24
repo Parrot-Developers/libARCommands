@@ -16,8 +16,12 @@ LIB_NAME='libARCommands'
 SDK_PACKAGE_ROOT='com.parrot.arsdk.'
 JNI_PACKAGE_NAME=SDK_PACKAGE_ROOT + LIB_NAME.lower ()
 
+# Default project name
+DEFAULTPROJECTNAME='mykonos3'
+
 #Name (and path) of the xml file
-XMLFILENAME=MYDIR+'/../Xml/commands.xml'
+XMLFILENAME_PREFIX=MYDIR+'/../Xml/'
+XMLFILENAME_SUFFIX='_commands.xml'
 
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCommandsId.h'
@@ -220,26 +224,29 @@ def xmlToPrintf (typ):
     xmlIndex = XMLTYPES.index (typ)
     return PRINTFF [xmlIndex]
 
-
-#################################
-# If "-fname" is passed as an   #
-# argument, just output the     #
-# name of the generated files   #
-#################################
-if 2 <= len (sys.argv):
-    if "-fname" == sys.argv[1]:
+noGen = "no"
+projectName = DEFAULTPROJECTNAME
+args = sys.argv
+args.pop (0)
+while len(args) > 0:
+    a = args.pop (0)
+    #################################
+    # If "-fname" is passed as an   #
+    # argument, just output the     #
+    # name of the generated files   #
+    #################################
+    if a == "-fname":
         for fil in GENERATED_FILES:
             ARPrint (fil, 1)
         ARPrint (JAVA_INTERFACES_FILES, 1)
         ARPrint ('')
         sys.exit (0)
-#################################
-# If "-dname" is passed as an   #
-# argument, just output the     #
-# name of the generated dirs    #
-#################################
-if 2 <= len (sys.argv):
-    if "-dname" == sys.argv[1]:
+    #################################
+    # If "-dname" is passed as an   #
+    # argument, just output the     #
+    # name of the generated dirs    #
+    #################################
+    elif a == "-dname":
         ARPrint (SRC_DIR, 1)
         ARPrint (INC_DIR+ LIB_NAME, 1)
         ARPrint (INC_DIR, 1)
@@ -250,15 +257,23 @@ if 2 <= len (sys.argv):
         ARPrint (JNIC_DIR, 1)
         ARPrint (JNI_DIR)
         sys.exit (0)
-#################################
-# If "-nogen" is passed as an   #
-# argument, don't generate any  #
-# file                          #
-#################################
-noGen="no"
-if 2 <= len (sys.argv):
-    if "-nogen" == sys.argv[1]:
+    #################################
+    # If "-nogen" is passed as an   #
+    # argument, don't generate any  #
+    # file                          #
+    #################################
+    elif a == "-nogen":
         noGen="yes"
+    #################################
+    # If -projectname is specified, #
+    # use its value to set the      #
+    # project name instead of the   #
+    # default one.                  #
+    #################################
+    elif a == "-projectname":
+        projectName = args.pop(0)
+    elif a != "":
+        print("Invalid parameter %s." %(a))
 
 
 if not os.path.exists (SRC_DIR):
@@ -286,7 +301,7 @@ if not os.path.exists (JNIJ_DIR):
 # Read XML file to local arrays #
 # of commands / classes         #
 #################################
-file = open (XMLFILENAME, 'r')
+file = open (XMLFILENAME_PREFIX + projectName + XMLFILENAME_SUFFIX, 'r')
 data = file.read ()
 file.close ()
 
