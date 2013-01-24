@@ -46,12 +46,12 @@ AC_ARG_WITH([project],
 
 # get the directories of libSal
 AC_ARG_WITH([libSalInstall],
-            AS_HELP_STRING([--with-libSalInstall=DIR],[directory of the libSal installation]),
+            AS_HELP_STRING([--with-libSalInstall=DIR],[directory of the libSal installation @<:@default=PREFIX@:>@]),
             [if test x$withval = xno; then
               libSalInstall=""
             else
               libSalInstall="$withval"
-            fi], libSalInstall="")
+            fi], libSalInstall="$prefix")
 
 AC_ARG_WITH([libSalHeader],
             AS_HELP_STRING([--with-libSalHeader=DIR],[directory of the libSal headers]),
