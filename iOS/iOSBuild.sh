@@ -29,7 +29,7 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 	cd $CURDIR
 	if [ -d $PREFIX ]; then
 		cd $PREFIX
-		LIBS=$(find ./lib -name "$LIBNAME_LOWER*")
+		LIBS=$(find ./lib -name "$LIBNAME_LOWER*" 2>/dev/null)
 		for LIBFILE in $LIBS; do
 			rm -f $LIBFILE
 		done

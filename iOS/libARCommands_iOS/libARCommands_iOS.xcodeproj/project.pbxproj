@@ -6,6 +6,16 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		37E910AC16B672E40012E452 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3706E5D8169D867A009E32CD;
+			remoteInfo = libSAL_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libSAL_iOS.xcodeproj; path = ../../../libSAL/iOS/libSAL_iOS/libSAL_iOS.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,6 +47,7 @@
 			buildToolPath = ../iOSBuild.sh;
 			buildWorkingDirectory = "";
 			dependencies = (
+				37E910AD16B672E40012E452 /* PBXTargetDependency */,
 			);
 			name = libARCommands_iOS;
 			passBuildSettingsInEnvironment = 1;
@@ -72,6 +83,14 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXTargetDependency section */
+		37E910AD16B672E40012E452 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libSAL_iOS;
+			targetProxy = 37E910AC16B672E40012E452 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3706E5D9169D867A009E32CD /* Debug */ = {
