@@ -6,7 +6,7 @@ AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(m4)
 
 # automake initialisation and check for minimal automake API version 1.9
-AM_INIT_AUTOMAKE ([foreign -Wall -Werror])
+AM_INIT_AUTOMAKE
 
 # use the C compiler for the following checks
 AC_LANG([C])
