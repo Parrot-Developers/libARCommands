@@ -1,8 +1,33 @@
 from xml.dom.minidom import parseString
 import sys
 import os
+import re
 
 MYDIR=os.path.dirname(sys.argv[0])
+
+#################################
+# Get info from configure.ac    #
+# file                          #
+#################################
+
+def ARPrint (msg, noNewLine=0):
+    sys.stdout.write (msg)
+    if 0 == noNewLine:
+        sys.stdout.write ('\n')
+    else:
+        sys.stdout.write (' ')
+
+configureAcFile = open (MYDIR+'/../Build/configure.ac', 'rb')
+AC_INIT_LINE=configureAcFile.readline ()
+while (not AC_INIT_LINE.startswith ('AC_INIT')) and ('' != AC_INIT_LINE):
+    AC_INIT_LINE=configureAcFile.readline ()
+if '' == AC_INIT_LINE:
+    ARPrint ('Unable to read from configure.ac file !')
+    sys.exit (1)
+
+AC_ARGS=re.findall(r'\[[^]]*\]', AC_INIT_LINE)
+LIB_NAME=AC_ARGS[0].replace ('[', '').replace (']', '')
+LIB_VERSION=AC_ARGS[1].replace ('[', '').replace (']', '')
 
 #################################
 # CONFIGURATION :               #
@@ -12,7 +37,6 @@ MYDIR=os.path.dirname(sys.argv[0])
 # LIB_NAME+'/fileName.h'        #
 #################################
 
-LIB_NAME='libARCommands'
 SDK_PACKAGE_ROOT='com.parrot.arsdk.'
 JNI_PACKAGE_NAME=SDK_PACKAGE_ROOT + LIB_NAME.lower ()
 
@@ -84,13 +108,6 @@ JNIC_DIR=JNI_DIR+ 'c/'
 JNIJ_DIR=JNI_DIR+ 'java/'
 
 ##### END OF CONFIG #####
-
-def ARPrint (msg, noNewLine=0):
-    sys.stdout.write (msg)
-    if 0 == noNewLine:
-        sys.stdout.write ('\n')
-    else:
-        sys.stdout.write (' ')
 
 GENERATED_FILES = []
 COMMANDSID_HFILE=SRC_DIR+ COMMANDSID_HFILE_NAME
@@ -1392,6 +1409,8 @@ for cl in allClassesNames:
         jfile.write ('\n')
         jfile.write ('/**\n')
         jfile.write (' * Interface for the command <code>' + cmd.capitalize () + '</code> of class <code>' + cl.capitalize () + '</code> listener\n')
+        jfile.write (' * @author Parrot (c) 2013\n')
+        jfile.write (' * @version ' + LIB_VERSION + '\n')
         jfile.write (' */\n')
         jfile.write ('public interface ' + interfaceName (cl,cmd) + ' {\n')
         jfile.write ('\n')
@@ -1428,6 +1447,8 @@ jfile.write (' * Java representation of a C ' + JNIClassName + ' object<br>\n')
 jfile.write (' * This class holds either app-generated objects, that are to be sent\n')
 jfile.write (' * to the device, or network-generated objects, that are to be decoded by\n')
 jfile.write (' * the application\n')
+jfile.write (' * @author Parrot (c) 2013\n')
+jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
 jfile.write ('public class '+ JNIClassName+ ' implements SALNativeData {\n')
 jfile.write ('    private long pdata;\n')
@@ -1614,7 +1635,7 @@ for cl in allClassesNames:
         jfile.write ('\n')
         jfile.write ('    /**\n')
         jfile.write ('     * Set the listener for the command <code>' + cmd.capitalize () + '</code> of class <code>' + cl.capitalize () + '</code><br>\n')
-        jfile.write ('     * This function replaces the previous listener\n')
+        jfile.write ('     * Listeners are static to the class, and are not to be set on every object\n')
         jfile.write ('     * @param ' + interfaceVar (cl,cmd) + '_PARAM New listener for the command\n')
         jfile.write ('     */\n')
         jfile.write ('    public static void set' + cl.capitalize () + cmd.capitalize () + 'Listener (' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + '_PARAM) {\n')
