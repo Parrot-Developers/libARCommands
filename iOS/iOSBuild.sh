@@ -40,9 +40,29 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 	exit 0
 fi
 
+# Get latest SDK Available to Xcode
+SDKLIST=$(ls /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/ | grep iPhoneOS)
+LATEST_SDK=""
+LATEST_SDK_MAJ="0"
+LATEST_SDK_MIN="0"
+for SDK in $SDKLIST; do
+	SDKNUM_MAJOR=$(echo $SDK | sed 's:iPhoneOS\([0-9]*\)\..*:\1:')
+	SDKNUM_MINOR=$(echo $SDK | sed 's:iPhoneOS[0-9]*\.\([0-9]*\).*:\1:')
+	if [ $SDKNUM_MAJOR -gt $LATEST_SDK_MAJ ]; then
+		LATEST_SDK=$SDK
+	elif [ $SDKNUM_MAJOR -eq $LATEST_SDK_MAJ ] && [ $SDKNUM_MINOR -gt $LATEST_SDK_MIN ]; then
+		LATEST_SDK=$SDK
+	fi
+done
+
+if [ -z $LATEST_SDK ]; then
+	echo "Unable to find a suitable SDK for Xcode"
+	exit 1
+fi
+
 # Setup configure args
 CONF_ARGS="--prefix=$PREFIX --with-libSalInstall=$PREFIX CC=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc --host=arm-apple CFLAGS="
-CONF_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk"
+CONF_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/$LATEST_SDK"
 
 CURRINC_FOLDER=$LIBNAME
 
