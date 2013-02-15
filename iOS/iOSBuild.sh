@@ -61,7 +61,7 @@ if [ -z $LATEST_SDK ]; then
 fi
 
 # Setup configure args
-CONF_ARGS="--prefix=$PREFIX --with-libSalInstall=$PREFIX CC=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc --host=arm-apple CFLAGS="
+CONF_ARGS="--prefix=$PREFIX CC=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc --host=arm-apple CFLAGS="
 CONF_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/$LATEST_SDK"
 
 CURRINC_FOLDER=$LIBNAME

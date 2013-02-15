@@ -6,13 +6,13 @@ ifneq ("$(TARGET_LIBC)","bionic")
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libARCommands
-LOCAL_DESCRIPTION := ardrone3 SDK Piloting and User Commands
+LOCAL_DESCRIPTION := ARSDK Piloting and User Commands
 
-LOCAL_LIBRARIES := libSAL
+LOCAL_LIBRARIES := libARSAL
 LOCAL_EXPORT_LDLIBS := -larcommands
 
 # Autotools variable
-LOCAL_AUTOTOOLS_CONFIGURE_ARGS := --with-libSalInstall=""
+LOCAL_AUTOTOOLS_CONFIGURE_ARGS := --with-libARSALInstallDir=""
 
 # User define command to be launch before configure step.
 # Generates files used by configure

@@ -5,24 +5,24 @@
    ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
    NEVER MODIFY EXISTING class/command/arg !
 
-   Comments ("comm" attributes) are mandatory for all classes/commands/args
-   For each comment : 1st line will be used as brief (if applicable) +
-   1st line of complete desc. Other lines will be used as complete desc
+   Comments are mandatory for all classes/commands/args
+   For each comment : 1st line will be used as brief (if applicable)
+   Other lines will be used as complete desc
 
    How to add a new class :
-   <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
+   <class name="MyNewClassName" >           | No spaces ! [A-Za-z0-9_]
      Comment about the class                | Inlcuded in Doxygen doc
      <cmd> ... </cmd>                       | List of commands
      <cmd> ... </cmd>
    </class>
 
    How to add a new command (without args) to a class :
-   <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
+   <cmd name="MyNewCommandName" >           | No spaces ! [A-Za-z0-9_]
      Comment about the command              | Included in Doxygen doc
    </cmd>
 
    How to add a new command (with args) to a class :
-   <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
+   <cmd name="MyNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
      Comment about the command              | Included in Doxygen doc
      <arg name="argName" type="argType" >   | Repeat for each arg
        Comment about the arg                | argName must be a valid C variable name
@@ -43,23 +43,23 @@
 
 <classList>
 
-  <class name="piloting">
+  <class name="Piloting">
     All commands related to piloting the totoDrone
 
-    <cmd name="flattrim">
+    <cmd name="FlatTrim">
       Do a flat trim
     </cmd>
-    
-    <cmd name="takeoff">
+
+    <cmd name="TakeOff">
       Ask the drone to take off
     </cmd>
 
-    <cmd name="pcmd">
+    <cmd name="PCMD">
       Ask the drone to move around.
 
-	  <arg name="flag" type="u8">
-		Boolean flag to activate roll/pitch movement
-	  </arg>
+      <arg name="flag" type="u8">
+        Boolean flag to activate roll/pitch movement
+      </arg>
 
       <arg name="roll" type="float">
         Roll consign for the drone [-1;1]
@@ -83,20 +83,20 @@
 
     </cmd>
 
-    <cmd name="landing">
+    <cmd name="Landing">
       Ask the drone to land
     </cmd>
-    
-    <cmd name="emergency">
+
+    <cmd name="Emergency">
       Put drone in emergency state
-    </cmd>    
+    </cmd>
 
   </class>
-  
-  <class name="config">
+
+  <class name="Config">
     All configuration commands
 
-    <cmd name="ssid">
+    <cmd name="SSID">
       Change drone SSID
 
       <arg name="newSsid" type="string">
@@ -105,7 +105,7 @@
 
     </cmd>
 
-    <cmd name="angleMax">
+    <cmd name="AngleMax">
       Change the maximum angle of the drone
 
       <arg name="newAngleMax" type="float">
@@ -115,109 +115,109 @@
     </cmd>
   </class>
 
-  <class name="navdata">
-	Navigation data from drone
+  <class name="Navdata">
+    Navigation data from drone
 
-	<cmd name="position">
-	  Position (X,Y) of the drone
-	  
-	  <arg name="X" type="i32">
-		Current X position
-	  </arg>
-	  
-	  <arg name="Y" type="i32">
-		Current Y position
-	  </arg>
-	</cmd>
+    <cmd name="Position">
+      Position (X,Y) of the drone
+
+      <arg name="x" type="i32">
+        Current X position
+      </arg>
+
+      <arg name="y" type="i32">
+        Current Y position
+      </arg>
+    </cmd>
   </class>
 
-  <class name="event">
-	Occasional information
+  <class name="Event">
+    Occasional information
 
-	<cmd name="flattrimack">
-	  Drone acknowledges that flat trim was correctly processed
-	</cmd>
-	
+    <cmd name="FlatTrimAck">
+      Drone acknowledges that flat trim was correctly processed
+    </cmd>
+
   </class>
-  
-  <class name="test">
-	Some test commands
 
-	<cmd name="testU8">
-	  Test uint8_t arg type
-	  <arg name="u8" type="u8">
-		Dummy uint8_t for test
-	  </arg>
-	</cmd>
+  <class name="Test">
+    Some test commands
 
-	<cmd name="testI8">
-	  Test int8_t arg type
-	  <arg name="i8" type="i8">
-		Dummy int8_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestU8">
+      Test uint8_t arg type
+      <arg name="u8" type="u8">
+        Dummy uint8_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testU16">
-	  Test uint16_t arg type
-	  <arg name="u16" type="u16">
-		Dummy uint16_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestI8">
+      Test int8_t arg type
+      <arg name="i8" type="i8">
+        Dummy int8_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testI16">
-	  Test int16_t arg type
-	  <arg name="i16" type="i16">
-		Dummy int16_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestU16">
+      Test uint16_t arg type
+      <arg name="u16" type="u16">
+        Dummy uint16_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testU32">
-	  Test uint32_t arg type
-	  <arg name="u32" type="u32">
-		Dummy uint32_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestI16">
+      Test int16_t arg type
+      <arg name="i16" type="i16">
+        Dummy int16_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testI32">
-	  Test int32_t arg type
-	  <arg name="i32" type="i32">
-		Dummy int32_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestU32">
+      Test uint32_t arg type
+      <arg name="u32" type="u32">
+        Dummy uint32_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testU64">
-	  Test uint64_t arg type
-	  <arg name="u64" type="u64">
-		Dummy uint64_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestI32">
+      Test int32_t arg type
+      <arg name="i32" type="i32">
+        Dummy int32_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testI64">
-	  Test int64_t arg type
-	  <arg name="i64" type="i64">
-		Dummy int64_t for test
-	  </arg>
-	</cmd>
+    <cmd name="TestU64">
+      Test uint64_t arg type
+      <arg name="u64" type="u64">
+        Dummy uint64_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testFlt">
-	  Test float arg type
-	  <arg name="flt" type="float">
-		Dummy float for test
-	  </arg>
-	</cmd>
+    <cmd name="TestI64">
+      Test int64_t arg type
+      <arg name="i64" type="i64">
+        Dummy int64_t for test
+      </arg>
+    </cmd>
 
-	<cmd name="testDbl">
-	  Test double arg type
-	  <arg name="dbl" type="double">
-		Dummy double for test
-	  </arg>
-	</cmd>
+    <cmd name="TestFlt">
+      Test float arg type
+      <arg name="flt" type="float">
+        Dummy float for test
+      </arg>
+    </cmd>
 
-	<cmd name="testString">
-	  Test char * arg type
-	  <arg name="stringTest" type="string">
-		Dummy char * for test
-	  </arg>
-	</cmd>
+    <cmd name="TestDbl">
+      Test double arg type
+      <arg name="dbl" type="double">
+        Dummy double for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestString">
+      Test char * arg type
+      <arg name="stringTest" type="string">
+        Dummy char * for test
+      </arg>
+    </cmd>
   </class>
 </classList>

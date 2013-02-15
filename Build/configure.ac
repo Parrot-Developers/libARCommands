@@ -44,30 +44,53 @@ AC_ARG_WITH([project],
 # Define libraries directories
 ##########################################################################
 
-# get the directories of libSal
-AC_ARG_WITH([libSalInstall],
-            AS_HELP_STRING([--with-libSalInstall=DIR],[directory of the libSal installation @<:@default=PREFIX@:>@]),
+# get the directories of libARSAL
+AC_ARG_WITH([libARSALInstallDir],
+            AS_HELP_STRING([--with-libARSALInstallDir=DIR],[directory of the libARSAL installation @<:@default=PREFIX@:>@]),
             [if test x$withval = xno; then
-              libSalInstall=""
+              libARSALInstallDir=""
             else
-              libSalInstall="$withval"
-            fi], libSalInstall="$prefix")
+              libARSALInstallDir="$withval"
+            fi], 
+            [if test x$prefix = xNONE; then
+              libARSALInstallDir=""
+            else
+              libARSALInstallDir="$prefix"
+            fi])
 
-AC_ARG_WITH([libSalHeader],
-            AS_HELP_STRING([--with-libSalHeader=DIR],[directory of the libSal headers]),
+AC_ARG_WITH([libARSALIncludeDir],
+            AS_HELP_STRING([--with-libARSALIncludeDir=DIR],[directory of the libARSAL headers @<:@default=ARSALInstallDir/include@:>@]),
             [if test x$withval = xno; then
-              libSalHeader="$libSalInstall/include"
+              [if test ! -z $libARSALInstallDir; then
+                 libARSALIncludeDir="$libARSALInstallDir/include"
+              else
+                 libARSALIncludeDir=""
+              fi]
             else
-              libSalHeader="$withval"
-            fi], libSalHeader="$libSalInstall/include")
+              libARSALIncludeDir="$withval"
+            fi],
+              [if test ! -z $libARSALInstallDir; then
+                 libARSALIncludeDir="$libARSALInstallDir/include"
+              else
+                 libARSALIncludeDir=""
+              fi])
 
-AC_ARG_WITH([libSalBin],
-            AS_HELP_STRING([--with-libSalBin=DIR],[directory of the libSal binaries]),
+AC_ARG_WITH([libARSALLibDir],
+            AS_HELP_STRING([--with-libARSALLibDir=DIR],[directory of the libARSAL libraries @<:@default=ARSALInstallDir/lib@:>@]),
             [if test x$withval = xno; then
-              libSalBin="$libSalInstall/lib"
+              [if test ! -z $libARSALInstallDir; then
+                libARSALLibDir="$libARSALInstallDir/lib"
+              else
+                libARSALLibDir=""
+              fi]
             else
-              libSalBin="$withval"
-            fi], libSalBin="$libSalInstall/lib")
+              libARSALLibDir="$withval"
+            fi],
+              [if test ! -z $libARSALInstallDir; then
+                libARSALLibDir="$libARSALInstallDir/lib"
+              else
+                libARSALLibDir=""
+              fi])
 
 ##########################################################################
 # Define includes directories
@@ -76,7 +99,9 @@ AC_ARG_WITH([libSalBin],
 # include local headers first
 CFLAGS+=" -I$srcdir/../Includes -I$srcdir/../Sources"
 # add the headers directory of libSal
-CFLAGS+=" -I$libSalHeader"
+if test ! -z $libARSALIncludeDir; then
+  CFLAGS+=" -I$libARSALIncludeDir"
+fi
 
 CPPFLAGS="$CFLAGS"
 ##########################################################################
@@ -84,17 +109,19 @@ CPPFLAGS="$CFLAGS"
 ##########################################################################
 
 # add the binaries directory of libSal
-LDFLAGS+=" -L$libSalBin"
+if test ! -z $libARSALLibDir; then
+  LDFLAGS+=" -L$libARSALLibDir"
+fi
 
 ##########################################################################
 # Check headers
 ##########################################################################
 
 # Checks for libSAL.h
-AC_CHECK_HEADERS([libSAL/print.h libSAL/thread.h libSAL/mutex.h \
-libSAL/socket.h libSAL/time.h],,
-	AC_MSG_ERROR(The libSAL header is required in order to build the library ! 
-- Use INCLUDEDIR for indicate a specific include path.))
+AC_CHECK_HEADERS([libARSAL/ARSAL_Print.h libARSAL/ARSAL_Thread.h libARSAL/ARSAL_Mutex.h \
+libARSAL/ARSAL_Socket.h libARSAL/ARSAL_Time.h],,
+	AC_MSG_ERROR(The libARSAL headers are required in order to build the library !
+- Use --with-libARSALInstallDir of --with-libARSALIncludeDir to indicate a specific include path.))
 
 ##########################################################################
 # Checks for programs.

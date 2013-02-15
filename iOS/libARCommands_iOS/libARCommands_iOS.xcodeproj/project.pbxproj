@@ -9,22 +9,22 @@
 /* Begin PBXContainerItemProxy section */
 		37E910AC16B672E40012E452 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */;
+			containerPortal = 370CA6CF16B02BA4001678E1 /* libARSAL_iOS.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 3706E5D8169D867A009E32CD;
-			remoteInfo = libSAL_iOS;
+			remoteInfo = libARSAL_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libSAL_iOS.xcodeproj; path = ../../../libSAL/iOS/libSAL_iOS/libSAL_iOS.xcodeproj; sourceTree = "<group>"; };
+		370CA6CF16B02BA4001678E1 /* libARSAL_iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libARSAL_iOS.xcodeproj; path = ../../../libSAL/iOS/libARSAL_iOS/libARSAL_iOS.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		3706E5D1169D867A009E32CD = {
 			isa = PBXGroup;
 			children = (
-				370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */,
+				370CA6CF16B02BA4001678E1 /* libARSAL_iOS.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,7 +74,7 @@
 			projectReferences = (
 				{
 					ProductGroup = 37E0192116B12C3C00724B7C /* Products */;
-					ProjectRef = 370CA6CF16B02BA4001678E1 /* libSAL_iOS.xcodeproj */;
+					ProjectRef = 370CA6CF16B02BA4001678E1 /* libARSAL_iOS.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -87,7 +87,7 @@
 /* Begin PBXTargetDependency section */
 		37E910AD16B672E40012E452 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = libSAL_iOS;
+			name = libARSAL_iOS;
 			targetProxy = 37E910AC16B672E40012E452 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */

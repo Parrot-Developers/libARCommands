@@ -13,19 +13,19 @@ LIBNAME_LOWER=$(echo $LIBNAME | tr [:upper:] [:lower:])
 
 # $1 will always be the --prefix=... arg
 
-# $2 will always be the --with-libSalInstall=... arg
+# $2 will always be the --with-libARSALInstallDir=... arg
 
 # $3 is the action (release, debug, clean)
 
 PREFIX=$1
-LIBSALDIR=$2
+LIBARSALINSTALLDIR=$2
 CONFIGURATION=$(echo $3  | tr [:upper:] [:lower:])
 
 echo "Building "$LIBNAME" with prefix : <"$PREFIX">"
 echo "And target : <"$CONFIGURATION">"
 
 # If any arg is missing, return
-if [ -z $PREFIX ] || [ -z $LIBSALDIR ] || [ -z $CONFIGURATION ]; then
+if [ -z $PREFIX ] || [ -z $LIBARSALINSTALLDIR ] || [ -z $CONFIGURATION ]; then
 	echo "Missing args !"
 	exit 1
 fi
@@ -49,7 +49,7 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 fi
 
 # Setup configure args
-CONF_ARGS="--prefix=$PREFIX --with-libSalInstall=$LIBSALDIR --host=arm-linux-androideabi"
+CONF_ARGS="--prefix=$PREFIX --with-libARSALInstallDir=$LIBARSALINSTALLDIR --host=arm-linux-androideabi"
 
 CURRINC_FOLDER=$LIBNAME
 
