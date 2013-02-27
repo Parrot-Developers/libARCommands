@@ -219,5 +219,21 @@
         Dummy char * for test
       </arg>
     </cmd>
+
+	<cmd name="TestMultiArgs">
+	  Test with multiple args
+	  <arg name="stringTestOne" type="string">
+		First dummy char * for Test
+	  </arg>
+	  <arg name="stringTestTwo" type="string">
+		Second dummy char * for Test
+	  </arg>
+	  <arg name="u16TestOne" type="u16">
+		dummy uint16 for test
+	  </arg>
+	  <arg name="doubleTestOne" type="double">
+		dummy double for test
+	  </arg>
+	</cmd>
   </class>
 </classList>
