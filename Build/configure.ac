@@ -1,6 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-AC_INIT([libARCommands], [1.0], [ardrone@ardrone.org])
+AC_INIT([libARCommands], [0.1.0], [ardrone@ardrone.org])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(m4)
@@ -24,7 +24,7 @@ AC_MSG_RESULT([$debugit])
 
 if test x"$debugit" = x"yes"; then
     AC_DEFINE([DEBUG],[],[Debug Mode])
-    CFLAGS+=" -g -Wall -Werror -Wno-uninitialized -O0 -fno-inline"
+    CFLAGS+=" -g -Wall -Werror -Wno-uninitialized -O0"
 else
     AC_DEFINE([NDEBUG],[],[No-debug Mode])
     CFLAGS+=" -O3"
@@ -39,6 +39,17 @@ AC_ARG_WITH([project],
 							[generate commands for the specified project @<:@default=mykonos3@:>@])],
 			[],
 			[with_project=mykonos3])
+
+##########################################################################
+# Non versionned .so compilation support (for Android)
+##########################################################################
+AC_MSG_CHECKING([whether to put version number in .so files])
+AC_ARG_ENABLE([so-version],
+    [AS_HELP_STRING([--disable-so-version],
+    [disable version names in .so files [default=enabled]])],
+    [sover="$enableval"],
+    [sover=yes])
+AC_MSG_RESULT([$sover])
 
 ##########################################################################
 # Define libraries directories
@@ -165,6 +176,13 @@ AC_HEADER_STDC
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
 
+# Generate libtool version info number
+if test x"$sover" = x"yes"; then
+	LDFLAGS+=" -release $PACKAGE_VERSION"
+else
+    LDFLAGS+=" -avoid-version"
+fi
+
 # distribute additional compiler and linker flags
 # --> set these variables instead of CFLAGS or LDFLAGS
 AC_SUBST([CFLAGS])
@@ -178,7 +196,7 @@ AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
 echo "
-  ($PACKAGE_NAME) version $PACKAGE_VERSION
+  $PACKAGE_NAME version $PACKAGE_VERSION
   Prefix.........: $prefix
   Debug Build....: $debugit
   C Compiler.....: $CC $CFLAGS
