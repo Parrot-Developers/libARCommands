@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CURDIR=$(pwd)
-BUILDDIR=$CURDIR/../../Build
+BUILDDIR=$CURDIR/../Build
 LIBNAME=$(cat $BUILDDIR/configure.ac | grep AC_INIT | sed 's:.*(\[\([^]]*\).*:\1:')
 LIBNAME_LOWER=$(echo $LIBNAME | tr [:upper:] [:lower:])
 
@@ -10,8 +10,9 @@ LIBNAME_LOWER=$(echo $LIBNAME | tr [:upper:] [:lower:])
 
 # $2 is the action (release, debug, clean)
 
-PREFIX=$(echo $1 | perl -pe 's:\x13::g' -) #Strip hexa characters added by XCode
-CONFIGURATION=$(echo $2 | perl -pe 's:\x13::g' | tr [:upper:] [:lower:])
+PREFIX=$1
+FRAMEWORK_PATH=$PREFIX/Frameworks/
+CONFIGURATION=$(echo $2 | tr [:upper:] [:lower:])
 
 echo "Building "$LIBNAME" with prefix : <"$PREFIX">"
 echo "And target : <"$CONFIGURATION">"
@@ -19,6 +20,13 @@ echo "And target : <"$CONFIGURATION">"
 # If any arg is missing, return
 if [ -z $PREFIX ] || [ -z $CONFIGURATION ]; then
 	echo "Missing args !"
+	echo " usage:"
+	echo $0 "install/dir action"
+	echo ""
+	echo "Valid actions:"
+	echo " - release > Build the lib in release mode"
+	echo " - debug   > Build the lib in debug mode"
+	echo " - clean   > Remove all debug/release products"
 	exit 1
 fi
 
@@ -36,6 +44,7 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 		if [ -d ./include/lib$LIBNAME/ ]; then
 			rm -r ./include/lib$LIBNAME/
 		fi
+		rm -r $FRAMEWORK_PATH/$LIBNAME*
 	fi
 	exit 0
 fi
@@ -63,16 +72,19 @@ fi
 # Setup configure args
 CONF_ARGS="--prefix=$PREFIX CC=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/llvm-gcc --host=arm-apple CFLAGS="
 CONF_CFLAGS="-arch armv7 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/$LATEST_SDK"
-
 CURRINC_FOLDER=$LIBNAME
 
 # Add debug flag if needed
 if [ "xdebug" = "x$CONFIGURATION" ]; then
 	CONF_DEBUG=" --enable-debug"
 	CURRLIB_PATTERN=$LIBNAME_LOWER"_dbg.*"
+	STATIC_LIB=$LIBNAME_LOWER"_dbg.a"
+	FRAMEWORK=$FRAMEWORK_PATH"/"$LIBNAME"_dbg.framework"
 else
 	CONF_DEBUG=""
 	CURRLIB_PATTERN=$LIBNAME_LOWER".*"
+	STATIC_LIB=$LIBNAME_LOWER".a"
+	FRAMEWORK=$FRAMEWORK_PATH"/"$LIBNAME".framework"
 fi
 
 
@@ -139,4 +151,16 @@ if [ -f Makefile ] && [ "YES" = $FORCE_MAKE ]; then
 fi
 
 cd $CURDIR
+
+# Create framework in current dir
+F_HDIR=$FRAMEWORK/Headers
+F_LDIR=$FRAMEWORK/
+mkdir -p $F_HDIR # Sufficient to create all other dirs
+
+# Copy headers
+cp -r $PREFIX/include/$CURRINC_FOLDER/*.h $F_HDIR
+
+# Lipo lib files
+lipo $PREFIX/lib/$STATIC_LIB -create -output $F_LDIR/$LIBNAME
+
 exit 0
