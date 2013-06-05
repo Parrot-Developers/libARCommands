@@ -37,14 +37,12 @@ if [ "xclean" = "x$CONFIGURATION" ]; then
 	cd $CURDIR
 	if [ -d $PREFIX ]; then
 		cd $PREFIX
-		LIBS=$(find ./lib -name "$LIBNAME_LOWER*" 2>/dev/null)
-		for LIBFILE in $LIBS; do
-			rm -f $LIBFILE
-		done
-		if [ -d ./include/lib$LIBNAME/ ]; then
-			rm -r ./include/lib$LIBNAME/
-		fi
-		rm -r $FRAMEWORK_PATH/$LIBNAME*
+		find ./lib/ -name $LIBNAME_LOWER'.'* -delete 2>/dev/null
+		find ./lib/ -name $LIBNAME_LOWER'_dbg.'* -delete 2>/dev/null
+		find ./lib/ -name $LIBNAME_LOWER'-'*'.'* -delete 2>/dev/null
+		find ./lib/ -name $LIBNAME_LOWER'_dbg-'*'.'* -delete 2>/dev/null
+		rm -r $FRAMEWORK_PATH/$LIBNAME'.framework' 2>/dev/null
+		rm -r $FRAMEWORK_PATH/$LIBNAME'_dbg.framework' 2>/dev/null
 	fi
 	exit 0
 fi
