@@ -562,12 +562,8 @@ for cl in allClasses:
     for cmd in cl.cmds:
         hfile.write ('\n/**\n')
         hfile.write (' * @brief ' + cmd.comments[0] + '\n')
-        first = 1
-        for comm in cmd.comments:
-            if 1 == first:
-                first = 0
-            else:
-                hfile.write (' * ' + comm + '\n')
+        for comm in cmd.comments[1:]:
+            hfile.write (' * ' + comm + '\n')
         hfile.write (' * @warning A command is not NULL terminated and can contain NULL bytes.\n')
         hfile.write (' * @param buffer Pointer to the buffer in which the library should store the command\n')
         hfile.write (' * @param buffLen Size of the buffer\n')
