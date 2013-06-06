@@ -4,6 +4,8 @@ import os
 import re
 
 MYDIR=os.path.dirname(sys.argv[0])
+if '' == MYDIR:
+    MYDIR='.'
 
 #################################
 # Get info from configure.ac    #
@@ -17,7 +19,7 @@ def ARPrint (msg, noNewLine=0):
     else:
         sys.stdout.write (' ')
 
-configureAcFile = open (MYDIR+'/../Build/configure.ac', 'rb')
+configureAcFile = open (MYDIR + '/../Build/configure.ac', 'rb')
 AC_INIT_LINE=configureAcFile.readline ()
 while (not AC_INIT_LINE.startswith ('AC_INIT')) and ('' != AC_INIT_LINE):
     AC_INIT_LINE=configureAcFile.readline ()
@@ -35,7 +37,7 @@ LIB_VERSION=AC_ARGS[1].replace ('[', '').replace (']', '')
 #################################
 # Setup XML and C/HFiles Names  #
 # Public header names must be   #
-# LIB_NAME+'/fileName.h'        #
+# LIB_NAME + '/fileName.h'      #
 #################################
 
 SDK_PACKAGE_ROOT='com.parrot.arsdk.'
@@ -45,17 +47,17 @@ JNI_PACKAGE_NAME=SDK_PACKAGE_ROOT + LIB_MODULE.lower ()
 DEFAULTPROJECTNAME='mykonos3'
 
 #Name (and path) of the xml file
-XMLFILENAME_PREFIX=MYDIR+'/../Xml/'
+XMLFILENAME_PREFIX=MYDIR + '/../Xml/'
 XMLFILENAME_SUFFIX='_commands.xml'
 
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCOMMANDS_Ids.h'
 
 #Name of the output public header containing encoder helpers
-COMMANDSGEN_HFILE_NAME=LIB_NAME+ '/ARCOMMANDS_Generator.h'
+COMMANDSGEN_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Generator.h'
 
 #Name of the output public header containing decoder helpers
-COMMANDSDEC_HFILE_NAME=LIB_NAME+ '/ARCOMMANDS_Decoder.h'
+COMMANDSDEC_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Decoder.h'
 
 #Name of the output C file containing encoder helpers
 COMMANDSGEN_CFILE_NAME='ARCOMMANDS_Generator.c'
@@ -80,68 +82,68 @@ JNI_JFILE_NAME='ARCommand.java'
 JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
 
 #Name of the JNI JAVA Interfaces files (DO NOT MODIFY)
-JAVA_INTERFACES_FILES_NAME=JNIClassName+'*Listener.java'
+JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 
 #Name of the JNI-Android Makefile (DO NOT MODIFY)
 JNI_MAKEFILE_NAME='Android.mk'
 
 #Relative path of SOURCE dir
-SRC_DIR=MYDIR+'/../Sources/'
+SRC_DIR=MYDIR + '/../Sources/'
 
 #Relative path of INCLUDES dir
-INC_DIR=MYDIR+'/../Includes/'
+INC_DIR=MYDIR + '/../Includes/'
 
 #Relative path of TESTBENCH dir
-TB__DIR=MYDIR+'/../TestBench/'
+TB__DIR=MYDIR + '/../TestBench/'
 
 #Relative path of unix-like (Linux / os-x) TESTBENCH dir
-LIN_TB_DIR=TB__DIR+ 'linux/'
+LIN_TB_DIR=TB__DIR + 'linux/'
 
 #Relative path of multiplatform code for testbenches
-COM_TB_DIR=TB__DIR+ 'common/'
+COM_TB_DIR=TB__DIR + 'common/'
 
 #Relative path of JNI dir
 JNI_DIR="../JNI/"
 
 #Relative path of JNI/C dir
-JNIC_DIR=JNI_DIR+ 'c/'
+JNIC_DIR=JNI_DIR + 'c/'
 
 #Relative path of JNI/Java dir
-JNIJ_DIR=JNI_DIR+ 'java/'
+JNIJ_DIR=JNI_DIR + 'java/'
 
 ##### END OF CONFIG #####
 
 # Create array of generated files (so we can cleanup only our files)
 GENERATED_FILES = []
-COMMANDSID_HFILE=SRC_DIR+ COMMANDSID_HFILE_NAME
+COMMANDSID_HFILE=SRC_DIR + COMMANDSID_HFILE_NAME
 GENERATED_FILES.append (COMMANDSID_HFILE)
-COMMANDSGEN_HFILE=INC_DIR+ COMMANDSGEN_HFILE_NAME
+COMMANDSGEN_HFILE=INC_DIR + COMMANDSGEN_HFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_HFILE)
-COMMANDSGEN_CFILE=SRC_DIR+ COMMANDSGEN_CFILE_NAME
+COMMANDSGEN_CFILE=SRC_DIR + COMMANDSGEN_CFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_CFILE)
-COMMANDSDEC_HFILE=INC_DIR+ COMMANDSDEC_HFILE_NAME
+COMMANDSDEC_HFILE=INC_DIR + COMMANDSDEC_HFILE_NAME
 GENERATED_FILES.append (COMMANDSDEC_HFILE)
-COMMANDSDEC_CFILE=SRC_DIR+ COMMANDSDEC_CFILE_NAME
+COMMANDSDEC_CFILE=SRC_DIR + COMMANDSDEC_CFILE_NAME
 GENERATED_FILES.append (COMMANDSDEC_CFILE)
-TB_CFILE=COM_TB_DIR+ TB_CFILE_NAME
+TB_CFILE=COM_TB_DIR + TB_CFILE_NAME
 GENERATED_FILES.append (TB_CFILE)
-TB_HFILE=COM_TB_DIR+ TB_HFILE_NAME
+TB_HFILE=COM_TB_DIR + TB_HFILE_NAME
 GENERATED_FILES.append (TB_HFILE)
-TB_LIN_CFILE=LIN_TB_DIR+ TB_LIN_CFILE_NAME
+TB_LIN_CFILE=LIN_TB_DIR + TB_LIN_CFILE_NAME
 GENERATED_FILES.append (TB_LIN_CFILE)
-JNI_CFILE=JNIC_DIR+ JNI_CFILE_NAME
+JNI_CFILE=JNIC_DIR + JNI_CFILE_NAME
 GENERATED_FILES.append (JNI_CFILE)
-JNI_JFILE=JNIJ_DIR+ JNI_JFILE_NAME
+JNI_JFILE=JNIJ_DIR + JNI_JFILE_NAME
 GENERATED_FILES.append (JNI_JFILE)
-JNI_MAKEFILE=JNIC_DIR+ JNI_MAKEFILE_NAME
+JNI_MAKEFILE=JNIC_DIR + JNI_MAKEFILE_NAME
 GENERATED_FILES.append (JNI_MAKEFILE)
-JAVA_INTERFACES_FILES=JNIJ_DIR+ JAVA_INTERFACES_FILES_NAME
+JAVA_INTERFACES_FILES=JNIJ_DIR + JAVA_INTERFACES_FILES_NAME
 
 # Create names for #ifndef _XXX_ statements in .h files
-COMMANDSID_DEFINE='_'+ COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
-COMMANDSDEC_DEFINE='_'+ COMMANDSDEC_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
-COMMANDSGEN_DEFINE='_'+ COMMANDSGEN_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
-TB_DEFINE='_'+ TB_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSID_DEFINE='_' + COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSDEC_DEFINE='_' + COMMANDSDEC_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSGEN_DEFINE='_' + COMMANDSGEN_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+TB_DEFINE='_' + TB_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 
 # Internal function to ensure that the first letter of a word is capitalized
 # But keeps the capitalization of the rest of the word
@@ -220,10 +222,10 @@ SZETYPES = ['U8',       'U8',
             'Float',    'Double',
             'String']
 # Equivalent calls for the Decoder internal functions
-CREADERS = [ARFunctionName ('Decoder', 'Read8FromBuffer'),     ' (int8_t)'+ARFunctionName ('Decoder', 'Read8FromBuffer'),
-            ARFunctionName ('Decoder', 'Read16FromBuffer'),    ' (int16_t)'+ARFunctionName ('Decoder', 'Read16FromBuffer'),
-            ARFunctionName ('Decoder', 'Read32FromBuffer'),    ' (int32_t)'+ARFunctionName ('Decoder', 'Read32FromBuffer'),
-            ARFunctionName ('Decoder', 'Read64FromBuffer'),    ' (int64_t)'+ARFunctionName ('Decoder', 'Read64FromBuffer'),
+CREADERS = [ARFunctionName ('Decoder', 'Read8FromBuffer'),     ' (int8_t)' + ARFunctionName ('Decoder', 'Read8FromBuffer'),
+            ARFunctionName ('Decoder', 'Read16FromBuffer'),    ' (int16_t)' + ARFunctionName ('Decoder', 'Read16FromBuffer'),
+            ARFunctionName ('Decoder', 'Read32FromBuffer'),    ' (int32_t)' + ARFunctionName ('Decoder', 'Read32FromBuffer'),
+            ARFunctionName ('Decoder', 'Read64FromBuffer'),    ' (int64_t)' + ARFunctionName ('Decoder', 'Read64FromBuffer'),
             ARFunctionName ('Decoder', 'ReadFloatFromBuffer'), ARFunctionName ('Decoder', 'ReadDoubleFromBuffer'),
             ARFunctionName ('Decoder', 'ReadStringFromBuffer')]
 # Equivalent JAVA Types
@@ -324,7 +326,7 @@ while len(args) > 0:
     #################################
     elif a == "-dname":
         ARPrint (SRC_DIR, 1)
-        ARPrint (INC_DIR+ LIB_NAME, 1)
+        ARPrint (INC_DIR + LIB_NAME, 1)
         ARPrint (INC_DIR, 1)
         ARPrint (LIN_TB_DIR, 1)
         ARPrint (COM_TB_DIR, 1)
@@ -356,8 +358,8 @@ if not os.path.exists (SRC_DIR):
     os.mkdir (SRC_DIR)
 if not os.path.exists (INC_DIR):
     os.mkdir (INC_DIR)
-if not os.path.exists (INC_DIR+ LIB_NAME):
-    os.mkdir (INC_DIR+ LIB_NAME)
+if not os.path.exists (INC_DIR + LIB_NAME):
+    os.mkdir (INC_DIR + LIB_NAME)
 if not os.path.exists (TB__DIR):
     os.mkdir (TB__DIR)
 if not os.path.exists (LIN_TB_DIR):
@@ -371,6 +373,40 @@ if not os.path.exists (JNIC_DIR):
 if not os.path.exists (JNIJ_DIR):
     os.mkdir (JNIJ_DIR)
 
+
+# Python class definitions
+
+class ARArg:
+    "Represent an argument of a command"
+    def __init__(self, argName, argType):
+        self.name     = argName
+        self.type     = argType
+        self.comments = []
+    def addCommentLine(self, newCommentLine):
+        self.comments.append(newCommentLine)
+
+class ARCommand:
+    "Represent a command"
+    def __init__(self, cmdName):
+        self.name     = cmdName
+        self.comments = []
+        self.args     = []
+    def addCommentLine(self, newCommentLine):
+        self.comments.append(newCommentLine)
+    def addArgument(self, newArgument):
+        self.args.append(newArgument)
+
+class ARClass:
+    "Represent a class of commands"
+    def __init__(self, className):
+        self.name     = className
+        self.comments = []
+        self.cmds     = []
+    def addCommentLine(self, newCommentLine):
+        self.comments.append(newCommentLine)
+    def addCommand(self, newCommand):
+        self.cmds.append(newCommand)
+
 #################################
 # 1ST PART :                    #
 #################################
@@ -383,105 +419,56 @@ file.close ()
 
 xmlfile = parseString (data)
 
-# List of all classes names
-allClassesNames = []
-# List of all classes comment arrays
-allClassesComments = []
-# List of all commands names (for each class)
-commandsNameByClass = []
-# List of all commands comment arrays (for each class)
-commandsCommentsByClass = []
-# List of all arg names (for each class / command)
-argNamesByClassAndCommand = []
-# List of all arg types (for each class / command)
-argTypesByClassAndCommand = []
-# List of all arg comment arrays (for each class / command)
-argCommentsByClassAndCommand = []
+allClasses = []
 
 classes = xmlfile.getElementsByTagName ('class')
 for cmdclass in classes:
-    classname = cmdclass.attributes["name"].nodeValue
-    classcommArrayUnstripped = cmdclass.firstChild.data.splitlines ()
-    classcommArray = []
-    for classComm in classcommArrayUnstripped:
+    currentClass = ARClass(cmdclass.attributes["name"].nodeValue)
+    classComments = cmdclass.firstChild.data.splitlines ()
+    for classComm in classComments:
         stripName = classComm.strip ()
         if len (stripName) != 0:
-            classcommArray.append (stripName)
-    allClassesNames.append (classname)
-    allClassesComments.append (classcommArray)
-    CNCurrClass = []
-    CCCurrClass = []
-    ANCurrClass = []
-    ATCurrClass = []
-    ACCurrClass = []
+            currentClass.addCommentLine(stripName)
     commands = cmdclass.getElementsByTagName ('cmd')
     for command in commands:
-        commandname = command.attributes["name"].nodeValue
-        commandcommArrayUnstripped = command.firstChild.data.splitlines ()
-        commandcommArray = []
-        for commandComm in commandcommArrayUnstripped:
+        currentCommand = ARCommand(command.attributes["name"].nodeValue)
+        commandComments = command.firstChild.data.splitlines ()
+        for commandComm in commandComments:
             stripName = commandComm.strip ()
             if len (stripName) != 0:
-                commandcommArray.append (stripName)
-        CNCurrClass.append (commandname)
-        CCCurrClass.append (commandcommArray)
-        ANCurrCommand = []
-        ATCurrCommand = []
-        ACCurrCommand = []
+                currentCommand.addCommentLine (stripName)
         args = command.getElementsByTagName ('arg')
         for arg in args:
-            argName = arg.attributes["name"].nodeValue
-            ANCurrCommand.append (argName)
-            argType = arg.attributes["type"].nodeValue
-            ATCurrCommand.append (argType)
-            argCommArrayUnstripped = arg.firstChild.data.splitlines ()
-            argCommArray = []
-            for argComm in argCommArrayUnstripped:
+            currentArg = ARArg (arg.attributes["name"].nodeValue, arg.attributes["type"].nodeValue)
+            argComments = arg.firstChild.data.splitlines ()
+            for argComm in argComments:
                 stripName = argComm.strip ()
                 if len (stripName) != 0:
-                    argCommArray.append (stripName)
-            ACCurrCommand.append (argCommArray)
-        ANCurrClass.append (ANCurrCommand)
-        ATCurrClass.append (ATCurrCommand)
-        ACCurrClass.append (ACCurrCommand)
-    commandsNameByClass.append (CNCurrClass)
-    commandsCommentsByClass.append (CCCurrClass)
-    argNamesByClassAndCommand.append (ANCurrClass)
-    argTypesByClassAndCommand.append (ATCurrClass)
-    argCommentsByClassAndCommand.append (ACCurrClass)
-
-"""
-ARPrint ('Commands parsed:')
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    ARPrint ('-> ' + cl)
-    ARPrint ('   /* ')
-    for classComm in allClassesComments[cIndex]:
-        ARPrint ('    * ' + classComm)
-    ARPrint ('    */')
-    cmdList = commandsNameByClass[cIndex]
-    cmdCommList = commandsCommentsByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
-        ARPrint (' --> ' + cmd)
-        ARPrint ('     /* ')
-        for cmdComm in cmdCommList[cmIndex]:
-            ARPrint ('      * ' + cmdComm)
-        ARPrint ('      */')
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
-        ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            ARPrint ('   (' + argT + ' ' + argN + ')')
-            ARPrint ('    /* ')
-            for argC in ACList [aIndex]:
-                ARPrint ('     * ' + argC)
-            ARPrint ('     */')
-"""
+                    currentArg.addCommentLine (stripName)
+            currentCommand.addArgument (currentArg)
+        currentClass.addCommand (currentCommand)
+    allClasses.append (currentClass)
 
 if "yes" == noGen: # called with "-nogen"
+    ARPrint ('Commands parsed:')
+    for cl in allClasses:
+        ARPrint ('-> ' + cl.name)
+        ARPrint ('   /* ')
+        for comment in cl.comments:
+            ARPrint ('    * ' + comment)
+        ARPrint ('    */')
+        for cmd in cl.cmds:
+            ARPrint (' --> ' + cmd.name)
+            ARPrint ('     /* ')
+            for comment in cmd.comments:
+                ARPrint ('      * ' + comment)
+            ARPrint ('      */')
+            for arg in cmd.args:
+                ARPrint ('   (' + arg.type + ' ' + arg.name + ')')
+                ARPrint ('    /* ')
+                for comment in arg.comments:
+                    ARPrint ('     * ' + comment)
+                ARPrint ('     */')
     sys.exit (0)
 
 
@@ -504,40 +491,38 @@ hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
 hfile.write ('\n')
-hfile.write ('#ifndef '+ COMMANDSID_DEFINE+ '\n')
-hfile.write ('#define '+ COMMANDSID_DEFINE+ ' (1)\n')
+hfile.write ('#ifndef ' + COMMANDSID_DEFINE + '\n')
+hfile.write ('#define ' + COMMANDSID_DEFINE + ' (1)\n')
 hfile.write ('\n')
 hfile.write ('typedef enum {\n')
 first = 1
-for cl in allClassesNames:
+for cl in allClasses:
     ENAME='CLASS'
     if 1 == first:
-        hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl) + ' = 0,\n')
+        hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ' = 0,\n')
         first = 0
     else:
-        hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl) + ',\n')
+        hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ',\n')
 hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, 'MAX') + ',\n')
 hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
+for cl in allClasses:
     hfile.write ('typedef enum {\n')
-    cmdList = commandsNameByClass [clIndex]
-    ENAME=cl + '_CMD'
+    ENAME=cl.name + '_CMD'
     first = 1
-    for cmd in cmdList:
+    for cmd in cl.cmds:
         if 1 == first:
-            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd) + ' = 0,\n')
+            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd.name) + ' = 0,\n')
             first = 0
         else:
-            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd) + ',\n')
+            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd.name) + ',\n')
     hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, 'MAX') + ',\n')
     hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
     hfile.write ('\n')
 
 hfile.write ('\n')
-hfile.write ('#endif /* '+ COMMANDSID_DEFINE+ ' */\n')
+hfile.write ('#endif /* ' + COMMANDSID_DEFINE + ' */\n')
 
 hfile.close ()
 
@@ -555,8 +540,8 @@ hfile.write (' * @brief libARCommands generator header.\n')
 hfile.write (' * This file contains all declarations needed to generate commands\n')
 hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
-hfile.write ('#ifndef '+ COMMANDSGEN_DEFINE+ '\n')
-hfile.write ('#define '+ COMMANDSGEN_DEFINE+ '\n')
+hfile.write ('#ifndef ' + COMMANDSGEN_DEFINE + '\n')
+hfile.write ('#define ' + COMMANDSGEN_DEFINE + '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
@@ -572,21 +557,13 @@ hfile.write ('    ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ', /
 hfile.write ('} ' +  AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    hfile.write ('// Command class ' + cl + '\n')
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
+for cl in allClasses:
+    hfile.write ('// Command class ' + cl.name + '\n')
+    for cmd in cl.cmds:
         hfile.write ('\n/**\n')
-        commList = commandsCommentsByClass [clIndex][cmdIndex]
-        commZero = commList [0]
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
-        hfile.write (' * @brief ' + commZero + '\n')
+        hfile.write (' * @brief ' + cmd.comments[0] + '\n')
         first = 1
-        for comm in commList:
+        for comm in cmd.comments:
             if 1 == first:
                 first = 0
             else:
@@ -595,21 +572,19 @@ for cl in allClassesNames:
         hfile.write (' * @param buffer Pointer to the buffer in which the library should store the command\n')
         hfile.write (' * @param buffLen Size of the buffer\n')
         hfile.write (' * @param cmdLen Pointer to an integer that will hold the actual size of the command\n')
-        for argN in ANList:
-            ACListCurrArg = ACList [ANList.index (argN)]
-            for argC in ACListCurrArg:
-                hfile.write (' * @param ' + argN + ' ' + argC + '\n')
+        for arg in cmd.args:
+            for comm in arg.comments:
+                hfile.write (' * @param ' + arg.name + ' ' + comm + '\n')
         hfile.write (' * @return Error code (see ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ')\n')
         hfile.write (' */\n')
-        hfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (cl) + ARCapitalize (cmd)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
-        for argN in ANList:
-            argT = ATList [ANList.index (argN)]
-            hfile.write (', ' + xmlToCwithConst (argT) + ' ' + argN)
+        hfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
+        for arg in cmd.args:
+            hfile.write (', ' + xmlToCwithConst (arg.type) + ' ' + arg.name)
         hfile.write (');\n')
     hfile.write ('\n')
 
 hfile.write ('\n')
-hfile.write ('#endif /* '+ COMMANDSGEN_DEFINE+ ' */\n')
+hfile.write ('#endif /* ' + COMMANDSGEN_DEFINE + ' */\n')
 
 hfile.close ()
 
@@ -634,8 +609,8 @@ cfile.write ('#include <config.h>\n')
 cfile.write ('#include <inttypes.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
-cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
-cfile.write ('#include <'+ COMMANDSID_HFILE_NAME+ '>\n')
+cfile.write ('#include <' + COMMANDSGEN_HFILE_NAME + '>\n')
+cfile.write ('#include <' + COMMANDSID_HFILE_NAME + '>\n')
 cfile.write ('#include <libARSAL/ARSAL_Endianness.h>\n')
 cfile.write ('\n')
 cfile.write ('// Add an 8 bit value to the buffer\n')
@@ -728,18 +703,12 @@ cfile.write ('{\n')
 cfile.write ('    return ' + ARFunctionName (GEN_SUBMODULE, 'AddU64ToBuffer') + ' (buffer, * (uint64_t *)&newVal, oldOffset, buffCap);\n')
 cfile.write ('}\n')
 cfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cfile.write ('// Command class ' + cl + '\n')
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
-        cfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' +  ARCapitalize (cl) + ARCapitalize (cmd)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        for argN in ANList:
-            argT = ATList [ANList.index (argN)]
-            cfile.write (', ' + xmlToCwithConst (argT) + ' ' + argN)
+for cl in allClasses:
+    cfile.write ('// Command class ' + cl.name + '\n')
+    for cmd in cl.cmds:
+        cfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' +  ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
+        for arg in cmd.args:
+            cfile.write (', ' + xmlToCwithConst (arg.type) + ' ' + arg.name)
         cfile.write (')\n')
         cfile.write ('{\n')
         cfile.write ('    int32_t currIndexInBuffer = 0;\n')
@@ -750,25 +719,21 @@ for cl in allClassesNames:
         cfile.write ('        return ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
         cfile.write ('    }\n')
         hasStringArgs=0
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList[aIndex]
-            if argT == 'string':
+        for arg in cmd.args:
+            if arg.type == 'string':
                 hasStringArgs=1
                 break
         if hasStringArgs == 1:
             cfile.write ('    // Test all String args (if any)\n')
             cfile.write ('    if (')
             first=1
-            for argN in ANList:
-                aIndex = ANList.index (argN)
-                argT = ATList[aIndex]
-                if 'string' == argT:
+            for arg in cmd.args:
+                if 'string' == arg.type:
                     if 1 == first:
                         first = 0
                     else:
                         cfile.write ('        ')
-                    cfile.write ('(' + argN + ' == NULL) ||\n')
+                    cfile.write ('(' + arg.name + ' == NULL) ||\n')
             cfile.write ('       (0))\n')
             cfile.write ('    {\n')
             cfile.write ('        return ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
@@ -777,7 +742,7 @@ for cl in allClassesNames:
         cfile.write ('    // Write class header\n')
         cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl) + ', currIndexInBuffer, buffLen);\n')
+        cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl.name) + ', currIndexInBuffer, buffLen);\n')
         cfile.write ('        if (currIndexInBuffer == -1)\n')
         cfile.write ('        {\n')
         cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -786,19 +751,17 @@ for cl in allClassesNames:
         cfile.write ('    // Write id header\n')
         cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
         cfile.write ('    {\n')
-        cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, cl + '_CMD', cmd) + ', currIndexInBuffer, buffLen);\n')
+        cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, cl.name + '_CMD', cmd.name) + ', currIndexInBuffer, buffLen);\n')
         cfile.write ('        if (currIndexInBuffer == -1)\n')
         cfile.write ('        {\n')
         cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
         cfile.write ('        }\n')
         cfile.write ('    }\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList[aIndex]
-            cfile.write ('    // Write arg '+ argN + '\n')
+        for arg in cmd.args:
+            cfile.write ('    // Write arg ' + arg.name + '\n')
             cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
-            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (argT) + 'ToBuffer') + ' (buffer, ' + argN + ', currIndexInBuffer, buffLen);\n')
+            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (arg.type) + 'ToBuffer') + ' (buffer, ' + arg.name + ', currIndexInBuffer, buffLen);\n')
             cfile.write ('        if (currIndexInBuffer == -1)\n')
             cfile.write ('        {\n')
             cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -831,8 +794,8 @@ hfile.write (' * @brief libARCommands decoder header.\n')
 hfile.write (' * This file contains all declarations needed to decode commands\n')
 hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
-hfile.write ('#ifndef '+ COMMANDSDEC_DEFINE+ '\n')
-hfile.write ('#define '+ COMMANDSDEC_DEFINE+ '\n')
+hfile.write ('#ifndef ' + COMMANDSDEC_DEFINE + '\n')
+hfile.write ('#define ' + COMMANDSDEC_DEFINE + '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
@@ -857,41 +820,32 @@ hfile.write (' */\n')
 hfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
 hfile.write (ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen);\n')
 hfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    hfile.write ('// Command class ' + cl + '\n')
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
-        commList = commandsCommentsByClass [clIndex][cmdIndex]
-        commZero = commList [0]
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
+for cl in allClasses:
+    hfile.write ('// Command class ' + cl.name + '\n')
+    for cmd in cl.cmds:
         hfile.write ('\n/**\n')
-        hfile.write (' * @brief callback type for the command ' + cl + '.' + cmd + '\n')
+        hfile.write (' * @brief callback type for the command ' + cl.name + '.' + cmd.name + '\n')
         hfile.write (' */\n')
-        hfile.write ('typedef void (*' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ') (')
+        hfile.write ('typedef void (*' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') (')
         first = 1
-        for argN in ANList:
-            argT = ATList [ANList.index (argN)]
+        for arg in cmd.args:
             if first == 1:
                 first = 0
             else:
                 hfile.write (', ')
-            hfile.write (xmlToC (argT) + ' ' + argN)
+            hfile.write (xmlToC (arg.type) + ' ' + arg.name)
         if 0 == first:
             hfile.write (', ')
         hfile.write ('void *custom);\n')
         hfile.write ('/**\n')
-        hfile.write (' * @brief callback setter for the command ' + cl + '.' + cmd + '\n')
-        hfile.write (' * @param callback new callback for the command ' + cl + '.' + cmd + '\n')
+        hfile.write (' * @brief callback setter for the command ' + cl.name + '.' + cmd.name + '\n')
+        hfile.write (' * @param callback new callback for the command ' + cl.name + '.' + cmd.name + '\n')
         hfile.write (' * @param custom pointer that will be passed to all calls to the callback\n')
         hfile.write (' */\n')
-        hfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' callback, void *custom);\n')
+        hfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom);\n')
     hfile.write ('\n')
 
-hfile.write ('#endif /* '+ COMMANDSDEC_DEFINE+ ' */\n')
+hfile.write ('#endif /* ' + COMMANDSDEC_DEFINE + ' */\n')
 
 hfile.close ()
 
@@ -916,8 +870,8 @@ cfile.write ('#include <config.h>\n')
 cfile.write ('#include <inttypes.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
-cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
-cfile.write ('#include <'+ COMMANDSID_HFILE_NAME+ '>\n')
+cfile.write ('#include <' + COMMANDSDEC_HFILE_NAME + '>\n')
+cfile.write ('#include <' + COMMANDSID_HFILE_NAME + '>\n')
 cfile.write ('#include <libARSAL/ARSAL_Endianness.h>\n')
 cfile.write ('#include <libARSAL/ARSAL_Mutex.h>\n')
 cfile.write ('\n')
@@ -1056,7 +1010,7 @@ cfile.write ('        *error = 1;\n');
 cfile.write ('        return retVal;\n');
 cfile.write ('    }\n')
 cfile.write ('    retVal = buffAddr;\n')
-cfile.write ('    *offset = newOffset+1;\n')
+cfile.write ('    *offset = newOffset + 1;\n')
 cfile.write ('    *error = 0;\n')
 cfile.write ('    return retVal;\n')
 cfile.write ('}\n')
@@ -1075,26 +1029,18 @@ cfile.write ('    }\n')
 cfile.write ('    return ' + ARGlobalName (DEC_SUBMODULE, 'isInit') + ';\n')
 cfile.write ('}\n')
 cfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cfile.write ('// Command class ' + cl + '\n')
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
-        commList = commandsCommentsByClass [clIndex][cmdIndex]
-        commZero = commList [0]
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        ACList = argCommentsByClassAndCommand [clIndex][cmdIndex]
-        cfile.write ('static ' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Cb') + ' = NULL;\n')
-        cfile.write ('static void *' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Custom') + ' = NULL;\n')
-        cfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' callback, void *custom)\n')
+for cl in allClasses:
+    cfile.write ('// Command class ' + cl.name + '\n')
+    for cmd in cl.cmds:
+        cfile.write ('static ' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = NULL;\n')
+        cfile.write ('static void *' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = NULL;\n')
+        cfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom)\n')
         cfile.write ('{\n')
         cfile.write ('    if (' + ARFunctionName (DEC_SUBMODULE, 'Init') + ' () == 1)\n')
         cfile.write ('    {\n')
         cfile.write ('        ARSAL_Mutex_Lock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
-        cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Cb') + ' = callback;\n')
-        cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Custom') + ' = custom;\n')
+        cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = callback;\n')
+        cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = custom;\n')
         cfile.write ('        ARSAL_Mutex_Unlock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
         cfile.write ('    }\n')
         cfile.write ('}\n')
@@ -1104,7 +1050,7 @@ cfile.write ('// DECODER ENTRY POINT\n')
 cfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
 cfile.write (ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen)\n')
 cfile.write ('{\n')
-cfile.write ('    '+ AREnumName (ID_SUBMODULE, 'CLASS') + ' commandClass = ' + AREnumValue (ID_SUBMODULE, 'CLASS', 'MAX') + ';\n')
+cfile.write ('    ' + AREnumName (ID_SUBMODULE, 'CLASS') + ' commandClass = ' + AREnumValue (ID_SUBMODULE, 'CLASS', 'MAX') + ';\n')
 cfile.write ('    int commandId = -1;\n')
 cfile.write ('    int32_t error = 0;\n')
 cfile.write ('    int32_t offset = 0;\n')
@@ -1140,37 +1086,28 @@ cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, '
 cfile.write ('    {\n')
 cfile.write ('        switch (commandClass)\n')
 cfile.write ('        {\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass [clIndex]
-    cfile.write ('        case ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl) + ':\n')
+for cl in allClasses:
+    cfile.write ('        case ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl.name) + ':\n')
     cfile.write ('        {\n')
     cfile.write ('            switch (commandId)\n')
     cfile.write ('            {\n')
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        cfile.write ('            case ' + AREnumValue (ID_SUBMODULE, cl + '_CMD', cmd) + ':\n')
+    for cmd in cl.cmds:
+        cfile.write ('            case ' + AREnumValue (ID_SUBMODULE, cl.name + '_CMD', cmd.name) + ':\n')
         cfile.write ('            {\n')
-        CBNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Cb')
-        CBCUSTOMNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Custom')
+        CBNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb')
+        CBCUSTOMNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom')
         cfile.write ('                ARSAL_Mutex_Lock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
         cfile.write ('                if (' + CBNAME + ' != NULL)\n')
         cfile.write ('                {\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write ('                    ' + xmlToC (argT) + ' ' + argN + ' = NULL;\n')
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write ('                    ' + xmlToC (arg.type) + ' ' + arg.name + ' = NULL;\n')
             else:
-                cfile.write ('                    ' + xmlToC (argT) + ' ' + argN + ';\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
+                cfile.write ('                    ' + xmlToC (arg.type) + ' ' + arg.name + ';\n')
+        for arg in cmd.args:
             cfile.write ('                    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('                    {\n')
-            cfile.write ('                        ' + argN + ' = ' + xmlToReader (argT) + ' (buffer, buffLen, &offset, &error);\n')
+            cfile.write ('                        ' + arg.name + ' = ' + xmlToReader (arg.type) + ' (buffer, buffLen, &offset, &error);\n')
             cfile.write ('                        if (error == 1)\n')
             cfile.write ('                            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
             cfile.write ('                    }\n')
@@ -1178,12 +1115,12 @@ for cl in allClassesNames:
         cfile.write ('                    {\n')
         cfile.write ('                        ' + CBNAME + ' (')
         first = 1
-        for argN in ANList:
+        for arg in cmd.args:
             if 1 == first:
                 first = 0
             else:
                 cfile.write (', ')
-            cfile.write (argN)
+            cfile.write (arg.name)
         if 0 == first:
             cfile.write (', ')
         cfile.write (CBCUSTOMNAME + ');\n')
@@ -1195,13 +1132,13 @@ for cl in allClassesNames:
         cfile.write ('                }\n')
         cfile.write ('                ARSAL_Mutex_Unlock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
         cfile.write ('            }\n')
-        cfile.write ('            break; /* ' + AREnumValue (ID_SUBMODULE, cl + '_CMD', cmd) + ' */\n')
+        cfile.write ('            break; /* ' + AREnumValue (ID_SUBMODULE, cl.name + '_CMD', cmd.name) + ' */\n')
     cfile.write ('            default:\n')
     cfile.write ('                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
     cfile.write ('                break;\n')
     cfile.write ('            }\n')
     cfile.write ('        }\n')
-    cfile.write ('        break; /* ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl) + ' */\n')
+    cfile.write ('        break; /* ' + AREnumValue (ID_SUBMODULE, 'CLASS', cl.name) + ' */\n')
 cfile.write ('        default:\n')
 cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
 cfile.write ('            break;\n')
@@ -1233,49 +1170,40 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
-cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
+cfile.write ('#include <' + COMMANDSGEN_HFILE_NAME + '>\n')
+cfile.write ('#include <' + COMMANDSDEC_HFILE_NAME + '>\n')
 cfile.write ('#include <libARSAL/ARSAL_Print.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
 cfile.write ('\n')
 cfile.write ('int errcount;\n')
 cfile.write ('\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [clIndex][cIndex]
-        ATList = argTypesByClassAndCommand [clIndex][cIndex]
-        cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Cb') + ' (')
+for cl in allClasses:
+    for cmd in cl.cmds:
+        cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' (')
         first = 1
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
+        for arg in cmd.args:
             if 1 == first:
                 first = 0
             else:
                 cfile.write (', ')
-            cfile.write (xmlToC (argT) + ' ' + argN)
+            cfile.write (xmlToC (arg.type) + ' ' + arg.name)
         if 0 == first:
             cfile.write (', ')
         cfile.write ('void *custom)\n')
         cfile.write ('{\n')
-        cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "'+ TB_TAG+ '", "Callback for command ' + cl + '.' + cmd + ' --> Custom PTR = %p\\n", custom);\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "'+ TB_TAG+ '", "' + argN + ' value : <' + xmlToPrintf (argT) + '>\\n", ' + argN + ');\n')
-            if "string" == argT:
-                cfile.write ('    if (strcmp (' + xmlToSample (argT) + ', ' + argN + ') != 0)\n')
+        cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Callback for command ' + cl.name + '.' + cmd.name + ' --> Custom PTR = %p\\n", custom);\n')
+        for arg in cmd.args:
+            cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "' + arg.name + ' value : <' + xmlToPrintf (arg.type) + '>\\n", ' + arg.name + ');\n')
+            if "string" == arg.type:
+                cfile.write ('    if (strcmp (' + xmlToSample (arg.type) + ', ' + arg.name + ') != 0)\n')
             else:
-                cfile.write ('    if (' + argN + ' != ' + xmlToSample (argT) + ')\n')
+                cfile.write ('    if (' + arg.name + ' != ' + xmlToSample (arg.type) + ')\n')
             cfile.write ('    {\n')
-            if "string" == argT:
-                cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "'+ TB_TAG+ '", "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample (argT) + ');\n')
+            if "string" == arg.type:
+                cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <%s>\\n", ' + xmlToSample (arg.type) + ');\n')
             else:
-                cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "'+ TB_TAG+ '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (argT) + '>\\n");\n')
+                cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (arg.type) + '>\\n");\n')
             cfile.write ('        errcount++ ;\n')
             cfile.write ('    }\n')
         cfile.write ('}\n');
@@ -1284,11 +1212,9 @@ cfile.write ('\n')
 cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, 'initCb') + ' (void)\n')
 cfile.write ('{\n')
 cfile.write ('    int cbCustom = 0;\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' ((' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ') ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (cl) + ARCapitalize (cmd) + 'Cb') + ', (void *)cbCustom++ );\n')
+for cl in allClasses:
+    for cmd in cl.cmds:
+        cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ((' + ARTypeName (DEC_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ', (void *)cbCustom++ );\n')
 cfile.write ('}\n')
 
 cfile.write ('\n')
@@ -1300,41 +1226,35 @@ cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' res = ' + AR
 cfile.write ('    int32_t resSize = 0;\n')
 cfile.write ('    errcount = 0;\n')
 cfile.write ('    ' + ARFunctionName (TB_SUBMODULE, 'initCb') + ' ();\n')
-for cl in allClassesNames:
-    clIndex = allClassesNames.index (cl)
-    cfile.write ('    // Command class ' + cl + '\n')
-    cmdList = commandsNameByClass [clIndex]
-    for cmd in cmdList:
-        cmdIndex = cmdList.index (cmd)
-        cfile.write ('    res = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (cl) + ARCapitalize (cmd)) + ' (buffer, buffSize, &resSize')
-        ATList = argTypesByClassAndCommand [clIndex][cmdIndex]
-        ANList = argNamesByClassAndCommand [clIndex][cmdIndex]
-        for argN in ANList:
-            argT = ATList [ANList.index (argN)]
-            cfile.write (', ' + xmlToSample (argT))
+for cl in allClasses:
+    cfile.write ('    // Command class ' + cl.name + '\n')
+    for cmd in cl.cmds:
+        cfile.write ('    res = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (buffer, buffSize, &resSize')
+        for arg in cmd.args:
+            cfile.write (', ' + xmlToSample (arg.type))
         cfile.write (');\n')
         cfile.write ('    if (res != ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
         cfile.write ('    {\n')
-        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "'+ TB_TAG+ '", "Error while generating command ' + ARCapitalize (cl) + '.' + ARCapitalize (cmd) + '\\n\\n");\n')
+        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "Error while generating command ' + ARCapitalize (cl.name) + '.' + ARCapitalize (cmd.name) + '\\n\\n");\n')
         cfile.write ('        errcount++ ;\n')
         cfile.write ('    }\n')
         cfile.write ('    else\n')
         cfile.write ('    {\n')
-        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_DEBUG, "'+ TB_TAG+ '", "Generating command ' + ARCapitalize (cl) + '.' + ARCapitalize (cmd) + ' succeded\\n");\n')
+        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_DEBUG, "' + TB_TAG + '", "Generating command ' + ARCapitalize (cl.name) + '.' + ARCapitalize (cmd.name) + ' succeded\\n");\n')
         cfile.write ('        ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err;\n')
         cfile.write ('        err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (buffer, resSize);\n')
-        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "'+ TB_TAG+ '", "Decode return value : %d\\n\\n", err);\n')
+        cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Decode return value : %d\\n\\n", err);\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
     cfile.write ('\n')
 
 cfile.write ('    if (errcount == 0)\n')
 cfile.write ('    {\n')
-cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "'+ TB_TAG+ '", "No errors !\\n");\n')
+cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "No errors !\\n");\n')
 cfile.write ('    }\n')
 cfile.write ('    else\n')
 cfile.write ('    {\n')
-cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "'+ TB_TAG+ '", "%d errors detected during autoTest\\n", errcount);\n')
+cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "%d errors detected during autoTest\\n", errcount);\n')
 cfile.write ('    }\n')
 cfile.write ('    if (buffer != NULL)\n')
 cfile.write ('    {\n')
@@ -1356,12 +1276,12 @@ hfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 hfile.write (' *  - Re-run generateCommandsList.py script *\n')
 hfile.write (' *                                          *\n')
 hfile.write (' ********************************************/\n')
-hfile.write ('#ifndef '+ TB_DEFINE+ '\n')
-hfile.write ('#define '+ TB_DEFINE+ ' (1)\n')
+hfile.write ('#ifndef ' + TB_DEFINE + '\n')
+hfile.write ('#define ' + TB_DEFINE + ' (1)\n')
 hfile.write ('\n')
 hfile.write ('int ' + ARFunctionName (TB_SUBMODULE, 'autoTest') + ' ();\n')
 hfile.write ('\n')
-hfile.write ('#endif /* '+ TB_DEFINE+ ' */\n')
+hfile.write ('#endif /* ' + TB_DEFINE + ' */\n')
 
 hfile.close ()
 
@@ -1376,7 +1296,7 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include "../'+ COM_TB_DIR+ TB_HFILE_NAME+ '"\n')
+cfile.write ('#include "../' + COM_TB_DIR + TB_HFILE_NAME + '"\n')
 cfile.write ('\n')
 cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
@@ -1392,55 +1312,45 @@ cfile.close ()
 #################################
 
 def interfaceName (cls, cmd):
-    return JNIClassName+ ARCapitalize (cls) + ARCapitalize (cmd) + 'Listener'
+    return JNIClassName + ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'Listener'
 def interfaceVar (cls, cmd):
-    return '_'+ interfaceName (cls,cmd)
+    return '_' + interfaceName (cls,cmd)
 def javaCbName (cls, cmd):
-    return 'on'+ ARCapitalize (cls) + ARCapitalize (cmd) + 'Update'
+    return 'on' + ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'Update'
 
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
-        ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
-        jfile = open (JNIJ_DIR+ interfaceName (cl,cmd) + '.java', 'w')
-        jfile.write ('package '+ JNI_PACKAGE_NAME+ ';\n')
+for cl in allClasses:
+    for cmd in cl.cmds:
+        jfile = open (JNIJ_DIR + interfaceName (cl,cmd) + '.java', 'w')
+        jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
         jfile.write ('\n')
         jfile.write ('/**\n')
-        jfile.write (' * Interface for the command <code>' + ARCapitalize (cmd) + '</code> of class <code>' + ARCapitalize (cl) + '</code> listener\n')
+        jfile.write (' * Interface for the command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code> listener\n')
         jfile.write (' * @author Parrot (c) 2013\n')
         jfile.write (' * @version ' + LIB_VERSION + '\n')
         jfile.write (' */\n')
         jfile.write ('public interface ' + interfaceName (cl,cmd) + ' {\n')
         jfile.write ('\n')
         jfile.write ('    /**\n')
-        jfile.write ('     * Called when a command <code>' + ARCapitalize (cmd) + '</code> of class <code>' + ARCapitalize (cl) + '</code> is decoded\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            for argC in ACList [aIndex]:
-                jfile.write ('     * @param ' + argN + ' ' + argC + '\n')
+        jfile.write ('     * Called when a command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code> is decoded\n')
+        for arg in cmd.args:
+            for comm in arg.comments:
+                jfile.write ('     * @param ' + arg.name + ' ' + comm + '\n')
         jfile.write ('     */\n')
         jfile.write ('    void ' + javaCbName (cl,cmd) + ' (')
         first = 1
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            jargT = xmlToJava (argT)
+        for arg in cmd.args:
             if 1 == first:
                 first = 0
             else:
                 jfile.write (', ')
-            jfile.write (jargT+ ' '+ argN)
+            jfile.write (xmlToJava (arg.type) + ' ' + arg.name)
         jfile.write (');\n')
         jfile.write ('}\n')
         jfile.close ()
 
 jfile = open (JNI_JFILE, 'w')
 
-jfile.write ('package '+ JNI_PACKAGE_NAME+ ';\n')
+jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
 jfile.write ('\n')
 jfile.write ('import ' + SDK_PACKAGE_ROOT + 'arsal.ARNativeData;\n')
 jfile.write ('\n')
@@ -1452,7 +1362,7 @@ jfile.write (' * the application\n')
 jfile.write (' * @author Parrot (c) 2013\n')
 jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
-jfile.write ('public class '+ JNIClassName+ ' implements ARNativeData {\n')
+jfile.write ('public class ' + JNIClassName + ' implements ARNativeData {\n')
 jfile.write ('\n')
 jfile.write ('    private static final int dataDefaultLength = 128; // Default size of allocated memory\n')
 jfile.write ('\n')
@@ -1651,72 +1561,58 @@ jfile.write ('        inUse = nativeCopyFromArray (oldData, dataLen, pdata, data
 jfile.write ('        return inUse;\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
-        ACList = argCommentsByClassAndCommand [cIndex][cmIndex]
-        cmdCommList = commandsCommentsByClass[cIndex]
+for cl in allClasses:
+    for cmd in cl.cmds:
         jfile.write ('    /**\n')
-        jfile.write ('     * Set an ' + JNIClassName + ' to hold the command <code>' + ARCapitalize (cmd) + '</code> of class <code>' + ARCapitalize (cl) + '</code><br>\n')
+        jfile.write ('     * Set an ' + JNIClassName + ' to hold the command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code><br>\n')
         jfile.write ('     * <br>\n')
-        jfile.write ('     * Class ' + ARCapitalize (cl) + ' description:<br>\n')
-        for classComm in allClassesComments[cIndex]:
-            jfile.write ('     * ' + classComm + '<br>\n')
+        jfile.write ('     * Class ' + ARCapitalize (cl.name) + ' description:<br>\n')
+        for comm in cl.comments:
+            jfile.write ('     * ' + comm + '<br>\n')
         jfile.write ('     * <br>\n')
-        jfile.write ('     * Command ' + ARCapitalize (cmd) + ' description:<br>\n')
-        for cmdComm in cmdCommList [cmIndex]:
-            jfile.write ('     * ' + cmdComm + '<br>\n')
+        jfile.write ('     * Command ' + ARCapitalize (cmd.name) + ' description:<br>\n')
+        for comm in cmd.comments:
+            jfile.write ('     * ' + comm + '<br>\n')
         jfile.write ('     * <br>\n')
         jfile.write ('     * This function reuses the current ' + JNIClassName + ', then replacing its content with a\n')
         jfile.write ('     * new command created from the current params\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            for argC in ACList [aIndex]:
-                jfile.write ('     * @param ' + argN + ' ' + argC + '\n')
+        for arg in cmd.args:
+            for comm in arg.comments:
+                jfile.write ('     * @param ' + arg.name + ' ' + comm + '\n')
         jfile.write ('     * @return <code>true</code> if the command was properly set, <code>false</code> if the ' + JNIClassName + ' is was not valid, or already in use\n')
         jfile.write ('     */\n')
-        jfile.write ('    public boolean set'+ ARCapitalize (cl) + ARCapitalize (cmd) + ' (')
+        jfile.write ('    public boolean set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
         first = 1
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            jargT = xmlToJava (argT)
+        for arg in cmd.args:
             if 1 == first:
                 first = 0
             else:
                 jfile.write (', ')
-            jfile.write (jargT+ ' '+ argN)
+            jfile.write (xmlToJava (arg.type) + ' ' + arg.name)
         jfile.write (') {\n')
         jfile.write ('        if (!valid || inUse) {\n')
         jfile.write ('            return false;\n')
         jfile.write ('        }\n')
-        jfile.write ('        inUse = nativeSet'+ ARCapitalize (cl) + ARCapitalize (cmd) + ' (pdata, dataTotalLength')
-        for argN in ANList:
-            jfile.write (', ' + argN)
+        jfile.write ('        inUse = nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (pdata, dataTotalLength')
+        for arg in cmd.args:
+            jfile.write (', ' + arg.name)
         jfile.write (');\n')
         jfile.write ('        return inUse;\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
 
 
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
+for cl in allClasses:
+    for cmd in cl.cmds:
         jfile.write ('    private static ' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + ' = null;\n')
         jfile.write ('\n')
         jfile.write ('    /**\n')
-        jfile.write ('     * Set the listener for the command <code>' + ARCapitalize (cmd) + '</code> of class <code>' + ARCapitalize (cl) + '</code><br>\n')
+        jfile.write ('     * Set the listener for the command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code><br>\n')
         jfile.write ('     * Listeners are static to the class, and are not to be set on every object\n')
         jfile.write ('     * @param ' + interfaceVar (cl,cmd) + '_PARAM New listener for the command\n')
         jfile.write ('     */\n')
-        jfile.write ('    public static void set' + ARCapitalize (cl) + ARCapitalize (cmd) + 'Listener (' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + '_PARAM) {\n')
-        jfile.write ('        '+ interfaceVar (cl,cmd) + ' = ' + interfaceVar (cl,cmd) + '_PARAM;\n')
+        jfile.write ('    public static void set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Listener (' + interfaceName (cl,cmd) + ' ' + interfaceVar (cl,cmd) + '_PARAM) {\n')
+        jfile.write ('        ' + interfaceVar (cl,cmd) + ' = ' + interfaceVar (cl,cmd) + '_PARAM;\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
     jfile.write ('\n')
@@ -1727,19 +1623,11 @@ jfile.write ('    private native long    nativeAlloc (int size);\n')
 jfile.write ('    private native void    nativeFreeData (long dataToFree);\n')
 jfile.write ('    private native byte [] nativeGetData (long jpdata, int jdataSize);\n')
 jfile.write ('\n')
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        jfile.write ('    private native boolean nativeSet'+ ARCapitalize (cl) + ARCapitalize (cmd) + ' (long pdata, int dataTotalLength')
-        cmIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            jargT = xmlToJava (argT)
-            jfile.write (', ' + jargT+ ' '+ argN)
+for cl in allClasses:
+    for cmd in cl.cmds:
+        jfile.write ('    private native boolean nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (long pdata, int dataTotalLength')
+        for arg in cmd.args:
+            jfile.write (', ' + xmlToJava (arg.type) + ' ' + arg.name)
         jfile.write (');\n')
 jfile.write ('}\n')
 
@@ -1747,7 +1635,7 @@ jfile.close ()
 
 cfile = open (JNI_CFILE, 'w')
 
-JNI_FUNC_PREFIX='Java_'+ JNI_PACKAGE_NAME.replace ('.', '_') + '_'
+JNI_FUNC_PREFIX='Java_' + JNI_PACKAGE_NAME.replace ('.', '_') + '_'
 JNI_FIRST_ARGS='JNIEnv *env, jobject thizz'
 
 cfile.write ('/********************************************\n')
@@ -1759,8 +1647,8 @@ cfile.write (' *  - Modify ../../Xml/commands.xml file    *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include <'+ COMMANDSGEN_HFILE_NAME+ '>\n')
-cfile.write ('#include <'+ COMMANDSDEC_HFILE_NAME+ '>\n')
+cfile.write ('#include <' + COMMANDSGEN_HFILE_NAME + '>\n')
+cfile.write ('#include <' + COMMANDSDEC_HFILE_NAME + '>\n')
 cfile.write ('#include <jni.h>\n')
 cfile.write ('#include <stdlib.h>\n')
 cfile.write ('\n')
@@ -1768,7 +1656,7 @@ cfile.write ('static jfieldID g_dataSize_id = 0;\n')
 cfile.write ('static JavaVM *g_vm = NULL;\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeCopyFromArray ('+ JNI_FIRST_ARGS+ ', jbyteArray oldData, jint oldDataLen, jlong c_pdata, jint j_dataLen)\n')
+cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeCopyFromArray (' + JNI_FIRST_ARGS + ', jbyteArray oldData, jint oldDataLen, jlong c_pdata, jint j_dataLen)\n')
 cfile.write ('{\n')
 cfile.write ('    jboolean valid = JNI_TRUE;\n')
 cfile.write ('\n')
@@ -1820,14 +1708,14 @@ cfile.write ('    return valid;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jlong JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeAlloc ('+ JNI_FIRST_ARGS+ ', jint sizeInBytes)\n')
+cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeAlloc (' + JNI_FIRST_ARGS + ', jint sizeInBytes)\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *c_pdata = (uint8_t *) malloc ((int)sizeInBytes);\n')
 cfile.write ('    return (jlong) (intptr_t) c_pdata;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT void JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeFreeData ('+ JNI_FIRST_ARGS+ ', jlong dataToFree)\n')
+cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeFreeData (' + JNI_FIRST_ARGS + ', jlong dataToFree)\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *c_pdata = (uint8_t *) (intptr_t)dataToFree;\n')
 cfile.write ('    if (c_pdata != NULL)\n')
@@ -1837,7 +1725,7 @@ cfile.write ('    }\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jbyteArray JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeGetData ('+ JNI_FIRST_ARGS+ ', jlong jpdata, jint jdataSize)\n')
+cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeGetData (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    jbyteArray retArray = (*env)->NewByteArray (env, jdataSize);\n')
 cfile.write ('    if (retArray != NULL)\n')
@@ -1848,27 +1736,19 @@ cfile.write ('    return retArray;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 cfile.write ('JNIEXPORT jboolean JNICALL\n')
-cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeDecode ('+ JNI_FIRST_ARGS+ ', jlong jpdata, jint jdataSize)\n')
+cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeDecode (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *pdata = (uint8_t *) (intptr_t)jpdata;\n')
 cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (pdata, jdataSize);\n')
 cfile.write ('    return (' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' == err) ? JNI_TRUE: JNI_FALSE;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+for cl in allClasses:
+    for cmd in cl.cmds:
         cfile.write ('JNIEXPORT jboolean JNICALL\n')
-        cfile.write (JNI_FUNC_PREFIX+ JNIClassName+ '_nativeSet'+ ARCapitalize (cl) + ARCapitalize (cmd) + ' ('+ JNI_FIRST_ARGS + ', jlong c_pdata, jint dataLen')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            jargT = xmlToJni (argT)
-            cfile.write (', '+ jargT+ ' '+ argN)
+        cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (' + JNI_FIRST_ARGS + ', jlong c_pdata, jint dataLen')
+        for arg in cmd.args:
+            cfile.write (', ' + xmlToJni (arg.type) + ' ' + arg.name)
         cfile.write (')\n')
         cfile.write ('{\n')
         cfile.write ('    jboolean retVal = JNI_TRUE;\n')
@@ -1888,26 +1768,19 @@ for cl in allClassesNames:
         cfile.write ('        }\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write ('    const char *c_'+ argN+ ' = (*env)->GetStringUTFChars (env, '+ argN+ ', NULL);\n')
-        cfile.write ('    err = ' + ARFunctionName (GEN_SUBMODULE, 'Generate'+ ARCapitalize (cl) + ARCapitalize (cmd)) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            cargT = xmlToC (argT)
-            if 'string' == argT:
-                cfile.write (', c_'+ argN)
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write ('    const char *c_' + arg.name + ' = (*env)->GetStringUTFChars (env, ' + arg.name + ', NULL);\n')
+        cfile.write ('    err = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write (', c_' + arg.name)
             else:
-                cfile.write (', ('+ cargT+ ')'+ argN)
+                cfile.write (', (' + xmlToC (arg.type) + ')' + arg.name)
         cfile.write (');\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write ('    (*env)->ReleaseStringUTFChars (env, '+ argN+ ', c_'+ argN+ ');\n')
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write ('    (*env)->ReleaseStringUTFChars (env, ' + arg.name + ', c_' + arg.name + ');\n')
         cfile.write ('    if (err != ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
         cfile.write ('    {\n')
         cfile.write ('        retVal = JNI_FALSE;\n')
@@ -1921,21 +1794,13 @@ for cl in allClassesNames:
         cfile.write ('\n')
 
 def cCallbackName (cls,cmd):
-    return ARFunctionName (JNI_SUBMODULE, ARCapitalize (cls) + ARCapitalize (cmd) + 'nativeCb')
+    return ARFunctionName (JNI_SUBMODULE, ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'nativeCb')
 
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cmIndex = cmdList.index (cmd)
-        ANList = argNamesByClassAndCommand [cIndex][cmIndex]
-        ATList = argTypesByClassAndCommand [cIndex][cmIndex]
+for cl in allClasses:
+    for cmd in cl.cmds:
         cfile.write ('void ' + cCallbackName (cl,cmd) + ' (')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            cargT = xmlToC (argT)
-            cfile.write (cargT+ ' '+ argN+ ', ')
+        for arg in cmd.args:
+            cfile.write (xmlToC (arg.type) + ' ' + arg.name + ', ')
         cfile.write ('void *custom)\n')
         cfile.write ('{\n')
         cfile.write ('    jclass clazz = (jclass)custom;\n')
@@ -1943,40 +1808,31 @@ for cl in allClassesNames:
         cfile.write ('    JNIEnv *env = NULL;\n')
         cfile.write ('    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);\n')
         cfile.write ('    if (res < 0) { return; }\n')
-        cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "' + interfaceVar (cl,cmd) + '", "L'+ JNI_PACKAGE_NAME.replace ('.', '/') + '/' + interfaceName (cl,cmd) + ';");\n')
+        cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "' + interfaceVar (cl,cmd) + '", "L' + JNI_PACKAGE_NAME.replace ('.', '/') + '/' + interfaceName (cl,cmd) + ';");\n')
         cfile.write ('    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);\n')
         cfile.write ('    if (delegate == NULL) { return; }\n')
         cfile.write ('\n')
         cfile.write ('    jclass d_clazz = (*env)->GetObjectClass (env, delegate);\n')
         cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "' + javaCbName (cl,cmd) + '", "(')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            sigT = xmlToJavaSig (argT)
-            cfile.write (''+ sigT)
+        for arg in cmd.args:
+            cfile.write ('' + xmlToJavaSig (arg.type))
         cfile.write (')V");\n')
         cfile.write ('    (*env)->DeleteLocalRef (env, d_clazz);\n')
         cfile.write ('    if (d_methodid != NULL)\n')
         cfile.write ('    {\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write ('        jstring j_' + argN + ' = (*env)->NewStringUTF (env, ' + argN + ');\n')
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write ('        jstring j_' + arg.name + ' = (*env)->NewStringUTF (env, ' + arg.name + ');\n')
         cfile.write ('        (*env)->CallVoidMethod (env, delegate, d_methodid')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write (', j_' + argN)
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write (', j_' + arg.name)
             else:
-                cfile.write (', ' + argN)
+                cfile.write (', ' + arg.name)
         cfile.write (');\n')
-        for argN in ANList:
-            aIndex = ANList.index (argN)
-            argT = ATList [aIndex]
-            if 'string' == argT:
-                cfile.write ('        (*env)->DeleteLocalRef (env, j_' + argN + ');\n')
+        for arg in cmd.args:
+            if 'string' == arg.type:
+                cfile.write ('        (*env)->DeleteLocalRef (env, j_' + arg.name + ');\n')
         cfile.write ('    }\n')
         cfile.write ('    (*env)->DeleteLocalRef (env, delegate);\n')
         cfile.write ('}\n')
@@ -2002,11 +1858,9 @@ cfile.write ('    {\n')
 cfile.write ('        return -1;\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-for cl in allClassesNames:
-    cIndex = allClassesNames.index (cl)
-    cmdList = commandsNameByClass[cIndex]
-    for cmd in cmdList:
-        cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set'+ ARCapitalize (cl) + ARCapitalize (cmd) + 'Callback') + ' (' + cCallbackName (cl,cmd) + ', (void *)g_class);\n')
+for cl in allClasses:
+    for cmd in cl.cmds:
+        cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + cCallbackName (cl,cmd) + ', (void *)g_class);\n')
     cfile.write ('\n')
 cfile.write ('\n')
 cfile.write ('    return JNI_VERSION_1_6;\n')
