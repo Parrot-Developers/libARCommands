@@ -70,7 +70,7 @@ AC_ARG_WITH([libARSALInstallDir],
             fi])
 
 AC_ARG_WITH([libARSALIncludeDir],
-            AS_HELP_STRING([--with-libARSALIncludeDir=DIR],[directory of the libARSAL headers @<:@default=ARSALInstallDir/include@:>@]),
+            AS_HELP_STRING([--with-libARSALIncludeDir=DIR],[directory of the libARSAL headers @<:@default=libARSALInstallDir/include@:>@]),
             [if test x$withval = xno; then
               [if test ! -z $libARSALInstallDir; then
                  libARSALIncludeDir="$libARSALInstallDir/include"
@@ -87,7 +87,7 @@ AC_ARG_WITH([libARSALIncludeDir],
               fi])
 
 AC_ARG_WITH([libARSALLibDir],
-            AS_HELP_STRING([--with-libARSALLibDir=DIR],[directory of the libARSAL libraries @<:@default=ARSALInstallDir/lib@:>@]),
+            AS_HELP_STRING([--with-libARSALLibDir=DIR],[directory of the libARSAL libraries @<:@default=libARSALInstallDir/lib@:>@]),
             [if test x$withval = xno; then
               [if test ! -z $libARSALInstallDir; then
                 libARSALLibDir="$libARSALInstallDir/lib"
@@ -109,7 +109,8 @@ AC_ARG_WITH([libARSALLibDir],
 
 # include local headers first
 CFLAGS+=" -I$srcdir/../Includes -I$srcdir/../Sources"
-# add the headers directory of libSal
+
+# add the headers directory of libARSAL
 if test ! -z $libARSALIncludeDir; then
   CFLAGS+=" -I$libARSALIncludeDir"
 fi
@@ -132,7 +133,7 @@ fi
 AC_CHECK_HEADERS([libARSAL/ARSAL_Print.h libARSAL/ARSAL_Thread.h libARSAL/ARSAL_Mutex.h \
 libARSAL/ARSAL_Socket.h libARSAL/ARSAL_Time.h],,
 	AC_MSG_ERROR(The libARSAL headers are required in order to build the library !
-- Use --with-libARSALInstallDir of --with-libARSALIncludeDir to indicate a specific include path.))
+- Use --with-libARSALInstallDir or --with-libARSALIncludeDir to indicate a specific include path.))
 
 ##########################################################################
 # Checks for programs.
@@ -169,6 +170,11 @@ fi
 AC_MSG_NOTICE([generating source files from XML description of commands])
 AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -projectname "$with_project"])
 AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file probably contains errors))
+
+# Run prebuild PY script
+AC_MSG_NOTICE([Executing python prebuild commands])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Build/ARSDK_PrebuildActions.py])
+AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed))
 
 # Checks for header files.
 AC_HEADER_STDC

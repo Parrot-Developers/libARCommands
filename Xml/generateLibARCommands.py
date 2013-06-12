@@ -190,6 +190,14 @@ def AREnumValue (Submodule, Enum, Name):
 def AREnumName (Submodule, Enum):
     # eMODULE_SUBMODULE_ENUM
     return 'e' + LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Enum.upper ()
+
+def ARJavaEnumType (Submodule, Enum):
+    # MODULE_SUBMODULE_ENUM_"ENUM"
+    return LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Enum.upper () + '_ENUM'
+
+def ARJavaEnumValue (Submodule, Enum, Name):
+    # MODULE_SUBMODULE_ENUM_"ENUM".MODULE_SUBMODULE_ENUM_NAME
+    return ARJavaEnumType (Submodule, Enum) + '.' + AREnumValue (Submodule, Enum, Name)
     
 
 #Type conversion from XML Defined types to many other types
@@ -1519,14 +1527,18 @@ jfile.write ('    /**\n')
 jfile.write ('     * Decodes the current ' + JNIClassName + ', calling commands listeners<br>\n')
 jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIClassName + ',\n')
 jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
-jfile.write ('     * @return <code>true</code> if the command was decoded, and a listener was set,\n')
-jfile.write ('     * <code>false</code> otherwise (no listener, or bad command)\n')
+jfile.write ('     * @return An ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
 jfile.write ('     */\n')
-jfile.write ('    public boolean decode () {\n')
+jfile.write ('    public ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode () {\n')
+jfile.write ('        ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 jfile.write ('        if (!valid || !inUse) {\n')
-jfile.write ('            return false;\n')
+jfile.write ('            return err;\n')
 jfile.write ('        }\n')
-jfile.write ('        return nativeDecode (pdata, dataSize);\n')
+jfile.write ('        int errInt = nativeDecode (pdata, dataSize);\n')
+jfile.write ('        if (' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+jfile.write ('            err = ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
+jfile.write ('        }\n')
+jfile.write ('        return err;\n')
 jfile.write ('    }\n')
 jfile.write ('\n')
 jfile.write ('    /**\n')
@@ -1575,9 +1587,9 @@ for cl in allClasses:
         for arg in cmd.args:
             for comm in arg.comments:
                 jfile.write ('     * @param ' + arg.name + ' ' + comm + '\n')
-        jfile.write ('     * @return <code>true</code> if the command was properly set, <code>false</code> if the ' + JNIClassName + ' is was not valid, or already in use\n')
+        jfile.write ('     * @return An ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' error code.\n')
         jfile.write ('     */\n')
-        jfile.write ('    public boolean set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
+        jfile.write ('    public ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' set' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
         first = 1
         for arg in cmd.args:
             if 1 == first:
@@ -1586,14 +1598,21 @@ for cl in allClasses:
                 jfile.write (', ')
             jfile.write (xmlToJava (arg.type) + ' ' + arg.name)
         jfile.write (') {\n')
+        jfile.write ('        ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n')
         jfile.write ('        if (!valid || inUse) {\n')
-        jfile.write ('            return false;\n')
+        jfile.write ('            return err;\n')
         jfile.write ('        }\n')
-        jfile.write ('        inUse = nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (pdata, dataTotalLength')
+        jfile.write ('        int errInt = nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (pdata, dataTotalLength')
         for arg in cmd.args:
             jfile.write (', ' + arg.name)
         jfile.write (');\n')
-        jfile.write ('        return inUse;\n')
+        jfile.write ('        if (' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+        jfile.write ('            err = ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt);\n')
+        jfile.write ('            inUse = (err == ' + ARJavaEnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ');\n')
+        jfile.write ('        } else {\n')
+        jfile.write ('            inUse = false;\n')
+        jfile.write ('        }\n')
+        jfile.write ('        return err;\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
 
@@ -1613,7 +1632,7 @@ for cl in allClasses:
         jfile.write ('\n')
     jfile.write ('\n')
 jfile.write ('\n')
-jfile.write ('    private native boolean nativeDecode (long jpdata, int jdataSize);\n')
+jfile.write ('    private native int     nativeDecode (long jpdata, int jdataSize);\n')
 jfile.write ('    private native boolean nativeCopyFromArray (byte [] oldData, int oldDataLen, long pdata, int dataLen);\n')
 jfile.write ('    private native long    nativeAlloc (int size);\n')
 jfile.write ('    private native void    nativeFreeData (long dataToFree);\n')
@@ -1621,7 +1640,7 @@ jfile.write ('    private native byte [] nativeGetData (long jpdata, int jdataSi
 jfile.write ('\n')
 for cl in allClasses:
     for cmd in cl.cmds:
-        jfile.write ('    private native boolean nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (long pdata, int dataTotalLength')
+        jfile.write ('    private native int     nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (long pdata, int dataTotalLength')
         for arg in cmd.args:
             jfile.write (', ' + xmlToJava (arg.type) + ' ' + arg.name)
         jfile.write (');\n')
@@ -1731,25 +1750,24 @@ cfile.write ('    }\n')
 cfile.write ('    return retArray;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
-cfile.write ('JNIEXPORT jboolean JNICALL\n')
+cfile.write ('JNIEXPORT jint JNICALL\n')
 cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeDecode (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *pdata = (uint8_t *) (intptr_t)jpdata;\n')
 cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (pdata, jdataSize);\n')
-cfile.write ('    return (' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' == err) ? JNI_TRUE: JNI_FALSE;\n')
+cfile.write ('    return err;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 for cl in allClasses:
     for cmd in cl.cmds:
-        cfile.write ('JNIEXPORT jboolean JNICALL\n')
+        cfile.write ('JNIEXPORT jint JNICALL\n')
         cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeSet' + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (' + JNI_FIRST_ARGS + ', jlong c_pdata, jint dataLen')
         for arg in cmd.args:
             cfile.write (', ' + xmlToJni (arg.type) + ' ' + arg.name)
         cfile.write (')\n')
         cfile.write ('{\n')
-        cfile.write ('    jboolean retVal = JNI_TRUE;\n')
         cfile.write ('    int32_t c_dataSize = 0;\n')
-        cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n');
+        cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n');
         cfile.write ('    if (g_dataSize_id == 0)\n')
         cfile.write ('    {\n')
         cfile.write ('        jclass clz = (*env)->GetObjectClass (env, thizz);\n')
@@ -1760,7 +1778,7 @@ for cl in allClasses:
         cfile.write ('        }\n')
         cfile.write ('        else\n')
         cfile.write ('        {\n')
-        cfile.write ('            return JNI_FALSE;\n')
+        cfile.write ('            return err;\n')
         cfile.write ('        }\n')
         cfile.write ('    }\n')
         cfile.write ('\n')
@@ -1777,15 +1795,11 @@ for cl in allClasses:
         for arg in cmd.args:
             if 'string' == arg.type:
                 cfile.write ('    (*env)->ReleaseStringUTFChars (env, ' + arg.name + ', c_' + arg.name + ');\n')
-        cfile.write ('    if (err != ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
-        cfile.write ('    {\n')
-        cfile.write ('        retVal = JNI_FALSE;\n')
-        cfile.write ('    }\n')
-        cfile.write ('    else\n')
+        cfile.write ('    if (err == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
         cfile.write ('    {\n')
         cfile.write ('        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);\n')
         cfile.write ('    }\n')
-        cfile.write ('    return retVal;\n')
+        cfile.write ('    return err;\n')
         cfile.write ('}\n')
         cfile.write ('\n')
 
