@@ -520,7 +520,15 @@ for projectName in projects:
 
     classes = xmlfile.getElementsByTagName ('class')
     for cmdclass in classes:
+        # Get class name
         currentClass = ARClass(cmdclass.attributes["name"].nodeValue)
+        # Check if class name is unique
+        for cls in proj.classes:
+            if cls.name == currentClass.name:
+                ARPrint ('Class ' + cls.name + ' appears multiple times in ' + proj.name + '!')
+                ARPrint (' --> Classes must have unique names in a given project (but can exist in multiple projects)')
+                EXIT (1)
+        # Get class comments
         classComments = cmdclass.firstChild.data.splitlines ()
         for classComm in classComments:
             stripName = classComm.strip ()
@@ -528,7 +536,15 @@ for projectName in projects:
                 currentClass.addCommentLine(stripName)
         commands = cmdclass.getElementsByTagName ('cmd')
         for command in commands:
+            # Get command name
             currentCommand = ARCommand(command.attributes["name"].nodeValue)
+            # Check if command name is unique
+            for cmd in currentClass.cmds:
+                if cmd.name == currentCommand.name:
+                    ARPrint ('Command ' + cmd.name + ' appears multiple times in ' + proj.name + '.' + currentClass.name + '!')
+                    ARPrint (' --> Commands must have unique names in a given class (but can exist in multiple classes)')
+                    EXIT (1)
+            # Get command comments
             commandComments = command.firstChild.data.splitlines ()
             for commandComm in commandComments:
                 stripName = commandComm.strip ()
@@ -536,7 +552,15 @@ for projectName in projects:
                     currentCommand.addCommentLine (stripName)
             args = command.getElementsByTagName ('arg')
             for arg in args:
+                # Get arg name / type
                 currentArg = ARArg (arg.attributes["name"].nodeValue, arg.attributes["type"].nodeValue)
+                # Check if arg name is unique
+                for argTest in currentCommand.args:
+                    if argTest.name == currentArg.name:
+                        ARPrint ('Arg ' + currentArg.name + ' appears multiple time in ' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '!')
+                        ARPrint (' --> Args must have unique name in a given command (but can exist in multiple commands)')
+                        EXIT (1)
+                # Get arg comments
                 argComments = arg.firstChild.data.splitlines ()
                 for argComm in argComments:
                     stripName = argComm.strip ()
