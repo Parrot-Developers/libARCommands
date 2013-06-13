@@ -35,6 +35,16 @@ BUILD_DIR    = MYDIR + '/'
 JNI_C_DIR    = MYDIR + '/../JNI/c/'
 JNI_JAVA_DIR = MYDIR + '/../JNI/java/'
 
+# Create dir if neededif not os.path.exists (SRC_DIR):
+if not os.path.exists (SRC_DIR):
+    os.makedirs (SRC_DIR)
+if not os.path.exists (INC_DIR):
+    os.makedirs (INC_DIR)
+if not os.path.exists (JNI_C_DIR):
+    os.makedirs (JNI_C_DIR)
+if not os.path.exists (JNI_JAVA_DIR):
+    os.makedirs (JNI_JAVA_DIR)
+
 # Java/JNI package
 JAVA_PACKAGE='com.parrot.arsdk.' + LIB_MODULE.lower ()
 
