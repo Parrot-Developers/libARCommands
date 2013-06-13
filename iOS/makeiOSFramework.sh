@@ -78,11 +78,13 @@ if [ "xdebug" = "x$CONFIGURATION" ]; then
 	CURRLIB_PATTERN=$LIBNAME_LOWER"_dbg.*"
 	STATIC_LIB=$LIBNAME_LOWER"_dbg.a"
 	FRAMEWORK=$FRAMEWORK_PATH"/"$LIBNAME"_dbg.framework"
+	FRAMEWORK_LIBNAME=$LIBNAME"_dbg"
 else
 	CONF_DEBUG=""
 	CURRLIB_PATTERN=$LIBNAME_LOWER".*"
 	STATIC_LIB=$LIBNAME_LOWER".a"
 	FRAMEWORK=$FRAMEWORK_PATH"/"$LIBNAME".framework"
+	FRAMEWORK_LIBNAME=$LIBNAME
 fi
 
 
@@ -159,6 +161,6 @@ mkdir -p $F_HDIR # Sufficient to create all other dirs
 cp -r $PREFIX/include/$CURRINC_FOLDER/*.h $F_HDIR
 
 # Lipo lib files
-lipo $PREFIX/lib/$STATIC_LIB -create -output $F_LDIR/$LIBNAME
+lipo $PREFIX/lib/$STATIC_LIB -create -output $F_LDIR/$FRAMEWORK_LIBNAME
 
 exit 0
