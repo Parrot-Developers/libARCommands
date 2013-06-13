@@ -34,11 +34,11 @@ _
 ##########################################################################
 # Project selection
 ##########################################################################
-AC_ARG_WITH([project],
-			[AS_HELP_STRING([--with-project=PROJECT_NAME],
-							[generate commands for the specified project @<:@default=mykonos3@:>@])],
+AC_ARG_WITH([projects],
+			[AS_HELP_STRING([--with-projects=PROJECTS_NAMES],
+							[generate commands for the specified projects (project1,project2,...) @<:@default=mykonos3@:>@])],
 			[],
-			[with_project=mykonos3])
+			[with_projects=mykonos3])
 
 ##########################################################################
 # Non versionned .so compilation support (for Android)
@@ -158,18 +158,21 @@ AM_PATH_PYTHON(,, AC_MSG_ERROR(Python is required to generate source files for t
 
 # Check presence of the input XML file.
 AC_MSG_CHECKING([presence of XML commands file])
-xmlfile="$srcdir/../Xml/""$with_project""_commands.xml"
-if test -f "$xmlfile"; then
-	AC_MSG_RESULT(["$xmlfile"])
-else
-	AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
-Please check the value of the --with-project option or create the file yourself.])
-fi
+line_proj=$(echo $with_projects | tr ',' '\n')
+for project in $line_proj; do
+	xmlfile="$srcdir/../Xml/""$project""_commands.xml"
+	if test -f "$xmlfile"; then
+	   AC_MSG_RESULT(["$xmlfile"])
+	else
+	   AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
+	   Please check the value of the --with-projects option or create the file yourself.])
+	fi
+done
 
 # Generate source files from XML
 AC_MSG_NOTICE([generating source files from XML description of commands])
-AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -projectname "$with_project"])
-AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file probably contains errors))
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -projects "$with_projects"])
+AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML files probably contains errors))
 
 # Run prebuild PY script
 AC_MSG_NOTICE([Executing python prebuild commands])

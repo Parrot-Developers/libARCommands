@@ -41,104 +41,103 @@
 -->
 
 
-<project id="1">
-  All Mykonos3-only commands
+<project id="0">
+  All common commands shared between all projects
 
-  <class name="Piloting">
-    All commands related to piloting the totoDrone
+  <class name="Test">
+    Some test commands
 
-    <cmd name="FlatTrim">
-      Do a flat trim
+    <cmd name="TestU8">
+      Test uint8_t arg type
+      <arg name="u8" type="u8">
+        Dummy uint8_t for test
+      </arg>
     </cmd>
 
-    <cmd name="TakeOff">
-      Ask the drone to take off
+    <cmd name="TestI8">
+      Test int8_t arg type
+      <arg name="i8" type="i8">
+        Dummy int8_t for test
+      </arg>
     </cmd>
 
-    <cmd name="PCMD">
-      Ask the drone to move around.
-
-      <arg name="flag" type="u8">
-        Boolean flag to activate roll/pitch movement
+    <cmd name="TestU16">
+      Test uint16_t arg type
+      <arg name="u16" type="u16">
+        Dummy uint16_t for test
       </arg>
-
-      <arg name="roll" type="float">
-        Roll consign for the drone [-1;1]
-      </arg>
-
-      <arg name="pitch" type="float">
-        Pitch consign for the drone [-1;1]
-      </arg>
-
-      <arg name="yaw" type="float">
-        Yaw consign for the drone [-1;1]
-      </arg>
-
-      <arg name="gaz" type="float">
-        Gaz consign for the drone [-1;1]
-      </arg>
-
-      <arg name="psi" type="float">
-        Magnetic north heading of the controlling device (deg)
-      </arg>
-
     </cmd>
 
-    <cmd name="Landing">
-      Ask the drone to land
+    <cmd name="TestI16">
+      Test int16_t arg type
+      <arg name="i16" type="i16">
+        Dummy int16_t for test
+      </arg>
     </cmd>
 
-    <cmd name="Emergency">
-      Put drone in emergency state
+    <cmd name="TestU32">
+      Test uint32_t arg type
+      <arg name="u32" type="u32">
+        Dummy uint32_t for test
+      </arg>
     </cmd>
 
+    <cmd name="TestI32">
+      Test int32_t arg type
+      <arg name="i32" type="i32">
+        Dummy int32_t for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestU64">
+      Test uint64_t arg type
+      <arg name="u64" type="u64">
+        Dummy uint64_t for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestI64">
+      Test int64_t arg type
+      <arg name="i64" type="i64">
+        Dummy int64_t for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestFlt">
+      Test float arg type
+      <arg name="flt" type="float">
+        Dummy float for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestDbl">
+      Test double arg type
+      <arg name="dbl" type="double">
+        Dummy double for test
+      </arg>
+    </cmd>
+
+    <cmd name="TestString">
+      Test char * arg type
+      <arg name="stringTest" type="string">
+        Dummy char * for test
+      </arg>
+    </cmd>
+
+	<cmd name="TestMultiArgs">
+	  Test with multiple args
+	  <arg name="stringTestOne" type="string">
+		First dummy char * for Test
+	  </arg>
+	  <arg name="stringTestTwo" type="string">
+		Second dummy char * for Test
+	  </arg>
+	  <arg name="u16TestOne" type="u16">
+		dummy uint16 for test
+	  </arg>
+	  <arg name="doubleTestOne" type="double">
+		dummy double for test
+	  </arg>
+	</cmd>
   </class>
-
-  <class name="Config">
-    All configuration commands
-
-    <cmd name="SSID">
-      Change drone SSID
-
-      <arg name="newSsid" type="string">
-        New SSID for the drone
-      </arg>
-
-    </cmd>
-
-    <cmd name="AngleMax">
-      Change the maximum angle of the drone
-
-      <arg name="newAngleMax" type="float">
-        New maximum angle for the drone (rad)
-      </arg>
-
-    </cmd>
-  </class>
-
-  <class name="Navdata">
-    Navigation data from drone
-
-    <cmd name="Position">
-      Position (X,Y) of the drone
-
-      <arg name="x" type="i32">
-        Current X position
-      </arg>
-
-      <arg name="y" type="i32">
-        Current Y position
-      </arg>
-    </cmd>
-  </class>
-
-  <class name="Event">
-    Occasional information
-
-    <cmd name="FlatTrimAck">
-      Drone acknowledges that flat trim was correctly processed
-    </cmd>
-
-  </class>
-
 </project>
