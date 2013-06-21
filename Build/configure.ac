@@ -36,9 +36,9 @@ _
 ##########################################################################
 AC_ARG_WITH([projects],
 			[AS_HELP_STRING([--with-projects=PROJECTS_NAMES],
-							[generate commands for the specified projects (project1,project2,...) @<:@default=mykonos3@:>@])],
+							[generate commands for the specified projects (project1,project2,...) @<:@default=mykonos3,delos@:>@])],
 			[],
-			[with_projects=mykonos3])
+			[with_projects=mykonos3,delos])
 
 ##########################################################################
 # Non versionned .so compilation support (for Android)
