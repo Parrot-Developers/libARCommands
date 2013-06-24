@@ -36,9 +36,9 @@ _
 ##########################################################################
 AC_ARG_WITH([projects],
 			[AS_HELP_STRING([--with-projects=PROJECTS_NAMES],
-							[generate commands for the specified projects (project1,project2,...) @<:@default=mykonos3,delos@:>@])],
+							[generate commands for the specified projects (project1,project2,...). `all` means use every available xml file @<:@default=all@:>@])],
 			[],
-			[with_projects=mykonos3,delos])
+			[with_projects=all])
 
 ##########################################################################
 # Non versionned .so compilation support (for Android)
@@ -160,13 +160,15 @@ AM_PATH_PYTHON(,, AC_MSG_ERROR(Python is required to generate source files for t
 AC_MSG_CHECKING([presence of XML commands file])
 line_proj=$(echo $with_projects | tr ',' '\n')
 for project in $line_proj; do
-	xmlfile="$srcdir/../Xml/""$project""_commands.xml"
-	if test -f "$xmlfile"; then
-	   AC_MSG_RESULT(["$xmlfile"])
-	else
-	   AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
-	   Please check the value of the --with-projects option or create the file yourself.])
-	fi
+    if ! test xall = x$project; then
+        xmlfile="$srcdir/../Xml/""$project""_commands.xml"
+        if test -f "$xmlfile"; then
+            AC_MSG_RESULT(["$xmlfile"])
+        else
+            AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
+                          Please check the value of the --with-projects option or create the file yourself.])
+        fi
+    fi
 done
 
 # Generate source files from XML

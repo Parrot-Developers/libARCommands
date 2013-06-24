@@ -487,6 +487,15 @@ class ARProject:
 # of commands / classes         #
 #################################
 
+# If the 'all' project is in our list, replace our list contents with the
+# list of all xml files here
+if 'all' in projects:
+    projects = []
+    for files in os.listdir (XMLFILENAME_PREFIX):
+        if files.endswith ('_commands.xml'):
+            proj = files.replace ('_commands.xml','')
+            projects.append (proj)
+
 allProjects = []
 
 for projectName in projects:
