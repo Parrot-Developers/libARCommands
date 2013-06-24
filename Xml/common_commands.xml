@@ -139,5 +139,15 @@
 		dummy double for test
 	  </arg>
 	</cmd>
+
+	<cmd name="TestNotAligned">
+	  Test with bad alignment args
+	  <arg name="smallArgOne" type="u8">
+		First dummy int for bad alignment
+	  </arg>
+	  <arg name="bigArgTwo" type="float">
+		Second dummy (misaligned) arg
+	  </arg>
+	</cmd>
   </class>
 </project>

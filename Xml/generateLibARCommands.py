@@ -1322,7 +1322,8 @@ for proj in allProjects:
     cfile.write ('                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
     cfile.write ('                break;\n')
     cfile.write ('            }\n')
-    cfile.write ('        } /* ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
+    cfile.write ('        }\n')
+    cfile.write ('        break; /* ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
 
 cfile.write ('        default:\n')
 cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
