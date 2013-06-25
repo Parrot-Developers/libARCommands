@@ -1359,6 +1359,12 @@ cfile.close ()
 # Generate C Testbench          #
 #################################
 
+def TB_CALL_VARNAME (proj, cls, cmd):
+    return proj.name + ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'ShouldBeCalled'
+
+def TB_CREATE_VARNAME (proj, cls, cmd):
+    return 'int ' + TB_CALL_VARNAME (proj, cls, cmd) + ' = 0;'
+
 cfile = open (TB_CFILE, 'w')
 
 cfile.write ('/********************************************\n')
@@ -1377,6 +1383,11 @@ cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include <string.h>\n')
 cfile.write ('\n')
 cfile.write ('int errcount;\n')
+cfile.write ('\n')
+for proj in allProjects:
+    for cl in proj.classes:
+        for cmd in cl.cmds:
+            cfile.write (TB_CREATE_VARNAME (proj, cl, cmd) + '\n')
 cfile.write ('\n')
 for proj in allProjects:
     for cl in proj.classes:
@@ -1407,6 +1418,11 @@ for proj in allProjects:
                     cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (arg.type) + '>\\n");\n')
                 cfile.write ('        errcount++ ;\n')
                 cfile.write ('    }\n')
+            cfile.write ('    if (' + TB_CALL_VARNAME (proj, cl, cmd) + ' == 0)\n')
+            cfile.write ('    {\n')
+            cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD CALLBACK !!! --> This callback should not have been called for this command");\n')
+            cfile.write ('        errcount++ ;\n')
+            cfile.write ('    }\n')
             cfile.write ('}\n')
         cfile.write ('\n')
     cfile.write ('\n')
@@ -1448,8 +1464,14 @@ for proj in allProjects:
             cfile.write ('    {\n')
             cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_DEBUG, "' + TB_TAG + '", "Generating command ' + ARCapitalize (proj.name) + '.' + ARCapitalize (cl.name) + '.' + ARCapitalize (cmd.name) + ' succeded\\n");\n')
             cfile.write ('        ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err;\n')
+            cfile.write ('        ' + TB_CALL_VARNAME (proj, cl, cmd) + ' = 1;\n')
             cfile.write ('        err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (buffer, resSize);\n')
+            cfile.write ('        ' + TB_CALL_VARNAME (proj, cl, cmd) + ' = 0;\n')
             cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Decode return value : %d\\n\\n", err);\n')
+            cfile.write ('        if (err != ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('        {\n')
+            cfile.write ('            errcount++ ;\n')
+            cfile.write ('        }\n')
             cfile.write ('    }\n')
             cfile.write ('\n')
         cfile.write ('\n')
