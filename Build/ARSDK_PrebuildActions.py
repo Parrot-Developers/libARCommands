@@ -169,6 +169,20 @@ def readEnumEntriesFromFile (filename):
                 currentEnumType.addEntry (entry)
     return allEnums
 
+def entryConstructor (entry, last=False):
+    retVal = ''
+    if entry.comment == '':
+        retVal = entry.name + ' (' + entry.value + ')'
+    else:
+        retVal = entry.name + ' (' + entry.value + ', "' + entry.comment + '")'
+    if last:
+        retVal += ';'
+    else:
+        retVal += ','
+    if entry.comment != '':
+        retVal += ' /**< ' + entry.comment + ' */'
+    return retVal
+
 def writeEnumToJavaFile (enumType):
     CLASS_NAME = enumType.name.lstrip ('e') + '_ENUM'
     JFILE_NAME = JNI_JAVA_DIR + CLASS_NAME + '.java'
@@ -185,15 +199,22 @@ def writeEnumToJavaFile (enumType):
     jfile.write (' */\n')
     jfile.write ('public enum ' + CLASS_NAME + ' {\n')
     for entry in enumType.entries[:-1]:
-        jfile.write ('    ' + entry.name + ' (' + entry.value + '), /**< ' + entry.comment + ' */\n')
+        jfile.write ('    ' + entryConstructor (entry) + '\n')
     entry = enumType.entries[-1]
-    jfile.write ('    ' + entry.name + ' (' + entry.value + '); /**< ' + entry.comment + ' */\n')
+    jfile.write ('    ' + entryConstructor (entry, True) + '\n')
     jfile.write ('\n')
     jfile.write ('    private final int value;\n')
+    jfile.write ('    private final String comment;\n');
     jfile.write ('    static HashMap<Integer, ' + CLASS_NAME + '> valuesList;\n')
     jfile.write ('\n')
     jfile.write ('    ' + CLASS_NAME + ' (int value) {\n')
     jfile.write ('        this.value = value;\n')
+    jfile.write ('        this.comment = null;\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+    jfile.write ('    ' + CLASS_NAME + ' (int value, String comment) {\n')
+    jfile.write ('        this.value = value;\n')
+    jfile.write ('        this.comment = comment;\n')
     jfile.write ('    }\n')
     jfile.write ('\n')
     jfile.write ('    /**\n')
@@ -218,6 +239,17 @@ def writeEnumToJavaFile (enumType):
     jfile.write ('            }\n')
     jfile.write ('        }\n')
     jfile.write ('        return valuesList.get (value);\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+    jfile.write ('    /**\n')
+    jfile.write ('     * Returns the enum comment as a description string\n')
+    jfile.write ('     * @return The enum description\n')
+    jfile.write ('     */\n')
+    jfile.write ('    public String toString () {\n')
+    jfile.write ('        if (this.comment != null) {\n')
+    jfile.write ('            return this.comment;\n')
+    jfile.write ('        }\n')
+    jfile.write ('        return super.toString ();\n')
     jfile.write ('    }\n')
     jfile.write ('}\n')
     jfile.close ()
