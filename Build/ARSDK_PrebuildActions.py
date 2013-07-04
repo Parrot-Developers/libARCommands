@@ -184,7 +184,7 @@ def entryConstructor (entry, last=False):
     return retVal
 
 def writeEnumToJavaFile (enumType):
-    CLASS_NAME = enumType.name.lstrip ('e')
+    CLASS_NAME = enumType.name.lstrip ('e') + '_ENUM'
     JFILE_NAME = JNI_JAVA_DIR + CLASS_NAME + '.java'
     jfile      = open (JFILE_NAME, 'w')
 
