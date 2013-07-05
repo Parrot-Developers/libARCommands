@@ -1788,7 +1788,7 @@ for proj in allProjects:
             cfile.write ('        jclass clz = (*env)->GetObjectClass (env, thizz);\n')
             cfile.write ('        if (clz != 0)\n')
             cfile.write ('        {\n')
-            cfile.write ('            g_dataSize_id = (*env)->GetFieldID (env, clz, "dataSize", "I");\n')
+            cfile.write ('            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");\n')
             cfile.write ('            (*env)->DeleteLocalRef (env, clz);\n')
             cfile.write ('        }\n')
             cfile.write ('        else\n')
