@@ -2052,7 +2052,7 @@ for proj in allProjects:
             for comm in cmd.comments:
                 jfile.write ('     * ' + comm + '<br>\n')
             jfile.write ('     * <br>\n')
-            jfile.write ('     * This function reuses the current ' + JNIClassName + ', then replacing its content with a\n')
+            jfile.write ('     * This function reuses the current ' + JNIClassName + ', replacing its content with a\n')
             jfile.write ('     * new command created from the current params\n')
             for arg in cmd.args:
                 for comm in arg.comments:
