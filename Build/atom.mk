@@ -5,6 +5,7 @@ ifneq ("$(TARGET_LIBC)","bionic")
 
 include $(CLEAR_VARS)
 
+LOCAL_CATEGORY_PATH := mykonos3/libs
 LOCAL_MODULE := libARCommands
 LOCAL_DESCRIPTION := ARSDK Piloting and User Commands
 
