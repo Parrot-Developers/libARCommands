@@ -170,17 +170,18 @@ def readEnumEntriesFromFile (filename):
     return allEnums
 
 def entryConstructor (entry, last=False):
-    retVal = ''
+    retVal = '   '
+    if entry.comment != '':
+        retVal += '/** ' + entry.comment + ' */\n    '
     if entry.comment == '':
-        retVal = entry.name + ' (' + entry.value + ')'
+        retVal += entry.name + ' (' + entry.value + ')'
     else:
-        retVal = entry.name + ' (' + entry.value + ', "' + entry.comment + '")'
+        retVal += entry.name + ' (' + entry.value + ', "' + entry.comment + '")'
     if last:
         retVal += ';'
     else:
         retVal += ','
-    if entry.comment != '':
-        retVal += ' /**< ' + entry.comment + ' */'
+    retVal += '\n'
     return retVal
 
 def writeEnumToJavaFile (enumType):
@@ -199,9 +200,9 @@ def writeEnumToJavaFile (enumType):
     jfile.write (' */\n')
     jfile.write ('public enum ' + CLASS_NAME + ' {\n')
     for entry in enumType.entries[:-1]:
-        jfile.write ('    ' + entryConstructor (entry) + '\n')
+        jfile.write (entryConstructor (entry))
     entry = enumType.entries[-1]
-    jfile.write ('    ' + entryConstructor (entry, True) + '\n')
+    jfile.write (entryConstructor (entry, True))
     jfile.write ('\n')
     jfile.write ('    private final int value;\n')
     jfile.write ('    private final String comment;\n');
