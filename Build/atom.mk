@@ -15,6 +15,11 @@ LOCAL_EXPORT_LDLIBS := -larcommands
 # Autotools variable
 LOCAL_AUTOTOOLS_CONFIGURE_ARGS := --with-libARSALInstallDir=""
 
+ifeq ("$(TARGET_PBUILD_FORCE_STATIC)","1")
+LOCAL_AUTOTOOLS_CONFIGURE_ARGS += --disable-shared
+endif
+
+
 # User define command to be launch before configure step.
 # Generates files used by configure
 define LOCAL_AUTOTOOLS_CMD_POST_UNPACK
