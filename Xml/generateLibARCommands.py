@@ -108,7 +108,7 @@ LIN_TB_DIR=TB__DIR + 'linux/'
 COM_TB_DIR=TB__DIR + 'common/'
 
 #Relative path of JNI dir
-JNI_DIR="../JNI/"
+JNI_DIR=MYDIR + "/../JNI/"
 
 #Relative path of JNI/C dir
 JNIC_DIR=JNI_DIR + 'c/'
