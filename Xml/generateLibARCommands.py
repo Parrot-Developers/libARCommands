@@ -47,6 +47,7 @@ LIB_VERSION=AC_ARGS[1].replace ('[', '').replace (']', '')
 
 SDK_PACKAGE_ROOT='com.parrot.arsdk.'
 JNI_PACKAGE_NAME=SDK_PACKAGE_ROOT + LIB_MODULE.lower ()
+JNI_PACKAGE_DIR = JNI_PACKAGE_NAME.replace ('.', '/')
 
 # Default project name
 DEFAULTPROJECTNAME='common'
@@ -115,6 +116,7 @@ JNIC_DIR=JNI_DIR + 'c/'
 
 #Relative path of JNI/Java dir
 JNIJ_DIR=JNI_DIR + 'java/'
+JNIJ_OUT_DIR=JNIJ_DIR + JNI_PACKAGE_DIR + '/'
 
 ##### END OF CONFIG #####
 
@@ -138,11 +140,11 @@ TB_LIN_CFILE=LIN_TB_DIR + TB_LIN_CFILE_NAME
 GENERATED_FILES.append (TB_LIN_CFILE)
 JNI_CFILE=JNIC_DIR + JNI_CFILE_NAME
 GENERATED_FILES.append (JNI_CFILE)
-JNI_JFILE=JNIJ_DIR + JNI_JFILE_NAME
+JNI_JFILE=JNIJ_OUT_DIR + JNI_JFILE_NAME
 GENERATED_FILES.append (JNI_JFILE)
 JNI_MAKEFILE=JNIC_DIR + JNI_MAKEFILE_NAME
 GENERATED_FILES.append (JNI_MAKEFILE)
-JAVA_INTERFACES_FILES=JNIJ_DIR + JAVA_INTERFACES_FILES_NAME
+JAVA_INTERFACES_FILES=JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
 
 # Create names for #ifndef _XXX_ statements in .h files
 COMMANDSID_DEFINE='_' + COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
@@ -358,6 +360,7 @@ while len(args) > 0:
         ARPrint (LIN_TB_DIR, True)
         ARPrint (COM_TB_DIR, True)
         ARPrint (TB__DIR, True)
+        ARPrint (JNIJ_OUT_DIR, True)
         ARPrint (JNIJ_DIR, True)
         ARPrint (JNIC_DIR, True)
         ARPrint (JNI_DIR)
@@ -398,8 +401,8 @@ if not os.path.exists (JNI_DIR):
     os.mkdir (JNI_DIR)
 if not os.path.exists (JNIC_DIR):
     os.mkdir (JNIC_DIR)
-if not os.path.exists (JNIJ_DIR):
-    os.mkdir (JNIJ_DIR)
+if not os.path.exists (JNIJ_OUT_DIR):
+    os.makedirs (JNIJ_OUT_DIR)
 
 
 # Python class definitions
@@ -1919,7 +1922,7 @@ def javaCbName (proj, cls, cmd):
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
-            jfile = open (JNIJ_DIR + interfaceName (proj,cl,cmd) + '.java', 'w')
+            jfile = open (JNIJ_OUT_DIR + interfaceName (proj,cl,cmd) + '.java', 'w')
             jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
             jfile.write ('\n')
             jfile.write ('/**\n')
