@@ -1,5 +1,5 @@
 /**
- * @mainpage
+ * @mainpage libARCommands Documentation
  *
  * @section ARC_intro_sec Introduction
  *
@@ -12,8 +12,8 @@
  *
  * All generator function use the following name/args scheme:
  *
- * ARCOMMANDS_Generator_Generate<Project><Class><Command> (buffer, buffer size,
- * <Command args...>)
+ * ARCOMMANDS_Generator_GenerateProjectClassCommand (buffer, buffer size,
+ * [Command args...])
  *
  * These functions returns an @ref eARCOMMANDS_GENERATOR_ERROR indicating if
  * the generation encountered an error (typically
@@ -39,7 +39,7 @@
  * set, the first one will be removed). Each command has its own callback type.
  *
  * To register a callback for a specific command, use the functions
- * ARCOMMANDS_Decoder_Set<Project><Class><Command>Callback.
+ * ARCOMMANDS_Decoder_SetProjectClassCommandCallback.
  *
  * As registered callbacks are static, they will persist during the application
  * lifecycle. The typical use case is to have a startup code registering all
