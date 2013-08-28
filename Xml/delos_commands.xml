@@ -38,7 +38,7 @@
    -     float : IEEE-754 single precision floating point number (float)
    -    double : IEEE-754 double precision floating point number (double)
    -    string : NULL-terminated UTF-8 String. (char *)
--->
+   -->
 
 <project id="2">
   All Delos-only commands
@@ -78,7 +78,7 @@
       </arg>
 
       <arg name="psi" type="float">
-          Magnetic north heading of the controlling device (deg) [-360;360]
+        Magnetic north heading of the controlling device (deg) [-360;360]
       </arg>
     </cmd>
 
@@ -117,6 +117,13 @@
 
       <arg name="y" type="i32">
         Current Y position
+      </arg>
+    </cmd>
+
+    <cmd name="Battery">
+      Battery percentage
+      <arg name="percent" type="u8">
+        Battery percentage
       </arg>
     </cmd>
   </class>
