@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+   Important notes :
+   ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
+   NEVER MODIFY EXISTING class/command/arg !
+
+   Comments ("comm" attributes) are mandatory for all classes/commands/args
+   For each comment : 1st line will be used as brief (if applicable) +
+   1st line of complete desc. Other lines will be used as complete desc
+
+   How to add a new class :
+   <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
+     Comment about the class                | Inlcuded in Doxygen doc
+     <cmd> ... </cmd>                       | List of commands
+     <cmd> ... </cmd>
+   </class>
+
+   How to add a new command (without args) to a class :
+   <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
+     Comment about the command              | Included in Doxygen doc
+   </cmd>
+
+   How to add a new command (with args) to a class :
+   <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
+     Comment about the command              | Included in Doxygen doc
+     <arg name="argName" type="argType" >   | Repeat for each arg
+       Comment about the arg                | argName must be a valid C variable name
+     </arg>                                 | argType must be a valid type (see below)
+     ...                                    | Comment included in Doxygen doc
+   </cmd>
+
+   List of valid types (associated C type) :
+   -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
+   - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
+   - i32 / u32 : signed/unsigned 32 bit integer ([u]int32_t)
+   - i64 / u64 : signed/unsigned 64 bit integer ([u]int64_t)
+   -     float : IEEE-754 single precision floating point number (float)
+   -    double : IEEE-754 double precision floating point number (double)
+   -    string : NULL-terminated UTF-8 String. (char *)
+-->
+
+
+<project id="3">
+  All commands specific to the Jumping Sumo.
+
+  <class name="debug">
+    All debug commands.
+
+    <cmd name="setJumpMotor">
+      Ask the JS speed and turn ratio.
+
+      <arg name="speed" type="u8">
+        Jump motor speed value [-100:100].
+      </arg>
+
+    </cmd>
+    
+  </class>
+
+  <class name="pilotingAction">
+    All commands related to piloting the JumpingSumo
+
+    <cmd name="setSpeed">
+      Ask the JS speed and turn ratio.
+
+      <arg name="speed" type="u8">
+        Speed value [-100:100].
+      </arg>
+
+      <arg name="turnRatio" type="u8">
+		  Turn ratio value. [-100:100]
+      </arg>
+
+    </cmd>
+
+    <cmd name="jump">
+		Ask the JS to jump.
+
+      <arg name="type" type="u8">
+      Type of jump. 0 for low jump, 1 for high jump.
+      </arg>
+    </cmd>
+
+    <cmd name="setPosture">
+    Request the JS to switch to a new posture.
+      <arg name="posture" type="u8">
+      Posture number.
+      </arg>
+    </cmd>
+
+    <cmd name="requestFullStateRefresh">
+    Request the JS to send all the possible piloting events in order to retrieve the full state of the JS.
+	</cmd>
+
+  </class>
+  
+  <class name="pilotingEvent">
+  Occasional feedback on piloting data.
+
+	<cmd name="postureChanged">
+		Sent by the Jumping Sumo when its posture changes.
+
+		<arg name="posture" type="u8">
+			New posture.
+		</arg>
+	</cmd>
+
+	<cmd name="jumpLoadStateChanged">
+		Sent by the Jumping Sumo when the jump load state switches between loaded and unloaded.
+
+		<arg name="jumpLoadState" type="u8">
+			New jump load state.
+		</arg>
+	</cmd>
+  </class>
+  
+</project>
