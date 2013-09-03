@@ -90,9 +90,6 @@ JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
 #Name of the JNI JAVA Interfaces files (DO NOT MODIFY)
 JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 
-#Name of the JNI-Android Makefile (DO NOT MODIFY)
-JNI_MAKEFILE_NAME='Android.mk'
-
 #Relative path of SOURCE dir
 SRC_DIR=MYDIR + '/../Sources/'
 
@@ -142,8 +139,6 @@ JNI_CFILE=JNIC_DIR + JNI_CFILE_NAME
 GENERATED_FILES.append (JNI_CFILE)
 JNI_JFILE=JNIJ_OUT_DIR + JNI_JFILE_NAME
 GENERATED_FILES.append (JNI_JFILE)
-JNI_MAKEFILE=JNIC_DIR + JNI_MAKEFILE_NAME
-GENERATED_FILES.append (JNI_MAKEFILE)
 JAVA_INTERFACES_FILES=JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
 
 # Create names for #ifndef _XXX_ statements in .h files
@@ -2299,36 +2294,3 @@ cfile.write ('}\n')
 cfile.write ('/* END OF GENERAED CODE */\n')
 
 cfile.close ()
-
-mfile = open (JNI_MAKEFILE, 'w')
-
-mfile.write ('LOCAL_PATH := $(call my-dir)\n')
-mfile.write ('\n')
-mfile.write ('# libARSAL\n')
-mfile.write ('include $(CLEAR_VARS)\n')
-mfile.write ('\n')
-mfile.write ('LOCAL_MODULE := LIBARSAL-prebuilt\n')
-mfile.write ('LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libarsal.a\n')
-mfile.write ('\n')
-mfile.write ('include $(PREBUILT_STATIC_LIBRARY)\n')
-mfile.write ('\n')
-mfile.write ('#' + LIB_NAME + '\n')
-mfile.write ('include $(CLEAR_VARS)\n')
-mfile.write ('\n')
-mfile.write ('LOCAL_MODULE := ' + LIB_NAME.upper () + '-prebuilt\n')
-mfile.write ('LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/' + LIB_NAME.lower () + '.a\n')
-mfile.write ('\n')
-mfile.write ('include $(PREBUILT_STATIC_LIBRARY)\n')
-mfile.write ('\n')
-mfile.write ('#JNI Wrapper\n')
-mfile.write ('include $(CLEAR_VARS)\n')
-mfile.write ('\n')
-mfile.write ('LOCAL_C_INCLUDES := $(LOCAL_PATH)/include\n')
-mfile.write ('LOCAL_LDLIBS := -llog\n')
-mfile.write ('LOCAL_MODULE := ' + LIB_NAME.lower () + '_android\n')
-mfile.write ('LOCAL_SRC_FILES := ' + JNI_CFILE_NAME + '\n')
-mfile.write ('LOCAL_STATIC_LIBRARIES := ' + LIB_NAME.upper () + '-prebuilt LIBARSAL-prebuilt\n')
-mfile.write ('\n')
-mfile.write ('include $(BUILD_SHARED_LIBRARY)\n')
-
-mfile.close ()
