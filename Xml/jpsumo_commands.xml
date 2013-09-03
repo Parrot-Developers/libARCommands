@@ -76,9 +76,14 @@
 
     <cmd name="jump">
 		Ask the JS to jump.
+		  Jump type can be one of those:
+		  - 0: JS_JUMP_COMMAND_STOP
+		  - 1: JS_JUMP_COMMAND_LONG_JUMP
+		  - 2: JS_JUMP_COMMAND_HIGH_JUMP
+		  - 3: JS_JUMP_COMMAND_LOAD
 
       <arg name="type" type="u8">
-      Type of jump. 0 for low jump, 1 for high jump.
+		  Perform a load/jump.
       </arg>
     </cmd>
 
