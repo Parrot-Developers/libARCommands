@@ -135,6 +135,9 @@ libARSAL/ARSAL_Socket.h libARSAL/ARSAL_Time.h],,
 	AC_MSG_ERROR(The libARSAL headers are required in order to build the library !
 - Use --with-libARSALInstallDir or --with-libARSALIncludeDir to indicate a specific include path.))
 
+# Check for PRIxx macros
+AC_CHECK_DECLS([PRIu8, PRIi8, PRIu16, PRIi16, PRIu32, PRIi32, PRIu64, PRIi64],[],[],[[#include <inttypes.h>]])
+
 ##########################################################################
 # Checks for programs.
 AC_PROG_CC
