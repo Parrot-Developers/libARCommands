@@ -50,7 +50,7 @@
     <cmd name="setJumpMotor">
       Ask the JS speed and turn ratio.
 
-      <arg name="speed" type="u8">
+      <arg name="speed" type="i8">
         Jump motor speed value [-100:100].
       </arg>
 
@@ -64,11 +64,11 @@
     <cmd name="setSpeed">
       Ask the JS speed and turn ratio.
 
-      <arg name="speed" type="u8">
+      <arg name="speed" type="i8">
         Speed value [-100:100].
       </arg>
 
-      <arg name="turnRatio" type="u8">
+      <arg name="turnRatio" type="i8">
 		  Turn ratio value. [-100:100]
       </arg>
 
