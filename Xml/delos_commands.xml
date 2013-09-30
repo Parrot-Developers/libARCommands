@@ -43,6 +43,32 @@
 <project id="2">
   All Delos-only commands
 
+  <class name="Debug">
+    Temporary, debug commands (This class commands can be modified
+    between versions)
+
+    <cmd name="Test1">
+      Test 1 command
+      <arg name="t1Args" type="i8">
+        Test 1 argument
+      </arg>
+    </cmd>
+
+    <cmd name="Test2">
+      Test 2 command
+      <arg name="t2Args" type="i8">
+        Test 2 argument
+      </arg>
+    </cmd>
+
+    <cmd name="Test3">
+      Test 3 command
+      <arg name="t3Args" type="i8">
+        Test 3 argument
+      </arg>
+    </cmd>
+  </class>
+
   <class name="Piloting">
     All commands related to piloting the Delos
 
