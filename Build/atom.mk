@@ -13,7 +13,7 @@ LOCAL_LIBRARIES := libARSAL
 LOCAL_EXPORT_LDLIBS := -larcommands
 
 # Autotools variable
-LOCAL_AUTOTOOLS_CONFIGURE_ARGS := --with-libARSALInstallDir=""
+LOCAL_AUTOTOOLS_CONFIGURE_ARGS := --with-libARSALInstallDir="" --enable-debug-commands
 
 ifeq ("$(TARGET_PBUILD_FORCE_STATIC)","1")
 LOCAL_AUTOTOOLS_CONFIGURE_ARGS += --disable-shared
