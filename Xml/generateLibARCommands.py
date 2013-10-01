@@ -55,6 +55,7 @@ DEFAULTPROJECTNAME='common'
 #Name (and path) of the xml file
 XMLFILENAME_PREFIX=MYDIR + '/../Xml/'
 XMLFILENAME_SUFFIX='_commands.xml'
+XMLDEBUGFILENAME_SUFFIX="_debug.xml"
 
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCOMMANDS_Ids.h'
@@ -326,7 +327,8 @@ def xmlToPrintf (typ):
     xmlIndex = XMLTYPES.index (typ)
     return PRINTFF [xmlIndex]
 
-noGen = "no"
+noGen = False
+genDebug = False
 projects = [DEFAULTPROJECTNAME]
 args = sys.argv
 args.pop (0)
@@ -366,7 +368,7 @@ while len(args) > 0:
     # file                          #
     #################################
     elif a == "-nogen":
-        noGen="yes"
+        noGen=True
     #################################
     # If -projectname is specified, #
     # use its value to set the      #
@@ -376,7 +378,16 @@ while len(args) > 0:
     elif a == "-projects":
         projectsList = args.pop(0)
         for project in projectsList.split(','):
-            projects.append (project)        
+            projects.append (project)
+    #################################
+    # If -debug-cmds is specified   #
+    # and set to 'yes', generate    #
+    # commands for _debug.xml files.#
+    #################################
+    elif a == "-debug-cmds":
+        val = args.pop(0)
+        if val == 'yes':
+            genDebug = True
     elif a != "":
         print("Invalid parameter %s." %(a))
 
@@ -504,18 +515,18 @@ class ARProject:
 if 'all' in projects:
     projects = []
     for files in os.listdir (XMLFILENAME_PREFIX):
-        if files.endswith ('_commands.xml'):
-            proj = files.replace ('_commands.xml','')
+        if files.endswith (XMLFILENAME_SUFFIX):
+            proj = files.replace (XMLFILENAME_SUFFIX,'')
             projects.append (proj)
 
 allProjects = []
 
-for projectName in projects:
-    FNAME = XMLFILENAME_PREFIX + projectName + XMLFILENAME_SUFFIX
+def parseXml(FNAME, projectName):
+    if not os.path.exists(FNAME):
+        return
     file = open (FNAME, 'r')
     data = file.read ()
     file.close ()
-
     xmlfile = parseString (data)
 
     # Check if the XMLFile only contains ONE project (not zero, nor more)
@@ -530,6 +541,7 @@ for projectName in projects:
         if p2.ident == proj.ident:
             ARPrint ('Project `' + projectName + '` has the same id as project `' + p2.name + '`.')
             ARPrint (' --> Project ID must be unique, and must NEVER change')
+            ARPrint (' --> Debug Project ID are usually Project ID + 128')
             EXIT (1)
 
     # Get project comments
@@ -592,6 +604,14 @@ for projectName in projects:
         proj.addClass (currentClass)
     allProjects.append (proj)
 
+for projectName in projects:
+    parseXml(XMLFILENAME_PREFIX + projectName + XMLFILENAME_SUFFIX, projectName)
+    if genDebug:
+        parseXml(XMLFILENAME_PREFIX + projectName + XMLDEBUGFILENAME_SUFFIX, projectName + 'Debug')
+    
+
+    
+
 # Check all
 err = ''
 for proj in allProjects:
@@ -601,7 +621,7 @@ if len (err) > 0:
     ARPrint (err)
     EXIT (1)
 
-if "yes" == noGen: # called with "-nogen"
+if noGen: # called with "-nogen"
     ARPrint ('Commands parsed:')
     for proj in allProjects:
         ARPrint ('Project ' + proj.name)
@@ -653,18 +673,17 @@ hfile.write ('#ifndef ' + COMMANDSID_DEFINE + '\n')
 hfile.write ('#define ' + COMMANDSID_DEFINE + ' (1)\n')
 hfile.write ('\n')
 hfile.write ('typedef enum {\n')
-for proj in allProjects[:-1]:
+for proj in allProjects:
     ENAME='PROJECT'
     hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, proj.name) + ' = ' + proj.ident + ',\n')
-hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, allProjects[-1].name) + ' = ' + allProjects[-1].ident + ',\n')
 hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
 for proj in allProjects:
+    ENAME=proj.name + '_CLASS'
     hfile.write ('typedef enum {\n')
     first = True
     for cl in proj.classes:
-        ENAME=proj.name + '_CLASS'
         if first:
             hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ' = 0,\n')
             first = False

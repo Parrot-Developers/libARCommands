@@ -41,16 +41,7 @@
 -->
 
 
-<project id="0">
-  All common commands shared between all projects
-
-  <class name="Network">
-	Network related commands
-
-	<cmd name="Disconnect">
-	  Signals the remote that the host will disconnect and close its
-	  libARNetwork instance (and all threads that use libARNetwork)
-	</cmd>
-  </class>
+<project id="129">
+  All debug Mykonos3-only commands
 
 </project>

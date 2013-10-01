@@ -41,69 +41,21 @@
 -->
 
 
-<project id="3">
-  All commands specific to the Jumping Sumo.
+<project id="131">
+  All debug commands specific to the Jumping Sumo.
 
-  <class name="pilotingAction">
-    All commands related to piloting the JumpingSumo
+  <class name="debug">
+    All debug commands.
 
-    <cmd name="setSpeed">
+    <cmd name="setJumpMotor">
       Ask the JS speed and turn ratio.
 
       <arg name="speed" type="i8">
-        Speed value [-100:100].
-      </arg>
-
-      <arg name="turnRatio" type="i8">
-		  Turn ratio value. [-100:100]
+        Jump motor speed value [-100:100].
       </arg>
 
     </cmd>
-
-    <cmd name="jump">
-		Ask the JS to jump.
-		  Jump type can be one of those:
-		  - 0: JS_JUMP_COMMAND_STOP
-		  - 1: JS_JUMP_COMMAND_LONG_JUMP
-		  - 2: JS_JUMP_COMMAND_HIGH_JUMP
-		  - 3: JS_JUMP_COMMAND_LOAD
-
-      <arg name="type" type="u8">
-		  Perform a load/jump.
-      </arg>
-    </cmd>
-
-    <cmd name="setPosture">
-    Request the JS to switch to a new posture.
-      <arg name="posture" type="u8">
-      Posture number.
-      </arg>
-    </cmd>
-
-    <cmd name="requestFullStateRefresh">
-    Request the JS to send all the possible piloting events in order to retrieve the full state of the JS.
-	</cmd>
-
+    
   </class>
-  
-  <class name="pilotingEvent">
-  Occasional feedback on piloting data.
 
-	<cmd name="postureChanged">
-		Sent by the Jumping Sumo when its posture changes.
-
-		<arg name="posture" type="u8">
-			New posture.
-		</arg>
-	</cmd>
-
-	<cmd name="jumpLoadStateChanged">
-		Sent by the Jumping Sumo when the jump load state switches between loaded and unloaded.
-
-		<arg name="jumpLoadState" type="u8">
-			New jump load state.
-		</arg>
-	</cmd>
-  </class>
-  
 </project>

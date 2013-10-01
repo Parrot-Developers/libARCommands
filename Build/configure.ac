@@ -40,6 +40,14 @@ AC_ARG_WITH([projects],
 			[],
 			[with_projects=all])
 
+AC_MSG_CHECKING([whether we need to generate debug commands])
+AC_ARG_ENABLE([debug-commands],
+			[AS_HELP_STRING([--enable-debug-commands],
+							[enable generation of debug commands @<:@default=disabled@:>@])],
+			[dbgcmds="$enableval"],
+			[dbgcmds=no])
+AC_MSG_RESULT([$dbgcmds])
+
 ##########################################################################
 # Non versionned .so compilation support (for Android)
 ##########################################################################
@@ -62,7 +70,7 @@ AC_ARG_WITH([libARSALInstallDir],
               libARSALInstallDir=""
             else
               libARSALInstallDir="$withval"
-            fi], 
+            fi],
             [if test x$prefix = xNONE; then
               libARSALInstallDir=""
             else
@@ -171,12 +179,14 @@ for project in $line_proj; do
             AC_MSG_ERROR([Could not find commands XML file "$xmlfile".
                           Please check the value of the --with-projects option or create the file yourself.])
         fi
+    else
+        AC_MSG_RESULT([Use all available files])
     fi
 done
 
 # Generate source files from XML
 AC_MSG_NOTICE([generating source files from XML description of commands])
-AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -projects "$with_projects"])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../Xml/generateLibARCommands.py -debug-cmds "$dbgcmds" -projects "$with_projects"])
 AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML files probably contains errors))
 
 # Run prebuild PY script
