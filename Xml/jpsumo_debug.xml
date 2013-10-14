@@ -44,7 +44,7 @@
 <project id="131">
   All debug commands specific to the Jumping Sumo.
 
-  <class name="debug">
+  <class name="Jump">
     All debug commands.
 
     <cmd name="setJumpMotor">

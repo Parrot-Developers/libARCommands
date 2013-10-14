@@ -58,52 +58,85 @@
 		  Turn ratio value. [-100:100]
       </arg>
 
-    </cmd>
-
-    <cmd name="jump">
-		Ask the JS to jump.
-		  Jump type can be one of those:
-		  - 0: JS_JUMP_COMMAND_STOP
-		  - 1: JS_JUMP_COMMAND_LONG_JUMP
-		  - 2: JS_JUMP_COMMAND_HIGH_JUMP
-		  - 3: JS_JUMP_COMMAND_LOAD
-
-      <arg name="type" type="u8">
-		  Perform a load/jump.
+      <arg name="touchScreenFlag" type="u8">
+        Boolean for "touch screen".
       </arg>
-    </cmd>
 
-    <cmd name="setPosture">
-    Request the JS to switch to a new posture.
-      <arg name="posture" type="u8">
-      Posture number.
-      </arg>
     </cmd>
 
     <cmd name="requestFullStateRefresh">
     Request the JS to send all the possible piloting events in order to retrieve the full state of the JS.
-	</cmd>
+    </cmd>
 
+    <cmd name="setPostureJumper">
+        Request the JS to switch to JUMPER posture.
+    </cmd>
+
+    <cmd name="setPostureKicker">
+        Request the JS to switch to KICKER posture.
+    </cmd>
+
+    <cmd name="setPostureStanding">
+        Request the JS to switch to STANDING posture.
+    </cmd>
+    
+    <cmd name="jumpStop">
+		Ask the JS to STOP jump action, emergency jump stop, stop jump motor and stay there.
+    </cmd>
+
+    <cmd name="jumpCancel">
+		Ask the JS to CANCEL jump action and come back to previous state (if possible).
+    </cmd>
+    
+    <cmd name="jumpLoad">
+		Ask the JS to LOAD a jump.
+    </cmd>
+
+    <cmd name="jumpLong">
+		Ask the JS to do a LONG jump.
+    </cmd>
+
+    <cmd name="jumpHigh">
+		Ask the JS to do a HIGH jump.
+    </cmd>
+    
   </class>
   
   <class name="pilotingEvent">
   Occasional feedback on piloting data.
 
-	<cmd name="postureChanged">
-		Sent by the Jumping Sumo when its posture changes.
+    <cmd name="postureChangedToJumper">
+		Sent by the Jumping Sumo when its posture changes to JUMPER.
+    </cmd>
 
-		<arg name="posture" type="u8">
-			New posture.
-		</arg>
+    <cmd name="postureChangedToKicker">
+		Sent by the Jumping Sumo when its posture changes to KICKER.
+    </cmd>
+
+    <cmd name="postureChangedToStanding">
+		Sent by the Jumping Sumo when its posture changes to SEGWAY.
 	</cmd>
 
-	<cmd name="jumpLoadStateChanged">
-		Sent by the Jumping Sumo when the jump load state switches between loaded and unloaded.
-
-		<arg name="jumpLoadState" type="u8">
-			New jump load state.
-		</arg>
+    <cmd name="postureChangedToStuck">
+		Sent by the Jumping Sumo when its posture changes to STUCK.
 	</cmd>
+
+	<cmd name="jumpLoadStateChangedToUnknown">
+		Sent by the Jumping Sumo when the jump load state changes to UNKNOWN.
+    </cmd>
+
+    <cmd name="jumpLoadStateChangedToUnloaded">
+		Sent by the Jumping Sumo when the jump load state changes to UNLOADED.
+    </cmd>
+
+    <cmd name="jumpLoadStateChangedToLoaded">
+		Sent by the Jumping Sumo when the jump load state changes to LOADED.
+    </cmd>
+
+    <cmd name="jumpLoadStateChangedToBusy">
+		Sent by the Jumping Sumo when the jump load state changes to BUSY.
+    </cmd>
+    
   </class>
   
 </project>
