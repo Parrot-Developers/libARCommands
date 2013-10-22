@@ -58,4 +58,18 @@
     
   </class>
 
+  <class name="Audio">
+    All audio debug commands.
+
+    <cmd name="playSoundWithName">
+      Play a sound from a file.
+
+      <arg name="filename" type="string">
+        Name of the file.
+      </arg>
+
+    </cmd>
+    
+  </class>
+
 </project>
