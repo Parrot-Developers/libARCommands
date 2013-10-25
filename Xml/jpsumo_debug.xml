@@ -72,4 +72,13 @@
     
   </class>
 
+  <class name="Misc">
+    All debug commands that you don't know where ot put.
+
+    <cmd name="debugEvent">
+      Command to create an event in colibry state machine for all kinds of debug.
+    </cmd>
+    
+  </class>
+
 </project>
