@@ -81,4 +81,15 @@
     
   </class>
 
+  <class name="Animation">
+    Triggerable animations.
+
+    <cmd name="playAnimation">
+        Play an animation.
+        <arg name="id" type="u16">
+          Animation ID.
+        </arg>
+    </cmd>
+  </class>
+
 </project>
