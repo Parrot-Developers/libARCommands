@@ -44,7 +44,7 @@
 <project id="3">
   All commands specific to the Jumping Sumo.
 
-  <class name="pilotingAction">
+  <class name="pilotingAction" id="0">
     All commands related to piloting the JumpingSumo
 
     <cmd name="setSpeed">
@@ -102,7 +102,7 @@
     
   </class>
   
-  <class name="pilotingEvent">
+  <class name="pilotingEvent" id="1">
   Occasional feedback on piloting data.
 
     <cmd name="postureChangedToJumper">

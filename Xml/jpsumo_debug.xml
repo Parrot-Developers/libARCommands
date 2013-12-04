@@ -44,7 +44,7 @@
 <project id="131">
   All debug commands specific to the Jumping Sumo.
 
-  <class name="Jump">
+  <class name="Jump" id="0">
     All debug commands.
 
     <cmd name="setJumpMotor">
@@ -58,7 +58,7 @@
     
   </class>
 
-  <class name="Audio">
+  <class name="Audio" id="1">
     All audio debug commands.
 
     <cmd name="playSoundWithName">
@@ -72,7 +72,7 @@
     
   </class>
 
-  <class name="Misc">
+  <class name="Misc" id="2">
     All debug commands that you don't know where ot put.
 
     <cmd name="debugEvent">
@@ -81,7 +81,7 @@
     
   </class>
 
-  <class name="Animation">
+  <class name="Animation" id="3">
     Triggerable animations.
 
     <cmd name="playAnimation">

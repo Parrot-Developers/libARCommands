@@ -449,11 +449,13 @@ class ARCommand:
         ret = ret + argret
         return ret
 
+MAX_CLASS_ID = 255
 CLASS_MAX_CMDS = 65536
 class ARClass:
     "Represent a class of commands"
-    def __init__(self, className):
+    def __init__(self, className, ident):
         self.name     = className
+        self.ident    = ident
         self.comments = []
         self.cmds     = []
     def addCommentLine(self, newCommentLine):
@@ -465,6 +467,8 @@ class ARClass:
         cmdret = ''
         if len (self.comments) == 0:
             ret = ret + '\n- Class ' + self.name + ' don\'t have any comment !'
+        if int (self.ident) > MAX_PROJECT_ID:
+            ret = ret + '\n- Class ' + self.name + ' has a too big id number (' + self.ident + '). Maximum is ' + str (MAX_CLASS_ID) + '.'
         if len (self.cmds) > CLASS_MAX_CMDS:
             ret = ret + '\n- Class ' + self.name + ' has too many commands (' + str (len (self.cmds)) + '). Maximum number of commands is ' + str(CLASS_MAX_CMDS) + '.'
         for cmd in self.cmds:
@@ -536,12 +540,16 @@ def parseXml(FNAME, projectName):
         EXIT (1)
     proj = ARProject (projectName, xmlproj[0].attributes["id"].nodeValue)
 
-    # Check if id is unique
+    # Check if project id and name are unique
     for p2 in allProjects:
         if p2.ident == proj.ident:
             ARPrint ('Project `' + projectName + '` has the same id as project `' + p2.name + '`.')
             ARPrint (' --> Project ID must be unique, and must NEVER change')
             ARPrint (' --> Debug Project ID are usually Project ID + 128')
+            EXIT (1)
+        if p2.name == proj.name:
+            ARPrint ('Project `' + projectName + '` exists twice.')
+            ARPrint (' --> Project must have a unique name within the application')
             EXIT (1)
 
     # Get project comments
@@ -554,11 +562,15 @@ def parseXml(FNAME, projectName):
     classes = xmlfile.getElementsByTagName ('class')
     for cmdclass in classes:
         # Get class name
-        currentClass = ARClass(cmdclass.attributes["name"].nodeValue)
-        # Check if class name is unique
+        currentClass = ARClass(cmdclass.attributes["name"].nodeValue, cmdclass.attributes["id"].nodeValue)
+        # Check if class id and name are unique within the project
         for cls in proj.classes:
+            if cls.ident == currentClass.ident:
+                ARPrint ('Class `' + currentClass.name + '` has the same id as class `' + cls.name + '` within project `' + proj.name + '`.')
+                ARPrint (' --> Class ID must be unique within their project, and must NEVER change')
+                EXIT (1)
             if cls.name == currentClass.name:
-                ARPrint ('Class ' + cls.name + ' appears multiple times in ' + proj.name + '!')
+                ARPrint ('Class `' + cls.name + '` appears multiple times in `' + proj.name + '` !')
                 ARPrint (' --> Classes must have unique names in a given project (but can exist in multiple projects)')
                 EXIT (1)
         # Get class comments
@@ -574,7 +586,7 @@ def parseXml(FNAME, projectName):
             # Check if command name is unique
             for cmd in currentClass.cmds:
                 if cmd.name == currentCommand.name:
-                    ARPrint ('Command ' + cmd.name + ' appears multiple times in ' + proj.name + '.' + currentClass.name + '!')
+                    ARPrint ('Command `' + cmd.name + '` appears multiple times in `' + proj.name + '.' + currentClass.name + '` !')
                     ARPrint (' --> Commands must have unique names in a given class (but can exist in multiple classes)')
                     EXIT (1)
             # Get command comments
@@ -590,7 +602,7 @@ def parseXml(FNAME, projectName):
                 # Check if arg name is unique
                 for argTest in currentCommand.args:
                     if argTest.name == currentArg.name:
-                        ARPrint ('Arg ' + currentArg.name + ' appears multiple time in ' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '!')
+                        ARPrint ('Arg `' + currentArg.name + '` appears multiple time in `' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '` !')
                         ARPrint (' --> Args must have unique name in a given command (but can exist in multiple commands)')
                         EXIT (1)
                 # Get arg comments
@@ -680,18 +692,13 @@ hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
 for proj in allProjects:
-    ENAME=proj.name + '_CLASS'
-    hfile.write ('typedef enum {\n')
-    first = True
-    for cl in proj.classes:
-        if first:
-            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ' = 0,\n')
-            first = False
-        else:
-            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ',\n')
-    hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, 'MAX') + ',\n')
-    hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
-    hfile.write ('\n')
+    if proj.classes:
+        ENAME=proj.name + '_CLASS'
+        hfile.write ('typedef enum {\n')
+        for cl in proj.classes:
+            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ' = ' + cl.ident + ',\n')
+        hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
+        hfile.write ('\n')
 hfile.write ('\n')
 hfile.write ('\n')
 for proj in allProjects:

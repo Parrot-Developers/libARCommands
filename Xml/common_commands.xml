@@ -44,13 +44,14 @@
 <project id="0">
   All common commands shared between all projects
 
-  <class name="Network">
+  <class name="Network" id="0">
 	Network related commands
 
 	<cmd name="Disconnect">
 	  Signals the remote that the host will disconnect and close its
 	  libARNetwork instance (and all threads that use libARNetwork)
 	</cmd>
+
   </class>
 
 </project>

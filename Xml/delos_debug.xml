@@ -43,7 +43,7 @@
 <project id="130">
   All Delos-only debug commands
 
-  <class name="Debug">
+  <class name="Debug" id="0">
     Temporary, debug commands
 
     <cmd name="Test1">

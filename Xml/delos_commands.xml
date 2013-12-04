@@ -43,7 +43,7 @@
 <project id="2">
   All Delos-only commands
 
-  <class name="Piloting">
+  <class name="Piloting" id="0">
     All commands related to piloting the Delos
 
     <cmd name="FlatTrim">
@@ -92,7 +92,7 @@
 
   </class>
 
-  <class name="Config">
+  <class name="Config" id="1">
     All configuration commands
 
     <cmd name="AngleMax">
@@ -105,7 +105,7 @@
     </cmd>
   </class>
 
-  <class name="Navdata">
+  <class name="Navdata" id="2">
     Navigation data from drone
 
     <cmd name="Position">
@@ -128,7 +128,7 @@
     </cmd>
   </class>
 
-  <class name="Event">
+  <class name="Event" id="3">
     Occasional information
 
     <cmd name="FlatTrimAck">

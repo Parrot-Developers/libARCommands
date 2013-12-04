@@ -44,7 +44,7 @@
 <project id="1">
   All Mykonos3-only commands
 
-  <class name="Piloting">
+  <class name="Piloting" id="0">
     All commands related to piloting the totoDrone
 
     <cmd name="FlatTrim">
@@ -93,7 +93,7 @@
     
   </class>
 
-  <class name="Camera">
+  <class name="Camera" id="1">
       Ask the drone to move camera
       
       <cmd name="Orientation">
@@ -109,7 +109,7 @@
       </cmd>
   </class>
   
-  <class name="Config">
+  <class name="Config" id="2">
     All configuration commands
 
     <cmd name="SSID">
@@ -131,7 +131,7 @@
     </cmd>
   </class>
 
-  <class name="Navdata">
+  <class name="Navdata" id="3">
     Navigation data from drone
 
     <cmd name="Position">
@@ -147,7 +147,7 @@
     </cmd>
   </class>
 
-  <class name="Event">
+  <class name="Event" id="4">
     Occasional information
 
     <cmd name="FlatTrimAck">
