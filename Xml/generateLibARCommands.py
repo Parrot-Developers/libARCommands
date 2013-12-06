@@ -773,12 +773,12 @@ for proj in allProjects:
             hfile.write (' * @param cmdLen Pointer to an integer that will hold the actual size of the command\n')
             for arg in cmd.args:
                 for comm in arg.comments:
-                    hfile.write (' * @param ' + arg.name + ' ' + comm + '\n')
+                    hfile.write (' * @param _' + arg.name + ' ' + comm + '\n')
             hfile.write (' * @return Error code (see ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ')\n')
             hfile.write (' */\n')
             hfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                hfile.write (', ' + xmlToCwithConst (arg.type) + ' ' + arg.name)
+                hfile.write (', ' + xmlToCwithConst (arg.type) + ' _' + arg.name)
             hfile.write (');\n')
         hfile.write ('\n')
     hfile.write ('\n')
@@ -910,7 +910,7 @@ for proj in allProjects:
         for cmd in cl.cmds:
             cfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' +  ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToCwithConst (arg.type) + ' ' + arg.name)
+                cfile.write (', ' + xmlToCwithConst (arg.type) + ' _' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t currIndexInBuffer = 0;\n')
@@ -935,7 +935,7 @@ for proj in allProjects:
                             first = False
                         else:
                             cfile.write ('        ')
-                        cfile.write ('(' + arg.name + ' == NULL) ||\n')
+                        cfile.write ('(_' + arg.name + ' == NULL) ||\n')
                 cfile.write ('       (0))\n')
                 cfile.write ('    {\n')
                 cfile.write ('        return ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
@@ -969,10 +969,10 @@ for proj in allProjects:
             cfile.write ('        }\n')
             cfile.write ('    }\n')
             for arg in cmd.args:
-                cfile.write ('    // Write arg ' + arg.name + '\n')
+                cfile.write ('    // Write arg _' + arg.name + '\n')
                 cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('    {\n')
-                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (arg.type) + 'ToBuffer') + ' (buffer, ' + arg.name + ', currIndexInBuffer, buffLen);\n')
+                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (arg.type) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
                 cfile.write ('        if (currIndexInBuffer == -1)\n')
                 cfile.write ('        {\n')
                 cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -1616,13 +1616,13 @@ for proj in allProjects:
             cfile.write ('                    {\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
-                    cfile.write ('                        ' + xmlToC (arg.type) + ' ' + arg.name + ' = NULL;\n')
+                    cfile.write ('                        ' + xmlToC (arg.type) + ' _' + arg.name + ' = NULL;\n')
                 else:
-                    cfile.write ('                        ' + xmlToC (arg.type) + ' ' + arg.name + ';\n')
+                    cfile.write ('                        ' + xmlToC (arg.type) + ' _' + arg.name + ';\n')
             for arg in cmd.args:
                 cfile.write ('                        if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('                        {\n')
-                cfile.write ('                            ' + arg.name + ' = ' + xmlToReader (arg.type) + ' (buffer, buffLen, &offset, &error);\n')
+                cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (arg.type) + ' (buffer, buffLen, &offset, &error);\n')
                 cfile.write ('                            if (error == 1)\n')
                 cfile.write ('                                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
                 cfile.write ('                        }\n')
@@ -1635,7 +1635,7 @@ for proj in allProjects:
                     first = False
                 else:
                     cfile.write (', ')
-                cfile.write (arg.name)
+                cfile.write ('_' + arg.name)
             if not first:
                 cfile.write (', ')
             cfile.write (CBCUSTOMNAME + ');\n')
@@ -1859,7 +1859,7 @@ for proj in allProjects:
 cfile.write ('\n')
 cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, 'initCb') + ' (void)\n')
 cfile.write ('{\n')
-cfile.write ('    int cbCustom = 0;\n')
+cfile.write ('    intptr_t cbCustom = 0;\n')
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
@@ -1964,7 +1964,7 @@ cfile.write (' *  - Modify ../Xml/commands.xml file       *\n')
 cfile.write (' *  - Re-run generateCommandsList.py script *\n')
 cfile.write (' *                                          *\n')
 cfile.write (' ********************************************/\n')
-cfile.write ('#include "../' + COM_TB_DIR + TB_HFILE_NAME + '"\n')
+cfile.write ('#include "' + COM_TB_DIR + TB_HFILE_NAME + '"\n')
 cfile.write ('\n')
 cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
@@ -2003,7 +2003,7 @@ for proj in allProjects:
             jfile.write ('     * Called when a command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code> in project <code>' + ARCapitalize (proj.name) + '</code> is decoded\n')
             for arg in cmd.args:
                 for comm in arg.comments:
-                    jfile.write ('     * @param ' + arg.name + ' ' + comm + '\n')
+                    jfile.write ('     * @param _' + arg.name + ' ' + comm + '\n')
             jfile.write ('     */\n')
             jfile.write ('    void ' + javaCbName (proj,cl,cmd) + ' (')
             first = True
@@ -2132,7 +2132,7 @@ for proj in allProjects:
             jfile.write ('     * new command created from the current params\n')
             for arg in cmd.args:
                 for comm in arg.comments:
-                    jfile.write ('     * @param ' + arg.name + ' ' + comm + '\n')
+                    jfile.write ('     * @param _' + arg.name + ' ' + comm + '\n')
             jfile.write ('     * @return An ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' error code.\n')
             jfile.write ('     */\n')
             jfile.write ('    public ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
