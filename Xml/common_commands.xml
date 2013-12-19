@@ -53,5 +53,16 @@
 	</cmd>
 
   </class>
+  
+  <class name="Navdata" id="1">
+      Navigation data from product
+
+      <cmd name="Battery">
+          Battery percentage
+          <arg name="percent" type="u8">
+              Battery percentage
+          </arg>
+      </cmd>
+  </class>
 
 </project>

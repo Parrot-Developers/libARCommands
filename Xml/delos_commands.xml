@@ -119,13 +119,6 @@
         Current Y position
       </arg>
     </cmd>
-
-    <cmd name="Battery">
-      Battery percentage
-      <arg name="percent" type="u8">
-        Battery percentage
-      </arg>
-    </cmd>
   </class>
 
   <class name="Event" id="3">
