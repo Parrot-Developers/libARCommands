@@ -92,6 +92,18 @@
 
   </class>
 
+  <class name="Animations" id="4">
+      Animation commands
+    
+      <cmd name="Flip">
+          make a flip
+          <arg name="direction" type="u8">
+              0 for front ; 1 for back ; 2 for right ; 3 for left
+          </arg>
+      </cmd>
+    
+  </class>
+
   <class name="Config" id="1">
     All configuration commands
 
