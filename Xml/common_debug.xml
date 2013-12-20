@@ -164,4 +164,44 @@
 	  </arg>
 	</cmd>
   </class>
+  
+  <class name="Stats" id='2'>
+      Commands to make stats
+      
+      <cmd name="sendPacket">
+          Send a packet to the drone
+          <arg name="packet" type="string">
+              Packet to send to the drone
+          </arg>
+      </cmd>
+      
+      <cmd name="startSendingPacketFromDrone">
+          Ask drone to start sending packets
+          <arg name="frequency" type="u8">
+              Frequency of the packet
+          </arg>
+          
+          <arg name="packetSize" type="u8">
+              Size of the the packet
+          </arg>
+      </cmd>
+      
+      <cmd name="stopSendingPacketFromDrone">
+          Ask drone to stop sending packets
+      </cmd>
+      
+  </class>
+  
+  <class name="Navdata" id="3">
+      Navigation data from drone
+      
+      <cmd name="sendPacket">
+          Send a packet from drone
+          <arg name="packet" type="string">
+              packet from drone
+          </arg>
+      </cmd>
+      
+  </class>
+
 </project>
