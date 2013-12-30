@@ -345,7 +345,7 @@ PRINTFF    = ['%u',   '%d',
 
 def xmlToSample (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return 'ARCOMMANDS_DELOS_ANIMATIONS_FLIP_DIRECTION_FRONT';
+        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')0';
     xmlIndex = XMLTYPES.index (arg.type)
     return SAMPLEARGS [xmlIndex]
 
