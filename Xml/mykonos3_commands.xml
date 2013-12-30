@@ -97,12 +97,23 @@
       Animation commands
     
       <cmd name="Flip">
-          make a flip
-          <arg name="direction" type="u8">
-              0 for front ; 1 for back ; 2 for right ; 3 for left
+          Make a flip
+          <arg name="direction" type="enum">
+              Direction for the flip
+              <enum name="front">
+                  Flip direction front
+              </enum>
+              <enum name="back">
+                  Flip direction back
+              </enum>
+              <enum name="right">
+                  Flip direction right
+              </enum>
+              <enum name="left">
+                  Flip direction left
+              </enum>
           </arg>
       </cmd>
-    
   </class>
 
   <class name="Camera" id="1">

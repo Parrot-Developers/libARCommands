@@ -60,6 +60,9 @@ XMLDEBUGFILENAME_SUFFIX="_debug.xml"
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCOMMANDS_Ids.h'
 
+#Name of the output public header containing typedefs
+COMMANDSTYPES_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Types.h'
+
 #Name of the output public header containing encoder helpers
 COMMANDSGEN_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Generator.h'
 
@@ -124,6 +127,8 @@ COMMANDSID_HFILE=SRC_DIR + COMMANDSID_HFILE_NAME
 GENERATED_FILES.append (COMMANDSID_HFILE)
 COMMANDSGEN_HFILE=INC_DIR + COMMANDSGEN_HFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_HFILE)
+COMMANDSTYPES_HFILE=INC_DIR + COMMANDSTYPES_HFILE_NAME
+GENERATED_FILES.append (COMMANDSTYPES_HFILE)
 COMMANDSGEN_CFILE=SRC_DIR + COMMANDSGEN_CFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_CFILE)
 COMMANDSDEC_HFILE=INC_DIR + COMMANDSDEC_HFILE_NAME
@@ -146,6 +151,7 @@ JAVA_INTERFACES_FILES=JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
 COMMANDSID_DEFINE='_' + COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 COMMANDSDEC_DEFINE='_' + COMMANDSDEC_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 COMMANDSGEN_DEFINE='_' + COMMANDSGEN_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
+COMMANDSTYPES_DEFINE='_' + COMMANDSTYPES_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 TB_DEFINE='_' + TB_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 
 # Internal function to ensure that the first letter of a word is capitalized
@@ -242,6 +248,7 @@ CREADERS = [ARFunctionName ('Decoder', 'Read8FromBuffer'),     ' (int8_t)' + ARF
             ARFunctionName ('Decoder', 'Read64FromBuffer'),    ' (int64_t)' + ARFunctionName ('Decoder', 'Read64FromBuffer'),
             ARFunctionName ('Decoder', 'ReadFloatFromBuffer'), ARFunctionName ('Decoder', 'ReadDoubleFromBuffer'),
             ARFunctionName ('Decoder', 'ReadStringFromBuffer')]
+
 # Equivalent calls for the Decoder print internal functions
 CPRINTERS = [ARFunctionName ('Decoder', 'PrintU8'),    ARFunctionName ('Decoder', 'PrintI8'),
              ARFunctionName ('Decoder', 'PrintU16'),   ARFunctionName ('Decoder', 'PrintI16'),
@@ -249,6 +256,7 @@ CPRINTERS = [ARFunctionName ('Decoder', 'PrintU8'),    ARFunctionName ('Decoder'
              ARFunctionName ('Decoder', 'PrintU64'),   ARFunctionName ('Decoder', 'PrintI64'),
              ARFunctionName ('Decoder', 'PrintFloat'), ARFunctionName ('Decoder', 'PrintDouble'),
              ARFunctionName ('Decoder', 'PrintString')]
+
 # Equivalent JAVA Types
 # No unsigned types in java, so use signed types everywhere
 JAVATYPES = ['byte',    'byte',
@@ -272,36 +280,55 @@ JNITYPES  = ['jbyte',    'jbyte',
              'jfloat',   'jdouble',
              'jstring']
 
-def xmlToC (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToC (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper());
+    xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES [xmlIndex]
 
-def xmlToCwithConst (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToCwithConst (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper());
+    xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES_WC [xmlIndex]
 
-def xmlToSize (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToSize (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return 'U32';
+    xmlIndex = XMLTYPES.index (arg.type)
     return SZETYPES [xmlIndex]
 
-def xmlToReader (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToReader (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return '(' + AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper()) + ')' + ARFunctionName ('Decoder', 'Read32FromBuffer')
+    xmlIndex = XMLTYPES.index (arg.type)
     return CREADERS [xmlIndex]
 
-def xmlToPrinter (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToPrinter (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return '(' + AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper()) + ')' + ARFunctionName ('Decoder', 'PrintI32')
+    xmlIndex = XMLTYPES.index (arg.type)
     return CPRINTERS [xmlIndex]
 
-def xmlToJava (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToJava (proj, cl, cmd, arg):
+    # TODO
+    if 'enum' == arg.type:
+        return ' ';
+    xmlIndex = XMLTYPES.index (arg.type)
     return JAVATYPES [xmlIndex]
 
-def xmlToJavaSig (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToJavaSig (proj, cl, cmd, arg):
+    # TODO
+    if 'enum' == arg.type:
+        return ' ';
+    xmlIndex = XMLTYPES.index (arg.type)
     return JAVASIG [xmlIndex]
 
-def xmlToJni (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToJni (proj, cl, cmd, arg):
+    # TODO
+    if 'enum' == arg.type:
+        return ' ';
+    xmlIndex = XMLTYPES.index (arg.type)
     return JNITYPES [xmlIndex]
 
 # Sample args for testbench
@@ -319,12 +346,16 @@ PRINTFF    = ['%u',   '%d',
               '%f',   '%f',
               '%s']
 
-def xmlToSample (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToSample (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return 'ARCOMMANDS_DELOS_ANIMATIONS_FLIP_DIRECTION_FRONT';
+    xmlIndex = XMLTYPES.index (arg.type)
     return SAMPLEARGS [xmlIndex]
 
-def xmlToPrintf (typ):
-    xmlIndex = XMLTYPES.index (typ)
+def xmlToPrintf (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return '%d';
+    xmlIndex = XMLTYPES.index (arg.type)
     return PRINTFF [xmlIndex]
 
 noGen = False
@@ -413,18 +444,40 @@ if not os.path.exists (JNIJ_OUT_DIR):
 
 # Python class definitions
 
-class ARArg:
-    "Represent an argument of a command"
-    def __init__(self, argName, argType):
-        self.name     = argName
-        self.type     = argType
+class AREnum:
+    "Represent an enum of an argument"
+    def __init__(self, enumName):
+        self.name     = enumName
         self.comments = []
     def addCommentLine(self, newCommentLine):
         self.comments.append(newCommentLine)
     def check(self):
         ret = ''
         if len (self.comments) == 0:
+            ret = ret + '\n--- Enum ' + self.name + ' don\'t have any comment !'
+        return ret
+
+class ARArg:
+    "Represent an argument of a command"
+    def __init__(self, argName, argType):
+        self.name     = argName
+        self.type     = argType
+        self.comments = []
+        self.enums    = []
+    def addCommentLine(self, newCommentLine):
+        self.comments.append(newCommentLine)
+    def addEnum(self, newEnum):
+        self.enums.append(newEnum)
+    def check(self):
+        ret = ''
+        enumret = ''
+        if len (self.comments) == 0:
             ret = ret + '\n--- Argument ' + self.name + ' don\'t have any comment !'
+        for enum in self.enums:
+            enumret = enumret + enum.check ()
+        if len (enumret) != 0:
+            ret = ret + '\n-- Argument ' + self.name + ' has errors in its enums:'
+        ret = ret + enumret
         return ret
 
 class ARCommand:
@@ -611,6 +664,23 @@ def parseXml(FNAME, projectName):
                     stripName = argComm.strip ()
                     if len (stripName) != 0:
                         currentArg.addCommentLine (stripName)
+
+                enums = arg.getElementsByTagName ('enum')
+                for enum in enums:
+                    currentEnum = AREnum(enum.attributes["name"].nodeValue)
+                    # Get command comments
+                    enumComments = enum.firstChild.data.splitlines ()
+                    for enumComm in enumComments:
+                        stripName = enumComm.strip ()
+                        if len (stripName) != 0:
+                            currentEnum.addCommentLine (stripName)
+                    # Check if arg name is unique
+                    for enumTest in currentArg.enums:
+                        if enumTest.name == currentEnum.name:
+                            ARPrint ('Enum `' + currentEnum.name + '` appears multiple time in `' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '` !')
+                            ARPrint (' --> Enums must have unique name in a given command (but can exist in multiple commands)')
+                            EXIT (1)
+                    currentArg.addEnum(currentEnum)
                 currentCommand.addArgument (currentArg)
             currentClass.addCommand (currentCommand)
         proj.addClass (currentClass)
@@ -659,6 +729,13 @@ if noGen: # called with "-nogen"
                     for comment in arg.comments:
                         ARPrint ('     * ' + comment)
                     ARPrint ('     */')
+                    for enum in arg.enums:
+                        ARPrint ('   (typedef enum ' + enum.name + ')')
+                        ARPrint ('    /* ')
+                        for comment in enum.comments:
+                            ARPrint ('     * ' + comment)
+                        ARPrint ('     */')
+
     EXIT (0)
 
 
@@ -725,6 +802,51 @@ hfile.close ()
 #################################
 # 3RD PART :                    #
 #################################
+# Generate public Types H file  #
+#################################
+
+hfile = open (COMMANDSTYPES_HFILE, 'w')
+
+hfile.write ('/**\n')
+hfile.write (' * @file ' + COMMANDSTYPES_HFILE_NAME + '\n')
+hfile.write (' * @brief libARCommands types header.\n')
+hfile.write (' * This file contains all types declarations needed to use commands\n')
+hfile.write (' * @note Autogenerated file\n')
+hfile.write (' **/\n')
+hfile.write ('#ifndef ' + COMMANDSTYPES_DEFINE + '\n')
+hfile.write ('#define ' + COMMANDSTYPES_DEFINE + '\n')
+hfile.write ('#include <inttypes.h>\n')
+hfile.write ('\n')
+
+for proj in allProjects:
+    for cl in proj.classes:
+        for cmd in cl.cmds:
+            for arg in cmd.args:
+                if len(arg.enums) != 0:
+                    hfile.write ('// Project ' + proj.name + '\n')
+                    hfile.write ('// Command class ' + cl.name + '\n')
+                    hfile.write ('// Command ' + cmd.name + '\n')
+                    submodules=proj.name.upper() + '_' + cl.name.upper()
+                    macro_name=cmd.name.upper() + '_' + arg.name.upper();
+                    hfile.write ('\n/**\n')
+                    hfile.write (' * @brief ' + arg.comments[0] + '\n')
+                    for comm in arg.comments[1:]:
+                        hfile.write (' * ' + comm + '\n')
+                    hfile.write (' */\n')
+                    hfile.write ('typedef enum _' + ARMacroName (submodules, macro_name) + '_\n')
+                    hfile.write ('{\n')
+                    for enum in arg.enums:
+                        hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ',    ///< ' + enum.comments[0] + '\n')
+                    hfile.write ('    ' + AREnumValue(submodules, macro_name, 'MAX') + '\n')
+                    hfile.write ('} ' + AREnumName(submodules, macro_name) + ';\n\n')
+hfile.write ('\n')
+hfile.write ('#endif /* ' + COMMANDSTYPES_DEFINE + ' */\n')
+
+hfile.close ()
+
+#################################
+# 4TH PART :                    #
+#################################
 # Generate public coder H file  #
 #################################
 
@@ -738,6 +860,7 @@ hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
 hfile.write ('#ifndef ' + COMMANDSGEN_DEFINE + '\n')
 hfile.write ('#define ' + COMMANDSGEN_DEFINE + '\n')
+hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 if genDebug:
@@ -778,7 +901,7 @@ for proj in allProjects:
             hfile.write (' */\n')
             hfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                hfile.write (', ' + xmlToCwithConst (arg.type) + ' _' + arg.name)
+                hfile.write (', ' + xmlToCwithConst (proj, cl, cmd, arg) + ' _' + arg.name)
             hfile.write (');\n')
         hfile.write ('\n')
     hfile.write ('\n')
@@ -789,7 +912,7 @@ hfile.write ('#endif /* ' + COMMANDSGEN_DEFINE + ' */\n')
 hfile.close ()
 
 #################################
-# 4TH PART :                    #
+# 5TH PART :                    #
 #################################
 # Generate coder C part         #
 #################################
@@ -910,7 +1033,7 @@ for proj in allProjects:
         for cmd in cl.cmds:
             cfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' +  ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToCwithConst (arg.type) + ' _' + arg.name)
+                cfile.write (', ' + xmlToCwithConst (proj, cl, cmd, arg) + ' _' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t currIndexInBuffer = 0;\n')
@@ -972,7 +1095,7 @@ for proj in allProjects:
                 cfile.write ('    // Write arg _' + arg.name + '\n')
                 cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('    {\n')
-                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (arg.type) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
+                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (proj, cl, cmd, arg) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
                 cfile.write ('        if (currIndexInBuffer == -1)\n')
                 cfile.write ('        {\n')
                 cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -993,7 +1116,7 @@ cfile.write ('// END GENERATED CODE\n')
 cfile.close ()
 
 #################################
-# 5TH PART :                    #
+# 6TH PART :                    #
 #################################
 # Generate public decoder H file#
 #################################
@@ -1008,6 +1131,7 @@ hfile.write (' * @note Autogenerated file\n')
 hfile.write (' **/\n')
 hfile.write ('#ifndef ' + COMMANDSDEC_DEFINE + '\n')
 hfile.write ('#define ' + COMMANDSDEC_DEFINE + '\n')
+hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 if genDebug:
@@ -1064,7 +1188,7 @@ for proj in allProjects:
                     first = False
                 else:
                     hfile.write (', ')
-                hfile.write (xmlToC (arg.type) + ' ' + arg.name)
+                hfile.write (xmlToC (proj, cl, cmd, arg) + ' ' + arg.name)
             if not first:
                 hfile.write (', ')
             hfile.write ('void *custom);\n')
@@ -1082,7 +1206,7 @@ hfile.write ('#endif /* ' + COMMANDSDEC_DEFINE + ' */\n')
 hfile.close ()
 
 #################################
-# 6TH PART :                    #
+# 7TH PART :                    #
 #################################
 # Generate decoder C part       #
 #################################
@@ -1616,13 +1740,13 @@ for proj in allProjects:
             cfile.write ('                    {\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
-                    cfile.write ('                        ' + xmlToC (arg.type) + ' _' + arg.name + ' = NULL;\n')
+                    cfile.write ('                        ' + xmlToC (proj, cl, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
                 else:
-                    cfile.write ('                        ' + xmlToC (arg.type) + ' _' + arg.name + ';\n')
+                    cfile.write ('                        ' + xmlToC (proj, cl, cmd, arg) + ' _' + arg.name + ';\n')
             for arg in cmd.args:
                 cfile.write ('                        if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('                        {\n')
-                cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (arg.type) + ' (buffer, buffLen, &offset, &error);\n')
+                cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (proj, cl, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
                 cfile.write ('                            if (error == 1)\n')
                 cfile.write ('                                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
                 cfile.write ('                        }\n')
@@ -1739,10 +1863,10 @@ for proj in allProjects:
             for arg in cmd.args:
                 cfile.write ('                    if (stroffset > 0)\n')
                 cfile.write ('                    {\n')
-                cfile.write ('                        ' + xmlToC (arg.type) + ' arg = ' + xmlToReader (arg.type) + ' (buffer, buffLen, &offset, &error);\n')
+                cfile.write ('                        ' + xmlToC (proj, cl, cmd, arg) + ' arg = ' + xmlToReader (proj, cl, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
                 cfile.write ('                        if (error == 0)\n')
                 cfile.write ('                        {\n')
-                cfile.write ('                            stroffset = ' + xmlToPrinter (arg.type) + ' (" | ' + arg.name + ' -> ", arg, resString, stringLen, stroffset);\n')
+                cfile.write ('                            stroffset = ' + xmlToPrinter (proj, cl, cmd, arg) + ' (" | ' + arg.name + ' -> ", arg, resString, stringLen, stroffset);\n')
                 cfile.write ('                        }\n')
                 cfile.write ('                    }\n')
             cfile.write ('                    if (stroffset < 0)\n')
@@ -1782,7 +1906,7 @@ cfile.write ('// END GENERATED CODE\n')
 cfile.close ()
 
 #################################
-# 7TH PART :                    #
+# 8TH PART :                    #
 #################################
 # Generate C Testbench          #
 #################################
@@ -1828,23 +1952,23 @@ for proj in allProjects:
                     first = False
                 else:
                     cfile.write (', ')
-                cfile.write (xmlToC (arg.type) + ' ' + arg.name)
+                cfile.write (xmlToC (proj, cl, cmd, arg) + ' ' + arg.name)
             if not first:
                 cfile.write (', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Callback for command ' + proj.name + '.' + cl.name + '.' + cmd.name + ' --> Custom PTR = %p", custom);\n')
             for arg in cmd.args:
-                cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "' + arg.name + ' value : <' + xmlToPrintf (arg.type) + '>", ' + arg.name + ');\n')
+                cfile.write ('    ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "' + arg.name + ' value : <' + xmlToPrintf (proj, cl, cmd, arg) + '>", ' + arg.name + ');\n')
                 if "string" == arg.type:
-                    cfile.write ('    if (strcmp (' + xmlToSample (arg.type) + ', ' + arg.name + ') != 0)\n')
+                    cfile.write ('    if (strcmp (' + xmlToSample (proj, cl, cmd, arg) + ', ' + arg.name + ') != 0)\n')
                 else:
-                    cfile.write ('    if (' + arg.name + ' != ' + xmlToSample (arg.type) + ')\n')
+                    cfile.write ('    if (' + arg.name + ' != ' + xmlToSample (proj, cl, cmd, arg) + ')\n')
                 cfile.write ('    {\n')
                 if "string" == arg.type:
-                    cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <%s>", ' + xmlToSample (arg.type) + ');\n')
+                    cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <%s>", ' + xmlToSample (proj, cl, cmd, arg) + ');\n')
                 else:
-                    cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (arg.type) + '>");\n')
+                    cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "BAD ARG VALUE !!! --> Expected <' + xmlToSample (proj, cl, cmd, arg) + '>");\n')
                 cfile.write ('        errcount++ ;\n')
                 cfile.write ('    }\n')
             cfile.write ('    if (' + TB_CALL_VARNAME (proj, cl, cmd) + ' == 0)\n')
@@ -1882,7 +2006,7 @@ for proj in allProjects:
         for cmd in cl.cmds:
             cfile.write ('    res = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (buffer, buffSize, &resSize')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToSample (arg.type))
+                cfile.write (', ' + xmlToSample (proj, cl, cmd, arg))
             cfile.write (');\n')
             cfile.write ('    if (res != ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
@@ -1974,7 +2098,7 @@ cfile.write ('}\n')
 cfile.close ()
 
 #################################
-# 8TH PART :                    #
+# 9TH PART :                    #
 #################################
 # Generate JNI C/Java code      #
 #################################
@@ -2012,7 +2136,7 @@ for proj in allProjects:
                     first = False
                 else:
                     jfile.write (', ')
-                jfile.write (xmlToJava (arg.type) + ' ' + arg.name)
+                jfile.write (xmlToJava (proj, cl, cmd, arg) + ' ' + arg.name)
             jfile.write (');\n')
             jfile.write ('}\n')
             jfile.close ()
@@ -2142,7 +2266,7 @@ for proj in allProjects:
                     first = False
                 else:
                     jfile.write (', ')
-                jfile.write (xmlToJava (arg.type) + ' ' + arg.name)
+                jfile.write (xmlToJava (proj, cl, cmd, arg) + ' ' + arg.name)
             jfile.write (') {\n')
             jfile.write ('        ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n')
             jfile.write ('        if (!valid) {\n')
@@ -2185,7 +2309,7 @@ for proj in allProjects:
         for cmd in cl.cmds:
             jfile.write ('    private native int     nativeSet' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (long pdata, int dataTotalLength')
             for arg in cmd.args:
-                jfile.write (', ' + xmlToJava (arg.type) + ' ' + arg.name)
+                jfile.write (', ' + xmlToJava (proj, cl, cmd, arg) + ' ' + arg.name)
             jfile.write (');\n')
         jfile.write ('\n')
     jfile.write ('\n')
@@ -2250,7 +2374,7 @@ for proj in allProjects:
             cfile.write ('JNIEXPORT jint JNICALL\n')
             cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeSet' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (' + JNI_FIRST_ARGS + ', jlong c_pdata, jint dataLen')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToJni (arg.type) + ' ' + arg.name)
+                cfile.write (', ' + xmlToJni (proj, cl, cmd, arg) + ' ' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t c_dataSize = 0;\n')
@@ -2277,7 +2401,7 @@ for proj in allProjects:
                 if 'string' == arg.type:
                     cfile.write (', c_' + arg.name)
                 else:
-                    cfile.write (', (' + xmlToC (arg.type) + ')' + arg.name)
+                    cfile.write (', (' + xmlToC (proj, cl, cmd, arg) + ')' + arg.name)
             cfile.write (');\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
@@ -2300,7 +2424,7 @@ for proj in allProjects:
         for cmd in cl.cmds:
             cfile.write ('void ' + cCallbackName (proj,cl,cmd) + ' (')
             for arg in cmd.args:
-                cfile.write (xmlToC (arg.type) + ' ' + arg.name + ', ')
+                cfile.write (xmlToC (proj, cl, cmd, arg) + ' ' + arg.name + ', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    jclass clazz = (jclass)custom;\n')
@@ -2315,7 +2439,7 @@ for proj in allProjects:
             cfile.write ('    jclass d_clazz = (*env)->GetObjectClass (env, delegate);\n')
             cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "' + javaCbName (proj,cl,cmd) + '", "(')
             for arg in cmd.args:
-                cfile.write ('' + xmlToJavaSig (arg.type))
+                cfile.write ('' + xmlToJavaSig (proj, cl, cmd, arg))
             cfile.write (')V");\n')
             cfile.write ('    (*env)->DeleteLocalRef (env, d_clazz);\n')
             cfile.write ('    if (d_methodid != NULL)\n')

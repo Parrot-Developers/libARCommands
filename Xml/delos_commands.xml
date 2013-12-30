@@ -21,13 +21,25 @@
      Comment about the command              | Included in Doxygen doc
    </cmd>
 
-   How to add a new command (with args) to a class :
+   How to add a new command (with args primitive type) to a class :
    <cmd name="MyNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
-     Comment about the command              | Included in Doxygen doc
-     <arg name="argName" type="argType" >   | Repeat for each arg
-       Comment about the arg                | argName must be a valid C variable name
-     </arg>                                 | argType must be a valid type (see below)
-     ...                                    | Comment included in Doxygen doc
+       Comment about the command              | Included in Doxygen doc
+       <arg name="argName" type="argType" >   | Repeat for each arg
+          Comment about the arg               | argName must be a valid C variable name
+       </arg>                                 | argType must be a valid type (see below)
+       ...                                    | Comment included in Doxygen doc
+   </cmd>
+ 
+   How to add a enum (in args) to a class :
+   <cmd name="MyNewCommandWithArgs" >         | No spaces ! [A-Za-z0-9_]
+       Comment about the command              | Included in Doxygen doc
+       <arg name="argName" type="argType" >   | Repeat for each arg
+            Comment about the arg             | Included in Doxygen doc
+            <enum name="argName">             | No spaces ! [A-Za-z0-9_]
+                Comment about the enum        | Included in Doxygen doc
+            </enum>
+       </arg>                                 | argType must be a valid type (see below)
+       ...                                    | Comment included in Doxygen doc
    </cmd>
 
    List of valid types (associated C type) :
@@ -38,6 +50,7 @@
    -     float : IEEE-754 single precision floating point number (float)
    -    double : IEEE-754 double precision floating point number (double)
    -    string : NULL-terminated UTF-8 String. (char *)
+   -    enum:  : enumeration define on arg
    -->
 
 <project id="2">
@@ -96,9 +109,21 @@
       Animation commands
     
       <cmd name="Flip">
-          make a flip
-          <arg name="direction" type="u8">
-              0 for front ; 1 for back ; 2 for right ; 3 for left
+          Make a flip
+          <arg name="direction" type="enum">
+              Direction for the flip
+              <enum name="front">
+                  Flip direction front
+              </enum>
+              <enum name="back">
+                  Flip direction back
+              </enum>
+              <enum name="right">
+                  Flip direction right
+              </enum>
+              <enum name="left">
+                  Flip direction left
+              </enum>
           </arg>
       </cmd>
     
