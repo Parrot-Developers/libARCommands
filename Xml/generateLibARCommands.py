@@ -282,13 +282,13 @@ JNITYPES  = ['jbyte',    'jbyte',
 
 def xmlToC (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper());
+        return AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
     xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES [xmlIndex]
 
 def xmlToCwithConst (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper());
+        return AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
     xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES_WC [xmlIndex]
 
@@ -300,34 +300,31 @@ def xmlToSize (proj, cl, cmd, arg):
 
 def xmlToReader (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return '(' + AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper()) + ')' + ARFunctionName ('Decoder', 'Read32FromBuffer')
+        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName ('Decoder', 'Read32FromBuffer')
     xmlIndex = XMLTYPES.index (arg.type)
     return CREADERS [xmlIndex]
 
 def xmlToPrinter (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return '(' + AREnumName(proj.name.upper() + '_' + cl.name.upper(), cmd.name.upper() + '_' + arg.name.upper()) + ')' + ARFunctionName ('Decoder', 'PrintI32')
+        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName ('Decoder', 'PrintI32')
     xmlIndex = XMLTYPES.index (arg.type)
     return CPRINTERS [xmlIndex]
 
 def xmlToJava (proj, cl, cmd, arg):
-    # TODO
     if 'enum' == arg.type:
-        return ' ';
+        return ARJavaEnumType(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
     xmlIndex = XMLTYPES.index (arg.type)
     return JAVATYPES [xmlIndex]
 
 def xmlToJavaSig (proj, cl, cmd, arg):
-    # TODO
     if 'enum' == arg.type:
-        return ' ';
+        return 'I';
     xmlIndex = XMLTYPES.index (arg.type)
     return JAVASIG [xmlIndex]
 
 def xmlToJni (proj, cl, cmd, arg):
-    # TODO
     if 'enum' == arg.type:
-        return ' ';
+        return 'jint';
     xmlIndex = XMLTYPES.index (arg.type)
     return JNITYPES [xmlIndex]
 
@@ -824,8 +821,9 @@ for proj in allProjects:
             for arg in cmd.args:
                 if len(arg.enums) != 0:
                     hfile.write ('// Project ' + proj.name + '\n')
-                    hfile.write ('// Command class ' + cl.name + '\n')
+                    hfile.write ('// Class ' + cl.name + '\n')
                     hfile.write ('// Command ' + cmd.name + '\n')
+
                     submodules=proj.name.upper() + '_' + cl.name.upper()
                     macro_name=cmd.name.upper() + '_' + arg.name.upper();
                     hfile.write ('\n/**\n')
@@ -833,10 +831,15 @@ for proj in allProjects:
                     for comm in arg.comments[1:]:
                         hfile.write (' * ' + comm + '\n')
                     hfile.write (' */\n')
-                    hfile.write ('typedef enum _' + ARMacroName (submodules, macro_name) + '_\n')
+                    hfile.write ('typedef enum\n')
                     hfile.write ('{\n')
+                    first = True
                     for enum in arg.enums:
-                        hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ',    ///< ' + enum.comments[0] + '\n')
+                        if first:
+                            hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ' = 0,    ///< ' + enum.comments[0] + '\n')
+                            first = False
+                        else:
+                            hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ',    ///< ' + enum.comments[0] + '\n')
                     hfile.write ('    ' + AREnumValue(submodules, macro_name, 'MAX') + '\n')
                     hfile.write ('} ' + AREnumName(submodules, macro_name) + ';\n\n')
 hfile.write ('\n')
