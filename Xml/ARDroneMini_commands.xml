@@ -54,10 +54,10 @@
    -->
 
 <project id="2">
-  All Delos-only commands
+  All ARDrone Mini-only commands
 
   <class name="Piloting" id="0">
-    All commands related to piloting the Delos
+    All commands related to piloting the ARDrone Mini
 
     <cmd name="FlatTrim">
       Do a flat trim
@@ -75,19 +75,19 @@
       </arg>
 
       <arg name="roll" type="i8">
-        Roll consign for the delos [-100;100]
+        Roll consign for the ARDrone Mini [-100;100]
       </arg>
 
       <arg name="pitch" type="i8">
-        Pitch consign for the delos [-100;100]
+        Pitch consign for the ARDrone Mini [-100;100]
       </arg>
 
       <arg name="yaw" type="i8">
-        Yaw consign for the delos [-100;100]
+        Yaw consign for the ARDrone Mini [-100;100]
       </arg>
 
       <arg name="gaz" type="i8">
-        Gaz consign for the delos [-100;100]
+        Gaz consign for the ARDrone Mini [-100;100]
       </arg>
 
       <arg name="psi" type="float">
@@ -96,7 +96,7 @@
     </cmd>
 
     <cmd name="Landing">
-      Ask the delos to land
+      Ask the ARDrone Mini to land
     </cmd>
 
     <cmd name="Emergency">
@@ -162,7 +162,7 @@
     Occasional information
 
     <cmd name="FlatTrimAck">
-      Delos acknowledges that flat trim was correctly processed
+      ARDrone Mini acknowledges that flat trim was correctly processed
     </cmd>
 
   </class>

@@ -42,7 +42,7 @@
 
 
 <project id="1">
-  All Mykonos3-only commands
+  All ARDrone3-only commands
 
   <class name="Piloting" id="0">
     All commands related to piloting the totoDrone

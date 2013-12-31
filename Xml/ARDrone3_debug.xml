@@ -38,49 +38,10 @@
    -     float : IEEE-754 single precision floating point number (float)
    -    double : IEEE-754 double precision floating point number (double)
    -    string : NULL-terminated UTF-8 String. (char *)
-   -->
+-->
 
-<project id="130">
-  All Delos-only debug commands
 
-  <class name="Debug" id="0">
-    Temporary, debug commands
-
-    <cmd name="Test1">
-      Test 1 command
-      <arg name="t1Args" type="i8">
-        Test 1 argument
-      </arg>
-    </cmd>
-
-    <cmd name="Test2">
-      Test 2 command
-      <arg name="t2Args" type="i8">
-        Test 2 argument
-      </arg>
-    </cmd>
-
-    <cmd name="Test3">
-      Test 3 command
-      <arg name="t3Args" type="i8">
-        Test 3 argument
-      </arg>
-    </cmd>
-    
-    <cmd name="HasWheels">
-        Inform the Delos if it has its wheels
-        <arg name="hasWheels" type="u8">
-            0 if the Delos hasn't its wheels other way if it has its wheels
-        </arg>
-    </cmd>
-    
-    <cmd name="rollingCeilingEnable">
-        inform delos mode
-        <arg name="mode" type="u8">
-            1 for rolling ceiling; 0 for not;
-        </arg>
-    </cmd>
-    
-  </class>
+<project id="129">
+  All debug ARDrone3-only commands
 
 </project>
