@@ -5,6 +5,8 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(m4)
 
+m4_include([../../ARBuildUtils/Utils/m4/ARSDK.m4])
+
 # automake initialisation and check for minimal automake API version 1.9
 AM_INIT_AUTOMAKE
 
@@ -24,10 +26,10 @@ AC_MSG_RESULT([$debugit])
 
 if test x"$debugit" = x"yes"; then
     AC_DEFINE([DEBUG],[],[Debug Mode])
-    CFLAGS+=" -g -Wall -Werror -Wno-uninitialized -O0"
+	LOCAL_CFLAGS+=" -g -Wall -Werror -Wno-uninitialized -O0"
 else
     AC_DEFINE([NDEBUG],[],[No-debug Mode])
-    CFLAGS+=" -O3"
+    LOCAL_CFLAGS+=" -O3"
 fi
 AM_CONDITIONAL([DEBUG_MODE], [test "$debugit" = "yes"])
 
@@ -59,89 +61,25 @@ AC_ARG_ENABLE([so-version],
     [sover=yes])
 AC_MSG_RESULT([$sover])
 
-##########################################################################
-# Define libraries directories
-##########################################################################
-
-# get the directories of libARSAL
-AC_ARG_WITH([libARSALInstallDir],
-            AS_HELP_STRING([--with-libARSALInstallDir=DIR],[directory of the libARSAL installation @<:@default=PREFIX@:>@]),
-            [if test x$withval = xno; then
-              libARSALInstallDir=""
-            else
-              libARSALInstallDir="$withval"
-            fi],
-            [if test x$prefix = xNONE; then
-              libARSALInstallDir=""
-            else
-              libARSALInstallDir="$prefix"
-            fi])
-
-AC_ARG_WITH([libARSALIncludeDir],
-            AS_HELP_STRING([--with-libARSALIncludeDir=DIR],[directory of the libARSAL headers @<:@default=libARSALInstallDir/include@:>@]),
-            [if test x$withval = xno; then
-              [if test ! -z $libARSALInstallDir; then
-                 libARSALIncludeDir="$libARSALInstallDir/include"
-              else
-                 libARSALIncludeDir=""
-              fi]
-            else
-              libARSALIncludeDir="$withval"
-            fi],
-              [if test ! -z $libARSALInstallDir; then
-                 libARSALIncludeDir="$libARSALInstallDir/include"
-              else
-                 libARSALIncludeDir=""
-              fi])
-
-AC_ARG_WITH([libARSALLibDir],
-            AS_HELP_STRING([--with-libARSALLibDir=DIR],[directory of the libARSAL libraries @<:@default=libARSALInstallDir/lib@:>@]),
-            [if test x$withval = xno; then
-              [if test ! -z $libARSALInstallDir; then
-                libARSALLibDir="$libARSALInstallDir/lib"
-              else
-                libARSALLibDir=""
-              fi]
-            else
-              libARSALLibDir="$withval"
-            fi],
-              [if test ! -z $libARSALInstallDir; then
-                libARSALLibDir="$libARSALInstallDir/lib"
-              else
-                libARSALLibDir=""
-              fi])
 
 ##########################################################################
 # Define includes directories
 ##########################################################################
 
 # include local headers first
-CFLAGS+=" -I$srcdir/../Includes -I$srcdir/../Sources"
+LOCAL_CFLAGS+=" -I$srcdir/../Includes -I$srcdir/../Sources"
 
-# add the headers directory of libARSAL
-if test ! -z $libARSALIncludeDir; then
-  CFLAGS+=" -I$libARSALIncludeDir"
-fi
+CPPFLAGS+="$LOCAL_CFLAGS"
+CFLAGS+="$LOCAL_CFLAGS"
+OBJCFLAGS+="$LOCAL_CFLAGS"
 
-CPPFLAGS="$CFLAGS"
-##########################################################################
-# Define binaries directories
-##########################################################################
+# add libARxxx deps
 
-# add the binaries directory of libSal
-if test ! -z $libARSALLibDir; then
-  LDFLAGS+=" -L$libARSALLibDir"
-fi
+AR_DEPENDS([libARSAL], [Y], [libARSAL/ARSAL.h])
 
 ##########################################################################
 # Check headers
 ##########################################################################
-
-# Checks for libSAL.h
-AC_CHECK_HEADERS([libARSAL/ARSAL_Print.h libARSAL/ARSAL_Thread.h libARSAL/ARSAL_Mutex.h \
-libARSAL/ARSAL_Socket.h libARSAL/ARSAL_Time.h],,
-	AC_MSG_ERROR(The libARSAL headers are required in order to build the library !
-- Use --with-libARSALInstallDir or --with-libARSALIncludeDir to indicate a specific include path.))
 
 # Check for PRIxx macros
 AC_CHECK_DECLS([PRIu8, PRIi8, PRIu16, PRIi16, PRIu32, PRIi32, PRIu64, PRIi64],[],[],[[#include <inttypes.h>]])
