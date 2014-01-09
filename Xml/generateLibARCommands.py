@@ -815,6 +815,12 @@ hfile.write ('#define ' + COMMANDSTYPES_DEFINE + '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 
+if genDebug:
+    hfile.write('/**\n')
+    hfile.write(' * Defined only if the library includes debug commands\n')
+    hfile.write(' */\n')
+    hfile.write('#define ' + ARMacroName ('', 'HAS_DEBUG_COMMANDS') + ' (1)\n')
+
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
@@ -866,11 +872,6 @@ hfile.write ('#define ' + COMMANDSGEN_DEFINE + '\n')
 hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
-if genDebug:
-    hfile.write('/**\n')
-    hfile.write(' * Defined only if the library includes debug commands\n')
-    hfile.write(' */\n')
-    hfile.write('#define ' + ARMacroName (GEN_SUBMODULE, 'HAS_DEBUG_COMMANDS') + ' (1)\n')
 hfile.write ('\n')
 hfile.write ('/**\n')
 hfile.write (' * @brief Error codes for ' + ARFunctionName (GEN_SUBMODULE, 'GenerateClassCommand') + ' functions\n')
@@ -1138,11 +1139,6 @@ hfile.write ('#define ' + COMMANDSDEC_DEFINE + '\n')
 hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
-if genDebug:
-    hfile.write('/**\n')
-    hfile.write(' * Defined only if the library includes debug commands\n')
-    hfile.write(' */\n')
-    hfile.write('#define ' + ARMacroName (GEN_SUBMODULE, 'HAS_DEBUG_COMMANDS') + ' (1)\n')
 hfile.write ('\n')
 hfile.write ('/**\n')
 hfile.write (' * @brief Error codes for ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' function\n')
