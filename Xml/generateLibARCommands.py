@@ -819,7 +819,7 @@ if genDebug:
     hfile.write('/**\n')
     hfile.write(' * Defined only if the library includes debug commands\n')
     hfile.write(' */\n')
-    hfile.write('#define ' + ARMacroName ('', 'HAS_DEBUG_COMMANDS') + ' (1)\n')
+    hfile.write('#define ' + ARMacroName ('HAS', 'DEBUG_COMMANDS') + ' (1)\n')
 
 for proj in allProjects:
     for cl in proj.classes:
