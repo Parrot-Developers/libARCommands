@@ -44,99 +44,123 @@
 <project id="3">
   All commands specific to the Jumping Sumo.
 
-  <class name="pilotingAction" id="0">
+  <class name="Piloting" id="0">
     All commands related to piloting the JumpingSumo
 
-    <cmd name="setSpeed">
+    <cmd name="PCMD">
       Ask the JS speed and turn ratio.
+
+      <arg name="flag" type="u8">
+          Boolean for "touch screen".
+      </arg>
 
       <arg name="speed" type="i8">
         Speed value [-100:100].
       </arg>
 
-      <arg name="turnRatio" type="i8">
-		  Turn ratio value. [-100:100]
+      <arg name="turn" type="i8">
+		  Turn value. [-100:100]
       </arg>
+    </cmd>
 
-      <arg name="touchScreenFlag" type="u8">
-        Boolean for "touch screen".
-      </arg>
-
+    <cmd name="Posture">
+        Request a posture
+        <arg name="type" type="enum">
+            Type of Posture
+            
+            <enum name="standing">
+                Standing type
+            </enum>
+            <enum name="jumper">
+                Jumper type
+            </enum>
+            <enum name="kicker">
+                Kicker type
+            </enum>
+        </arg>
     </cmd>
 
     <cmd name="requestFullStateRefresh">
-    Request the JS to send all the possible piloting events in order to retrieve the full state of the JS.
+        Request the JS to send all the possible states in order to retrieve the full state of the JS.
     </cmd>
-
-    <cmd name="setPostureJumper">
-        Request the JS to switch to JUMPER posture.
-    </cmd>
-
-    <cmd name="setPostureKicker">
-        Request the JS to switch to KICKER posture.
-    </cmd>
-
-    <cmd name="setPostureStanding">
-        Request the JS to switch to STANDING posture.
-    </cmd>
-    
-    <cmd name="jumpStop">
-		Ask the JS to STOP jump action, emergency jump stop, stop jump motor and stay there.
-    </cmd>
-
-    <cmd name="jumpCancel">
-		Ask the JS to CANCEL jump action and come back to previous state (if possible).
-    </cmd>
-    
-    <cmd name="jumpLoad">
-		Ask the JS to LOAD a jump.
-    </cmd>
-
-    <cmd name="jumpLong">
-		Ask the JS to do a LONG jump.
-    </cmd>
-
-    <cmd name="jumpHigh">
-		Ask the JS to do a HIGH jump.
-    </cmd>
-    
   </class>
   
-  <class name="pilotingEvent" id="1">
-  Occasional feedback on piloting data.
-
-    <cmd name="postureChangedToJumper">
-		Sent by the Jumping Sumo when its posture changes to JUMPER.
-    </cmd>
-
-    <cmd name="postureChangedToKicker">
-		Sent by the Jumping Sumo when its posture changes to KICKER.
-    </cmd>
-
-    <cmd name="postureChangedToStanding">
-		Sent by the Jumping Sumo when its posture changes to SEGWAY.
-	</cmd>
-
-    <cmd name="postureChangedToStuck">
-		Sent by the Jumping Sumo when its posture changes to STUCK.
-	</cmd>
-
-	<cmd name="jumpLoadStateChangedToUnknown">
-		Sent by the Jumping Sumo when the jump load state changes to UNKNOWN.
-    </cmd>
-
-    <cmd name="jumpLoadStateChangedToUnloaded">
-		Sent by the Jumping Sumo when the jump load state changes to UNLOADED.
-    </cmd>
-
-    <cmd name="jumpLoadStateChangedToLoaded">
-		Sent by the Jumping Sumo when the jump load state changes to LOADED.
-    </cmd>
-
-    <cmd name="jumpLoadStateChangedToBusy">
-		Sent by the Jumping Sumo when the jump load state changes to BUSY.
-    </cmd>
+  <class name="Animations" id="2">
+      Animation commands
     
+      <cmd name="JumpStop">
+          Stop jump, emergency jump stop, stop jump motor and stay there.
+      </cmd>
+      <cmd name="JumpCancel">
+          Cancel jump and come back to previous state (if possible).
+      </cmd>
+      <cmd name="JumpLoad">
+          Request jump loading
+      </cmd>
+      <cmd name="Jump">
+          Request a jump
+          <arg name="type" type="enum">
+              Type of jump
+
+              <enum name="long">
+                  Long jump.
+              </enum>
+              <enum name="high">
+                  High jump
+              </enum>
+          </arg>
+      </cmd>
+  </class>
+  
+  <class name="PilotingState" id="1">
+      Animations state from JS.
+      
+      <cmd name="PostureChanged">
+          State of posture changed.
+          <arg name="state" type="enum">
+              State of posture
+              
+              <enum name="standing">
+                  Standing state
+              </enum>
+              <enum name="jumper">
+                  Jumper state
+              </enum>
+              <enum name="kicker">
+                  Kicker state
+              </enum>
+              <enum name="stuck">
+                  Stuck state
+              </enum>
+              <enum name="unknown">
+                  Unknown state
+              </enum>
+          </arg>
+      </cmd>
+  </class>
+  
+  <class name="AnimationsState" id="3">
+    Animations state from JS.
+
+    <cmd name="JumpLoadChanged">
+		State of jump load changed
+        
+        <arg name="state" type="enum">
+            State of jump load
+            <enum name="unknown">
+                Unknown state
+            </enum>
+            <enum name="unloaded">
+                Unloaded state
+            </enum>
+            <enum name="loaded">
+                Loaded state
+            </enum>
+            <enum name="busy">
+                Busy state
+            </enum>
+        </arg>
+    </cmd>
   </class>
   
 </project>
