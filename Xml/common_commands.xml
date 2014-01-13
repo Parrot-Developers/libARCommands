@@ -51,14 +51,13 @@
 	  Signals the remote that the host will disconnect and close its
 	  libARNetwork instance (and all threads that use libARNetwork)
 	</cmd>
-
   </class>
   
-  <class name="Navdata" id="1">
-      Navigation data from product
+  <class name="Event" id="1">
+      Event from product
 
       <cmd name="Battery">
-          Battery percentage
+          Battery level
           <arg name="percent" type="u8">
               Battery percentage
           </arg>

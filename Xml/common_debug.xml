@@ -44,138 +44,17 @@
 <project id="128">
   All debug commands shared between all projects
   
-  <class name="Video" id="0">
-	Commands for video stream debug
-	<cmd name="SetResolution">
-	  Sets the decoder resolution
-	  <arg name="width" type="u16">
-		Width of the video stream
-	  </arg>
-	  <arg name="height" type="u16">
-		Height of the video stream
-	  </arg>
-	</cmd>
-  </class>
-	  
-
-  <class name="ARCTest" id="1">
-    Some test commands
-
-    <cmd name="TestU8">
-      Test uint8_t arg type
-      <arg name="u8" type="u8">
-        Dummy uint8_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestI8">
-      Test int8_t arg type
-      <arg name="i8" type="i8">
-        Dummy int8_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestU16">
-      Test uint16_t arg type
-      <arg name="u16" type="u16">
-        Dummy uint16_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestI16">
-      Test int16_t arg type
-      <arg name="i16" type="i16">
-        Dummy int16_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestU32">
-      Test uint32_t arg type
-      <arg name="u32" type="u32">
-        Dummy uint32_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestI32">
-      Test int32_t arg type
-      <arg name="i32" type="i32">
-        Dummy int32_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestU64">
-      Test uint64_t arg type
-      <arg name="u64" type="u64">
-        Dummy uint64_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestI64">
-      Test int64_t arg type
-      <arg name="i64" type="i64">
-        Dummy int64_t for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestFlt">
-      Test float arg type
-      <arg name="flt" type="float">
-        Dummy float for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestDbl">
-      Test double arg type
-      <arg name="dbl" type="double">
-        Dummy double for test
-      </arg>
-    </cmd>
-
-    <cmd name="TestString">
-      Test char * arg type
-      <arg name="stringTest" type="string">
-        Dummy char * for test
-      </arg>
-    </cmd>
-
-	<cmd name="TestMultiArgs">
-	  Test with multiple args
-	  <arg name="stringTestOne" type="string">
-		First dummy char * for Test
-	  </arg>
-	  <arg name="stringTestTwo" type="string">
-		Second dummy char * for Test
-	  </arg>
-	  <arg name="u16TestOne" type="u16">
-		dummy uint16 for test
-	  </arg>
-	  <arg name="doubleTestOne" type="double">
-		dummy double for test
-	  </arg>
-	</cmd>
-
-	<cmd name="TestNotAligned">
-	  Test with bad alignment args
-	  <arg name="smallArgOne" type="u8">
-		First dummy int for bad alignment
-	  </arg>
-	  <arg name="bigArgTwo" type="float">
-		Second dummy (misaligned) arg
-	  </arg>
-	</cmd>
-  </class>
-  
   <class name="Stats" id='2'>
       Commands to make stats
       
-      <cmd name="sendPacket">
+      <cmd name="SendPacket">
           Send a packet to the drone
           <arg name="packet" type="string">
               Packet to send to the drone
           </arg>
       </cmd>
       
-      <cmd name="startSendingPacketFromDrone">
+      <cmd name="StartSendingPacketFromDrone">
           Ask drone to start sending packets
           <arg name="frequency" type="u8">
               Frequency of the packet
@@ -186,16 +65,16 @@
           </arg>
       </cmd>
       
-      <cmd name="stopSendingPacketFromDrone">
+      <cmd name="StopSendingPacketFromDrone">
           Ask drone to stop sending packets
       </cmd>
       
   </class>
   
-  <class name="Navdata" id="3">
-      Navigation data from drone
+  <class name="StatsEvent" id="3">
+      Stats Event from drone
       
-      <cmd name="sendPacket">
+      <cmd name="SendPacket">
           Send a packet from drone
           <arg name="packet" type="string">
               packet from drone

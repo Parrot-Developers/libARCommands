@@ -102,7 +102,22 @@
     <cmd name="Emergency">
       Put drone in emergency state
     </cmd>
-
+    
+    <cmd name="RollingMode">
+        Set ARDrone Mini rolling mode
+        <arg name="mode" type="enum">
+            Mode for the rolling state
+            <enum name="ground">
+                Rolling mode ground by default
+            </enum>
+            <enum name="ceiling">
+                Rolling mode ceiling
+            </enum>
+            <enum name="wall">
+                Rolling mode wall
+            </enum>
+        </arg>
+    </cmd>
   </class>
 
   <class name="Animations" id="4">
@@ -126,43 +141,27 @@
               </enum>
           </arg>
       </cmd>
-    
   </class>
 
   <class name="Config" id="1">
     All configuration commands
-
-    <cmd name="AngleMax">
-      Change the maximum angle of the drone
-
-      <arg name="newAngleMax" type="float">
-        New maximum angle for the drone (rad)
-      </arg>
-
+    <cmd name="Wheels">
+        Inform the ARDrone Mini if it has its wheels
+        <arg name="on" type="u8">
+            0 if the ARDrone Mini hasn't its wheels other way if it has its wheels
+        </arg>
     </cmd>
   </class>
 
-  <class name="Navdata" id="2">
-    Navigation data from drone
-
-    <cmd name="Position">
-      Position (X,Y) of the drone
-
-      <arg name="x" type="i32">
-        Current X position
-      </arg>
-
-      <arg name="y" type="i32">
-        Current Y position
-      </arg>
-    </cmd>
+  <class name="Event" id="2">
+    Event from drone
   </class>
 
-  <class name="Event" id="3">
+  <class name="State" id="3">
     Occasional information
 
-    <cmd name="FlatTrimAck">
-      ARDrone Mini acknowledges that flat trim was correctly processed
+    <cmd name="FlatTrimChanged">
+      ARDrone Mini send flat trim was correctly processed
     </cmd>
 
   </class>

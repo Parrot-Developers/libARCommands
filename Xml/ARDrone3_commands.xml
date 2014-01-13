@@ -135,48 +135,20 @@
   <class name="Config" id="2">
     All configuration commands
 
-    <cmd name="SSID">
-      Change drone SSID
-
-      <arg name="newSsid" type="string">
-        New SSID for the drone
-      </arg>
-
-    </cmd>
-
-    <cmd name="AngleMax">
-      Change the maximum angle of the drone
-
-      <arg name="newAngleMax" type="float">
-        New maximum angle for the drone (rad)
-      </arg>
-
-    </cmd>
   </class>
 
-  <class name="Navdata" id="3">
-    Navigation data from drone
+  <class name="Event" id="3">
+    Events from drone
 
-    <cmd name="Position">
-      Position (X,Y) of the drone
-
-      <arg name="x" type="i32">
-        Current X position
-      </arg>
-
-      <arg name="y" type="i32">
-        Current Y position
-      </arg>
-    </cmd>
   </class>
 
-  <class name="Event" id="4">
-    Occasional information
+  <class name="State" id="4">
+    State from drone
 
-    <cmd name="FlatTrimAck">
-      Drone acknowledges that flat trim was correctly processed
+    <cmd name="FlatTrimChanged">
+        Drone acknowledges that flat trim was correctly processed
     </cmd>
-
+    
   </class>
 
 </project>
