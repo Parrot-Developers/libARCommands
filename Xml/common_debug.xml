@@ -63,6 +63,10 @@
           <arg name="packetSize" type="u8">
               Size of the the packet
           </arg>
+          
+          <arg name="date" type="u8">
+              time of day in sec
+          </arg>
       </cmd>
       
       <cmd name="StopSendingPacketFromDrone">
