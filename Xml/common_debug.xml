@@ -64,7 +64,7 @@
               Size of the the packet
           </arg>
           
-          <arg name="date" type="u8">
+          <arg name="date" type="u32">
               time of day in sec
           </arg>
       </cmd>
