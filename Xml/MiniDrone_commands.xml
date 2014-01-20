@@ -54,10 +54,10 @@
    -->
 
 <project id="2">
-  All ARDrone Mini-only commands
+  All MiniDrone-only commands
 
   <class name="Piloting" id="0">
-    All commands related to piloting the ARDrone Mini
+    All commands related to piloting the MiniDrone
 
     <cmd name="FlatTrim">
       Do a flat trim
@@ -75,19 +75,19 @@
       </arg>
 
       <arg name="roll" type="i8">
-        Roll consign for the ARDrone Mini [-100;100]
+        Roll consign for the MiniDrone [-100;100]
       </arg>
 
       <arg name="pitch" type="i8">
-        Pitch consign for the ARDrone Mini [-100;100]
+        Pitch consign for the MiniDrone [-100;100]
       </arg>
 
       <arg name="yaw" type="i8">
-        Yaw consign for the ARDrone Mini [-100;100]
+        Yaw consign for the MiniDrone [-100;100]
       </arg>
 
       <arg name="gaz" type="i8">
-        Gaz consign for the ARDrone Mini [-100;100]
+        Gaz consign for the MiniDrone [-100;100]
       </arg>
 
       <arg name="psi" type="float">
@@ -96,7 +96,7 @@
     </cmd>
 
     <cmd name="Landing">
-      Ask the ARDrone Mini to land
+      Ask the MiniDrone to land
     </cmd>
 
     <cmd name="Emergency">
@@ -104,7 +104,7 @@
     </cmd>
     
     <cmd name="RollingMode">
-        Set ARDrone Mini rolling mode
+        Set MiniDrone rolling mode
         <arg name="mode" type="enum">
             Mode for the rolling state
             <enum name="ground">
@@ -146,9 +146,9 @@
   <class name="Config" id="1">
     All configuration commands
     <cmd name="Wheels">
-        Inform the ARDrone Mini if it has its wheels
+        Inform the MiniDrone if it has its wheels
         <arg name="on" type="u8">
-            0 if the ARDrone Mini hasn't its wheels other way if it has its wheels
+            0 if the MiniDrone hasn't its wheels other way if it has its wheels
         </arg>
     </cmd>
   </class>
@@ -161,7 +161,7 @@
     Occasional information
 
     <cmd name="FlatTrimChanged">
-      ARDrone Mini send flat trim was correctly processed
+      MiniDrone send flat trim was correctly processed
     </cmd>
 
   </class>

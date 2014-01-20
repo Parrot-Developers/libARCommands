@@ -41,7 +41,7 @@
    -->
 
 <project id="130">
-  All ARDrone Mini-only debug commands
+  All MiniDrone-only debug commands
 
   <class name="Debug" id="0">
     Temporary, debug commands
