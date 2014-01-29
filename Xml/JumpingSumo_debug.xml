@@ -55,6 +55,13 @@
       </arg>
 
     </cmd>
+
+    <cmd name="setCameraOrientation">
+        Change the camera vertical orientation.
+        <arg name="speedIncrement" type="i8">
+            Orientation increment speed [-100:100].
+        </arg>
+    </cmd>
     
   </class>
 
