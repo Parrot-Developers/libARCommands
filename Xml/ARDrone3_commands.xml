@@ -1,154 +1,179 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-   Important notes :
-   ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
-   NEVER MODIFY EXISTING class/command/arg !
-
-   Comments are mandatory for all classes/commands/args
-   For each comment : 1st line will be used as brief (if applicable)
-   Other lines will be used as complete desc
-
-   How to add a new class :
-   <class name="MyNewClassName" >           | No spaces ! [A-Za-z0-9_]
-     Comment about the class                | Inlcuded in Doxygen doc
-     <cmd> ... </cmd>                       | List of commands
-     <cmd> ... </cmd>
-   </class>
-
-   How to add a new command (without args) to a class :
-   <cmd name="MyNewCommandName" >           | No spaces ! [A-Za-z0-9_]
-     Comment about the command              | Included in Doxygen doc
-   </cmd>
-
-   How to add a new command (with args) to a class :
-   <cmd name="MyNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
-     Comment about the command              | Included in Doxygen doc
-     <arg name="argName" type="argType" >   | Repeat for each arg
-       Comment about the arg                | argName must be a valid C variable name
-     </arg>                                 | argType must be a valid type (see below)
-     ...                                    | Comment included in Doxygen doc
-   </cmd>
-
-   List of valid types (associated C type) :
-   -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
-   - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
-   - i32 / u32 : signed/unsigned 32 bit integer ([u]int32_t)
-   - i64 / u64 : signed/unsigned 64 bit integer ([u]int64_t)
-   -     float : IEEE-754 single precision floating point number (float)
-   -    double : IEEE-754 double precision floating point number (double)
-   -    string : NULL-terminated UTF-8 String. (char *)
--->
+ Important notes :
+ ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
+ NEVER MODIFY EXISTING class/command/arg !
+ 
+ Comments are mandatory for all classes/commands/args
+ For each comment : 1st line will be used as brief (if applicable)
+ Other lines will be used as complete desc
+ 
+ How to add a new class :
+ <class name="MyNewClassName" >           | No spaces ! [A-Za-z0-9_]
+ Comment about the class                | Inlcuded in Doxygen doc
+ <cmd> ... </cmd>                       | List of commands
+ <cmd> ... </cmd>
+ </class>
+ 
+ How to add a new command (without args) to a class :
+ <cmd name="MyNewCommandName" >           | No spaces ! [A-Za-z0-9_]
+ Comment about the command              | Included in Doxygen doc
+ </cmd>
+ 
+ How to add a new command (with args) to a class :
+ <cmd name="MyNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
+ Comment about the command              | Included in Doxygen doc
+ <arg name="argName" type="argType" >   | Repeat for each arg
+ Comment about the arg                | argName must be a valid C variable name
+ </arg>                                 | argType must be a valid type (see below)
+ ...                                    | Comment included in Doxygen doc
+ </cmd>
+ 
+ List of valid types (associated C type) :
+ -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
+ - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
+ - i32 / u32 : signed/unsigned 32 bit integer ([u]int32_t)
+ - i64 / u64 : signed/unsigned 64 bit integer ([u]int64_t)
+ -     float : IEEE-754 single precision floating point number (float)
+ -    double : IEEE-754 double precision floating point number (double)
+ -    string : NULL-terminated UTF-8 String. (char *)
+ -->
 
 
 <project id="1">
-  All ARDrone3-only commands
-
-  <class name="Piloting" id="0">
-    All commands related to piloting the totoDrone
-
-    <cmd name="FlatTrim">
-      Do a flat trim
-    </cmd>
-
-    <cmd name="TakeOff">
-      Ask the drone to take off
-    </cmd>
-
-    <cmd name="PCMD">
-        Ask the drone to move around.
-          
-        <arg name="flag" type="u8">
-            Boolean flag to activate roll/pitch movement
-        </arg>
-          
-        <arg name="roll" type="i8">
-            Roll consign for the drone [-100;100]
-        </arg>
-          
-        <arg name="pitch" type="i8">
-            Pitch consign for the drone [-100;100]
-        </arg>
-          
-        <arg name="yaw" type="i8">
-            Yaw consign for the drone [-100;100]
-        </arg>
-          
-        <arg name="gaz" type="i8">
-            Gaz consign for the drone [-100;100]
-        </arg>
-          
-        <arg name="psi" type="float">
-            Magnetic north heading of the controlling device (deg) [-180;180]
-        </arg>
-    </cmd>
-
-    <cmd name="Landing">
-      Ask the drone to land
-    </cmd>
-
-    <cmd name="Emergency">
-      Put drone in emergency state
-    </cmd>
+    All ARDrone3-only commands
     
-  </class>
-
-  <class name="Animations" id="5">
-      Animation commands
+    <class name="Piloting" id="0">
+        All commands related to piloting the totoDrone
+        
+        <cmd name="FlatTrim">
+            Do a flat trim
+        </cmd>
+        
+        <cmd name="TakeOff">
+            Ask the drone to take off
+        </cmd>
+        
+        <cmd name="PCMD">
+            Ask the drone to move around.
+            
+            <arg name="flag" type="u8">
+                Boolean flag to activate roll/pitch movement
+            </arg>
+            
+            <arg name="roll" type="i8">
+                Roll consign for the drone [-100;100]
+            </arg>
+            
+            <arg name="pitch" type="i8">
+                Pitch consign for the drone [-100;100]
+            </arg>
+            
+            <arg name="yaw" type="i8">
+                Yaw consign for the drone [-100;100]
+            </arg>
+            
+            <arg name="gaz" type="i8">
+                Gaz consign for the drone [-100;100]
+            </arg>
+            
+            <arg name="psi" type="float">
+                Magnetic north heading of the controlling device (deg) [-180;180]
+            </arg>
+        </cmd>
+        
+        <cmd name="Landing">
+            Ask the drone to land
+        </cmd>
+        
+        <cmd name="Emergency">
+            Put drone in emergency state
+        </cmd>
+        
+    </class>
     
-      <cmd name="Flip">
-          Make a flip
-          <arg name="direction" type="enum">
-              Direction for the flip
-              <enum name="front">
-                  Flip direction front
-              </enum>
-              <enum name="back">
-                  Flip direction back
-              </enum>
-              <enum name="right">
-                  Flip direction right
-              </enum>
-              <enum name="left">
-                  Flip direction left
-              </enum>
-          </arg>
-      </cmd>
-  </class>
-
-  <class name="Camera" id="1">
-      Ask the drone to move camera
-      
-      <cmd name="Orientation">
-          Ask the drone to move camera.
-          
-          <arg name="tilt" type="i8">
-              Tilt camera consign for the drone [-100;100]
-          </arg>
-          
-          <arg name="pan" type="i8">
-              Pan camera consign for the drone [-100;100]
-          </arg>
-      </cmd>
-  </class>
-  
-  <class name="Config" id="2">
-    All configuration commands
-
-  </class>
-
-  <class name="Event" id="3">
-    Events from drone
-
-  </class>
-
-  <class name="State" id="4">
-    State from drone
-
-    <cmd name="FlatTrimChanged">
-        Drone acknowledges that flat trim was correctly processed
-    </cmd>
+    <class name="Animations" id="5">
+        Animation commands
+        
+        <cmd name="Flip">
+            Make a flip
+            <arg name="direction" type="enum">
+                Direction for the flip
+                <enum name="front">
+                    Flip direction front
+                </enum>
+                <enum name="back">
+                    Flip direction back
+                </enum>
+                <enum name="right">
+                    Flip direction right
+                </enum>
+                <enum name="left">
+                    Flip direction left
+                </enum>
+            </arg>
+        </cmd>
+    </class>
     
-  </class>
-
+    <class name="Camera" id="1">
+        Ask the drone to move camera
+        
+        <cmd name="Orientation">
+            Ask the drone to move camera.
+            
+            <arg name="tilt" type="i8">
+                Tilt camera consign for the drone [-100;100]
+            </arg>
+            
+            <arg name="pan" type="i8">
+                Pan camera consign for the drone [-100;100]
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="Event" id="3">
+        Events from drone
+        
+    </class>
+    
+    <class name="PilotingState" id="4">
+        State from drone
+        
+        <cmd name="FlatTrimChanged">
+            Drone acknowledges that flat trim was correctly processed
+        </cmd>
+        
+        <cmd name="FlyingStateChanged">
+            Drone flying state changed
+            <enum name="landed">
+                Landed state
+            </enum>
+            <enum name="takingoff">
+                Taking off state
+            </enum>
+            <enum name="hovering">
+                Hovering state
+            </enum>
+            <enum name="flying">
+                Flying state
+            </enum>
+            <enum name="landing">
+                Landing state
+            </enum>
+        </cmd>
+        
+    </class>
+    
+    <class name="Settings" id="2">
+        Settings commands
+        
+    </class>
+    
+    <class name="SettingsState" id="6">
+        Settings state from drone
+        
+    </class>
+    
+    
 </project>

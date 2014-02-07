@@ -1,166 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-   Important notes :
-   ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
-   NEVER MODIFY EXISTING class/command/arg !
-
-   Comments ("comm" attributes) are mandatory for all classes/commands/args
-   For each comment : 1st line will be used as brief (if applicable) +
-   1st line of complete desc. Other lines will be used as complete desc
-
-   How to add a new class :
-   <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
-     Comment about the class                | Inlcuded in Doxygen doc
-     <cmd> ... </cmd>                       | List of commands
-     <cmd> ... </cmd>
-   </class>
-
-   How to add a new command (without args) to a class :
-   <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
-     Comment about the command              | Included in Doxygen doc
-   </cmd>
-
-   How to add a new command (with args) to a class :
-   <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
-     Comment about the command              | Included in Doxygen doc
-     <arg name="argName" type="argType" >   | Repeat for each arg
-       Comment about the arg                | argName must be a valid C variable name
-     </arg>                                 | argType must be a valid type (see below)
-     ...                                    | Comment included in Doxygen doc
-   </cmd>
-
-   List of valid types (associated C type) :
-   -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
-   - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
-   - i32 / u32 : signed/unsigned 32 bit integer ([u]int32_t)
-   - i64 / u64 : signed/unsigned 64 bit integer ([u]int64_t)
-   -     float : IEEE-754 single precision floating point number (float)
-   -    double : IEEE-754 double precision floating point number (double)
-   -    string : NULL-terminated UTF-8 String. (char *)
--->
+ Important notes :
+ ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
+ NEVER MODIFY EXISTING class/command/arg !
+ 
+ Comments ("comm" attributes) are mandatory for all classes/commands/args
+ For each comment : 1st line will be used as brief (if applicable) +
+ 1st line of complete desc. Other lines will be used as complete desc
+ 
+ How to add a new class :
+ <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
+ Comment about the class                | Inlcuded in Doxygen doc
+ <cmd> ... </cmd>                       | List of commands
+ <cmd> ... </cmd>
+ </class>
+ 
+ How to add a new command (without args) to a class :
+ <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
+ Comment about the command              | Included in Doxygen doc
+ </cmd>
+ 
+ How to add a new command (with args) to a class :
+ <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
+ Comment about the command              | Included in Doxygen doc
+ <arg name="argName" type="argType" >   | Repeat for each arg
+ Comment about the arg                | argName must be a valid C variable name
+ </arg>                                 | argType must be a valid type (see below)
+ ...                                    | Comment included in Doxygen doc
+ </cmd>
+ 
+ List of valid types (associated C type) :
+ -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
+ - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
+ - i32 / u32 : signed/unsigned 32 bit integer ([u]int32_t)
+ - i64 / u64 : signed/unsigned 64 bit integer ([u]int64_t)
+ -     float : IEEE-754 single precision floating point number (float)
+ -    double : IEEE-754 double precision floating point number (double)
+ -    string : NULL-terminated UTF-8 String. (char *)
+ -->
 
 
 <project id="3">
-  All commands specific to the Jumping Sumo.
-
-  <class name="Piloting" id="0">
-    All commands related to piloting the JumpingSumo
-
-    <cmd name="PCMD">
-      Ask the JS speed and turn ratio.
-
-      <arg name="flag" type="u8">
-          Boolean for "touch screen".
-      </arg>
-
-      <arg name="speed" type="i8">
-        Speed value [-100:100].
-      </arg>
-
-      <arg name="turn" type="i8">
-		  Turn value. [-100:100]
-      </arg>
-    </cmd>
-
-    <cmd name="Posture">
-        Request a posture
-        <arg name="type" type="enum">
-            Type of Posture
-            
-            <enum name="standing">
-                Standing type
-            </enum>
-            <enum name="jumper">
-                Jumper type
-            </enum>
-            <enum name="kicker">
-                Kicker type
-            </enum>
-        </arg>
-    </cmd>
-
-    <cmd name="requestFullStateRefresh">
-        Request the JS to send all the possible states in order to retrieve the full state of the JS.
-    </cmd>
-  </class>
-  
-  <class name="Animations" id="2">
-      Animation commands
+    All commands specific to the Jumping Sumo.
     
-      <cmd name="JumpStop">
-          Stop jump, emergency jump stop, stop jump motor and stay there.
-      </cmd>
-      <cmd name="JumpCancel">
-          Cancel jump and come back to previous state (if possible).
-      </cmd>
-      <cmd name="JumpLoad">
-          Request jump loading
-      </cmd>
-      <cmd name="Jump">
-          Request a jump
-          <arg name="type" type="enum">
-              Type of jump
-
-              <enum name="long">
-                  Long jump.
-              </enum>
-              <enum name="high">
-                  High jump
-              </enum>
-          </arg>
-      </cmd>
-  </class>
-  
-  <class name="PilotingState" id="1">
-      Animations state from JS.
-      
-      <cmd name="PostureChanged">
-          State of posture changed.
-          <arg name="state" type="enum">
-              State of posture
-              
-              <enum name="standing">
-                  Standing state
-              </enum>
-              <enum name="jumper">
-                  Jumper state
-              </enum>
-              <enum name="kicker">
-                  Kicker state
-              </enum>
-              <enum name="stuck">
-                  Stuck state
-              </enum>
-              <enum name="unknown">
-                  Unknown state
-              </enum>
-          </arg>
-      </cmd>
-  </class>
-  
-  <class name="AnimationsState" id="3">
-    Animations state from JS.
-
-    <cmd name="JumpLoadChanged">
-		State of jump load changed
+    <class name="Piloting" id="0">
+        All commands related to piloting the JumpingSumo
         
-        <arg name="state" type="enum">
-            State of jump load
-            <enum name="unknown">
-                Unknown state
-            </enum>
-            <enum name="unloaded">
-                Unloaded state
-            </enum>
-            <enum name="loaded">
-                Loaded state
-            </enum>
-            <enum name="busy">
-                Busy state
-            </enum>
-        </arg>
-    </cmd>
-  </class>
-  
+        <cmd name="PCMD">
+            Ask the JS speed and turn ratio.
+            
+            <arg name="flag" type="u8">
+                Boolean for "touch screen".
+            </arg>
+            
+            <arg name="speed" type="i8">
+                Speed value [-100:100].
+            </arg>
+            
+            <arg name="turn" type="i8">
+                Turn value. [-100:100]
+            </arg>
+        </cmd>
+        
+        <cmd name="Posture">
+            Request a posture
+            <arg name="type" type="enum">
+                Type of Posture
+                
+                <enum name="standing">
+                    Standing type
+                </enum>
+                <enum name="jumper">
+                    Jumper type
+                </enum>
+                <enum name="kicker">
+                    Kicker type
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="requestFullStateRefresh">
+            Request the JS to send all the possible states in order to retrieve the full state of the JS.
+        </cmd>
+    </class>
+    
+    <class name="Animations" id="2">
+        Animation commands
+        
+        <cmd name="JumpStop">
+            Stop jump, emergency jump stop, stop jump motor and stay there.
+        </cmd>
+        <cmd name="JumpCancel">
+            Cancel jump and come back to previous state (if possible).
+        </cmd>
+        <cmd name="JumpLoad">
+            Request jump loading
+        </cmd>
+        <cmd name="Jump">
+            Request a jump
+            <arg name="type" type="enum">
+                Type of jump
+                
+                <enum name="long">
+                    Long jump.
+                </enum>
+                <enum name="high">
+                    High jump
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="PilotingState" id="1">
+        Animations state from JS.
+        
+        <cmd name="PostureChanged">
+            State of posture changed.
+            <arg name="state" type="enum">
+                State of posture
+                
+                <enum name="standing">
+                    Standing state
+                </enum>
+                <enum name="jumper">
+                    Jumper state
+                </enum>
+                <enum name="kicker">
+                    Kicker state
+                </enum>
+                <enum name="stuck">
+                    Stuck state
+                </enum>
+                <enum name="unknown">
+                    Unknown state
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="AnimationsState" id="3">
+        Animations state from JS.
+        
+        <cmd name="JumpLoadChanged">
+            State of jump load changed
+            
+            <arg name="state" type="enum">
+                State of jump load
+                <enum name="unknown">
+                    Unknown state
+                </enum>
+                <enum name="unloaded">
+                    Unloaded state
+                </enum>
+                <enum name="loaded">
+                    Loaded state
+                </enum>
+                <enum name="busy">
+                    Busy state
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="Settings" id="4">
+        Settings commands
+        
+    </class>
+    
+    <class name="SettingsState" id="5">
+        Settings state from product
+        
+    </class>
+    
 </project>
