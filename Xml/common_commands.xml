@@ -52,7 +52,7 @@
             libARNetwork instance (and all threads that use libARNetwork)
         </cmd>
     </class>
-    
+        
     <class name="Event" id="1">
         Event from product
         
@@ -88,5 +88,4 @@
         </cmd>
         
     </class>
-    
 </project>

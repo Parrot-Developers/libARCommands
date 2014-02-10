@@ -132,6 +132,50 @@
         </cmd>
     </class>
     
+    <class name="MediaRecord" id="7">
+        Media recording management
+        
+        <cmd name="Picture">
+            Take picture
+        </cmd>
+        
+        <cmd name="Video">
+            Video record
+            <arg name="record" type="enum">
+                Command to record video
+                <enum name="stop">
+                    Stop the video recording
+                </enum>
+                <enum name="start">
+                    Start the video recording
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="MediaRecordState" id="8">
+        State of media recording
+        
+        <cmd name="PictureStateChanged">
+            State of picture recording
+            <arg name="state" type="u8">
+                1 if picture has been taken, 0 otherwise
+            </arg>
+        </cmd>
+        <cmd name="VideoStateChanged">
+            State of video recording
+            <arg name="state" type="enum">
+                State of video
+                <enum name="stopped">
+                    Video was stopped
+                </enum>
+                <enum name="started">
+                    Video was started
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
     <class name="Event" id="3">
         Events from drone
         

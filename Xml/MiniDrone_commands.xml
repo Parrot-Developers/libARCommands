@@ -143,6 +143,25 @@
         </cmd>
     </class>
     
+    <class name="MediaRecord" id="6">
+        Media recording management
+        
+        <cmd name="Picture">
+            Take picture
+        </cmd>
+    </class>
+    
+    <class name="MediaRecordState" id="7">
+        State of media recording
+        
+        <cmd name="PictureStateChanged">
+            State of picture recording
+            <arg name="state" type="u8">
+                1 if picture has been taken, 0 otherwise
+            </arg>
+        </cmd>
+    </class>
+
     <class name="Event" id="2">
         Event from drone
     </class>
