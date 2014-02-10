@@ -356,8 +356,8 @@ def xmlToPrintf (proj, cl, cmd, arg):
     return PRINTFF [xmlIndex]
 
 hasArgOfType = {
-    'u8': False, 'i8' : False,
-    'u16': False, 'i16': False,
+    'u8': True, 'i8' : False,
+    'u16': True, 'i16': False,
     'u32': False, 'i32': False,
     'u64': False, 'i64': False,
     'float': False, 'double': False,
