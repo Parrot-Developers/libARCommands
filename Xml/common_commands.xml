@@ -87,5 +87,14 @@
             </arg>
         </cmd>
         
+        <cmd name="ProductVersionChanged">
+            Product versions
+            <arg name="software" type="string">
+                Product software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product hardware version
+            </arg>
+        </cmd>
     </class>
 </project>
