@@ -2,6 +2,7 @@
 # THE LIBRARIES TO BUILD
 ###############################################################################
 ACLOCAL_AMFLAGS                         =   -I m4
+AUTOMAKE_OPTIONS                        =   subdir-objects
 
 # The list of header files that belong to the library (to be installed later)
 HEADER_FILES                            =   ../Includes/libARCommands/ARCOMMANDS_Generator.h    \

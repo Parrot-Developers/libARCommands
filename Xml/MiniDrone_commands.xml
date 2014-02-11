@@ -175,21 +175,24 @@
         
         <cmd name="FlyingStateChanged">
             Drone flying state changed
-            <enum name="landed">
-                Landed state
-            </enum>
-            <enum name="takingoff">
-                Taking off state
-            </enum>
-            <enum name="hovering">
-                Hovering state
-            </enum>
-            <enum name="flying">
-                Flying state
-            </enum>
-            <enum name="landing">
-                Landing state
-            </enum>
+            <arg name="state" type="enum">
+                Drone flying state
+                <enum name="landed">
+                    Landed state
+                </enum>
+                <enum name="takingoff">
+                    Taking off state
+                </enum>
+                <enum name="hovering">
+                    Hovering state
+                </enum>
+                <enum name="flying">
+                    Flying state
+                </enum>
+                <enum name="landing">
+                    Landing state
+                </enum>
+            </arg>
         </cmd>
     </class>
     
