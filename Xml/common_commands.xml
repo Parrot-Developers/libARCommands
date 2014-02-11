@@ -80,6 +80,10 @@
     
     <class name="SettingsState" id="3">
         Settings state from product
+        <cmd name="AllSettingsChanged">
+            State sent when all settings has been sent.
+        </cmd>
+        
         <cmd name="ProductNameChanged">
             Product name 
             <arg name="name" type="string">
