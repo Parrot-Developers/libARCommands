@@ -110,7 +110,7 @@
                   Start a slow shake animation.
               </enum>
               <enum name="metronome">
-                  Start a "Metronum" animation.
+                  Start a "Metronome" animation.
               </enum>
               <enum name="ondulation">
                   Start a standing dance animation.
