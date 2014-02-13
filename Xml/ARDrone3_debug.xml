@@ -43,5 +43,21 @@
 
 <project id="129">
     All debug ARDrone3-only commands
-    
+
+    <class name="Video" id="0">
+        Debug commands for video
+
+        <cmd name="SyncAnglesGyros">
+            Adjust delay between angles/gyros and frame for video stabilization and wobble cancellation
+
+            <arg name="anglesDelay_s" type="float">
+                Shift by x seconds angles (video stabilization)
+			</arg>
+
+            <arg name="gyrosDelay_s" type="float">
+                Shift by x seconds t gyros (wobble cancellation
+			</arg>
+
+        </cmd>
+    </class>
 </project>
