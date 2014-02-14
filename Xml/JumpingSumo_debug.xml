@@ -104,13 +104,13 @@
                   Start a spin animation.
               </enum>
               <enum name="tap">
-                  Start a "tap" animation.
+                  Start a tap animation.
               </enum>
               <enum name="slowshake">
                   Start a slow shake animation.
               </enum>
               <enum name="metronome">
-                  Start a "Metronome" animation.
+                  Start a Metronome animation.
               </enum>
               <enum name="ondulation">
                   Start a standing dance animation.
@@ -122,10 +122,10 @@
                   Start a spin that end in standing posture, or in jumper if it was standing animation.
               </enum>
               <enum name="spiral">
-                  Start a "spiral" animation.
+                  Start a spiral animation.
               </enum>
               <enum name="slalom">
-                  Start a "slalom" animation.
+                  Start a slalom animation.
               </enum>
         </arg>
     </cmd>
