@@ -43,7 +43,7 @@
 
 <project id="0">
     All common commands shared between all projects
-    
+
     <class name="Network" id="0">
         Network related commands
         
@@ -52,7 +52,7 @@
             libARNetwork instance (and all threads that use libARNetwork)
         </cmd>
     </class>
-        
+    
     <class name="Event" id="1">
         Event from product
         
@@ -99,6 +99,20 @@
             <arg name="hardware" type="string">
                 Product hardware version
             </arg>
+        </cmd>
+    </class>
+    
+    <class name="Common" id="4">
+        Common commands
+        <cmd name="AllStates">
+            Get all product states.
+        </cmd>
+    </class>
+
+    <class name="CommonState" id="5">
+        Common state from product
+        <cmd name="AllStatesChanged">
+            State sent when all product states has been sent.
         </cmd>
     </class>
 </project>
