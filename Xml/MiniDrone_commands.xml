@@ -141,6 +141,12 @@
                 </enum>
             </arg>
         </cmd>
+        <cmd name="Cap">
+            Change the product cap
+            <arg name="offset" type="i16">
+                Change the cap with offset angle [-180;180]
+            </arg>
+        </cmd>
     </class>
     
     <class name="MediaRecord" id="6">
