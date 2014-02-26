@@ -140,4 +140,22 @@
     </cmd>
   </class>
 
+  <class name="UserScript" id="4">
+    All commands related to user scripts.
+
+    <cmd name="userScriptUploaded">
+      Command to notify the firmware that a new user script was uploaded.
+    </cmd>
+
+    <cmd name="userScriptParsed">
+      Notification sent by the firmware after attempting to parse the user script.
+      <arg name="success" type="u8">
+        Whether the script was loaded successfully.
+      </arg>
+      <arg name="message" type="string">
+        Error message.
+      </arg>
+    </cmd>
+  </class>
+
 </project>
