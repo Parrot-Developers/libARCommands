@@ -146,11 +146,14 @@
     <cmd name="userScriptUploaded">
       Command to notify the firmware that a new user script was uploaded.
     </cmd>
+  </class>
 
+  <class name="UserScriptState" id="5">
+    All status information related with user scripts.
     <cmd name="userScriptParsed">
       Notification sent by the firmware after attempting to parse the user script.
       <arg name="success" type="u8">
-        Whether the script was loaded successfully.
+        Whether the script was loaded successfully (0 = failed, 1 = success).
       </arg>
       <arg name="message" type="string">
         Error message.
