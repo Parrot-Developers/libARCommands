@@ -222,5 +222,86 @@
         
     </class>
     
+    <class name="Network" id="9">
+        Network related commands
+        
+        <cmd name="WifiAutoSelect">
+            Asks for Wifi network's best band and canal autoselection
+            <arg name="band" type="enum">
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="WifiSelect">
+            Select manually Wifi network's band and canal
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (depends of the band)
+            </arg>
+        </cmd>
+        
+        <cmd name="WifiScan">
+            Launches wifi network scan
+            <arg name="band" type="enum">
+                The band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+        </cmd>
+    </class>
     
+    <class name="NetworkState" id="10">
+        Network state from Product
+        
+        <cmd name="WifiScanChanged">
+            One scanning result found
+            <arg name="ssid" type="string">
+                SSID of the AP
+            </arg>
+            <arg name="rssi" type="i16">
+                RSSI of the AP in dbm (negative value)
+            </arg>
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                Channel of the AP
+            </arg>
+        </cmd>
+        
+        <cmd name="AllWifiScanChanged">
+            State sent when all scanning result sent
+        </cmd>
+    </class>
+
 </project>
