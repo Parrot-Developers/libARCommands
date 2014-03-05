@@ -217,11 +217,45 @@
         
     </class>
     
-    <class name="Network" id="8">
-        Network related commands
-        
+    <class name="NetworkSettings" id="8">
+        Network settings commands
         <cmd name="WifiAutoSelect">
-            Asks for Wifi network's best band and canal autoselection
+            Auto-select channel of choosen band
+            <arg name="band" type="enum">
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="WifiManualSelect">
+            Select manually band and channel
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (depends of the band)
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="NetworkSettingsState" id="9">
+        Network settings state from product
+        <cmd name="WifiAutoSelectChanged">
+            Autoselected band from product
             <arg name="band" type="enum">
                 The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
                 <enum name="all">
@@ -236,8 +270,8 @@
             </arg>
         </cmd>
         
-        <cmd name="WifiSelect">
-            Select manually Wifi network's band and canal
+        <cmd name="WifiManualSelectChanged">
+            Manual selection band and channel from product
             <arg name="band" type="enum">
                 The band : 2.4 GHz or 5 GHz
                 <enum name="2_4ghz">
@@ -251,6 +285,10 @@
                 The channel (depends of the band)
             </arg>
         </cmd>
+    </class>
+
+    <class name="Network" id="10">
+        Network related commands
         
         <cmd name="WifiScan">
             Launches wifi network scan
@@ -269,7 +307,7 @@
         </cmd>
     </class>
     
-    <class name="NetworkState" id="9">
+    <class name="NetworkState" id="11">
         Network state from Product
     
         <cmd name="WifiScanChanged">

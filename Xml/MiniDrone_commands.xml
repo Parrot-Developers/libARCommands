@@ -202,25 +202,103 @@
         </cmd>
     </class>
     
-    <class name="Settings" id="1">
-        Settings commands
+    <class name="PilotingSettings" id="8">
+        Piloting Settings commands
+        <cmd name="MaxAltitude">
+            Set Max Altitude
+            <arg name="current" type="float">
+                Current altitude max in m
+            </arg>
+        </cmd>
+        <cmd name="MaxTilt">
+            Set Max Tilt
+            <arg name="current" type="float">
+                Current tilt max in degree
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="PilotingSettingsState" id="9">
+        Piloting Settings state from product
+        <cmd name="MaxAltitudeChanged">
+            Max Altitude sent by product
+            <arg name="current" type="float">
+                Current altitude max
+            </arg>
+            <arg name="min" type="float">
+                Range min of altitude
+            </arg>
+            <arg name="max" type="float">
+                Range max of altitude
+            </arg>
+        </cmd>
+        <cmd name="MaxTiltChanged">
+            Max tilt sent by product
+            <arg name="current" type="float">
+                Current max tilt
+            </arg>
+            <arg name="min" type="float">
+                Range min of tilt
+            </arg>
+            <arg name="max" type="float">
+                Range max of tilt
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="SpeedSettings" id="1">
+        Speed Settings commands
+        <cmd name="MaxVerticalSpeed">
+            Set Max Vertical speed
+            <arg name="current" type="float">
+                Current max vertical speed in m/s
+            </arg>
+        </cmd>
+        <cmd name="MaxRotationSpeed">
+            Set Max Rotation speed
+            <arg name="current" type="float">
+                Current max rotation speed in degree/s
+            </arg>
+        </cmd>
         <cmd name="Wheels">
-            Inform the MiniDrone if it has its wheels
-            <arg name="on" type="u8">
-                0 if the MiniDrone hasn't its wheels other way if it has its wheels
+            Presence of wheels
+            <arg name="present" type="u8">
+                1 if present, 0 if not present
             </arg>
         </cmd>
     </class>
     
-    <class name="SettingsState" id="5">
-        Settings state from product
+    <class name="SpeedSettingsState" id="5">
+        Speed Settings state from product
+        <cmd name="MaxVerticalSpeedChanged">
+            Max vertical speed sent by product
+            <arg name="current" type="float">
+                Current max vertical speed in m/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of vertical speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of vertical speed
+            </arg>
+        </cmd>
+        <cmd name="MaxRotationSpeedChanged">
+            Max rotation speed sent by product
+            <arg name="current" type="float">
+                Current max rotation speed in degree/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of rotation speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of rotation speed
+            </arg>
+        </cmd>
         <cmd name="WheelsChanged">
-            Wheels changed
-            <arg name="on" type="u8">
-                0 if the MiniDrone hasn't its wheels otherwise if it has its wheels
+            Presence of wheels sent by product
+            <arg name="present" type="u8">
+                1 if present, 0 if not present
             </arg>
         </cmd>
-        
     </class>
-    
 </project>

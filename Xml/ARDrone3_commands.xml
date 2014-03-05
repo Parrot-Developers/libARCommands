@@ -212,21 +212,157 @@
         
     </class>
     
-    <class name="Settings" id="2">
-        Settings commands
-        
+    <class name="PilotingSettings" id="2">
+        Piloting Settings commands
+        <cmd name="MaxAltitude">
+            Set Max Altitude
+            <arg name="current" type="float">
+                Current altitude max in m
+            </arg>
+        </cmd>
+        <cmd name="MaxTilt">
+            Set Max Tilt
+            <arg name="current" type="float">
+                Current tilt max in degree
+            </arg>
+        </cmd>
+        <cmd name="AbsolutControl">
+            Enable/Disable absolut control
+            <arg name="on" type="u8">
+                1 to enable, 0 to disable
+            </arg>
+        </cmd>
     </class>
     
-    <class name="SettingsState" id="6">
-        Settings state from drone
-        
+    <class name="PilotingSettingsState" id="6">
+        Piloting Settings state from product
+        <cmd name="MaxAltitudeChanged">
+            Max Altitude sent by product
+            <arg name="current" type="float">
+                Current altitude max
+            </arg>
+            <arg name="min" type="float">
+                Range min of altitude
+            </arg>
+            <arg name="max" type="float">
+                Range max of altitude
+            </arg>
+        </cmd>
+        <cmd name="MaxTiltChanged">
+            Max tilt sent by product
+            <arg name="current" type="float">
+                Current max tilt
+            </arg>
+            <arg name="min" type="float">
+                Range min of tilt
+            </arg>
+            <arg name="max" type="float">
+                Range max of tilt
+            </arg>
+        </cmd>
+        <cmd name="AbsolutControlChanged">
+            Absolut control boolean sent by product
+            <arg name="on" type="u8">
+                1 if enabled, 0 if disabled
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="SpeedSettings" id="11">
+        Speed Settings commands
+        <cmd name="MaxVerticalSpeed">
+            Set Max Vertical speed
+            <arg name="current" type="float">
+                Current max vertical speed in m/s
+            </arg>
+        </cmd>
+        <cmd name="MaxRotationSpeed">
+            Set Max Rotation speed
+            <arg name="current" type="float">
+                Current max rotation speed in degree/s
+            </arg>
+        </cmd>
+        <cmd name="HullProtection">
+            Presence of hull protection
+            <arg name="present" type="u8">
+                1 if present, 0 if not present
+            </arg>
+        </cmd>
     </class>
     
-    <class name="Network" id="9">
-        Network related commands
-        
+    <class name="SpeedSettingsState" id="12">
+        Speed Settings state from product
+        <cmd name="MaxVerticalSpeedChanged">
+            Max vertical speed sent by product
+            <arg name="current" type="float">
+                Current max vertical speed in m/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of vertical speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of vertical speed
+            </arg>
+        </cmd>
+        <cmd name="MaxRotationSpeedChanged">
+            Max rotation speed sent by product
+            <arg name="current" type="float">
+                Current max rotation speed in degree/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of rotation speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of rotation speed
+            </arg>
+        </cmd>
+        <cmd name="HullProtectionChanged">
+            Presence of hull protection sent by product
+            <arg name="present" type="u8">
+                1 if present, 0 if not present
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="NetworkSettings" id="9">
+        Network settings commands
         <cmd name="WifiAutoSelect">
-            Asks for Wifi network's best band and canal autoselection
+            Auto-select channel of choosen band
+            <arg name="band" type="enum">
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="WifiManualSelect">
+            Select manually band and channel
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (depends of the band)
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="NetworkSettingsState" id="10">
+        Network settings state from product
+        <cmd name="WifiAutoSelectChanged">
+            Autoselected band from product
             <arg name="band" type="enum">
                 The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
                 <enum name="all">
@@ -241,8 +377,8 @@
             </arg>
         </cmd>
         
-        <cmd name="WifiSelect">
-            Select manually Wifi network's band and canal
+        <cmd name="WifiManualSelectChanged">
+            Manual selection band and channel from product
             <arg name="band" type="enum">
                 The band : 2.4 GHz or 5 GHz
                 <enum name="2_4ghz">
@@ -256,6 +392,10 @@
                 The channel (depends of the band)
             </arg>
         </cmd>
+    </class>
+    
+    <class name="Network" id="13">
+        Network related commands
         
         <cmd name="WifiScan">
             Launches wifi network scan
@@ -274,7 +414,7 @@
         </cmd>
     </class>
     
-    <class name="NetworkState" id="10">
+    <class name="NetworkState" id="14">
         Network state from Product
         
         <cmd name="WifiScanChanged">
