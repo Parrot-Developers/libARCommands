@@ -326,4 +326,36 @@
             </arg>
         </cmd>
     </class>
+    <class name="Settings" id="10">
+        Settings commands
+        
+    </class>
+    <class name="SettingsState" id="11">
+        Settings state from product
+        
+        <cmd name="ProductMotorsVersionChanged">
+            Product Motors versions
+            <arg name="motor" type="u8">
+                Product Motor number [1 - 4]
+            </arg>
+            <arg name="type" type="string">
+                Product Motor type
+            </arg>
+            <arg name="software" type="string">
+                Product Motors software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product Motors hardware version
+            </arg>
+        </cmd>
+        <cmd name="ProductInertialVersionChanged">
+            Product Inertial versions
+            <arg name="software" type="string">
+                Product Inertial software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product Inertial hardware version
+            </arg>
+        </cmd>
+    </class>
 </project>

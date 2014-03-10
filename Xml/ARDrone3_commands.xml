@@ -235,6 +235,56 @@
         </cmd>
     </class>
     
+    <class name="Network" id="13">
+        Network related commands
+        
+        <cmd name="WifiScan">
+            Launches wifi network scan
+            <arg name="band" type="enum">
+                The band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="NetworkState" id="14">
+        Network state from Product
+        
+        <cmd name="WifiScanChanged">
+            One scanning result found
+            <arg name="ssid" type="string">
+                SSID of the AP
+            </arg>
+            <arg name="rssi" type="i16">
+                RSSI of the AP in dbm (negative value)
+            </arg>
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                Channel of the AP
+            </arg>
+        </cmd>
+        
+        <cmd name="AllWifiScanChanged">
+            State sent when all scanning result sent
+        </cmd>
+    </class>
+
     <class name="PilotingSettings" id="2">
         Piloting Settings commands
         <cmd name="MaxAltitude">
@@ -416,55 +466,45 @@
             </arg>
         </cmd>
     </class>
+    <class name="Settings" id="15">
+        Settings commands
     
-    <class name="Network" id="13">
-        Network related commands
-        
-        <cmd name="WifiScan">
-            Launches wifi network scan
-            <arg name="band" type="enum">
-                The band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-            </arg>
-        </cmd>
     </class>
-    
-    <class name="NetworkState" id="14">
-        Network state from Product
-        
-        <cmd name="WifiScanChanged">
-            One scanning result found
-            <arg name="ssid" type="string">
-                SSID of the AP
-            </arg>
-            <arg name="rssi" type="i16">
-                RSSI of the AP in dbm (negative value)
-            </arg>
-            <arg name="band" type="enum">
-                The band : 2.4 GHz or 5 GHz
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-            </arg>
-            <arg name="channel" type="u8">
-                Channel of the AP
-            </arg>
-        </cmd>
-        
-        <cmd name="AllWifiScanChanged">
-            State sent when all scanning result sent
-        </cmd>
-    </class>
+    <class name="SettingsState" id="16">
+        Settings state from product
 
+        <cmd name="ProductMotorsVersionChanged">
+            Product Motors versions
+            <arg name="motor" type="u8">
+                Product Motor number [1 - 4]
+            </arg>
+            <arg name="type" type="string">
+                Product Motor type
+            </arg>
+            <arg name="software" type="string">
+                Product Motors software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product Motors hardware version
+            </arg>
+        </cmd>
+        <cmd name="ProductGPSVersionChanged">
+            Product GPS versions
+            <arg name="software" type="string">
+                Product GPS software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product GPS hardware version
+            </arg>
+        </cmd>
+        <cmd name="ProductInertialVersionChanged">
+            Product Inertial versions
+            <arg name="software" type="string">
+                Product Inertial software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product Inertial hardware version
+            </arg>
+        </cmd>
+    </class>
 </project>
