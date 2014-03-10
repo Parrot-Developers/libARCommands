@@ -181,6 +181,19 @@
                 </enum>
             </arg>
         </cmd>
+        
+        <cmd name="AlertStateChanged">
+            Drone alert state changed
+            <arg name="state" type="enum">
+                Drone alert state
+                <enum name="none">
+                    No alert
+                </enum>
+                <enum name="low_battery">
+                    Low battery alert state
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="AnimationsState" id="3">

@@ -55,13 +55,7 @@
     
     <class name="Event" id="1">
         Event from product
-        
-        <cmd name="Battery">
-            Battery level
-            <arg name="percent" type="u8">
-                Battery percentage
-            </arg>
-        </cmd>
+
     </class>
     
     <class name="Settings" id="2">
@@ -113,6 +107,12 @@
         Common state from product
         <cmd name="AllStatesChanged">
             State sent when all product states has been sent.
+        </cmd>
+        <cmd name="BatteryStateChanged">
+            Battery state
+            <arg name="percent" type="u8">
+                Battery percentage
+            </arg>
         </cmd>
     </class>
 </project>

@@ -223,7 +223,7 @@
                     Cut out emergency state
                 </enum>
                 <enum name="low_battery">
-                    Low bettery emergency state
+                    Low battery emergency state
                 </enum>
             </arg>
         </cmd>
@@ -236,7 +236,7 @@
                     No alert
                 </enum>
                 <enum name="low_battery">
-                    Low bettery alert state
+                    Low battery alert state
                 </enum>
             </arg>
         </cmd>
