@@ -183,14 +183,17 @@
         </cmd>
         
         <cmd name="AlertStateChanged">
-            Drone alert state changed
+            JS alert state changed
             <arg name="state" type="enum">
-                Drone alert state
+                JS alert state
                 <enum name="none">
                     No alert
                 </enum>
+                <enum name="critical_battery">
+                    Critical battery alert
+                </enum>
                 <enum name="low_battery">
-                    Low battery alert state
+                    Low battery alert
                 </enum>
             </arg>
         </cmd>

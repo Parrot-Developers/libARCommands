@@ -206,24 +206,8 @@
                 <enum name="landing">
                     Landing state
                 </enum>
-            </arg>
-        </cmd>
-        
-        <cmd name="EmergencyStateChanged">
-            Drone emergency state changed
-            <arg name="state" type="enum">
-                Drone emergency state
-                <enum name="none">
-                    No emergency
-                </enum>
-                <enum name="user">
-                    User emergency state
-                </enum>
-                <enum name="cut_out">
-                    Cut out emergency state
-                </enum>
-                <enum name="low_battery">
-                    Low battery emergency state
+                <enum name="emergency">
+                    Emergency state
                 </enum>
             </arg>
         </cmd>
@@ -235,8 +219,17 @@
                 <enum name="none">
                     No alert
                 </enum>
+                <enum name="user">
+                    User emergency alert
+                </enum>
+                <enum name="cut_out">
+                    Cut out alert
+                </enum>
+                <enum name="critical_battery">
+                    Critical battery alert
+                </enum>
                 <enum name="low_battery">
-                    Low battery alert state
+                    Low battery alert
                 </enum>
             </arg>
         </cmd>
