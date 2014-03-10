@@ -88,9 +88,8 @@
         </cmd>
         
         <cmd name="Emergency">
-            Put drone in emergency state
+            Put drone in emergency user state
         </cmd>
-        
     </class>
     
     <class name="Animations" id="5">
@@ -210,6 +209,37 @@
             </arg>
         </cmd>
         
+        <cmd name="EmergencyStateChanged">
+            Drone emergency state changed
+            <arg name="state" type="enum">
+                Drone emergency state
+                <enum name="none">
+                    No emergency
+                </enum>
+                <enum name="user">
+                    User emergency state
+                </enum>
+                <enum name="cut_out">
+                    Cut out emergency state
+                </enum>
+                <enum name="low_battery">
+                    Low bettery emergency state
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="AlertStateChanged">
+            Drone alert state changed
+            <arg name="state" type="enum">
+                Drone alert state
+                <enum name="none">
+                    No alert
+                </enum>
+                <enum name="low_battery">
+                    Low bettery alert state
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettings" id="2">
