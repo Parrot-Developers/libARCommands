@@ -312,19 +312,24 @@ def xmlToPrinter (proj, cl, cmd, arg):
 
 def xmlToJava (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return ARJavaEnumType(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
+        return ARJavaEnumType(proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
     xmlIndex = XMLTYPES.index (arg.type)
     return JAVATYPES [xmlIndex]
 
+def jniEnumClassName (proj, cl, cmd, arg):
+    if arg.type != 'enum':
+        return ''
+    return JNI_PACKAGE_DIR + '/' + ARJavaEnumType (proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
+
 def xmlToJavaSig (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return 'I';
+        return 'L' + jniEnumClassName (proj, cl, cmd, arg) + ';'
     xmlIndex = XMLTYPES.index (arg.type)
     return JAVASIG [xmlIndex]
 
 def xmlToJni (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return 'jint';
+        return 'jint'
     xmlIndex = XMLTYPES.index (arg.type)
     return JNITYPES [xmlIndex]
 
@@ -2489,16 +2494,25 @@ for proj in allProjects:
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('        jstring j_' + arg.name + ' = (*env)->NewStringUTF (env, ' + arg.name + ');\n')
+                elif 'enum' == arg.type:
+                    cfile.write ('        jclass j_' + arg.name + '_class = (*env)->FindClass (env, "' + jniEnumClassName (proj, cl, cmd, arg) + '");\n')
+                    cfile.write ('        jmethodID j_' + arg.name + '_mid = (*env)->GetStaticMethodID (env, j_' + arg.name + '_class, "getFromValue", "(I)' + xmlToJavaSig(proj, cl, cmd, arg) + '");\n')
+                    cfile.write ('        jobject j_' + arg.name + '_enum = (*env)->CallStaticObjectMethod (env, j_' + arg.name + '_class, j_' + arg.name + '_mid, ' + arg.name + ');\n')
             cfile.write ('        (*env)->CallVoidMethod (env, delegate, d_methodid')
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write (', j_' + arg.name)
+                elif 'enum' == arg.type:
+                    cfile.write (', j_' + arg.name + '_enum')
                 else:
                     cfile.write (', ' + arg.name)
             cfile.write (');\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('        (*env)->DeleteLocalRef (env, j_' + arg.name + ');\n')
+                elif 'enum' == arg.type:
+                    cfile.write ('        (*env)->DeleteLocalRef (env, j_' + arg.name + '_class);\n')
+                    cfile.write ('        (*env)->DeleteLocalRef (env, j_' + arg.name + '_enum);\n')
             cfile.write ('    }\n')
             cfile.write ('    (*env)->DeleteLocalRef (env, delegate);\n')
             cfile.write ('}\n')
