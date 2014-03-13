@@ -437,16 +437,16 @@
         <cmd name="WifiAutoSelectChanged">
             Autoselected band from product
             <arg name="band" type="enum">
-                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
+                The band : 2.4 GHz or 5 Ghz
                 <enum name="2_4ghz">
                     2.4 GHz band
                 </enum>
                 <enum name="5ghz">
                     5 GHz band
                 </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (depends of the band)
             </arg>
         </cmd>
         
