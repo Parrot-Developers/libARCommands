@@ -1,28 +1,20 @@
-from xml.dom.minidom import parseString
 import sys
 import os
 import re
 
-MYDIR=os.path.dirname(sys.argv[0])
+MYDIR=os.path.abspath(os.path.dirname(sys.argv[0]))
 if '' == MYDIR:
-    MYDIR='.'
+    MYDIR=os.getcwd()
+
+sys.path.append('%(MYDIR)s/../../ARBuildUtils/Utils/Python' % locals())
+
+from ARFuncs import *
+from ARCommandsParser import *
 
 #################################
 # Get info from configure.ac    #
 # file                          #
 #################################
-
-def ARPrint (msg, noNewLine=False):
-    sys.stdout.write (msg)
-    if not noNewLine:
-        sys.stdout.write ('\n')
-    else:
-        sys.stdout.write (' ')
-
-def EXIT (code):
-    if code != 0:
-        ARPrint ('-- ABORTING --')
-    sys.exit (code)
 
 configureAcFile = open (MYDIR + '/../Build/configure.ac', 'rb')
 AC_INIT_LINE=configureAcFile.readline ()
@@ -51,11 +43,6 @@ JNI_PACKAGE_DIR = JNI_PACKAGE_NAME.replace ('.', '/')
 
 # Default project name
 DEFAULTPROJECTNAME='common'
-
-#Name (and path) of the xml file
-XMLFILENAME_PREFIX=MYDIR + '/../Xml/'
-XMLFILENAME_SUFFIX='_commands.xml'
-XMLDEBUGFILENAME_SUFFIX="_debug.xml"
 
 #Name of the output private header containing id enums
 COMMANDSID_HFILE_NAME='ARCOMMANDS_Ids.h'
@@ -154,63 +141,12 @@ COMMANDSGEN_DEFINE='_' + COMMANDSGEN_HFILE_NAME.upper ().replace ('/', '_').repl
 COMMANDSTYPES_DEFINE='_' + COMMANDSTYPES_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 TB_DEFINE='_' + TB_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
 
-# Internal function to ensure that the first letter of a word is capitalized
-# But keeps the capitalization of the rest of the word
-def ARCapitalize (arstr):
-    return arstr[0].upper () + arstr[1:]
-
 # Submodules names
 ID_SUBMODULE='ID'
 GEN_SUBMODULE='Generator'
 DEC_SUBMODULE='Decoder'
 TB_SUBMODULE='Testbench'
 JNI_SUBMODULE='JNI'
-
-#############################
-# NAME GENERATORS           #
-#############################
-def ARMacroName (Submodule, Name):
-    # MODULE_SUBMODULE_NAME
-    return LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Name.upper ()
-
-def ARFunctionName (Submodule, Name):
-    # MODULE_Submodule_Name
-    return LIB_MODULE.upper () + '_' + ARCapitalize (Submodule) + '_' + ARCapitalize (Name)
-
-def ARTypeName (Submodule, Name=''):
-    # MODULE_Submodule[_Name]_t
-    if '' != Name:
-        return LIB_MODULE.upper () + '_' + ARCapitalize (Submodule) + '_' + ARCapitalize (Name) + '_t'
-    else:
-        return LIB_MODULE.upper () + '_' + ARCapitalize (Submodule) + '_t'
-
-def ARGlobalName (Submodule, Name):
-    # MODULE_Submodule_Name
-    return LIB_MODULE.upper () + '_' + ARCapitalize (Submodule) + '_' + ARCapitalize (Name)
-
-def ARGlobalConstName (Submodule, Name):
-    # cMODULE_Submodule_Name
-    return 'c' + LIB_MODULE.upper () + '_' + ARCapitalize (Submodule) + '_' + ARCapitalize (Name)
-
-def AREnumValue (Submodule, Enum, Name):
-    # MODULE_SUBMODULE_ENUM_NAME
-    if Enum.upper () == 'ERROR' and (Name.upper () == 'OK' or Name.upper () == 'ERROR'):
-        return LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Name.upper ()
-    else:
-        return LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Enum.upper () + '_' + Name.upper ()
-
-def AREnumName (Submodule, Enum):
-    # eMODULE_SUBMODULE_ENUM
-    return 'e' + LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Enum.upper ()
-
-def ARJavaEnumType (Submodule, Enum):
-    # MODULE_SUBMODULE_ENUM_"ENUM"
-    return LIB_MODULE.upper () + '_' + Submodule.upper () + '_' + Enum.upper () + '_ENUM'
-
-def ARJavaEnumValue (Submodule, Enum, Name):
-    # MODULE_SUBMODULE_ENUM_"ENUM".MODULE_SUBMODULE_ENUM_NAME
-    return ARJavaEnumType (Submodule, Enum) + '.' + AREnumValue (Submodule, Enum, Name)
-    
 
 #Type conversion from XML Defined types to many other types
 # XML Defined types
@@ -242,20 +178,20 @@ SZETYPES = ['U8',       'U8',
             'Float',    'Double',
             'String']
 # Equivalent calls for the Decoder internal functions
-CREADERS = [ARFunctionName ('Decoder', 'Read8FromBuffer'),     ' (int8_t)' + ARFunctionName ('Decoder', 'Read8FromBuffer'),
-            ARFunctionName ('Decoder', 'Read16FromBuffer'),    ' (int16_t)' + ARFunctionName ('Decoder', 'Read16FromBuffer'),
-            ARFunctionName ('Decoder', 'Read32FromBuffer'),    ' (int32_t)' + ARFunctionName ('Decoder', 'Read32FromBuffer'),
-            ARFunctionName ('Decoder', 'Read64FromBuffer'),    ' (int64_t)' + ARFunctionName ('Decoder', 'Read64FromBuffer'),
-            ARFunctionName ('Decoder', 'ReadFloatFromBuffer'), ARFunctionName ('Decoder', 'ReadDoubleFromBuffer'),
-            ARFunctionName ('Decoder', 'ReadStringFromBuffer')]
+CREADERS = [ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer'),     ' (int8_t)' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer'),
+            ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read16FromBuffer'),    ' (int16_t)' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read16FromBuffer'),
+            ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read32FromBuffer'),    ' (int32_t)' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read32FromBuffer'),
+            ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read64FromBuffer'),    ' (int64_t)' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read64FromBuffer'),
+            ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadFloatFromBuffer'), ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadDoubleFromBuffer'),
+            ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadStringFromBuffer')]
 
 # Equivalent calls for the Decoder print internal functions
-CPRINTERS = [ARFunctionName ('Decoder', 'PrintU8'),    ARFunctionName ('Decoder', 'PrintI8'),
-             ARFunctionName ('Decoder', 'PrintU16'),   ARFunctionName ('Decoder', 'PrintI16'),
-             ARFunctionName ('Decoder', 'PrintU32'),   ARFunctionName ('Decoder', 'PrintI32'),
-             ARFunctionName ('Decoder', 'PrintU64'),   ARFunctionName ('Decoder', 'PrintI64'),
-             ARFunctionName ('Decoder', 'PrintFloat'), ARFunctionName ('Decoder', 'PrintDouble'),
-             ARFunctionName ('Decoder', 'PrintString')]
+CPRINTERS = [ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU8'),    ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI8'),
+             ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU16'),   ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI16'),
+             ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU32'),   ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI32'),
+             ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU64'),   ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI64'),
+             ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintFloat'), ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintDouble'),
+             ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintString')]
 
 # Equivalent JAVA Types
 # No unsigned types in java, so use signed types everywhere
@@ -282,13 +218,13 @@ JNITYPES  = ['jbyte',    'jbyte',
 
 def xmlToC (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
+        return AREnumName (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
     xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES [xmlIndex]
 
 def xmlToCwithConst (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
+        return AREnumName (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name);
     xmlIndex = XMLTYPES.index (arg.type)
     return CTYPES_WC [xmlIndex]
 
@@ -300,26 +236,26 @@ def xmlToSize (proj, cl, cmd, arg):
 
 def xmlToReader (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName ('Decoder', 'Read32FromBuffer')
+        return '(' + AREnumName (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read32FromBuffer')
     xmlIndex = XMLTYPES.index (arg.type)
     return CREADERS [xmlIndex]
 
 def xmlToPrinter (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName ('Decoder', 'PrintI32')
+        return '(' + AREnumName (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI32')
     xmlIndex = XMLTYPES.index (arg.type)
     return CPRINTERS [xmlIndex]
 
 def xmlToJava (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return ARJavaEnumType(proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
+        return ARJavaEnumType (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
     xmlIndex = XMLTYPES.index (arg.type)
     return JAVATYPES [xmlIndex]
 
 def jniEnumClassName (proj, cl, cmd, arg):
     if arg.type != 'enum':
         return ''
-    return JNI_PACKAGE_DIR + '/' + ARJavaEnumType (proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
+    return JNI_PACKAGE_DIR + '/' + ARJavaEnumType (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name)
 
 def xmlToJavaSig (proj, cl, cmd, arg):
     if 'enum' == arg.type:
@@ -350,7 +286,7 @@ PRINTFF    = ['%u',   '%d',
 
 def xmlToSample (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return '(' + AREnumName(proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')0';
+        return '(' + AREnumName (LIB_MODULE, proj.name + '_' + cl.name, cmd.name + '_' + arg.name) + ')0';
     xmlIndex = XMLTYPES.index (arg.type)
     return SAMPLEARGS [xmlIndex]
 
@@ -359,15 +295,6 @@ def xmlToPrintf (proj, cl, cmd, arg):
         return '%d';
     xmlIndex = XMLTYPES.index (arg.type)
     return PRINTFF [xmlIndex]
-
-hasArgOfType = {
-    'u8': True, 'i8' : False,
-    'u16': True, 'i16': False,
-    'u32': False, 'i32': False,
-    'u64': False, 'i64': False,
-    'float': False, 'double': False,
-    'string': False, 'enum': False
-}
 
 noGen = False
 genDebug = False
@@ -453,125 +380,6 @@ if not os.path.exists (JNIJ_OUT_DIR):
     os.makedirs (JNIJ_OUT_DIR)
 
 
-# Python class definitions
-
-class AREnum:
-    "Represent an enum of an argument"
-    def __init__(self, enumName):
-        self.name     = enumName
-        self.comments = []
-    def addCommentLine(self, newCommentLine):
-        self.comments.append(newCommentLine)
-    def check(self):
-        ret = ''
-        if len (self.comments) == 0:
-            ret = ret + '\n--- Enum ' + self.name + ' don\'t have any comment !'
-        return ret
-
-class ARArg:
-    "Represent an argument of a command"
-    def __init__(self, argName, argType):
-        self.name     = argName
-        self.type     = argType
-        hasArgOfType[argType] = True
-        self.comments = []
-        self.enums    = []
-    def addCommentLine(self, newCommentLine):
-        self.comments.append(newCommentLine)
-    def addEnum(self, newEnum):
-        self.enums.append(newEnum)
-    def check(self):
-        ret = ''
-        enumret = ''
-        if len (self.comments) == 0:
-            ret = ret + '\n--- Argument ' + self.name + ' don\'t have any comment !'
-        for enum in self.enums:
-            enumret = enumret + enum.check ()
-        if len (enumret) != 0:
-            ret = ret + '\n-- Argument ' + self.name + ' has errors in its enums:'
-        ret = ret + enumret
-        return ret
-
-class ARCommand:
-    "Represent a command"
-    def __init__(self, cmdName):
-        self.name     = cmdName
-        self.comments = []
-        self.args     = []
-    def addCommentLine(self, newCommentLine):
-        self.comments.append(newCommentLine)
-    def addArgument(self, newArgument):
-        self.args.append(newArgument)
-    def check(self):
-        ret = ''
-        argret = ''
-        if len (self.comments) == 0:
-            ret = ret + '\n-- Command ' + self.name + ' don\'t have any comment !'
-        for arg in self.args:
-            argret = argret + arg.check ()
-        if len (argret) != 0:
-            ret = ret + '\n-- Command ' + self.name + ' has errors in its arguments:'
-        ret = ret + argret
-        return ret
-
-MAX_CLASS_ID = 255
-CLASS_MAX_CMDS = 65536
-class ARClass:
-    "Represent a class of commands"
-    def __init__(self, className, ident):
-        self.name     = className
-        self.ident    = ident
-        self.comments = []
-        self.cmds     = []
-    def addCommentLine(self, newCommentLine):
-        self.comments.append(newCommentLine)
-    def addCommand(self, newCommand):
-        self.cmds.append(newCommand)
-    def check(self):
-        ret = ''
-        cmdret = ''
-        if len (self.comments) == 0:
-            ret = ret + '\n- Class ' + self.name + ' don\'t have any comment !'
-        if int (self.ident) > MAX_PROJECT_ID:
-            ret = ret + '\n- Class ' + self.name + ' has a too big id number (' + self.ident + '). Maximum is ' + str (MAX_CLASS_ID) + '.'
-        if len (self.cmds) > CLASS_MAX_CMDS:
-            ret = ret + '\n- Class ' + self.name + ' has too many commands (' + str (len (self.cmds)) + '). Maximum number of commands is ' + str(CLASS_MAX_CMDS) + '.'
-        for cmd in self.cmds:
-            cmdret = cmdret + cmd.check ()
-        if len (cmdret) != 0:
-            ret = ret + '\n- Class ' + self.name + ' has errors in its commands:'
-        ret = ret + cmdret
-        return ret
-
-PROJECT_MAX_CLASS = 256
-MAX_PROJECT_ID = 255
-class ARProject:
-    "Represent a project (an XML file)"
-    def __init__(self, projectName, ident):
-        self.name     = projectName
-        self.ident    = ident
-        self.comments = []
-        self.classes  = []
-    def addCommentLine(self, newCommentLine):
-        self.comments.append (newCommentLine)
-    def addClass(self, newClass):
-        self.classes.append(newClass)
-    def check(self):
-        ret = ''
-        clsret = ''
-        if len (self.comments) == 0:
-            ret = ret + '\nProject ' + self.name + ' don\'t have any comment !'
-        if int (self.ident) > MAX_PROJECT_ID:
-            ret = ret + '\nProject ' + self.name + ' has a too big id number (' + self.ident + '). Maximum is ' + str (MAX_PROJECT_ID) + '.'
-        if len (self.classes) > PROJECT_MAX_CLASS:
-            ret = ret + '\nProject ' + self.name + ' has too many classes (' + str (len (self.classes)) + '). Maximum number of classes is ' + str(PROJECT_MAX_CLASS) + '.'
-        for cls in self.classes:
-            clsret = clsret + cls.check ()
-        if len (clsret) != 0:
-            ret = ret + '\nProject ' + self.name + ' has errors in its classes:'
-        ret = ret + clsret
-        return ret
-
 #################################
 # 1ST PART :                    #
 #################################
@@ -579,132 +387,7 @@ class ARProject:
 # of commands / classes         #
 #################################
 
-# If the 'all' project is in our list, replace our list contents with the
-# list of all xml files here
-if 'all' in projects:
-    projects = []
-    for files in os.listdir (XMLFILENAME_PREFIX):
-        if files.endswith (XMLFILENAME_SUFFIX):
-            proj = files.replace (XMLFILENAME_SUFFIX,'')
-            projects.append (proj)
-
-allProjects = []
-
-def parseXml(FNAME, projectName):
-    if not os.path.exists(FNAME):
-        return
-    file = open (FNAME, 'r')
-    data = file.read ()
-    file.close ()
-    xmlfile = parseString (data)
-
-    # Check if the XMLFile only contains ONE project (not zero, nor more)
-    xmlproj = xmlfile.getElementsByTagName ('project')
-    if len (xmlproj) != 1:
-        ARPrint (FNAME + ' should contain exactly ONE project tag.')
-        EXIT (1)
-    proj = ARProject (projectName, xmlproj[0].attributes["id"].nodeValue)
-
-    # Check if project id and name are unique
-    for p2 in allProjects:
-        if p2.ident == proj.ident:
-            ARPrint ('Project `' + projectName + '` has the same id as project `' + p2.name + '`.')
-            ARPrint (' --> Project ID must be unique, and must NEVER change')
-            ARPrint (' --> Debug Project ID are usually Project ID + 128')
-            EXIT (1)
-        if p2.name == proj.name:
-            ARPrint ('Project `' + projectName + '` exists twice.')
-            ARPrint (' --> Project must have a unique name within the application')
-            EXIT (1)
-
-    # Get project comments
-    projComments = xmlproj[0].firstChild.data.splitlines ()
-    for projComm in projComments:
-        stripName = projComm.strip ()
-        if len (stripName) != 0:
-            proj.addCommentLine (stripName)
-
-    classes = xmlfile.getElementsByTagName ('class')
-    for cmdclass in classes:
-        # Get class name
-        currentClass = ARClass(cmdclass.attributes["name"].nodeValue, cmdclass.attributes["id"].nodeValue)
-        # Check if class id and name are unique within the project
-        for cls in proj.classes:
-            if cls.ident == currentClass.ident:
-                ARPrint ('Class `' + currentClass.name + '` has the same id as class `' + cls.name + '` within project `' + proj.name + '`.')
-                ARPrint (' --> Class ID must be unique within their project, and must NEVER change')
-                EXIT (1)
-            if cls.name == currentClass.name:
-                ARPrint ('Class `' + cls.name + '` appears multiple times in `' + proj.name + '` !')
-                ARPrint (' --> Classes must have unique names in a given project (but can exist in multiple projects)')
-                EXIT (1)
-        # Get class comments
-        classComments = cmdclass.firstChild.data.splitlines ()
-        for classComm in classComments:
-            stripName = classComm.strip ()
-            if len (stripName) != 0:
-                currentClass.addCommentLine(stripName)
-        commands = cmdclass.getElementsByTagName ('cmd')
-        for command in commands:
-            # Get command name
-            currentCommand = ARCommand(command.attributes["name"].nodeValue)
-            # Check if command name is unique
-            for cmd in currentClass.cmds:
-                if cmd.name == currentCommand.name:
-                    ARPrint ('Command `' + cmd.name + '` appears multiple times in `' + proj.name + '.' + currentClass.name + '` !')
-                    ARPrint (' --> Commands must have unique names in a given class (but can exist in multiple classes)')
-                    EXIT (1)
-            # Get command comments
-            commandComments = command.firstChild.data.splitlines ()
-            for commandComm in commandComments:
-                stripName = commandComm.strip ()
-                if len (stripName) != 0:
-                    currentCommand.addCommentLine (stripName)
-            args = command.getElementsByTagName ('arg')
-            for arg in args:
-                # Get arg name / type
-                currentArg = ARArg (arg.attributes["name"].nodeValue, arg.attributes["type"].nodeValue)
-                # Check if arg name is unique
-                for argTest in currentCommand.args:
-                    if argTest.name == currentArg.name:
-                        ARPrint ('Arg `' + currentArg.name + '` appears multiple time in `' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '` !')
-                        ARPrint (' --> Args must have unique name in a given command (but can exist in multiple commands)')
-                        EXIT (1)
-                # Get arg comments
-                argComments = arg.firstChild.data.splitlines ()
-                for argComm in argComments:
-                    stripName = argComm.strip ()
-                    if len (stripName) != 0:
-                        currentArg.addCommentLine (stripName)
-
-                enums = arg.getElementsByTagName ('enum')
-                for enum in enums:
-                    currentEnum = AREnum(enum.attributes["name"].nodeValue)
-                    # Get command comments
-                    enumComments = enum.firstChild.data.splitlines ()
-                    for enumComm in enumComments:
-                        stripName = enumComm.strip ()
-                        if len (stripName) != 0:
-                            currentEnum.addCommentLine (stripName)
-                    # Check if arg name is unique
-                    for enumTest in currentArg.enums:
-                        if enumTest.name == currentEnum.name:
-                            ARPrint ('Enum `' + currentEnum.name + '` appears multiple time in `' + proj.name + '.' + currentClass.name + '.' + currentCommand.name + '` !')
-                            ARPrint (' --> Enums must have unique name in a given command (but can exist in multiple commands)')
-                            EXIT (1)
-                    currentArg.addEnum(currentEnum)
-                currentCommand.addArgument (currentArg)
-            currentClass.addCommand (currentCommand)
-        proj.addClass (currentClass)
-    allProjects.append (proj)
-
-for projectName in projects:
-    parseXml(XMLFILENAME_PREFIX + projectName + XMLFILENAME_SUFFIX, projectName)
-    if genDebug:
-        parseXml(XMLFILENAME_PREFIX + projectName + XMLDEBUGFILENAME_SUFFIX, projectName + 'Debug')
-    
-
-    
+allProjects = parseAllProjects(projects, '%(MYDIR)s/..' % locals(), genDebug)
 
 # Check all
 err = ''
@@ -776,8 +459,8 @@ hfile.write ('\n')
 hfile.write ('typedef enum {\n')
 for proj in allProjects:
     ENAME='PROJECT'
-    hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, proj.name) + ' = ' + proj.ident + ',\n')
-hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
+    hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, proj.name) + ' = ' + proj.ident + ',\n')
+hfile.write ('} ' + AREnumName (LIB_MODULE, ID_SUBMODULE, ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
 for proj in allProjects:
@@ -785,8 +468,8 @@ for proj in allProjects:
         ENAME=proj.name + '_CLASS'
         hfile.write ('typedef enum {\n')
         for cl in proj.classes:
-            hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cl.name) + ' = ' + cl.ident + ',\n')
-        hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
+            hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cl.name) + ' = ' + cl.ident + ',\n')
+        hfile.write ('} ' + AREnumName (LIB_MODULE, ID_SUBMODULE, ENAME) + ';\n')
         hfile.write ('\n')
 hfile.write ('\n')
 hfile.write ('\n')
@@ -797,12 +480,12 @@ for proj in allProjects:
         first = True
         for cmd in cl.cmds:
             if first:
-                hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd.name) + ' = 0,\n')
+                hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cmd.name) + ' = 0,\n')
                 first = False
             else:
-                hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, cmd.name) + ',\n')
-        hfile.write ('    ' + AREnumValue (ID_SUBMODULE, ENAME, 'MAX') + ',\n')
-        hfile.write ('} ' + AREnumName (ID_SUBMODULE, ENAME) + ';\n')
+                hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cmd.name) + ',\n')
+        hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, 'MAX') + ',\n')
+        hfile.write ('} ' + AREnumName (LIB_MODULE, ID_SUBMODULE, ENAME) + ';\n')
         hfile.write ('\n')
     hfile.write ('\n')
 
@@ -834,7 +517,7 @@ if genDebug:
     hfile.write('/**\n')
     hfile.write(' * Defined only if the library includes debug commands\n')
     hfile.write(' */\n')
-    hfile.write('#define ' + ARMacroName ('HAS', 'DEBUG_COMMANDS') + ' (1)\n')
+    hfile.write('#define ' + ARMacroName (LIB_MODULE, 'HAS', 'DEBUG_COMMANDS') + ' (1)\n')
 
 for proj in allProjects:
     for cl in proj.classes:
@@ -857,12 +540,12 @@ for proj in allProjects:
                     first = True
                     for enum in arg.enums:
                         if first:
-                            hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ' = 0,    ///< ' + enum.comments[0] + '\n')
+                            hfile.write ('    ' + AREnumValue (LIB_MODULE, submodules, macro_name, enum.name) + ' = 0,    ///< ' + enum.comments[0] + '\n')
                             first = False
                         else:
-                            hfile.write ('    ' + AREnumValue(submodules, macro_name, enum.name) + ',    ///< ' + enum.comments[0] + '\n')
-                    hfile.write ('    ' + AREnumValue(submodules, macro_name, 'MAX') + '\n')
-                    hfile.write ('} ' + AREnumName(submodules, macro_name) + ';\n\n')
+                            hfile.write ('    ' + AREnumValue (LIB_MODULE, submodules, macro_name, enum.name) + ',    ///< ' + enum.comments[0] + '\n')
+                    hfile.write ('    ' + AREnumValue (LIB_MODULE, submodules, macro_name, 'MAX') + '\n')
+                    hfile.write ('} ' + AREnumName (LIB_MODULE, submodules, macro_name) + ';\n\n')
 hfile.write ('\n')
 hfile.write ('#endif /* ' + COMMANDSTYPES_DEFINE + ' */\n')
 
@@ -889,15 +572,15 @@ hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
 hfile.write ('/**\n')
-hfile.write (' * @brief Error codes for ' + ARFunctionName (GEN_SUBMODULE, 'GenerateClassCommand') + ' functions\n')
+hfile.write (' * @brief Error codes for ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'GenerateClassCommand') + ' functions\n')
 hfile.write (' */\n')
 GEN_ERR_ENAME='ERROR'
 hfile.write ('typedef enum {\n')
-hfile.write ('    ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
-hfile.write ('    ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ', ///< At least one of the arguments is invalid\n')
-hfile.write ('    ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ', ///< The given output buffer was not large enough for the command\n')
-hfile.write ('    ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ', ///< Any other error\n')
-hfile.write ('} ' +  AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ';\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ', ///< At least one of the arguments is invalid\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ', ///< The given output buffer was not large enough for the command\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ', ///< Any other error\n')
+hfile.write ('} ' +  AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ';\n')
 hfile.write ('\n')
 hfile.write ('\n')
 for proj in allProjects:
@@ -916,9 +599,9 @@ for proj in allProjects:
             for arg in cmd.args:
                 for comm in arg.comments:
                     hfile.write (' * @param _' + arg.name + ' ' + comm + '\n')
-            hfile.write (' * @return Error code (see ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ')\n')
+            hfile.write (' * @return Error code (see ' + AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ')\n')
             hfile.write (' */\n')
-            hfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
+            hfile.write (AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
                 hfile.write (', ' + xmlToCwithConst (proj, cl, cmd, arg) + ' _' + arg.name)
             hfile.write (');\n')
@@ -960,7 +643,7 @@ if hasArgOfType['u8'] or hasArgOfType['i8']:
     cfile.write ('// Add an 8 bit value to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddU8ToBuffer') + ' (uint8_t *buffer, uint8_t newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU8ToBuffer') + ' (uint8_t *buffer, uint8_t newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
     cfile.write ('    if (buffCap < (oldOffset + sizeof (newVal)))\n')
     cfile.write ('    {\n')
@@ -976,7 +659,7 @@ if hasArgOfType['u16'] or hasArgOfType['i16']:
     cfile.write ('// Add a 16 bit value to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (uint8_t *buffer, uint16_t newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU16ToBuffer') + ' (uint8_t *buffer, uint16_t newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
     cfile.write ('    if (buffCap < (oldOffset + sizeof (newVal)))\n')
     cfile.write ('    {\n')
@@ -992,7 +675,7 @@ if hasArgOfType['u32'] or hasArgOfType['i32'] or hasArgOfType['float'] or hasArg
     cfile.write ('// Add a 32 bit value to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddU32ToBuffer') + ' (uint8_t *buffer, uint32_t newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU32ToBuffer') + ' (uint8_t *buffer, uint32_t newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
     cfile.write ('    if (buffCap < (oldOffset + sizeof (newVal)))\n')
     cfile.write ('    {\n')
@@ -1008,7 +691,7 @@ if hasArgOfType['u64'] or hasArgOfType['i64'] or hasArgOfType['double']:
     cfile.write ('// Add a 64 bit value to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddU64ToBuffer') + ' (uint8_t *buffer, uint64_t newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU64ToBuffer') + ' (uint8_t *buffer, uint64_t newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
     cfile.write ('    if (buffCap < (oldOffset + sizeof (newVal)))\n')
     cfile.write ('    {\n')
@@ -1024,7 +707,7 @@ if hasArgOfType['string']:
     cfile.write ('// Add a NULL Terminated String to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddStringToBuffer') + ' (uint8_t *buffer, const char *newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddStringToBuffer') + ' (uint8_t *buffer, const char *newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
     cfile.write ('    if (buffCap < (oldOffset + strlen (newVal) + 1))\n')
     cfile.write ('    {\n')
@@ -1039,18 +722,18 @@ if hasArgOfType['float']:
     cfile.write ('// Add a float to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddFloatToBuffer') + ' (uint8_t *buffer, float newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddFloatToBuffer') + ' (uint8_t *buffer, float newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
-    cfile.write ('    return ' + ARFunctionName (GEN_SUBMODULE, 'AddU32ToBuffer') + ' (buffer, * (uint32_t *)&newVal, oldOffset, buffCap);\n')
+    cfile.write ('    return ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU32ToBuffer') + ' (buffer, * (uint32_t *)&newVal, oldOffset, buffCap);\n')
     cfile.write ('}\n')
     cfile.write ('\n')
 if hasArgOfType['double']:
     cfile.write ('// Add a double to the buffer\n')
     cfile.write ('// Returns -1 if the buffer is not big enough\n')
     cfile.write ('// Returns the new offset in the buffer on success\n')
-    cfile.write ('static int32_t ' + ARFunctionName (GEN_SUBMODULE, 'AddDoubleToBuffer') + ' (uint8_t *buffer, double newVal, int32_t oldOffset, int32_t buffCap)\n')
+    cfile.write ('static int32_t ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddDoubleToBuffer') + ' (uint8_t *buffer, double newVal, int32_t oldOffset, int32_t buffCap)\n')
     cfile.write ('{\n')
-    cfile.write ('    return ' + ARFunctionName (GEN_SUBMODULE, 'AddU64ToBuffer') + ' (buffer, * (uint64_t *)&newVal, oldOffset, buffCap);\n')
+    cfile.write ('    return ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU64ToBuffer') + ' (buffer, * (uint64_t *)&newVal, oldOffset, buffCap);\n')
     cfile.write ('}\n')
     cfile.write ('\n')
 for proj in allProjects:
@@ -1058,17 +741,17 @@ for proj in allProjects:
     for cl in proj.classes:
         cfile.write ('// Command class ' + cl.name + '\n')
         for cmd in cl.cmds:
-            cfile.write (AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (GEN_SUBMODULE, 'Generate' +  ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
+            cfile.write (AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' +  ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
                 cfile.write (', ' + xmlToCwithConst (proj, cl, cmd, arg) + ' _' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t currIndexInBuffer = 0;\n')
-            cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n')
+            cfile.write ('    ' + AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n')
             cfile.write ('    if ((buffer == NULL) ||\n')
             cfile.write ('        (cmdLen == NULL))\n')
             cfile.write ('    {\n')
-            cfile.write ('        return ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
+            cfile.write ('        return ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
             cfile.write ('    }\n')
             hasStringArgs = False
             for arg in cmd.args:
@@ -1088,47 +771,47 @@ for proj in allProjects:
                         cfile.write ('(_' + arg.name + ' == NULL) ||\n')
                 cfile.write ('       (0))\n')
                 cfile.write ('    {\n')
-                cfile.write ('        return ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
+                cfile.write ('        return ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
                 cfile.write ('    }\n')
                 cfile.write ('\n')
             cfile.write ('    // Write project header\n')
-            cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
-            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU8ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ', currIndexInBuffer, buffLen);\n')
+            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU8ToBuffer') + ' (buffer, ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'PROJECT', proj.name) + ', currIndexInBuffer, buffLen);\n')
             cfile.write ('        if (currIndexInBuffer == -1)\n')
             cfile.write ('        {\n')
-            cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+            cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
             cfile.write ('        }\n')
             cfile.write ('    }\n')
             cfile.write ('    // Write class header\n')
-            cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
-            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU8ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ', currIndexInBuffer, buffLen);\n')
+            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU8ToBuffer') + ' (buffer, ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ', currIndexInBuffer, buffLen);\n')
             cfile.write ('        if (currIndexInBuffer == -1)\n')
             cfile.write ('        {\n')
-            cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+            cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
             cfile.write ('        }\n')
             cfile.write ('    }\n')
             cfile.write ('    // Write id header\n')
-            cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
-            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ', currIndexInBuffer, buffLen);\n')
+            cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ', currIndexInBuffer, buffLen);\n')
             cfile.write ('        if (currIndexInBuffer == -1)\n')
             cfile.write ('        {\n')
-            cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+            cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
             cfile.write ('        }\n')
             cfile.write ('    }\n')
             for arg in cmd.args:
                 cfile.write ('    // Write arg _' + arg.name + '\n')
-                cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+                cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('    {\n')
-                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (GEN_SUBMODULE, 'Add' + xmlToSize (proj, cl, cmd, arg) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
+                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Add' + xmlToSize (proj, cl, cmd, arg) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
                 cfile.write ('        if (currIndexInBuffer == -1)\n')
                 cfile.write ('        {\n')
-                cfile.write ('            retVal = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
                 cfile.write ('        }\n')
                 cfile.write ('    }\n')
-            cfile.write ('    if (retVal == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
             cfile.write ('        *cmdLen = currIndexInBuffer;\n')
             cfile.write ('    }\n')
@@ -1163,26 +846,26 @@ hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
 hfile.write ('\n')
 hfile.write ('/**\n')
-hfile.write (' * @brief Error codes for ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' function\n')
+hfile.write (' * @brief Error codes for ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' function\n')
 hfile.write (' */\n')
 DEC_ERR_ENAME='ERROR'
 hfile.write ('typedef enum {\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NO_CALLBACK') + ', ///< No error, but no callback was set (so the call had no effect)\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ', ///< The command buffer contained an unknown command\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ', ///< The command buffer did not contain enough data for the specified command\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ', ///< The string buffer was not big enough for the command description\n')
-hfile.write ('    ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ', ///< Any other error\n')
-hfile.write ('} ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ';\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NO_CALLBACK') + ', ///< No error, but no callback was set (so the call had no effect)\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ', ///< The command buffer contained an unknown command\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ', ///< The command buffer did not contain enough data for the specified command\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ', ///< The string buffer was not big enough for the command description\n')
+hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ', ///< Any other error\n')
+hfile.write ('} ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ';\n')
 hfile.write ('\n/**\n')
 hfile.write (' * @brief Decode a comand buffer\n')
 hfile.write (' * On success, the callback set for the command will be called in the current thread.\n')
 hfile.write (' * @param buffer the command buffer to decode\n')
 hfile.write (' * @param buffLen the length of the command buffer\n')
-hfile.write (' * @return ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
+hfile.write (' * @return ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
 hfile.write (' */\n')
-hfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-hfile.write (ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen);\n')
+hfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen);\n')
 hfile.write ('\n')
 hfile.write ('\n/**\n')
 hfile.write (' * @brief Describe a comand buffer\n')
@@ -1190,10 +873,10 @@ hfile.write (' * @param buffer the command buffer to decode\n')
 hfile.write (' * @param buffLen the length of the command buffer\n')
 hfile.write (' * @param resString the string pointer in which the description will be stored\n')
 hfile.write (' * @param stringLen the length of the string pointer\n')
-hfile.write (' * @return ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
+hfile.write (' * @return ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
 hfile.write (' */\n')
-hfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-hfile.write (ARFunctionName (DEC_SUBMODULE, 'DescribeBuffer') + ' (uint8_t *buffer, int32_t buffLen, char *resString, int32_t stringLen);\n')
+hfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DescribeBuffer') + ' (uint8_t *buffer, int32_t buffLen, char *resString, int32_t stringLen);\n')
 hfile.write ('\n')
 for proj in allProjects:
     hfile.write ('// Project ' + proj.name + '\n\n')
@@ -1203,7 +886,7 @@ for proj in allProjects:
             hfile.write ('\n/**\n')
             hfile.write (' * @brief callback type for the command ' + proj.name + '.' + cl.name + '.' + cmd.name + '\n')
             hfile.write (' */\n')
-            hfile.write ('typedef void (*' + ARTypeName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') (')
+            hfile.write ('typedef void (*' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') (')
             first = True
             for arg in cmd.args:
                 if first:
@@ -1219,7 +902,7 @@ for proj in allProjects:
             hfile.write (' * @param callback new callback for the command ' + proj.name + '.' + cl.name + '.' + cmd.name + '\n')
             hfile.write (' * @param custom pointer that will be passed to all calls to the callback\n')
             hfile.write (' */\n')
-            hfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom);\n')
+            hfile.write ('void ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom);\n')
         hfile.write ('\n')
     hfile.write ('\n')
 
@@ -1260,7 +943,7 @@ cfile.write ('\n')
 if hasArgOfType['u8'] or hasArgOfType['i8']:
     cfile.write ('// Read an 8 bit value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static uint8_t ' + ARFunctionName (DEC_SUBMODULE, 'Read8FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static uint8_t ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    uint8_t retVal = 0;\n')
@@ -1279,7 +962,7 @@ if hasArgOfType['u8'] or hasArgOfType['i8']:
 if hasArgOfType['u16'] or hasArgOfType['i16']:
     cfile.write ('// Read a 16 bit value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static uint16_t ' + ARFunctionName (DEC_SUBMODULE, 'Read16FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static uint16_t ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read16FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    uint16_t retVal = 0;\n')
@@ -1300,7 +983,7 @@ if hasArgOfType['u16'] or hasArgOfType['i16']:
 if hasArgOfType['u32'] or hasArgOfType['i32'] or hasArgOfType['enum']:
     cfile.write ('// Read a 32 bit value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static uint32_t ' + ARFunctionName (DEC_SUBMODULE, 'Read32FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static uint32_t ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read32FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    uint32_t retVal = 0;\n')
@@ -1321,7 +1004,7 @@ if hasArgOfType['u32'] or hasArgOfType['i32'] or hasArgOfType['enum']:
 if hasArgOfType['u64'] or hasArgOfType['i64']:
     cfile.write ('// Read a 64 bit value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static uint64_t ' + ARFunctionName (DEC_SUBMODULE, 'Read64FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static uint64_t ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read64FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    uint64_t retVal = 0;\n')
@@ -1342,7 +1025,7 @@ if hasArgOfType['u64'] or hasArgOfType['i64']:
 if hasArgOfType['float']:
     cfile.write ('// Read a float value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static float ' + ARFunctionName (DEC_SUBMODULE, 'ReadFloatFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static float ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadFloatFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    float retVal = 0;\n')
@@ -1363,7 +1046,7 @@ if hasArgOfType['float']:
 if hasArgOfType['double']:
     cfile.write ('// Read a double value from the buffer\n')
     cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-    cfile.write ('static double ' + ARFunctionName (DEC_SUBMODULE, 'ReadDoubleFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static double ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadDoubleFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    double retVal = 0;\n')
@@ -1384,7 +1067,7 @@ if hasArgOfType['double']:
 if hasArgOfType['string']:
     cfile.write ('// Read a string value from the buffer\n')
     cfile.write ('// On error, return NULL and set *error to 1, else set *error to 0\n')
-    cfile.write ('static char* ' + ARFunctionName (DEC_SUBMODULE, 'ReadStringFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+    cfile.write ('static char* ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'ReadStringFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    char *retVal = NULL;\n')
@@ -1415,7 +1098,7 @@ if (hasArgOfType['u8']  or hasArgOfType['i8'] or
     hasArgOfType['string'] or hasArgOfType['enum']):
     cfile.write ('// Write a string in a buffer\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('static int ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (const char *stringToWrite, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('static int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (const char *stringToWrite, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity = outputLen - outputOffset - 1;\n')
@@ -1431,11 +1114,11 @@ if (hasArgOfType['u8']  or hasArgOfType['i8'] or
 if hasArgOfType['u8']:
     cfile.write ('// Write a string in a buffer from an uint8_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintU8') + ' (const char *name, uint8_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU8') + ' (const char *name, uint8_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1456,11 +1139,11 @@ if hasArgOfType['u8']:
 if hasArgOfType['i8']:
     cfile.write ('// Write a string in a buffer from an int8_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintI8') + ' (const char *name, int8_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI8') + ' (const char *name, int8_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1481,11 +1164,11 @@ if hasArgOfType['i8']:
 if hasArgOfType['u16']:
     cfile.write ('// Write a string in a buffer from an uint16_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintU16') + ' (const char *name, uint16_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU16') + ' (const char *name, uint16_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1506,11 +1189,11 @@ if hasArgOfType['u16']:
 if hasArgOfType['i16']:
     cfile.write ('// Write a string in a buffer from an int16_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintI16') + ' (const char *name, int16_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI16') + ' (const char *name, int16_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1531,11 +1214,11 @@ if hasArgOfType['i16']:
 if hasArgOfType['u32']:
     cfile.write ('// Write a string in a buffer from an uint32_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintU32') + ' (const char *name, uint32_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU32') + ' (const char *name, uint32_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1556,11 +1239,11 @@ if hasArgOfType['u32']:
 if hasArgOfType['i32'] or hasArgOfType['enum']:
     cfile.write ('// Write a string in a buffer from an int32_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintI32') + ' (const char *name, int32_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI32') + ' (const char *name, int32_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1581,11 +1264,11 @@ if hasArgOfType['i32'] or hasArgOfType['enum']:
 if hasArgOfType['u64']:
     cfile.write ('// Write a string in a buffer from an uint64_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintU64') + ' (const char *name, uint64_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintU64') + ' (const char *name, uint64_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1606,11 +1289,11 @@ if hasArgOfType['u64']:
 if hasArgOfType['i64']:
     cfile.write ('// Write a string in a buffer from an int64_t arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintI64') + ' (const char *name, int64_t arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintI64') + ' (const char *name, int64_t arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1631,11 +1314,11 @@ if hasArgOfType['i64']:
 if hasArgOfType['float']:
     cfile.write ('// Write a string in a buffer from float arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintFloat') + ' (const char *name, float arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintFloat') + ' (const char *name, float arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1652,11 +1335,11 @@ if hasArgOfType['float']:
 if hasArgOfType['double']:
     cfile.write ('// Write a string in a buffer from a double arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintDouble') + ' (const char *name, double arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintDouble') + ' (const char *name, double arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
     cfile.write ('    int capacity, len;\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
@@ -1673,30 +1356,30 @@ if hasArgOfType['double']:
 if hasArgOfType['string']:
     cfile.write ('// Write a string in a buffer from a string arg\n')
     cfile.write ('// On error, return -1, else return offset in string\n')
-    cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'PrintString') + ' (const char *name, char *arg, char *output, int outputLen, int outputOffset)\n')
+    cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'PrintString') + ' (const char *name, char *arg, char *output, int outputLen, int outputOffset)\n')
     cfile.write ('{\n')
     cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
-    cfile.write ('    int offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
+    cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
     cfile.write ('    if (offset < 0)\n')
     cfile.write ('    {\n')
     cfile.write ('        return offset;\n')
     cfile.write ('    }\n')
-    cfile.write ('    offset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' (arg, output, outputLen, offset);\n')
+    cfile.write ('    offset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' (arg, output, outputLen, offset);\n')
     cfile.write ('    return offset;\n')
     cfile.write ('}\n')
     cfile.write ('\n')
 cfile.write ('// CALLBACK VARIABLES + SETTERS\n')
 cfile.write ('\n')
-cfile.write ('static ARSAL_Mutex_t ' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ';\n')
-cfile.write ('static int ' + ARGlobalName (DEC_SUBMODULE, 'isInit') + ' = 0;\n')
-cfile.write ('int ' + ARFunctionName (DEC_SUBMODULE, 'Init') + ' (void)\n')
+cfile.write ('static ARSAL_Mutex_t ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ';\n')
+cfile.write ('static int ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'isInit') + ' = 0;\n')
+cfile.write ('int ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Init') + ' (void)\n')
 cfile.write ('{\n')
-cfile.write ('    if ((' + ARGlobalName (DEC_SUBMODULE, 'isInit') + ' == 0) &&\n')
-cfile.write ('        (ARSAL_Mutex_Init (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ') == 0))\n')
+cfile.write ('    if ((' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'isInit') + ' == 0) &&\n')
+cfile.write ('        (ARSAL_Mutex_Init (&' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ') == 0))\n')
 cfile.write ('    {\n')
-cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, 'isInit') + ' = 1;\n')
+cfile.write ('        ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'isInit') + ' = 1;\n')
 cfile.write ('    }\n')
-cfile.write ('    return ' + ARGlobalName (DEC_SUBMODULE, 'isInit') + ';\n')
+cfile.write ('    return ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'isInit') + ';\n')
 cfile.write ('}\n')
 cfile.write ('\n')
 for proj in allProjects:
@@ -1704,85 +1387,85 @@ for proj in allProjects:
     for cl in proj.classes:
         cfile.write ('// Command class ' + cl.name + '\n')
         for cmd in cl.cmds:
-            cfile.write ('static ' + ARTypeName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = NULL;\n')
-            cfile.write ('static void *' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = NULL;\n')
-            cfile.write ('void ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom)\n')
+            cfile.write ('static ' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = NULL;\n')
+            cfile.write ('static void *' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = NULL;\n')
+            cfile.write ('void ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' callback, void *custom)\n')
             cfile.write ('{\n')
-            cfile.write ('    if (' + ARFunctionName (DEC_SUBMODULE, 'Init') + ' () == 1)\n')
+            cfile.write ('    if (' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Init') + ' () == 1)\n')
             cfile.write ('    {\n')
-            cfile.write ('        ARSAL_Mutex_Lock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
-            cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = callback;\n')
-            cfile.write ('        ' + ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = custom;\n')
-            cfile.write ('        ARSAL_Mutex_Unlock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
+            cfile.write ('        ARSAL_Mutex_Lock (&' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ');\n')
+            cfile.write ('        ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' = callback;\n')
+            cfile.write ('        ' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom') + ' = custom;\n')
+            cfile.write ('        ARSAL_Mutex_Unlock (&' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ');\n')
             cfile.write ('    }\n')
             cfile.write ('}\n')
         cfile.write ('\n')
     cfile.write ('\n')
 
 cfile.write ('// DECODER ENTRY POINT\n')
-cfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-cfile.write (ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen)\n')
+cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen)\n')
 cfile.write ('{\n')
-cfile.write ('    ' + AREnumName (ID_SUBMODULE, 'PROJECT') + ' commandProject = -1;\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'PROJECT') + ' commandProject = -1;\n')
 cfile.write ('    int commandClass = -1;\n')
 cfile.write ('    int commandId = -1;\n')
 cfile.write ('    int32_t error = 0;\n')
 cfile.write ('    int32_t offset = 0;\n')
-cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
 cfile.write ('    if (NULL == buffer)\n')
 cfile.write ('    {\n')
-cfile.write ('        retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        if (' + ARFunctionName (DEC_SUBMODULE, 'Init') + ' () == 0)\n')
+cfile.write ('        if (' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Init') + ' () == 0)\n')
 cfile.write ('        {\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandProject = ' + ARFunctionName (DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandProject = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandClass = ' + ARFunctionName (DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandClass = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandId = ' + ARFunctionName (DEC_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandId = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
 cfile.write ('        switch (commandProject)\n')
 cfile.write ('        {\n')
 for proj in allProjects:
-    cfile.write ('        case ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ':\n')
+    cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'PROJECT', proj.name) + ':\n')
     cfile.write ('        {\n')
     cfile.write ('            switch (commandClass)\n')
     cfile.write ('            {\n')
     for cl in proj.classes:
-        cfile.write ('            case ' + AREnumValue (ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ':\n')
+        cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ':\n')
         cfile.write ('            {\n')
         cfile.write ('                switch (commandId)\n')
         cfile.write ('                {\n')
         for cmd in cl.cmds:
-            cfile.write ('                case ' + AREnumValue (ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ':\n')
+            cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ':\n')
             cfile.write ('                {\n')
-            CBNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb')
-            CBCUSTOMNAME = ARGlobalName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom')
-            cfile.write ('                    ARSAL_Mutex_Lock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
+            CBNAME = ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb')
+            CBCUSTOMNAME = ARGlobalName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Custom')
+            cfile.write ('                    ARSAL_Mutex_Lock (&' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ');\n')
             cfile.write ('                    if (' + CBNAME + ' != NULL)\n')
             cfile.write ('                    {\n')
             for arg in cmd.args:
@@ -1791,13 +1474,13 @@ for proj in allProjects:
                 else:
                     cfile.write ('                        ' + xmlToC (proj, cl, cmd, arg) + ' _' + arg.name + ';\n')
             for arg in cmd.args:
-                cfile.write ('                        if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('                        {\n')
                 cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (proj, cl, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
                 cfile.write ('                            if (error == 1)\n')
-                cfile.write ('                                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                cfile.write ('                                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
                 cfile.write ('                        }\n')
-            cfile.write ('                        if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('                        {\n')
             cfile.write ('                            ' + CBNAME + ' (')
             first = True
@@ -1814,99 +1497,99 @@ for proj in allProjects:
             cfile.write ('                    }\n')
             cfile.write ('                    else\n')
             cfile.write ('                    {\n')
-            cfile.write ('                        retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NO_CALLBACK') + ';\n')
+            cfile.write ('                        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NO_CALLBACK') + ';\n')
             cfile.write ('                    }\n')
-            cfile.write ('                    ARSAL_Mutex_Unlock (&' + ARGlobalName (DEC_SUBMODULE, 'mutex') + ');\n')
+            cfile.write ('                    ARSAL_Mutex_Unlock (&' + ARGlobalName (LIB_MODULE, DEC_SUBMODULE, 'mutex') + ');\n')
             cfile.write ('                }\n')
-            cfile.write ('                break; /* ' + AREnumValue (ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ' */\n')
+            cfile.write ('                break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ' */\n')
         cfile.write ('                default:\n')
-        cfile.write ('                    retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+        cfile.write ('                    retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
         cfile.write ('                    break;\n')
         cfile.write ('                }\n')
         cfile.write ('            }\n')
-        cfile.write ('            break; /* ' + AREnumValue (ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ' */\n')
+        cfile.write ('            break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ' */\n')
     cfile.write ('            default:\n')
-    cfile.write ('                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+    cfile.write ('                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
     cfile.write ('                break;\n')
     cfile.write ('            }\n')
     cfile.write ('        }\n')
-    cfile.write ('        break; /* ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
+    cfile.write ('        break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
 
 cfile.write ('        default:\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
 cfile.write ('            break;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
 cfile.write ('    return retVal;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
-cfile.write (AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-cfile.write (ARFunctionName (DEC_SUBMODULE, 'DescribeBuffer') + ' (uint8_t *buffer, int32_t buffLen, char *resString, int32_t stringLen)\n')
+cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DescribeBuffer') + ' (uint8_t *buffer, int32_t buffLen, char *resString, int32_t stringLen)\n')
 cfile.write ('{\n')
-cfile.write ('    ' + AREnumName (ID_SUBMODULE, 'PROJECT') + ' commandProject = -1;\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'PROJECT') + ' commandProject = -1;\n')
 cfile.write ('    int commandClass = -1;\n')
 cfile.write ('    int commandId = -1;\n')
 cfile.write ('    int32_t offset = 0;\n')
 cfile.write ('    int32_t error = 0;\n')
 cfile.write ('    int stroffset = 0;\n')
-cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
 cfile.write ('    if (NULL == buffer || NULL == resString)\n')
 cfile.write ('    {\n')
-cfile.write ('        retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        if (' + ARFunctionName (DEC_SUBMODULE, 'Init') + ' () == 0)\n')
+cfile.write ('        if (' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Init') + ' () == 0)\n')
 cfile.write ('        {\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandProject = ' + ARFunctionName (DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandProject = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandClass = ' + ARFunctionName (DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandClass = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
-cfile.write ('        commandId = ' + ARFunctionName (DEC_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+cfile.write ('        commandId = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
 cfile.write ('        if (error == 1)\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' && stringLen > 0)\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' && stringLen > 0)\n')
 cfile.write ('    {\n')
 cfile.write ('        resString[0] = \'\\0\';\n')
 cfile.write ('    }\n')
 cfile.write ('\n')
-cfile.write ('    if (retVal == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
 cfile.write ('        switch (commandProject)\n')
 cfile.write ('        {\n')
 for proj in allProjects:
-    cfile.write ('        case ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ':\n')
+    cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'PROJECT', proj.name) + ':\n')
     cfile.write ('        {\n')
     cfile.write ('            switch (commandClass)\n')
     cfile.write ('            {\n')
     for cl in proj.classes:
-        cfile.write ('            case ' + AREnumValue (ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ':\n')
+        cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ':\n')
         cfile.write ('            {\n')
         cfile.write ('                switch (commandId)\n')
         cfile.write ('                {\n')
         for cmd in cl.cmds:
-            cfile.write ('                case ' + AREnumValue (ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ':\n')
+            cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ':\n')
             cfile.write ('                {\n')
-            cfile.write ('                    stroffset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.' + cl.name + '.' + cmd.name + ':", resString, stringLen, stroffset) ;\n')
+            cfile.write ('                    stroffset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.' + cl.name + '.' + cmd.name + ':", resString, stringLen, stroffset) ;\n')
             for arg in cmd.args:
                 cfile.write ('                    if (stroffset > 0)\n')
                 cfile.write ('                    {\n')
@@ -1918,28 +1601,28 @@ for proj in allProjects:
                 cfile.write ('                    }\n')
             cfile.write ('                    if (stroffset < 0)\n')
             cfile.write ('                    {\n')
-            cfile.write ('                        retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+            cfile.write ('                        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
             cfile.write ('                    }\n')
             cfile.write ('                }\n')
-            cfile.write ('                break; /* ' + AREnumValue (ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ' */\n')
+            cfile.write ('                break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_' + cl.name + '_CMD', cmd.name) + ' */\n')
         cfile.write ('                default:\n')
-        cfile.write ('                    stroffset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.' + cl.name + '.UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
-        cfile.write ('                    retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+        cfile.write ('                    stroffset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.' + cl.name + '.UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
+        cfile.write ('                    retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
         cfile.write ('                    break;\n')
         cfile.write ('                }\n')
         cfile.write ('            }\n')
-        cfile.write ('            break; /* ' + AREnumValue (ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ' */\n')
+        cfile.write ('            break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, proj.name + '_CLASS', cl.name) + ' */\n')
     cfile.write ('            default:\n')
-    cfile.write ('                stroffset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
-    cfile.write ('                retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+    cfile.write ('                stroffset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' ("' + proj.name + '.UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
+    cfile.write ('                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
     cfile.write ('                break;\n')
     cfile.write ('            }\n')
     cfile.write ('        }\n')
-    cfile.write ('        break; /* ' + AREnumValue (ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
+    cfile.write ('        break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'PROJECT', proj.name) + ' */\n')
 
 cfile.write ('        default:\n')
-cfile.write ('            stroffset = ' + ARFunctionName (DEC_SUBMODULE, 'WriteString') + ' ("UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
-cfile.write ('            retVal = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
+cfile.write ('            stroffset = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'WriteString') + ' ("UNKNOWN -> Unknown command", resString, stringLen, stroffset);\n')
+cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
 cfile.write ('            break;\n')
 cfile.write ('        }\n')
 cfile.write ('    }\n')
@@ -1992,7 +1675,7 @@ cfile.write ('\n')
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
-            cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' (')
+            cfile.write ('void ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ' (')
             first = True
             for arg in cmd.args:
                 if first:
@@ -2028,34 +1711,34 @@ for proj in allProjects:
     cfile.write ('\n')
 
 cfile.write ('\n')
-cfile.write ('void ' + ARFunctionName (TB_SUBMODULE, 'initCb') + ' (void)\n')
+cfile.write ('void ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, 'initCb') + ' (void)\n')
 cfile.write ('{\n')
 cfile.write ('    intptr_t cbCustom = 0;\n')
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
-            cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ((' + ARTypeName (DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') ' + ARFunctionName (TB_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ', (void *)cbCustom++ );\n')
+            cfile.write ('    ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' ((' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ') ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Cb') + ', (void *)cbCustom++ );\n')
 cfile.write ('}\n')
 
 cfile.write ('\n')
-cfile.write ('int ' + ARFunctionName (TB_SUBMODULE, 'autoTest') + ' ()\n')
+cfile.write ('int ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, 'autoTest') + ' ()\n')
 cfile.write ('{\n')
 cfile.write ('    int32_t buffSize = 128;\n')
 cfile.write ('    uint8_t *buffer = malloc (buffSize * sizeof (uint8_t));\n')
-cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' res = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' res = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n')
 cfile.write ('    int32_t resSize = 0;\n')
 cfile.write ('    errcount = 0;\n')
-cfile.write ('    ' + ARFunctionName (TB_SUBMODULE, 'initCb') + ' ();\n')
+cfile.write ('    ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, 'initCb') + ' ();\n')
 for proj in allProjects:
     cfile.write ('    // Project ' + proj.name + '\n')
     for cl in proj.classes:
         cfile.write ('    // Command class ' + cl.name + '\n')
         for cmd in cl.cmds:
-            cfile.write ('    res = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (buffer, buffSize, &resSize')
+            cfile.write ('    res = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' (buffer, buffSize, &resSize')
             for arg in cmd.args:
                 cfile.write (', ' + xmlToSample (proj, cl, cmd, arg))
             cfile.write (');\n')
-            cfile.write ('    if (res != ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (res != ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
             cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "Error while generating command ' + ARCapitalize (proj.name) + '.' + ARCapitalize (cl.name) + '.' + ARCapitalize (cmd.name) + '\\n\\n");\n')
             cfile.write ('        errcount++ ;\n')
@@ -2063,9 +1746,9 @@ for proj in allProjects:
             cfile.write ('    else\n')
             cfile.write ('    {\n')
             cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Generating command ' + ARCapitalize (proj.name) + '.' + ARCapitalize (cl.name) + '.' + ARCapitalize (cmd.name) + ' succeded");\n')
-            cfile.write ('        ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err;\n')
-            cfile.write ('        err = ' + ARFunctionName (DEC_SUBMODULE, 'DescribeBuffer') + ' (buffer, resSize, describeBuffer, 1024);\n')
-            cfile.write ('        if (err != ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('        ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err;\n')
+            cfile.write ('        err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DescribeBuffer') + ' (buffer, resSize, describeBuffer, 1024);\n')
+            cfile.write ('        if (err != ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('        {\n')
             cfile.write ('            ARSAL_PRINT (ARSAL_PRINT_ERROR, "' + TB_TAG + '", "Error while describing buffer: %d", err);\n')
             cfile.write ('            errcount++ ;\n')
@@ -2075,10 +1758,10 @@ for proj in allProjects:
             cfile.write ('            ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "%s", describeBuffer);\n')
             cfile.write ('        }\n')
             cfile.write ('        ' + TB_CALL_VARNAME (proj, cl, cmd) + ' = 1;\n')
-            cfile.write ('        err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (buffer, resSize);\n')
+            cfile.write ('        err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (buffer, resSize);\n')
             cfile.write ('        ' + TB_CALL_VARNAME (proj, cl, cmd) + ' = 0;\n')
             cfile.write ('        ARSAL_PRINT (ARSAL_PRINT_WARNING, "' + TB_TAG + '", "Decode return value : %d\\n\\n", err);\n')
-            cfile.write ('        if (err != ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('        if (err != ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('        {\n')
             cfile.write ('            errcount++ ;\n')
             cfile.write ('        }\n')
@@ -2118,7 +1801,7 @@ hfile.write (' ********************************************/\n')
 hfile.write ('#ifndef ' + TB_DEFINE + '\n')
 hfile.write ('#define ' + TB_DEFINE + ' (1)\n')
 hfile.write ('\n')
-hfile.write ('int ' + ARFunctionName (TB_SUBMODULE, 'autoTest') + ' ();\n')
+hfile.write ('int ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, 'autoTest') + ' ();\n')
 hfile.write ('\n')
 hfile.write ('#endif /* ' + TB_DEFINE + ' */\n')
 
@@ -2139,7 +1822,7 @@ cfile.write ('#include "' + COM_TB_DIR + TB_HFILE_NAME + '"\n')
 cfile.write ('\n')
 cfile.write ('int main (int argc, char *argv[])\n')
 cfile.write ('{\n')
-cfile.write ('    return ' + ARFunctionName (TB_SUBMODULE, 'autoTest') + ' ();\n')
+cfile.write ('    return ' + ARFunctionName (LIB_MODULE, TB_SUBMODULE, 'autoTest') + ' ();\n')
 cfile.write ('}\n')
 
 cfile.close ()
@@ -2204,7 +1887,7 @@ jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
 jfile.write ('public class ' + JNIClassName + ' extends ARNativeData {\n')
 jfile.write ('\n')
-jfile.write ('    public static final boolean ' + ARMacroName(JNIClassName, 'HAS_DEBUG_COMMANDS') + ' = ')
+jfile.write ('    public static final boolean ' + ARMacroName (LIB_MODULE, JNIClassName, 'HAS_DEBUG_COMMANDS') + ' = ')
 if genDebug:
     jfile.write ('true;\n')
 else:
@@ -2267,16 +1950,16 @@ jfile.write ('    /**\n')
 jfile.write ('     * Decodes the current ' + JNIClassName + ', calling commands listeners<br>\n')
 jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIClassName + ',\n')
 jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
-jfile.write ('     * @return An ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
+jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
 jfile.write ('     */\n')
-jfile.write ('    public ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode () {\n')
-jfile.write ('        ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode () {\n')
+jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 jfile.write ('        if (!valid) {\n')
 jfile.write ('            return err;\n')
 jfile.write ('        }\n')
 jfile.write ('        int errInt = nativeDecode (pointer, used);\n')
-jfile.write ('        if (' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
-jfile.write ('            err = ' + ARJavaEnumType (DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
+jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
 jfile.write ('        }\n')
 jfile.write ('        return err;\n')
 jfile.write ('    }\n')
@@ -2304,9 +1987,9 @@ for proj in allProjects:
             for arg in cmd.args:
                 for comm in arg.comments:
                     jfile.write ('     * @param _' + arg.name + ' ' + comm + '\n')
-            jfile.write ('     * @return An ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' error code.\n')
+            jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' error code.\n')
             jfile.write ('     */\n')
-            jfile.write ('    public ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
+            jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + ' (')
             first = True
             for arg in cmd.args:
                 if first:
@@ -2315,7 +1998,7 @@ for proj in allProjects:
                     jfile.write (', ')
                 jfile.write (xmlToJava (proj, cl, cmd, arg) + ' ' + arg.name)
             jfile.write (') {\n')
-            jfile.write ('        ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n')
+            jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n')
             jfile.write ('        if (!valid) {\n')
             jfile.write ('            return err;\n')
             jfile.write ('        }\n')
@@ -2323,8 +2006,8 @@ for proj in allProjects:
             for arg in cmd.args:
                 jfile.write (', ' + arg.name)
             jfile.write (');\n')
-            jfile.write ('        if (' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
-            jfile.write ('            err = ' + ARJavaEnumType (GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt);\n')
+            jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+            jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + '.getFromValue (errInt);\n')
             jfile.write ('        }\n')
             jfile.write ('        return err;\n')
             jfile.write ('    }\n')
@@ -2392,14 +2075,14 @@ cfile.write ('JNIEXPORT jstring JNICALL\n')
 cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeToString (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    jstring ret = NULL;\n')
-cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
 cfile.write ('    char *cstr = calloc (TOSTRING_STRING_SIZE, 1);\n')
 cfile.write ('    if (cstr == NULL)\n')
 cfile.write ('    {\n')
 cfile.write ('        return ret;\n')
 cfile.write ('    }\n')
-cfile.write ('    err = ' + ARFunctionName (DEC_SUBMODULE, 'DescribeBuffer') + ' ((uint8_t *)(intptr_t)jpdata, jdataSize, cstr, TOSTRING_STRING_SIZE);\n')
-cfile.write ('    if (err == ' + AREnumValue (DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+cfile.write ('    err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DescribeBuffer') + ' ((uint8_t *)(intptr_t)jpdata, jdataSize, cstr, TOSTRING_STRING_SIZE);\n')
+cfile.write ('    if (err == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
 cfile.write ('    {\n')
 cfile.write ('        ret = (*env)->NewStringUTF(env, cstr);\n')
 cfile.write ('    }\n')
@@ -2411,7 +2094,7 @@ cfile.write ('JNIEXPORT jint JNICALL\n')
 cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeDecode (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
 cfile.write ('{\n')
 cfile.write ('    uint8_t *pdata = (uint8_t *) (intptr_t)jpdata;\n')
-cfile.write ('    ' + AREnumName (DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (DEC_SUBMODULE, 'DecodeBuffer') + ' (pdata, jdataSize);\n')
+cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (pdata, jdataSize);\n')
 cfile.write ('    return err;\n')
 cfile.write ('}\n')
 cfile.write ('\n')
@@ -2425,7 +2108,7 @@ for proj in allProjects:
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t c_dataSize = 0;\n')
-            cfile.write ('    ' + AREnumName (GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n');
+            cfile.write ('    ' + AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n');
             cfile.write ('    if (g_dataSize_id == 0)\n')
             cfile.write ('    {\n')
             cfile.write ('        jclass clz = (*env)->GetObjectClass (env, thizz);\n')
@@ -2443,7 +2126,7 @@ for proj in allProjects:
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('    const char *c_' + arg.name + ' = (*env)->GetStringUTFChars (env, ' + arg.name + ', NULL);\n')
-            cfile.write ('    err = ' + ARFunctionName (GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
+            cfile.write ('    err = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write (', c_' + arg.name)
@@ -2453,7 +2136,7 @@ for proj in allProjects:
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('    (*env)->ReleaseStringUTFChars (env, ' + arg.name + ', c_' + arg.name + ');\n')
-            cfile.write ('    if (err == ' + AREnumValue (GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+            cfile.write ('    if (err == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
             cfile.write ('        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);\n')
             cfile.write ('    }\n')
@@ -2464,7 +2147,7 @@ for proj in allProjects:
     cfile.write ('\n')
 
 def cCallbackName (proj,cls,cmd):
-    return ARFunctionName (JNI_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'nativeCb')
+    return ARFunctionName (LIB_MODULE, JNI_SUBMODULE, ARCapitalize (proj.name) + ARCapitalize (cls.name) + ARCapitalize (cmd.name) + 'nativeCb')
 
 for proj in allProjects:
     for cl in proj.classes:
@@ -2543,7 +2226,7 @@ cfile.write ('\n')
 for proj in allProjects:
     for cl in proj.classes:
         for cmd in cl.cmds:
-            cfile.write ('    ' + ARFunctionName (DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + cCallbackName (proj,cl,cmd) + ', (void *)g_class);\n')
+            cfile.write ('    ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name) + 'Callback') + ' (' + cCallbackName (proj,cl,cmd) + ', (void *)g_class);\n')
         cfile.write ('\n')
     cfile.write ('\n')
 cfile.write ('\n')
