@@ -46,12 +46,12 @@
 
     <class name="Video" id="0">
         Debug commands for video
-	<cmd name="EnableWobbleCancellation">
-	    Turn on/off wobble cancellation
-		<arg name="enable" type="u8">
-		    When enable=0, wobble cancellation is disabled else it's enabled
-		</arg>
-	</cmd>
+        <cmd name="EnableWobbleCancellation">
+            Turn on/off wobble cancellation
+            <arg name="enable" type="u8">
+                When enable=0, wobble cancellation is disabled else it's enabled
+            </arg>
+        </cmd>
         <cmd name="SyncAnglesGyros">
             Adjust delay between angles/gyros and frame for video stabilization and wobble cancellation
 
