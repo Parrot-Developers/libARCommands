@@ -233,10 +233,30 @@
         
     </class>
     
+    <class name="AudioSettings" id="12">
+        Audio settings.
+        <cmd name="MasterVolume">
+            Master volume control.
+            <arg name="volume" type="u8">
+                Master audio volume [0:100].
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="AudioSettingsState" id="13">
+        Audio settings state.
+        <cmd name="MasterVolumeChanged">
+            Master volume control.
+            <arg name="volume" type="u8">
+                Master audio volume [0:100].
+            </arg>
+        </cmd>
+    </class>
+
     <class name="NetworkSettings" id="8">
         Network settings commands
         <cmd name="WifiAutoSelect">
-            Auto-select channel of choosen band
+            Master volume control.
             <arg name="band" type="enum">
                 The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
                 <enum name="all">
