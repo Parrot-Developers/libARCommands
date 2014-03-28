@@ -497,14 +497,5 @@
                 Product GPS hardware version
             </arg>
         </cmd>
-        <cmd name="ProductInertialVersionChanged">
-            Product Inertial versions
-            <arg name="software" type="string">
-                Product Inertial software version
-            </arg>
-            <arg name="hardware" type="string">
-                Product Inertial hardware version
-            </arg>
-        </cmd>
     </class>
 </project>
