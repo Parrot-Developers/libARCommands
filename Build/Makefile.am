@@ -11,10 +11,12 @@ HEADER_FILES                            =   ../Includes/libARCommands/ARCOMMANDS
 
 
 # The sources to add to the library and to add to the source distribution
-SOURCE_FILES                            =   $(HEADER_FILES)                   \
-                                            ../Sources/ARCOMMANDS_Generator.c  \
-                                            ../Sources/ARCOMMANDS_Decoder.c    \
-                                            ../Sources/ARCOMMANDS_Ids.h
+SOURCE_FILES                            =   $(HEADER_FILES)                     \
+                                            ../Sources/ARCOMMANDS_Generator.c   \
+                                            ../Sources/ARCOMMANDS_Decoder.c     \
+                                            ../Sources/ARCOMMANDS_ReadWrite.c   \
+                                            ../Sources/ARCOMMANDS_Ids.h         \
+                                            ../Sources/ARCOMMANDS_ReadWrite.h
 
 # The library names to build (note we are building static and shared libs)
 if DEBUG_MODE
