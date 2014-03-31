@@ -1074,7 +1074,7 @@ if hasArgOfType['string']:
     cfile.write ('    char *buffAddr = (char *)&buffer[*offset];\n')
     cfile.write ('    int newOffset = *offset;\n')
     cfile.write ('    int str_len = 0;\n')
-    cfile.write ('    while (newOffset < capacity && \'\\0\' != (char) buffer [newOffset])\n')
+    cfile.write ('    while ((newOffset < capacity) && (\'\\0\' != (char) buffer [newOffset]))\n')
     cfile.write ('    {\n')
     cfile.write ('        str_len++ ;\n');
     cfile.write ('        newOffset += sizeof (char);\n');
@@ -1533,7 +1533,7 @@ cfile.write ('    int32_t offset = 0;\n')
 cfile.write ('    int32_t error = 0;\n')
 cfile.write ('    int stroffset = 0;\n')
 cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
-cfile.write ('    if (NULL == buffer || NULL == resString)\n')
+cfile.write ('    if ((NULL == buffer) || (NULL == resString))\n')
 cfile.write ('    {\n')
 cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
 cfile.write ('    }\n')
