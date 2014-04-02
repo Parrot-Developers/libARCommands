@@ -64,6 +64,10 @@
             Get all product settings, the product must send all settings
         </cmd>
         
+        <cmd name="Reset">
+            Reset all settings
+        </cmd>
+
         <cmd name="ProductName">
             Set Product name
             <arg name="name" type="string">
@@ -78,6 +82,10 @@
             State sent when all settings has been sent.
         </cmd>
         
+        <cmd name="ResetChanged">
+            State sent when all settings has been resetting.
+        </cmd>
+
         <cmd name="ProductNameChanged">
             Product name 
             <arg name="name" type="string">
