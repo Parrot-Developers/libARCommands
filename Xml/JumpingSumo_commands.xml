@@ -79,10 +79,6 @@
                 </enum>
             </arg>
         </cmd>
-        
-        <cmd name="requestFullStateRefresh">
-            Request the JS to send all the possible states in order to retrieve the full state of the JS.
-        </cmd>
     </class>
     
     <class name="Animations" id="2">
