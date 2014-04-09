@@ -399,8 +399,17 @@
     
     <class name="NetworkSettings" id="9">
         Network settings commands
-        <cmd name="WifiAutoSelect">
+        <cmd name="WifiSelection">
             Auto-select channel of choosen band
+            <arg name="type" type="enum">
+                The type of wifi selection (auto, manual)
+                <enum name="auto">
+                    Auto selection
+                </enum>
+                <enum name="manual">
+                    Manual selection
+                </enum>
+            </arg>
             <arg name="band" type="enum">
                 The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
                 <enum name="all">
@@ -413,12 +422,30 @@
                     5 GHz band
                 </enum>
             </arg>
+            <arg name="channel" type="u8">
+                The channel (not used in auto mode)
+            </arg>
         </cmd>
-        
-        <cmd name="WifiManualSelect">
-            Select manually band and channel
+    </class>
+    
+    <class name="NetworkSettingsState" id="10">
+        Network settings state from product
+        <cmd name="WifiSelectionChanged">
+            Wifi selection from product
+            <arg name="type" type="enum">
+                The type of wifi selection (auto, manual)
+                <enum name="auto">
+                    Auto selection
+                </enum>
+                <enum name="manual">
+                    Manual selection
+                </enum>
+            </arg>
             <arg name="band" type="enum">
-                The band : 2.4 GHz or 5 GHz
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
                 <enum name="2_4ghz">
                     2.4 GHz band
                 </enum>
@@ -432,40 +459,6 @@
         </cmd>
     </class>
     
-    <class name="NetworkSettingsState" id="10">
-        Network settings state from product
-        <cmd name="WifiAutoSelectChanged">
-            Autoselected band from product
-            <arg name="band" type="enum">
-                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-            </arg>
-        </cmd>
-        
-        <cmd name="WifiManualSelectChanged">
-            Manual selection band and channel from product
-            <arg name="band" type="enum">
-                The band : 2.4 GHz or 5 GHz
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-            </arg>
-            <arg name="channel" type="u8">
-                The channel (depends of the band)
-            </arg>
-        </cmd>
-    </class>
     <class name="Settings" id="15">
         Settings commands
     
