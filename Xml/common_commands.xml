@@ -63,11 +63,9 @@
         <cmd name="AllSettings">
             Get all product settings, the product must send all settings
         </cmd>
-        
         <cmd name="Reset">
             Reset all settings
         </cmd>
-
         <cmd name="ProductName">
             Set Product name
             <arg name="name" type="string">
@@ -116,10 +114,53 @@
         <cmd name="AllStatesChanged">
             State sent when all product states has been sent.
         </cmd>
+        
         <cmd name="BatteryStateChanged">
             Battery state
             <arg name="percent" type="u8">
                 Battery percentage
+            </arg>
+        </cmd>
+        
+        <cmd name="MassStorageStateChanged">
+            Mass storage state
+            <arg name="name" type="string">
+                Mass storage name
+            </arg>
+            <arg name="size" type="u8">
+                Mass storage size
+            </arg>
+            <arg name="used_size" type="u8">
+                Mass storage used size
+            </arg>
+            <arg name="state" type="enum">
+                Mass storage state
+                <enum name="plugged">
+                    State mass storage unplugged
+                </enum>
+                <enum name="unplugged">
+                    State mass storage plugged
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="MassStorageSettings" id="6">
+        Mass storage commands
+        <cmd name="Select">
+            Select mass storage to record.
+            <arg name="name" type="string">
+                Nale of mass storage to record.
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="MassStorageSettings" id="7">
+        Mass storage settings state from product
+        <cmd name="SelectChanged">
+            Select mass storage to record state changed.
+            <arg name="name" type="string">
+                Nale of mass storage to record.
             </arg>
         </cmd>
     </class>
