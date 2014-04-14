@@ -155,12 +155,12 @@
         </cmd>
     </class>
     
-    <class name="MassStorageSettings" id="7">
+    <class name="MassStorageSettingsState" id="7">
         Mass storage settings state from product
         <cmd name="SelectChanged">
             Select mass storage to record state changed.
             <arg name="name" type="string">
-                Nale of mass storage to record.
+                Name of mass storage to record.
             </arg>
         </cmd>
     </class>
