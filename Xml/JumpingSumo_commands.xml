@@ -264,7 +264,15 @@
     
     <class name="SettingsState" id="5">
         Settings state from product
-        
+       <cmd name="ProductGPSVersionChanged">
+            Product GPS versions
+            <arg name="software" type="string">
+                Product GPS software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product GPS hardware version
+            </arg>
+        </cmd>
     </class>
     
     <class name="AudioSettings" id="12">
