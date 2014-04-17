@@ -171,6 +171,9 @@
                 <enum name="started">
                     Video was started
                 </enum>
+                <enum name="failed">
+                    Video was failed
+                </enum>
             </arg>
         </cmd>
     </class>

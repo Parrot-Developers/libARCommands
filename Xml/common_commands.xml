@@ -133,13 +133,15 @@
             <arg name="used_size" type="u8">
                 Mass storage used size
             </arg>
+            <arg name="plugged" type="u8">
+                Mass storage plugged (1 if mass storage is plugged, otherwise 0)
+            </arg>
             <arg name="state" type="enum">
-                Mass storage state
-                <enum name="plugged">
-                    State mass storage unplugged
+                <enum name="ready">
+                    Mass storage state is ready
                 </enum>
-                <enum name="unplugged">
-                    State mass storage plugged
+                <enum name="full">
+                    Mass storage state is full
                 </enum>
             </arg>
         </cmd>
