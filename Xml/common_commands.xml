@@ -127,10 +127,10 @@
             <arg name="name" type="string">
                 Mass storage name
             </arg>
-            <arg name="size" type="u8">
+            <arg name="size" type="u64">
                 Mass storage size
             </arg>
-            <arg name="used_size" type="u8">
+            <arg name="used_size" type="u64">
                 Mass storage used size
             </arg>
             <arg name="plugged" type="u8">
