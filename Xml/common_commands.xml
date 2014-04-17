@@ -137,6 +137,7 @@
                 Mass storage plugged (1 if mass storage is plugged, otherwise 0)
             </arg>
             <arg name="state" type="enum">
+                Mass storage device state.
                 <enum name="ready">
                     Mass storage state is ready
                 </enum>
