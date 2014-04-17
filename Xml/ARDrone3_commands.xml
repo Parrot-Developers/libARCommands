@@ -361,6 +361,12 @@
                 1 if present, 0 if not present
             </arg>
         </cmd>
+        <cmd name="Outdoor">
+            Outdoor property
+            <arg name="outdoor" type="u8">
+                1 if outdoor flight, 0 if indoor flight
+            </arg>
+        </cmd>
     </class>
     
     <class name="SpeedSettingsState" id="12">
