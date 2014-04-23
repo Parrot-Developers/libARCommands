@@ -103,73 +103,12 @@
             Put drone in emergency state
         </cmd>
         
-        <cmd name="RollingMode">
-            Set MiniDrone rolling mode
-            <arg name="mode" type="enum">
-                Mode for the rolling state
-                <enum name="ground">
-                    Rolling mode ground by default
-                </enum>
-                <enum name="ceiling">
-                    Rolling mode ceiling
-                </enum>
-                <enum name="wall">
-                    Rolling mode wall
-                </enum>
-            </arg>
-        </cmd>
-    </class>
-    
-    <class name="Animations" id="4">
-        Animation commands
-        
-        <cmd name="Flip">
-            Make a flip
-            <arg name="direction" type="enum">
-                Direction for the flip
-                <enum name="front">
-                    Flip direction front
-                </enum>
-                <enum name="back">
-                    Flip direction back
-                </enum>
-                <enum name="right">
-                    Flip direction right
-                </enum>
-                <enum name="left">
-                    Flip direction left
-                </enum>
-            </arg>
-        </cmd>
-        <cmd name="Cap">
-            Change the product cap
-            <arg name="offset" type="i16">
-                Change the cap with offset angle [-180;180]
-            </arg>
-        </cmd>
-    </class>
-    
-    <class name="MediaRecord" id="6">
-        Media recording management
-        
-        <cmd name="Picture">
-            Take picture
-        </cmd>
-    </class>
-    
-    <class name="MediaRecordState" id="7">
-        State of media recording
-        
-        <cmd name="PictureStateChanged">
-            State of picture recording
+        <cmd name="AutoTakeOffMode">
+            Set MiniDrone automatic take off mode
             <arg name="state" type="u8">
-                1 if picture has been taken, 0 otherwise
+                State of automatic take off mode
             </arg>
         </cmd>
-    </class>
-
-    <class name="Event" id="2">
-        Event from drone
     </class>
     
     <class name="PilotingState" id="3">
@@ -225,6 +164,65 @@
                 </enum>
             </arg>
         </cmd>
+        
+        <cmd name="AutoTakeOffModeChanged">
+            Set MiniDrone automatic take off mode
+            <arg name="state" type="u8">
+                State of automatic take off mode
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Animations" id="4">
+        Animation commands
+        
+        <cmd name="Flip">
+            Make a flip
+            <arg name="direction" type="enum">
+                Direction for the flip
+                <enum name="front">
+                    Flip direction front
+                </enum>
+                <enum name="back">
+                    Flip direction back
+                </enum>
+                <enum name="right">
+                    Flip direction right
+                </enum>
+                <enum name="left">
+                    Flip direction left
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="Cap">
+            Change the product cap
+            <arg name="offset" type="i16">
+                Change the cap with offset angle [-180;180]
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="MediaRecord" id="6">
+        Media recording management
+        
+        <cmd name="Picture">
+            Take picture
+        </cmd>
+    </class>
+    
+    <class name="MediaRecordState" id="7">
+        State of media recording
+        
+        <cmd name="PictureStateChanged">
+            State of picture recording
+            <arg name="state" type="u8">
+                1 if picture has been taken, 0 otherwise
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Event" id="2">
+        Event from drone
     </class>
     
     <class name="PilotingSettings" id="8">
