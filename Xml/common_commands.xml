@@ -107,6 +107,7 @@
         <cmd name="AllStates">
             Get all product states.
         </cmd>
+        
         <cmd name="CurrentDate">
             Set current date of controller
             <arg name="date" type="string">
