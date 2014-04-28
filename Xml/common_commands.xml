@@ -107,6 +107,12 @@
         <cmd name="AllStates">
             Get all product states.
         </cmd>
+        <cmd name="CurrentDate">
+            Set current date of controller
+            <arg name="date" type="string">
+                Date with ISO-8601 format
+            </arg>
+        </cmd>
     </class>
 
     <class name="CommonState" id="5">
@@ -144,6 +150,13 @@
                 <enum name="full">
                     Mass storage state is full
                 </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="CurrentDateChanged">
+            Current date state
+            <arg name="date" type="string">
+                Date with ISO-8601 format
             </arg>
         </cmd>
     </class>
