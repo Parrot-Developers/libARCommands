@@ -114,6 +114,13 @@
                 Date with ISO-8601 format
             </arg>
         </cmd>
+        
+        <cmd name="CurrentTime">
+            Set current time of controller
+            <arg name="time" type="string">
+                Time with ISO-8601 format
+            </arg>
+        </cmd>
     </class>
 
     <class name="CommonState" id="5">
@@ -158,6 +165,13 @@
             Current date state
             <arg name="date" type="string">
                 Date with ISO-8601 format
+            </arg>
+        </cmd>
+        
+        <cmd name="CurrentTimeChanged">
+            Current time state
+            <arg name="time" type="string">
+                Time with ISO-8601 format
             </arg>
         </cmd>
     </class>
