@@ -64,5 +64,8 @@
 			</arg>
 
         </cmd>
+        <cmd name="ManualWhiteBalance">
+            Tune white balance
+        </cmd>
     </class>
 </project>
