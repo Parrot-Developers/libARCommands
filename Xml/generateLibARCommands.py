@@ -2881,16 +2881,24 @@ for proj in allProjects:
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('    const char *c_' + arg.name + ' = (*env)->GetStringUTFChars (env, ' + arg.name + ', NULL);\n')
+                elif 'enum' == arg.type:
+                    cfile.write ('    jclass j_' + arg.name + '_class = (*env)->FindClass (env, "' + jniEnumClassName (proj, cl, cmd, arg) + '");\n')
+                    cfile.write ('    jmethodID j_' + arg.name + '_mid = (*env)->GetMethodID (env, j_' + arg.name + '_class, "getValue", "()I");\n')
+                    cfile.write ('    jint j_' + arg.name + '_enum = (*env)->CallIntMethod (env, ' + arg.name + ', j_' + arg.name + '_mid);\n')
             cfile.write ('    err = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (proj.name) + ARCapitalize (cl.name) + ARCapitalize (cmd.name)) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write (', c_' + arg.name)
+                elif 'enum' == arg.type:
+                    cfile.write (', j_' + arg.name + '_enum')
                 else:
                     cfile.write (', (' + xmlToC (proj, cl, cmd, arg) + ')' + arg.name)
             cfile.write (');\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
                     cfile.write ('    (*env)->ReleaseStringUTFChars (env, ' + arg.name + ', c_' + arg.name + ');\n')
+                elif 'enum' == arg.type:
+                    cfile.write ('    (*env)->DeleteLocalRef (env, j_' + arg.name + '_class);\n')
             cfile.write ('    if (err == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
             cfile.write ('        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);\n')
