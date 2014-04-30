@@ -140,6 +140,9 @@
                 <enum name="emergency">
                     Emergency state
                 </enum>
+                <enum name="rolling">
+                    Rolling state
+                </enum>
             </arg>
         </cmd>
         
