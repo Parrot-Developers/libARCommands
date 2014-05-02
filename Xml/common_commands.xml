@@ -159,6 +159,18 @@
                     Mass storage state is full
                 </enum>
             </arg>
+            <arg name="type" type="enum">
+                Mass storage type state
+                <enum name="internal">
+                    Mass storage type is internal memory
+                </enum>
+                <enum name="usb_key">
+                    Mass storage type is usb_key
+                </enum>
+                <enum name="sdcard">
+                    Mass storage type is sdcard
+                </enum>
+            </arg>
         </cmd>
         
         <cmd name="CurrentDateChanged">
