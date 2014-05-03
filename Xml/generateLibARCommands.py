@@ -289,7 +289,7 @@ def xmlToJavaSig (proj, cl, cmd, arg):
 
 def xmlToJni (proj, cl, cmd, arg):
     if 'enum' == arg.type:
-        return 'jint'
+        return 'jobject'
     xmlIndex = XMLTYPES.index (arg.type)
     return JNITYPES [xmlIndex]
 
