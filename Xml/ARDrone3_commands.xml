@@ -261,7 +261,7 @@
     <class name="NetworkState" id="14">
         Network state from Product
         
-        <cmd name="WifiScanChanged">
+        <cmd name="WifiScanListChanged">
             One scanning result found
             <arg name="ssid" type="string">
                 SSID of the AP
