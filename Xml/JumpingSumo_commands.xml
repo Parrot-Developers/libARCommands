@@ -286,6 +286,24 @@
                 Master audio volume [0:100].
             </arg>
         </cmd>
+        <cmd name="Theme">
+            Audio Theme.
+            <arg name="theme" type="enum">
+                The audio theme to set.
+                <enum name="default">
+                    Default audio theme (depends on the product color)
+                </enum>
+                <enum name="robot">
+                    Robot audio theme.
+                </enum>
+                <enum name="insect">
+                    Insect audio theme.
+                </enum>
+                <enum name="monster">
+                    Monster audio theme.
+                </enum>
+            </arg>
+        </cmd>
     </class>
 
     <class name="AudioSettingsState" id="13">
@@ -294,6 +312,24 @@
             Master volume control.
             <arg name="volume" type="u8">
                 Master audio volume [0:100].
+            </arg>
+        </cmd>
+        <cmd name="ThemeChanged">
+            Command to notify controller of new Audio Theme.
+            <arg name="theme" type="enum">
+                The audio theme to set.
+                <enum name="default">
+                    Default audio theme (depends on the product color)
+                </enum>
+                <enum name="robot">
+                    Robot audio theme.
+                </enum>
+                <enum name="insect">
+                    Insect audio theme.
+                </enum>
+                <enum name="monster">
+                    Monster audio theme.
+                </enum>
             </arg>
         </cmd>
     </class>
