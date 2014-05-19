@@ -4,23 +4,23 @@
  Important notes :
  ALWAYS ADD NEW THINGS AT THE END OF THE PARENT TAG !
  NEVER MODIFY EXISTING class/command/arg !
- 
+
  Comments ("comm" attributes) are mandatory for all classes/commands/args
  For each comment : 1st line will be used as brief (if applicable) +
  1st line of complete desc. Other lines will be used as complete desc
- 
+
  How to add a new class :
  <class name="myNewClassName" >           | No spaces ! [A-Za-z0-9_]
  Comment about the class                | Inlcuded in Doxygen doc
  <cmd> ... </cmd>                       | List of commands
  <cmd> ... </cmd>
  </class>
- 
+
  How to add a new command (without args) to a class :
  <cmd name="myNewCommandName" >           | No spaces ! [A-Za-z0-9_]
  Comment about the command              | Included in Doxygen doc
  </cmd>
- 
+
  How to add a new command (with args) to a class :
  <cmd name="myNewCommandWithArgs" >       | No spaces ! [A-Za-z0-9_]
  Comment about the command              | Included in Doxygen doc
@@ -29,7 +29,7 @@
  </arg>                                 | argType must be a valid type (see below)
  ...                                    | Comment included in Doxygen doc
  </cmd>
- 
+
  List of valid types (associated C type) :
  -  i8 /  u8 : signed/unsigned  8 bit integer ([u]int8_t)
  - i16 / u16 : signed/unsigned 16 bit integer ([u]int16_t)
@@ -43,31 +43,31 @@
 
 <project id="3">
     All commands specific to the Jumping Sumo.
-    
+
     <class name="Piloting" id="0">
         All commands related to piloting the JumpingSumo
-        
+
         <cmd name="PCMD">
             Ask the JS speed and turn ratio.
-            
+
             <arg name="flag" type="u8">
                 Boolean for "touch screen".
             </arg>
-            
+
             <arg name="speed" type="i8">
                 Speed value [-100:100].
             </arg>
-            
+
             <arg name="turn" type="i8">
                 Turn value. [-100:100]
             </arg>
         </cmd>
-        
+
         <cmd name="Posture">
             Request a posture
             <arg name="type" type="enum">
                 Type of Posture
-                
+
                 <enum name="standing">
                     Standing type
                 </enum>
@@ -80,10 +80,53 @@
             </arg>
         </cmd>
     </class>
-    
+
+    <class name="PilotingState" id="1">
+        Animations state from JS.
+
+        <cmd name="PostureChanged">
+            State of posture changed.
+            <arg name="state" type="enum">
+                State of posture
+
+                <enum name="standing">
+                    Standing state
+                </enum>
+                <enum name="jumper">
+                    Jumper state
+                </enum>
+                <enum name="kicker">
+                    Kicker state
+                </enum>
+                <enum name="stuck">
+                    Stuck state
+                </enum>
+                <enum name="unknown">
+                    Unknown state
+                </enum>
+            </arg>
+        </cmd>
+
+        <cmd name="AlertStateChanged">
+            JS alert state changed
+            <arg name="state" type="enum">
+                JS alert state
+                <enum name="none">
+                    No alert
+                </enum>
+                <enum name="critical_battery">
+                    Critical battery alert
+                </enum>
+                <enum name="low_battery">
+                    Low battery alert
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
     <class name="Animations" id="2">
         Animation commands
-        
+
         <cmd name="JumpStop">
             Stop jump, emergency jump stop, stop jump motor and stay there.
         </cmd>
@@ -97,7 +140,7 @@
             Request a jump
             <arg name="type" type="enum">
                 Type of jump
-                
+
                 <enum name="long">
                     Long jump.
                 </enum>
@@ -108,7 +151,7 @@
         </cmd>
         <cmd name="SimpleAnimation">
             Play a parameterless animation.
-            
+
             <arg name="id" type="enum">
                 Animation ID.
 
@@ -145,14 +188,56 @@
             </arg>
         </cmd>
     </class>
-    
+
+    <class name="AnimationsState" id="3">
+        Animations state from JS.
+
+        <cmd name="JumpLoadChanged">
+            State of jump load changed
+
+            <arg name="state" type="enum">
+                State of jump load
+                <enum name="unknown">
+                    Unknown state
+                </enum>
+                <enum name="unloaded">
+                    Unloaded state
+                </enum>
+                <enum name="loaded">
+                    Loaded state
+                </enum>
+                <enum name="busy">
+                    Busy state
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Settings" id="4">
+        Settings commands
+
+    </class>
+
+    <class name="SettingsState" id="5">
+        Settings state from product
+       <cmd name="ProductGPSVersionChanged">
+            Product GPS versions
+            <arg name="software" type="string">
+                Product GPS software version
+            </arg>
+            <arg name="hardware" type="string">
+                Product GPS hardware version
+            </arg>
+        </cmd>
+    </class>
+
     <class name="MediaRecord" id="6">
         Media recording management
-        
+
         <cmd name="Picture">
             Take picture
         </cmd>
-        
+
         <cmd name="Video">
             Video record
             <arg name="record" type="enum">
@@ -166,10 +251,10 @@
             </arg>
         </cmd>
     </class>
-    
+
     <class name="MediaRecordState" id="7">
         State of media recording
-        
+
         <cmd name="PictureStateChanged">
             State of picture recording
             <arg name="state" type="u8">
@@ -193,91 +278,118 @@
         </cmd>
     </class>
 
-    <class name="PilotingState" id="1">
-        Animations state from JS.
-        
-        <cmd name="PostureChanged">
-            State of posture changed.
-            <arg name="state" type="enum">
-                State of posture
-                
-                <enum name="standing">
-                    Standing state
+    <class name="NetworkSettings" id="8">
+        Network settings commands
+        <cmd name="WifiSelection">
+            Auto-select channel of choosen band
+            <arg name="type" type="enum">
+                The type of wifi selection (auto, manual)
+                <enum name="auto">
+                    Auto selection
                 </enum>
-                <enum name="jumper">
-                    Jumper state
-                </enum>
-                <enum name="kicker">
-                    Kicker state
-                </enum>
-                <enum name="stuck">
-                    Stuck state
-                </enum>
-                <enum name="unknown">
-                    Unknown state
+                <enum name="manual">
+                    Manual selection
                 </enum>
             </arg>
-        </cmd>
-        
-        <cmd name="AlertStateChanged">
-            JS alert state changed
-            <arg name="state" type="enum">
-                JS alert state
-                <enum name="none">
-                    No alert
+            <arg name="band" type="enum">
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+                <enum name="2_4ghz">
+                    2.4 GHz band
                 </enum>
-                <enum name="critical_battery">
-                    Critical battery alert
+                <enum name="5ghz">
+                    5 GHz band
                 </enum>
-                <enum name="low_battery">
-                    Low battery alert
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
                 </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (not used in auto mode)
             </arg>
         </cmd>
     </class>
-    
-    <class name="AnimationsState" id="3">
-        Animations state from JS.
-        
-        <cmd name="JumpLoadChanged">
-            State of jump load changed
-            
-            <arg name="state" type="enum">
-                State of jump load
-                <enum name="unknown">
-                    Unknown state
+
+    <class name="NetworkSettingsState" id="9">
+        Network settings state from product
+        <cmd name="WifiSelectionChanged">
+            Wifi selection from product
+            <arg name="type" type="enum">
+                The type of wifi selection (auto, manual)
+                <enum name="auto">
+                    Auto selection
                 </enum>
-                <enum name="unloaded">
-                    Unloaded state
+                <enum name="manual">
+                    Manual selection
                 </enum>
-                <enum name="loaded">
-                    Loaded state
+            </arg>
+            <arg name="band" type="enum">
+                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="2_4ghz">
+                    2.4 GHz band
                 </enum>
-                <enum name="busy">
-                    Busy state
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel (depends of the band)
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Network" id="10">
+        Network related commands
+
+        <cmd name="WifiScan">
+            Launches wifi network scan
+            <arg name="band" type="enum">
+                The band(s) : 2.4 Ghz, 5 Ghz, or both
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
+                </enum>
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
                 </enum>
             </arg>
         </cmd>
     </class>
-    
-    <class name="Settings" id="4">
-        Settings commands
-        
-    </class>
-    
-    <class name="SettingsState" id="5">
-        Settings state from product
-       <cmd name="ProductGPSVersionChanged">
-            Product GPS versions
-            <arg name="software" type="string">
-                Product GPS software version
+
+    <class name="NetworkState" id="11">
+        Network state from Product
+
+        <cmd name="WifiScanListChanged">
+            One scanning result found
+            <arg name="ssid" type="string">
+                SSID of the AP
             </arg>
-            <arg name="hardware" type="string">
-                Product GPS hardware version
+            <arg name="rssi" type="i16">
+                RSSI of the AP in dbm (negative value)
+            </arg>
+            <arg name="band" type="enum">
+                The band : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                Channel of the AP
             </arg>
         </cmd>
+
+        <cmd name="AllWifiScanChanged">
+            State sent when all scanning result sent
+        </cmd>
     </class>
-    
+
     <class name="AudioSettings" id="12">
         Audio settings.
         <cmd name="MasterVolume">
@@ -334,115 +446,65 @@
         </cmd>
     </class>
 
-    <class name="NetworkSettings" id="8">
-        Network settings commands
-        <cmd name="WifiSelection">
-            Auto-select channel of choosen band
-            <arg name="type" type="enum">
-                The type of wifi selection (auto, manual)
-                <enum name="auto">
-                    Auto selection
-                </enum>
-                <enum name="manual">
-                    Manual selection
-                </enum>
-            </arg>
-            <arg name="band" type="enum">
-                The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
-            </arg>
-            <arg name="channel" type="u8">
-                The channel (not used in auto mode)
-            </arg>
+    <class name="RoadPlan" id="14">
+        RoadPlan commands.
+        <cmd name="AllScriptsMetadata">
+            Command to ask device all metadata scripts.
         </cmd>
-    </class>
-    
-    <class name="NetworkSettingsState" id="9">
-        Network settings state from product
-        <cmd name="WifiSelectionChanged">
-            Wifi selection from product
-            <arg name="type" type="enum">
-                The type of wifi selection (auto, manual)
-                <enum name="auto">
-                    Auto selection
-                </enum>
-                <enum name="manual">
-                    Manual selection
-                </enum>
+        <cmd name="ScriptUploaded">
+            Notify device that a new file has been uploaded.
+            <arg name="filename" type="string">
+                Name of uploaded file.
             </arg>
-            <arg name="band" type="enum">
-                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
-            </arg>
-            <arg name="channel" type="u8">
-                The channel (depends of the band)
+            <arg name="md5Hash" type="string">
+                MD5 hash code computed over file.
             </arg>
         </cmd>
     </class>
 
-    <class name="Network" id="10">
-        Network related commands
-        
-        <cmd name="WifiScan">
-            Launches wifi network scan
-            <arg name="band" type="enum">
-                The band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
+    <class name="RoadPlanState" id="15">
+        RoadPlan command responses.
+        <cmd name="ScriptMetadataChanged">
+            Update the controller with metadata.
+            <arg name="version" type="u8">
+                Version number for this script.
+            </arg>
+            <arg name="product" type="string">
+                Product targeted by script.
+            </arg>
+            <arg name="uuid" type="string">
+                Script uuid for which metadata changed.
+            </arg>
+            <arg name="name" type="string">
+                Display name of the script.
+            </arg>
+            <arg name="description" type="string">
+                Description of script contents.
             </arg>
         </cmd>
-    </class>
-    
-    <class name="NetworkState" id="11">
-        Network state from Product
-    
-        <cmd name="WifiScanListChanged">
-            One scanning result found
-            <arg name="ssid" type="string">
-                SSID of the AP
-            </arg>
-            <arg name="rssi" type="i16">
-                RSSI of the AP in dbm (negative value)
-            </arg>
-            <arg name="band" type="enum">
-                The band : 2.4 GHz or 5 GHz
-                <enum name="2_4ghz">
-                    2.4 GHz band
-                </enum>
-                <enum name="5ghz">
-                    5 GHz band
-                </enum>
-            </arg>
-            <arg name="channel" type="u8">
-                Channel of the AP
-            </arg>
+        <cmd name="AllScriptsMetadataEnded">
+            Notify controller that all script metadatas are updated.
         </cmd>
-        
-        <cmd name="AllWifiScanChanged">
-            State sent when all scanning result sent
+        <cmd name="ScriptUploadResult">
+            Device response to ScriptUploaded command.
+            <arg name="resultCode" type="enum">
+                Error code.
+                <enum name="error_ok">
+                    The script was parsed successfully.
+                </enum>
+                <enum name="error_file_corrupted">
+                    The MD5 hash codes are different or file is unreadable.
+                </enum>
+                <enum name="error_invalid_format">
+                    The parser is not well formed or can not be parsed.
+                </enum>
+                <enum name="error_file_too_large">
+                    The file is larger than maximum allowed size.
+                </enum>
+                <enum name="error_unsupported">
+                    Script version is not supported by device.
+                </enum>
+            </arg>
         </cmd>
     </class>
 </project>
