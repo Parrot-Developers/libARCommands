@@ -347,14 +347,14 @@
             Launches wifi network scan
             <arg name="band" type="enum">
                 The band(s) : 2.4 Ghz, 5 Ghz, or both
-                <enum name="all">
-                    Both 2.4 and 5 GHz bands
-                </enum>
                 <enum name="2_4ghz">
                     2.4 GHz band
                 </enum>
                 <enum name="5ghz">
                     5 GHz band
+                </enum>
+                <enum name="all">
+                    Both 2.4 and 5 GHz bands
                 </enum>
             </arg>
         </cmd>
