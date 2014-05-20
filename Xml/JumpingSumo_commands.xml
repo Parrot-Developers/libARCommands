@@ -460,6 +460,12 @@
                 MD5 hash code computed over file.
             </arg>
         </cmd>
+        <cmd name="ScriptDelete">
+            Ask the device to delete a script.
+            <arg name="uuid" type="string">
+                UUID of the file to delete.
+            </arg>
+        </cmd>
     </class>
 
     <class name="RoadPlanState" id="15">
@@ -503,6 +509,21 @@
                 </enum>
                 <enum name="error_unsupported">
                     Script version is not supported by device.
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="ScriptDeleteResult">
+            Device response to ScriptDelete command.
+            <arg name="resultCode" type="enum">
+                Error code.
+                <enum name="error_ok">
+                    The script was deleted successfully.
+                </enum>
+                <enum name="error_no_such_script">
+                    No script with this uuid exists.
+                </enum>
+                <enum name="error_internal_failure">
+                    An internal error occured while attempting to delete the script.
                 </enum>
             </arg>
         </cmd>
