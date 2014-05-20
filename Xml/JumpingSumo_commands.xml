@@ -314,16 +314,22 @@
         <cmd name="WifiSelectionChanged">
             Wifi selection from product
             <arg name="type" type="enum">
-                The type of wifi selection (auto, manual)
-                <enum name="auto">
+                The type of wifi selection settings
+                <enum name="auto_all">
                     Auto selection
+                </enum>
+                <enum name="auto_2_4ghz">
+                    Auto selection 2.4ghz
+                </enum>
+                <enum name="auto_5ghz">
+                    Auto selection 5 ghz
                 </enum>
                 <enum name="manual">
                     Manual selection
                 </enum>
             </arg>
             <arg name="band" type="enum">
-                The allowed band(s) : 2.4 Ghz, 5 Ghz, or both
+                The actual  wifi band state
                 <enum name="2_4ghz">
                     2.4 GHz band
                 </enum>
