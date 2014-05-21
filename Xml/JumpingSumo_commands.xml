@@ -472,6 +472,12 @@
                 UUID of the file to delete.
             </arg>
         </cmd>
+        <cmd name="PlayScript">
+            Ask the device to play a script.
+            <arg name="uuid" type="string">
+                UUID of the file to play.
+            </arg>
+        </cmd>
     </class>
 
     <class name="RoadPlanState" id="15">
@@ -530,6 +536,24 @@
                 </enum>
                 <enum name="error_internal_failure">
                     An internal error occured while attempting to delete the script.
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="PlayScriptResult">
+            Device response to PlayScript command.
+            <arg name="resultCode" type="enum">
+                Error code.
+                <enum name="script_started">
+                    The script started playing successfully.
+                </enum>
+                <enum name="script_finished">
+                    The script finished successfully.
+                </enum>
+                <enum name="script_no_such_script">
+                    No script with this uuid exists.
+                </enum>
+                <enum name="script_error">
+                    An error occured while playing the script.
                 </enum>
             </arg>
         </cmd>
