@@ -482,16 +482,16 @@
 
     <class name="RoadPlanState" id="15">
         RoadPlan command responses.
-        <cmd name="ScriptMetadataChanged">
+        <cmd name="ScriptMetadataListChanged">
             Update the controller with metadata.
+            <arg name="uuid" type="string">
+                Script uuid for which metadata changed.
+            </arg>
             <arg name="version" type="u8">
                 Version number for this script.
             </arg>
             <arg name="product" type="string">
                 Product targeted by script.
-            </arg>
-            <arg name="uuid" type="string">
-                Script uuid for which metadata changed.
             </arg>
             <arg name="name" type="string">
                 Display name of the script.
@@ -500,10 +500,10 @@
                 Description of script contents.
             </arg>
         </cmd>
-        <cmd name="AllScriptsMetadataEnded">
+        <cmd name="AllScriptsMetadataChanged">
             Notify controller that all script metadatas are updated.
         </cmd>
-        <cmd name="ScriptUploadResult">
+        <cmd name="ScriptUploadChanged">
             Device response to ScriptUploaded command.
             <arg name="resultCode" type="enum">
                 Error code.
@@ -524,7 +524,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="ScriptDeleteResult">
+        <cmd name="ScriptDeleteChanged">
             Device response to ScriptDelete command.
             <arg name="resultCode" type="enum">
                 Error code.
@@ -539,7 +539,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="PlayScriptResult">
+        <cmd name="PlayScriptChanged">
             Device response to PlayScript command.
             <arg name="resultCode" type="enum">
                 Error code.
