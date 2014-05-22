@@ -496,8 +496,8 @@
             <arg name="name" type="string">
                 Display name of the script.
             </arg>
-            <arg name="description" type="string">
-                Description of script contents.
+            <arg name="lastModified" type="u64">
+                Timestamp relative to the UNIX epoch of the last time the file was modified.
             </arg>
         </cmd>
         <cmd name="AllScriptsMetadataChanged">
