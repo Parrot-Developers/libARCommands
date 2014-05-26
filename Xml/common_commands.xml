@@ -138,6 +138,9 @@
         
         <cmd name="MassStorageStateListChanged">
             Mass storage state
+            <arg name="mass_storage_id" type="u32">
+                Mass storage id
+            </arg>
             <arg name="name" type="string">
                 Mass storage name
             </arg>
@@ -184,26 +187,6 @@
             Current time state
             <arg name="time" type="string">
                 Time with ISO-8601 format
-            </arg>
-        </cmd>
-    </class>
-    
-    <class name="MassStorageSettings" id="6">
-        Mass storage commands
-        <cmd name="Select">
-            Select mass storage to record.
-            <arg name="name" type="string">
-                Nale of mass storage to record.
-            </arg>
-        </cmd>
-    </class>
-    
-    <class name="MassStorageSettingsState" id="7">
-        Mass storage settings state from product
-        <cmd name="SelectChanged">
-            Select mass storage to record state changed.
-            <arg name="name" type="string">
-                Name of mass storage to record.
             </arg>
         </cmd>
     </class>
