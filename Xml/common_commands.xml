@@ -137,42 +137,34 @@
         </cmd>
         
         <cmd name="MassStorageStateListChanged">
-            Mass storage state
-            <arg name="mass_storage_id" type="u32">
-                Mass storage id
+            Mass storage state list
+            <arg name="mass_storage_id" type="u8">
+                Mass storage id (unique)
             </arg>
             <arg name="name" type="string">
                 Mass storage name
             </arg>
-            <arg name="size" type="u64">
-                Mass storage size
+        </cmd>
+        
+        <cmd name="MassStorageInfoStateListChanged">
+            Mass storage info state list
+            <arg name="mass_storage_id" type="u8">
+                Mass storage state id (unique)
             </arg>
-            <arg name="used_size" type="u64">
-                Mass storage used size
+            <arg name="size" type="u32">
+                Mass storage size in MBytes
+            </arg>
+            <arg name="used_size" type="u32">
+                Mass storage used size in MBytes
             </arg>
             <arg name="plugged" type="u8">
                 Mass storage plugged (1 if mass storage is plugged, otherwise 0)
             </arg>
-            <arg name="state" type="enum">
-                Mass storage device state.
-                <enum name="ready">
-                    Mass storage state is ready
-                </enum>
-                <enum name="full">
-                    Mass storage state is full
-                </enum>
+            <arg name="full" type="u8">
+                Mass storage full information state (1 if mass storage full, 0 otherwise).
             </arg>
-            <arg name="type" type="enum">
-                Mass storage type state
-                <enum name="internal">
-                    Mass storage type is internal memory
-                </enum>
-                <enum name="usb_key">
-                    Mass storage type is usb_key
-                </enum>
-                <enum name="sdcard">
-                    Mass storage type is sdcard
-                </enum>
+            <arg name="internal" type="u8">
+                Mass storage internal type state (1 if mass storage is internal, 0 otherwise)
             </arg>
         </cmd>
         
