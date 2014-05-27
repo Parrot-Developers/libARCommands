@@ -236,7 +236,7 @@
 
         <cmd name="Picture">
             Take picture
-            <arg name="mass_storage_id" type="u32">
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id to take picture
             </arg>
         </cmd>
@@ -252,7 +252,7 @@
                     Start the video recording
                 </enum>
             </arg>
-            <arg name="mass_storage_id" type="u32">
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id to record
             </arg>
         </cmd>
@@ -266,7 +266,7 @@
             <arg name="state" type="u8">
                 1 if picture has been taken, 0 otherwise
             </arg>
-            <arg name="mass_storage_id" type="u32">
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id where the picture was recorded
             </arg>
         </cmd>
@@ -284,7 +284,7 @@
                     Video was failed
                 </enum>
             </arg>
-            <arg name="mass_storage_id" type="u32">
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id where the video was recorded
             </arg>
         </cmd>

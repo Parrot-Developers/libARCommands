@@ -210,6 +210,9 @@
         
         <cmd name="Picture">
             Take picture
+            <arg name="mass_storage_id" type="u8">
+                Mass storage id to take picture
+            </arg>
         </cmd>
     </class>
     
@@ -220,6 +223,9 @@
             State of picture recording
             <arg name="state" type="u8">
                 1 if picture has been taken, 0 otherwise
+            </arg>
+            <arg name="mass_storage_id" type="u8">
+                Mass storage id to record
             </arg>
         </cmd>
     </class>
