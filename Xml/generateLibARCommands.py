@@ -247,6 +247,13 @@ JNITYPES  = ['jbyte',    'jbyte',
              'jlong',    'jlong',
              'jfloat',   'jdouble',
              'jstring']
+# JNI UnsignedToSigned casts
+JNIUTSCASTS = ['(jbyte)', '',
+               '(jshort)', '',
+               '(jint)', '',
+               '(jlong)', '',
+               '', '',
+               '']
 
 def xmlToC (proj, cl, cmd, arg):
     if 'enum' == arg.type:
@@ -300,6 +307,12 @@ def xmlToJni (proj, cl, cmd, arg):
         return 'jobject'
     xmlIndex = XMLTYPES.index (arg.type)
     return JNITYPES [xmlIndex]
+
+def xmlToJniCast (proj, cl, cmd, arg):
+    if 'enum' == arg.type:
+        return '(jobject)'
+    xmlIndex = XMLTYPES.index (arg.type)
+    return JNIUTSCASTS [xmlIndex]
 
 # Sample args for testbench
 SAMPLEARGS = ['42',              '-42',
@@ -3066,7 +3079,7 @@ for proj in allProjects:
                 elif 'enum' == arg.type:
                     cfile.write (', j_' + arg.name + '_enum')
                 else:
-                    cfile.write (', ' + arg.name)
+                    cfile.write (', ' + xmlToJniCast(proj, cl, cmd, arg) + arg.name)
             cfile.write (');\n')
             for arg in cmd.args:
                 if 'string' == arg.type:
