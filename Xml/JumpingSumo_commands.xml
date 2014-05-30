@@ -471,8 +471,8 @@
         </cmd>
         <cmd name="ScriptUploaded">
             Notify device that a new file has been uploaded.
-            <arg name="filename" type="string">
-                Name of uploaded file.
+            <arg name="uuid" type="string">
+                UUID of uploaded file.
             </arg>
             <arg name="md5Hash" type="string">
                 MD5 hash code computed over file.
