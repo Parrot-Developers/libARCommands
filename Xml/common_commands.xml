@@ -121,6 +121,10 @@
                 Time with ISO-8601 format
             </arg>
         </cmd>
+        
+        <cmd name="Reboot">
+            Command to ask reboot to product
+        </cmd>
     </class>
 
     <class name="CommonState" id="5">
