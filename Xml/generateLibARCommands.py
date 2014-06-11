@@ -1379,12 +1379,21 @@ hfile.write ('#ifndef ' + COMMANDSTYPES_DEFINE + '\n')
 hfile.write ('#define ' + COMMANDSTYPES_DEFINE + '\n')
 hfile.write ('#include <inttypes.h>\n')
 hfile.write ('\n')
+hfile.write ('/**\n')
+hfile.write (' * @brief Size of the ARCommands header.\n')
+hfile.write (' * This is the minimum size of a zero-arg command.\n')
+hfile.write (' * The size of a command is equal to this, plus the size\n')
+hfile.write (' * of its arguments.\n')
+hfile.write (' */\n')
+hfile.write ('#define ' + ARMacroName (LIB_MODULE, 'HEADER', 'SIZE') + ' (4)\n')
+hfile.write ('\n')
 
 if genDebug:
-    hfile.write('/**\n')
-    hfile.write(' * Defined only if the library includes debug commands\n')
-    hfile.write(' */\n')
-    hfile.write('#define ' + ARMacroName (LIB_MODULE, 'HAS', 'DEBUG_COMMANDS') + ' (1)\n')
+    hfile.write ('/**\n')
+    hfile.write (' * Defined only if the library includes debug commands\n')
+    hfile.write (' */\n')
+    hfile.write ('#define ' + ARMacroName (LIB_MODULE, 'HAS', 'DEBUG_COMMANDS') + ' (1)\n')
+    hfile.write ('\n')
 
 for proj in allProjects:
     for cl in proj.classes:
