@@ -2672,6 +2672,7 @@ jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
 jfile.write ('public class ' + JNIClassName + ' extends ARNativeData {\n')
 jfile.write ('\n')
+jfile.write ('    public static final int ' + ARMacroName (LIB_MODULE, JNIClassName, 'HEADER_SIZE') + ' = 4;\n')
 jfile.write ('    public static final boolean ' + ARMacroName (LIB_MODULE, JNIClassName, 'HAS_DEBUG_COMMANDS') + ' = ')
 if genDebug:
     jfile.write ('true;\n')
