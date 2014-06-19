@@ -185,5 +185,19 @@
                 Time with ISO-8601 format
             </arg>
         </cmd>
+        
+        <cmd name="MassStorageInfoRemainingListChanged">
+            Mass storage info remaining list
+            <arg name="free_space" type="u32">
+                Mass storage free space in MBytes
+            </arg>
+            <arg name="rec_time" type="u16">
+                Mass storage record time reamining in minute
+            </arg>
+            <arg name="photo_remaining" type="u32">
+                Mass storage photo remaining
+            </arg>
+        </cmd>
+        
     </class>
 </project>
