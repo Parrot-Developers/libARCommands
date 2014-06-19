@@ -336,6 +336,13 @@
     <class name="Settings" id="10">
         Settings commands
         
+        <cmd name="CutOutMode">
+            Set MiniDrone cut out mode
+            <arg name="enable" type="u8">
+                Enable cut out mode (1 if is activate, 0 otherwise)
+            </arg>
+        </cmd>
+        
     </class>
     <class name="SettingsState" id="11">
         Settings state from product
@@ -364,5 +371,13 @@
                 Product Inertial hardware version
             </arg>
         </cmd>
+        
+        <cmd name="CutOutModeChanged">
+            MiniDrone cut out mode
+            <arg name="enable" type="u8">
+                State of cut out mode (1 if is activate, 0 otherwise)
+            </arg>
+        </cmd>
+        
     </class>
 </project>
