@@ -100,6 +100,20 @@
                 Product hardware version
             </arg>
         </cmd>
+        
+        <cmd name="ProductSerialHighChanged">
+            Product serial number
+            <arg name="high" type="string">
+                Serial high number (hexadecimal value)
+            </arg>
+        </cmd>
+        
+        <cmd name="ProductSerialLowChanged">
+            Product serial number
+            <arg name="low" type="string">
+                Serial low number (hexadecimal value)
+            </arg>
+        </cmd>
     </class>
     
     <class name="Common" id="4">
