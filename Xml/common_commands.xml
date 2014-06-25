@@ -72,6 +72,13 @@
                 Product name
             </arg>
         </cmd>
+
+        <cmd name="Country">
+            Set current Country of controller
+            <arg name="code" type="string">
+                Country code with ISO 3166 format
+            </arg>
+        </cmd>
     </class>
     
     <class name="SettingsState" id="3">
@@ -112,6 +119,13 @@
             Product serial number
             <arg name="low" type="string">
                 Serial low number (hexadecimal value)
+            </arg>
+        </cmd>
+
+        <cmd name="CountryChanged">
+            Inform current Country set in product. (Answer to 'Country' command)
+            <arg name="code" type="string">
+                Country code with ISO 3166 format, empty string means unknown country.
             </arg>
         </cmd>
     </class>
