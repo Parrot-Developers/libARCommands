@@ -198,16 +198,22 @@
             <arg name="state" type="enum">
                 State of jump load
                 <enum name="unknown">
-                    Unknown state
+                    Unknown state (obsolete).
                 </enum>
                 <enum name="unloaded">
-                    Unloaded state
+                    Unloaded state.
                 </enum>
                 <enum name="loaded">
-                    Loaded state
+                    Loaded state.
                 </enum>
                 <enum name="busy">
-                    Busy state
+                    Unknown state (obsolete).
+                </enum>
+                <enum name="low_battery_unloaded">
+                    Unloaded state and low battery.
+                </enum>
+                <enum name="low_battery_loaded">
+                    Loaded state and low battery.
                 </enum>
             </arg>
         </cmd>
