@@ -325,6 +325,13 @@
                 The channel (not used in auto mode)
             </arg>
         </cmd>
+
+        <cmd name="Outdoor">
+            Set Indoor/Outdoor network setting. Used to know authorized wifi channels.
+            <arg name="outdoor" type="u8">
+                1 if outdoor, 0 if indoor.
+            </arg>
+        </cmd>
     </class>
 
     <class name="NetworkSettingsState" id="9">
@@ -360,6 +367,13 @@
             </arg>
             <arg name="channel" type="u8">
                 The channel (depends of the band)
+            </arg>
+        </cmd>
+
+        <cmd name="OutdoorChanged">
+            Outdoor Network Setting sent by product
+            <arg name="outdoor" type="u8">
+                1 if outdoor, 0 if indoor.
             </arg>
         </cmd>
     </class>
