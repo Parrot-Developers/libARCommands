@@ -325,13 +325,6 @@
                 The channel (not used in auto mode)
             </arg>
         </cmd>
-
-        <cmd name="Outdoor">
-            Set Indoor/Outdoor network setting. Used to know authorized wifi channels.
-            <arg name="outdoor" type="u8">
-                1 if outdoor, 0 if indoor.
-            </arg>
-        </cmd>
     </class>
 
     <class name="NetworkSettingsState" id="9">
@@ -367,13 +360,6 @@
             </arg>
             <arg name="channel" type="u8">
                 The channel (depends of the band)
-            </arg>
-        </cmd>
-
-        <cmd name="OutdoorChanged">
-            Outdoor Network Setting sent by product
-            <arg name="outdoor" type="u8">
-                1 if outdoor, 0 if indoor.
             </arg>
         </cmd>
     </class>
@@ -614,6 +600,25 @@
                 <enum name="script_error">
                     An error occured while playing the script.
                 </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="SpeedSettings" id="16">
+        Speed Settings commands
+        <cmd name="Outdoor">
+            Outdoor property => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+            <arg name="outdoor" type="u8">
+                1 if outdoor, 0 if indoor
+            </arg>
+        </cmd>
+    </class>
+    <class name="SpeedSettingsState" id="17">
+        Speed Settings state from product
+        <cmd name="OutdoorChanged">
+            Outdoor property sent by product => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+            <arg name="outdoor" type="u8">
+                1 if outdoor, 0 if indoor
             </arg>
         </cmd>
     </class>
