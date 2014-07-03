@@ -439,6 +439,13 @@
         <cmd name="AllWifiAuthChannelChanged">
             Notify the end of the list of Authorized wifi Channel.
         </cmd>
+        
+        <cmd name="LinkQualityChanged">
+            Notification sent by the firmware to give an indication of the WiFi link quality.
+            <arg name="quality" type="u8">
+                The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
+            </arg>
+        </cmd>
     </class>
 
     <class name="AudioSettings" id="12">
