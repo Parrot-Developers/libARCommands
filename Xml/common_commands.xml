@@ -228,4 +228,31 @@
         </cmd>
         
     </class>
+    
+    <class name="OverHeat" id="6">
+        Over heat commands
+        
+        <cmd name="SwitchOff">
+            Switch off the drone when a overheat appeared
+        </cmd>
+        
+        <cmd name="Ventilate">
+            Ventilate the drone when a overheat appeared
+        </cmd>
+    </class>
+    
+    <class name="OverHeatState" id="7">
+        Overheat state from product
+        
+        <cmd name="OverHeatChanged">
+            Overheat temperature reached
+        </cmd>
+        
+        <cmd name="OverHeatRegulationChanged">
+            Overheat regulation state changed
+            <arg name="regulationType" type="u8">
+                Type of overheat regulation : 0 for ventilation, 1 for switch off
+            </arg>
+        </cmd>
+    </class>
 </project>
