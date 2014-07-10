@@ -79,6 +79,13 @@
                 Country code with ISO 3166 format
             </arg>
         </cmd>
+        
+        <cmd name="AutoCountry">
+            Set Auto Country Settings
+            <arg name="automatic" type="u8">
+                Boolean : 0 : Manual / 1 : Auto
+            </arg>
+        </cmd>
     </class>
     
     <class name="SettingsState" id="3">
@@ -126,6 +133,13 @@
             Inform current Country set in product. (Answer to 'Country' command)
             <arg name="code" type="string">
                 Country code with ISO 3166 format, empty string means unknown country.
+            </arg>
+        </cmd>
+        
+        <cmd name="AutoCountryChanged">
+            Inform Auto Country Settings
+            <arg name="automatic" type="u8">
+                Boolean : 0 : Manual / 1 : Auto
             </arg>
         </cmd>
     </class>
