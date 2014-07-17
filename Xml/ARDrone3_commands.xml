@@ -561,4 +561,93 @@
         Director mode state from product
     
     </class>
+    
+    <class name="PictureSettings" id="19">
+    	Photo settings chosen by the user
+    	
+    	<cmd name="PictureFormatSelection">
+    		The format of the photo
+    		<arg name="type" type="enum">
+                The type of photo format
+                <enum name="raw">
+                    Take raw image
+                </enum>
+                <enum name="jpeg">
+                    Take a 4:3 jpeg photo
+                </enum>
+                <enum name="snapshot">
+                    Take a 16:9 snapshot from camera
+                </enum>
+            </arg>
+    	</cmd>
+    	<cmd name="AutoWhiteBalanceSelection">
+    		AutoWhiteBalance mode
+    		<arg name="type" type="enum">
+                The type auto white balance
+                <enum name="none">
+                    No automatic white balance
+                </enum>
+                <enum name="auto">
+                    Auto guess of best white balance params
+                </enum>
+                <enum name="tungsten">
+                    Tungsten white balance
+                </enum>
+                <enum name="daylight">
+                    Daylight white balance
+                </enum>
+                <enum name="cloudy">
+                    Cloudy white balance
+                </enum>
+                <enum name="flash">
+                    White balance for a flash
+                </enum>
+            </arg>
+    	</cmd>
+    </class>
+    
+    <class name="PictureSettingsState" id="20">
+    	Photo settings state from product
+    	
+    	<cmd name="PictureFormatChanged">
+    		The format of the photo
+    		<arg name="type" type="enum">
+                The type of photo format
+                <enum name="raw">
+                    Take raw image
+                </enum>
+                <enum name="jpeg">
+                    Take a 4:3 jpeg photo
+                </enum>
+                <enum name="snapshot">
+                    Take a 16:9 snapshot from camera
+                </enum>
+            </arg>
+    	</cmd>
+    	<cmd name="AutoWhiteBalanceChanged">
+    		AutoWhiteBalance mode
+    		<arg name="type" type="enum">
+                The type auto white balance
+                <enum name="none">
+                    No automatic white balance
+                </enum>
+                <enum name="auto">
+                    Auto guess of best white balance params
+                </enum>
+                <enum name="tungsten">
+                    Tungsten white balance
+                </enum>
+                <enum name="daylight">
+                    Daylight white balance
+                </enum>
+                <enum name="cloudy">
+                    Cloudy white balance
+                </enum>
+                <enum name="flash">
+                    White balance for a flash
+                </enum>
+            </arg>
+    	</cmd>
+    </class>
+    
 </project>
