@@ -604,6 +604,18 @@
                 </enum>
             </arg>
     	</cmd>
+        <cmd name="ExpositionSelection">
+        	The exposition of the image
+        	<arg name="value" type="float">
+        		Exposition value [-3;3]
+        	</arg>
+        </cmd>
+        <cmd name="SaturationSelection">
+        	The saturation of the image
+        	<arg name="value" type="float">
+        		Saturation value [0;5]
+        	</arg>
+        </cmd>
     </class>
     
     <class name="PictureSettingsState" id="20">
@@ -648,6 +660,18 @@
                 </enum>
             </arg>
     	</cmd>
+    	<cmd name="ExpositionChanged">
+        	The exposition of the image
+        	<arg name="value" type="float">
+        		Exposition value [-3;3]
+        	</arg>
+        </cmd>
+        <cmd name="SaturationChanged">
+        	The saturation of the image
+        	<arg name="value" type="float">
+        		Saturation value [0;5]
+        	</arg>
+        </cmd>
     </class>
 
     <class name="MediaStreaming" id="21">
