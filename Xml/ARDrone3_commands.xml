@@ -584,9 +584,6 @@
     		AutoWhiteBalance mode
     		<arg name="type" type="enum">
                 The type auto white balance
-                <enum name="none">
-                    No automatic white balance
-                </enum>
                 <enum name="auto">
                     Auto guess of best white balance params
                 </enum>
@@ -616,6 +613,24 @@
         		Saturation value [0;5]
         	</arg>
         </cmd>
+        <cmd name="TimelapseSelection">
+        	Picture taken periodically
+        	<arg name="enabled" type="u8">
+        		1 if timelapse is enabled, 0 otherwise
+        	</arg>
+        	<arg name="interval" type="float">
+        		interval in seconds for taking pictures
+        	</arg>
+        </cmd>
+        <cmd name="VideoAutorecordSelection">
+        	Video autorecord
+        	<arg name="enabled" type="u8">
+        		1 if video autorecord is enabled, 0 otherwise
+        	</arg>
+        	<arg name="mass_storage_id" type="u8">
+                Mass storage id to take video
+            </arg>
+        </cmd>
     </class>
     
     <class name="PictureSettingsState" id="20">
@@ -640,9 +655,6 @@
     		AutoWhiteBalance mode
     		<arg name="type" type="enum">
                 The type auto white balance
-                <enum name="none">
-                    No automatic white balance
-                </enum>
                 <enum name="auto">
                     Auto guess of best white balance params
                 </enum>
@@ -671,6 +683,24 @@
         	<arg name="value" type="float">
         		Saturation value [0;5]
         	</arg>
+        </cmd>
+        <cmd name="TimelapseChanged">
+        	Picture taken periodically
+        	<arg name="enabled" type="u8">
+        		1 if timelapse is enabled, 0 otherwise
+        	</arg>
+        	<arg name="interval" type="float">
+        		interval in seconds for taking pictures
+        	</arg>
+        </cmd>
+        <cmd name="VideoAutorecordChanged">
+        	Video autorecord
+        	<arg name="enabled" type="u8">
+        		1 if video autorecord is enabled, 0 otherwise
+        	</arg>
+        	<arg name="mass_storage_id" type="u8">
+                Mass storage id for the taken video
+            </arg>
         </cmd>
     </class>
 
