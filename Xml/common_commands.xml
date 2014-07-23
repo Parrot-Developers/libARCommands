@@ -269,4 +269,15 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="ControllerState" id="8">
+        Notify the device about the state of the controller application.
+        <cmd name="isPilotingChanged">
+            Tell the device when the controller application enters/leaves the piloting HUD.
+            <arg name="piloting" type="u8">
+                0 when the application is not in the piloting HUD, 1 when it enters the HUD.
+            </arg>
+        </cmd>
+    </class>
+
 </project>
