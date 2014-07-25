@@ -380,4 +380,15 @@
         </cmd>
         
     </class>
+    
+    <class name="FloodControlState" id="12">
+        Settings state from product
+        
+        <cmd name="FloodControlChanged">
+            Flood control regulation
+            <arg name="delay" type="double">
+                Delay between two PCMD
+            </arg>
+        </cmd>
+    </class>
 </project>
