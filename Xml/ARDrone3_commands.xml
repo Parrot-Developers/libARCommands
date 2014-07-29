@@ -90,6 +90,10 @@
         <cmd name="Emergency">
             Put drone in emergency user state
         </cmd>
+        
+        <cmd name="NavigateHome">
+            Ask the drone to fly to home
+        </cmd>
     </class>
     
     <class name="Animations" id="5">
@@ -247,6 +251,10 @@
                     Low battery alert
                 </enum>
             </arg>
+        </cmd>
+        
+        <cmd name="NavigateHomeStateChanged">
+            Navigating home state
         </cmd>
     </class>
     
@@ -732,5 +740,36 @@
             </arg>
         </cmd>
     </class>
-
+    
+    <class name="GPSSettings" id="23">
+        GPS settings
+        <cmd name="SetHome">
+            Set home location
+            <arg name="latitude" type="double">
+                Home latitude
+            </arg>
+            <arg name="longitude" type="double">
+                Home longitude
+            </arg>
+            <arg name="altitude" type="float">
+                Home altitude
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="GPSSettingsState" id="24">
+        GPS settings state
+        <cmd name="HomeChanged">
+            Return home status
+            <arg name="latitude" type="double">
+                Home latitude
+            </arg>
+            <arg name="longitude" type="double">
+                Home longitude
+            </arg>
+            <arg name="altitude" type="float">
+                Home altitude
+            </arg>
+        </cmd>
+    </class>
 </project>
