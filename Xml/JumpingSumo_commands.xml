@@ -79,6 +79,13 @@
                 </enum>
             </arg>
         </cmd>
+
+        <cmd name="addCapOffset">
+            Add the specified offset to the current cap.
+            <arg name="offset" type="float">
+                Offset value in radians.
+            </arg>
+        </cmd>
     </class>
 
     <class name="PilotingState" id="1">
