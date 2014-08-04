@@ -386,8 +386,8 @@
         
         <cmd name="FloodControlChanged">
             Flood control regulation
-            <arg name="delay" type="double">
-                Delay between two PCMD
+            <arg name="delay" type="u16">
+                Delay (in ms) between two PCMD
             </arg>
         </cmd>
     </class>
