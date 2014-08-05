@@ -292,6 +292,43 @@
                 </enum>
             </arg>
         </cmd>
+        
+        <cmd name="PositionChanged">
+        	Drone position changed
+        	<arg name="latitude" type="double">
+                Latitude position in decimal degrees (500.0 if not available)
+            </arg>
+            <arg name="longitude" type="double">
+                Longitude position in decimal degrees (500.0 if not available)
+            </arg>
+            <arg name="altitude" type="double">
+                Altitude in meters
+            </arg>
+        </cmd>
+        <cmd name="SpeedChanged">
+        	Drone speed changed
+        	<arg name="speedX" type="float">
+                Speed on the x axis (when drone moves forward, speed is > 0) (in m/s)
+            </arg>
+            <arg name="speedY" type="float">
+                Speed on the y axis (when drone moves to right, speed is > 0) (in m/s)
+            </arg>
+            <arg name="speedZ" type="float">
+                Speed on the z axis (when drone moves down, speed is > 0) (in m/s)
+            </arg>
+        </cmd>
+        <cmd name="AttitudeChanged">
+        	Drone attitude changed
+        	<arg name="roll" type="i16">
+                roll value (in degree)
+            </arg>
+            <arg name="pitch" type="i16">
+                Pitch value (in degree)
+            </arg>
+            <arg name="yaw" type="i16">
+                Yaw value (in degree)
+            </arg>
+        </cmd>
     </class>
     
     <class name="Network" id="13">
