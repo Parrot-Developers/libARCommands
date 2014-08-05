@@ -255,6 +255,42 @@
         
         <cmd name="NavigateHomeStateChanged">
             Navigating home state
+            <arg name="state" type="enum">
+                State of navigate home
+                <enum name="available">
+                    Navigate home is available
+                </enum>
+                <enum name="inProgress">
+                    Navigate home is in progress
+                </enum>
+                <enum name="unavailable">
+                    Navigate home is not available
+                </enum>
+            </arg>
+            <arg name="reason" type="enum">
+                Reason of the state 
+                <enum name="userRequest">
+                    User requested a navigate home (available->inProgress)
+                </enum>
+                <enum name="connectionLost">
+                    Connection between controller and product lost (available->inProgress)
+                </enum>
+                <enum name="lowBattery">
+                    Low battery occurred (available->inProgress)
+                </enum>
+                <enum name="finished">
+                	Navigate home is finished (inProgress->available)
+                </enum>
+                <enum name="stopped">
+                	Navigate home has been stopped (inProgress->available)
+                </enum>
+                <enum name="gpsLost">
+                	GPS signal lost by product (inProgress->unavailable or available->unavailable)
+                </enum>
+                <enum name="gpsRecovered">
+                	GPS signal recovered by product (unavailable->available)
+                </enum>
+            </arg>
         </cmd>
     </class>
     
@@ -746,14 +782,17 @@
         <cmd name="SetHome">
             Set home location
             <arg name="latitude" type="double">
-                Home latitude
+                Home latitude in decimal degrees
             </arg>
             <arg name="longitude" type="double">
-                Home longitude
+                Home longitude in decimal degrees
             </arg>
-            <arg name="altitude" type="float">
-                Home altitude
+            <arg name="altitude" type="double">
+                Home altitude in meters
             </arg>
+        </cmd>
+        <cmd name="ResetHome">
+        	Reset home location and let the drone make its own home
         </cmd>
     </class>
     
@@ -762,13 +801,25 @@
         <cmd name="HomeChanged">
             Return home status
             <arg name="latitude" type="double">
-                Home latitude
+                Home latitude in decimal degrees
             </arg>
             <arg name="longitude" type="double">
-                Home longitude
+                Home longitude in decimal degrees
             </arg>
-            <arg name="altitude" type="float">
-                Home altitude
+            <arg name="altitude" type="double">
+                Home altitude in meters
+            </arg>
+        </cmd>
+        <cmd name="ResetHomeChanged">
+            Reset home status
+            <arg name="latitude" type="double">
+                Home latitude in decimal degrees
+            </arg>
+            <arg name="longitude" type="double">
+                Home longitude in decimal degrees
+            </arg>
+            <arg name="altitude" type="double">
+                Home altitude in meters
             </arg>
         </cmd>
     </class>
