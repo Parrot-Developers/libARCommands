@@ -284,11 +284,11 @@
                 <enum name="stopped">
                 	Navigate home has been stopped (inProgress->available)
                 </enum>
-                <enum name="gpsLost">
-                	GPS signal lost by product (inProgress->unavailable or available->unavailable)
+                <enum name="disabled">
+                	Navigate home disabled by product (inProgress->unavailable or available->unavailable)
                 </enum>
-                <enum name="gpsRecovered">
-                	GPS signal recovered by product (unavailable->available)
+                <enum name="enabled">
+                	Navigate home enabled by product (unavailable->available)
                 </enum>
             </arg>
         </cmd>
@@ -858,6 +858,27 @@
             <arg name="altitude" type="double">
                 Home altitude in meters
             </arg>
+        </cmd>
+        <cmd name="GPSFixStateChanged">
+        	GPS fix state
+        	<arg name="fixed" type="u8">
+        		1 if gps on drone is fixed, 0 otherwise
+        	</arg>
+        </cmd>
+        <cmd name="GPSUpdateStateChanged">
+        	GPS update state
+        	<arg name="state" type="enum">
+        		The state of the gps update
+                <enum name="updated">
+                    Drone GPS update succeed
+                </enum>
+                <enum name="inProgress">
+                    Drone GPS update In progress
+                </enum>
+                <enum name="failed">
+                    Drone GPS update failed
+                </enum>
+        	</arg>
         </cmd>
     </class>
 </project>
