@@ -631,6 +631,57 @@
                 Product GPS hardware version
             </arg>
         </cmd>
+        <cmd name="MotorErrorStateChanged">
+            Motor status changed
+            <arg name="motorIds" type="u8">
+                Bit field for concerned motor. If bit 0 = 1, motor 1 is affected by this error. Same with bit 1, 2 and 3.
+            </arg>
+            <arg name="motorError" type="enum">
+                Enumeration of the motor error
+                <enum name="noError">
+                    No error detected
+                </enum>
+                <enum name="errorEEPRom">
+                    EEPROM access failure
+                </enum>
+                <enum name="errorMotorStalled">
+                    Motor stalled 
+                </enum>
+                <enum name="errorPropellerSecurity">
+                    Propeller cutout security triggered
+                </enum>
+                <enum name="errorCommLost">
+                    Communication with motor failed by timeout
+                </enum>
+                <enum name="errorRCEmergencyStop">
+                    RC emergency stop
+                </enum>
+                <enum name="errorRealTime">
+                    Motor controler scheduler real-time out of bounds
+                </enum>
+                <enum name="errorMotorSetting">
+                    One or several incorrect values in motor settings
+                </enum>
+                <enum name="errorBatteryVoltage">
+                    Battery voltage out of bounds
+                </enum>
+                <enum name="errorLipoCells">
+                    Incorrect number of LIPO cells
+                </enum>
+                <enum name="errorMOSFET">
+                    Defectuous MOSFET or broken motor phases
+                </enum>
+                <enum name="errorTemperature">
+                    Too hot or too cold Cypress temperature
+                </enum>
+                <enum name="errorBootloader">
+                    Not use for BLDC but useful for HAL
+                </enum>
+                <enum name="errorAssert">
+                    Error Made by BLDC_ASSERT()
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="DirectorMode" id="17">
