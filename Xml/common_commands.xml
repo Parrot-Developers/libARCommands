@@ -241,6 +241,12 @@
             </arg>
         </cmd>
         
+        <cmd name="WifiSignalChanged">
+        	Wifi Signal between controller and product state
+        	<arg name="rssi" type="i16">
+        		RSSI of the signal between controller and the product (in dbm)
+        	</arg>
+        </cmd>
     </class>
     
     <class name="OverHeat" id="6">
