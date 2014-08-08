@@ -286,4 +286,23 @@
         </cmd>
     </class>
 
+	<class name="WifiSettings" id="9">
+		Wifi settings commands
+		<cmd name="OutdoorSetting">
+			Send to product if it should use its outdoor wifi config, or indoor
+			<arg name="outdoor" type="u8">
+				1 if it should use outdoor wifi settings, 0 otherwise
+			</arg>
+		</cmd>
+	</class>
+	
+	<class name="WifiSettingsState" id="10">
+		Wifi settings state from product
+		<cmd name="outdoorSettingsChanged" type="u8">
+			Status of the wifi config : either indoor or outdoor
+			<arg name="outdoor" type="u8">
+				1 if it should use outdoor wifi settings, 0 otherwise
+			</arg>
+		</cmd>
+	</class>
 </project>
