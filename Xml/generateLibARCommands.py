@@ -1017,13 +1017,11 @@ if hasArgOfType['string']:
     cfile.write ('    char *retVal = NULL;\n')
     cfile.write ('    char *buffAddr = (char *)&buffer[*offset];\n')
     cfile.write ('    int newOffset = *offset;\n')
-    cfile.write ('    int str_len = 0;\n')
     cfile.write ('    while ((newOffset < capacity) && (\'\\0\' != (char) buffer [newOffset]))\n')
     cfile.write ('    {\n')
-    cfile.write ('        str_len++ ;\n');
     cfile.write ('        newOffset += sizeof (char);\n');
     cfile.write ('    }\n')
-    cfile.write ('    if (newOffset == capacity)\n')
+    cfile.write ('    if (newOffset >= capacity)\n')
     cfile.write ('    {\n')
     cfile.write ('        *error = 1;\n');
     cfile.write ('    }\n')
@@ -1355,7 +1353,6 @@ if hasArgOfType['string']:
     cfile.write ('    {\n')
     cfile.write ('        offset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' (arg, output, outputLen, offset);\n')
     cfile.write ('    } // No else --> Do nothing if the previous WriteString failed\n')
-    cfile.write ('    offset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' (arg, output, outputLen, offset);\n')
     cfile.write ('    return offset;\n')
     cfile.write ('}\n')
     cfile.write ('\n')
