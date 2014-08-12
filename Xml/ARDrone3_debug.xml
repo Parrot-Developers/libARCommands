@@ -68,4 +68,22 @@
             Tune white balance
         </cmd>
     </class>
+    <class name="BatteryDebugSettings" id="1">
+    	Debug commands for drone3 battery
+    	<cmd name="UseDrone2Battery">
+    		Use or not the drone2 battery
+    		<arg name="drone2BatteryUsed" type="u8">
+    			1 if the drone2 battery is used, 0 if the drone3 battery is used
+    		</arg>
+    	</cmd>
+    </class>
+    <class name="BatteryDebugSettingsState" id="2">
+    	Debug commands for drone3 battery state
+    	<cmd name="UseDrone2BatteryChanged">
+    		Use or not the drone2 battery
+    		<arg name="drone2BatteryUsed" type="u8">
+    			1 if the drone2 battery is used, 0 if the drone3 battery is used
+    		</arg>
+    	</cmd>
+    </class>
 </project>
