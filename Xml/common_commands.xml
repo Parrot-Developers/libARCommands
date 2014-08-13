@@ -305,4 +305,41 @@
 			</arg>
 		</cmd>
 	</class>
+	
+	<class name="Mavlink" id="11">
+         Mavlink flight plans commands
+         <cmd name="Start">
+             Start the flight plan
+             <arg name="filepath" type="string">
+                 flight plan file path from the mavlink ftp root
+             </arg>
+         </cmd>
+         <cmd name="Pause">
+             Pause the flightplan (can be restarted with a start)
+         </cmd>
+         <cmd name="Stop">
+             Stop the flightplan
+         </cmd>
+     </class>
+     <class name="MavlinkState" id="12">
+         Mavlink flight plans states commands
+         <cmd name="MavlinkFilePlayingStateChanged">
+             Playing state of a mavlink flight plan
+             <arg name="state" type="enum">
+             	State of the mavlink 
+             	<enum name="playing">
+                    Mavlink file is playing
+                </enum>
+                <enum name="stopped">
+                    Mavlink file is stopped (arg filepath is useless in this state)
+                </enum>
+                <enum name="paused">
+                    Mavlink file is paused
+                </enum>
+             </arg>
+             <arg name="filepath" type="string">
+                 flight plan file path from the mavlink ftp root
+             </arg>
+         </cmd>
+     </class>
 </project>
