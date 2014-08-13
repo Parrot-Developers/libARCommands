@@ -313,6 +313,15 @@
              <arg name="filepath" type="string">
                  flight plan file path from the mavlink ftp root
              </arg>
+             <arg name="type" type="enum">
+             	type of the played mavlink file
+             	<enum name="flightPlan">
+                    Mavlink file for FlightPlan
+                </enum>
+                <enum name="mapMyHouse">
+                    Mavlink file for MapMyHouse
+                </enum>
+             </arg>
          </cmd>
          <cmd name="Pause">
              Pause the flightplan (can be restarted with a start)
@@ -331,7 +340,7 @@
                     Mavlink file is playing
                 </enum>
                 <enum name="stopped">
-                    Mavlink file is stopped (arg filepath is useless in this state)
+                    Mavlink file is stopped (arg filepath and type are useless in this state)
                 </enum>
                 <enum name="paused">
                     Mavlink file is paused
@@ -339,6 +348,15 @@
              </arg>
              <arg name="filepath" type="string">
                  flight plan file path from the mavlink ftp root
+             </arg>
+             <arg name="type" type="enum">
+             	type of the played mavlink file
+             	<enum name="flightPlan">
+                    Mavlink file for FlightPlan
+                </enum>
+                <enum name="mapMyHouse">
+                    Mavlink file for MapMyHouse
+                </enum>
              </arg>
          </cmd>
      </class>
