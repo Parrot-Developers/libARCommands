@@ -43,5 +43,16 @@
 
 <project id="132">
     All debug SkyController-only commands
+    
+    <class name="Debug" id="0">
+        Temporary, debug commands
+        
+        <cmd name="Test1">
+            Test 1 command
+            <arg name="t1Args" type="i8">
+                Test 1 argument
+            </arg>
+        </cmd>
+    </class>
 
 </project>
