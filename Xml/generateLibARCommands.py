@@ -95,6 +95,7 @@ JNIFilterClassName, _ = os.path.splitext (JNI_FILTER_JFILE_NAME)
 
 #Name of the JNI JAVA Interfaces files (DO NOT MODIFY)
 JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
+JAVA_ENUM_FILES_NAME=JNIClassName.upper() + '*_ENUM.java'
 
 #Relative path of SOURCE dir
 SRC_DIR=MYDIR + '/../Sources/'
@@ -160,6 +161,7 @@ GENERATED_FILES.append (JNI_JFILE)
 JNI_FILTER_JFILE=JNIJ_OUT_DIR + JNI_FILTER_JFILE_NAME
 GENERATED_FILES.append (JNI_FILTER_JFILE)
 JAVA_INTERFACES_FILES=JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
+JAVA_ENUM_FILES=JNIJ_OUT_DIR + JAVA_ENUM_FILES_NAME
 
 # Create names for #ifndef _XXX_ statements in .h files
 COMMANDSID_DEFINE='_' + COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
@@ -355,8 +357,9 @@ while len(args) > 0:
     #################################
     if a == "-fname":
         for fil in GENERATED_FILES:
-            ARPrint (fil, True)
-        ARPrint (JAVA_INTERFACES_FILES, True)
+            ARPrint (fil + ' ', True)
+        ARPrint (JAVA_INTERFACES_FILES + ' ', True)
+        ARPrint (JAVA_ENUM_FILES, True)
         ARPrint ('')
         EXIT (0)
     #################################
