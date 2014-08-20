@@ -44,5 +44,59 @@
 <project id="4">
     All SkyController-only commands
     
+    <class name="WifiState" id="0">
+        Wifi state
+        <cmd name="WifiList">
+            Return the available wifi list
+            <arg name="bssid" type="string">
+                Wifi bssid
+            </arg>
+            <arg name="ssid" type="string">
+                Wifi ssid
+            </arg>
+            <arg name="secured" type="u8">
+                Is wifi secured by passphrase
+            </arg>
+            <arg name="rssi" type="i32">
+                Wifi rssi
+            </arg>
+            <arg name="frequency" type="i32">
+                Wifi frequency
+            </arg>
+        </cmd>
+        
+        <cmd name="ConnexionChanged">
+            Return connexion status
+            <arg name="ssid" type="string">
+                Wifi ssid
+            </arg>
+            <arg name="status" type="enum">
+                Wifi status
+                <enum name="ok">
+                    No error
+                </enum>
+                <enum name="error">
+                    Error
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Wifi" id="1">
+        Wifi
+        <cmd name="RequestWifiList">
+            Request wifi list
+        </cmd>
+        
+        <cmd name="ConnectToWifi">
+            Connect to wifi
+            <arg name="bssid" type="string">
+                Wifi bssid
+            </arg>
+            <arg name="passphrase" type="string">
+                Wifi passphrase
+            </arg>
+        </cmd>
+    </class>
 
 </project>
