@@ -360,4 +360,37 @@
              </arg>
          </cmd>
      </class>
+    <class name="Calibration" id="13">
+        Calibration commands
+        <cmd name="MagnetoCalibration">
+            Sent when a calibration of the magnetometer is asked or is aborted
+            <arg name="calibrate" type="u8">
+                1 if the calibration should be started, 0 if it should be aborted
+            </arg>
+        </cmd>
+    </class>
+    <class name="CalibrationState" id="14">
+        Status of the calibration
+        <cmd name="MagnetoCalibrationStateChanged">
+            Sent when the state of the magneto calibration has changed
+            <arg name="xAxisCalibration" type="u8">
+                State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
+            </arg>
+            <arg name="yAxisCalibration" type="u8">
+                State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise
+            </arg>
+            <arg name="zAxisCalibration" type="u8">
+                State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise
+            </arg>
+            <arg name="calibrationFailed" type="u8">
+                1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0
+            </arg>
+        </cmd>
+        <cmd name="MagnetoCalibrationRequiredState">
+            Status of the calibration requirement
+            <arg name="required" type="u8">
+                1 if calibration is required, 0 if current calibration is still valid
+            </arg>
+        </cmd>
+    </class>
 </project>
