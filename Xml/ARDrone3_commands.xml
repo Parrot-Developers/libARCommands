@@ -94,6 +94,12 @@
         <cmd name="NavigateHome">
             Ask the drone to fly to home
         </cmd>
+        <cmd name="AutoTakeOffMode">
+            Set Drone3 in automatic take off mode
+            <arg name="state" type="u8">
+                State of automatic take off mode (1 for autotake off enabled)
+            </arg>
+        </cmd>
     </class>
     
     <class name="Animations" id="5">
@@ -327,6 +333,12 @@
             </arg>
             <arg name="yaw" type="float">
                 Yaw value (in radian)
+            </arg>
+        </cmd>
+        <cmd name="AutoTakeOffModeChanged">
+            Status of the drone3 automatic take off mode
+            <arg name="state" type="u8">
+                State of automatic take off mode (1 if enabled)
             </arg>
         </cmd>
     </class>
