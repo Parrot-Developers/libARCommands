@@ -57,6 +57,9 @@
             <arg name="secured" type="u8">
                 Is wifi secured by passphrase
             </arg>
+            <arg name="saved" type="u8">
+                Is wifi saved in terminal
+            </arg>
             <arg name="rssi" type="i32">
                 Wifi rssi
             </arg>
@@ -86,6 +89,10 @@
         Wifi
         <cmd name="RequestWifiList">
             Request wifi list
+        </cmd>
+
+        <cmd name="RequestCurrentWifi">
+            Request current connected wifi
         </cmd>
         
         <cmd name="ConnectToWifi">
