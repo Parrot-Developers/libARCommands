@@ -112,5 +112,99 @@
             </arg>
         </cmd>
     </class>
+    
+    <class name="Device" id="2">
+        Device Connection commands
+        
+         <cmd name="RequestDeviceList">
+            Request Device list
+        </cmd>
 
+        <cmd name="RequestCurrentDevice">
+            Request current connected Device
+        </cmd>
+        
+        <cmd name="ConnetToDevice">
+            ask to connect to a device
+            <arg name="deviceName" type="string">
+                Device name
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="DeviceState" id="3">
+        Device state
+        
+        <cmd name="DeviceList">
+            Return the available Device list
+            <arg name="name" type="string">
+                Device name
+            </arg>
+        </cmd>
+        
+        <cmd name="ConnexionChanged">
+            Return device connexion status
+            <arg name="status" type="enum">
+                Wifi status to Device
+                <enum name="notConnected">
+                    Not Connected
+                </enum>
+                <enum name="connecting">
+                    Connecting to Device
+                </enum>
+                
+                <enum name="connected">
+                    Connected to Device
+                </enum>
+                
+                <enum name="disconnecting">
+                    Disconnecting from Device
+                </enum>
+            </arg>
+            <arg name="deviceName" type="string">
+                Device name
+            </arg>
+            <arg name="deviceProductID" type="u16">
+                Device name
+            </arg>
+        </cmd>
+        
+    </class>
+    
+    <class name="Settings" id="4">
+        Settings commands
+        <cmd name="AllSettings">
+            Get all product settings, the product must send all settings
+        </cmd>
+        <cmd name="Reset">
+            Reset all settings
+        </cmd>
+        
+    </class>
+    
+    <class name="SettingsState" id="5">
+        Settings state from product
+        <cmd name="AllSettingsChanged">
+            State sent when all settings has been sent.
+        </cmd>
+        
+        <cmd name="ResetChanged">
+            State sent when all settings has been resetting.
+        </cmd>
+    </class>
+    
+    <class name="Common" id="6">
+        Common commands
+        <cmd name="AllStates">
+            Get all product states.
+        </cmd>
+    </class>
+    
+    <class name="CommonState" id="7">
+        Common state from product
+        <cmd name="AllStatesChanged">
+            State sent when all product states has been sent.
+        </cmd>
+    </class>
+    
 </project>
