@@ -104,6 +104,13 @@
                 Wifi passphrase
             </arg>
         </cmd>
+
+        <cmd name="ForgetWifi">
+            Forget wifi
+            <arg name="ssid" type="string">
+                Wifi ssid
+            </arg>
+        </cmd>
     </class>
 
 </project>
