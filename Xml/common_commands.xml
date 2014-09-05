@@ -392,5 +392,20 @@
                 1 if calibration is required, 0 if current calibration is still valid
             </arg>
         </cmd>
+        <cmd name="MagnetoCalibrationAxisToCalibrateChanged">
+            Event sent by a product to inform about the axis to calibrate
+            <arg name="axis" type="enum">
+                The axis to calibrate
+                <enum name="xAxis">
+                    If the current calibration axis should be the x axis
+                </enum>
+                <enum name="yAxis">
+                    If the current calibration axis should be the y axis
+                </enum>
+                <enum name="zAxis">
+                    If the current calibration axis should be the z axis
+                </enum>
+            </arg>
+        </cmd>
     </class>
 </project>
