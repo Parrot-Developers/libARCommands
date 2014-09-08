@@ -620,7 +620,7 @@
         Settings state from product
 
         <cmd name="ProductMotorVersionListChanged">
-            Product Motor version (the first argument is the unique identifier for the list)
+            DEPRECATED Product Motor version (the first argument is the unique identifier for the list)
             <arg name="motor_number" type="u8">
                 Product Motor number
             </arg>
@@ -692,6 +692,24 @@
                 <enum name="errorAssert">
                     Error Made by BLDC_ASSERT()
                 </enum>
+            </arg>
+        </cmd>
+        <cmd name="MotorSoftwareVersionChanged">
+            Motor software version status
+            <arg name="version" type="string">
+                name of the version : dot separated fields (major version - minor version - firmware type - nb motors handled). Firmware types : Release, Debug, Alpha, Test-bench
+            </arg>
+        </cmd>
+        <cmd name="MotorFlyingStatusChanged">
+            Motor flying status
+            <arg name="nbFlights" type="u16">
+                total number of flights
+            </arg>
+            <arg name="lastFlightDuration" type="u16">
+                Duration of the last flight
+            </arg>
+            <arg name="totalFlightDuration" type="u32">
+                Duration of all flights
             </arg>
         </cmd>
     </class>
