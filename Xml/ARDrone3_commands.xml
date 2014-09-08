@@ -700,16 +700,16 @@
                 name of the version : dot separated fields (major version - minor version - firmware type - nb motors handled). Firmware types : Release, Debug, Alpha, Test-bench
             </arg>
         </cmd>
-        <cmd name="MotorFlyingStatusChanged">
-            Motor flying status
+        <cmd name="MotorFlightsStatusChanged">
+            Motor flights status
             <arg name="nbFlights" type="u16">
                 total number of flights
             </arg>
             <arg name="lastFlightDuration" type="u16">
-                Duration of the last flight
+                Duration of the last flight (in seconds)
             </arg>
             <arg name="totalFlightDuration" type="u32">
-                Duration of all flights
+                Duration of all flights (in seconds)
             </arg>
         </cmd>
     </class>
