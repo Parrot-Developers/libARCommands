@@ -405,6 +405,9 @@
                 <enum name="zAxis">
                     If the current calibration axis should be the z axis
                 </enum>
+                <enum name="none">
+                    If none of the axis should be calibrated
+                </enum>
             </arg>
         </cmd>
     </class>
