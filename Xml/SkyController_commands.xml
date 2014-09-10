@@ -124,7 +124,7 @@
             Request current connected Device
         </cmd>
         
-        <cmd name="ConnetToDevice">
+        <cmd name="ConnectToDevice">
             ask to connect to a device
             <arg name="deviceName" type="string">
                 Device name
