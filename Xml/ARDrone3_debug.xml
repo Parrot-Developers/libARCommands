@@ -86,4 +86,13 @@
     		</arg>
     	</cmd>
     </class>
+    <class name="GPSDebugState" id="3">
+    	Debug commands for drone3 gps state
+    	<cmd name="nbSatelliteChanged">
+    		Nb of satellite that gps is linked to
+    		<arg name="nbSatellite" type="u8">
+    			Amount of satellite used by gps location
+    		</arg>
+    	</cmd>
+    </class>
 </project>
