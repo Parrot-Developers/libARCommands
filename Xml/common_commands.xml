@@ -410,5 +410,11 @@
                 </enum>
             </arg>
         </cmd>
+        <cmd name="MagnetoCalibrationStartedChanged">
+            Status of the calibration process
+            <arg name="started" type="u8">
+                1 if calibration has started, 0 otherwise
+            </arg>
+        </cmd>
     </class>
 </project>
