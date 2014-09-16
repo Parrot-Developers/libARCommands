@@ -285,23 +285,23 @@
                     Low battery occurred (available->inProgress)
                 </enum>
                 <enum name="finished">
-                	Navigate home is finished (inProgress->available)
+                    Navigate home is finished (inProgress->available)
                 </enum>
                 <enum name="stopped">
-                	Navigate home has been stopped (inProgress->available)
+                    Navigate home has been stopped (inProgress->available)
                 </enum>
                 <enum name="disabled">
-                	Navigate home disabled by product (inProgress->unavailable or available->unavailable)
+                    Navigate home disabled by product (inProgress->unavailable or available->unavailable)
                 </enum>
                 <enum name="enabled">
-                	Navigate home enabled by product (unavailable->available)
+                    Navigate home enabled by product (unavailable->available)
                 </enum>
             </arg>
         </cmd>
         
         <cmd name="PositionChanged">
-        	Drone position changed
-        	<arg name="latitude" type="double">
+            Drone position changed
+            <arg name="latitude" type="double">
                 Latitude position in decimal degrees (500.0 if not available)
             </arg>
             <arg name="longitude" type="double">
@@ -312,8 +312,8 @@
             </arg>
         </cmd>
         <cmd name="SpeedChanged">
-        	Drone speed changed
-        	<arg name="speedX" type="float">
+            Drone speed changed
+            <arg name="speedX" type="float">
                 Speed on the x axis (when drone moves forward, speed is > 0) (in m/s)
             </arg>
             <arg name="speedY" type="float">
@@ -324,8 +324,8 @@
             </arg>
         </cmd>
         <cmd name="AttitudeChanged">
-        	Drone attitude changed
-        	<arg name="roll" type="float">
+            Drone attitude changed
+            <arg name="roll" type="float">
                 roll value (in radian)
             </arg>
             <arg name="pitch" type="float">
@@ -773,11 +773,10 @@
     </class>
     
     <class name="PictureSettings" id="19">
-    	Photo settings chosen by the user
-    	
-    	<cmd name="PictureFormatSelection">
-    		The format of the photo
-    		<arg name="type" type="enum">
+        Photo settings chosen by the user
+        <cmd name="PictureFormatSelection">
+            The format of the photo
+            <arg name="type" type="enum">
                 The type of photo format
                 <enum name="raw">
                     Take raw image
@@ -789,10 +788,10 @@
                     Take a 16:9 snapshot from camera
                 </enum>
             </arg>
-    	</cmd>
-    	<cmd name="AutoWhiteBalanceSelection">
-    		AutoWhiteBalance mode
-    		<arg name="type" type="enum">
+        </cmd>
+        <cmd name="AutoWhiteBalanceSelection">
+            AutoWhiteBalance mode
+            <arg name="type" type="enum">
                 The type auto white balance
                 <enum name="auto">
                     Auto guess of best white balance params
@@ -810,45 +809,44 @@
                     White balance for a flash
                 </enum>
             </arg>
-    	</cmd>
+        </cmd>
         <cmd name="ExpositionSelection">
-        	The exposition of the image
-        	<arg name="value" type="float">
-        		Exposition value [-3;3]
-        	</arg>
+            The exposition of the image
+            <arg name="value" type="float">
+                Exposition value (bounds given by ExpositionChanged arg min and max, by default [-3:3])
+            </arg>
         </cmd>
         <cmd name="SaturationSelection">
-        	The saturation of the image
-        	<arg name="value" type="float">
-        		Saturation value [0;5]
-        	</arg>
+            The saturation of the image
+            <arg name="value" type="float">
+                Saturation value (bounds given by SaturationChanged arg min and max, by default [-100:100])
+            </arg>
         </cmd>
         <cmd name="TimelapseSelection">
-        	Picture taken periodically
-        	<arg name="enabled" type="u8">
-        		1 if timelapse is enabled, 0 otherwise
-        	</arg>
-        	<arg name="interval" type="float">
-        		interval in seconds for taking pictures
-        	</arg>
+            Picture taken periodically
+            <arg name="enabled" type="u8">
+                1 if timelapse is enabled, 0 otherwise
+            </arg>
+            <arg name="interval" type="float">
+                interval in seconds for taking pictures
+            </arg>
         </cmd>
         <cmd name="VideoAutorecordSelection">
-        	Video autorecord
-        	<arg name="enabled" type="u8">
-        		1 if video autorecord is enabled, 0 otherwise
-        	</arg>
-        	<arg name="mass_storage_id" type="u8">
+            Video autorecord
+            <arg name="enabled" type="u8">
+                1 if video autorecord is enabled, 0 otherwise
+            </arg>
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id to take video
             </arg>
         </cmd>
     </class>
     
     <class name="PictureSettingsState" id="20">
-    	Photo settings state from product
-    	
-    	<cmd name="PictureFormatChanged">
-    		The format of the photo
-    		<arg name="type" type="enum">
+        Photo settings state from product
+        <cmd name="PictureFormatChanged">
+        The format of the photo
+            <arg name="type" type="enum">
                 The type of photo format
                 <enum name="raw">
                     Take raw image
@@ -860,10 +858,10 @@
                     Take a 16:9 snapshot from camera
                 </enum>
             </arg>
-    	</cmd>
-    	<cmd name="AutoWhiteBalanceChanged">
-    		AutoWhiteBalance mode
-    		<arg name="type" type="enum">
+        </cmd>
+        <cmd name="AutoWhiteBalanceChanged">
+            AutoWhiteBalance mode
+            <arg name="type" type="enum">
                 The type auto white balance
                 <enum name="auto">
                     Auto guess of best white balance params
@@ -881,34 +879,52 @@
                     White balance for a flash
                 </enum>
             </arg>
-    	</cmd>
-    	<cmd name="ExpositionChanged">
-        	The exposition of the image
-        	<arg name="value" type="float">
-        		Exposition value [-3;3]
-        	</arg>
+        </cmd>
+        <cmd name="ExpositionChanged">
+            The exposition of the image
+            <arg name="value" type="float">
+                Exposition value
+            </arg>
+            <arg name="min" type="float">
+                Min exposition value
+            </arg>
+            <arg name="max" type="float">
+                Max exposition value
+            </arg>
         </cmd>
         <cmd name="SaturationChanged">
-        	The saturation of the image
-        	<arg name="value" type="float">
-        		Saturation value [0;5]
-        	</arg>
+            The saturation of the image
+            <arg name="value" type="float">
+                Saturation value
+            </arg>
+            <arg name="min" type="float">
+                Min saturation value
+            </arg>
+            <arg name="max" type="float">
+                Max saturation value
+            </arg>
         </cmd>
         <cmd name="TimelapseChanged">
-        	Picture taken periodically
-        	<arg name="enabled" type="u8">
-        		1 if timelapse is enabled, 0 otherwise
-        	</arg>
-        	<arg name="interval" type="float">
-        		interval in seconds for taking pictures
-        	</arg>
+            Picture taken periodically
+            <arg name="enabled" type="u8">
+                1 if timelapse is enabled, 0 otherwise
+            </arg>
+            <arg name="interval" type="float">
+                interval in seconds for taking pictures
+            </arg>
+            <arg name="minInterval" type="float">
+                Minimal interval for taking pictures
+            </arg>
+            <arg name="maxInterval" type="float">
+                Maximal interval for taking pictures
+            </arg>
         </cmd>
         <cmd name="VideoAutorecordChanged">
-        	Video autorecord
-        	<arg name="enabled" type="u8">
-        		1 if video autorecord is enabled, 0 otherwise
-        	</arg>
-        	<arg name="mass_storage_id" type="u8">
+            Video autorecord
+            <arg name="enabled" type="u8">
+                1 if video autorecord is enabled, 0 otherwise
+            </arg>
+            <arg name="mass_storage_id" type="u8">
                 Mass storage id for the taken video
             </arg>
         </cmd>
@@ -989,15 +1005,15 @@
             </arg>
         </cmd>
         <cmd name="GPSFixStateChanged">
-        	GPS fix state
-        	<arg name="fixed" type="u8">
-        		1 if gps on drone is fixed, 0 otherwise
-        	</arg>
+            GPS fix state
+            <arg name="fixed" type="u8">
+                1 if gps on drone is fixed, 0 otherwise
+            </arg>
         </cmd>
         <cmd name="GPSUpdateStateChanged">
-        	GPS update state
-        	<arg name="state" type="enum">
-        		The state of the gps update
+            GPS update state
+            <arg name="state" type="enum">
+                The state of the gps update
                 <enum name="updated">
                     Drone GPS update succeed
                 </enum>
@@ -1007,7 +1023,7 @@
                 <enum name="failed">
                     Drone GPS update failed
                 </enum>
-        	</arg>
+            </arg>
         </cmd>
     </class>
     
