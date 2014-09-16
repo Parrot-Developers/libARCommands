@@ -167,8 +167,7 @@
             <arg name="deviceProductID" type="u16">
                 Device name
             </arg>
-        </cmd>
-        
+        </cmd>        
     </class>
     
     <class name="Settings" id="4">
@@ -204,6 +203,23 @@
         Common state from product
         <cmd name="AllStatesChanged">
             State sent when all product states has been sent.
+        </cmd>
+    </class>
+
+    <class name="SkyControllerState" id="8">
+        Sky Controller states
+        <cmd name="BatteryChanged">
+            State sent when SkyController battery has changed
+            <arg name="percent" type="u8">
+                SkyController battery
+            </arg>
+        </cmd>
+
+        <cmd name="GpsFixChanged">
+            State sent when SkyController gps fix has changed
+            <arg name="fixed" type="u8">
+                SkyController fixed
+            </arg>
         </cmd>
     </class>
     
