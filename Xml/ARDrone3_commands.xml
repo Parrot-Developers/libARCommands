@@ -132,11 +132,11 @@
             Ask the drone to move camera.
             
             <arg name="tilt" type="i8">
-                Tilt camera consign for the drone [-100;100]
+                Tilt camera consign for the drone [-1;1]
             </arg>
             
             <arg name="pan" type="i8">
-                Pan camera consign for the drone [-100;100]
+                Pan camera consign for the drone [-1;1]
             </arg>
         </cmd>
     </class>
