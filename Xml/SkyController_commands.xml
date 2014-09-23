@@ -222,5 +222,37 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="AccessPointSettings" id="9">
+        AccessPoint settings commands
+        <cmd name="AccessPointSSID">
+            Set AccessPoint SSID
+            <arg name="ssid" type="string">
+                AccessPoint SSID
+            </arg>
+        </cmd>
+        <cmd name="AccessPointChannel">
+            Set AccessPoint Channel
+            <arg name="channel" type="u8">
+                AccessPoint Channel
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="AccessPointSettingsState" id="10">
+        AccessPoint settings state from product
+        <cmd name="AccessPointSSIDChanged">
+            State sent when AccessPoint ssid has been sent
+            <arg name="ssid" type="string">
+                AccessPoint SSID
+            </arg>
+        </cmd>
+        <cmd name="AccessPointChannelChanged">
+            State sent when AccessPoint channel has been sent
+            <arg name="channel" type="u8">
+                AccessPoint Channel
+            </arg>
+        </cmd>
+    </class>
     
 </project>
