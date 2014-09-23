@@ -139,6 +139,10 @@
                 Pan camera consign for the drone [-1;1]
             </arg>
         </cmd>
+
+        <cmd name="ResetOrientation">
+            Reset pan and tilt to center
+        </cmd>
     </class>
     
     <class name="MediaRecord" id="7">
