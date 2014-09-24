@@ -254,5 +254,12 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="Camera" id="11">
+        Ask the drone to move camera
+        <cmd name="ResetOrientation">
+            Reset pan and tilt to center
+        </cmd>
+    </class>
     
 </project>
