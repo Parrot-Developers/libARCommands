@@ -93,6 +93,9 @@
         
         <cmd name="NavigateHome">
             Ask the drone to fly to home
+            <arg name="start" type="u8">
+                1 to start the navigate home, 0 to stop it
+            </arg>
         </cmd>
         <cmd name="AutoTakeOffMode">
             Set Drone3 in automatic take off mode
