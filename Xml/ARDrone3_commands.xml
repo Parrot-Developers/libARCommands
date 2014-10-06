@@ -808,7 +808,7 @@
                 <enum name="cloudy">
                     Cloudy white balance
                 </enum>
-                <enum name="flash">
+                <enum name="cool_white">
                     White balance for a flash
                 </enum>
             </arg>
@@ -878,7 +878,7 @@
                 <enum name="cloudy">
                     Cloudy white balance
                 </enum>
-                <enum name="flash">
+                <enum name="cool_white">
                     White balance for a flash
                 </enum>
             </arg>
