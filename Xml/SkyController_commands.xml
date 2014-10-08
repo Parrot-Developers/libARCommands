@@ -193,6 +193,13 @@
         <cmd name="ResetChanged">
             State sent when all settings has been resetting.
         </cmd>
+        
+        <cmd name="ProductSerialChanged">
+            Product serial number
+            <arg name="serialNumber" type="string">
+                Serial number (hexadecimal value)
+            </arg>
+        </cmd>
     </class>
     
     <class name="Common" id="6">
