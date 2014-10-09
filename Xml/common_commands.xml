@@ -417,4 +417,25 @@
             </arg>
         </cmd>
     </class>
+    <class name="CameraSettingsState" id="15">
+         Status of the camera settings
+         <cmd name="CameraSettingsChanged">
+             Status of the camera settings
+             <arg name="fov" type="float">
+                Value of the camera horizontal fov (in degree)
+             </arg>
+             <arg name="panMax" type="float">
+                Value of max pan (right pan) (in degree)
+             </arg>
+             <arg name="panMin" type="float">
+                Value of min pan (left pan) (in degree)
+             </arg>
+             <arg name="tiltMax" type="float">
+                Value of max tilt (top tilt) (in degree)
+             </arg>
+             <arg name="tiltMin" type="float">
+                Value of min tilt (bottom tilt) (in degree)
+             </arg>
+         </cmd>
+     </class>
 </project>
