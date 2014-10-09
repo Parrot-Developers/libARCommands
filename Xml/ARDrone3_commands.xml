@@ -677,6 +677,9 @@
                 <enum name="errorMotorSetting">
                     One or several incorrect values in motor settings
                 </enum>
+                <enum name="errorTemperature">
+                    Too hot or too cold Cypress temperature
+                </enum>
                 <enum name="errorBatteryVoltage">
                     Battery voltage out of bounds
                 </enum>
@@ -685,9 +688,6 @@
                 </enum>
                 <enum name="errorMOSFET">
                     Defectuous MOSFET or broken motor phases
-                </enum>
-                <enum name="errorTemperature">
-                    Too hot or too cold Cypress temperature
                 </enum>
                 <enum name="errorBootloader">
                     Not use for BLDC but useful for HAL
