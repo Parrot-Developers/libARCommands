@@ -75,11 +75,14 @@
             </arg>
             <arg name="status" type="enum">
                 Wifi status
-                <enum name="ok">
-                    No error
+                <enum name="connected">
+                    Connected
                 </enum>
                 <enum name="error">
                     Error
+                </enum>
+                <enum name="disconnected">
+                    Disconnected
                 </enum>
             </arg>
         </cmd>
