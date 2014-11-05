@@ -315,9 +315,17 @@
                 Longitude position in decimal degrees (500.0 if not available)
             </arg>
             <arg name="altitude" type="double">
+                Altitude in meters (from GPS)
+            </arg>
+        </cmd>
+        
+        <cmd name="AltitudeChanged">
+            Drone altitude changed
+            <arg name="altitude" type="double">
                 Altitude in meters
             </arg>
         </cmd>
+
         <cmd name="SpeedChanged">
             Drone speed changed
             <arg name="speedX" type="float">
