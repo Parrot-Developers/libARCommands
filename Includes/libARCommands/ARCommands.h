@@ -9,5 +9,6 @@
 #include <libARCommands/ARCOMMANDS_Decoder.h>
 #include <libARCommands/ARCOMMANDS_Generator.h>
 #include <libARCommands/ARCOMMANDS_Types.h>
+#include <libARCommands/ARCOMMANDS_Filter.h>
 
 #endif /* _LIBARCOMMANDS_ARCOMMANDS_H_ */
