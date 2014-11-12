@@ -318,14 +318,6 @@
                 Altitude in meters (from GPS)
             </arg>
         </cmd>
-        
-        <cmd name="AltitudeChanged">
-            Drone altitude changed
-            <arg name="altitude" type="double">
-                Altitude in meters
-            </arg>
-        </cmd>
-
         <cmd name="SpeedChanged">
             Drone speed changed
             <arg name="speedX" type="float">
@@ -354,6 +346,12 @@
             Status of the drone3 automatic take off mode
             <arg name="state" type="u8">
                 State of automatic take off mode (1 if enabled)
+            </arg>
+        </cmd>
+        <cmd name="AltitudeChanged">
+            Drone altitude changed
+            <arg name="altitude" type="double">
+                Altitude in meters
             </arg>
         </cmd>
     </class>
