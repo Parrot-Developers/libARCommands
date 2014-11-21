@@ -5,7 +5,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(m4)
 
-m4_include([../../ARBuildUtils/Utils/m4/ARSDK.m4])
+m4_include([../../ARSDKBuildUtils/Utils/m4/ARSDK.m4])
 
 # automake initialisation and check for minimal automake API version 1.9
 AM_INIT_AUTOMAKE
@@ -129,7 +129,7 @@ AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed --> XML file
 
 # Run prebuild PY script
 AC_MSG_NOTICE([Executing python prebuild commands])
-AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../../ARBuildUtils/Utils/Python/ARSDK_PrebuildActions.py $srcdir])
+AM_CONDITIONAL([PYTHON_RUN_OK], [$PYTHON $srcdir/../../ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py $srcdir])
 AM_COND_IF([PYTHON_RUN_OK], , AC_MSG_ERROR(Python processing failed))
 
 # Checks for header files.
