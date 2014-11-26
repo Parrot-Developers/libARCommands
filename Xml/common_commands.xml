@@ -389,6 +389,21 @@
                 </enum>
              </arg>
          </cmd>
+         <cmd name="MavlinkPlayErrorStateChanged">
+             FlightPlan play state error
+             <arg name="error" type="enum">
+                 State of play error
+                 <enum name="none">
+                     There is no error
+                 </enum>
+                 <enum name="notInOutDoorMode">
+                     The drone is not in outdoor mode
+                 </enum>
+                 <enum name="gpsNotFixed">
+                     The gps is not fixed
+                 </enum>
+             </arg>
+         </cmd>
      </class>
     <class name="Calibration" id="13">
         Calibration commands
