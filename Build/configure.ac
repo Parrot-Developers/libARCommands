@@ -1,6 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-AC_INIT([libARCommands], [0.1.0], [ardrone@ardrone.org])
+AC_INIT([libARCommands], [3.1.0], [ardrone@ardrone.org])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR(m4)
