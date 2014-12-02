@@ -293,6 +293,9 @@
                 <enum name="low_battery">
                     Low battery alert
                 </enum>
+                <enum name="too_much_angle">
+                    The angle of the drone is too high
+                </enum>
             </arg>
         </cmd>
         
