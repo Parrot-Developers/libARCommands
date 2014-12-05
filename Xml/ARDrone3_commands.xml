@@ -230,6 +230,9 @@
                 <enum name="failed">
                     Video was failed
                 </enum>
+                <enum name="autostopped">
+                    Video was auto stopped
+                </enum>
             </arg>
             <arg name="mass_storage_id" type="u8">
                 Mass storage id where the video was recorded
