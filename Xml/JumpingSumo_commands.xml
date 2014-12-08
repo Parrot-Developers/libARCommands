@@ -254,6 +254,22 @@
                 </enum>
             </arg>
         </cmd>
+        <cmd name="JumpTypeChanged">
+            State of jump type changed.
+
+            <arg name="state" type="enum">
+                State of jump type.
+                <enum name="none">
+                    None.
+                </enum>
+                <enum name="long">
+                    Long jump type.
+                </enum>
+                <enum name="high">
+                    High jump type.
+                </enum>
+            </arg>
+        </cmd>
     </class>
 
     <class name="Settings" id="4">
