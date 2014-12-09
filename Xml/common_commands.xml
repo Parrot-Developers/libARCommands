@@ -272,10 +272,10 @@
         </cmd>
         
         <cmd name="WifiSignalChanged">
-        	Wifi Signal between controller and product state
-        	<arg name="rssi" type="i16">
-        		RSSI of the signal between controller and the product (in dbm)
-        	</arg>
+            Wifi Signal between controller and product state
+            <arg name="rssi" type="i16">
+                RSSI of the signal between controller and the product (in dbm)
+            </arg>
         </cmd>
     </class>
     
@@ -316,27 +316,27 @@
         </cmd>
     </class>
 
-	<class name="WifiSettings" id="9">
-		Wifi settings commands
-		<cmd name="OutdoorSetting">
-			Send to product if it should use its outdoor wifi config, or indoor
-			<arg name="outdoor" type="u8">
-				1 if it should use outdoor wifi settings, 0 otherwise
-			</arg>
-		</cmd>
-	</class>
-	
-	<class name="WifiSettingsState" id="10">
-		Wifi settings state from product
-		<cmd name="outdoorSettingsChanged" type="u8">
-			Status of the wifi config : either indoor or outdoor
-			<arg name="outdoor" type="u8">
-				1 if it should use outdoor wifi settings, 0 otherwise
-			</arg>
-		</cmd>
-	</class>
-	
-	<class name="Mavlink" id="11">
+    <class name="WifiSettings" id="9">
+        Wifi settings commands
+        <cmd name="OutdoorSetting">
+            Send to product if it should use its outdoor wifi config, or indoor
+            <arg name="outdoor" type="u8">
+                1 if it should use outdoor wifi settings, 0 otherwise
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="WifiSettingsState" id="10">
+        Wifi settings state from product
+        <cmd name="outdoorSettingsChanged" type="u8">
+            Status of the wifi config : either indoor or outdoor
+            <arg name="outdoor" type="u8">
+                1 if it should use outdoor wifi settings, 0 otherwise
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="Mavlink" id="11">
          Mavlink flight plans commands
          <cmd name="Start">
              Start the flight plan
@@ -380,8 +380,8 @@
                  flight plan file path from the mavlink ftp root
              </arg>
              <arg name="type" type="enum">
-             	type of the played mavlink file
-             	<enum name="flightPlan">
+                type of the played mavlink file
+                <enum name="flightPlan">
                     Mavlink file for FlightPlan
                 </enum>
                 <enum name="mapMyHouse">
@@ -483,4 +483,19 @@
              </arg>
          </cmd>
      </class>
+     <class name="GPS" id="16">
+        GPS related commands
+        <cmd name="ControllerPositionForRun">
+            Set the controller position for a run. This command is used by all non gps products
+            <arg name="latitude" type="double">
+                Controller latitude in decimal degrees
+            </arg>
+            <arg name="longitude" type="double">
+                Controller longitude in decimal degrees
+            </arg>
+            <arg name="altitude" type="double">
+                Controller altitude in meters
+            </arg>
+        </cmd>
+    </class>
 </project>
