@@ -421,4 +421,19 @@
             </arg>
         </cmd>
     </class>
+    <class name="GPS" id="13">
+        GPS related commands
+        <cmd name="ControllerLatitudeForRun">
+            Set the controller latitude for a run.
+            <arg name="latitude" type="double">
+                Controller latitude in decimal degrees
+            </arg>
+        </cmd>
+        <cmd name="ControllerLongitudeForRun">
+            Set the controller longitude for a run.
+            <arg name="longitude" type="double">
+                Controller longitude in decimal degrees
+            </arg>
+        </cmd>
+    </class>
 </project>

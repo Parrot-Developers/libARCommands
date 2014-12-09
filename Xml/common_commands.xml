@@ -486,15 +486,12 @@
      <class name="GPS" id="16">
         GPS related commands
         <cmd name="ControllerPositionForRun">
-            Set the controller position for a run. This command is used by all non gps products
+            Set the controller position for a run. This command is used by all non gps products. Watch out, this command cannot be used with BLE products
             <arg name="latitude" type="double">
                 Controller latitude in decimal degrees
             </arg>
             <arg name="longitude" type="double">
                 Controller longitude in decimal degrees
-            </arg>
-            <arg name="altitude" type="double">
-                Controller altitude in meters
             </arg>
         </cmd>
     </class>
