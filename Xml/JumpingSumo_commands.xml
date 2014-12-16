@@ -898,30 +898,4 @@
             </arg>
         </cmd>
     </class>
-
-    <class name="LightLeds" id="20">
-        Controls the LEDs used for lighting for the Evo Light variant.
-        <cmd name="LightLedsIntensity">
-            Set instensity of lighting LEDs.
-            <arg name="left" type="u8">
-                Set the left LED intensity value (0 through 255).
-            </arg>
-            <arg name="right" type="u8">
-                Set the right LED intensity value (0 through 255).
-            </arg>
-        </cmd>
-    </class>
-
-    <class name="LightLedsState" id="21">
-        Get information about the state of the Evo Light variant LEDs.
-        <cmd name="LightLedsIntensityChanged">
-            Notify the instensity values for lighting LEDs.
-            <arg name="left" type="u8">
-                The intensity value for the left LED (0 through 255).
-            </arg>
-            <arg name="right" type="u8">
-                The intensity value for the right LED (0 through 255).
-            </arg>
-        </cmd>
-    </class>
 </project>
