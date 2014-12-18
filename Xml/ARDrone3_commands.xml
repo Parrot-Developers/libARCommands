@@ -315,6 +315,9 @@
                 <enum name="unavailable">
                     Navigate home is not available
                 </enum>
+                <enum name="pending">
+                    Navigate home has been received, but its process is pending
+                </enum>
             </arg>
             <arg name="reason" type="enum">
                 Reason of the state 
