@@ -116,6 +116,29 @@
                 </enum>
             </arg>
         </cmd>
+
+        <cmd name="WifiAuthChannelListChanged">
+            Notify of an Authorized Channel.
+            <arg name="band" type="enum">
+                The band of this channel : 2.4 GHz or 5 GHz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The authorized channel.
+            </arg>
+            <arg name="in_or_out" type="u8">
+                Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
+            </arg>
+        </cmd>
+
+        <cmd name="AllWifiAuthChannelChanged">
+            Notify the end of the list of Authorized wifi Channel.
+        </cmd>
     </class>
 
     <class name="Wifi" id="1">
@@ -146,6 +169,10 @@
             <arg name="ssid" type="string">
                 Wifi ssid
             </arg>
+        </cmd>
+
+        <cmd name="WifiAuthChannel">
+            Controller inquire the list of authorized wifi channels.
         </cmd>
     </class>
     
