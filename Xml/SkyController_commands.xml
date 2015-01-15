@@ -307,6 +307,27 @@
                 AccessPoint Channel
             </arg>
         </cmd>
+        <cmd name="WifiSelection">
+            Set AccessPoint Band and Channel
+            <arg name="type" type="enum">
+                The type of wifi selection (only manual at the moment)
+                <enum name="manual">
+                    Manual selection
+                </enum>
+            </arg>
+            <arg name="band" type="enum">
+                The allowed band : 2.4 Ghz or 5 Ghz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel
+            </arg>
+        </cmd>
     </class>
     
     <class name="AccessPointSettingsState" id="10">
@@ -321,6 +342,27 @@
             State sent when AccessPoint channel has been sent
             <arg name="channel" type="u8">
                 AccessPoint Channel
+            </arg>
+        </cmd>
+        <cmd name="WifiSelectionChanged">
+            Wifi selection from product
+            <arg name="type" type="enum">
+                The type of wifi selection (only manual at the moment)
+                <enum name="manual">
+                    Manual selection
+                </enum>
+            </arg>
+            <arg name="band" type="enum">
+                The allowed band : 2.4 Ghz or 5 Ghz
+                <enum name="2_4ghz">
+                    2.4 GHz band
+                </enum>
+                <enum name="5ghz">
+                    5 GHz band
+                </enum>
+            </arg>
+            <arg name="channel" type="u8">
+                The channel
             </arg>
         </cmd>
     </class>
