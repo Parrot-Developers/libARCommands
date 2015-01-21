@@ -402,6 +402,9 @@
                  <enum name="gpsNotFixed">
                      The gps is not fixed
                  </enum>
+                 <enum name="notCalibrated">
+                     The magnetometer of the drone is not calibrated
+                 </enum>
              </arg>
          </cmd>
      </class>
