@@ -8,6 +8,7 @@ HEADER_FILES                            =   ../Includes/libARCommands/ARCOMMANDS
                                             ../Includes/libARCommands/ARCOMMANDS_Decoder.h      \
                                             ../Includes/libARCommands/ARCOMMANDS_Types.h        \
                                             ../Includes/libARCommands/ARCOMMANDS_Filter.h       \
+                                            ../Includes/libARCommands/ARCOMMANDS_Version.h      \
                                             ../Includes/libARCommands/ARCommands.h
 
 
@@ -17,6 +18,7 @@ SOURCE_FILES                            =   $(HEADER_FILES)                     
                                             ../Sources/ARCOMMANDS_Decoder.c     \
                                             ../Sources/ARCOMMANDS_Filter.c      \
                                             ../Sources/ARCOMMANDS_ReadWrite.c   \
+                                            ../Sources/ARCOMMANDS_Version.c     \
                                             ../Sources/ARCOMMANDS_Ids.h         \
                                             ../Sources/ARCOMMANDS_ReadWrite.h
 

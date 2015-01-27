@@ -28,19 +28,33 @@
     OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     SUCH DAMAGE.
 */
-/**
- * @file libARCommands/ARCommands.h
- * @brief libARCommands global header.
- * This file contains all headers of libARCommands
- **/
-#ifndef _LIBARCOMMANDS_ARCOMMANDS_H_
-#define _LIBARCOMMANDS_ARCOMMANDS_H_
+
+#include "../Includes/libARCommands/ARCOMMANDS_Version.h"
+#include <stdio.h>
 
 
-#include <libARCommands/ARCOMMANDS_Decoder.h>
-#include <libARCommands/ARCOMMANDS_Generator.h>
-#include <libARCommands/ARCOMMANDS_Types.h>
-#include <libARCommands/ARCOMMANDS_Filter.h>
-#include <libARCommands/ARCOMMANDS_Version.h>
 
-#endif /* _LIBARCOMMANDS_ARCOMMANDS_H_ */
+int ARCOMMANDS_Version_CompareVersions(int v1M, int v1m, int v1r, int v1c,
+                                       int v2M, int v2m, int v2r, int v2c)
+{
+    int ret = 0;
+
+    ret = v1M - v2M;
+    if (ret == 0) { ret = v1m - v2m; }
+    if (ret == 0) { ret = v1r - v2r; }
+    if (ret == 0) { ret = v1c - v2c; }
+
+    return ret;
+}
+
+int ARCOMMANDS_Version_CompareVersionCodes(const char *v1, const char *v2)
+{
+    int v1M = 0, v1m = 0, v1r = 0, v1c = 0;
+    int v2M = 0, v2m = 0, v2r = 0, v2c = 0;
+
+    sscanf (v1, "%d.%d.%d.%d", &v1M, &v1m, &v1r, &v1c);
+    sscanf (v2, "%d.%d.%d.%d", &v2M, &v2m, &v2r, &v2c);
+
+
+    return ARCOMMANDS_Version_CompareVersions(v1M, v1m, v1r, v1c, v2M, v2m, v2r, v2c);
+}
