@@ -270,6 +270,21 @@
                 </enum>
             </arg>
         </cmd>
+        <cmd name="JumpMotorProblemChanged">
+            State about the jump motor problem
+            <arg name="error" type="enum">
+                Enum describing the problem of the motor
+                <enum name="none">
+                    None.
+                </enum>
+                <enum name="blocked">
+                    Motor blocked
+                </enum>
+                <enum name="over_heated">
+                    Motor over heated
+                </enum>
+            </arg>
+        </cmd>
     </class>
 
     <class name="Settings" id="4">
