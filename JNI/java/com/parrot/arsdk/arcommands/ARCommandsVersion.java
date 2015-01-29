@@ -29,6 +29,8 @@
   SUCH DAMAGE.
 */
 
+package com.parrot.arsdk.arcommands;
+
 public class ARCommandsVersion
 {
 
