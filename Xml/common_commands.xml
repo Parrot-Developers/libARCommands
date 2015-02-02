@@ -283,10 +283,12 @@
         Over heat commands
         
         <cmd name="SwitchOff">
+            @deprecated
             Switch off the drone when a overheat appeared
         </cmd>
         
         <cmd name="Ventilate">
+            @deprecated
             Ventilate the drone when a overheat appeared
         </cmd>
     </class>
