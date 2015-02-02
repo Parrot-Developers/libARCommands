@@ -239,10 +239,15 @@
         Media recording management
         
         <cmd name="Picture">
+            @deprecated
             Take picture
             <arg name="mass_storage_id" type="u8">
                 Mass storage id to take picture
             </arg>
+        </cmd>
+        
+        <cmd name="PictureV2">
+            Take picture
         </cmd>
     </class>
     
@@ -250,6 +255,7 @@
         State of media recording
         
         <cmd name="PictureStateChanged">
+            @deprecated
             State of picture recording
             <arg name="state" type="u8">
                 1 if picture has been taken, 0 otherwise
@@ -258,11 +264,87 @@
                 Mass storage id to record
             </arg>
         </cmd>
+        
+        <cmd name="PictureStateChangedV2">
+            State of device picture recording changed
+            <arg name="state" type="enum">
+                State of device picture recording
+                <enum name="ready">
+                    The picture recording is ready
+                </enum>
+                <enum name="busy">
+                    The picture recording is busy
+                </enum>
+                <enum name="notAvailable">
+                    The picture recording is not available
+                </enum>
+            </arg>
+            
+            <arg name="error" type="enum">
+                Error to explain the state 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error
+                </enum>
+                <enum name="camera_ko">
+                    Picture camera is out of order
+                </enum>
+                <enum name="memoryFull">
+                    Memory full ; cannot save one additional picture
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to start/keep recording.
+                </enum>
+            </arg>
+        </cmd>
     </class>
+    
+    <class name="MediaRecordEvent" id="2">
+        Events of media recording
+        
+        <cmd name="PictureEventChanged">
+            Event of picture recording
+            <arg name="event" type="enum">
+                Last event of picture recording
+                <enum name="taken">
+                    Picture taken and saved
+                </enum>
+                <enum name="failed">
+                    Picture failed
+                </enum>
+            </arg>
 
-    <class name="Event" id="2">
-        Event from drone
+            <arg name="error" type="enum">
+                Error to explain the event 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error ; only when state is failed 
+                </enum>
+                <enum name="busy">
+                    Picture recording is busy ; only when state is failed
+                </enum>
+                <enum name="notAvailable">
+                    Picture recording not available ; only when state is failed
+                </enum>
+                <enum name="memoryFull">
+                    Memory full ; only when state is failed
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to record.
+                </enum>
+            </arg>
+        </cmd>
+        
     </class>
+    
+    
+    
+    
+    
     
     <class name="PilotingSettings" id="8">
         Piloting Settings commands

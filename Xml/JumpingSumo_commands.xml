@@ -309,6 +309,7 @@
         Media recording management
 
         <cmd name="Picture">
+            @deprecated
             Take picture
             <arg name="mass_storage_id" type="u8">
                 Mass storage id to take picture
@@ -316,6 +317,7 @@
         </cmd>
 
         <cmd name="Video">
+            @deprecated
             Video record
             <arg name="record" type="enum">
                 Command to record video
@@ -330,12 +332,30 @@
                 Mass storage id to record
             </arg>
         </cmd>
+        
+        <cmd name="PictureV2">
+            Take picture
+        </cmd>
+        
+        <cmd name="VideoV2">
+            Video record
+            <arg name="record" type="enum">
+                Command to record video
+                <enum name="stop">
+                    Stop the video recording
+                </enum>
+                <enum name="start">
+                    Start the video recording
+                </enum>
+            </arg>
+        </cmd>
     </class>
 
     <class name="MediaRecordState" id="7">
         State of media recording
 
         <cmd name="PictureStateChanged">
+            @deprecated
             State of picture recording
             <arg name="state" type="u8">
                 1 if picture has been taken, 0 otherwise
@@ -345,6 +365,7 @@
             </arg>
         </cmd>
         <cmd name="VideoStateChanged">
+            @deprecated
             State of video recording
             <arg name="state" type="enum">
                 State of video
@@ -362,6 +383,154 @@
                 Mass storage id where the video was recorded
             </arg>
         </cmd>
+        
+        <cmd name="PictureStateChangedV2">
+            State of device picture recording changed
+            <arg name="state" type="enum">
+                State of device picture recording
+                <enum name="ready">
+                    The picture recording is ready
+                </enum>
+                <enum name="busy">
+                    The picture recording is busy
+                </enum>
+                <enum name="notAvailable">
+                    The picture recording is not available
+                </enum>
+            </arg>
+            
+            <arg name="error" type="enum">
+                Error to explain the state 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error
+                </enum>
+                <enum name="camera_ko">
+                    Picture camera is out of order
+                </enum>
+                <enum name="memoryFull">
+                    Memory full ; cannot save one additional picture
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to start/keep recording.
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="VideoStateChangedV2">
+            State of device video recording changed
+            <arg name="state" type="enum">
+                State of device video recording
+                <enum name="stopped">
+                    Video is stopped
+                </enum>
+                <enum name="started">
+                    Video is started
+                </enum>
+                <enum name="notAvailable">
+                    The video recording is not available
+                </enum>
+            </arg>
+
+            <arg name="error" type="enum">
+                Error to explain the state 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error
+                </enum>
+                <enum name="camera_ko">
+                    Video camera is out of order
+                </enum>
+                <enum name="memoryFull">
+                    Memory full ; cannot save one additional video
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to start/keep recording.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="MediaRecordEvent" id="20">
+        Events of media recording
+        
+        <cmd name="PictureEventChanged">
+            Event of picture recording
+            <arg name="event" type="enum">
+                Last event of picture recording
+                <enum name="taken">
+                    Picture taken and saved
+                </enum>
+                <enum name="failed">
+                    Picture failed
+                </enum>
+            </arg>
+
+            <arg name="error" type="enum">
+                Error to explain the event 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error ; only when state is failed 
+                </enum>
+                <enum name="busy">
+                    Picture recording is busy ; only when state is failed
+                </enum>
+                <enum name="notAvailable">
+                    Picture recording not available ; only when state is failed
+                </enum>
+                <enum name="memoryFull">
+                    Memory full ; only when state is failed
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to record.
+                </enum>
+            </arg>
+        </cmd>
+        
+        <cmd name="VideoEventChanged">
+            Event of video recording
+            <arg name="event" type="enum">
+                Event of video recording
+                <enum name="start">
+                    Video start
+                </enum>
+                <enum name="stop">
+                    Video stop and saved
+                </enum>
+                <enum name="failed">
+                    Video failed
+                </enum>
+            </arg>
+
+            <arg name="error" type="enum">
+                Error to explain the event 
+                <enum name="ok">
+                    No Error
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error ; only when state is failed
+                </enum>
+                <enum name="busy">
+                    Video recording is busy ; only when state is failed
+                </enum>
+                <enum name="notAvailable">
+                    Video recording not available ; only when state is failed
+                </enum>
+                <enum name="memoryFull">
+                    Memory full
+                </enum>
+                <enum name="lowBattery">
+                    Battery is too low to record.
+                </enum>
+            </arg>
+        </cmd>
+        
     </class>
 
     <class name="NetworkSettings" id="8">
