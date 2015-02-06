@@ -500,4 +500,30 @@
             </arg>
         </cmd>
     </class>
+    
+    <class name="FlightPlanState" id="17">
+        FlightPlan state commands
+        <cmd name="AvailabilityStateChanged">
+            State of availability to run a flight plan file
+            <arg name="AvailabilityState" type="u8">
+                Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)
+            </arg>
+        </cmd>
+
+        <cmd name="ComponentStateListChanged">
+            List of state of drone flightPlan components
+            <arg name="component" type="enum">
+                Drone FlightPlan component id (unique)
+                <enum name="GPS">
+                    GPS for Drone FlightPlan
+                </enum>
+                <enum name="Calibration">
+                    Calibration for Drone FlightPlan
+                </enum>
+            </arg>
+            <arg name="State" type="u8">
+                State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)
+            </arg>
+        </cmd>
+    </class>
 </project>
