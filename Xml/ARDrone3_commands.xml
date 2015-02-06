@@ -1005,6 +1005,9 @@
                 <enum name="snapshot">
                     Take a 16:9 snapshot from camera
                 </enum>
+                <enum name="jpeg_fisheye">
+                    Take jpeg fisheye image only
+                </enum>
             </arg>
         </cmd>
         <cmd name="AutoWhiteBalanceSelection">
