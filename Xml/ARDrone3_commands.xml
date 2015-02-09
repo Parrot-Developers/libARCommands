@@ -109,7 +109,7 @@
             </arg>
             
             <arg name="psi" type="float">
-                Magnetic north heading of the controlling device (deg) [-180;180]
+                [NOT USED] - Magnetic north heading of the controlling device (deg) [-180;180]
             </arg>
         </cmd>
         
@@ -128,7 +128,7 @@
             </arg>
         </cmd>
         <cmd name="AutoTakeOffMode">
-            Set Drone3 in automatic take off mode
+            [NOT USED] Set Drone3 in automatic take off mode
             <arg name="state" type="u8">
                 State of automatic take off mode (1 for autotake off enabled)
             </arg>
@@ -653,7 +653,7 @@
             </arg>
         </cmd>
         <cmd name="AbsolutControl">
-            Enable/Disable absolut control
+            [NOT USED] Enable/Disable absolut control
             <arg name="on" type="u8">
                 1 to enable, 0 to disable
             </arg>
