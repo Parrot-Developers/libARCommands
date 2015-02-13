@@ -83,8 +83,22 @@
         </cmd>
     </class>
     
-    <class name="Event" id="1">
-        Event from product
+    <class name="NetworkEvent" id="1">
+        Network Event from product
+        
+        <cmd name="Disconnection">
+            Signals the remote that the host will disconnect and close its
+            libARNetwork instance (and all threads that use libARNetwork)
+            <arg name="cause" type="enum">
+                Cause of the disconnection of the product
+                <enum name="off_button">
+                    The button off has been pressed
+                </enum>
+                <enum name="unknown">
+                    Unknown generic cause
+                </enum>
+            </arg>
+        </cmd>
 
     </class>
     
