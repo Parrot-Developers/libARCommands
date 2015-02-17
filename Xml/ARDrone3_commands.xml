@@ -1264,4 +1264,20 @@
             </arg>
         </cmd>
     </class>
+    
+    <class name="Antiflickering" id="29">
+        Anti-flickering related commands
+        <cmd name="electricFrequency">
+            Electric frequency of the country
+            <arg name="frequency" type="enum">
+                Type of the electric frequency
+                <enum name="fiftyHertz">
+                    Electric frequency of the country is 50hz
+                </enum>
+                <enum name="sixtyHertz">
+                    Electric frequency of the country is 60hz
+                </enum>
+            </arg>
+        </cmd>
+    </class>
 </project>
