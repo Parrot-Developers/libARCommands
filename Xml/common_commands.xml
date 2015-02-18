@@ -544,50 +544,24 @@
         </cmd>
     </class>
     
-    <class name="ControllerARLibsVersionsState" id="18">
-        Controller ARlibs Versions Commands
-        <cmd name="ARLibsVersionsList">
-            List of the ARLibs versions
-            <arg name="library" type="enum">
-                arlibrary id (unique)
-                <enum name="ARCOMMANDS">
-                    libARCommands
-                </enum>
-            </arg>
+    <class name="ARLibsVersionsState" id="18">
+        ARlibs Versions Commands
+        <cmd name="ControllerLibARCommandsVersion">
+            Controller libARCommands version
             <arg name="version" type="string">
-                version of the library ("1.2.3.4" format)
+                version of libARCommands ("1.2.3.4" format)
             </arg>
         </cmd>
-    </class>
-    
-    <class name="SkyControllerControllerARLibsVersionsState" id="19">
-        SkyControllerController ARlibs Versions Commands
-        <cmd name="ARLibsVersionsList">
-            List of the ARLibs versions
-            <arg name="library" type="enum">
-                arlibrary id (unique)
-                <enum name="ARCOMMANDS">
-                    libARCommands
-                </enum>
-            </arg>
+        <cmd name="SkyControllerLibARCommandsVersion">
+            SkyController libARCommands version
             <arg name="version" type="string">
-                version of the library ("1.2.3.4" format)
+                version of libARCommands ("1.2.3.4" format)
             </arg>
         </cmd>
-    </class>
-    
-    <class name="DeviceARLibsVersionsState" id="20">
-        Device ARlibs Versions Commands
-        <cmd name="ARLibsVersionsList">
-            List of the ARLibs versions
-            <arg name="library" type="enum">
-                arlibrary id (unique)
-                <enum name="ARCOMMANDS">
-                    libARCommands
-                </enum>
-            </arg>
+        <cmd name="DeviceLibARCommandsVersion">
+            Device libARCommands version
             <arg name="version" type="string">
-                version of the library ("1.2.3.4" format)
+                version of libARCommands ("1.2.3.4" format)
             </arg>
         </cmd>
     </class>
