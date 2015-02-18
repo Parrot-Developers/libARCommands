@@ -291,6 +291,31 @@
                 RSSI of the signal between controller and the product (in dbm)
             </arg>
         </cmd>
+        
+        <cmd name="SensorsStatesListChanged">
+            Sensors states list
+            <arg name="sensorName" type="enum">
+                Sensor name
+                <enum name="IMU">
+                    Inertial Measurement Unit sensor
+                </enum>
+                <enum name="barometer">
+                    Barometer sensor
+                </enum>
+                <enum name="ultrasound">
+                    Ultrasonic sensor
+                </enum>
+                <enum name="GPS">
+                    GPS sensor
+                </enum>
+                <enum name="magnetometer">
+                    Magnetometer sensor
+                </enum>
+            </arg>
+            <arg name="sensorState" type="u8">
+                Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)
+            </arg>
+        </cmd>
     </class>
     
     <class name="OverHeat" id="6">
