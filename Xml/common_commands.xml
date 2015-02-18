@@ -385,8 +385,8 @@
                  flight plan file path from the mavlink ftp root
              </arg>
              <arg name="type" type="enum">
-             	type of the played mavlink file
-             	<enum name="flightPlan">
+                type of the played mavlink file
+                <enum name="flightPlan">
                     Mavlink file for FlightPlan
                 </enum>
                 <enum name="mapMyHouse">
@@ -406,8 +406,8 @@
          <cmd name="MavlinkFilePlayingStateChanged">
              Playing state of a mavlink flight plan
              <arg name="state" type="enum">
-             	State of the mavlink 
-             	<enum name="playing">
+                State of the mavlink 
+                <enum name="playing">
                     Mavlink file is playing
                 </enum>
                 <enum name="stopped">
@@ -415,9 +415,6 @@
                 </enum>
                 <enum name="paused">
                     Mavlink file is paused
-                </enum>
-                <enum name="error">
-                    Mavlink error occured
                 </enum>
              </arg>
              <arg name="filepath" type="string">
@@ -562,10 +559,20 @@
                 <enum name="Calibration">
                     Calibration for Drone FlightPlan
                 </enum>
+                <enum name="Mavlink_File">
+                    Mavlink file for Drone FlightPlan
+                </enum>
             </arg>
             <arg name="State" type="u8">
                 State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)
             </arg>
+        </cmd>
+    </class>
+    
+    <class name="FlightPlanEvent" id="19">
+        FlightPlan Event commands
+        <cmd name="StartingErrorEvent">
+            Event of flight plan start error
         </cmd>
     </class>
     
