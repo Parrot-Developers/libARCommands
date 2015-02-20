@@ -1197,6 +1197,24 @@
         <cmd name="ResetHome">
             Reset home location and let the drone make its own home
         </cmd>
+        <cmd name="SendControllerGPS">
+            send controller GPS location
+            <arg name="latitude" type="double">
+                GPS latitude in decimal degrees
+            </arg>
+            <arg name="longitude" type="double">
+                GPS longitude in decimal degrees
+            </arg>
+            <arg name="altitude" type="double">
+                GPS altitude in meters
+            </arg>
+            <arg name="horizontalAccuracy" type="double">
+                Horizontal Accuracy in meter ; equal -1 if no horizontal Accuracy
+            </arg>
+            <arg name="verticalAccuracy" type="double">
+                Vertical Accuracy in meter ; equal -1 if no vertical Accuracy
+            </arg>
+        </cmd>
     </class>
     
     <class name="GPSSettingsState" id="24">
