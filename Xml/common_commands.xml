@@ -606,4 +606,78 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="Audio" id="20">
+        Audio-related commands.
+        <cmd name="SpeakerMode">
+            Change the speaker operating mode.
+            <arg name="mode" type="enum">
+                The new speaker mode.
+                <enum name="Autonomous">
+                    The speaker is used freely by the product to play sounds
+                    according to its own behavior.
+                </enum>
+                <enum name="VoiceChat">
+                    The speaker is used to output the audio stream sent by the
+                    controller.
+                    All the other sounds are muted.
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="MicMode">
+            Change the audio acqusition mode.
+            <arg name="mode" type="enum">
+                The new microphone mode.
+                <enum name="Off">
+                    Audio capture is disabled.
+                </enum>
+                <enum name="VoiceChat">
+                    Audio captured with the mic is sent to the controller.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="AudioState" id="21">
+        Audio-related state updates.
+        <cmd name="SpeakerMode">
+            Change the speaker operating mode.
+            <arg name="SpeakerModeChanged" type="enum">
+                Notifies about changes in the operation mode of the speaker.
+                <enum name="Absent">
+                    There is no speaker in this product.
+                </enum>
+                <enum name="Unavailable">
+                    The speaker is presently not available for use.
+                </enum>
+                <enum name="Autonomous">
+                    The speaker is used freely by the product to play sounds
+                    according to its own behavior.
+                </enum>
+                <enum name="VoiceChat">
+                    The speaker is used to output the audio stream sent by the
+                    controller.
+                    All the other sounds are muted (i.e. not played at all).
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="MicModeChanged">
+            Notify of the current audio acqusition mode.
+            <arg name="mode" type="enum">
+                The new microphone mode.
+                <enum name="Off">
+                    Audio capture is disabled.
+                </enum>
+                <enum name="VoiceChat">
+                    Audio captured with the mic is sent to the controller.
+                </enum>
+                <enum name="Absent">
+                    The product is not capable of audio recording.
+                </enum>
+                <enum name="Unavailable">
+                    The microphone is presently not available for use.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
 </project>
