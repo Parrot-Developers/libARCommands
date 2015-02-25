@@ -406,6 +406,9 @@
                 <enum name="lowBattery">
                     Battery is too low to record.
                 </enum>
+                <enum name="autoStopped">
+                    Video was auto stopped
+                </enum>
             </arg>
         </cmd>
         
