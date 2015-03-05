@@ -311,6 +311,9 @@
                 <enum name="magnetometer">
                     Magnetometer sensor
                 </enum>
+                <enum name="vertical_camera">
+                    Vertical Camera sensor
+                </enum>
             </arg>
             <arg name="sensorState" type="u8">
                 Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)
