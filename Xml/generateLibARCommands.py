@@ -524,6 +524,8 @@ if noGen: # called with "-nogen"
             ARPrint ('    */')
             for cmd in cl.cmds:
                 ARPrint (' --> ' + cmd.name)
+                ARPrint ('     buffer:  ' + ARCommandBuffer.toString(cmd.buf))
+                ARPrint ('     timeout: ' + ARCommandTimeoutPolicy.toString(cmd.timeout))
                 ARPrint ('     /* ')
                 for comment in cmd.comments:
                     ARPrint ('      * ' + comment)
