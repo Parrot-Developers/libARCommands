@@ -1289,7 +1289,7 @@
     <class name="Antiflickering" id="29">
         Anti-flickering related commands
         <cmd name="electricFrequency">
-            Electric frequency of the country
+            Electric frequency of the country determined by the position of the controller
             <arg name="frequency" type="enum">
                 Type of the electric frequency
                 <enum name="fiftyHertz">
@@ -1297,6 +1297,52 @@
                 </enum>
                 <enum name="sixtyHertz">
                     Electric frequency of the country is 60hz
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="setMode">
+            Set the anti flickering mode
+            <arg name="mode" type="enum">
+                Mode of the anti flickering functionnality
+                <enum name="auto">
+                    Anti flickering based on the electric frequency previously sent
+                </enum>
+                <enum name="FixedFiftyHertz">
+                    Anti flickering based on a fixed frequency of 50Hz
+                </enum>
+                <enum name="FixedSixtyHertz">
+                    Anti flickering based on a fixed frequency of 60Hz
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="AntiflickeringState" id="30">
+        Anti-flickering related states
+        <cmd name="electricFrequencyChanged">
+            Electric frequency of the country determined by the position of the controller
+            <arg name="frequency" type="enum">
+                Type of the electric frequency
+                <enum name="fiftyHertz">
+                    Electric frequency of the country is 50hz
+                </enum>
+                <enum name="sixtyHertz">
+                    Electric frequency of the country is 60hz
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="modeChanged">
+            Anti flickering mode
+            <arg name="mode" type="enum">
+                Mode of the anti flickering functionnality
+                <enum name="auto">
+                    Anti flickering based on the electric frequency previously sent
+                </enum>
+                <enum name="FixedFiftyHertz">
+                    Anti flickering based on a fixed frequency of 50Hz
+                </enum>
+                <enum name="FixedSixtyHertz">
+                    Anti flickering based on a fixed frequency of 60Hz
                 </enum>
             </arg>
         </cmd>
