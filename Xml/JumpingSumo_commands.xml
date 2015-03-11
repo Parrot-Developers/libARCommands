@@ -77,7 +77,7 @@
     <class name="Piloting" id="0">
         All commands related to piloting the JumpingSumo
 
-        <cmd name="PCMD">
+        <cmd name="PCMD" buffer="NON_ACK">
             Ask the JS speed and turn ratio.
 
             <arg name="flag" type="u8">
@@ -164,7 +164,7 @@
     <class name="Animations" id="2">
         Animation commands
 
-        <cmd name="JumpStop">
+        <cmd name="JumpStop" buffer="HIGH_PRIO" timeout="RETRY">
             Stop jump, emergency jump stop, stop jump motor and stay there.
         </cmd>
         <cmd name="JumpCancel">
@@ -631,7 +631,7 @@
     <class name="NetworkState" id="11">
         Network state from Product
 
-        <cmd name="WifiScanListChanged">
+        <cmd name="WifiScanListChanged" listtype="MAP">
             One scanning result found
             <arg name="ssid" type="string">
                 SSID of the AP
@@ -657,7 +657,7 @@
             State sent when all scanning result sent
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged">
+        <cmd name="WifiAuthChannelListChanged" listtype="LIST">
             Notify of an Authorized Channel.
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -774,7 +774,7 @@
 
     <class name="RoadPlanState" id="15">
         RoadPlan command responses.
-        <cmd name="ScriptMetadataListChanged">
+        <cmd name="ScriptMetadataListChanged" listtype="MAP">
             Update the controller with metadata.
             <arg name="uuid" type="string">
                 Script uuid for which metadata changed.

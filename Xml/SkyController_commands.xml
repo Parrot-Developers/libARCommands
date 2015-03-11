@@ -76,7 +76,7 @@
     
     <class name="WifiState" id="0">
         Wifi state
-        <cmd name="WifiList">
+        <cmd name="WifiList" listtype="MAP">
             Return the available wifi list
             <arg name="bssid" type="string">
                 Wifi bssid
@@ -117,7 +117,7 @@
             </arg>
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged">
+        <cmd name="WifiAuthChannelListChanged" listtype="LIST">
             Notify of an Authorized Channel.
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -198,7 +198,7 @@
     <class name="DeviceState" id="3">
         Device state
         
-        <cmd name="DeviceList">
+        <cmd name="DeviceList" listtype="LIST">
             Return the available Device list
             <arg name="name" type="string">
                 Device name
@@ -235,7 +235,7 @@
     
     <class name="Settings" id="4">
         Settings commands
-        <cmd name="AllSettings">
+        <cmd name="AllSettings" timeout="RETRY">
             Get all product settings, the product must send all settings
         </cmd>
         <cmd name="Reset">
@@ -264,7 +264,7 @@
     
     <class name="Common" id="6">
         Common commands
-        <cmd name="AllStates">
+        <cmd name="AllStates" timeout="RETRY">
             Get all product states.
         </cmd>
     </class>

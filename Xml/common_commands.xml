@@ -104,7 +104,7 @@
     
     <class name="Settings" id="2">
         Settings commands
-        <cmd name="AllSettings">
+        <cmd name="AllSettings" timeout="RETRY">
             Get all product settings, the product must send all settings
         </cmd>
         <cmd name="Reset">
@@ -190,7 +190,7 @@
     
     <class name="Common" id="4">
         Common commands
-        <cmd name="AllStates">
+        <cmd name="AllStates" timeout="RETRY">
             Get all product states.
         </cmd>
         
@@ -226,7 +226,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageStateListChanged">
+        <cmd name="MassStorageStateListChanged" listtype="MAP">
             Mass storage state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage id (unique)
@@ -236,7 +236,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoStateListChanged">
+        <cmd name="MassStorageInfoStateListChanged" listtype="MAP">
             Mass storage info state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage state id (unique)
@@ -272,7 +272,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoRemainingListChanged">
+        <cmd name="MassStorageInfoRemainingListChanged" listtype="LIST">
             Mass storage info remaining list
             <arg name="free_space" type="u32">
                 Mass storage free space in MBytes
@@ -292,7 +292,7 @@
             </arg>
         </cmd>
         
-        <cmd name="SensorsStatesListChanged">
+        <cmd name="SensorsStatesListChanged" listtype="MAP">
             Sensors states list
             <arg name="sensorName" type="enum">
                 Sensor name
@@ -552,7 +552,7 @@
             </arg>
         </cmd>
 
-        <cmd name="ComponentStateListChanged">
+        <cmd name="ComponentStateListChanged" listtype="MAP">
             List of state of drone flightPlan components
             <arg name="component" type="enum">
                 Drone FlightPlan component id (unique)

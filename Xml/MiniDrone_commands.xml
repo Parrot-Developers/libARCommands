@@ -97,7 +97,7 @@
             Ask the drone to take off
         </cmd>
         
-        <cmd name="PCMD">
+        <cmd name="PCMD" buffer="NON_ACK">
             Ask the drone to move around.
             
             <arg name="flag" type="u8">
@@ -129,7 +129,7 @@
             Ask the MiniDrone to land
         </cmd>
         
-        <cmd name="Emergency">
+        <cmd name="Emergency" buffer="HIGH_PRIO" timeout="RETRY">
             Put drone in emergency state
         </cmd>
         

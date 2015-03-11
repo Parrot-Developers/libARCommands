@@ -85,7 +85,7 @@
             Ask the drone to take off
         </cmd>
         
-        <cmd name="PCMD">
+        <cmd name="PCMD" buffer="NON_ACK">
             Ask the drone to move around.
             
             <arg name="flag" type="u8">
@@ -117,7 +117,7 @@
             Ask the drone to land
         </cmd>
         
-        <cmd name="Emergency">
+        <cmd name="Emergency" buffer="HIGH_PRIO" timeout="RETRY">
             Put drone in emergency user state
         </cmd>
         
@@ -591,7 +591,7 @@
     <class name="NetworkState" id="14">
         Network state from Product
         
-        <cmd name="WifiScanListChanged">
+        <cmd name="WifiScanListChanged" listtype="MAP">
             One scanning result found
             <arg name="ssid" type="string">
                 SSID of the AP
@@ -617,7 +617,7 @@
             State sent when all scanning result sent
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged">
+        <cmd name="WifiAuthChannelListChanged" listtype="LIST">
             Notify of an Authorized Channel.
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -840,7 +840,7 @@
     <class name="SettingsState" id="16">
         Settings state from product
 
-        <cmd name="ProductMotorVersionListChanged">
+        <cmd name="ProductMotorVersionListChanged" listtype="MAP">
             DEPRECATED Product Motor version (the first argument is the unique identifier for the list)
             <arg name="motor_number" type="u8">
                 Product Motor number
