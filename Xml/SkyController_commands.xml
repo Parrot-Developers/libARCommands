@@ -118,7 +118,7 @@
         </cmd>
 
         <cmd name="WifiAuthChannelListChanged" listtype="LIST">
-            Notify of an Authorized Channel.
+            Notify of an Authorized Channel
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
                 <enum name="2_4ghz">
@@ -129,7 +129,7 @@
                 </enum>
             </arg>
             <arg name="channel" type="u8">
-                The authorized channel.
+                The authorized channel
             </arg>
             <arg name="in_or_out" type="u8">
                 Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
@@ -137,7 +137,7 @@
         </cmd>
 
         <cmd name="AllWifiAuthChannelChanged">
-            Notify the end of the list of Authorized wifi Channel.
+            Notify the end of the list of Authorized wifi Channel
         </cmd>
     </class>
 
@@ -172,7 +172,7 @@
         </cmd>
 
         <cmd name="WifiAuthChannel">
-            Controller inquire the list of authorized wifi channels.
+            Controller inquire the list of authorized wifi channels
         </cmd>
     </class>
     
@@ -247,11 +247,11 @@
     <class name="SettingsState" id="5">
         Settings state from product
         <cmd name="AllSettingsChanged">
-            State sent when all settings has been sent.
+            State sent when all settings has been sent
         </cmd>
         
         <cmd name="ResetChanged">
-            State sent when all settings has been resetting.
+            State sent when all settings has been resetting
         </cmd>
         
         <cmd name="ProductSerialChanged">
@@ -265,14 +265,14 @@
     <class name="Common" id="6">
         Common commands
         <cmd name="AllStates" timeout="RETRY">
-            Get all product states.
+            Get all product states
         </cmd>
     </class>
     
     <class name="CommonState" id="7">
         Common state from product
         <cmd name="AllStatesChanged">
-            State sent when all product states has been sent.
+            State sent when all product states has been sent
         </cmd>
     </class>
 
@@ -373,5 +373,223 @@
             Reset pan and tilt to center
         </cmd>
     </class>
+
+	<class name="GamepadInfos" id="18">
+	  Request infos about the gamepad of the SkyController
+	  <cmd name="getGamepadControls">
+		Asks the SkyController to send the button and axis list
+	  </cmd>
+	</class>
+
+	<class name="GamepadInfosState" id="19">
+	  Informations about the gamepad of the SkyController
+	  <cmd name="gamepadControl" listtype="LIST">
+		Describe an existing button or axis of the gamepad
+		<arg name="type" type="enum">
+		  The type (axis/button) of the control
+		  <enum name="axis">
+			An analog axis (one of the 4 joysticks)
+		  </enum>
+		  <enum name="button">
+			A button (including small joystick clicks)
+		  </enum>
+		</arg>
+		<arg name="id" type="i32">
+		  The button or axis id
+		  @note A button and an axis can have the same ID, but their type is different
+		</arg>
+		<arg name="name" type="string">
+		  Display name for the control
+		</arg>
+	  </cmd>
+
+	  <cmd name="allGamepadControlsSent">
+		Sent by the SkyController after sending its last 'gamepadControl' command
+	  </cmd>
+	</class>
+
+	<class name="ButtonMappings" id="12">
+	  Controls the button mappings of the SkyController
+
+	  <cmd name="getCurrentButtonMappings">
+		Asks the SkyController to send its current button mapping
+	  </cmd>
+
+	  <cmd name="getAvailableButtonMappings">
+		Asks the SkyController to send the possible mappings for each button
+	  </cmd>
+
+	  <cmd name="setButtonMapping">
+		Set a button mapping to the SkyController
+		@note replaces previous mapping for the given key
+		<arg name="key_id" type="i32">
+		  The keycode to map
+		</arg>
+		<arg name="mapping_uid" type="string">
+		  The mapping to associate with the key
+		</arg>
+	  </cmd>
+
+	  <cmd name="defaultButtonMapping">
+		Asks the SkyController to reset the button mappings to the default value
+	  </cmd>
+	</class>
+
+	<class name="ButtonMappingsState" id="13">
+	  State of the button mappings of the SkyController
+
+	  <cmd name="currentButtonMappings" listtype="MAP">
+		Sent by the SkyController each time a mapping changes
+		@note If the uid is UNKNOWN_ID, it means that a command to set the id key_id was sent, but the given key id is unknown
+		<arg name="key_id" type="i32">
+		  The keycode mapped
+		</arg>
+		<arg name="mapping_uid" type="string">
+		  The mapping associated
+		</arg>
+	  </cmd>
+
+	  <cmd name="allCurrentButtonMappingsSent">
+		Sent by the SkyController after sending its last 'currentButtonMappings' command
+	  </cmd>
+
+	  <cmd name="availableButtonMappings" listtype="LIST">
+		Sent after a 'getAvailableButtonMappings' request
+		<arg name="mapping_uid" type="string">
+		  The mapping UID (used in communication with the SkyController)
+		</arg>
+		<arg name="name" type="string">
+		  Display name for the user
+		</arg>
+	  </cmd>
+
+	  <cmd name="allAvailableButtonsMappingsSent">
+		Sent by the SkyController after sending its last 'availableButtonMappings' command
+	  </cmd>
+
+	</class>
+
+	<class name="AxisMappings" id="14">
+	  Controls the axis mappings of the SkyController
+
+	  <cmd name="getCurrentAxisMappings">
+		Asks the SkyController to send its current axis mapping
+	  </cmd>
+
+	  <cmd name="getAvailableAxisMappings">
+		Asks the SkyController to send the possible mappings for each axis
+	  </cmd>
+
+	  <cmd name="setAxisMapping">
+		Set a axis mapping to the SkyController
+		@note replaces previous mapping for the given axis
+		<arg name="axis_id" type="i32">
+		  The axiscode to map
+		</arg>
+		<arg name="mapping_uid" type="string">
+		  The mapping to associate with the axis
+		</arg>
+	  </cmd>
+
+	  <cmd name="defaultAxisMapping">
+		Asks the SkyController to reset the axis mappings to the default value
+	  </cmd>
+	</class>
+
+	<class name="AxisMappingsState" id="15">
+	  State of the axis mappings of the SkyController
+
+	  <cmd name="currentAxisMappings" listtype="MAP">
+		Sent by the SkyController each time a mapping changes
+		@note If the uid is UNKNOWN_ID, it means that a command to set the id axis_id was sent, but the given axis id is unknown
+		<arg name="axis_id" type="i32">
+		  The axiscode mapped
+		</arg>
+		<arg name="mapping_uid" type="string">
+		  The mapping associated
+		</arg>
+	  </cmd>
+
+	  <cmd name="allCurrentAxisMappingsSent">
+		Sent by the SkyController after sending its last 'currentAxisMappings' command
+	  </cmd>
+
+	  <cmd name="availableAxisMappings" listtype="LIST">
+		Sent after a 'getAvailableAxisMappings' request
+		<arg name="mapping_uid" type="string">
+		  The mapping UID (used in communication with the SkyController)
+		</arg>
+		<arg name="name" type="string">
+		  Display name for the user
+		</arg>
+	  </cmd>
+
+	  <cmd name="allAvailableAxisMappingsSent">
+		Sent by the SkyController after sending its last 'availableAxisMappings' command
+	  </cmd>
+
+	</class>
+
+	<class name="AxisFilters" id="16">
+	  Controls the axis filters of the SkyController
+
+	  <cmd name="getCurrentAxisFilters">
+		Asks the SkyController to send its current axis filters
+	  </cmd>
+
+	  <cmd name="getPresetAxisFilters">
+		Asks the SkyController to send the preset filters
+	  </cmd>
+
+	  <cmd name="setAxisFilter">
+		Set an axis filter to the SkyController
+		@note replaces previous filter for the given axis
+		<arg name="axis_id" type="i32">
+		  The axiscode to filter
+		</arg>
+		<arg name="filter_uid_or_builder" type="string">
+		  The mapping preset to associate with the axis
+		  (Or a string to build a new one)
+		</arg>
+	  </cmd>
+
+	  <cmd name="defaultAxisFilters">
+		Asks the SkyController to reset the axis filters to the default value
+	  </cmd>
+	</class>
+
+	<class name="AxisFiltersState" id="17">
+	  State of the axis filters of the SkyController
+
+	  <cmd name="currentAxisFilters" listtype="MAP">
+		Sent by the SkyController each time a filter changes
+		@note If the uid is UNKNOWN_ID, it means that a command to set the id axis_id was sent, but the given axis id is unknown
+		<arg name="axis_id" type="i32">
+		  The axiscode filtered
+		</arg>
+		<arg name="filter_uid_or_builder" type="string">
+		  The filter associated
+		</arg>
+	  </cmd>
+
+	  <cmd name="allCurrentFiltersSent">
+		Sent by the SkyController after sending its last 'currentAxisFilters' command
+	  </cmd>
+
+	  <cmd name="presetAxisFilters" listtype="LIST">
+		Sent after a 'getPresetAxisFilters' request
+		<arg name="filter_uid" type="string">
+		  The filter UID (used in communication with the SkyController)
+		</arg>
+		<arg name="name" type="string">
+		  Display name for the user
+		</arg>
+	  </cmd>
+
+	  <cmd name="allPresetFiltersSent">
+		Sent by the SkyController after sending its last 'presetAxisFilters' command
+	  </cmd>
+
+	</class>
     
 </project>
