@@ -452,7 +452,7 @@
 		Sent by the SkyController after sending its last 'currentButtonMappings' command
 	  </cmd>
 
-	  <cmd name="availableButtonMappings" listtype="LIST">
+	  <cmd name="availableButtonMappings" listtype="MAP">
 		Sent after a 'getAvailableButtonMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -512,7 +512,7 @@
 		Sent by the SkyController after sending its last 'currentAxisMappings' command
 	  </cmd>
 
-	  <cmd name="availableAxisMappings" listtype="LIST">
+	  <cmd name="availableAxisMappings" listtype="MAP">
 		Sent after a 'getAvailableAxisMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -573,7 +573,7 @@
 		Sent by the SkyController after sending its last 'currentAxisFilters' command
 	  </cmd>
 
-	  <cmd name="presetAxisFilters" listtype="LIST">
+	  <cmd name="presetAxisFilters" listtype="MAP">
 		Sent after a 'getPresetAxisFilters' request
 		<arg name="filter_uid" type="string">
 		  The filter UID (used in communication with the SkyController)
