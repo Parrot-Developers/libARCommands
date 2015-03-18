@@ -440,7 +440,6 @@
 
 	  <cmd name="currentButtonMappings" listtype="MAP">
 		Sent by the SkyController each time a mapping changes
-		@note If the uid is UNKNOWN_ID, it means that a command to set the id key_id was sent, but the given key id is unknown
 		<arg name="key_id" type="i32">
 		  The keycode mapped
 		</arg>
@@ -501,7 +500,6 @@
 
 	  <cmd name="currentAxisMappings" listtype="MAP">
 		Sent by the SkyController each time a mapping changes
-		@note If the uid is UNKNOWN_ID, it means that a command to set the id axis_id was sent, but the given axis id is unknown
 		<arg name="axis_id" type="i32">
 		  The axiscode mapped
 		</arg>
@@ -563,7 +561,6 @@
 
 	  <cmd name="currentAxisFilters" listtype="MAP">
 		Sent by the SkyController each time a filter changes
-		@note If the uid is UNKNOWN_ID, it means that a command to set the id axis_id was sent, but the given axis id is unknown
 		<arg name="axis_id" type="i32">
 		  The axiscode filtered
 		</arg>
