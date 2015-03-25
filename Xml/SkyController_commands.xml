@@ -588,5 +588,39 @@
 	  </cmd>
 
 	</class>
+
+	<class name="CoPiloting" id="20">
+	  Configuration of the co-piloting feature
+	  <cmd name="setPilotingSource">
+		Set the SkyController piloting source
+		<arg name="source" type="enum">
+		  The source
+		  <enum name="SkyController">
+			Use the SkyController joysticks
+		  </enum>
+		  <enum name="Controller">
+			Use the Tablet (or smartphone, or whatever) controls
+			Disables the SkyController joysticks
+		  </enum>
+		</arg>
+	  </cmd>
+	</class>
+
+	<class name="CoPilotingState" id="21">
+	  State of the co-piloting feature
+	  <cmd name="pilotingSource">
+		Source of the piloting commands
+		<arg name="source" type="enum">
+		  The source
+		  <enum name="SkyController">
+			Use the SkyController joysticks
+		  </enum>
+		  <enum name="Controller">
+			Use the Tablet (or smartphone, or whatever) controls
+			Disables the SkyController joysticks
+		  </enum>
+		</arg>
+	  </cmd>
+	</class>	  
     
 </project>
