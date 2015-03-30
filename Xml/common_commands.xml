@@ -580,6 +580,18 @@
         <cmd name="StartingErrorEvent">
             Event of flight plan start error
         </cmd>
+        <cmd name="BridleFlightPlan" listtype="MAP">
+            List of parameters bridled
+            <arg name="parameter" type="enum">
+                FlightPlan parameters id (unique)
+                <enum name="Speed">
+                    speed of the drone
+                </enum>
+            </arg>
+            <arg name="State" type="u8">
+                State of the FlightPlan parameter (1 FlightPlan parameters bridled, otherwise 0)
+            </arg>
+        </cmd>
     </class>
     
     <class name="ARLibsVersionsState" id="18">
