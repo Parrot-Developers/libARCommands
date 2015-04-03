@@ -565,8 +565,8 @@
                 <enum name="Mavlink_File">
                     Mavlink file for Drone FlightPlan
                 </enum>
-                <enum name="Motor">
-                    Motor for Drone FlightPlan
+                <enum name="TakeOff">
+                    Take off
                 </enum>
             </arg>
             <arg name="State" type="u8">
