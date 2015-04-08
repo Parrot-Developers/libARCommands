@@ -981,6 +981,12 @@
                 </enum>
             </arg>
         </cmd>
+        <cmd name="P7ID">
+            Product P7ID
+            <arg name="serialID" type="string">
+                Product P7ID
+            </arg>
+        </cmd>
     </class>
     
     <class name="DirectorMode" id="17">
