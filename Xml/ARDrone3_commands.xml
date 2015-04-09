@@ -1224,6 +1224,24 @@
                 Vertical Accuracy in meter ; equal -1 if no vertical Accuracy
             </arg>
         </cmd>
+        <cmd name="HomeType">
+            Set the type of the home position
+            <arg name="type" type="enum">
+                The type of the home position
+                <enum name="TAKEOFF">
+                    The drone will try to return to the take off position
+                </enum>
+                <enum name="PILOT">
+                    The drone will try to return to the pilot position
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="ReturnHomeDelay">
+            Set the delay after which the drone will automatically try to return home
+            <arg name="delay" type="u16">
+                Delay in second
+            </arg>
+        </cmd>
     </class>
     
     <class name="GPSSettingsState" id="24">
@@ -1271,6 +1289,24 @@
                 <enum name="failed">
                     Drone GPS update failed
                 </enum>
+            </arg>
+        </cmd>
+        <cmd name="HomeTypeChanged">
+            State of the type of the home position
+            <arg name="type" type="enum">
+                The type of the home position
+                <enum name="TAKEOFF">
+                    The drone will try to return to the take off position
+                </enum>
+                <enum name="PILOT">
+                    The drone will try to return to the pilot position
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="ReturnHomeDelayChanged">
+            State of the delay after which the drone will automatically try to return home
+            <arg name="delay" type="u16">
+                Delay in second
             </arg>
         </cmd>
     </class>
@@ -1350,6 +1386,16 @@
                 <enum name="FixedSixtyHertz">
                     Anti flickering based on a fixed frequency of 60Hz
                 </enum>
+            </arg>
+        </cmd>
+    </class>
+    
+    <class name="GPSState" id="31">
+        GPS related States
+        <cmd name="NumberOfSatelliteChanged">
+            The number of satellite used to compute the gps position
+            <arg name="numberOfSatellite" type="u8">
+                The number of satellite
             </arg>
         </cmd>
     </class>
