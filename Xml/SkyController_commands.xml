@@ -621,6 +621,43 @@
 		  </enum>
 		</arg>
 	  </cmd>
-	</class>	  
+	</class>
+
+	<class name="Calibration" id="22">
+	  Commands related to the SkyController sensors calibration
+	  <cmd name="getMagnetoCalibrationState">
+		Requests the current magneto calibration state
+	  </cmd>
+	</class>
+
+	<class name="CalibrationState" id="22">
+	  <cmd name="MagnetoCalibrationState">
+		The current state of the magnetometer calibration
+		<arg name="status" type="enum">
+		  The global status of the calibration
+		  <enum name="Unreliable">
+			A calibration is needed
+		  </enum>
+		  <enum name="Assessing">
+			A calibration is applied, but still need to be checked
+		  </enum>
+		  <enum name="Calibrated">
+			The sensor is properly calibrated
+		  </enum>
+		</arg>
+		<arg name="X_Quality" type="u8">
+		  Calibration quality on X axis.
+		  0 is bad, 255 is perfect
+		</arg>
+		<arg name="Y_Quality" type="u8">
+		  Calibration quality on Y axis.
+		  0 is bad, 255 is perfect
+		</arg>
+		<arg name="Z_Quality" type="u8">
+		  Calibration quality on Z axis.
+		  0 is bad, 255 is perfect
+		</arg>
+	  </cmd>
+	</class>
     
 </project>
