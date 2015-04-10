@@ -631,6 +631,7 @@
 	</class>
 
 	<class name="CalibrationState" id="23">
+	  State of the SkyController calibration
 	  <cmd name="MagnetoCalibrationState">
 		The current state of the magnetometer calibration
 		<arg name="status" type="enum">
