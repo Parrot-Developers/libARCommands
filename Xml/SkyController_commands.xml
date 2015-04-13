@@ -625,8 +625,15 @@
 
 	<class name="Calibration" id="22">
 	  Commands related to the SkyController sensors calibration
-	  <cmd name="getMagnetoCalibrationState">
-		Requests the current magneto calibration state
+	  <cmd name="enableMagnetoCalibrationQualityUpdates">
+		Asks the SkyController to send (or not) the magneto calibration quality updates.
+		The MagnetoCalibrationState will always be sent when the status parameters changes,
+		regardless of this setting.
+		<arg name="enable" type="u8">
+		  Flag to enable the feature.
+		  1 = enable quality updates
+		  0 = disable quality updates
+		</arg>
 	  </cmd>
 	</class>
 
@@ -657,6 +664,14 @@
 		<arg name="Z_Quality" type="u8">
 		  Calibration quality on Z axis.
 		  0 is bad, 255 is perfect
+		</arg>
+	  </cmd>
+	  <cmd name="MagnetoCalibrationQualityUpdatesState">
+		State of the "send calibration state on quality change" setting.
+		<arg name="enabled" type="u8">
+		  Flag (is the feature enabled).
+		  1 = The skycontroller sends updated when quality is updated
+		  0 = The skycontroller only sent updated when state is updated
 		</arg>
 	  </cmd>
 	</class>
