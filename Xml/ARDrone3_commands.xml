@@ -661,6 +661,18 @@
                 1 to enable, 0 to disable
             </arg>
         </cmd>
+        <cmd name="MaxDistance">
+            Set the distance max of the drone
+            <arg name="value" type="float">
+                Current max distance in meter
+            </arg>
+        </cmd>
+        <cmd name="NoFlyOverMaxDistance">
+            Indication about how the product handle flying over the max distance limitation
+            <arg name="shouldNotFlyOver" type="u8">
+                1 if the drone can't fly further than max distance, 0 if no limitation on the drone should be done
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -693,6 +705,24 @@
             Absolut control boolean sent by product
             <arg name="on" type="u8">
                 1 if enabled, 0 if disabled
+            </arg>
+        </cmd>
+        <cmd name="MaxDistanceChanged">
+            Max distance sent by the drone
+            <arg name="current" type="float">
+                Current max distance in meter
+            </arg>
+            <arg name="min" type="float">
+                Minimal possible max distance
+            </arg>
+            <arg name="max" type="float">
+                Maximal possible max distance
+            </arg>
+        </cmd>
+        <cmd name="NoFlyOverMaxDistanceChanged">
+            Indication about how the product handle flying over the max distance limitation
+            <arg name="shouldNotFlyOver" type="u8">
+                1 if the drone won't fly further than max distance, 0 if no limitation on the drone will be done
             </arg>
         </cmd>
     </class>
