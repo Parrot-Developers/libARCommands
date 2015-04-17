@@ -291,6 +291,24 @@
                 SkyController fixed
             </arg>
         </cmd>
+    
+		<cmd name="GpsPositionChanged">
+		  State sent when the SkyController gps position has changed
+		  <arg name="latitude" type="double">
+			SkyController latitude (500. if not available)
+		  </arg>
+		  <arg name="longitude" type="double">
+			SkyController longiture (500. if not available)
+		  </arg>
+		  <arg name="altitude" type="double">
+			Altitude (in meters) above sea level
+			Only meaningful if latitude and longiture are available
+		  </arg>
+		  <arg name="heading" type="float">
+			SkyController heading relative to magnetic north (500.f if not available)
+		  </arg>
+		</cmd>
+
     </class>
 
     <class name="AccessPointSettings" id="9">
@@ -675,5 +693,4 @@
 		</arg>
 	  </cmd>
 	</class>
-    
 </project>
