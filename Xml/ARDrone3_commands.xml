@@ -1255,7 +1255,7 @@
             </arg>
         </cmd>
         <cmd name="HomeType">
-            Set the type of the home position
+            Set user preference for the type of the home position. Note that this is only a preference
             <arg name="type" type="enum">
                 The type of the home position
                 <enum name="TAKEOFF">
@@ -1322,7 +1322,7 @@
             </arg>
         </cmd>
         <cmd name="HomeTypeChanged">
-            State of the type of the home position
+            State of the type of the home position. This type is the user preference. The prefered home type may not be available, see HomeTypeStatesChanged to get the drone home type.
             <arg name="type" type="enum">
                 The type of the home position
                 <enum name="TAKEOFF">
@@ -1426,6 +1426,27 @@
             The number of satellite used to compute the gps position
             <arg name="numberOfSatellite" type="u8">
                 The number of satellite
+            </arg>
+        </cmd>
+        <cmd name="HomeTypeStatesChanged" listtype="MAP">
+            State of the return home types in a map : for each type other args will be sent by the drone
+            <arg name="type" type="enum">
+                The type of the return home
+                <enum name="TAKEOFF">
+                    The drone will try to return to the take off position
+                </enum>
+                <enum name="PILOT">
+                    The drone will try to return to the pilot position
+                </enum>
+                <enum name="BEST_POSSIBLE">
+                    The drone has not enough information, it will try to return to the best position it can find
+                </enum>
+            </arg>
+            <arg name="available" type="u8">
+                1 if this type is available, 0 otherwise
+            </arg>
+            <arg name="chosen" type="u8">
+                1 if this type is the one which will be used when navigate home will be requested, 0 otherwise
             </arg>
         </cmd>
     </class>
