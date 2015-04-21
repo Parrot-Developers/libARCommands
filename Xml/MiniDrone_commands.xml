@@ -518,4 +518,13 @@
             </arg>
         </cmd>
     </class>
+    <class name="Configuration" id="14">
+        Configuration related commands
+        <cmd name="ControllerType">
+            Set the controller type.
+            <arg name="type" type="string">
+                Controller type like iOS or Android
+            </arg>
+        </cmd>
+    </class>
 </project>
