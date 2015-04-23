@@ -1428,8 +1428,8 @@
                 The number of satellite
             </arg>
         </cmd>
-        <cmd name="HomeTypeStatesChanged" listtype="MAP">
-            State of the return home types in a map : for each type other args will be sent by the drone
+        <cmd name="HomeTypeAvailabilityChanged" listtype="MAP">
+            Availability of the return home types in a map : for each type other args will be sent by the drone
             <arg name="type" type="enum">
                 The type of the return home
                 <enum name="TAKEOFF">
@@ -1438,15 +1438,29 @@
                 <enum name="PILOT">
                     The drone will try to return to the pilot position
                 </enum>
-                <enum name="BEST_POSSIBLE">
-                    The drone has not enough information, it will try to return to the best position it can find
+                <enum name="FIRST_FIX">
+                    The drone has not enough information, it will try to return to the first GPS fix
                 </enum>
             </arg>
+            
             <arg name="available" type="u8">
                 1 if this type is available, 0 otherwise
             </arg>
-            <arg name="chosen" type="u8">
-                1 if this type is the one which will be used when navigate home will be requested, 0 otherwise
+        </cmd>
+        
+        <cmd name="HomeTypeChosenChanged">
+            The return home type chosen
+            <arg name="type" type="enum">
+                The type of the return home chosen
+                <enum name="TAKEOFF">
+                    The drone will try to return to the take off position
+                </enum>
+                <enum name="PILOT">
+                    The drone will try to return to the pilot position
+                </enum>
+                <enum name="FIRST_FIX">
+                    The drone has not enough information, it will try to return to the first GPS fix
+                </enum>
             </arg>
         </cmd>
     </class>
