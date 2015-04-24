@@ -383,6 +383,12 @@
                 The channel
             </arg>
         </cmd>
+        <cmd name="AccessPointRSSIChanged">
+            State of the access point RSSI
+            <arg name="rssi" type="i32">
+                Access point RSSI value ; Negative value
+            </arg>
+        </cmd>
     </class>
 
     <class name="Camera" id="11">
