@@ -753,4 +753,52 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="Animations" id="24">
+        Animations-related commands.
+
+        <cmd name="StartAnimation">
+            Start a paramaterless animation.
+            <arg name="id" type="u16">
+                ID of the animation to start.
+            </arg>
+        </cmd>
+
+        <cmd name="StopAnimation">
+            Stop a running animation.
+            <arg name="id" type="u16">
+                ID of the animation to stop.
+            </arg>
+        </cmd>
+
+        <cmd name="StopAllAnimations">
+            Stop all running animations.
+        </cmd>
+    </class>
+
+    <class name="AnimationsState" id="25">
+        Animations-related notification/feedback commands.
+
+        <cmd name="AvailableAnimationsListChanged" listtype="MAP">
+            Update the list of available animations.
+            <arg name="id" type="u16">
+                An integer identifying the animation.
+            </arg>
+        </cmd>
+
+        <cmd name="AnimationStarted">
+            Notification sent to tell the controller that an animation was started.
+            Several animations may be running at the same time.
+            <arg name="id" type="u16">
+                ID of the animation which was just started.
+            </arg>
+        </cmd>
+
+        <cmd name="AnimationStopped">
+            Notification sent to tell the controller that an animation was stopped.
+            <arg name="id" type="u16">
+                ID of the animation which was just stopped.
+            </arg>
+        </cmd>
+    </class>
 </project>
