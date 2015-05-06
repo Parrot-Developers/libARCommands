@@ -139,6 +139,12 @@
         <cmd name="AllWifiAuthChannelChanged">
             Notify the end of the list of Authorized wifi Channel
         </cmd>
+        <cmd name="WifiSignalChanged">
+            State of the wifi signal
+            <arg name="level" type="u8">
+                Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.
+            </arg>
+        </cmd>
     </class>
 
     <class name="Wifi" id="1">
@@ -381,12 +387,6 @@
             </arg>
             <arg name="channel" type="u8">
                 The channel
-            </arg>
-        </cmd>
-        <cmd name="AccessPointRSSIChanged">
-            State of the access point RSSI
-            <arg name="rssi" type="i32">
-                Access point RSSI value ; Negative value
             </arg>
         </cmd>
     </class>
