@@ -348,7 +348,7 @@
                 <enum name="BUZZ">
                     Buzz (JS space) model
                 </enum>
-                <enum name="MAX">
+                <enum name="MACHS">
                     Max (JS F1) model
                 </enum>
                 <enum name="DRAGSTER">
