@@ -324,23 +324,38 @@
             Inform of the product model. This is used to customize the UI depending on the connected product.
             <arg name="model" type="enum">
                 The Model of the product.
-                <enum name="WHITE">
-                    White Model
+                <enum name="TRAVIS">
+                    Travis (RS taxi) model.
                 </enum>
-                <enum name="BROWN">
-                    Brown Model
+                <enum name="RIPLEY">
+                    Ripley (RS space) model
                 </enum>
-                <enum name="BLACK">
-                    Black Model
+                <enum name="BLAZE">
+                    Blaze (RS fire) model
                 </enum>
-                <enum name="RED">
-                    Red Model
+                <enum name="RAVEN">
+                   Raven (RS SWAT) model
                 </enum>
-                <enum name="BLUE">
-                    Blue Model
+                <enum name="MCLANE">
+                    Mc Lane (RS police) model
                 </enum>
-                <enum name="YELLOW">
-                    Yellow model
+                <enum name="MARSHALL">
+                    Marshall (JS fire) model
+                </enum>
+                <enum name="DIESEL">
+                    Diesel (JS SWAT) model
+                </enum>
+                <enum name="BUZZ">
+                    Buzz (JS space) model
+                </enum>
+                <enum name="MAX">
+                    Max (JS F1) model
+                </enum>
+                <enum name="DRAGSTER">
+                    Dragster (JS flames) model
+                </enum>
+                <enum name="TUKTUK">
+                    Tuk-Tuk (JS taxi) model
                 </enum>
             </arg>
         </cmd>
