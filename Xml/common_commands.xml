@@ -324,37 +324,43 @@
             Inform of the product model. This is used to customize the UI depending on the connected product.
             <arg name="model" type="enum">
                 The Model of the product.
-                <enum name="TRAVIS">
+                <enum name="RS_TRAVIS">
                     Travis (RS taxi) model.
                 </enum>
-                <enum name="RIPLEY">
-                    Ripley (RS space) model
+                <enum name="RS_MARS">
+                    Mars (RS space) model
                 </enum>
-                <enum name="BLAZE">
-                    Blaze (RS fire) model
+                <enum name="RS_SWAT">
+                   SWAT (RS SWAT) model
                 </enum>
-                <enum name="RAVEN">
-                   Raven (RS SWAT) model
-                </enum>
-                <enum name="MCLANE">
+                <enum name="RS_MCLANE">
                     Mc Lane (RS police) model
                 </enum>
-                <enum name="MARSHALL">
+                <enum name="RS_BLAZE">
+                    Blaze (RS fire) model
+                </enum>
+                <enum name="RS_ORAK">
+                    Orak (RS wooden hydrofoil) model
+                </enum>
+                <enum name="RS_NEWZ">
+                    New Z (RS carbon hydrofoil) model
+                </enum>
+                <enum name="JS_MARSHALL">
                     Marshall (JS fire) model
                 </enum>
-                <enum name="DIESEL">
+                <enum name="JS_DIESEL">
                     Diesel (JS SWAT) model
                 </enum>
-                <enum name="BUZZ">
+                <enum name="JS_BUZZ">
                     Buzz (JS space) model
                 </enum>
-                <enum name="MACHS">
+                <enum name="JS_MAX">
                     Max (JS F1) model
                 </enum>
-                <enum name="DRAGSTER">
-                    Dragster (JS flames) model
+                <enum name="JS_JETT">
+                    Jett (JS flames) model
                 </enum>
-                <enum name="TUKTUK">
+                <enum name="JS_TUKTUK">
                     Tuk-Tuk (JS taxi) model
                 </enum>
             </arg>
