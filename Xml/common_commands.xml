@@ -759,15 +759,33 @@
 
         <cmd name="StartAnimation">
             Start a paramaterless animation.
-            <arg name="id" type="u16">
-                ID of the animation to start.
+            <arg name="anim" type="enum">
+                Animation to start.
+                <enum name="HEADLIGHTS_FLASH">
+                    Flash headlights.
+                </enum>
+                <enum name="HEADLIGHTS_BLINK">
+                    Blink headlights.
+                </enum>
+                <enum name="HEADLIGHTS_OSCILLATION">
+                    Oscillating headlights.
+                </enum>
             </arg>
         </cmd>
 
         <cmd name="StopAnimation">
             Stop a running animation.
-            <arg name="id" type="u16">
-                ID of the animation to stop.
+            <arg name="anim" type="enum">
+                Animation to stop.
+                <enum name="HEADLIGHTS_FLASH">
+                    Flash headlights.
+                </enum>
+                <enum name="HEADLIGHTS_BLINK">
+                    Blink headlights.
+                </enum>
+                <enum name="HEADLIGHTS_OSCILLATION">
+                    Oscillating headlights.
+                </enum>
             </arg>
         </cmd>
 
@@ -781,23 +799,50 @@
 
         <cmd name="AvailableAnimationsListChanged" listtype="MAP">
             Update the list of available animations.
-            <arg name="id" type="u16">
-                An integer identifying the animation.
+            <arg name="anim" type="enum">
+                Animation type.
+                <enum name="HEADLIGHTS_FLASH">
+                    Flash headlights.
+                </enum>
+                <enum name="HEADLIGHTS_BLINK">
+                    Blink headlights.
+                </enum>
+                <enum name="HEADLIGHTS_OSCILLATION">
+                    Oscillating headlights.
+                </enum>
             </arg>
         </cmd>
 
         <cmd name="AnimationStarted">
             Notification sent to tell the controller that an animation was started.
             Several animations may be running at the same time.
-            <arg name="id" type="u16">
-                ID of the animation which was just started.
+            <arg name="anim" type="enum">
+                Animation which was started.
+                <enum name="HEADLIGHTS_FLASH">
+                    Flash headlights.
+                </enum>
+                <enum name="HEADLIGHTS_BLINK">
+                    Blink headlights.
+                </enum>
+                <enum name="HEADLIGHTS_OSCILLATION">
+                    Oscillating headlights.
+                </enum>
             </arg>
         </cmd>
 
         <cmd name="AnimationStopped">
             Notification sent to tell the controller that an animation was stopped.
-            <arg name="id" type="u16">
-                ID of the animation which was just stopped.
+            <arg name="anim" type="enum">
+                Animation which was stopped.
+                <enum name="HEADLIGHTS_FLASH">
+                    Flash headlights.
+                </enum>
+                <enum name="HEADLIGHTS_BLINK">
+                    Blink headlights.
+                </enum>
+                <enum name="HEADLIGHTS_OSCILLATION">
+                    Oscillating headlights.
+                </enum>
             </arg>
         </cmd>
     </class>
