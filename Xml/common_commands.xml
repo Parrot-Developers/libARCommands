@@ -340,10 +340,10 @@
                     Blaze (RS fire) model
                 </enum>
                 <enum name="RS_ORAK">
-                    Orak (RS wooden hydrofoil) model
+                    Orak (RS carbon hydrofoil) model
                 </enum>
                 <enum name="RS_NEWZ">
-                    New Z (RS carbon hydrofoil) model
+                    New Z (RS wooden hydrofoil) model
                 </enum>
                 <enum name="JS_MARSHALL">
                     Marshall (JS fire) model
