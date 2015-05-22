@@ -770,6 +770,33 @@
                 <enum name="HEADLIGHTS_OSCILLATION">
                     Oscillating headlights.
                 </enum>
+                <enum name="SPIN">
+                    Spin animation.
+                </enum>
+                <enum name="TAP">
+                    Tap animation.
+                </enum>
+                <enum name="SLOW_SHAKE">
+                    Slow shake animation.
+                </enum>
+                <enum name="METRONOME">
+                    Metronome animation.
+                </enum>
+                <enum name="ONDULATION">
+                    Standing dance animation.
+                </enum>
+                <enum name="SPIN_JUMP">
+                    Spin jump animation.
+                </enum>
+                <enum name="SPIN_TO_POSTURE">
+                    Spin that end in standing posture, or in jumper if it was standing animation.
+                </enum>
+                <enum name="SPIRAL">
+                    Spiral animation.
+                </enum>
+                <enum name="SLALOM">
+                    Slalom animation.
+                </enum>
             </arg>
         </cmd>
 
@@ -786,6 +813,33 @@
                 <enum name="HEADLIGHTS_OSCILLATION">
                     Oscillating headlights.
                 </enum>
+                <enum name="SPIN">
+                    Spin animation.
+                </enum>
+                <enum name="TAP">
+                    Tap animation.
+                </enum>
+                <enum name="SLOW_SHAKE">
+                    Slow shake animation.
+                </enum>
+                <enum name="METRONOME">
+                    Metronome animation.
+                </enum>
+                <enum name="ONDULATION">
+                    Standing dance animation.
+                </enum>
+                <enum name="SPIN_JUMP">
+                    Spin jump animation.
+                </enum>
+                <enum name="SPIN_TO_POSTURE">
+                    Spin that end in standing posture, or in jumper if it was standing animation.
+                </enum>
+                <enum name="SPIRAL">
+                    Spiral animation.
+                </enum>
+                <enum name="SLALOM">
+                    Slalom animation.
+                </enum>
             </arg>
         </cmd>
 
@@ -797,8 +851,8 @@
     <class name="AnimationsState" id="25">
         Animations-related notification/feedback commands.
 
-        <cmd name="AvailableAnimationsListChanged" listtype="MAP">
-            Update the list of available animations.
+        <cmd name="List" listtype="MAP">
+            List of animations state.
             <arg name="anim" type="enum">
                 Animation type.
                 <enum name="HEADLIGHTS_FLASH">
@@ -810,38 +864,55 @@
                 <enum name="HEADLIGHTS_OSCILLATION">
                     Oscillating headlights.
                 </enum>
+                <enum name="SPIN">
+                    Spin animation.
+                </enum>
+                <enum name="TAP">
+                    Tap animation.
+                </enum>
+                <enum name="SLOW_SHAKE">
+                    Slow shake animation.
+                </enum>
+                <enum name="METRONOME">
+                    Metronome animation.
+                </enum>
+                <enum name="ONDULATION">
+                    Standing dance animation.
+                </enum>
+                <enum name="SPIN_JUMP">
+                    Spin jump animation.
+                </enum>
+                <enum name="SPIN_TO_POSTURE">
+                    Spin that end in standing posture, or in jumper if it was standing animation.
+                </enum>
+                <enum name="SPIRAL">
+                    Spiral animation.
+                </enum>
+                <enum name="SLALOM">
+                    Slalom animation.
+                </enum>
             </arg>
-        </cmd>
-
-        <cmd name="AnimationStarted">
-            Notification sent to tell the controller that an animation was started.
-            Several animations may be running at the same time.
-            <arg name="anim" type="enum">
-                Animation which was started.
-                <enum name="HEADLIGHTS_FLASH">
-                    Flash headlights.
+            
+            <arg name="state" type="enum">
+                State of the animation
+                <enum name="stopped">
+                    animation is stopped
                 </enum>
-                <enum name="HEADLIGHTS_BLINK">
-                    Blink headlights.
+                <enum name="started">
+                    animation is started
                 </enum>
-                <enum name="HEADLIGHTS_OSCILLATION">
-                    Oscillating headlights.
+                <enum name="notAvailable">
+                    The animation is not available
                 </enum>
             </arg>
-        </cmd>
-
-        <cmd name="AnimationStopped">
-            Notification sent to tell the controller that an animation was stopped.
-            <arg name="anim" type="enum">
-                Animation which was stopped.
-                <enum name="HEADLIGHTS_FLASH">
-                    Flash headlights.
+            
+            <arg name="error" type="enum">
+                Error to explain the state 
+                <enum name="ok">
+                    No Error
                 </enum>
-                <enum name="HEADLIGHTS_BLINK">
-                    Blink headlights.
-                </enum>
-                <enum name="HEADLIGHTS_OSCILLATION">
-                    Oscillating headlights.
+                <enum name="unknown">
+                    Unknown generic error
                 </enum>
             </arg>
         </cmd>
