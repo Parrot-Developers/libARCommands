@@ -159,6 +159,16 @@
                 </enum>
             </arg>
         </cmd>
+
+        <cmd name="SpeedChanged">
+            Notification sent when JS speed changes.
+            <arg name="speed" type="i8">
+                Speed command applied to motors in range [-100;100].
+            </arg>
+            <arg name="realSpeed" type="i16">
+                Actual real-world speed in cm/s. Value -32768 returned if not available.
+            </arg>
+        </cmd>
     </class>
 
     <class name="Animations" id="2">
