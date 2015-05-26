@@ -917,4 +917,91 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="Accessory" id="26">
+        Accessories-related commands.
+        <cmd name="Config">
+            Set the current accessory configuration.
+            <arg name="accessory" type="enum">
+                Accessory configuration to set.
+                <enum name="NO_ACCESSORY">
+                    No accessory.
+                </enum>
+                <enum name="STD_WHEELS">
+                    Standard wheels
+                </enum>
+                <enum name="TRUCK_WHEELS">
+                    Truck wheels
+                </enum>
+                <enum name="HULL">
+                    Hull
+                </enum>
+                <enum name="HYDROFOIL">
+                    Hydrofoil
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="AccessoryState" id="27">
+        Accessories-related commands.
+        <cmd name="SupportedAccessoriesListChanged" listtype="MAP">
+            List of supported accessories
+            <arg name="accessory" type="enum">
+                Accessory configurations supported by the product.
+                <enum name="NO_ACCESSORY">
+                    No accessory.
+                </enum>
+                <enum name="STD_WHEELS">
+                    Standard wheels
+                </enum>
+                <enum name="TRUCK_WHEELS">
+                    Truck wheels
+                </enum>
+                <enum name="HULL">
+                    Hull
+                </enum>
+                <enum name="HYDROFOIL">
+                    Hydrofoil
+                </enum>
+            </arg>
+        </cmd>
+
+        <cmd name="AccessoryConfigChanged">
+            Accessory config response.
+            <arg name="newAccessory" type="enum">
+                Accessory configuration reported by firmware.
+                <enum name="UNCONFIGURED">
+                    No accessory configuration set. Controller needs to set one.
+                </enum>
+                <enum name="NO_ACCESSORY">
+                    No accessory.
+                </enum>
+                <enum name="STD_WHEELS">
+                    Standard wheels
+                </enum>
+                <enum name="TRUCK_WHEELS">
+                    Truck wheels
+                </enum>
+                <enum name="HULL">
+                    Hull
+                </enum>
+                <enum name="HYDROFOIL">
+                    Hydrofoil
+                </enum>
+            </arg>
+            <arg name="error" type="enum">
+                Error code.
+                <enum name="OK">
+                    No error. Accessory config change successful.
+                </enum>
+                <enum name="UNKNOWN">
+                    Cannot change accessory configuration for some reason.
+                </enum>
+                <enum name="FLYING">
+                    Cannot change accessory configuration while flying.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
 </project>
