@@ -908,4 +908,25 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="VideoSettings" id="20">
+        Video settings.
+        <cmd name="Autorecord">
+            Set video automatic recording state.
+            <arg name="enabled" type="u8">
+                0: Disabled 1: Enabled.
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="VideoSettingsState" id="21">
+        Video settings state.
+        <cmd name="AutorecordChanged">
+            Get video automatic recording status.
+            <arg name="enabled" type="u8">
+                0: Disabled 1: Enabled.
+            </arg>
+        </cmd>
+    </class>
+
 </project>
