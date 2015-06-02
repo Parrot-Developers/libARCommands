@@ -797,6 +797,9 @@
                 <enum name="SLALOM">
                     Slalom animation.
                 </enum>
+                <enum name="BOOST">
+                    Boost animation.
+                </enum>
             </arg>
         </cmd>
 
@@ -839,6 +842,9 @@
                 </enum>
                 <enum name="SLALOM">
                     Slalom animation.
+                </enum>
+                <enum name="BOOST">
+                    Boost animation.
                 </enum>
             </arg>
         </cmd>
