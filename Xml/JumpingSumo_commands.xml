@@ -909,7 +909,7 @@
         </cmd>
     </class>
 
-    <class name="VideoSettings" id="20">
+    <class name="VideoSettings" id="21">
         Video settings.
         <cmd name="Autorecord">
             Set video automatic recording state.
@@ -919,7 +919,7 @@
         </cmd>
     </class>
 
-    <class name="VideoSettingsState" id="21">
+    <class name="VideoSettingsState" id="22">
         Video settings state.
         <cmd name="AutorecordChanged">
             Get video automatic recording status.
