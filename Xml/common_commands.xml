@@ -1040,6 +1040,7 @@
         <cmd name="MaxChargeRateChanged">
             The maximum charge rate reported by the firmware.
             <arg name="rate" type="enum">
+                The current maximum charge rate.
                 <enum name="SLOW">
                     Fully charge the battery at a slow rate. Typically limit max charge current to 512 mA.
                 </enum>
