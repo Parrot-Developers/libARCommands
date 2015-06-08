@@ -1013,4 +1013,98 @@
             </arg>
         </cmd>
     </class>
+
+    <class name="Charger" id="28">
+        Commands sent by the controller to set charger parameters.
+
+        <cmd name="SetMaxChargeRate">
+            Set the maximum charge rate allowed to charge a battery.
+            <arg name="rate" type="enum">
+                The new maximum charge rate.
+                <enum name="SLOW">
+                    Fully charge the battery at a slow rate. Typically limit max charge current to 512 mA.
+                </enum>
+                <enum name="MODERATE">
+                    Almost fully-charge the battery at moderate rate (> 512mA) but slower than the fastest rate.
+                </enum>
+                <enum name="FAST">
+                    Almost fully-charge the battery at the highest possible rate supported by the charger.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="ChargerState" id="29">
+        Commands sent by the firmware to advertise the charger status.
+
+        <cmd name="MaxChargeRateChanged">
+            The maximum charge rate reported by the firmware.
+            <arg name="rate" type="enum">
+                <enum name="SLOW">
+                    Fully charge the battery at a slow rate. Typically limit max charge current to 512 mA.
+                </enum>
+                <enum name="MODERATE">
+                    Almost fully-charge the battery at moderate rate (> 512 mA) but slower than the fastest rate.
+                </enum>
+                <enum name="FAST">
+                    Almost fully-charge the battery at the highest possible rate supported by the charger.
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="CurrentChargeStateChanged">
+            The charge status of the battery changed.
+            <arg name="status" type="enum">
+                Charger status.
+                <enum name="DISCHARGING">
+                    The battery is discharging.
+                </enum>
+                <enum name="CHARGING_SLOW">
+                    The battery is charging at a slow rate about 512 mA.
+                </enum>
+                <enum name="CHARGING_MODERATE">
+                    The battery is charging at a moderate rate (> 512 mA) but slower than the fastest rate.
+                </enum>
+                <enum name="CHARGING_FAST">
+                    The battery is charging at a the fastest rate.
+                </enum>
+            </arg>
+            <arg name="phase" type="enum">
+                The current charging phase.
+                <enum name="UNKNOWN">
+                    The charge phase is unknown or irrelevant.
+                </enum>
+                <enum name="CONSTANT_CURRENT_1">
+                    First phase of the charging process. The battery is charging with constant current.
+                </enum>
+                <enum name="CONSTANT_CURRENT_2">
+                    Second phase of the charging process. The battery is charging with constant current, with a higher voltage than the first phase.
+                </enum>
+                <enum name="CONSTANT_VOLTAGE">
+                    Last part of the charging process. The battery is charging with a constant voltage.
+                </enum>
+                <enum name="CHARGED">
+                    The battery is fully charged.
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="LastChargeRateChanged">
+            The charge rate of the last charge sent by the firmware.
+            <arg name="rate" type="enum">
+                The charge rate recorded by the firmware for the last charge.
+                <enum name="UNKNOWN">
+                    The last charge rate is not known.
+                </enum>
+                <enum name="SLOW">
+                    Slow charge rate.
+                </enum>
+                <enum name="MODERATE">
+                    Moderate charge rate.
+                </enum>
+                <enum name="FAST">
+                    Fast charge rate.
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+
 </project>
