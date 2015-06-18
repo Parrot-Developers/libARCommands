@@ -1,0 +1,25 @@
+This is	a wireshark plugin for dissecting ARSDK network (wifi) packets.
+
+HOW TO INSTALL
+==============
+1. Make sure you have a full target source tree with at least the following git
+projects: libARCommands, libARNetworkAL, ARSDKBuildUtils.
+
+2. Go to directory libARCommands/WiresharkPlugin and type 'make'.
+
+3. Copy output shared object arsdk.so to directory $HOME/.wireshark/plugins/.
+Note that your wireshark version should be at least 1.12.0.
+
+
+HOW TO USE
+==========
+1. Launch wireshark.
+
+2. ARSDK packets should appear with protocol 'ARSDK'.
+If not, it probably means your drone is not using the default UDP destination
+port 54321. You can change this port number in the ARSDK plugin preferences.
+
+3. You can filter/colorize packets with rules using protocol abbreviations:
+arsdk.frame (== all ARSDK packets)
+arsdk.command (only ARCommands packets),
+... and so on.
