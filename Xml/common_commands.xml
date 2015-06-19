@@ -958,6 +958,13 @@
                 </enum>
             </arg>
         </cmd>
+        
+        <cmd name="AccessoryConfigModificationEnabled">
+            Possibility to modify the accessory configuration.
+            <arg name="enabled" type="u8">
+                1 if the modification of the accessory Config is enabled, 0 otherwise
+            </arg>
+        </cmd>
     </class>
 
     <class name="Charger" id="28">
