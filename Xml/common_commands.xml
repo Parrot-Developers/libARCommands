@@ -666,7 +666,9 @@
         <cmd name="ControllerReadyForStreaming">
             Tell the firmware whether the controller is ready to start audio streaming.
             <arg name="ready" type="u8">
-                0 if controller is not ready/not requesting audio streaming, 1 if controller is ready to start audio streaming.
+                Bit field for TX and RX ready.
+                bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
+                bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
             </arg>
         </cmd>
     </class>
@@ -676,7 +678,9 @@
         <cmd name="AudioStreamingRunning">
             Notify the controller whether the audio streaming is running.
             <arg name="running" type="u8">
-                0 if audio streaming is not running, 1 if it is running.
+                Bit field for TX and RX running
+                bit 0 is 1 if Drone TX is running
+                bit 1 is 1 if Drone RX is running
             </arg>
         </cmd>
     </class>
