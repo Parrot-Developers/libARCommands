@@ -133,6 +133,26 @@
                 State of automatic take off mode (1 for autotake off enabled)
             </arg>
         </cmd>
+        
+        <cmd name="moveBy">
+            Move the drone to a relative position and rotate heading by a given angle
+            The frame is horizontal and relative to the current drone orientation:
+            - X is front
+            - Y is right
+            - Z is down
+            <arg name="dX" type="float">
+                Wanted displacement along the front axis [m]
+            </arg>
+            <arg name="dY" type="float">
+                Wanted displacement along the right axis [m]
+            </arg>
+            <arg name="dZ" type="float">
+                Wanted displacement along the down axis [m]
+            </arg>
+            <arg name="dPsi" type="float">
+                Wanted rotation of heading  [rad]
+            </arg>
+        </cmd>
     </class>
     
     <class name="Animations" id="5">
@@ -564,6 +584,48 @@
         </cmd>
     </class>
     
+    <class name="PilotingEvent" id="34">
+        Events of Piloting
+        
+        <cmd name="moveByEnd">
+            End of relative displacement of the drone
+            The frame is horizontal and relative to the current drone orientation:
+            - X is front
+            - Y is right
+            - Z is down
+            <arg name="dX" type="float">
+                Distance traveled along the front axis [m]
+            </arg>
+            <arg name="dY" type="float">
+                Distance traveled along the right axis [m]
+            </arg>
+            <arg name="dZ" type="float">
+                Distance traveled along the down axis [m]
+            </arg>
+            <arg name="dPsi" type="float">
+                Applied angle on heading  [rad]
+            </arg>
+            <arg name="error" type="enum">
+                Error to explain the event 
+                <enum name="ok">
+                    No Error ; The relative displacement
+                </enum>
+                <enum name="unknown">
+                    Unknown generic error
+                </enum>
+                <enum name="busy">
+                    The Device is busy ; command moveBy ignored 
+                </enum>
+                <enum name="notAvailable">
+                    Command moveBy is not available ; command moveBy ignored 
+                </enum>
+                <enum name="interrupted">
+                    Command moveBy interrupted 
+                </enum>
+            </arg>
+        </cmd>
+    </class>
+    
     <class name="Network" id="13">
         Network related commands
         
@@ -673,6 +735,41 @@
                 1 if the drone can't fly further than max distance, 0 if no limitation on the drone should be done
             </arg>
         </cmd>
+        
+        <cmd name="setMoveByMaxHorizontalSpeed">
+            Set the maximum horizontal speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum horizontal speed [m/s]
+            </arg>
+        </cmd>
+        
+        <cmd name="setMoveByMaxVerticalSpeed">
+            Set the maximum vertical speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum vertical speed [m/s]
+            </arg>
+        </cmd>
+        
+        <cmd name="setMoveByMaxHorizontalAcceleration">
+            Set the maximum horizontal acceleration used by the commands moveBy
+            <arg name="value" type="float">
+                maximum horizontal acceleration [m/s2]
+            </arg>
+        </cmd>
+        
+        <cmd name="setMoveByMaxVerticalAcceleration">
+            Set the maximum vertical acceleration used by the commands moveBy
+            <arg name="value" type="float">
+                maximum vertical acceleration [m/s2]
+            </arg>
+        </cmd>
+        
+        <cmd name="setMoveByMaxRotationSpeed">
+            Set the maximum yaw rotation speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum yaw rotation speed [rad/s]
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -723,6 +820,41 @@
             Indication about how the product handle flying over the max distance limitation
             <arg name="shouldNotFlyOver" type="u8">
                 1 if the drone won't fly further than max distance, 0 if no limitation on the drone will be done
+            </arg>
+        </cmd>
+        
+        <cmd name="moveByMaxHorizontalSpeed">
+            Maximum horizontal speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum horizontal speed [m/s]
+            </arg>
+        </cmd>
+        
+        <cmd name="moveByMaxVerticalSpeed">
+            Maximum vertical speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum vertical speed [m/s]
+            </arg>
+        </cmd>
+        
+        <cmd name="moveByMaxHorizontalAcceleration">
+            Maximum horizontal acceleration used by the commands moveBy
+            <arg name="value" type="float">
+                maximum horizontal acceleration [m/s2]
+            </arg>
+        </cmd>
+        
+        <cmd name="moveByMaxVerticalAcceleration">
+            Maximum vertical acceleration used by the commands moveBy
+            <arg name="value" type="float">
+                maximum vertical acceleration [m/s2]
+            </arg>
+        </cmd>
+        
+        <cmd name="moveByMaxRotationSpeed">
+            Maximum yaw rotation speed used by the commands moveBy
+            <arg name="value" type="float">
+                maximum yaw rotation speed [rad/s]
             </arg>
         </cmd>
     </class>
