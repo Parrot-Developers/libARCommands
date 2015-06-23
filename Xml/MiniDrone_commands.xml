@@ -526,5 +526,11 @@
                 Controller type like iOS or Android
             </arg>
         </cmd>
+        <cmd name="ControllerName">
+            Set the controller name.
+            <arg name="name" type="string">
+                Controller name like com.parrot.freeflight3
+            </arg>
+        </cmd>
     </class>
 </project>
