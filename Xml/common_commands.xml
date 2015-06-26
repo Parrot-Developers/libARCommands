@@ -365,6 +365,13 @@
                 </enum>
             </arg>
         </cmd>
+        
+        <cmd name="CountryListKnown" listtype="LIST">
+            List of the countries known by the device
+            <arg name="countryCodes" type="string">
+                Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
+            </arg>
+        </cmd>
     </class>
     
     <class name="OverHeat" id="6">
