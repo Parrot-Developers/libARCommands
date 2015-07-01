@@ -9,6 +9,7 @@ HEADER_FILES                            =   ../Includes/libARCommands/ARCOMMANDS
                                             ../Includes/libARCommands/ARCOMMANDS_Types.h        \
                                             ../Includes/libARCommands/ARCOMMANDS_Filter.h       \
                                             ../Includes/libARCommands/ARCOMMANDS_Version.h      \
+                                            ../Includes/libARCommands/ARCOMMANDS_Ids.h          \
                                             ../Includes/libARCommands/ARCommands.h
 
 

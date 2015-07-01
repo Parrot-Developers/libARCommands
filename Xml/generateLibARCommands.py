@@ -74,8 +74,8 @@ JNI_PACKAGE_DIR = JNI_PACKAGE_NAME.replace ('.', '/')
 # Default project name
 DEFAULTPROJECTNAME='common'
 
-#Name of the output private header containing id enums
-COMMANDSID_HFILE_NAME='ARCOMMANDS_Ids.h'
+#Name of the output public header containing id enums
+COMMANDSID_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Ids.h'
 
 #Name of the output public header containing typedefs
 COMMANDSTYPES_HFILE_NAME=LIB_NAME + '/ARCOMMANDS_Types.h'
@@ -156,7 +156,7 @@ JNIJ_OUT_DIR=JNIJ_DIR + JNI_PACKAGE_DIR + '/'
 
 # Create array of generated files (so we can cleanup only our files)
 GENERATED_FILES = []
-COMMANDSID_HFILE=SRC_DIR + COMMANDSID_HFILE_NAME
+COMMANDSID_HFILE=INC_DIR + COMMANDSID_HFILE_NAME
 GENERATED_FILES.append (COMMANDSID_HFILE)
 COMMANDSGEN_HFILE=INC_DIR + COMMANDSGEN_HFILE_NAME
 GENERATED_FILES.append (COMMANDSGEN_HFILE)
@@ -1587,7 +1587,7 @@ cfile.write ('#include <config.h>\n')
 cfile.write ('#include "' + SRC_DIR + COMMANDSRW_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSTYPES_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSGEN_HFILE_NAME + '"\n')
-cfile.write ('#include "' + SRC_DIR + COMMANDSID_HFILE_NAME + '"\n')
+cfile.write ('#include "' + INC_DIR + COMMANDSID_HFILE_NAME + '"\n')
 cfile.write ('\n')
 
 for proj in allProjects:
@@ -1788,7 +1788,7 @@ cfile.write ('#include <stdio.h>\n')
 cfile.write ('#include "' + SRC_DIR + COMMANDSRW_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSTYPES_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSDEC_HFILE_NAME + '"\n')
-cfile.write ('#include "' + SRC_DIR + COMMANDSID_HFILE_NAME + '"\n')
+cfile.write ('#include "' + INC_DIR + COMMANDSID_HFILE_NAME + '"\n')
 cfile.write ('#include <libARSAL/ARSAL_Mutex.h>\n')
 cfile.write ('\n')
 cfile.write ('// CALLBACK VARIABLES + SETTERS\n')
@@ -2227,7 +2227,7 @@ cfile.write ('#include <stdlib.h>\n')
 cfile.write ('#include "' + SRC_DIR + COMMANDSRW_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSTYPES_HFILE_NAME + '"\n')
 cfile.write ('#include "' + INC_DIR + COMMANDSFIL_HFILE_NAME + '"\n')
-cfile.write ('#include "' + SRC_DIR + COMMANDSID_HFILE_NAME + '"\n')
+cfile.write ('#include "' + INC_DIR + COMMANDSID_HFILE_NAME + '"\n')
 cfile.write ('\n')
 cfile.write ('\n')
 cfile.write ('// ARCOMMANDS_Filter_t structure definition\n')
