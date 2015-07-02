@@ -577,6 +577,7 @@ hfile.write ('\n')
 hfile.write ('#ifndef ' + COMMANDSID_DEFINE + '\n')
 hfile.write ('#define ' + COMMANDSID_DEFINE + ' (1)\n')
 hfile.write ('\n')
+hfile.write ('// ARSDK_NO_ENUM_PREPROCESS //\n')
 hfile.write ('typedef enum {\n')
 for proj in allProjects:
     ENAME='PROJECT'
