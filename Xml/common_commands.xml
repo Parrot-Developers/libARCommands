@@ -982,6 +982,7 @@
         Commands sent by the controller to set charger parameters.
 
         <cmd name="SetMaxChargeRate">
+            @deprecated
             Set the maximum charge rate allowed to charge a battery.
             <arg name="rate" type="enum">
                 The new maximum charge rate.
@@ -1002,6 +1003,7 @@
         Commands sent by the firmware to advertise the charger status.
 
         <cmd name="MaxChargeRateChanged">
+            @deprecated
             The maximum charge rate reported by the firmware.
             <arg name="rate" type="enum">
                 The current maximum charge rate.
@@ -1017,6 +1019,7 @@
             </arg>
         </cmd>
         <cmd name="CurrentChargeStateChanged">
+            @deprecated
             The charge status of the battery changed.
             <arg name="status" type="enum">
                 Charger status.
@@ -1056,6 +1059,7 @@
             </arg>
         </cmd>
         <cmd name="LastChargeRateChanged">
+            @deprecated
             The charge rate of the last charge sent by the firmware.
             <arg name="rate" type="enum">
                 The charge rate recorded by the firmware for the last charge.
@@ -1071,6 +1075,51 @@
                 <enum name="FAST">
                     Fast charge rate.
                 </enum>
+            </arg>
+        </cmd>
+        <cmd name="ChargingInfo">
+            Information of the charge.
+            <arg name="phase" type="enum">
+                The current charging phase.
+                <enum name="UNKNOWN">
+                    The charge phase is unknown or irrelevant.
+                </enum>
+                <enum name="CONSTANT_CURRENT_1">
+                    First phase of the charging process. The battery is charging with constant current.
+                </enum>
+                <enum name="CONSTANT_CURRENT_2">
+                    Second phase of the charging process. The battery is charging with constant current, with a higher voltage than the first phase.
+                </enum>
+                <enum name="CONSTANT_VOLTAGE">
+                    Last part of the charging process. The battery is charging with a constant voltage.
+                </enum>
+                <enum name="CHARGED">
+                    The battery is fully charged.
+                </enum>
+                <enum name="DISCHARGING">
+                    The battery is discharging; Other arguments refers to the last charge.
+                </enum>
+            </arg>
+            <arg name="rate" type="enum">
+                The charge rate. If phase is DISCHARGING, refers to the last charge.
+                <enum name="UNKNOWN">
+                    The charge rate is not known.
+                </enum>
+                <enum name="SLOW">
+                    Slow charge rate.
+                </enum>
+                <enum name="MODERATE">
+                    Moderate charge rate.
+                </enum>
+                <enum name="FAST">
+                    Fast charge rate.
+                </enum>
+            </arg>
+            <arg name="intensity" type="u8">
+                The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
+            </arg>
+            <arg name="fullChargingTime" type="u8">
+                The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
             </arg>
         </cmd>
     </class>
