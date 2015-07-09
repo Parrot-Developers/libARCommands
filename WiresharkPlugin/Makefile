@@ -17,6 +17,18 @@ CFLAGS	:= -g -O2 $(WARN) $(INC) -fPIC -DPIC -DSTANDALONE_BUILD \
 	-fno-strict-overflow -fno-delete-null-pointer-checks
 
 LDFLAGS	:= -shared -fPIC -DPIC
+STRIP_ARGS :=
+
+UNAME_S := $(shell uname -s)
+# if platform is on MacOS
+ifeq ($(UNAME_S),Darwin)
+    LDFLAGS += -L/Applications/Wireshark.app/Contents/Resources/lib -lwireshark
+    STRIP_ARGS += -x
+endif
+# if platform is on Linux
+ifeq ($(UNAME_S),Linux)
+    LDFLAGS += -Wl,-soname -Wl,$(PLUGIN)
+endif
 
 all: $(PLUGIN)
 
@@ -32,9 +44,9 @@ $(TREE): .FORCE
 
 $(PLUGIN): $(OBJS)
 	@echo "CCLD $@"
-	@$(CC) $(LDFLAGS) $^ -Wl,-soname -Wl,$(PLUGIN) -o $@
+	@$(CC) $(LDFLAGS) $^ -o $@
 	@echo "STRIP $@"
-	@strip $@
+	@strip $(STRIP_ARGS) $@
 
 clean:
 	-rm -f $(OBJS) $(TREE) $(PLUGIN)

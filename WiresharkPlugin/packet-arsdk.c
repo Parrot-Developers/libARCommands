@@ -27,6 +27,7 @@
 #include <string.h>
 #include <stdarg.h>
 #include <ctype.h>
+#include <time.h>
 
 #define DEBUG(...) do {} while (0)
 /*#define DEBUG(...) fprintf(stderr, __VA_ARGS__)*/
@@ -622,7 +623,8 @@ static void print_arg_value(char *buf, unsigned int bufsize,
 {
     uint32_t value;
     gint dummy;
-    unsigned int i, enumvalue;
+    unsigned int i;
+    unsigned int enumvalue = 0;
 
     if (arg->nenums > 0) {
 	enumvalue = 1;
