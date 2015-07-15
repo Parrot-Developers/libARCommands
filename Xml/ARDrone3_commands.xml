@@ -140,6 +140,7 @@
             - X is front
             - Y is right
             - Z is down
+            The movement settings of the device are those set for the autonomous flight.
             <arg name="dX" type="float">
                 Wanted displacement along the front axis [m]
             </arg>
@@ -736,36 +737,36 @@
             </arg>
         </cmd>
         
-        <cmd name="setMoveByMaxHorizontalSpeed">
-            Set the maximum horizontal speed used by the commands moveBy
+        <cmd name="setAutonomousFlightMaxHorizontalSpeed">
+            Set the maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
             </arg>
         </cmd>
         
-        <cmd name="setMoveByMaxVerticalSpeed">
-            Set the maximum vertical speed used by the commands moveBy
+        <cmd name="setAutonomousFlightMaxVerticalSpeed">
+            Set the maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
             </arg>
         </cmd>
         
-        <cmd name="setMoveByMaxHorizontalAcceleration">
-            Set the maximum horizontal acceleration used by the commands moveBy
+        <cmd name="setAutonomousFlightMaxHorizontalAcceleration">
+            Set the maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
             </arg>
         </cmd>
         
-        <cmd name="setMoveByMaxVerticalAcceleration">
-            Set the maximum vertical acceleration used by the commands moveBy
+        <cmd name="setAutonomousFlightMaxVerticalAcceleration">
+            Set the maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
             </arg>
         </cmd>
         
-        <cmd name="setMoveByMaxRotationSpeed">
-            Set the maximum yaw rotation speed used by the commands moveBy
+        <cmd name="setAutonomousFlightMaxRotationSpeed">
+            Set the maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
             </arg>
@@ -823,36 +824,36 @@
             </arg>
         </cmd>
         
-        <cmd name="moveByMaxHorizontalSpeed">
-            Maximum horizontal speed used by the commands moveBy
+        <cmd name="AutonomousFlightMaxHorizontalSpeed">
+            Maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
             </arg>
         </cmd>
         
-        <cmd name="moveByMaxVerticalSpeed">
-            Maximum vertical speed used by the commands moveBy
+        <cmd name="AutonomousFlightMaxVerticalSpeed">
+            Maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
             </arg>
         </cmd>
         
-        <cmd name="moveByMaxHorizontalAcceleration">
-            Maximum horizontal acceleration used by the commands moveBy
+        <cmd name="AutonomousFlightMaxHorizontalAcceleration">
+            Maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
             </arg>
         </cmd>
         
-        <cmd name="moveByMaxVerticalAcceleration">
-            Maximum vertical acceleration used by the commands moveBy
+        <cmd name="AutonomousFlightMaxVerticalAcceleration">
+            Maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
             </arg>
         </cmd>
         
-        <cmd name="moveByMaxRotationSpeed">
-            Maximum yaw rotation speed used by the commands moveBy
+        <cmd name="AutonomousFlightMaxRotationSpeed">
+            Maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
             </arg>
