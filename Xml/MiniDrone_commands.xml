@@ -173,6 +173,9 @@
                 <enum name="rolling">
                     Rolling state
                 </enum>
+                <enum name="init">
+                    Initializing state (user should let the drone steady for a while)
+                </enum>
             </arg>
         </cmd>
         
