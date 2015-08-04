@@ -120,8 +120,8 @@
                 Gaz consign for the MiniDrone [-100;100]
             </arg>
             
-            <arg name="psi" type="float">
-                Magnetic north heading of the controlling device (deg) [-360;360]
+            <arg name="timestamp" type="u32">
+                Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).
             </arg>
         </cmd>
         
