@@ -135,6 +135,7 @@
         </cmd>
         
         <cmd name="moveBy">
+            Draft: this command is not implemented yet by the firmware
             Move the drone to a relative position and rotate heading by a given angle
             The frame is horizontal and relative to the current drone orientation:
             - X is front
@@ -589,6 +590,7 @@
         Events of Piloting
         
         <cmd name="moveByEnd">
+            Draft: this command is not implemented yet by the firmware
             End of relative displacement of the drone
             The frame is horizontal and relative to the current drone orientation:
             - X is front
@@ -738,6 +740,7 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxHorizontalSpeed">
+            Draft: this command is not implemented yet by the firmware
             Set the maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
@@ -745,6 +748,7 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxVerticalSpeed">
+            Draft: this command is not implemented yet by the firmware
             Set the maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
@@ -752,6 +756,7 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxHorizontalAcceleration">
+            Draft: this command is not implemented yet by the firmware
             Set the maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
@@ -759,6 +764,7 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxVerticalAcceleration">
+            Draft: this command is not implemented yet by the firmware
             Set the maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
@@ -766,6 +772,7 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxRotationSpeed">
+            Draft: this command is not implemented yet by the firmware
             Set the maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
@@ -825,6 +832,7 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxHorizontalSpeed">
+            Draft: this command is not implemented yet by the firmware
             Maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
@@ -832,6 +840,7 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxVerticalSpeed">
+            Draft: this command is not implemented yet by the firmware
             Maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
@@ -839,6 +848,7 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxHorizontalAcceleration">
+            Draft: this command is not implemented yet by the firmware
             Maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
@@ -846,6 +856,7 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxVerticalAcceleration">
+            Draft: this command is not implemented yet by the firmware
             Maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
@@ -853,6 +864,7 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxRotationSpeed">
+            Draft: this command is not implemented yet by the firmware
             Maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
