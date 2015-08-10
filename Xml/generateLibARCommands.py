@@ -41,23 +41,8 @@ sys.path.append('%(MYDIR)s/../../ARSDKBuildUtils/Utils/Python' % locals())
 from ARFuncs import *
 from ARCommandsParser import *
 
-#################################
-# Get info from configure.ac    #
-# file                          #
-#################################
-
-configureAcFile = open (MYDIR + '/../Build/configure.ac', 'rb')
-AC_INIT_LINE=configureAcFile.readline ()
-while (not AC_INIT_LINE.startswith ('AC_INIT')) and ('' != AC_INIT_LINE):
-    AC_INIT_LINE=configureAcFile.readline ()
-if '' == AC_INIT_LINE:
-    ARPrint ('Unable to read from configure.ac file !')
-    EXIT (1)
-
-AC_ARGS=re.findall(r'\[[^]]*\]', AC_INIT_LINE)
-LIB_NAME=AC_ARGS[0].replace ('[', '').replace (']', '')
-LIB_MODULE=LIB_NAME.replace ('lib', '')
-LIB_VERSION=AC_ARGS[1].replace ('[', '').replace (']', '')
+LIB_NAME = 'libARCommands'
+LIB_MODULE = LIB_NAME.replace ('lib', '')
 
 #################################
 # CONFIGURATION :               #
@@ -128,13 +113,13 @@ JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 JAVA_ENUM_FILES_NAME=JNIClassName.upper() + '*_ENUM.java'
 
 #Relative path of SOURCE dir
-SRC_DIR=MYDIR + '/../Sources/'
+SRC_DIR=MYDIR + '/../gen/Sources/'
 
 #Relative path of INCLUDES dir
-INC_DIR=MYDIR + '/../Includes/'
+INC_DIR=MYDIR + '/../gen/Includes/'
 
 #Relative path of TESTBENCH dir
-TB__DIR=MYDIR + '/../TestBench/'
+TB__DIR=MYDIR + '/../gen/TestBench/'
 
 #Relative path of unix-like (Linux / os-x) TESTBENCH dir
 LIN_TB_DIR=TB__DIR + 'linux/'
@@ -143,7 +128,7 @@ LIN_TB_DIR=TB__DIR + 'linux/'
 COM_TB_DIR=TB__DIR + 'common/'
 
 #Relative path of JNI dir
-JNI_DIR=MYDIR + "/../JNI/"
+JNI_DIR=MYDIR + "/../gen/JNI/"
 
 #Relative path of JNI/C dir
 JNIC_DIR=JNI_DIR + 'c/'
@@ -479,21 +464,21 @@ while len(args) > 0:
         print("Invalid parameter %s." %(a))
 
 if not os.path.exists (SRC_DIR):
-    os.mkdir (SRC_DIR)
+    os.makedirs (SRC_DIR)
 if not os.path.exists (INC_DIR):
-    os.mkdir (INC_DIR)
+    os.makedirs (INC_DIR)
 if not os.path.exists (INC_DIR + LIB_NAME):
-    os.mkdir (INC_DIR + LIB_NAME)
+    os.makedirs (INC_DIR + LIB_NAME)
 if not os.path.exists (TB__DIR):
-    os.mkdir (TB__DIR)
+    os.makedirs (TB__DIR)
 if not os.path.exists (LIN_TB_DIR):
-    os.mkdir (LIN_TB_DIR)
+    os.makedirs (LIN_TB_DIR)
 if not os.path.exists (COM_TB_DIR):
-    os.mkdir (COM_TB_DIR)
+    os.makedirs (COM_TB_DIR)
 if not os.path.exists (JNI_DIR):
-    os.mkdir (JNI_DIR)
+    os.makedirs (JNI_DIR)
 if not os.path.exists (JNIC_DIR):
-    os.mkdir (JNIC_DIR)
+    os.makedirs (JNIC_DIR)
 if not os.path.exists (JNIJ_OUT_DIR):
     os.makedirs (JNIJ_OUT_DIR)
 
@@ -2795,7 +2780,6 @@ for proj in allProjects:
             jfile.write ('/**\n')
             jfile.write (' * Interface for the command <code>' + ARCapitalize (cmd.name) + '</code> of class <code>' + ARCapitalize (cl.name) + '</code> in project <code>' + ARCapitalize (proj.name) + '</code> listener\n')
             jfile.write (' * @author Parrot (c) 2013\n')
-            jfile.write (' * @version ' + LIB_VERSION + '\n')
             jfile.write (' */\n')
             jfile.write ('public interface ' + interfaceName (proj,cl,cmd) + ' {\n')
             jfile.write ('\n')
@@ -2830,7 +2814,6 @@ jfile.write (' * This class holds either app-generated objects, that are to be s
 jfile.write (' * to the device, or network-generated objects, that are to be decoded by\n')
 jfile.write (' * the application.\n')
 jfile.write (' * @author Parrot (c) 2013\n')
-jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
 jfile.write ('public class ' + JNIClassName + ' extends ARNativeData {\n')
 jfile.write ('\n')
@@ -3028,7 +3011,6 @@ jfile.write ('\n')
 jfile.write ('/**\n')
 jfile.write (' * Java implementation of a C ' + JNIFilterClassName + ' object.<br>\n')
 jfile.write (' * @author Parrot (c) 2014\n')
-jfile.write (' * @version ' + LIB_VERSION + '\n')
 jfile.write (' */\n')
 jfile.write ('public class ' + JNIFilterClassName + '\n')
 jfile.write ('{\n')
