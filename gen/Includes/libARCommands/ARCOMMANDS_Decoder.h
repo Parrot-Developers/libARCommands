@@ -3702,7 +3702,7 @@ void ARCOMMANDS_Decoder_SetCommonCommonStateProductModelCallback (ARCOMMANDS_Dec
 /**
  * @brief callback type for the command common.CommonState.CountryListKnown
  */
-typedef void (*ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t) (char * countryCodes, void *custom);
+typedef void (*ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t) (uint8_t listFlags, char * countryCodes, void *custom);
 /**
  * @brief callback setter for the command common.CommonState.CountryListKnown
  * @param callback new callback for the command common.CommonState.CountryListKnown

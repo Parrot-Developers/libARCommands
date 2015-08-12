@@ -368,6 +368,12 @@
         
         <cmd name="CountryListKnown" listtype="LIST">
             List of the countries known by the device
+            <arg name="listFlags" type="u8">
+                List entry attribute Bitfield.
+                0x01: First: indicate it's the first element of the list. 
+                0x02: Last:  indicate it's the last element of the list.
+                0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+           </arg>
             <arg name="countryCodes" type="string">
                 Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
             </arg>

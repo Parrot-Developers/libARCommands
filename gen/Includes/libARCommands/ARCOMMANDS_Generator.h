@@ -3824,10 +3824,14 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateProduc
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _listFlags List entry attribute Bitfield.
+ * @param _listFlags 0x01: First: indicate it's the first element of the list.
+ * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+ * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
  * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _countryCodes);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, const char * _countryCodes);
 
 // Command class OverHeat
 

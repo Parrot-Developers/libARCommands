@@ -38,7 +38,11 @@ public interface ARCommandCommonCommonStateCountryListKnownListener {
 
     /**
      * Called when a command <code>CountryListKnown</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * @param _listFlags List entry attribute Bitfield.
+     * @param _listFlags 0x01: First: indicate it's the first element of the list.
+     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
      */
-    void onCommonCommonStateCountryListKnownUpdate (String countryCodes);
+    void onCommonCommonStateCountryListKnownUpdate (byte listFlags, String countryCodes);
 }

@@ -9008,7 +9008,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateProductMode
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryListKnown (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring countryCodes)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryListKnown (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte listFlags, jstring countryCodes)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -9027,7 +9027,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryList
     }
 
     const char *c_countryCodes = (*env)->GetStringUTFChars (env, countryCodes, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_countryCodes);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)listFlags, c_countryCodes);
     (*env)->ReleaseStringUTFChars (env, countryCodes, c_countryCodes);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
@@ -17781,7 +17781,7 @@ void ARCOMMANDS_JNI_CommonCommonStateProductModelnativeCb (eARCOMMANDS_COMMON_CO
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (char * countryCodes, void *custom)
+void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (uint8_t listFlags, char * countryCodes, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -17793,12 +17793,12 @@ void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (char * countryCod
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCountryListKnownUpdate", "(Ljava/lang/String;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCountryListKnownUpdate", "(BLjava/lang/String;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
         jstring j_countryCodes = (*env)->NewStringUTF (env, countryCodes);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_countryCodes);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)listFlags, j_countryCodes);
         (*env)->DeleteLocalRef (env, j_countryCodes);
     }
     (*env)->DeleteLocalRef (env, delegate);

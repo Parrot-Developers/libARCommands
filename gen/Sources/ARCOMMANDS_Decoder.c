@@ -14824,7 +14824,16 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
                     if (ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCb != NULL)
                     {
+                        uint8_t _listFlags;
                         char * _countryCodes = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
                             _countryCodes = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
@@ -14835,7 +14844,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCb (_countryCodes, ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCustom);
+                            ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCb (_listFlags, _countryCodes, ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -25704,6 +25713,18 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN:
                 {
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("common.CommonState.CountryListKnown:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
                         char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);

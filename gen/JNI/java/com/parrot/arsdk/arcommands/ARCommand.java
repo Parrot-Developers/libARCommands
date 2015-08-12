@@ -9196,15 +9196,19 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
+     * @param _listFlags List entry attribute Bitfield.
+     * @param _listFlags 0x01: First: indicate it's the first element of the list.
+     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCountryListKnown (String countryCodes) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCountryListKnown (byte listFlags, String countryCodes) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonCommonStateCountryListKnown (pointer, capacity, countryCodes);
+        int errInt = nativeSetCommonCommonStateCountryListKnown (pointer, capacity, listFlags, countryCodes);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15328,7 +15332,7 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetCommonCommonStateWifiSignalChanged (long pdata, int dataTotalLength, short rssi);
     private native int     nativeSetCommonCommonStateSensorsStatesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState);
     private native int     nativeSetCommonCommonStateProductModel (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model);
-    private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, String countryCodes);
+    private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, byte listFlags, String countryCodes);
 
     private native int     nativeSetCommonOverHeatSwitchOff (long pdata, int dataTotalLength);
     private native int     nativeSetCommonOverHeatVentilate (long pdata, int dataTotalLength);

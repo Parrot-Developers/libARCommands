@@ -5726,9 +5726,15 @@ void ARCOMMANDS_Testbench_CommonCommonStateProductModelCb (eARCOMMANDS_COMMON_CO
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb (char * countryCodes, void *custom)
+void ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb (uint8_t listFlags, char * countryCodes, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.CountryListKnown --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "listFlags value : <%u>", listFlags);
+    if (listFlags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "countryCodes value : <%s>", countryCodes);
     if (strcmp ("Test string with spaces", countryCodes) != 0)
     {
@@ -16875,7 +16881,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown (buffer, buffSize, &resSize, "Test string with spaces");
+    res = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown (buffer, buffSize, &resSize, 42, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.CommonState.CountryListKnown\n\n");
