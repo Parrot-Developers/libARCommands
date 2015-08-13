@@ -4,7 +4,7 @@ OBJS	:= packet-arsdk.o
 
 TREE	:= tree.h
 GEN	:= ../Xml/generateLibARCommands.py
-INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes
+INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes -I ../gen/Includes
 
 WARN	:= -Wall -W -Wextra -Wdeclaration-after-statement -Wendif-labels \
 	-Wpointer-arith -Wno-pointer-sign -Warray-bounds -Wformat-security \
@@ -36,7 +36,7 @@ all: $(PLUGIN)
 .PHONY: .FORCE
 
 $(TREE): .FORCE
-	python $(GEN) -projects all -gen-tree $(TREE)
+	python $(GEN) -debug-cmds yes -projects all -gen-tree $(TREE)
 
 %.o: %.c $(TREE) .FORCE
 	@echo "CC $@"
