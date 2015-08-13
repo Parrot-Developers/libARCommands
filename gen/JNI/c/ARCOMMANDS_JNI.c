@@ -37,8 +37,8 @@
  *  - Re-run generateCommandsList.py script *
  *                                          *
  ********************************************/
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Includes/libARCommands/ARCOMMANDS_Generator.h"
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Includes/libARCommands/ARCOMMANDS_Decoder.h"
+#include <libARCommands/ARCOMMANDS_Generator.h>
+#include <libARCommands/ARCOMMANDS_Decoder.h>
 #include <jni.h>
 #include <stdlib.h>
 

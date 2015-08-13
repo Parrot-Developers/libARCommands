@@ -37,7 +37,7 @@
  *  - Re-run generateCommandsList.py script *
  *                                          *
  ********************************************/
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/TestBench/common/autoTest.h"
+#include "autoTest.h"
 
 int main (int argc, char *argv[])
 {

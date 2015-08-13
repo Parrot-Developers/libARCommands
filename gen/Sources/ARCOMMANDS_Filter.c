@@ -39,10 +39,10 @@
  ********************************************/
 #include <config.h>
 #include <stdlib.h>
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Sources/ARCOMMANDS_ReadWrite.h"
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Includes/libARCommands/ARCOMMANDS_Types.h"
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Includes/libARCommands/ARCOMMANDS_Filter.h"
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Includes/libARCommands/ARCOMMANDS_Ids.h"
+#include "ARCOMMANDS_ReadWrite.h"
+#include <libARCommands/ARCOMMANDS_Types.h>
+#include <libARCommands/ARCOMMANDS_Filter.h>
+#include <libARCommands/ARCOMMANDS_Ids.h>
 
 
 // ARCOMMANDS_Filter_t structure definition

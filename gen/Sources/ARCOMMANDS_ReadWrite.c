@@ -39,7 +39,7 @@
  ********************************************/
 #include <config.h>
 #include <stdio.h>
-#include "/media/ssd-data/data/ARDRONE_2015-04-03/libARCommands/Xml/../gen/Sources/ARCOMMANDS_ReadWrite.h"
+#include "ARCOMMANDS_ReadWrite.h"
 #include <libARSAL/ARSAL_Endianness.h>
 
 // ------- //
