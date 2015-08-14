@@ -116,5 +116,90 @@
         </cmd>
         
     </class>
-    
+
+    <class name="DebugSettings" id="4">
+        Debug custom commands sent to the drone
+
+        <cmd name="GetAll">
+            Cmd sent by controller to get all settings info (generate "SettingInfo" events).
+        </cmd>
+
+        <cmd name="Set">
+            Change setting value.
+            Cmd sent by controller to change a writable setting.
+            <arg name="id" type="u16">
+                Setting Id.
+            </arg>
+            <arg name="value" type="string">
+                New setting value (string encoded).
+            </arg>
+        </cmd>
+    </class>
+
+    <class name="DebugSettingsState" id="5">
+        Debug custom commands sent by the drone
+
+        <cmd name="Info"  listtype="LIST">
+                Sent by the drone as answer to GetSettingsInfo
+                Describe a debug setting and give the current value.
+            <arg name="listFlags" type="u8">
+                    List entry attribute Bitfield.
+                    0x01: First: indicate it's the first element of the list.
+                    0x02: Last:  indicate it's the last element of the list.
+                    0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+            </arg>
+            <arg name="id" type="u16">
+                Setting Id.
+            </arg>
+            <arg name="label" type="string">
+                Setting displayed label (single line).
+            </arg>
+            <arg name="type" type="enum">
+                Setting type.
+                <enum name="BOOL">
+                    Boolean Setting. (ex: 0, 1)
+                </enum>
+                <enum name="DECIMAL">
+                    Decimal Setting. (ex: -3.5, 0, 2, 3.6, 6.5)
+                </enum>
+                <enum name="TEXT">
+                    Single line text Setting.
+                </enum>
+            </arg>
+            <arg name="mode" type="enum">
+                Setting mode.
+                <enum name="READ_ONLY">
+                    Controller can only read setting.
+                </enum>
+                <enum name="READ_WRITE">
+                    Controller can read and write setting.
+                </enum>
+            </arg>
+            <arg name="range_min" type="string">
+                Setting range minimal value for decimal type.
+            </arg>
+            <arg name="range_max" type="string">
+                Setting range max value for decimal type.
+            </arg>
+            <arg name="range_step" type="string">
+                Setting step value for decimal type
+            </arg>
+            <arg name="value" type="string">
+                Current Setting value (string encoded).
+            </arg>
+        </cmd>
+
+        <cmd name="ListChanged">
+            Setting value changed.
+            Cmd sent by drone when setting changed occurred.
+            <arg name="id" type="u16">
+                Setting Id.
+            </arg>
+            <arg name="value" type="string">
+                New setting value (string encoded).
+            </arg>
+        </cmd>
+
+    </class>
+
 </project>
