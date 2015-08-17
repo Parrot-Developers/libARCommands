@@ -138,5495 +138,6 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>WifiList</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class WifiState description:<br>
-     * Wifi state<br>
-     * <br>
-     * Command WifiList description:<br>
-     * Return the available wifi list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _bssid Wifi bssid
-     * @param _ssid Wifi ssid
-     * @param _secured Is wifi secured by passphrase
-     * @param _saved Is wifi saved in terminal
-     * @param _rssi Wifi rssi
-     * @param _frequency Wifi frequency
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiList (String bssid, String ssid, byte secured, byte saved, int rssi, int frequency) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiStateWifiList (pointer, capacity, bssid, ssid, secured, saved, rssi, frequency);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ConnexionChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class WifiState description:<br>
-     * Wifi state<br>
-     * <br>
-     * Command ConnexionChanged description:<br>
-     * Return connexion status<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid Wifi ssid
-     * @param _status Wifi status
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateConnexionChanged (String ssid, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM status) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiStateConnexionChanged (pointer, capacity, ssid, status);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class WifiState description:<br>
-     * Wifi state<br>
-     * <br>
-     * Command WifiAuthChannelListChanged description:<br>
-     * Notify of an Authorized Channel<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _band The band of this channel : 2.4 GHz or 5 GHz
-     * @param _channel The authorized channel
-     * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiAuthChannelListChanged (ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (pointer, capacity, band, channel, in_or_out);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class WifiState description:<br>
-     * Wifi state<br>
-     * <br>
-     * Command AllWifiAuthChannelChanged description:<br>
-     * Notify the end of the list of Authorized wifi Channel<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateAllWifiAuthChannelChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class WifiState description:<br>
-     * Wifi state<br>
-     * <br>
-     * Command WifiSignalChanged description:<br>
-     * State of the wifi signal<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _level Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiSignalChanged (byte level) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiStateWifiSignalChanged (pointer, capacity, level);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RequestWifiList</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Wifi description:<br>
-     * Wifi<br>
-     * <br>
-     * Command RequestWifiList description:<br>
-     * Request wifi list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiRequestWifiList () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiRequestWifiList (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RequestCurrentWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Wifi description:<br>
-     * Wifi<br>
-     * <br>
-     * Command RequestCurrentWifi description:<br>
-     * Request current connected wifi<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiRequestCurrentWifi () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiRequestCurrentWifi (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Wifi description:<br>
-     * Wifi<br>
-     * <br>
-     * Command ConnectToWifi description:<br>
-     * Connect to wifi<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _bssid Wifi bssid
-     * @param _ssid Wifi ssid
-     * @param _passphrase Wifi passphrase
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiConnectToWifi (String bssid, String ssid, String passphrase) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiConnectToWifi (pointer, capacity, bssid, ssid, passphrase);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ForgetWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Wifi description:<br>
-     * Wifi<br>
-     * <br>
-     * Command ForgetWifi description:<br>
-     * Forget wifi<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid Wifi ssid
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiForgetWifi (String ssid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiForgetWifi (pointer, capacity, ssid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiAuthChannel</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Wifi description:<br>
-     * Wifi<br>
-     * <br>
-     * Command WifiAuthChannel description:<br>
-     * Controller inquire the list of authorized wifi channels<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiWifiAuthChannel () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerWifiWifiAuthChannel (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Device description:<br>
-     * Device Connection commands<br>
-     * <br>
-     * Command RequestDeviceList description:<br>
-     * Request Device list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceRequestDeviceList () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDeviceRequestDeviceList (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RequestCurrentDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Device description:<br>
-     * Device Connection commands<br>
-     * <br>
-     * Command RequestCurrentDevice description:<br>
-     * Request current connected Device<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceRequestCurrentDevice () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDeviceRequestCurrentDevice (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ConnectToDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Device description:<br>
-     * Device Connection commands<br>
-     * <br>
-     * Command ConnectToDevice description:<br>
-     * ask to connect to a device<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _deviceName Device name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceConnectToDevice (String deviceName) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDeviceConnectToDevice (pointer, capacity, deviceName);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DeviceList</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class DeviceState description:<br>
-     * Device state<br>
-     * <br>
-     * Command DeviceList description:<br>
-     * Return the available Device list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _name Device name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceStateDeviceList (String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDeviceStateDeviceList (pointer, capacity, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class DeviceState description:<br>
-     * Device state<br>
-     * <br>
-     * Command ConnexionChanged description:<br>
-     * Return device connexion status<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status Wifi status to Device
-     * @param _deviceName Device name
-     * @param _deviceProductID Device name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceStateConnexionChanged (ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM status, String deviceName, short deviceProductID) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDeviceStateConnexionChanged (pointer, capacity, status, deviceName, deviceProductID);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command AllSettings description:<br>
-     * Get all product settings, the product must send all settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsAllSettings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSettingsAllSettings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Reset</code> of class <code>Settings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command Reset description:<br>
-     * Reset all settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsReset () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSettingsReset (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command AllSettingsChanged description:<br>
-     * State sent when all settings has been sent<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateAllSettingsChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSettingsStateAllSettingsChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ResetChanged description:<br>
-     * State sent when all settings has been resetting<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateResetChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSettingsStateResetChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductSerialChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductSerialChanged description:<br>
-     * Product serial number<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _serialNumber Serial number (hexadecimal value)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateProductSerialChanged (String serialNumber) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSettingsStateProductSerialChanged (pointer, capacity, serialNumber);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllStates</code> of class <code>Common</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Common description:<br>
-     * Common commands<br>
-     * <br>
-     * Command AllStates description:<br>
-     * Get all product states<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCommonAllStates () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCommonAllStates (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command AllStatesChanged description:<br>
-     * State sent when all product states has been sent<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCommonStateAllStatesChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCommonStateAllStatesChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SkyControllerState description:<br>
-     * Sky Controller states<br>
-     * <br>
-     * Command BatteryChanged description:<br>
-     * State sent when SkyController battery has changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _percent SkyController battery
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateBatteryChanged (byte percent) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSkyControllerStateBatteryChanged (pointer, capacity, percent);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SkyControllerState description:<br>
-     * Sky Controller states<br>
-     * <br>
-     * Command GpsFixChanged description:<br>
-     * State sent when SkyController gps fix has changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _fixed SkyController fixed
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateGpsFixChanged (byte fixed) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSkyControllerStateGpsFixChanged (pointer, capacity, fixed);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class SkyControllerState description:<br>
-     * Sky Controller states<br>
-     * <br>
-     * Command GpsPositionChanged description:<br>
-     * State sent when the SkyController gps position has changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _latitude SkyController latitude (500. if not available)
-     * @param _longitude SkyController longiture (500. if not available)
-     * @param _altitude Altitude (in meters) above sea level
-     * @param _altitude Only meaningful if latitude and longiture are available
-     * @param _heading SkyController heading relative to magnetic north (500.f if not available)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateGpsPositionChanged (double latitude, double longitude, double altitude, float heading) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerSkyControllerStateGpsPositionChanged (pointer, capacity, latitude, longitude, altitude, heading);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessPointSSID</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettings description:<br>
-     * AccessPoint settings commands<br>
-     * <br>
-     * Command AccessPointSSID description:<br>
-     * Set AccessPoint SSID<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid AccessPoint SSID
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsAccessPointSSID (String ssid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsAccessPointSSID (pointer, capacity, ssid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettings description:<br>
-     * AccessPoint settings commands<br>
-     * <br>
-     * Command AccessPointChannel description:<br>
-     * Set AccessPoint Channel<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _channel AccessPoint Channel
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsAccessPointChannel (byte channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsAccessPointChannel (pointer, capacity, channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettings description:<br>
-     * AccessPoint settings commands<br>
-     * <br>
-     * Command WifiSelection description:<br>
-     * Set AccessPoint Band and Channel<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type The type of wifi selection (only manual at the moment)
-     * @param _band The allowed band : 2.4 Ghz or 5 Ghz
-     * @param _channel The channel
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsWifiSelection (ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsWifiSelection (pointer, capacity, type, band, channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettingsState description:<br>
-     * AccessPoint settings state from product<br>
-     * <br>
-     * Command AccessPointSSIDChanged description:<br>
-     * State sent when AccessPoint ssid has been sent<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid AccessPoint SSID
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (String ssid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (pointer, capacity, ssid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessPointChannelChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettingsState description:<br>
-     * AccessPoint settings state from product<br>
-     * <br>
-     * Command AccessPointChannelChanged description:<br>
-     * State sent when AccessPoint channel has been sent<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _channel AccessPoint Channel
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateAccessPointChannelChanged (byte channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (pointer, capacity, channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiSelectionChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AccessPointSettingsState description:<br>
-     * AccessPoint settings state from product<br>
-     * <br>
-     * Command WifiSelectionChanged description:<br>
-     * Wifi selection from product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type The type of wifi selection (only manual at the moment)
-     * @param _band The allowed band : 2.4 Ghz or 5 Ghz
-     * @param _channel The channel
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateWifiSelectionChanged (ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (pointer, capacity, type, band, channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ResetOrientation</code> of class <code>Camera</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Camera description:<br>
-     * Ask the drone to move camera<br>
-     * <br>
-     * Command ResetOrientation description:<br>
-     * Reset pan and tilt to center<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCameraResetOrientation () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCameraResetOrientation (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetGamepadControls</code> of class <code>GamepadInfos</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class GamepadInfos description:<br>
-     * Request infos about the gamepad of the SkyController<br>
-     * <br>
-     * Command GetGamepadControls description:<br>
-     * Asks the SkyController to send the button and axis list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosGetGamepadControls () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerGamepadInfosGetGamepadControls (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class GamepadInfosState description:<br>
-     * Informations about the gamepad of the SkyController<br>
-     * <br>
-     * Command GamepadControl description:<br>
-     * Describe an existing button or axis of the gamepad<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type The type (axis/button) of the control
-     * @param _id The button or axis id
-     * @param _id @note A button and an axis can have the same ID, but their type is different
-     * @param _name Display name for the control
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosStateGamepadControl (ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerGamepadInfosStateGamepadControl (pointer, capacity, type, id, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllGamepadControlsSent</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class GamepadInfosState description:<br>
-     * Informations about the gamepad of the SkyController<br>
-     * <br>
-     * Command AllGamepadControlsSent description:<br>
-     * Sent by the SkyController after sending its last 'gamepadControl' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosStateAllGamepadControlsSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetCurrentButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappings description:<br>
-     * Controls the button mappings of the SkyController<br>
-     * <br>
-     * Command GetCurrentButtonMappings description:<br>
-     * Asks the SkyController to send its current button mapping<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsGetCurrentButtonMappings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetAvailableButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappings description:<br>
-     * Controls the button mappings of the SkyController<br>
-     * <br>
-     * Command GetAvailableButtonMappings description:<br>
-     * Asks the SkyController to send the possible mappings for each button<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsGetAvailableButtonMappings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappings description:<br>
-     * Controls the button mappings of the SkyController<br>
-     * <br>
-     * Command SetButtonMapping description:<br>
-     * Set a button mapping to the SkyController<br>
-     * @note replaces previous mapping for the given key<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _key_id The keycode to map
-     * @param _mapping_uid The mapping to associate with the key
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsSetButtonMapping (int key_id, String mapping_uid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsSetButtonMapping (pointer, capacity, key_id, mapping_uid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DefaultButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappings description:<br>
-     * Controls the button mappings of the SkyController<br>
-     * <br>
-     * Command DefaultButtonMapping description:<br>
-     * Asks the SkyController to reset the button mappings to the default value<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsDefaultButtonMapping () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsDefaultButtonMapping (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappingsState description:<br>
-     * State of the button mappings of the SkyController<br>
-     * <br>
-     * Command CurrentButtonMappings description:<br>
-     * Sent by the SkyController each time a mapping changes<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _key_id The keycode mapped
-     * @param _mapping_uid The mapping associated
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateCurrentButtonMappings (int key_id, String mapping_uid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (pointer, capacity, key_id, mapping_uid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllCurrentButtonMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappingsState description:<br>
-     * State of the button mappings of the SkyController<br>
-     * <br>
-     * Command AllCurrentButtonMappingsSent description:<br>
-     * Sent by the SkyController after sending its last 'currentButtonMappings' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AvailableButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappingsState description:<br>
-     * State of the button mappings of the SkyController<br>
-     * <br>
-     * Command AvailableButtonMappings description:<br>
-     * Sent after a 'getAvailableButtonMappings' request<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mapping_uid The mapping UID (used in communication with the SkyController)
-     * @param _name Display name for the user
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAvailableButtonMappings (String mapping_uid, String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (pointer, capacity, mapping_uid, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllAvailableButtonsMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class ButtonMappingsState description:<br>
-     * State of the button mappings of the SkyController<br>
-     * <br>
-     * Command AllAvailableButtonsMappingsSent description:<br>
-     * Sent by the SkyController after sending its last 'availableButtonMappings' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetCurrentAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappings description:<br>
-     * Controls the axis mappings of the SkyController<br>
-     * <br>
-     * Command GetCurrentAxisMappings description:<br>
-     * Asks the SkyController to send its current axis mapping<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsGetCurrentAxisMappings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappings description:<br>
-     * Controls the axis mappings of the SkyController<br>
-     * <br>
-     * Command GetAvailableAxisMappings description:<br>
-     * Asks the SkyController to send the possible mappings for each axis<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsGetAvailableAxisMappings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappings description:<br>
-     * Controls the axis mappings of the SkyController<br>
-     * <br>
-     * Command SetAxisMapping description:<br>
-     * Set a axis mapping to the SkyController<br>
-     * @note replaces previous mapping for the given axis<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _axis_id The axiscode to map
-     * @param _mapping_uid The mapping to associate with the axis
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsSetAxisMapping (int axis_id, String mapping_uid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsSetAxisMapping (pointer, capacity, axis_id, mapping_uid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DefaultAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappings description:<br>
-     * Controls the axis mappings of the SkyController<br>
-     * <br>
-     * Command DefaultAxisMapping description:<br>
-     * Asks the SkyController to reset the axis mappings to the default value<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsDefaultAxisMapping () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsDefaultAxisMapping (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappingsState description:<br>
-     * State of the axis mappings of the SkyController<br>
-     * <br>
-     * Command CurrentAxisMappings description:<br>
-     * Sent by the SkyController each time a mapping changes<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _axis_id The axiscode mapped
-     * @param _mapping_uid The mapping associated
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateCurrentAxisMappings (int axis_id, String mapping_uid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (pointer, capacity, axis_id, mapping_uid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllCurrentAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappingsState description:<br>
-     * State of the axis mappings of the SkyController<br>
-     * <br>
-     * Command AllCurrentAxisMappingsSent description:<br>
-     * Sent by the SkyController after sending its last 'currentAxisMappings' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AvailableAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappingsState description:<br>
-     * State of the axis mappings of the SkyController<br>
-     * <br>
-     * Command AvailableAxisMappings description:<br>
-     * Sent after a 'getAvailableAxisMappings' request<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mapping_uid The mapping UID (used in communication with the SkyController)
-     * @param _name Display name for the user
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAvailableAxisMappings (String mapping_uid, String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (pointer, capacity, mapping_uid, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllAvailableAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisMappingsState description:<br>
-     * State of the axis mappings of the SkyController<br>
-     * <br>
-     * Command AllAvailableAxisMappingsSent description:<br>
-     * Sent by the SkyController after sending its last 'availableAxisMappings' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetCurrentAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFilters description:<br>
-     * Controls the axis filters of the SkyController<br>
-     * <br>
-     * Command GetCurrentAxisFilters description:<br>
-     * Asks the SkyController to send its current axis filters<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersGetCurrentAxisFilters () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>GetPresetAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFilters description:<br>
-     * Controls the axis filters of the SkyController<br>
-     * <br>
-     * Command GetPresetAxisFilters description:<br>
-     * Asks the SkyController to send the preset filters<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersGetPresetAxisFilters () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetAxisFilter</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFilters description:<br>
-     * Controls the axis filters of the SkyController<br>
-     * <br>
-     * Command SetAxisFilter description:<br>
-     * Set an axis filter to the SkyController<br>
-     * @note replaces previous filter for the given axis<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _axis_id The axiscode to filter
-     * @param _filter_uid_or_builder The mapping preset to associate with the axis
-     * @param _filter_uid_or_builder (Or a string to build a new one)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersSetAxisFilter (int axis_id, String filter_uid_or_builder) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersSetAxisFilter (pointer, capacity, axis_id, filter_uid_or_builder);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DefaultAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFilters description:<br>
-     * Controls the axis filters of the SkyController<br>
-     * <br>
-     * Command DefaultAxisFilters description:<br>
-     * Asks the SkyController to reset the axis filters to the default value<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersDefaultAxisFilters () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersDefaultAxisFilters (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFiltersState description:<br>
-     * State of the axis filters of the SkyController<br>
-     * <br>
-     * Command CurrentAxisFilters description:<br>
-     * Sent by the SkyController each time a filter changes<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _axis_id The axiscode filtered
-     * @param _filter_uid_or_builder The filter associated
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateCurrentAxisFilters (int axis_id, String filter_uid_or_builder) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (pointer, capacity, axis_id, filter_uid_or_builder);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllCurrentFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFiltersState description:<br>
-     * State of the axis filters of the SkyController<br>
-     * <br>
-     * Command AllCurrentFiltersSent description:<br>
-     * Sent by the SkyController after sending its last 'currentAxisFilters' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateAllCurrentFiltersSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PresetAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFiltersState description:<br>
-     * State of the axis filters of the SkyController<br>
-     * <br>
-     * Command PresetAxisFilters description:<br>
-     * Sent after a 'getPresetAxisFilters' request<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _filter_uid The filter UID (used in communication with the SkyController)
-     * @param _name Display name for the user
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStatePresetAxisFilters (String filter_uid, String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (pointer, capacity, filter_uid, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllPresetFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class AxisFiltersState description:<br>
-     * State of the axis filters of the SkyController<br>
-     * <br>
-     * Command AllPresetFiltersSent description:<br>
-     * Sent by the SkyController after sending its last 'presetAxisFilters' command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateAllPresetFiltersSent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetPilotingSource</code> of class <code>CoPiloting</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class CoPiloting description:<br>
-     * Configuration of the co-piloting feature<br>
-     * <br>
-     * Command SetPilotingSource description:<br>
-     * Set the SkyController piloting source<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _source The source
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCoPilotingSetPilotingSource (ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM source) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCoPilotingSetPilotingSource (pointer, capacity, source);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class CoPilotingState description:<br>
-     * State of the co-piloting feature<br>
-     * <br>
-     * Command PilotingSource description:<br>
-     * Source of the piloting commands<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _source The source
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCoPilotingStatePilotingSource (ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCoPilotingStatePilotingSource (pointer, capacity, source);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>EnableMagnetoCalibrationQualityUpdates</code> of class <code>Calibration</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class Calibration description:<br>
-     * Commands related to the SkyController sensors calibration<br>
-     * <br>
-     * Command EnableMagnetoCalibrationQualityUpdates description:<br>
-     * Asks the SkyController to send (or not) the magneto calibration quality updates.<br>
-     * The MagnetoCalibrationState will always be sent when the status parameters changes,<br>
-     * regardless of this setting.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enable Flag to enable the feature.
-     * @param _enable 1 = enable quality updates
-     * @param _enable 0 = disable quality updates
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (byte enable) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (pointer, capacity, enable);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * State of the SkyController calibration<br>
-     * <br>
-     * Command MagnetoCalibrationState description:<br>
-     * The current state of the magnetometer calibration<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status The global status of the calibration
-     * @param _X_Quality Calibration quality on X axis.
-     * @param _X_Quality 0 is bad, 255 is perfect
-     * @param _Y_Quality Calibration quality on Y axis.
-     * @param _Y_Quality 0 is bad, 255 is perfect
-     * @param _Z_Quality Calibration quality on Z axis.
-     * @param _Z_Quality 0 is bad, 255 is perfect
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationState (ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (pointer, capacity, status, X_Quality, Y_Quality, Z_Quality);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
-     * <br>
-     * Project SkyController description:<br>
-     * All SkyController-only commands<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * State of the SkyController calibration<br>
-     * <br>
-     * Command MagnetoCalibrationQualityUpdatesState description:<br>
-     * State of the "send calibration state on quality change" setting.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enabled Flag (is the feature enabled).
-     * @param _enabled 1 = The skycontroller sends updated when quality is updated
-     * @param _enabled 0 = The skycontroller only sent updated when state is updated
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (byte enabled) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (pointer, capacity, enabled);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
-     * <br>
-     * Project SkyControllerDebug description:<br>
-     * All debug SkyController-only commands<br>
-     * <br>
-     * Class Debug description:<br>
-     * Temporary, debug commands<br>
-     * <br>
-     * Command Test1 description:<br>
-     * Test 1 command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _t1Args Test 1 argument
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDebugDebugTest1 (byte t1Args) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDebugDebugTest1 (pointer, capacity, t1Args);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>BoughtFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command BoughtFeatures description:<br>
-     * Bought features on this pro version of the controller (features that have been bought)<br>
-     * This command starts the pro authentification process<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Bought features
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProBoughtFeatures (long features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProBoughtFeatures (pointer, capacity, features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command Response description:<br>
-     * Response to the challenge string sent by the controller<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status Status of the response
-     * @param _signedChallenge the signed challenge
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProResponse (pointer, capacity, status, signedChallenge);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command ActivateFeatures description:<br>
-     * Activate some pro features<br>
-     * Pro features activated should be part of the list returned by ProState->FeaturesSupported<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Pro features to activate
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProActivateFeatures (long features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProActivateFeatures (pointer, capacity, features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SupportedFeatures</code> of class <code>ProState</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProState description:<br>
-     * Pro related commands from the product to the controller<br>
-     * <br>
-     * Command SupportedFeatures description:<br>
-     * Features supported. This command ends the pro authentification<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status Status of the supported features
-     * @param _features Supported pro features.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateSupportedFeatures (ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProStateSupportedFeatures (pointer, capacity, status, features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>FeaturesActivated</code> of class <code>ProState</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProState description:<br>
-     * Pro related commands from the product to the controller<br>
-     * <br>
-     * Command FeaturesActivated description:<br>
-     * Pro features that are currently activated<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Activated pro features.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateFeaturesActivated (long features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProStateFeaturesActivated (pointer, capacity, features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code><br>
-     * <br>
-     * Project Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProEvent description:<br>
-     * Pro related events from the product to the controller<br>
-     * <br>
-     * Command ChallengeEvent description:<br>
-     * Challenge event sent from the drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _challenge the challenge that the receiver will have to sign
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProEventChallengeEvent (String challenge) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProEventChallengeEvent (pointer, capacity, challenge);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>FlatTrim</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command FlatTrim description:<br>
-     * Do a flat trim<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingFlatTrim () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingFlatTrim (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>TakeOff</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command TakeOff description:<br>
-     * Ask the drone to take off<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingTakeOff () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingTakeOff (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command PCMD description:<br>
-     * Ask the drone to move around.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _flag Boolean flag to activate roll/pitch movement
-     * @param _roll Roll consign for the MiniDrone [-100;100]
-     * @param _pitch Pitch consign for the MiniDrone [-100;100]
-     * @param _yaw Yaw consign for the MiniDrone [-100;100]
-     * @param _gaz Gaz consign for the MiniDrone [-100;100]
-     * @param _timestamp Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingPCMD (byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestamp) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingPCMD (pointer, capacity, flag, roll, pitch, yaw, gaz, timestamp);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Landing</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command Landing description:<br>
-     * Ask the MiniDrone to land<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingLanding () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingLanding (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command Emergency description:<br>
-     * Put drone in emergency state<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingEmergency () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingEmergency (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the MiniDrone<br>
-     * <br>
-     * Command AutoTakeOffMode description:<br>
-     * Set MiniDrone automatic take off mode<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of automatic take off mode
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingAutoTakeOffMode (byte state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingAutoTakeOffMode (pointer, capacity, state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Occasional information<br>
-     * <br>
-     * Command FlatTrimChanged description:<br>
-     * MiniDrone send flat trim was correctly processed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateFlatTrimChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingStateFlatTrimChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>FlyingStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Occasional information<br>
-     * <br>
-     * Command FlyingStateChanged description:<br>
-     * Drone flying state changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state Drone flying state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateFlyingStateChanged (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingStateFlyingStateChanged (pointer, capacity, state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Occasional information<br>
-     * <br>
-     * Command AlertStateChanged description:<br>
-     * Drone alert state changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state Drone alert state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateAlertStateChanged (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingStateAlertStateChanged (pointer, capacity, state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AutoTakeOffModeChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Occasional information<br>
-     * <br>
-     * Command AutoTakeOffModeChanged description:<br>
-     * Set MiniDrone automatic take off mode<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of automatic take off mode
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateAutoTakeOffModeChanged (byte state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (pointer, capacity, state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command Flip description:<br>
-     * Make a flip<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _direction Direction for the flip
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneAnimationsFlip (ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneAnimationsFlip (pointer, capacity, direction);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command Cap description:<br>
-     * Change the product cap<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _offset Change the cap with offset angle [-180;180]
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneAnimationsCap (short offset) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneAnimationsCap (pointer, capacity, offset);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command Picture description:<br>
-     * @deprecated<br>
-     * Take picture<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mass_storage_id Mass storage id to take picture
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordPicture (byte mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMediaRecordPicture (pointer, capacity, mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command PictureV2 description:<br>
-     * Take picture<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordPictureV2 () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMediaRecordPictureV2 (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command PictureStateChanged description:<br>
-     * @deprecated<br>
-     * State of picture recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state 1 if picture has been taken, 0 otherwise
-     * @param _mass_storage_id Mass storage id to record
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordStatePictureStateChanged (byte state, byte mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChanged (pointer, capacity, state, mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PictureStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command PictureStateChangedV2 description:<br>
-     * State of device picture recording changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of device picture recording
-     * @param _error Error to explain the state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordStatePictureStateChangedV2 (ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (pointer, capacity, state, error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MediaRecordEvent description:<br>
-     * Events of media recording<br>
-     * <br>
-     * Command PictureEventChanged description:<br>
-     * Event of picture recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _event Last event of picture recording
-     * @param _error Error to explain the event
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordEventPictureEventChanged (ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMediaRecordEventPictureEventChanged (pointer, capacity, event, error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingSettings description:<br>
-     * Piloting Settings commands<br>
-     * <br>
-     * Command MaxAltitude description:<br>
-     * Set Max Altitude<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current altitude max in m
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsMaxAltitude (float current) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingSettingsMaxAltitude (pointer, capacity, current);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingSettings description:<br>
-     * Piloting Settings commands<br>
-     * <br>
-     * Command MaxTilt description:<br>
-     * Set Max Tilt<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current tilt max in degree
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsMaxTilt (float current) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingSettingsMaxTilt (pointer, capacity, current);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxAltitudeChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingSettingsState description:<br>
-     * Piloting Settings state from product<br>
-     * <br>
-     * Command MaxAltitudeChanged description:<br>
-     * Max Altitude sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current altitude max
-     * @param _min Range min of altitude
-     * @param _max Range max of altitude
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsStateMaxAltitudeChanged (float current, float min, float max) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (pointer, capacity, current, min, max);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxTiltChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class PilotingSettingsState description:<br>
-     * Piloting Settings state from product<br>
-     * <br>
-     * Command MaxTiltChanged description:<br>
-     * Max tilt sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max tilt
-     * @param _min Range min of tilt
-     * @param _max Range max of tilt
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsStateMaxTiltChanged (float current, float min, float max) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (pointer, capacity, current, min, max);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettings description:<br>
-     * Speed Settings commands<br>
-     * <br>
-     * Command MaxVerticalSpeed description:<br>
-     * Set Max Vertical speed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max vertical speed in m/s
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxVerticalSpeed (float current) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (pointer, capacity, current);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettings description:<br>
-     * Speed Settings commands<br>
-     * <br>
-     * Command MaxRotationSpeed description:<br>
-     * Set Max Rotation speed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max rotation speed in degree/s
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxRotationSpeed (float current) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (pointer, capacity, current);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettings description:<br>
-     * Speed Settings commands<br>
-     * <br>
-     * Command Wheels description:<br>
-     * Presence of wheels<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _present 1 if present, 0 if not present
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsWheels (byte present) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsWheels (pointer, capacity, present);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxVerticalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettingsState description:<br>
-     * Speed Settings state from product<br>
-     * <br>
-     * Command MaxVerticalSpeedChanged description:<br>
-     * Max vertical speed sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max vertical speed in m/s
-     * @param _min Range min of vertical speed
-     * @param _max Range max of vertical speed
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (float current, float min, float max) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (pointer, capacity, current, min, max);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettingsState description:<br>
-     * Speed Settings state from product<br>
-     * <br>
-     * Command MaxRotationSpeedChanged description:<br>
-     * Max rotation speed sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max rotation speed in degree/s
-     * @param _min Range min of rotation speed
-     * @param _max Range max of rotation speed
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (float current, float min, float max) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (pointer, capacity, current, min, max);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WheelsChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SpeedSettingsState description:<br>
-     * Speed Settings state from product<br>
-     * <br>
-     * Command WheelsChanged description:<br>
-     * Presence of wheels sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _present 1 if present, 0 if not present
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateWheelsChanged (byte present) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSpeedSettingsStateWheelsChanged (pointer, capacity, present);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command CutOutMode description:<br>
-     * Set MiniDrone cut out mode<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enable Enable cut out mode (1 if is activate, 0 otherwise)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsCutOutMode (byte enable) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSettingsCutOutMode (pointer, capacity, enable);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductMotorsVersionChanged description:<br>
-     * Product Motors versions<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _motor Product Motor number [1 - 4]
-     * @param _type Product Motor type
-     * @param _software Product Motors software version
-     * @param _hardware Product Motors hardware version
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateProductMotorsVersionChanged (byte motor, String type, String software, String hardware) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (pointer, capacity, motor, type, software, hardware);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductInertialVersionChanged description:<br>
-     * Product Inertial versions<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _software Product Inertial software version
-     * @param _hardware Product Inertial hardware version
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateProductInertialVersionChanged (String software, String hardware) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSettingsStateProductInertialVersionChanged (pointer, capacity, software, hardware);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CutOutModeChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command CutOutModeChanged description:<br>
-     * MiniDrone cut out mode<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enable State of cut out mode (1 if is activate, 0 otherwise)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateCutOutModeChanged (byte enable) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneSettingsStateCutOutModeChanged (pointer, capacity, enable);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class FloodControlState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command FloodControlChanged description:<br>
-     * Flood control regulation<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _delay Delay (in ms) between two PCMD
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneFloodControlStateFloodControlChanged (short delay) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneFloodControlStateFloodControlChanged (pointer, capacity, delay);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerLatitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class GPS description:<br>
-     * GPS related commands<br>
-     * <br>
-     * Command ControllerLatitudeForRun description:<br>
-     * Set the controller latitude for a run.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _latitude Controller latitude in decimal degrees
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneGPSControllerLatitudeForRun (double latitude) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneGPSControllerLatitudeForRun (pointer, capacity, latitude);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class GPS description:<br>
-     * GPS related commands<br>
-     * <br>
-     * Command ControllerLongitudeForRun description:<br>
-     * Set the controller longitude for a run.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _longitude Controller longitude in decimal degrees
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneGPSControllerLongitudeForRun (double longitude) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneGPSControllerLongitudeForRun (pointer, capacity, longitude);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerType</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Configuration description:<br>
-     * Configuration related commands<br>
-     * <br>
-     * Command ControllerType description:<br>
-     * Set the controller type.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Controller type like iOS or Android
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneConfigurationControllerType (String type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneConfigurationControllerType (pointer, capacity, type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
-     * <br>
-     * Project MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class Configuration description:<br>
-     * Configuration related commands<br>
-     * <br>
-     * Command ControllerName description:<br>
-     * Set the controller name.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _name Controller name like com.parrot.freeflight3
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneConfigurationControllerName (String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneConfigurationControllerName (pointer, capacity, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Test1</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * <br>
-     * Project MiniDroneDebug description:<br>
-     * All MiniDrone-only debug commands<br>
-     * <br>
-     * Class Debug description:<br>
-     * Temporary, debug commands<br>
-     * <br>
-     * Command Test1 description:<br>
-     * Test 1 command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _t1Args Test 1 argument
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest1 (byte t1Args) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneDebugDebugTest1 (pointer, capacity, t1Args);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Test2</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * <br>
-     * Project MiniDroneDebug description:<br>
-     * All MiniDrone-only debug commands<br>
-     * <br>
-     * Class Debug description:<br>
-     * Temporary, debug commands<br>
-     * <br>
-     * Command Test2 description:<br>
-     * Test 2 command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _t2Args Test 2 argument
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest2 (byte t2Args) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneDebugDebugTest2 (pointer, capacity, t2Args);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Test3</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * <br>
-     * Project MiniDroneDebug description:<br>
-     * All MiniDrone-only debug commands<br>
-     * <br>
-     * Class Debug description:<br>
-     * Temporary, debug commands<br>
-     * <br>
-     * Command Test3 description:<br>
-     * Test 3 command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _t3Args Test 3 argument
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest3 (byte t3Args) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneDebugDebugTest3 (pointer, capacity, t3Args);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Network description:<br>
-     * Network related commands<br>
-     * <br>
-     * Command Disconnect description:<br>
-     * Signals the remote that the host will disconnect and close its<br>
-     * libARNetwork instance (and all threads that use libARNetwork)<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonNetworkDisconnect () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonNetworkDisconnect (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class NetworkEvent description:<br>
-     * Network Event from product<br>
-     * <br>
-     * Command Disconnection description:<br>
-     * Signals the remote that the host will disconnect and close its<br>
-     * libARNetwork instance (and all threads that use libARNetwork)<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _cause Cause of the disconnection of the product
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonNetworkEventDisconnection (ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonNetworkEventDisconnection (pointer, capacity, cause);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllSettings</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command AllSettings description:<br>
-     * Get all product settings, the product must send all settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsAllSettings () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsAllSettings (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Reset</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command Reset description:<br>
-     * Reset all settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsReset () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsReset (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command ProductName description:<br>
-     * Set Product name<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _name Product name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsProductName (String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsProductName (pointer, capacity, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Country</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command Country description:<br>
-     * Set current Country of controller<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _code Country code with ISO 3166 format
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsCountry (String code) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsCountry (pointer, capacity, code);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Settings description:<br>
-     * Settings commands<br>
-     * <br>
-     * Command AutoCountry description:<br>
-     * Set Auto Country Settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _automatic Boolean : 0 : Manual / 1 : Auto
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsAutoCountry (byte automatic) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsAutoCountry (pointer, capacity, automatic);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command AllSettingsChanged description:<br>
-     * State sent when all settings has been sent.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateAllSettingsChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateAllSettingsChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ResetChanged description:<br>
-     * State sent when all settings has been resetting.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateResetChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateResetChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductNameChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductNameChanged description:<br>
-     * Product name<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _name Product name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductNameChanged (String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateProductNameChanged (pointer, capacity, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductVersionChanged description:<br>
-     * Product versions<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _software Product software version
-     * @param _hardware Product hardware version
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductVersionChanged (String software, String hardware) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateProductVersionChanged (pointer, capacity, software, hardware);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductSerialHighChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductSerialHighChanged description:<br>
-     * Product serial number<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _high Serial high number (hexadecimal value)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductSerialHighChanged (String high) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateProductSerialHighChanged (pointer, capacity, high);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductSerialLowChanged description:<br>
-     * Product serial number<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _low Serial low number (hexadecimal value)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductSerialLowChanged (String low) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateProductSerialLowChanged (pointer, capacity, low);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command CountryChanged description:<br>
-     * Inform current Country set in product. (Answer to 'Country' command)<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _code Country code with ISO 3166 format, empty string means unknown country.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateCountryChanged (String code) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateCountryChanged (pointer, capacity, code);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AutoCountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command AutoCountryChanged description:<br>
-     * Inform Auto Country Settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _automatic Boolean : 0 : Manual / 1 : Auto
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateAutoCountryChanged (byte automatic) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonSettingsStateAutoCountryChanged (pointer, capacity, automatic);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllStates</code> of class <code>Common</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Common description:<br>
-     * Common commands<br>
-     * <br>
-     * Command AllStates description:<br>
-     * Get all product states.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonAllStates () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonAllStates (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentDate</code> of class <code>Common</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Common description:<br>
-     * Common commands<br>
-     * <br>
-     * Command CurrentDate description:<br>
-     * Set current date of controller<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _date Date with ISO-8601 format
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonCurrentDate (String date) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonCurrentDate (pointer, capacity, date);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Common description:<br>
-     * Common commands<br>
-     * <br>
-     * Command CurrentTime description:<br>
-     * Set current time of controller<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _time Time with ISO-8601 format
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonCurrentTime (String time) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonCurrentTime (pointer, capacity, time);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Common description:<br>
-     * Common commands<br>
-     * <br>
-     * Command Reboot description:<br>
-     * Command to ask reboot to product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonReboot () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonReboot (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command AllStatesChanged description:<br>
-     * State sent when all product states has been sent.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateAllStatesChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateAllStatesChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command BatteryStateChanged description:<br>
-     * Battery state<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _percent Battery percentage
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateBatteryStateChanged (byte percent) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateBatteryStateChanged (pointer, capacity, percent);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MassStorageStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command MassStorageStateListChanged description:<br>
-     * Mass storage state list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mass_storage_id Mass storage id (unique)
-     * @param _name Mass storage name
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageStateListChanged (byte mass_storage_id, String name) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateMassStorageStateListChanged (pointer, capacity, mass_storage_id, name);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command MassStorageInfoStateListChanged description:<br>
-     * Mass storage info state list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mass_storage_id Mass storage state id (unique)
-     * @param _size Mass storage size in MBytes
-     * @param _used_size Mass storage used size in MBytes
-     * @param _plugged Mass storage plugged (1 if mass storage is plugged, otherwise 0)
-     * @param _full Mass storage full information state (1 if mass storage full, 0 otherwise).
-     * @param _internal Mass storage internal type state (1 if mass storage is internal, 0 otherwise)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageInfoStateListChanged (byte mass_storage_id, int size, int used_size, byte plugged, byte full, byte internal) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateMassStorageInfoStateListChanged (pointer, capacity, mass_storage_id, size, used_size, plugged, full, internal);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command CurrentDateChanged description:<br>
-     * Current date state<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _date Date with ISO-8601 format
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCurrentDateChanged (String date) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateCurrentDateChanged (pointer, capacity, date);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentTimeChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command CurrentTimeChanged description:<br>
-     * Current time state<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _time Time with ISO-8601 format
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCurrentTimeChanged (String time) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateCurrentTimeChanged (pointer, capacity, time);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command MassStorageInfoRemainingListChanged description:<br>
-     * Mass storage info remaining list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _free_space Mass storage free space in MBytes
-     * @param _rec_time Mass storage record time reamining in minute
-     * @param _photo_remaining Mass storage photo remaining
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageInfoRemainingListChanged (int free_space, short rec_time, int photo_remaining) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (pointer, capacity, free_space, rec_time, photo_remaining);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command WifiSignalChanged description:<br>
-     * Wifi Signal between controller and product state<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _rssi RSSI of the signal between controller and the product (in dbm)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateWifiSignalChanged (short rssi) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateWifiSignalChanged (pointer, capacity, rssi);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SensorsStatesListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command SensorsStatesListChanged description:<br>
-     * Sensors states list<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _sensorName Sensor name
-     * @param _sensorState Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateSensorsStatesListChanged (ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateSensorsStatesListChanged (pointer, capacity, sensorName, sensorState);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProductModel</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command ProductModel description:<br>
-     * Inform of the product model. This is used to customize the UI depending on the connected product.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _model The Model of the product.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateProductModel (ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateProductModel (pointer, capacity, model);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CountryListKnown</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CommonState description:<br>
-     * Common state from product<br>
-     * <br>
-     * Command CountryListKnown description:<br>
-     * List of the countries known by the device<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCountryListKnown (String countryCodes) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCommonStateCountryListKnown (pointer, capacity, countryCodes);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class OverHeat description:<br>
-     * Over heat commands<br>
-     * <br>
-     * Command SwitchOff description:<br>
-     * @deprecated<br>
-     * Switch off the drone when a overheat appeared<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatSwitchOff () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonOverHeatSwitchOff (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class OverHeat description:<br>
-     * Over heat commands<br>
-     * <br>
-     * Command Ventilate description:<br>
-     * @deprecated<br>
-     * Ventilate the drone when a overheat appeared<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatVentilate () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonOverHeatVentilate (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>OverHeatChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class OverHeatState description:<br>
-     * Overheat state from product<br>
-     * <br>
-     * Command OverHeatChanged description:<br>
-     * Overheat temperature reached<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatStateOverHeatChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonOverHeatStateOverHeatChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class OverHeatState description:<br>
-     * Overheat state from product<br>
-     * <br>
-     * Command OverHeatRegulationChanged description:<br>
-     * Overheat regulation state changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _regulationType Type of overheat regulation : 0 for ventilation, 1 for switch off
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatStateOverHeatRegulationChanged (byte regulationType) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonOverHeatStateOverHeatRegulationChanged (pointer, capacity, regulationType);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ControllerState description:<br>
-     * Notify the device about the state of the controller application.<br>
-     * <br>
-     * Command IsPilotingChanged description:<br>
-     * Tell the device when the controller application enters/leaves the piloting HUD.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerStateIsPilotingChanged (byte piloting) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonControllerStateIsPilotingChanged (pointer, capacity, piloting);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class WifiSettings description:<br>
-     * Wifi settings commands<br>
-     * <br>
-     * Command OutdoorSetting description:<br>
-     * Send to product if it should use its outdoor wifi config, or indoor<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _outdoor 1 if it should use outdoor wifi settings, 0 otherwise
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonWifiSettingsOutdoorSetting (byte outdoor) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonWifiSettingsOutdoorSetting (pointer, capacity, outdoor);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>OutdoorSettingsChanged</code> of class <code>WifiSettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class WifiSettingsState description:<br>
-     * Wifi settings state from product<br>
-     * <br>
-     * Command OutdoorSettingsChanged description:<br>
-     * Status of the wifi config : either indoor or outdoor<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _outdoor 1 if it should use outdoor wifi settings, 0 otherwise
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonWifiSettingsStateOutdoorSettingsChanged (byte outdoor) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (pointer, capacity, outdoor);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Mavlink description:<br>
-     * Mavlink flight plans commands<br>
-     * <br>
-     * Command Start description:<br>
-     * Start the flight plan<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _filepath flight plan file path from the mavlink ftp root
-     * @param _type type of the played mavlink file
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStart (String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonMavlinkStart (pointer, capacity, filepath, type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Pause</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Mavlink description:<br>
-     * Mavlink flight plans commands<br>
-     * <br>
-     * Command Pause description:<br>
-     * Pause the flightplan (can be restarted with a start)<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkPause () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonMavlinkPause (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Mavlink description:<br>
-     * Mavlink flight plans commands<br>
-     * <br>
-     * Command Stop description:<br>
-     * Stop the flightplan<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStop () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonMavlinkStop (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class MavlinkState description:<br>
-     * Mavlink flight plans states commands<br>
-     * <br>
-     * Command MavlinkFilePlayingStateChanged description:<br>
-     * Playing state of a mavlink flight plan<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of the mavlink
-     * @param _filepath flight plan file path from the mavlink ftp root
-     * @param _type type of the played mavlink file
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStateMavlinkFilePlayingStateChanged (ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM state, String filepath, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (pointer, capacity, state, filepath, type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class MavlinkState description:<br>
-     * Mavlink flight plans states commands<br>
-     * <br>
-     * Command MavlinkPlayErrorStateChanged description:<br>
-     * FlightPlan play state error<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _error State of play error
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStateMavlinkPlayErrorStateChanged (ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (pointer, capacity, error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibration</code> of class <code>Calibration</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Calibration description:<br>
-     * Calibration commands<br>
-     * <br>
-     * Command MagnetoCalibration description:<br>
-     * Sent when a calibration of the magnetometer is asked or is aborted<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _calibrate 1 if the calibration should be started, 0 if it should be aborted
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationMagnetoCalibration (byte calibrate) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCalibrationMagnetoCalibration (pointer, capacity, calibrate);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * Status of the calibration<br>
-     * <br>
-     * Command MagnetoCalibrationStateChanged description:<br>
-     * Sent when the state of the magneto calibration has changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _xAxisCalibration State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
-     * @param _yAxisCalibration State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise
-     * @param _zAxisCalibration State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise
-     * @param _calibrationFailed 1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationStateChanged (byte xAxisCalibration, byte yAxisCalibration, byte zAxisCalibration, byte calibrationFailed) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (pointer, capacity, xAxisCalibration, yAxisCalibration, zAxisCalibration, calibrationFailed);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * Status of the calibration<br>
-     * <br>
-     * Command MagnetoCalibrationRequiredState description:<br>
-     * Status of the calibration requirement<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _required 1 if calibration is required, 0 if current calibration is still valid
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationRequiredState (byte required) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (pointer, capacity, required);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationAxisToCalibrateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * Status of the calibration<br>
-     * <br>
-     * Command MagnetoCalibrationAxisToCalibrateChanged description:<br>
-     * Event sent by a product to inform about the axis to calibrate<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _axis The axis to calibrate
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM axis) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (pointer, capacity, axis);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MagnetoCalibrationStartedChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CalibrationState description:<br>
-     * Status of the calibration<br>
-     * <br>
-     * Command MagnetoCalibrationStartedChanged description:<br>
-     * Status of the calibration process<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _started 1 if calibration has started, 0 otherwise
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationStartedChanged (byte started) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (pointer, capacity, started);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class CameraSettingsState description:<br>
-     * Status of the camera settings<br>
-     * <br>
-     * Command CameraSettingsChanged description:<br>
-     * Status of the camera settings<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _fov Value of the camera horizontal fov (in degree)
-     * @param _panMax Value of max pan (right pan) (in degree)
-     * @param _panMin Value of min pan (left pan) (in degree)
-     * @param _tiltMax Value of max tilt (top tilt) (in degree)
-     * @param _tiltMin Value of min tilt (bottom tilt) (in degree)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCameraSettingsStateCameraSettingsChanged (float fov, float panMax, float panMin, float tiltMax, float tiltMin) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonCameraSettingsStateCameraSettingsChanged (pointer, capacity, fov, panMax, panMin, tiltMax, tiltMin);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class GPS description:<br>
-     * GPS related commands<br>
-     * <br>
-     * Command ControllerPositionForRun description:<br>
-     * Set the controller position for a run. This command is used by all non gps products. Watch out, this command cannot be used with BLE products<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _latitude Controller latitude in decimal degrees
-     * @param _longitude Controller longitude in decimal degrees
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonGPSControllerPositionForRun (double latitude, double longitude) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonGPSControllerPositionForRun (pointer, capacity, latitude, longitude);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AvailabilityStateChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class FlightPlanState description:<br>
-     * FlightPlan state commands<br>
-     * <br>
-     * Command AvailabilityStateChanged description:<br>
-     * State of availability to run a flight plan file<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _AvailabilityState Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanStateAvailabilityStateChanged (byte AvailabilityState) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonFlightPlanStateAvailabilityStateChanged (pointer, capacity, AvailabilityState);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class FlightPlanState description:<br>
-     * FlightPlan state commands<br>
-     * <br>
-     * Command ComponentStateListChanged description:<br>
-     * List of state of drone flightPlan components<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _component Drone FlightPlan component id (unique)
-     * @param _State State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanStateComponentStateListChanged (ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM component, byte State) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonFlightPlanStateComponentStateListChanged (pointer, capacity, component, State);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StartingErrorEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class FlightPlanEvent description:<br>
-     * FlightPlan Event commands<br>
-     * <br>
-     * Command StartingErrorEvent description:<br>
-     * Event of flight plan start error<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanEventStartingErrorEvent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonFlightPlanEventStartingErrorEvent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class FlightPlanEvent description:<br>
-     * FlightPlan Event commands<br>
-     * <br>
-     * Command SpeedBridleEvent description:<br>
-     * Bridle speed of the drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanEventSpeedBridleEvent () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonFlightPlanEventSpeedBridleEvent (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ARLibsVersionsState description:<br>
-     * ARlibs Versions Commands<br>
-     * <br>
-     * Command ControllerLibARCommandsVersion description:<br>
-     * Controller libARCommands version<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _version version of libARCommands ("1.2.3.4" format)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateControllerLibARCommandsVersion (String version) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (pointer, capacity, version);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SkyControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ARLibsVersionsState description:<br>
-     * ARlibs Versions Commands<br>
-     * <br>
-     * Command SkyControllerLibARCommandsVersion description:<br>
-     * SkyController libARCommands version<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _version version of libARCommands ("1.2.3.4" format)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (String version) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (pointer, capacity, version);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DeviceLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ARLibsVersionsState description:<br>
-     * ARlibs Versions Commands<br>
-     * <br>
-     * Command DeviceLibARCommandsVersion description:<br>
-     * Device libARCommands version<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _version version of libARCommands ("1.2.3.4" format)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateDeviceLibARCommandsVersion (String version) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (pointer, capacity, version);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerReadyForStreaming</code> of class <code>Audio</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Audio description:<br>
-     * Audio-related commands.<br>
-     * <br>
-     * Command ControllerReadyForStreaming description:<br>
-     * Tell the firmware whether the controller is ready to start audio streaming.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ready Bit field for TX and RX ready.
-     * @param _ready bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
-     * @param _ready bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioControllerReadyForStreaming (byte ready) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAudioControllerReadyForStreaming (pointer, capacity, ready);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class AudioState description:<br>
-     * Audio-related state updates.<br>
-     * <br>
-     * Command AudioStreamingRunning description:<br>
-     * Notify the controller whether the audio streaming is running.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _running Bit field for TX and RX running
-     * @param _running bit 0 is 1 if Drone TX is running
-     * @param _running bit 1 is 1 if Drone RX is running
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioStateAudioStreamingRunning (byte running) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAudioStateAudioStreamingRunning (pointer, capacity, running);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Intensity</code> of class <code>Headlights</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Headlights description:<br>
-     * Controls the headlight LEDs of the Evo variants.<br>
-     * <br>
-     * Command Intensity description:<br>
-     * Set instensity of lighting LEDs.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _left Set the left LED intensity value (0 through 255).
-     * @param _right Set the right LED intensity value (0 through 255).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonHeadlightsIntensity (byte left, byte right) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonHeadlightsIntensity (pointer, capacity, left, right);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class HeadlightsState description:<br>
-     * Get information about the state of the Evo variants' LEDs.<br>
-     * <br>
-     * Command IntensityChanged description:<br>
-     * Notify the instensity values for headlight LEDs.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _left The intensity value for the left LED (0 through 255).
-     * @param _right The intensity value for the right LED (0 through 255).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonHeadlightsStateIntensityChanged (byte left, byte right) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonHeadlightsStateIntensityChanged (pointer, capacity, left, right);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animations-related commands.<br>
-     * <br>
-     * Command StartAnimation description:<br>
-     * Start a paramaterless animation.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _anim Animation to start.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStartAnimation (ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAnimationsStartAnimation (pointer, capacity, anim);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animations-related commands.<br>
-     * <br>
-     * Command StopAnimation description:<br>
-     * Stop a running animation.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _anim Animation to stop.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStopAnimation (ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAnimationsStopAnimation (pointer, capacity, anim);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StopAllAnimations</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animations-related commands.<br>
-     * <br>
-     * Command StopAllAnimations description:<br>
-     * Stop all running animations.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStopAllAnimations () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAnimationsStopAllAnimations (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class AnimationsState description:<br>
-     * Animations-related notification/feedback commands.<br>
-     * <br>
-     * Command List description:<br>
-     * List of animations state.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _anim Animation type.
-     * @param _state State of the animation
-     * @param _error Error to explain the state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStateList (ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM anim, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM state, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAnimationsStateList (pointer, capacity, anim, state, error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Accessory description:<br>
-     * Accessories-related commands.<br>
-     * <br>
-     * Command Config description:<br>
-     * Set the current accessory configuration.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _accessory Accessory configuration to set.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryConfig (ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAccessoryConfig (pointer, capacity, accessory);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class AccessoryState description:<br>
-     * Accessories-related commands.<br>
-     * <br>
-     * Command SupportedAccessoriesListChanged description:<br>
-     * List of supported accessories<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _accessory Accessory configurations supported by the product.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateSupportedAccessoriesListChanged (ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (pointer, capacity, accessory);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class AccessoryState description:<br>
-     * Accessories-related commands.<br>
-     * <br>
-     * Command AccessoryConfigChanged description:<br>
-     * Accessory config response.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _newAccessory Accessory configuration reported by firmware.
-     * @param _error Error code.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateAccessoryConfigChanged (ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM newAccessory, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAccessoryStateAccessoryConfigChanged (pointer, capacity, newAccessory, error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class AccessoryState description:<br>
-     * Accessories-related commands.<br>
-     * <br>
-     * Command AccessoryConfigModificationEnabled description:<br>
-     * Possibility to modify the accessory configuration.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enabled 1 if the modification of the accessory Config is enabled, 0 otherwise
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateAccessoryConfigModificationEnabled (byte enabled) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (pointer, capacity, enabled);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class Charger description:<br>
-     * Commands sent by the controller to set charger parameters.<br>
-     * <br>
-     * Command SetMaxChargeRate description:<br>
-     * @deprecated<br>
-     * Set the maximum charge rate allowed to charge a battery.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _rate The new maximum charge rate.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerSetMaxChargeRate (ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonChargerSetMaxChargeRate (pointer, capacity, rate);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ChargerState description:<br>
-     * Commands sent by the firmware to advertise the charger status.<br>
-     * <br>
-     * Command MaxChargeRateChanged description:<br>
-     * @deprecated<br>
-     * The maximum charge rate reported by the firmware.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _rate The current maximum charge rate.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateMaxChargeRateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM rate) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonChargerStateMaxChargeRateChanged (pointer, capacity, rate);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ChargerState description:<br>
-     * Commands sent by the firmware to advertise the charger status.<br>
-     * <br>
-     * Command CurrentChargeStateChanged description:<br>
-     * @deprecated<br>
-     * The charge status of the battery changed.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status Charger status.
-     * @param _phase The current charging phase.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateCurrentChargeStateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonChargerStateCurrentChargeStateChanged (pointer, capacity, status, phase);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ChargerState description:<br>
-     * Commands sent by the firmware to advertise the charger status.<br>
-     * <br>
-     * Command LastChargeRateChanged description:<br>
-     * @deprecated<br>
-     * The charge rate of the last charge sent by the firmware.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _rate The charge rate recorded by the firmware for the last charge.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateLastChargeRateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonChargerStateLastChargeRateChanged (pointer, capacity, rate);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * <br>
-     * Project Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ChargerState description:<br>
-     * Commands sent by the firmware to advertise the charger status.<br>
-     * <br>
-     * Command ChargingInfo description:<br>
-     * Information of the charge.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _phase The current charging phase.
-     * @param _rate The charge rate. If phase is DISCHARGING, refers to the last charge.
-     * @param _intensity The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
-     * @param _fullChargingTime The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateChargingInfo (ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonChargerStateChargingInfo (pointer, capacity, phase, rate, intensity, fullChargingTime);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SendPacket</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * <br>
-     * Project CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet to the drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _packet Packet to send to the drone
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsSendPacket (String packet) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsSendPacket (pointer, capacity, packet);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StartSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * <br>
-     * Project CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StartSendingPacketFromDrone description:<br>
-     * Ask drone to start sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _frequency Frequency of the packet
-     * @param _packetSize Size of the the packet
-     * @param _date time of day in sec
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDrone (byte frequency, byte packetSize, int date) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStartSendingPacketFromDrone (pointer, capacity, frequency, packetSize, date);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * <br>
-     * Project CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StopSendingPacketFromDrone description:<br>
-     * Ask drone to stop sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDrone () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStopSendingPacketFromDrone (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SendPacket</code> of class <code>StatsEvent</code> in project <code>CommonDebug</code><br>
-     * <br>
-     * Project CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class StatsEvent description:<br>
-     * Stats Event from drone<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet from drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _packet packet from drone
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsEventSendPacket (String packet) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsEventSendPacket (pointer, capacity, packet);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
      * Set an ARCommand to hold the command <code>FlatTrim</code> of class <code>Piloting</code> in project <code>ARDrone3</code><br>
      * <br>
      * Project ARDrone3 description:<br>
@@ -10776,2145 +5287,5494 @@ public class ARCommand extends ARNativeData {
         return err;
     }
 
-    private static ARCommandSkyControllerWifiStateWifiListListener _ARCommandSkyControllerWifiStateWifiListListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiList</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiStateWifiListListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiStateWifiListListener (ARCommandSkyControllerWifiStateWifiListListener _ARCommandSkyControllerWifiStateWifiListListener_PARAM) {
-        _ARCommandSkyControllerWifiStateWifiListListener = _ARCommandSkyControllerWifiStateWifiListListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiStateConnexionChangedListener _ARCommandSkyControllerWifiStateConnexionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ConnexionChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiStateConnexionChangedListener (ARCommandSkyControllerWifiStateConnexionChangedListener _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM) {
-        _ARCommandSkyControllerWifiStateConnexionChangedListener = _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiStateWifiAuthChannelListChangedListener (ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM) {
-        _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener = _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiStateAllWifiAuthChannelChangedListener (ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM) {
-        _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener = _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiStateWifiSignalChangedListener _ARCommandSkyControllerWifiStateWifiSignalChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiStateWifiSignalChangedListener (ARCommandSkyControllerWifiStateWifiSignalChangedListener _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM) {
-        _ARCommandSkyControllerWifiStateWifiSignalChangedListener = _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerWifiRequestWifiListListener _ARCommandSkyControllerWifiRequestWifiListListener = null;
-
-    /**
-     * Set the listener for the command <code>RequestWifiList</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiRequestWifiListListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiRequestWifiListListener (ARCommandSkyControllerWifiRequestWifiListListener _ARCommandSkyControllerWifiRequestWifiListListener_PARAM) {
-        _ARCommandSkyControllerWifiRequestWifiListListener = _ARCommandSkyControllerWifiRequestWifiListListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiRequestCurrentWifiListener _ARCommandSkyControllerWifiRequestCurrentWifiListener = null;
-
-    /**
-     * Set the listener for the command <code>RequestCurrentWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiRequestCurrentWifiListener (ARCommandSkyControllerWifiRequestCurrentWifiListener _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM) {
-        _ARCommandSkyControllerWifiRequestCurrentWifiListener = _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiConnectToWifiListener _ARCommandSkyControllerWifiConnectToWifiListener = null;
-
-    /**
-     * Set the listener for the command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiConnectToWifiListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiConnectToWifiListener (ARCommandSkyControllerWifiConnectToWifiListener _ARCommandSkyControllerWifiConnectToWifiListener_PARAM) {
-        _ARCommandSkyControllerWifiConnectToWifiListener = _ARCommandSkyControllerWifiConnectToWifiListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiForgetWifiListener _ARCommandSkyControllerWifiForgetWifiListener = null;
-
-    /**
-     * Set the listener for the command <code>ForgetWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiForgetWifiListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiForgetWifiListener (ARCommandSkyControllerWifiForgetWifiListener _ARCommandSkyControllerWifiForgetWifiListener_PARAM) {
-        _ARCommandSkyControllerWifiForgetWifiListener = _ARCommandSkyControllerWifiForgetWifiListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerWifiWifiAuthChannelListener _ARCommandSkyControllerWifiWifiAuthChannelListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiAuthChannel</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerWifiWifiAuthChannelListener (ARCommandSkyControllerWifiWifiAuthChannelListener _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM) {
-        _ARCommandSkyControllerWifiWifiAuthChannelListener = _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerDeviceRequestDeviceListListener _ARCommandSkyControllerDeviceRequestDeviceListListener = null;
-
-    /**
-     * Set the listener for the command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDeviceRequestDeviceListListener (ARCommandSkyControllerDeviceRequestDeviceListListener _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM) {
-        _ARCommandSkyControllerDeviceRequestDeviceListListener = _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerDeviceRequestCurrentDeviceListener _ARCommandSkyControllerDeviceRequestCurrentDeviceListener = null;
-
-    /**
-     * Set the listener for the command <code>RequestCurrentDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDeviceRequestCurrentDeviceListener (ARCommandSkyControllerDeviceRequestCurrentDeviceListener _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM) {
-        _ARCommandSkyControllerDeviceRequestCurrentDeviceListener = _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerDeviceConnectToDeviceListener _ARCommandSkyControllerDeviceConnectToDeviceListener = null;
-
-    /**
-     * Set the listener for the command <code>ConnectToDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDeviceConnectToDeviceListener (ARCommandSkyControllerDeviceConnectToDeviceListener _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM) {
-        _ARCommandSkyControllerDeviceConnectToDeviceListener = _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerDeviceStateDeviceListListener _ARCommandSkyControllerDeviceStateDeviceListListener = null;
-
-    /**
-     * Set the listener for the command <code>DeviceList</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDeviceStateDeviceListListener (ARCommandSkyControllerDeviceStateDeviceListListener _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM) {
-        _ARCommandSkyControllerDeviceStateDeviceListListener = _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerDeviceStateConnexionChangedListener _ARCommandSkyControllerDeviceStateConnexionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDeviceStateConnexionChangedListener (ARCommandSkyControllerDeviceStateConnexionChangedListener _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM) {
-        _ARCommandSkyControllerDeviceStateConnexionChangedListener = _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerSettingsAllSettingsListener _ARCommandSkyControllerSettingsAllSettingsListener = null;
-
-    /**
-     * Set the listener for the command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSettingsAllSettingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSettingsAllSettingsListener (ARCommandSkyControllerSettingsAllSettingsListener _ARCommandSkyControllerSettingsAllSettingsListener_PARAM) {
-        _ARCommandSkyControllerSettingsAllSettingsListener = _ARCommandSkyControllerSettingsAllSettingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerSettingsResetListener _ARCommandSkyControllerSettingsResetListener = null;
-
-    /**
-     * Set the listener for the command <code>Reset</code> of class <code>Settings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSettingsResetListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSettingsResetListener (ARCommandSkyControllerSettingsResetListener _ARCommandSkyControllerSettingsResetListener_PARAM) {
-        _ARCommandSkyControllerSettingsResetListener = _ARCommandSkyControllerSettingsResetListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerSettingsStateAllSettingsChangedListener _ARCommandSkyControllerSettingsStateAllSettingsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSettingsStateAllSettingsChangedListener (ARCommandSkyControllerSettingsStateAllSettingsChangedListener _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM) {
-        _ARCommandSkyControllerSettingsStateAllSettingsChangedListener = _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerSettingsStateResetChangedListener _ARCommandSkyControllerSettingsStateResetChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSettingsStateResetChangedListener (ARCommandSkyControllerSettingsStateResetChangedListener _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM) {
-        _ARCommandSkyControllerSettingsStateResetChangedListener = _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerSettingsStateProductSerialChangedListener _ARCommandSkyControllerSettingsStateProductSerialChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductSerialChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSettingsStateProductSerialChangedListener (ARCommandSkyControllerSettingsStateProductSerialChangedListener _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM) {
-        _ARCommandSkyControllerSettingsStateProductSerialChangedListener = _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCommonAllStatesListener _ARCommandSkyControllerCommonAllStatesListener = null;
-
-    /**
-     * Set the listener for the command <code>AllStates</code> of class <code>Common</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCommonAllStatesListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCommonAllStatesListener (ARCommandSkyControllerCommonAllStatesListener _ARCommandSkyControllerCommonAllStatesListener_PARAM) {
-        _ARCommandSkyControllerCommonAllStatesListener = _ARCommandSkyControllerCommonAllStatesListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCommonStateAllStatesChangedListener _ARCommandSkyControllerCommonStateAllStatesChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCommonStateAllStatesChangedListener (ARCommandSkyControllerCommonStateAllStatesChangedListener _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM) {
-        _ARCommandSkyControllerCommonStateAllStatesChangedListener = _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerSkyControllerStateBatteryChangedListener _ARCommandSkyControllerSkyControllerStateBatteryChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSkyControllerStateBatteryChangedListener (ARCommandSkyControllerSkyControllerStateBatteryChangedListener _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM) {
-        _ARCommandSkyControllerSkyControllerStateBatteryChangedListener = _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerSkyControllerStateGpsFixChangedListener _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSkyControllerStateGpsFixChangedListener (ARCommandSkyControllerSkyControllerStateGpsFixChangedListener _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM) {
-        _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener = _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerSkyControllerStateGpsPositionChangedListener (ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM) {
-        _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener = _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessPointSSID</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsAccessPointSSIDListener (ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener = _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsAccessPointChannelListener (ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener = _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAccessPointSettingsWifiSelectionListener _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsWifiSelectionListener (ARCommandSkyControllerAccessPointSettingsWifiSelectionListener _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener = _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener (ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener = _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessPointChannelChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener (ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener = _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiSelectionChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAccessPointSettingsStateWifiSelectionChangedListener (ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM) {
-        _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener = _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCameraResetOrientationListener _ARCommandSkyControllerCameraResetOrientationListener = null;
-
-    /**
-     * Set the listener for the command <code>ResetOrientation</code> of class <code>Camera</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCameraResetOrientationListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCameraResetOrientationListener (ARCommandSkyControllerCameraResetOrientationListener _ARCommandSkyControllerCameraResetOrientationListener_PARAM) {
-        _ARCommandSkyControllerCameraResetOrientationListener = _ARCommandSkyControllerCameraResetOrientationListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerGamepadInfosGetGamepadControlsListener _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener = null;
-
-    /**
-     * Set the listener for the command <code>GetGamepadControls</code> of class <code>GamepadInfos</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerGamepadInfosGetGamepadControlsListener (ARCommandSkyControllerGamepadInfosGetGamepadControlsListener _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM) {
-        _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener = _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerGamepadInfosStateGamepadControlListener _ARCommandSkyControllerGamepadInfosStateGamepadControlListener = null;
-
-    /**
-     * Set the listener for the command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerGamepadInfosStateGamepadControlListener (ARCommandSkyControllerGamepadInfosStateGamepadControlListener _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM) {
-        _ARCommandSkyControllerGamepadInfosStateGamepadControlListener = _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllGamepadControlsSent</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerGamepadInfosStateAllGamepadControlsSentListener (ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM) {
-        _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener = _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>GetCurrentButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsGetCurrentButtonMappingsListener (ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener = _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>GetAvailableButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsGetAvailableButtonMappingsListener (ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener = _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsSetButtonMappingListener _ARCommandSkyControllerButtonMappingsSetButtonMappingListener = null;
-
-    /**
-     * Set the listener for the command <code>SetButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsSetButtonMappingListener (ARCommandSkyControllerButtonMappingsSetButtonMappingListener _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsSetButtonMappingListener = _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener = null;
-
-    /**
-     * Set the listener for the command <code>DefaultButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsDefaultButtonMappingListener (ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener = _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsStateCurrentButtonMappingsListener (ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener = _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllCurrentButtonMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener (ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener = _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>AvailableButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsStateAvailableButtonMappingsListener (ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener = _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllAvailableButtonsMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener (ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM) {
-        _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener = _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>GetCurrentAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsGetCurrentAxisMappingsListener (ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener = _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsGetAvailableAxisMappingsListener (ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener = _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsSetAxisMappingListener _ARCommandSkyControllerAxisMappingsSetAxisMappingListener = null;
-
-    /**
-     * Set the listener for the command <code>SetAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsSetAxisMappingListener (ARCommandSkyControllerAxisMappingsSetAxisMappingListener _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsSetAxisMappingListener = _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener = null;
-
-    /**
-     * Set the listener for the command <code>DefaultAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsDefaultAxisMappingListener (ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener = _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsStateCurrentAxisMappingsListener (ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener = _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllCurrentAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener (ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener = _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener = null;
-
-    /**
-     * Set the listener for the command <code>AvailableAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsStateAvailableAxisMappingsListener (ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener = _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllAvailableAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener (ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM) {
-        _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener = _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener = null;
-
-    /**
-     * Set the listener for the command <code>GetCurrentAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersGetCurrentAxisFiltersListener (ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener = _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener = null;
-
-    /**
-     * Set the listener for the command <code>GetPresetAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersGetPresetAxisFiltersListener (ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener = _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersSetAxisFilterListener _ARCommandSkyControllerAxisFiltersSetAxisFilterListener = null;
-
-    /**
-     * Set the listener for the command <code>SetAxisFilter</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersSetAxisFilterListener (ARCommandSkyControllerAxisFiltersSetAxisFilterListener _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersSetAxisFilterListener = _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener = null;
-
-    /**
-     * Set the listener for the command <code>DefaultAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersDefaultAxisFiltersListener (ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener = _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersStateCurrentAxisFiltersListener (ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener = _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllCurrentFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersStateAllCurrentFiltersSentListener (ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener = _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener = null;
-
-    /**
-     * Set the listener for the command <code>PresetAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersStatePresetAxisFiltersListener (ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener = _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener = null;
-
-    /**
-     * Set the listener for the command <code>AllPresetFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerAxisFiltersStateAllPresetFiltersSentListener (ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM) {
-        _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener = _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCoPilotingSetPilotingSourceListener _ARCommandSkyControllerCoPilotingSetPilotingSourceListener = null;
-
-    /**
-     * Set the listener for the command <code>SetPilotingSource</code> of class <code>CoPiloting</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCoPilotingSetPilotingSourceListener (ARCommandSkyControllerCoPilotingSetPilotingSourceListener _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM) {
-        _ARCommandSkyControllerCoPilotingSetPilotingSourceListener = _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCoPilotingStatePilotingSourceListener _ARCommandSkyControllerCoPilotingStatePilotingSourceListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCoPilotingStatePilotingSourceListener (ARCommandSkyControllerCoPilotingStatePilotingSourceListener _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM) {
-        _ARCommandSkyControllerCoPilotingStatePilotingSourceListener = _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener = null;
-
-    /**
-     * Set the listener for the command <code>EnableMagnetoCalibrationQualityUpdates</code> of class <code>Calibration</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener (ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM) {
-        _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener = _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM;
-    }
-
-
-    private static ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCalibrationStateMagnetoCalibrationStateListener (ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM) {
-        _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener = _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM;
-    }
-
-    private static ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM New listener for the command
-     */
-    public static void setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener (ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM) {
-        _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener = _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM;
-    }
-
-
-
-    private static ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener = null;
-
-    /**
-     * Set the listener for the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDebugDebugTest1Listener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDebugDebugTest1Listener (ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener_PARAM) {
-        _ARCommandSkyControllerDebugDebugTest1Listener = _ARCommandSkyControllerDebugDebugTest1Listener_PARAM;
-    }
-
-
-
-    private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>BoughtFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProBoughtFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProBoughtFeaturesListener (ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener_PARAM) {
-        _ARCommandProProBoughtFeaturesListener = _ARCommandProProBoughtFeaturesListener_PARAM;
-    }
-
-    private static ARCommandProProResponseListener _ARCommandProProResponseListener = null;
-
-    /**
-     * Set the listener for the command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProResponseListener_PARAM New listener for the command
-     */
-    public static void setProProResponseListener (ARCommandProProResponseListener _ARCommandProProResponseListener_PARAM) {
-        _ARCommandProProResponseListener = _ARCommandProProResponseListener_PARAM;
-    }
-
-    private static ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProActivateFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProActivateFeaturesListener (ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener_PARAM) {
-        _ARCommandProProActivateFeaturesListener = _ARCommandProProActivateFeaturesListener_PARAM;
-    }
-
-
-    private static ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>SupportedFeatures</code> of class <code>ProState</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProStateSupportedFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProStateSupportedFeaturesListener (ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener_PARAM) {
-        _ARCommandProProStateSupportedFeaturesListener = _ARCommandProProStateSupportedFeaturesListener_PARAM;
-    }
-
-    private static ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener = null;
-
-    /**
-     * Set the listener for the command <code>FeaturesActivated</code> of class <code>ProState</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProStateFeaturesActivatedListener_PARAM New listener for the command
-     */
-    public static void setProProStateFeaturesActivatedListener (ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener_PARAM) {
-        _ARCommandProProStateFeaturesActivatedListener = _ARCommandProProStateFeaturesActivatedListener_PARAM;
-    }
-
-
-    private static ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener = null;
-
-    /**
-     * Set the listener for the command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProEventChallengeEventListener_PARAM New listener for the command
-     */
-    public static void setProProEventChallengeEventListener (ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener_PARAM) {
-        _ARCommandProProEventChallengeEventListener = _ARCommandProProEventChallengeEventListener_PARAM;
-    }
-
-
-
-    private static ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener = null;
-
-    /**
-     * Set the listener for the command <code>FlatTrim</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingFlatTrimListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingFlatTrimListener (ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener_PARAM) {
-        _ARCommandMiniDronePilotingFlatTrimListener = _ARCommandMiniDronePilotingFlatTrimListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener = null;
-
-    /**
-     * Set the listener for the command <code>TakeOff</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingTakeOffListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingTakeOffListener (ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener_PARAM) {
-        _ARCommandMiniDronePilotingTakeOffListener = _ARCommandMiniDronePilotingTakeOffListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener = null;
-
-    /**
-     * Set the listener for the command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingPCMDListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingPCMDListener (ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener_PARAM) {
-        _ARCommandMiniDronePilotingPCMDListener = _ARCommandMiniDronePilotingPCMDListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener = null;
-
-    /**
-     * Set the listener for the command <code>Landing</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingLandingListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingLandingListener (ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener_PARAM) {
-        _ARCommandMiniDronePilotingLandingListener = _ARCommandMiniDronePilotingLandingListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener = null;
-
-    /**
-     * Set the listener for the command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingEmergencyListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingEmergencyListener (ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener_PARAM) {
-        _ARCommandMiniDronePilotingEmergencyListener = _ARCommandMiniDronePilotingEmergencyListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener = null;
-
-    /**
-     * Set the listener for the command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingAutoTakeOffModeListener (ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM) {
-        _ARCommandMiniDronePilotingAutoTakeOffModeListener = _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateFlatTrimChangedListener (ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateFlatTrimChangedListener = _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>FlyingStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateFlyingStateChangedListener (ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateFlyingStateChangedListener = _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateAlertStateChangedListener (ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateAlertStateChangedListener = _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AutoTakeOffModeChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateAutoTakeOffModeChangedListener (ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener = null;
-
-    /**
-     * Set the listener for the command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneAnimationsFlipListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneAnimationsFlipListener (ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener_PARAM) {
-        _ARCommandMiniDroneAnimationsFlipListener = _ARCommandMiniDroneAnimationsFlipListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener = null;
-
-    /**
-     * Set the listener for the command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneAnimationsCapListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneAnimationsCapListener (ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener_PARAM) {
-        _ARCommandMiniDroneAnimationsCapListener = _ARCommandMiniDroneAnimationsCapListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener = null;
-
-    /**
-     * Set the listener for the command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordPictureListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordPictureListener (ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordPictureListener = _ARCommandMiniDroneMediaRecordPictureListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener = null;
-
-    /**
-     * Set the listener for the command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordPictureV2Listener (ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM) {
-        _ARCommandMiniDroneMediaRecordPictureV2Listener = _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordStatePictureStateChangedListener (ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = null;
-
-    /**
-     * Set the listener for the command <code>PictureStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordStatePictureStateChangedV2Listener (ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM) {
-        _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordEventPictureEventChangedListener (ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsMaxAltitudeListener (ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsMaxTiltListener (ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsMaxTiltListener = _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxAltitudeChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsStateMaxAltitudeChangedListener (ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxTiltChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsStateMaxTiltChangedListener (ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsMaxVerticalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsMaxRotationSpeedListener (ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener = null;
-
-    /**
-     * Set the listener for the command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsWheelsListener (ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsWheelsListener = _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxVerticalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>WheelsChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateWheelsChangedListener (ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener = null;
-
-    /**
-     * Set the listener for the command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsCutOutModeListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsCutOutModeListener (ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener_PARAM) {
-        _ARCommandMiniDroneSettingsCutOutModeListener = _ARCommandMiniDroneSettingsCutOutModeListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateProductMotorsVersionChangedListener (ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateProductInertialVersionChangedListener (ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CutOutModeChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateCutOutModeChangedListener (ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneFloodControlStateFloodControlChangedListener (ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM) {
-        _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerLatitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneGPSControllerLatitudeForRunListener (ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM) {
-        _ARCommandMiniDroneGPSControllerLatitudeForRunListener = _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneGPSControllerLongitudeForRunListener (ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM) {
-        _ARCommandMiniDroneGPSControllerLongitudeForRunListener = _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM;
-    }
-
-
-    private static ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerType</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneConfigurationControllerTypeListener (ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM) {
-        _ARCommandMiniDroneConfigurationControllerTypeListener = _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneConfigurationControllerNameListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneConfigurationControllerNameListener (ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener_PARAM) {
-        _ARCommandMiniDroneConfigurationControllerNameListener = _ARCommandMiniDroneConfigurationControllerNameListener_PARAM;
-    }
-
-
-
-    private static ARCommandMiniDroneDebugDebugTest1Listener _ARCommandMiniDroneDebugDebugTest1Listener = null;
-
-    /**
-     * Set the listener for the command <code>Test1</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneDebugDebugTest1Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneDebugDebugTest1Listener (ARCommandMiniDroneDebugDebugTest1Listener _ARCommandMiniDroneDebugDebugTest1Listener_PARAM) {
-        _ARCommandMiniDroneDebugDebugTest1Listener = _ARCommandMiniDroneDebugDebugTest1Listener_PARAM;
-    }
-
-    private static ARCommandMiniDroneDebugDebugTest2Listener _ARCommandMiniDroneDebugDebugTest2Listener = null;
-
-    /**
-     * Set the listener for the command <code>Test2</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneDebugDebugTest2Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneDebugDebugTest2Listener (ARCommandMiniDroneDebugDebugTest2Listener _ARCommandMiniDroneDebugDebugTest2Listener_PARAM) {
-        _ARCommandMiniDroneDebugDebugTest2Listener = _ARCommandMiniDroneDebugDebugTest2Listener_PARAM;
-    }
-
-    private static ARCommandMiniDroneDebugDebugTest3Listener _ARCommandMiniDroneDebugDebugTest3Listener = null;
-
-    /**
-     * Set the listener for the command <code>Test3</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneDebugDebugTest3Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneDebugDebugTest3Listener (ARCommandMiniDroneDebugDebugTest3Listener _ARCommandMiniDroneDebugDebugTest3Listener_PARAM) {
-        _ARCommandMiniDroneDebugDebugTest3Listener = _ARCommandMiniDroneDebugDebugTest3Listener_PARAM;
-    }
-
-
-
-    private static ARCommandCommonNetworkDisconnectListener _ARCommandCommonNetworkDisconnectListener = null;
-
-    /**
-     * Set the listener for the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonNetworkDisconnectListener_PARAM New listener for the command
-     */
-    public static void setCommonNetworkDisconnectListener (ARCommandCommonNetworkDisconnectListener _ARCommandCommonNetworkDisconnectListener_PARAM) {
-        _ARCommandCommonNetworkDisconnectListener = _ARCommandCommonNetworkDisconnectListener_PARAM;
-    }
-
-
-    private static ARCommandCommonNetworkEventDisconnectionListener _ARCommandCommonNetworkEventDisconnectionListener = null;
-
-    /**
-     * Set the listener for the command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonNetworkEventDisconnectionListener_PARAM New listener for the command
-     */
-    public static void setCommonNetworkEventDisconnectionListener (ARCommandCommonNetworkEventDisconnectionListener _ARCommandCommonNetworkEventDisconnectionListener_PARAM) {
-        _ARCommandCommonNetworkEventDisconnectionListener = _ARCommandCommonNetworkEventDisconnectionListener_PARAM;
-    }
-
-
-    private static ARCommandCommonSettingsAllSettingsListener _ARCommandCommonSettingsAllSettingsListener = null;
-
-    /**
-     * Set the listener for the command <code>AllSettings</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsAllSettingsListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsAllSettingsListener (ARCommandCommonSettingsAllSettingsListener _ARCommandCommonSettingsAllSettingsListener_PARAM) {
-        _ARCommandCommonSettingsAllSettingsListener = _ARCommandCommonSettingsAllSettingsListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsResetListener _ARCommandCommonSettingsResetListener = null;
-
-    /**
-     * Set the listener for the command <code>Reset</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsResetListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsResetListener (ARCommandCommonSettingsResetListener _ARCommandCommonSettingsResetListener_PARAM) {
-        _ARCommandCommonSettingsResetListener = _ARCommandCommonSettingsResetListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsProductNameListener _ARCommandCommonSettingsProductNameListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsProductNameListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsProductNameListener (ARCommandCommonSettingsProductNameListener _ARCommandCommonSettingsProductNameListener_PARAM) {
-        _ARCommandCommonSettingsProductNameListener = _ARCommandCommonSettingsProductNameListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsCountryListener _ARCommandCommonSettingsCountryListener = null;
-
-    /**
-     * Set the listener for the command <code>Country</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsCountryListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsCountryListener (ARCommandCommonSettingsCountryListener _ARCommandCommonSettingsCountryListener_PARAM) {
-        _ARCommandCommonSettingsCountryListener = _ARCommandCommonSettingsCountryListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsAutoCountryListener _ARCommandCommonSettingsAutoCountryListener = null;
-
-    /**
-     * Set the listener for the command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsAutoCountryListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsAutoCountryListener (ARCommandCommonSettingsAutoCountryListener _ARCommandCommonSettingsAutoCountryListener_PARAM) {
-        _ARCommandCommonSettingsAutoCountryListener = _ARCommandCommonSettingsAutoCountryListener_PARAM;
-    }
-
-
-    private static ARCommandCommonSettingsStateAllSettingsChangedListener _ARCommandCommonSettingsStateAllSettingsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateAllSettingsChangedListener (ARCommandCommonSettingsStateAllSettingsChangedListener _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateAllSettingsChangedListener = _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateResetChangedListener _ARCommandCommonSettingsStateResetChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateResetChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateResetChangedListener (ARCommandCommonSettingsStateResetChangedListener _ARCommandCommonSettingsStateResetChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateResetChangedListener = _ARCommandCommonSettingsStateResetChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateProductNameChangedListener _ARCommandCommonSettingsStateProductNameChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductNameChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateProductNameChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateProductNameChangedListener (ARCommandCommonSettingsStateProductNameChangedListener _ARCommandCommonSettingsStateProductNameChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateProductNameChangedListener = _ARCommandCommonSettingsStateProductNameChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateProductVersionChangedListener _ARCommandCommonSettingsStateProductVersionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateProductVersionChangedListener (ARCommandCommonSettingsStateProductVersionChangedListener _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateProductVersionChangedListener = _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateProductSerialHighChangedListener _ARCommandCommonSettingsStateProductSerialHighChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductSerialHighChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateProductSerialHighChangedListener (ARCommandCommonSettingsStateProductSerialHighChangedListener _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateProductSerialHighChangedListener = _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateProductSerialLowChangedListener _ARCommandCommonSettingsStateProductSerialLowChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateProductSerialLowChangedListener (ARCommandCommonSettingsStateProductSerialLowChangedListener _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateProductSerialLowChangedListener = _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateCountryChangedListener _ARCommandCommonSettingsStateCountryChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateCountryChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateCountryChangedListener (ARCommandCommonSettingsStateCountryChangedListener _ARCommandCommonSettingsStateCountryChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateCountryChangedListener = _ARCommandCommonSettingsStateCountryChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonSettingsStateAutoCountryChangedListener _ARCommandCommonSettingsStateAutoCountryChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AutoCountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonSettingsStateAutoCountryChangedListener (ARCommandCommonSettingsStateAutoCountryChangedListener _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM) {
-        _ARCommandCommonSettingsStateAutoCountryChangedListener = _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonCommonAllStatesListener _ARCommandCommonCommonAllStatesListener = null;
-
-    /**
-     * Set the listener for the command <code>AllStates</code> of class <code>Common</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonAllStatesListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonAllStatesListener (ARCommandCommonCommonAllStatesListener _ARCommandCommonCommonAllStatesListener_PARAM) {
-        _ARCommandCommonCommonAllStatesListener = _ARCommandCommonCommonAllStatesListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonCurrentDateListener _ARCommandCommonCommonCurrentDateListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentDate</code> of class <code>Common</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonCurrentDateListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonCurrentDateListener (ARCommandCommonCommonCurrentDateListener _ARCommandCommonCommonCurrentDateListener_PARAM) {
-        _ARCommandCommonCommonCurrentDateListener = _ARCommandCommonCommonCurrentDateListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonCurrentTimeListener _ARCommandCommonCommonCurrentTimeListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonCurrentTimeListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonCurrentTimeListener (ARCommandCommonCommonCurrentTimeListener _ARCommandCommonCommonCurrentTimeListener_PARAM) {
-        _ARCommandCommonCommonCurrentTimeListener = _ARCommandCommonCommonCurrentTimeListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonRebootListener _ARCommandCommonCommonRebootListener = null;
-
-    /**
-     * Set the listener for the command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonRebootListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonRebootListener (ARCommandCommonCommonRebootListener _ARCommandCommonCommonRebootListener_PARAM) {
-        _ARCommandCommonCommonRebootListener = _ARCommandCommonCommonRebootListener_PARAM;
-    }
-
-
-    private static ARCommandCommonCommonStateAllStatesChangedListener _ARCommandCommonCommonStateAllStatesChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateAllStatesChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateAllStatesChangedListener (ARCommandCommonCommonStateAllStatesChangedListener _ARCommandCommonCommonStateAllStatesChangedListener_PARAM) {
-        _ARCommandCommonCommonStateAllStatesChangedListener = _ARCommandCommonCommonStateAllStatesChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateBatteryStateChangedListener _ARCommandCommonCommonStateBatteryStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateBatteryStateChangedListener (ARCommandCommonCommonStateBatteryStateChangedListener _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM) {
-        _ARCommandCommonCommonStateBatteryStateChangedListener = _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateMassStorageStateListChangedListener _ARCommandCommonCommonStateMassStorageStateListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MassStorageStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateMassStorageStateListChangedListener (ARCommandCommonCommonStateMassStorageStateListChangedListener _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM) {
-        _ARCommandCommonCommonStateMassStorageStateListChangedListener = _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateMassStorageInfoStateListChangedListener _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateMassStorageInfoStateListChangedListener (ARCommandCommonCommonStateMassStorageInfoStateListChangedListener _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM) {
-        _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener = _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateCurrentDateChangedListener _ARCommandCommonCommonStateCurrentDateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateCurrentDateChangedListener (ARCommandCommonCommonStateCurrentDateChangedListener _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM) {
-        _ARCommandCommonCommonStateCurrentDateChangedListener = _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateCurrentTimeChangedListener _ARCommandCommonCommonStateCurrentTimeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentTimeChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateCurrentTimeChangedListener (ARCommandCommonCommonStateCurrentTimeChangedListener _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM) {
-        _ARCommandCommonCommonStateCurrentTimeChangedListener = _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateMassStorageInfoRemainingListChangedListener (ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM) {
-        _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener = _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateWifiSignalChangedListener _ARCommandCommonCommonStateWifiSignalChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateWifiSignalChangedListener (ARCommandCommonCommonStateWifiSignalChangedListener _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM) {
-        _ARCommandCommonCommonStateWifiSignalChangedListener = _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateSensorsStatesListChangedListener _ARCommandCommonCommonStateSensorsStatesListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SensorsStatesListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateSensorsStatesListChangedListener (ARCommandCommonCommonStateSensorsStatesListChangedListener _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM) {
-        _ARCommandCommonCommonStateSensorsStatesListChangedListener = _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateProductModelListener _ARCommandCommonCommonStateProductModelListener = null;
-
-    /**
-     * Set the listener for the command <code>ProductModel</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateProductModelListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateProductModelListener (ARCommandCommonCommonStateProductModelListener _ARCommandCommonCommonStateProductModelListener_PARAM) {
-        _ARCommandCommonCommonStateProductModelListener = _ARCommandCommonCommonStateProductModelListener_PARAM;
-    }
-
-    private static ARCommandCommonCommonStateCountryListKnownListener _ARCommandCommonCommonStateCountryListKnownListener = null;
-
-    /**
-     * Set the listener for the command <code>CountryListKnown</code> of class <code>CommonState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCommonStateCountryListKnownListener_PARAM New listener for the command
-     */
-    public static void setCommonCommonStateCountryListKnownListener (ARCommandCommonCommonStateCountryListKnownListener _ARCommandCommonCommonStateCountryListKnownListener_PARAM) {
-        _ARCommandCommonCommonStateCountryListKnownListener = _ARCommandCommonCommonStateCountryListKnownListener_PARAM;
-    }
-
-
-    private static ARCommandCommonOverHeatSwitchOffListener _ARCommandCommonOverHeatSwitchOffListener = null;
-
-    /**
-     * Set the listener for the command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonOverHeatSwitchOffListener_PARAM New listener for the command
-     */
-    public static void setCommonOverHeatSwitchOffListener (ARCommandCommonOverHeatSwitchOffListener _ARCommandCommonOverHeatSwitchOffListener_PARAM) {
-        _ARCommandCommonOverHeatSwitchOffListener = _ARCommandCommonOverHeatSwitchOffListener_PARAM;
-    }
-
-    private static ARCommandCommonOverHeatVentilateListener _ARCommandCommonOverHeatVentilateListener = null;
-
-    /**
-     * Set the listener for the command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonOverHeatVentilateListener_PARAM New listener for the command
-     */
-    public static void setCommonOverHeatVentilateListener (ARCommandCommonOverHeatVentilateListener _ARCommandCommonOverHeatVentilateListener_PARAM) {
-        _ARCommandCommonOverHeatVentilateListener = _ARCommandCommonOverHeatVentilateListener_PARAM;
-    }
-
-
-    private static ARCommandCommonOverHeatStateOverHeatChangedListener _ARCommandCommonOverHeatStateOverHeatChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>OverHeatChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonOverHeatStateOverHeatChangedListener (ARCommandCommonOverHeatStateOverHeatChangedListener _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM) {
-        _ARCommandCommonOverHeatStateOverHeatChangedListener = _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonOverHeatStateOverHeatRegulationChangedListener _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonOverHeatStateOverHeatRegulationChangedListener (ARCommandCommonOverHeatStateOverHeatRegulationChangedListener _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM) {
-        _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener = _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonControllerStateIsPilotingChangedListener (ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM) {
-        _ARCommandCommonControllerStateIsPilotingChangedListener = _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonWifiSettingsOutdoorSettingListener _ARCommandCommonWifiSettingsOutdoorSettingListener = null;
-
-    /**
-     * Set the listener for the command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM New listener for the command
-     */
-    public static void setCommonWifiSettingsOutdoorSettingListener (ARCommandCommonWifiSettingsOutdoorSettingListener _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM) {
-        _ARCommandCommonWifiSettingsOutdoorSettingListener = _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM;
-    }
-
-
-    private static ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>OutdoorSettingsChanged</code> of class <code>WifiSettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonWifiSettingsStateOutdoorSettingsChangedListener (ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM) {
-        _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener = _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonMavlinkStartListener _ARCommandCommonMavlinkStartListener = null;
-
-    /**
-     * Set the listener for the command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonMavlinkStartListener_PARAM New listener for the command
-     */
-    public static void setCommonMavlinkStartListener (ARCommandCommonMavlinkStartListener _ARCommandCommonMavlinkStartListener_PARAM) {
-        _ARCommandCommonMavlinkStartListener = _ARCommandCommonMavlinkStartListener_PARAM;
-    }
-
-    private static ARCommandCommonMavlinkPauseListener _ARCommandCommonMavlinkPauseListener = null;
-
-    /**
-     * Set the listener for the command <code>Pause</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonMavlinkPauseListener_PARAM New listener for the command
-     */
-    public static void setCommonMavlinkPauseListener (ARCommandCommonMavlinkPauseListener _ARCommandCommonMavlinkPauseListener_PARAM) {
-        _ARCommandCommonMavlinkPauseListener = _ARCommandCommonMavlinkPauseListener_PARAM;
-    }
-
-    private static ARCommandCommonMavlinkStopListener _ARCommandCommonMavlinkStopListener = null;
-
-    /**
-     * Set the listener for the command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonMavlinkStopListener_PARAM New listener for the command
-     */
-    public static void setCommonMavlinkStopListener (ARCommandCommonMavlinkStopListener _ARCommandCommonMavlinkStopListener_PARAM) {
-        _ARCommandCommonMavlinkStopListener = _ARCommandCommonMavlinkStopListener_PARAM;
-    }
-
-
-    private static ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonMavlinkStateMavlinkFilePlayingStateChangedListener (ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM) {
-        _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener = _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonMavlinkStateMavlinkPlayErrorStateChangedListener (ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM) {
-        _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener = _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonCalibrationMagnetoCalibrationListener _ARCommandCommonCalibrationMagnetoCalibrationListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibration</code> of class <code>Calibration</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM New listener for the command
-     */
-    public static void setCommonCalibrationMagnetoCalibrationListener (ARCommandCommonCalibrationMagnetoCalibrationListener _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM) {
-        _ARCommandCommonCalibrationMagnetoCalibrationListener = _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM;
-    }
-
-
-    private static ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCalibrationStateMagnetoCalibrationStateChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM) {
-        _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM New listener for the command
-     */
-    public static void setCommonCalibrationStateMagnetoCalibrationRequiredStateListener (ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM) {
-        _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener = _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM;
-    }
-
-    private static ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationAxisToCalibrateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM) {
-        _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MagnetoCalibrationStartedChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCalibrationStateMagnetoCalibrationStartedChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM) {
-        _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonCameraSettingsStateCameraSettingsChangedListener _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonCameraSettingsStateCameraSettingsChangedListener (ARCommandCommonCameraSettingsStateCameraSettingsChangedListener _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM) {
-        _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener = _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonGPSControllerPositionForRunListener _ARCommandCommonGPSControllerPositionForRunListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonGPSControllerPositionForRunListener_PARAM New listener for the command
-     */
-    public static void setCommonGPSControllerPositionForRunListener (ARCommandCommonGPSControllerPositionForRunListener _ARCommandCommonGPSControllerPositionForRunListener_PARAM) {
-        _ARCommandCommonGPSControllerPositionForRunListener = _ARCommandCommonGPSControllerPositionForRunListener_PARAM;
-    }
-
-
-    private static ARCommandCommonFlightPlanStateAvailabilityStateChangedListener _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AvailabilityStateChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonFlightPlanStateAvailabilityStateChangedListener (ARCommandCommonFlightPlanStateAvailabilityStateChangedListener _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM) {
-        _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener = _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonFlightPlanStateComponentStateListChangedListener _ARCommandCommonFlightPlanStateComponentStateListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonFlightPlanStateComponentStateListChangedListener (ARCommandCommonFlightPlanStateComponentStateListChangedListener _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM) {
-        _ARCommandCommonFlightPlanStateComponentStateListChangedListener = _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonFlightPlanEventStartingErrorEventListener _ARCommandCommonFlightPlanEventStartingErrorEventListener = null;
-
-    /**
-     * Set the listener for the command <code>StartingErrorEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM New listener for the command
-     */
-    public static void setCommonFlightPlanEventStartingErrorEventListener (ARCommandCommonFlightPlanEventStartingErrorEventListener _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM) {
-        _ARCommandCommonFlightPlanEventStartingErrorEventListener = _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM;
-    }
-
-    private static ARCommandCommonFlightPlanEventSpeedBridleEventListener _ARCommandCommonFlightPlanEventSpeedBridleEventListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM New listener for the command
-     */
-    public static void setCommonFlightPlanEventSpeedBridleEventListener (ARCommandCommonFlightPlanEventSpeedBridleEventListener _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM) {
-        _ARCommandCommonFlightPlanEventSpeedBridleEventListener = _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM;
-    }
-
-
-    private static ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM New listener for the command
-     */
-    public static void setCommonARLibsVersionsStateControllerLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM) {
-        _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM;
-    }
-
-    private static ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener = null;
-
-    /**
-     * Set the listener for the command <code>SkyControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM New listener for the command
-     */
-    public static void setCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM) {
-        _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM;
-    }
-
-    private static ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener = null;
-
-    /**
-     * Set the listener for the command <code>DeviceLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM New listener for the command
-     */
-    public static void setCommonARLibsVersionsStateDeviceLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM) {
-        _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAudioControllerReadyForStreamingListener _ARCommandCommonAudioControllerReadyForStreamingListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerReadyForStreaming</code> of class <code>Audio</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM New listener for the command
-     */
-    public static void setCommonAudioControllerReadyForStreamingListener (ARCommandCommonAudioControllerReadyForStreamingListener _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM) {
-        _ARCommandCommonAudioControllerReadyForStreamingListener = _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAudioStateAudioStreamingRunningListener _ARCommandCommonAudioStateAudioStreamingRunningListener = null;
-
-    /**
-     * Set the listener for the command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM New listener for the command
-     */
-    public static void setCommonAudioStateAudioStreamingRunningListener (ARCommandCommonAudioStateAudioStreamingRunningListener _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM) {
-        _ARCommandCommonAudioStateAudioStreamingRunningListener = _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM;
-    }
-
-
-    private static ARCommandCommonHeadlightsIntensityListener _ARCommandCommonHeadlightsIntensityListener = null;
-
-    /**
-     * Set the listener for the command <code>Intensity</code> of class <code>Headlights</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonHeadlightsIntensityListener_PARAM New listener for the command
-     */
-    public static void setCommonHeadlightsIntensityListener (ARCommandCommonHeadlightsIntensityListener _ARCommandCommonHeadlightsIntensityListener_PARAM) {
-        _ARCommandCommonHeadlightsIntensityListener = _ARCommandCommonHeadlightsIntensityListener_PARAM;
-    }
-
-
-    private static ARCommandCommonHeadlightsStateIntensityChangedListener _ARCommandCommonHeadlightsStateIntensityChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonHeadlightsStateIntensityChangedListener (ARCommandCommonHeadlightsStateIntensityChangedListener _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM) {
-        _ARCommandCommonHeadlightsStateIntensityChangedListener = _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAnimationsStartAnimationListener _ARCommandCommonAnimationsStartAnimationListener = null;
-
-    /**
-     * Set the listener for the command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAnimationsStartAnimationListener_PARAM New listener for the command
-     */
-    public static void setCommonAnimationsStartAnimationListener (ARCommandCommonAnimationsStartAnimationListener _ARCommandCommonAnimationsStartAnimationListener_PARAM) {
-        _ARCommandCommonAnimationsStartAnimationListener = _ARCommandCommonAnimationsStartAnimationListener_PARAM;
-    }
-
-    private static ARCommandCommonAnimationsStopAnimationListener _ARCommandCommonAnimationsStopAnimationListener = null;
-
-    /**
-     * Set the listener for the command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAnimationsStopAnimationListener_PARAM New listener for the command
-     */
-    public static void setCommonAnimationsStopAnimationListener (ARCommandCommonAnimationsStopAnimationListener _ARCommandCommonAnimationsStopAnimationListener_PARAM) {
-        _ARCommandCommonAnimationsStopAnimationListener = _ARCommandCommonAnimationsStopAnimationListener_PARAM;
-    }
-
-    private static ARCommandCommonAnimationsStopAllAnimationsListener _ARCommandCommonAnimationsStopAllAnimationsListener = null;
-
-    /**
-     * Set the listener for the command <code>StopAllAnimations</code> of class <code>Animations</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM New listener for the command
-     */
-    public static void setCommonAnimationsStopAllAnimationsListener (ARCommandCommonAnimationsStopAllAnimationsListener _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM) {
-        _ARCommandCommonAnimationsStopAllAnimationsListener = _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAnimationsStateListListener _ARCommandCommonAnimationsStateListListener = null;
-
-    /**
-     * Set the listener for the command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAnimationsStateListListener_PARAM New listener for the command
-     */
-    public static void setCommonAnimationsStateListListener (ARCommandCommonAnimationsStateListListener _ARCommandCommonAnimationsStateListListener_PARAM) {
-        _ARCommandCommonAnimationsStateListListener = _ARCommandCommonAnimationsStateListListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAccessoryConfigListener _ARCommandCommonAccessoryConfigListener = null;
-
-    /**
-     * Set the listener for the command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAccessoryConfigListener_PARAM New listener for the command
-     */
-    public static void setCommonAccessoryConfigListener (ARCommandCommonAccessoryConfigListener _ARCommandCommonAccessoryConfigListener_PARAM) {
-        _ARCommandCommonAccessoryConfigListener = _ARCommandCommonAccessoryConfigListener_PARAM;
-    }
-
-
-    private static ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonAccessoryStateSupportedAccessoriesListChangedListener (ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM) {
-        _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener = _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonAccessoryStateAccessoryConfigChangedListener _ARCommandCommonAccessoryStateAccessoryConfigChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonAccessoryStateAccessoryConfigChangedListener (ARCommandCommonAccessoryStateAccessoryConfigChangedListener _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM) {
-        _ARCommandCommonAccessoryStateAccessoryConfigChangedListener = _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener = null;
-
-    /**
-     * Set the listener for the command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM New listener for the command
-     */
-    public static void setCommonAccessoryStateAccessoryConfigModificationEnabledListener (ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM) {
-        _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener = _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM;
-    }
-
-
-    private static ARCommandCommonChargerSetMaxChargeRateListener _ARCommandCommonChargerSetMaxChargeRateListener = null;
-
-    /**
-     * Set the listener for the command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonChargerSetMaxChargeRateListener_PARAM New listener for the command
-     */
-    public static void setCommonChargerSetMaxChargeRateListener (ARCommandCommonChargerSetMaxChargeRateListener _ARCommandCommonChargerSetMaxChargeRateListener_PARAM) {
-        _ARCommandCommonChargerSetMaxChargeRateListener = _ARCommandCommonChargerSetMaxChargeRateListener_PARAM;
-    }
-
-
-    private static ARCommandCommonChargerStateMaxChargeRateChangedListener _ARCommandCommonChargerStateMaxChargeRateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonChargerStateMaxChargeRateChangedListener (ARCommandCommonChargerStateMaxChargeRateChangedListener _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM) {
-        _ARCommandCommonChargerStateMaxChargeRateChangedListener = _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonChargerStateCurrentChargeStateChangedListener _ARCommandCommonChargerStateCurrentChargeStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonChargerStateCurrentChargeStateChangedListener (ARCommandCommonChargerStateCurrentChargeStateChangedListener _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM) {
-        _ARCommandCommonChargerStateCurrentChargeStateChangedListener = _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonChargerStateLastChargeRateChangedListener _ARCommandCommonChargerStateLastChargeRateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonChargerStateLastChargeRateChangedListener (ARCommandCommonChargerStateLastChargeRateChangedListener _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM) {
-        _ARCommandCommonChargerStateLastChargeRateChangedListener = _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonChargerStateChargingInfoListener _ARCommandCommonChargerStateChargingInfoListener = null;
-
-    /**
-     * Set the listener for the command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonChargerStateChargingInfoListener_PARAM New listener for the command
-     */
-    public static void setCommonChargerStateChargingInfoListener (ARCommandCommonChargerStateChargingInfoListener _ARCommandCommonChargerStateChargingInfoListener_PARAM) {
-        _ARCommandCommonChargerStateChargingInfoListener = _ARCommandCommonChargerStateChargingInfoListener_PARAM;
-    }
-
-
-
-    private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
-
-    /**
-     * Set the listener for the command <code>SendPacket</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsSendPacketListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsSendPacketListener (ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsSendPacketListener = _ARCommandCommonDebugStatsSendPacketListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = null;
-
-    /**
-     * Set the listener for the command <code>StartSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsStartSendingPacketFromDroneListener (ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = null;
-
     /**
-     * Set the listener for the command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsStopSendingPacketFromDroneListener (ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM;
-    }
-
-
-    private static ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener = null;
-
-    /**
-     * Set the listener for the command <code>SendPacket</code> of class <code>StatsEvent</code> in project <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsEventSendPacketListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsEventSendPacketListener (ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsEventSendPacketListener = _ARCommandCommonDebugStatsEventSendPacketListener_PARAM;
+     * Set an ARCommand to hold the command <code>FlatTrim</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command FlatTrim description:<br>
+     * Do a flat trim<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingFlatTrim () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingFlatTrim (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>TakeOff</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command TakeOff description:<br>
+     * Ask the drone to take off<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingTakeOff () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingTakeOff (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command PCMD description:<br>
+     * Ask the drone to move around.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _flag Boolean flag to activate roll/pitch movement
+     * @param _roll Roll consign for the MiniDrone [-100;100]
+     * @param _pitch Pitch consign for the MiniDrone [-100;100]
+     * @param _yaw Yaw consign for the MiniDrone [-100;100]
+     * @param _gaz Gaz consign for the MiniDrone [-100;100]
+     * @param _timestamp Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingPCMD (byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestamp) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingPCMD (pointer, capacity, flag, roll, pitch, yaw, gaz, timestamp);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Landing</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command Landing description:<br>
+     * Ask the MiniDrone to land<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingLanding () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingLanding (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command Emergency description:<br>
+     * Put drone in emergency state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingEmergency () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingEmergency (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command AutoTakeOffMode description:<br>
+     * Set MiniDrone automatic take off mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of automatic take off mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingAutoTakeOffMode (byte state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingAutoTakeOffMode (pointer, capacity, state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Occasional information<br>
+     * <br>
+     * Command FlatTrimChanged description:<br>
+     * MiniDrone send flat trim was correctly processed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateFlatTrimChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingStateFlatTrimChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>FlyingStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Occasional information<br>
+     * <br>
+     * Command FlyingStateChanged description:<br>
+     * Drone flying state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state Drone flying state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateFlyingStateChanged (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingStateFlyingStateChanged (pointer, capacity, state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Occasional information<br>
+     * <br>
+     * Command AlertStateChanged description:<br>
+     * Drone alert state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state Drone alert state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateAlertStateChanged (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingStateAlertStateChanged (pointer, capacity, state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AutoTakeOffModeChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Occasional information<br>
+     * <br>
+     * Command AutoTakeOffModeChanged description:<br>
+     * Set MiniDrone automatic take off mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of automatic take off mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateAutoTakeOffModeChanged (byte state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (pointer, capacity, state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command Flip description:<br>
+     * Make a flip<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _direction Direction for the flip
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneAnimationsFlip (ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneAnimationsFlip (pointer, capacity, direction);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command Cap description:<br>
+     * Change the product cap<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _offset Change the cap with offset angle [-180;180]
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneAnimationsCap (short offset) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneAnimationsCap (pointer, capacity, offset);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command Picture description:<br>
+     * @deprecated<br>
+     * Take picture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mass_storage_id Mass storage id to take picture
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordPicture (byte mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMediaRecordPicture (pointer, capacity, mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command PictureV2 description:<br>
+     * Take picture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordPictureV2 () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMediaRecordPictureV2 (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command PictureStateChanged description:<br>
+     * @deprecated<br>
+     * State of picture recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state 1 if picture has been taken, 0 otherwise
+     * @param _mass_storage_id Mass storage id to record
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordStatePictureStateChanged (byte state, byte mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChanged (pointer, capacity, state, mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PictureStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command PictureStateChangedV2 description:<br>
+     * State of device picture recording changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of device picture recording
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordStatePictureStateChangedV2 (ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (pointer, capacity, state, error);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MediaRecordEvent description:<br>
+     * Events of media recording<br>
+     * <br>
+     * Command PictureEventChanged description:<br>
+     * Event of picture recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _event Last event of picture recording
+     * @param _error Error to explain the event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMediaRecordEventPictureEventChanged (ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMediaRecordEventPictureEventChanged (pointer, capacity, event, error);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command MaxAltitude description:<br>
+     * Set Max Altitude<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current altitude max in m
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsMaxAltitude (float current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsMaxAltitude (pointer, capacity, current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command MaxTilt description:<br>
+     * Set Max Tilt<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current tilt max in degree
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsMaxTilt (float current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsMaxTilt (pointer, capacity, current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxAltitudeChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command MaxAltitudeChanged description:<br>
+     * Max Altitude sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current altitude max
+     * @param _min Range min of altitude
+     * @param _max Range max of altitude
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsStateMaxAltitudeChanged (float current, float min, float max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (pointer, capacity, current, min, max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxTiltChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command MaxTiltChanged description:<br>
+     * Max tilt sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max tilt
+     * @param _min Range min of tilt
+     * @param _max Range max of tilt
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsStateMaxTiltChanged (float current, float min, float max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (pointer, capacity, current, min, max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command MaxVerticalSpeed description:<br>
+     * Set Max Vertical speed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max vertical speed in m/s
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxVerticalSpeed (float current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (pointer, capacity, current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command MaxRotationSpeed description:<br>
+     * Set Max Rotation speed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max rotation speed in degree/s
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxRotationSpeed (float current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (pointer, capacity, current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command Wheels description:<br>
+     * Presence of wheels<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _present 1 if present, 0 if not present
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsWheels (byte present) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsWheels (pointer, capacity, present);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxVerticalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command MaxVerticalSpeedChanged description:<br>
+     * Max vertical speed sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max vertical speed in m/s
+     * @param _min Range min of vertical speed
+     * @param _max Range max of vertical speed
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (float current, float min, float max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (pointer, capacity, current, min, max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command MaxRotationSpeedChanged description:<br>
+     * Max rotation speed sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max rotation speed in degree/s
+     * @param _min Range min of rotation speed
+     * @param _max Range max of rotation speed
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (float current, float min, float max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (pointer, capacity, current, min, max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WheelsChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command WheelsChanged description:<br>
+     * Presence of wheels sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _present 1 if present, 0 if not present
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateWheelsChanged (byte present) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsStateWheelsChanged (pointer, capacity, present);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command CutOutMode description:<br>
+     * Set MiniDrone cut out mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable Enable cut out mode (1 if is activate, 0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsCutOutMode (byte enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSettingsCutOutMode (pointer, capacity, enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductMotorsVersionChanged description:<br>
+     * Product Motors versions<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _motor Product Motor number [1 - 4]
+     * @param _type Product Motor type
+     * @param _software Product Motors software version
+     * @param _hardware Product Motors hardware version
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateProductMotorsVersionChanged (byte motor, String type, String software, String hardware) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (pointer, capacity, motor, type, software, hardware);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductInertialVersionChanged description:<br>
+     * Product Inertial versions<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _software Product Inertial software version
+     * @param _hardware Product Inertial hardware version
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateProductInertialVersionChanged (String software, String hardware) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSettingsStateProductInertialVersionChanged (pointer, capacity, software, hardware);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CutOutModeChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command CutOutModeChanged description:<br>
+     * MiniDrone cut out mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable State of cut out mode (1 if is activate, 0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSettingsStateCutOutModeChanged (byte enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSettingsStateCutOutModeChanged (pointer, capacity, enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class FloodControlState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command FloodControlChanged description:<br>
+     * Flood control regulation<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _delay Delay (in ms) between two PCMD
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneFloodControlStateFloodControlChanged (short delay) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneFloodControlStateFloodControlChanged (pointer, capacity, delay);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerLatitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class GPS description:<br>
+     * GPS related commands<br>
+     * <br>
+     * Command ControllerLatitudeForRun description:<br>
+     * Set the controller latitude for a run.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _latitude Controller latitude in decimal degrees
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneGPSControllerLatitudeForRun (double latitude) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneGPSControllerLatitudeForRun (pointer, capacity, latitude);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class GPS description:<br>
+     * GPS related commands<br>
+     * <br>
+     * Command ControllerLongitudeForRun description:<br>
+     * Set the controller longitude for a run.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _longitude Controller longitude in decimal degrees
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneGPSControllerLongitudeForRun (double longitude) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneGPSControllerLongitudeForRun (pointer, capacity, longitude);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerType</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Configuration description:<br>
+     * Configuration related commands<br>
+     * <br>
+     * Command ControllerType description:<br>
+     * Set the controller type.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type Controller type like iOS or Android
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneConfigurationControllerType (String type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneConfigurationControllerType (pointer, capacity, type);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Configuration description:<br>
+     * Configuration related commands<br>
+     * <br>
+     * Command ControllerName description:<br>
+     * Set the controller name.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _name Controller name like com.parrot.freeflight3
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneConfigurationControllerName (String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneConfigurationControllerName (pointer, capacity, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Test1</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * <br>
+     * Project MiniDroneDebug description:<br>
+     * All MiniDrone-only debug commands<br>
+     * <br>
+     * Class Debug description:<br>
+     * Temporary, debug commands<br>
+     * <br>
+     * Command Test1 description:<br>
+     * Test 1 command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _t1Args Test 1 argument
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest1 (byte t1Args) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneDebugDebugTest1 (pointer, capacity, t1Args);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Test2</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * <br>
+     * Project MiniDroneDebug description:<br>
+     * All MiniDrone-only debug commands<br>
+     * <br>
+     * Class Debug description:<br>
+     * Temporary, debug commands<br>
+     * <br>
+     * Command Test2 description:<br>
+     * Test 2 command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _t2Args Test 2 argument
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest2 (byte t2Args) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneDebugDebugTest2 (pointer, capacity, t2Args);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Test3</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * <br>
+     * Project MiniDroneDebug description:<br>
+     * All MiniDrone-only debug commands<br>
+     * <br>
+     * Class Debug description:<br>
+     * Temporary, debug commands<br>
+     * <br>
+     * Command Test3 description:<br>
+     * Test 3 command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _t3Args Test 3 argument
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneDebugDebugTest3 (byte t3Args) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneDebugDebugTest3 (pointer, capacity, t3Args);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiList</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class WifiState description:<br>
+     * Wifi state<br>
+     * <br>
+     * Command WifiList description:<br>
+     * Return the available wifi list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _bssid Wifi bssid
+     * @param _ssid Wifi ssid
+     * @param _secured Is wifi secured by passphrase
+     * @param _saved Is wifi saved in terminal
+     * @param _rssi Wifi rssi
+     * @param _frequency Wifi frequency
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiList (String bssid, String ssid, byte secured, byte saved, int rssi, int frequency) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiStateWifiList (pointer, capacity, bssid, ssid, secured, saved, rssi, frequency);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ConnexionChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class WifiState description:<br>
+     * Wifi state<br>
+     * <br>
+     * Command ConnexionChanged description:<br>
+     * Return connexion status<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid Wifi ssid
+     * @param _status Wifi status
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateConnexionChanged (String ssid, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM status) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiStateConnexionChanged (pointer, capacity, ssid, status);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class WifiState description:<br>
+     * Wifi state<br>
+     * <br>
+     * Command WifiAuthChannelListChanged description:<br>
+     * Notify of an Authorized Channel<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band of this channel : 2.4 GHz or 5 GHz
+     * @param _channel The authorized channel
+     * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiAuthChannelListChanged (ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (pointer, capacity, band, channel, in_or_out);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class WifiState description:<br>
+     * Wifi state<br>
+     * <br>
+     * Command AllWifiAuthChannelChanged description:<br>
+     * Notify the end of the list of Authorized wifi Channel<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateAllWifiAuthChannelChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class WifiState description:<br>
+     * Wifi state<br>
+     * <br>
+     * Command WifiSignalChanged description:<br>
+     * State of the wifi signal<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _level Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiStateWifiSignalChanged (byte level) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiStateWifiSignalChanged (pointer, capacity, level);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RequestWifiList</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Wifi description:<br>
+     * Wifi<br>
+     * <br>
+     * Command RequestWifiList description:<br>
+     * Request wifi list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiRequestWifiList () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiRequestWifiList (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RequestCurrentWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Wifi description:<br>
+     * Wifi<br>
+     * <br>
+     * Command RequestCurrentWifi description:<br>
+     * Request current connected wifi<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiRequestCurrentWifi () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiRequestCurrentWifi (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Wifi description:<br>
+     * Wifi<br>
+     * <br>
+     * Command ConnectToWifi description:<br>
+     * Connect to wifi<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _bssid Wifi bssid
+     * @param _ssid Wifi ssid
+     * @param _passphrase Wifi passphrase
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiConnectToWifi (String bssid, String ssid, String passphrase) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiConnectToWifi (pointer, capacity, bssid, ssid, passphrase);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ForgetWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Wifi description:<br>
+     * Wifi<br>
+     * <br>
+     * Command ForgetWifi description:<br>
+     * Forget wifi<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid Wifi ssid
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiForgetWifi (String ssid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiForgetWifi (pointer, capacity, ssid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiAuthChannel</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Wifi description:<br>
+     * Wifi<br>
+     * <br>
+     * Command WifiAuthChannel description:<br>
+     * Controller inquire the list of authorized wifi channels<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerWifiWifiAuthChannel () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerWifiWifiAuthChannel (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Device description:<br>
+     * Device Connection commands<br>
+     * <br>
+     * Command RequestDeviceList description:<br>
+     * Request Device list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceRequestDeviceList () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDeviceRequestDeviceList (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RequestCurrentDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Device description:<br>
+     * Device Connection commands<br>
+     * <br>
+     * Command RequestCurrentDevice description:<br>
+     * Request current connected Device<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceRequestCurrentDevice () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDeviceRequestCurrentDevice (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ConnectToDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Device description:<br>
+     * Device Connection commands<br>
+     * <br>
+     * Command ConnectToDevice description:<br>
+     * ask to connect to a device<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _deviceName Device name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceConnectToDevice (String deviceName) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDeviceConnectToDevice (pointer, capacity, deviceName);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DeviceList</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class DeviceState description:<br>
+     * Device state<br>
+     * <br>
+     * Command DeviceList description:<br>
+     * Return the available Device list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _name Device name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceStateDeviceList (String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDeviceStateDeviceList (pointer, capacity, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class DeviceState description:<br>
+     * Device state<br>
+     * <br>
+     * Command ConnexionChanged description:<br>
+     * Return device connexion status<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status Wifi status to Device
+     * @param _deviceName Device name
+     * @param _deviceProductID Device name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDeviceStateConnexionChanged (ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM status, String deviceName, short deviceProductID) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDeviceStateConnexionChanged (pointer, capacity, status, deviceName, deviceProductID);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command AllSettings description:<br>
+     * Get all product settings, the product must send all settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsAllSettings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsAllSettings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Reset</code> of class <code>Settings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command Reset description:<br>
+     * Reset all settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsReset () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsReset (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command AllSettingsChanged description:<br>
+     * State sent when all settings has been sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateAllSettingsChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsStateAllSettingsChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ResetChanged description:<br>
+     * State sent when all settings has been resetting<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateResetChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsStateResetChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductSerialChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductSerialChanged description:<br>
+     * Product serial number<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _serialNumber Serial number (hexadecimal value)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateProductSerialChanged (String serialNumber) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsStateProductSerialChanged (pointer, capacity, serialNumber);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllStates</code> of class <code>Common</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Common description:<br>
+     * Common commands<br>
+     * <br>
+     * Command AllStates description:<br>
+     * Get all product states<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCommonAllStates () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCommonAllStates (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command AllStatesChanged description:<br>
+     * State sent when all product states has been sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCommonStateAllStatesChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCommonStateAllStatesChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SkyControllerState description:<br>
+     * Sky Controller states<br>
+     * <br>
+     * Command BatteryChanged description:<br>
+     * State sent when SkyController battery has changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _percent SkyController battery
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateBatteryChanged (byte percent) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSkyControllerStateBatteryChanged (pointer, capacity, percent);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SkyControllerState description:<br>
+     * Sky Controller states<br>
+     * <br>
+     * Command GpsFixChanged description:<br>
+     * State sent when SkyController gps fix has changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _fixed SkyController fixed
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateGpsFixChanged (byte fixed) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSkyControllerStateGpsFixChanged (pointer, capacity, fixed);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SkyControllerState description:<br>
+     * Sky Controller states<br>
+     * <br>
+     * Command GpsPositionChanged description:<br>
+     * State sent when the SkyController gps position has changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _latitude SkyController latitude (500. if not available)
+     * @param _longitude SkyController longiture (500. if not available)
+     * @param _altitude Altitude (in meters) above sea level
+     * @param _altitude Only meaningful if latitude and longiture are available
+     * @param _heading SkyController heading relative to magnetic north (500.f if not available)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSkyControllerStateGpsPositionChanged (double latitude, double longitude, double altitude, float heading) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSkyControllerStateGpsPositionChanged (pointer, capacity, latitude, longitude, altitude, heading);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessPointSSID</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettings description:<br>
+     * AccessPoint settings commands<br>
+     * <br>
+     * Command AccessPointSSID description:<br>
+     * Set AccessPoint SSID<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid AccessPoint SSID
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsAccessPointSSID (String ssid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsAccessPointSSID (pointer, capacity, ssid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettings description:<br>
+     * AccessPoint settings commands<br>
+     * <br>
+     * Command AccessPointChannel description:<br>
+     * Set AccessPoint Channel<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _channel AccessPoint Channel
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsAccessPointChannel (byte channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsAccessPointChannel (pointer, capacity, channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettings description:<br>
+     * AccessPoint settings commands<br>
+     * <br>
+     * Command WifiSelection description:<br>
+     * Set AccessPoint Band and Channel<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection (only manual at the moment)
+     * @param _band The allowed band : 2.4 Ghz or 5 Ghz
+     * @param _channel The channel
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsWifiSelection (ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsWifiSelection (pointer, capacity, type, band, channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettingsState description:<br>
+     * AccessPoint settings state from product<br>
+     * <br>
+     * Command AccessPointSSIDChanged description:<br>
+     * State sent when AccessPoint ssid has been sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid AccessPoint SSID
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (String ssid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (pointer, capacity, ssid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessPointChannelChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettingsState description:<br>
+     * AccessPoint settings state from product<br>
+     * <br>
+     * Command AccessPointChannelChanged description:<br>
+     * State sent when AccessPoint channel has been sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _channel AccessPoint Channel
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateAccessPointChannelChanged (byte channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (pointer, capacity, channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiSelectionChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AccessPointSettingsState description:<br>
+     * AccessPoint settings state from product<br>
+     * <br>
+     * Command WifiSelectionChanged description:<br>
+     * Wifi selection from product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection (only manual at the moment)
+     * @param _band The allowed band : 2.4 Ghz or 5 Ghz
+     * @param _channel The channel
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAccessPointSettingsStateWifiSelectionChanged (ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (pointer, capacity, type, band, channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ResetOrientation</code> of class <code>Camera</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Camera description:<br>
+     * Ask the drone to move camera<br>
+     * <br>
+     * Command ResetOrientation description:<br>
+     * Reset pan and tilt to center<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCameraResetOrientation () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCameraResetOrientation (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetGamepadControls</code> of class <code>GamepadInfos</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class GamepadInfos description:<br>
+     * Request infos about the gamepad of the SkyController<br>
+     * <br>
+     * Command GetGamepadControls description:<br>
+     * Asks the SkyController to send the button and axis list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosGetGamepadControls () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerGamepadInfosGetGamepadControls (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class GamepadInfosState description:<br>
+     * Informations about the gamepad of the SkyController<br>
+     * <br>
+     * Command GamepadControl description:<br>
+     * Describe an existing button or axis of the gamepad<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type (axis/button) of the control
+     * @param _id The button or axis id
+     * @param _id @note A button and an axis can have the same ID, but their type is different
+     * @param _name Display name for the control
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosStateGamepadControl (ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerGamepadInfosStateGamepadControl (pointer, capacity, type, id, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllGamepadControlsSent</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class GamepadInfosState description:<br>
+     * Informations about the gamepad of the SkyController<br>
+     * <br>
+     * Command AllGamepadControlsSent description:<br>
+     * Sent by the SkyController after sending its last 'gamepadControl' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerGamepadInfosStateAllGamepadControlsSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetCurrentButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappings description:<br>
+     * Controls the button mappings of the SkyController<br>
+     * <br>
+     * Command GetCurrentButtonMappings description:<br>
+     * Asks the SkyController to send its current button mapping<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsGetCurrentButtonMappings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetAvailableButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappings description:<br>
+     * Controls the button mappings of the SkyController<br>
+     * <br>
+     * Command GetAvailableButtonMappings description:<br>
+     * Asks the SkyController to send the possible mappings for each button<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsGetAvailableButtonMappings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappings description:<br>
+     * Controls the button mappings of the SkyController<br>
+     * <br>
+     * Command SetButtonMapping description:<br>
+     * Set a button mapping to the SkyController<br>
+     * @note replaces previous mapping for the given key<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _key_id The keycode to map
+     * @param _mapping_uid The mapping to associate with the key
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsSetButtonMapping (int key_id, String mapping_uid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsSetButtonMapping (pointer, capacity, key_id, mapping_uid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DefaultButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappings description:<br>
+     * Controls the button mappings of the SkyController<br>
+     * <br>
+     * Command DefaultButtonMapping description:<br>
+     * Asks the SkyController to reset the button mappings to the default value<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsDefaultButtonMapping () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsDefaultButtonMapping (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappingsState description:<br>
+     * State of the button mappings of the SkyController<br>
+     * <br>
+     * Command CurrentButtonMappings description:<br>
+     * Sent by the SkyController each time a mapping changes<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _key_id The keycode mapped
+     * @param _mapping_uid The mapping associated
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateCurrentButtonMappings (int key_id, String mapping_uid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (pointer, capacity, key_id, mapping_uid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllCurrentButtonMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappingsState description:<br>
+     * State of the button mappings of the SkyController<br>
+     * <br>
+     * Command AllCurrentButtonMappingsSent description:<br>
+     * Sent by the SkyController after sending its last 'currentButtonMappings' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AvailableButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappingsState description:<br>
+     * State of the button mappings of the SkyController<br>
+     * <br>
+     * Command AvailableButtonMappings description:<br>
+     * Sent after a 'getAvailableButtonMappings' request<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mapping_uid The mapping UID (used in communication with the SkyController)
+     * @param _name Display name for the user
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAvailableButtonMappings (String mapping_uid, String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (pointer, capacity, mapping_uid, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllAvailableButtonsMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonMappingsState description:<br>
+     * State of the button mappings of the SkyController<br>
+     * <br>
+     * Command AllAvailableButtonsMappingsSent description:<br>
+     * Sent by the SkyController after sending its last 'availableButtonMappings' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetCurrentAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappings description:<br>
+     * Controls the axis mappings of the SkyController<br>
+     * <br>
+     * Command GetCurrentAxisMappings description:<br>
+     * Asks the SkyController to send its current axis mapping<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsGetCurrentAxisMappings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappings description:<br>
+     * Controls the axis mappings of the SkyController<br>
+     * <br>
+     * Command GetAvailableAxisMappings description:<br>
+     * Asks the SkyController to send the possible mappings for each axis<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsGetAvailableAxisMappings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappings description:<br>
+     * Controls the axis mappings of the SkyController<br>
+     * <br>
+     * Command SetAxisMapping description:<br>
+     * Set a axis mapping to the SkyController<br>
+     * @note replaces previous mapping for the given axis<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis_id The axiscode to map
+     * @param _mapping_uid The mapping to associate with the axis
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsSetAxisMapping (int axis_id, String mapping_uid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsSetAxisMapping (pointer, capacity, axis_id, mapping_uid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DefaultAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappings description:<br>
+     * Controls the axis mappings of the SkyController<br>
+     * <br>
+     * Command DefaultAxisMapping description:<br>
+     * Asks the SkyController to reset the axis mappings to the default value<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsDefaultAxisMapping () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsDefaultAxisMapping (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappingsState description:<br>
+     * State of the axis mappings of the SkyController<br>
+     * <br>
+     * Command CurrentAxisMappings description:<br>
+     * Sent by the SkyController each time a mapping changes<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis_id The axiscode mapped
+     * @param _mapping_uid The mapping associated
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateCurrentAxisMappings (int axis_id, String mapping_uid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (pointer, capacity, axis_id, mapping_uid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllCurrentAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappingsState description:<br>
+     * State of the axis mappings of the SkyController<br>
+     * <br>
+     * Command AllCurrentAxisMappingsSent description:<br>
+     * Sent by the SkyController after sending its last 'currentAxisMappings' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AvailableAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappingsState description:<br>
+     * State of the axis mappings of the SkyController<br>
+     * <br>
+     * Command AvailableAxisMappings description:<br>
+     * Sent after a 'getAvailableAxisMappings' request<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mapping_uid The mapping UID (used in communication with the SkyController)
+     * @param _name Display name for the user
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAvailableAxisMappings (String mapping_uid, String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (pointer, capacity, mapping_uid, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllAvailableAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisMappingsState description:<br>
+     * State of the axis mappings of the SkyController<br>
+     * <br>
+     * Command AllAvailableAxisMappingsSent description:<br>
+     * Sent by the SkyController after sending its last 'availableAxisMappings' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetCurrentAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFilters description:<br>
+     * Controls the axis filters of the SkyController<br>
+     * <br>
+     * Command GetCurrentAxisFilters description:<br>
+     * Asks the SkyController to send its current axis filters<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersGetCurrentAxisFilters () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GetPresetAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFilters description:<br>
+     * Controls the axis filters of the SkyController<br>
+     * <br>
+     * Command GetPresetAxisFilters description:<br>
+     * Asks the SkyController to send the preset filters<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersGetPresetAxisFilters () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetAxisFilter</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFilters description:<br>
+     * Controls the axis filters of the SkyController<br>
+     * <br>
+     * Command SetAxisFilter description:<br>
+     * Set an axis filter to the SkyController<br>
+     * @note replaces previous filter for the given axis<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis_id The axiscode to filter
+     * @param _filter_uid_or_builder The mapping preset to associate with the axis
+     * @param _filter_uid_or_builder (Or a string to build a new one)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersSetAxisFilter (int axis_id, String filter_uid_or_builder) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersSetAxisFilter (pointer, capacity, axis_id, filter_uid_or_builder);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DefaultAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFilters description:<br>
+     * Controls the axis filters of the SkyController<br>
+     * <br>
+     * Command DefaultAxisFilters description:<br>
+     * Asks the SkyController to reset the axis filters to the default value<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersDefaultAxisFilters () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersDefaultAxisFilters (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFiltersState description:<br>
+     * State of the axis filters of the SkyController<br>
+     * <br>
+     * Command CurrentAxisFilters description:<br>
+     * Sent by the SkyController each time a filter changes<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis_id The axiscode filtered
+     * @param _filter_uid_or_builder The filter associated
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateCurrentAxisFilters (int axis_id, String filter_uid_or_builder) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (pointer, capacity, axis_id, filter_uid_or_builder);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllCurrentFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFiltersState description:<br>
+     * State of the axis filters of the SkyController<br>
+     * <br>
+     * Command AllCurrentFiltersSent description:<br>
+     * Sent by the SkyController after sending its last 'currentAxisFilters' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateAllCurrentFiltersSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PresetAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFiltersState description:<br>
+     * State of the axis filters of the SkyController<br>
+     * <br>
+     * Command PresetAxisFilters description:<br>
+     * Sent after a 'getPresetAxisFilters' request<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _filter_uid The filter UID (used in communication with the SkyController)
+     * @param _name Display name for the user
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStatePresetAxisFilters (String filter_uid, String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (pointer, capacity, filter_uid, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllPresetFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class AxisFiltersState description:<br>
+     * State of the axis filters of the SkyController<br>
+     * <br>
+     * Command AllPresetFiltersSent description:<br>
+     * Sent by the SkyController after sending its last 'presetAxisFilters' command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersStateAllPresetFiltersSent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetPilotingSource</code> of class <code>CoPiloting</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class CoPiloting description:<br>
+     * Configuration of the co-piloting feature<br>
+     * <br>
+     * Command SetPilotingSource description:<br>
+     * Set the SkyController piloting source<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _source The source
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCoPilotingSetPilotingSource (ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM source) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCoPilotingSetPilotingSource (pointer, capacity, source);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class CoPilotingState description:<br>
+     * State of the co-piloting feature<br>
+     * <br>
+     * Command PilotingSource description:<br>
+     * Source of the piloting commands<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _source The source
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCoPilotingStatePilotingSource (ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCoPilotingStatePilotingSource (pointer, capacity, source);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>EnableMagnetoCalibrationQualityUpdates</code> of class <code>Calibration</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class Calibration description:<br>
+     * Commands related to the SkyController sensors calibration<br>
+     * <br>
+     * Command EnableMagnetoCalibrationQualityUpdates description:<br>
+     * Asks the SkyController to send (or not) the magneto calibration quality updates.<br>
+     * The MagnetoCalibrationState will always be sent when the status parameters changes,<br>
+     * regardless of this setting.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable Flag to enable the feature.
+     * @param _enable 1 = enable quality updates
+     * @param _enable 0 = disable quality updates
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (byte enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (pointer, capacity, enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * State of the SkyController calibration<br>
+     * <br>
+     * Command MagnetoCalibrationState description:<br>
+     * The current state of the magnetometer calibration<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status The global status of the calibration
+     * @param _X_Quality Calibration quality on X axis.
+     * @param _X_Quality 0 is bad, 255 is perfect
+     * @param _Y_Quality Calibration quality on Y axis.
+     * @param _Y_Quality 0 is bad, 255 is perfect
+     * @param _Z_Quality Calibration quality on Z axis.
+     * @param _Z_Quality 0 is bad, 255 is perfect
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationState (ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (pointer, capacity, status, X_Quality, Y_Quality, Z_Quality);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * State of the SkyController calibration<br>
+     * <br>
+     * Command MagnetoCalibrationQualityUpdatesState description:<br>
+     * State of the "send calibration state on quality change" setting.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled Flag (is the feature enabled).
+     * @param _enabled 1 = The skycontroller sends updated when quality is updated
+     * @param _enabled 0 = The skycontroller only sent updated when state is updated
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (byte enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (pointer, capacity, enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
+     * <br>
+     * Project SkyControllerDebug description:<br>
+     * All debug SkyController-only commands<br>
+     * <br>
+     * Class Debug description:<br>
+     * Temporary, debug commands<br>
+     * <br>
+     * Command Test1 description:<br>
+     * Test 1 command<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _t1Args Test 1 argument
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDebugDebugTest1 (byte t1Args) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerDebugDebugTest1 (pointer, capacity, t1Args);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command Disconnect description:<br>
+     * Signals the remote that the host will disconnect and close its<br>
+     * libARNetwork instance (and all threads that use libARNetwork)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonNetworkDisconnect () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonNetworkDisconnect (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class NetworkEvent description:<br>
+     * Network Event from product<br>
+     * <br>
+     * Command Disconnection description:<br>
+     * Signals the remote that the host will disconnect and close its<br>
+     * libARNetwork instance (and all threads that use libARNetwork)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _cause Cause of the disconnection of the product
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonNetworkEventDisconnection (ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonNetworkEventDisconnection (pointer, capacity, cause);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllSettings</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command AllSettings description:<br>
+     * Get all product settings, the product must send all settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsAllSettings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsAllSettings (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Reset</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command Reset description:<br>
+     * Reset all settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsReset () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsReset (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command ProductName description:<br>
+     * Set Product name<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _name Product name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsProductName (String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsProductName (pointer, capacity, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Country</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command Country description:<br>
+     * Set current Country of controller<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _code Country code with ISO 3166 format
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsCountry (String code) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsCountry (pointer, capacity, code);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Settings description:<br>
+     * Settings commands<br>
+     * <br>
+     * Command AutoCountry description:<br>
+     * Set Auto Country Settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _automatic Boolean : 0 : Manual / 1 : Auto
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsAutoCountry (byte automatic) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsAutoCountry (pointer, capacity, automatic);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command AllSettingsChanged description:<br>
+     * State sent when all settings has been sent.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateAllSettingsChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateAllSettingsChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ResetChanged description:<br>
+     * State sent when all settings has been resetting.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateResetChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateResetChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductNameChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductNameChanged description:<br>
+     * Product name<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _name Product name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductNameChanged (String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateProductNameChanged (pointer, capacity, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductVersionChanged description:<br>
+     * Product versions<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _software Product software version
+     * @param _hardware Product hardware version
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductVersionChanged (String software, String hardware) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateProductVersionChanged (pointer, capacity, software, hardware);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductSerialHighChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductSerialHighChanged description:<br>
+     * Product serial number<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _high Serial high number (hexadecimal value)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductSerialHighChanged (String high) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateProductSerialHighChanged (pointer, capacity, high);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductSerialLowChanged description:<br>
+     * Product serial number<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _low Serial low number (hexadecimal value)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateProductSerialLowChanged (String low) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateProductSerialLowChanged (pointer, capacity, low);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command CountryChanged description:<br>
+     * Inform current Country set in product. (Answer to 'Country' command)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _code Country code with ISO 3166 format, empty string means unknown country.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateCountryChanged (String code) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateCountryChanged (pointer, capacity, code);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AutoCountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command AutoCountryChanged description:<br>
+     * Inform Auto Country Settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _automatic Boolean : 0 : Manual / 1 : Auto
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonSettingsStateAutoCountryChanged (byte automatic) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonSettingsStateAutoCountryChanged (pointer, capacity, automatic);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllStates</code> of class <code>Common</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Common description:<br>
+     * Common commands<br>
+     * <br>
+     * Command AllStates description:<br>
+     * Get all product states.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonAllStates () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonAllStates (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentDate</code> of class <code>Common</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Common description:<br>
+     * Common commands<br>
+     * <br>
+     * Command CurrentDate description:<br>
+     * Set current date of controller<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _date Date with ISO-8601 format
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonCurrentDate (String date) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonCurrentDate (pointer, capacity, date);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Common description:<br>
+     * Common commands<br>
+     * <br>
+     * Command CurrentTime description:<br>
+     * Set current time of controller<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _time Time with ISO-8601 format
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonCurrentTime (String time) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonCurrentTime (pointer, capacity, time);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Common description:<br>
+     * Common commands<br>
+     * <br>
+     * Command Reboot description:<br>
+     * Command to ask reboot to product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonReboot () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonReboot (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command AllStatesChanged description:<br>
+     * State sent when all product states has been sent.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateAllStatesChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateAllStatesChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command BatteryStateChanged description:<br>
+     * Battery state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _percent Battery percentage
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateBatteryStateChanged (byte percent) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateBatteryStateChanged (pointer, capacity, percent);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MassStorageStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command MassStorageStateListChanged description:<br>
+     * Mass storage state list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mass_storage_id Mass storage id (unique)
+     * @param _name Mass storage name
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageStateListChanged (byte mass_storage_id, String name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateMassStorageStateListChanged (pointer, capacity, mass_storage_id, name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command MassStorageInfoStateListChanged description:<br>
+     * Mass storage info state list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mass_storage_id Mass storage state id (unique)
+     * @param _size Mass storage size in MBytes
+     * @param _used_size Mass storage used size in MBytes
+     * @param _plugged Mass storage plugged (1 if mass storage is plugged, otherwise 0)
+     * @param _full Mass storage full information state (1 if mass storage full, 0 otherwise).
+     * @param _internal Mass storage internal type state (1 if mass storage is internal, 0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageInfoStateListChanged (byte mass_storage_id, int size, int used_size, byte plugged, byte full, byte internal) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateMassStorageInfoStateListChanged (pointer, capacity, mass_storage_id, size, used_size, plugged, full, internal);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command CurrentDateChanged description:<br>
+     * Current date state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _date Date with ISO-8601 format
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCurrentDateChanged (String date) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateCurrentDateChanged (pointer, capacity, date);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentTimeChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command CurrentTimeChanged description:<br>
+     * Current time state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _time Time with ISO-8601 format
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCurrentTimeChanged (String time) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateCurrentTimeChanged (pointer, capacity, time);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command MassStorageInfoRemainingListChanged description:<br>
+     * Mass storage info remaining list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _free_space Mass storage free space in MBytes
+     * @param _rec_time Mass storage record time reamining in minute
+     * @param _photo_remaining Mass storage photo remaining
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageInfoRemainingListChanged (int free_space, short rec_time, int photo_remaining) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (pointer, capacity, free_space, rec_time, photo_remaining);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command WifiSignalChanged description:<br>
+     * Wifi Signal between controller and product state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _rssi RSSI of the signal between controller and the product (in dbm)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateWifiSignalChanged (short rssi) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateWifiSignalChanged (pointer, capacity, rssi);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SensorsStatesListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command SensorsStatesListChanged description:<br>
+     * Sensors states list<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _sensorName Sensor name
+     * @param _sensorState Sensor state (1 if the sensor is OK, 0 if the sensor is NOT OK)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateSensorsStatesListChanged (ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateSensorsStatesListChanged (pointer, capacity, sensorName, sensorState);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProductModel</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command ProductModel description:<br>
+     * Inform of the product model. This is used to customize the UI depending on the connected product.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _model The Model of the product.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateProductModel (ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateProductModel (pointer, capacity, model);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CountryListKnown</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command CountryListKnown description:<br>
+     * List of the countries known by the device<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateCountryListKnown (String countryCodes) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateCountryListKnown (pointer, capacity, countryCodes);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class OverHeat description:<br>
+     * Over heat commands<br>
+     * <br>
+     * Command SwitchOff description:<br>
+     * @deprecated<br>
+     * Switch off the drone when a overheat appeared<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatSwitchOff () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonOverHeatSwitchOff (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class OverHeat description:<br>
+     * Over heat commands<br>
+     * <br>
+     * Command Ventilate description:<br>
+     * @deprecated<br>
+     * Ventilate the drone when a overheat appeared<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatVentilate () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonOverHeatVentilate (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>OverHeatChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class OverHeatState description:<br>
+     * Overheat state from product<br>
+     * <br>
+     * Command OverHeatChanged description:<br>
+     * Overheat temperature reached<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatStateOverHeatChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonOverHeatStateOverHeatChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class OverHeatState description:<br>
+     * Overheat state from product<br>
+     * <br>
+     * Command OverHeatRegulationChanged description:<br>
+     * Overheat regulation state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _regulationType Type of overheat regulation : 0 for ventilation, 1 for switch off
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonOverHeatStateOverHeatRegulationChanged (byte regulationType) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonOverHeatStateOverHeatRegulationChanged (pointer, capacity, regulationType);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ControllerState description:<br>
+     * Notify the device about the state of the controller application.<br>
+     * <br>
+     * Command IsPilotingChanged description:<br>
+     * Tell the device when the controller application enters/leaves the piloting HUD.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerStateIsPilotingChanged (byte piloting) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonControllerStateIsPilotingChanged (pointer, capacity, piloting);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class WifiSettings description:<br>
+     * Wifi settings commands<br>
+     * <br>
+     * Command OutdoorSetting description:<br>
+     * Send to product if it should use its outdoor wifi config, or indoor<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _outdoor 1 if it should use outdoor wifi settings, 0 otherwise
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonWifiSettingsOutdoorSetting (byte outdoor) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonWifiSettingsOutdoorSetting (pointer, capacity, outdoor);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>OutdoorSettingsChanged</code> of class <code>WifiSettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class WifiSettingsState description:<br>
+     * Wifi settings state from product<br>
+     * <br>
+     * Command OutdoorSettingsChanged description:<br>
+     * Status of the wifi config : either indoor or outdoor<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _outdoor 1 if it should use outdoor wifi settings, 0 otherwise
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonWifiSettingsStateOutdoorSettingsChanged (byte outdoor) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (pointer, capacity, outdoor);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Mavlink description:<br>
+     * Mavlink flight plans commands<br>
+     * <br>
+     * Command Start description:<br>
+     * Start the flight plan<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _filepath flight plan file path from the mavlink ftp root
+     * @param _type type of the played mavlink file
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStart (String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonMavlinkStart (pointer, capacity, filepath, type);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Pause</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Mavlink description:<br>
+     * Mavlink flight plans commands<br>
+     * <br>
+     * Command Pause description:<br>
+     * Pause the flightplan (can be restarted with a start)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkPause () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonMavlinkPause (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Mavlink description:<br>
+     * Mavlink flight plans commands<br>
+     * <br>
+     * Command Stop description:<br>
+     * Stop the flightplan<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStop () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonMavlinkStop (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class MavlinkState description:<br>
+     * Mavlink flight plans states commands<br>
+     * <br>
+     * Command MavlinkFilePlayingStateChanged description:<br>
+     * Playing state of a mavlink flight plan<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of the mavlink
+     * @param _filepath flight plan file path from the mavlink ftp root
+     * @param _type type of the played mavlink file
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStateMavlinkFilePlayingStateChanged (ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM state, String filepath, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (pointer, capacity, state, filepath, type);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class MavlinkState description:<br>
+     * Mavlink flight plans states commands<br>
+     * <br>
+     * Command MavlinkPlayErrorStateChanged description:<br>
+     * FlightPlan play state error<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _error State of play error
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonMavlinkStateMavlinkPlayErrorStateChanged (ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (pointer, capacity, error);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibration</code> of class <code>Calibration</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Calibration description:<br>
+     * Calibration commands<br>
+     * <br>
+     * Command MagnetoCalibration description:<br>
+     * Sent when a calibration of the magnetometer is asked or is aborted<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _calibrate 1 if the calibration should be started, 0 if it should be aborted
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationMagnetoCalibration (byte calibrate) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCalibrationMagnetoCalibration (pointer, capacity, calibrate);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * Status of the calibration<br>
+     * <br>
+     * Command MagnetoCalibrationStateChanged description:<br>
+     * Sent when the state of the magneto calibration has changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _xAxisCalibration State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
+     * @param _yAxisCalibration State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise
+     * @param _zAxisCalibration State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise
+     * @param _calibrationFailed 1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationStateChanged (byte xAxisCalibration, byte yAxisCalibration, byte zAxisCalibration, byte calibrationFailed) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (pointer, capacity, xAxisCalibration, yAxisCalibration, zAxisCalibration, calibrationFailed);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * Status of the calibration<br>
+     * <br>
+     * Command MagnetoCalibrationRequiredState description:<br>
+     * Status of the calibration requirement<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _required 1 if calibration is required, 0 if current calibration is still valid
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationRequiredState (byte required) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (pointer, capacity, required);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationAxisToCalibrateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * Status of the calibration<br>
+     * <br>
+     * Command MagnetoCalibrationAxisToCalibrateChanged description:<br>
+     * Event sent by a product to inform about the axis to calibrate<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis The axis to calibrate
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM axis) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (pointer, capacity, axis);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MagnetoCalibrationStartedChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CalibrationState description:<br>
+     * Status of the calibration<br>
+     * <br>
+     * Command MagnetoCalibrationStartedChanged description:<br>
+     * Status of the calibration process<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _started 1 if calibration has started, 0 otherwise
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCalibrationStateMagnetoCalibrationStartedChanged (byte started) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (pointer, capacity, started);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CameraSettingsState description:<br>
+     * Status of the camera settings<br>
+     * <br>
+     * Command CameraSettingsChanged description:<br>
+     * Status of the camera settings<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _fov Value of the camera horizontal fov (in degree)
+     * @param _panMax Value of max pan (right pan) (in degree)
+     * @param _panMin Value of min pan (left pan) (in degree)
+     * @param _tiltMax Value of max tilt (top tilt) (in degree)
+     * @param _tiltMin Value of min tilt (bottom tilt) (in degree)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCameraSettingsStateCameraSettingsChanged (float fov, float panMax, float panMin, float tiltMax, float tiltMin) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCameraSettingsStateCameraSettingsChanged (pointer, capacity, fov, panMax, panMin, tiltMax, tiltMin);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class GPS description:<br>
+     * GPS related commands<br>
+     * <br>
+     * Command ControllerPositionForRun description:<br>
+     * Set the controller position for a run. This command is used by all non gps products. Watch out, this command cannot be used with BLE products<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _latitude Controller latitude in decimal degrees
+     * @param _longitude Controller longitude in decimal degrees
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonGPSControllerPositionForRun (double latitude, double longitude) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonGPSControllerPositionForRun (pointer, capacity, latitude, longitude);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AvailabilityStateChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class FlightPlanState description:<br>
+     * FlightPlan state commands<br>
+     * <br>
+     * Command AvailabilityStateChanged description:<br>
+     * State of availability to run a flight plan file<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _AvailabilityState Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanStateAvailabilityStateChanged (byte AvailabilityState) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonFlightPlanStateAvailabilityStateChanged (pointer, capacity, AvailabilityState);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class FlightPlanState description:<br>
+     * FlightPlan state commands<br>
+     * <br>
+     * Command ComponentStateListChanged description:<br>
+     * List of state of drone flightPlan components<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _component Drone FlightPlan component id (unique)
+     * @param _State State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanStateComponentStateListChanged (ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM component, byte State) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonFlightPlanStateComponentStateListChanged (pointer, capacity, component, State);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StartingErrorEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class FlightPlanEvent description:<br>
+     * FlightPlan Event commands<br>
+     * <br>
+     * Command StartingErrorEvent description:<br>
+     * Event of flight plan start error<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanEventStartingErrorEvent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonFlightPlanEventStartingErrorEvent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class FlightPlanEvent description:<br>
+     * FlightPlan Event commands<br>
+     * <br>
+     * Command SpeedBridleEvent description:<br>
+     * Bridle speed of the drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonFlightPlanEventSpeedBridleEvent () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonFlightPlanEventSpeedBridleEvent (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ARLibsVersionsState description:<br>
+     * ARlibs Versions Commands<br>
+     * <br>
+     * Command ControllerLibARCommandsVersion description:<br>
+     * Controller libARCommands version<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _version version of libARCommands ("1.2.3.4" format)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateControllerLibARCommandsVersion (String version) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (pointer, capacity, version);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SkyControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ARLibsVersionsState description:<br>
+     * ARlibs Versions Commands<br>
+     * <br>
+     * Command SkyControllerLibARCommandsVersion description:<br>
+     * SkyController libARCommands version<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _version version of libARCommands ("1.2.3.4" format)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (String version) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (pointer, capacity, version);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DeviceLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ARLibsVersionsState description:<br>
+     * ARlibs Versions Commands<br>
+     * <br>
+     * Command DeviceLibARCommandsVersion description:<br>
+     * Device libARCommands version<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _version version of libARCommands ("1.2.3.4" format)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonARLibsVersionsStateDeviceLibARCommandsVersion (String version) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (pointer, capacity, version);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ControllerReadyForStreaming</code> of class <code>Audio</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Audio description:<br>
+     * Audio-related commands.<br>
+     * <br>
+     * Command ControllerReadyForStreaming description:<br>
+     * Tell the firmware whether the controller is ready to start audio streaming.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ready Bit field for TX and RX ready.
+     * @param _ready bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
+     * @param _ready bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioControllerReadyForStreaming (byte ready) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAudioControllerReadyForStreaming (pointer, capacity, ready);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class AudioState description:<br>
+     * Audio-related state updates.<br>
+     * <br>
+     * Command AudioStreamingRunning description:<br>
+     * Notify the controller whether the audio streaming is running.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _running Bit field for TX and RX running
+     * @param _running bit 0 is 1 if Drone TX is running
+     * @param _running bit 1 is 1 if Drone RX is running
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioStateAudioStreamingRunning (byte running) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAudioStateAudioStreamingRunning (pointer, capacity, running);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Intensity</code> of class <code>Headlights</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Headlights description:<br>
+     * Controls the headlight LEDs of the Evo variants.<br>
+     * <br>
+     * Command Intensity description:<br>
+     * Set instensity of lighting LEDs.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _left Set the left LED intensity value (0 through 255).
+     * @param _right Set the right LED intensity value (0 through 255).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonHeadlightsIntensity (byte left, byte right) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonHeadlightsIntensity (pointer, capacity, left, right);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class HeadlightsState description:<br>
+     * Get information about the state of the Evo variants' LEDs.<br>
+     * <br>
+     * Command IntensityChanged description:<br>
+     * Notify the instensity values for headlight LEDs.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _left The intensity value for the left LED (0 through 255).
+     * @param _right The intensity value for the right LED (0 through 255).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonHeadlightsStateIntensityChanged (byte left, byte right) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonHeadlightsStateIntensityChanged (pointer, capacity, left, right);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animations-related commands.<br>
+     * <br>
+     * Command StartAnimation description:<br>
+     * Start a paramaterless animation.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _anim Animation to start.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStartAnimation (ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAnimationsStartAnimation (pointer, capacity, anim);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animations-related commands.<br>
+     * <br>
+     * Command StopAnimation description:<br>
+     * Stop a running animation.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _anim Animation to stop.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStopAnimation (ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAnimationsStopAnimation (pointer, capacity, anim);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StopAllAnimations</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animations-related commands.<br>
+     * <br>
+     * Command StopAllAnimations description:<br>
+     * Stop all running animations.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStopAllAnimations () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAnimationsStopAllAnimations (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class AnimationsState description:<br>
+     * Animations-related notification/feedback commands.<br>
+     * <br>
+     * Command List description:<br>
+     * List of animations state.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _anim Animation type.
+     * @param _state State of the animation
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAnimationsStateList (ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM anim, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM state, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAnimationsStateList (pointer, capacity, anim, state, error);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Accessory description:<br>
+     * Accessories-related commands.<br>
+     * <br>
+     * Command Config description:<br>
+     * Set the current accessory configuration.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _accessory Accessory configuration to set.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryConfig (ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAccessoryConfig (pointer, capacity, accessory);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class AccessoryState description:<br>
+     * Accessories-related commands.<br>
+     * <br>
+     * Command SupportedAccessoriesListChanged description:<br>
+     * List of supported accessories<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _accessory Accessory configurations supported by the product.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateSupportedAccessoriesListChanged (ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (pointer, capacity, accessory);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class AccessoryState description:<br>
+     * Accessories-related commands.<br>
+     * <br>
+     * Command AccessoryConfigChanged description:<br>
+     * Accessory config response.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _newAccessory Accessory configuration reported by firmware.
+     * @param _error Error code.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateAccessoryConfigChanged (ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM newAccessory, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAccessoryStateAccessoryConfigChanged (pointer, capacity, newAccessory, error);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class AccessoryState description:<br>
+     * Accessories-related commands.<br>
+     * <br>
+     * Command AccessoryConfigModificationEnabled description:<br>
+     * Possibility to modify the accessory configuration.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled 1 if the modification of the accessory Config is enabled, 0 otherwise
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAccessoryStateAccessoryConfigModificationEnabled (byte enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (pointer, capacity, enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Charger description:<br>
+     * Commands sent by the controller to set charger parameters.<br>
+     * <br>
+     * Command SetMaxChargeRate description:<br>
+     * @deprecated<br>
+     * Set the maximum charge rate allowed to charge a battery.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _rate The new maximum charge rate.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerSetMaxChargeRate (ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonChargerSetMaxChargeRate (pointer, capacity, rate);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ChargerState description:<br>
+     * Commands sent by the firmware to advertise the charger status.<br>
+     * <br>
+     * Command MaxChargeRateChanged description:<br>
+     * @deprecated<br>
+     * The maximum charge rate reported by the firmware.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _rate The current maximum charge rate.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateMaxChargeRateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM rate) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonChargerStateMaxChargeRateChanged (pointer, capacity, rate);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ChargerState description:<br>
+     * Commands sent by the firmware to advertise the charger status.<br>
+     * <br>
+     * Command CurrentChargeStateChanged description:<br>
+     * @deprecated<br>
+     * The charge status of the battery changed.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status Charger status.
+     * @param _phase The current charging phase.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateCurrentChargeStateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonChargerStateCurrentChargeStateChanged (pointer, capacity, status, phase);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ChargerState description:<br>
+     * Commands sent by the firmware to advertise the charger status.<br>
+     * <br>
+     * Command LastChargeRateChanged description:<br>
+     * @deprecated<br>
+     * The charge rate of the last charge sent by the firmware.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _rate The charge rate recorded by the firmware for the last charge.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateLastChargeRateChanged (ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonChargerStateLastChargeRateChanged (pointer, capacity, rate);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class ChargerState description:<br>
+     * Commands sent by the firmware to advertise the charger status.<br>
+     * <br>
+     * Command ChargingInfo description:<br>
+     * Information of the charge.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _phase The current charging phase.
+     * @param _rate The charge rate. If phase is DISCHARGING, refers to the last charge.
+     * @param _intensity The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
+     * @param _fullChargingTime The full charging time estimated, in minute. If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonChargerStateChargingInfo (ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonChargerStateChargingInfo (pointer, capacity, phase, rate, intensity, fullChargingTime);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SendPacket</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * <br>
+     * Project CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command SendPacket description:<br>
+     * Send a packet to the drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _packet Packet to send to the drone
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsSendPacket (String packet) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsSendPacket (pointer, capacity, packet);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StartSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * <br>
+     * Project CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command StartSendingPacketFromDrone description:<br>
+     * Ask drone to start sending packets<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _frequency Frequency of the packet
+     * @param _packetSize Size of the the packet
+     * @param _date time of day in sec
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDrone (byte frequency, byte packetSize, int date) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsStartSendingPacketFromDrone (pointer, capacity, frequency, packetSize, date);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * <br>
+     * Project CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command StopSendingPacketFromDrone description:<br>
+     * Ask drone to stop sending packets<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDrone () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsStopSendingPacketFromDrone (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SendPacket</code> of class <code>StatsEvent</code> in project <code>CommonDebug</code><br>
+     * <br>
+     * Project CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class StatsEvent description:<br>
+     * Stats Event from drone<br>
+     * <br>
+     * Command SendPacket description:<br>
+     * Send a packet from drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _packet packet from drone
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsEventSendPacket (String packet) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsEventSendPacket (pointer, capacity, packet);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>BoughtFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command BoughtFeatures description:<br>
+     * Bought features on this pro version of the controller (features that have been bought)<br>
+     * This command starts the pro authentification process<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Bought features
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProBoughtFeatures (long features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProBoughtFeatures (pointer, capacity, features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command Response description:<br>
+     * Response to the challenge string sent by the controller<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status Status of the response
+     * @param _signedChallenge the signed challenge
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProResponse (pointer, capacity, status, signedChallenge);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command ActivateFeatures description:<br>
+     * Activate some pro features<br>
+     * Pro features activated should be part of the list returned by ProState->FeaturesSupported<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Pro features to activate
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProActivateFeatures (long features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProActivateFeatures (pointer, capacity, features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SupportedFeatures</code> of class <code>ProState</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProState description:<br>
+     * Pro related commands from the product to the controller<br>
+     * <br>
+     * Command SupportedFeatures description:<br>
+     * Features supported. This command ends the pro authentification<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status Status of the supported features
+     * @param _features Supported pro features.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateSupportedFeatures (ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProStateSupportedFeatures (pointer, capacity, status, features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>FeaturesActivated</code> of class <code>ProState</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProState description:<br>
+     * Pro related commands from the product to the controller<br>
+     * <br>
+     * Command FeaturesActivated description:<br>
+     * Pro features that are currently activated<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Activated pro features.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateFeaturesActivated (long features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProStateFeaturesActivated (pointer, capacity, features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code><br>
+     * <br>
+     * Project Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProEvent description:<br>
+     * Pro related events from the product to the controller<br>
+     * <br>
+     * Command ChallengeEvent description:<br>
+     * Challenge event sent from the drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _challenge the challenge that the receiver will have to sign
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProEventChallengeEvent (String challenge) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProEventChallengeEvent (pointer, capacity, challenge);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
     }
-
-
 
     private static ARCommandARDrone3PilotingFlatTrimListener _ARCommandARDrone3PilotingFlatTrimListener = null;
 
@@ -14898,280 +12758,2150 @@ public class ARCommand extends ARNativeData {
 
 
 
+    private static ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener = null;
+
+    /**
+     * Set the listener for the command <code>FlatTrim</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingFlatTrimListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingFlatTrimListener (ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener_PARAM) {
+        _ARCommandMiniDronePilotingFlatTrimListener = _ARCommandMiniDronePilotingFlatTrimListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener = null;
+
+    /**
+     * Set the listener for the command <code>TakeOff</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingTakeOffListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingTakeOffListener (ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener_PARAM) {
+        _ARCommandMiniDronePilotingTakeOffListener = _ARCommandMiniDronePilotingTakeOffListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener = null;
+
+    /**
+     * Set the listener for the command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingPCMDListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingPCMDListener (ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener_PARAM) {
+        _ARCommandMiniDronePilotingPCMDListener = _ARCommandMiniDronePilotingPCMDListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener = null;
+
+    /**
+     * Set the listener for the command <code>Landing</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingLandingListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingLandingListener (ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener_PARAM) {
+        _ARCommandMiniDronePilotingLandingListener = _ARCommandMiniDronePilotingLandingListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener = null;
+
+    /**
+     * Set the listener for the command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingEmergencyListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingEmergencyListener (ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener_PARAM) {
+        _ARCommandMiniDronePilotingEmergencyListener = _ARCommandMiniDronePilotingEmergencyListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener = null;
+
+    /**
+     * Set the listener for the command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingAutoTakeOffModeListener (ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM) {
+        _ARCommandMiniDronePilotingAutoTakeOffModeListener = _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlatTrimChangedListener (ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlatTrimChangedListener = _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>FlyingStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlyingStateChangedListener (ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlyingStateChangedListener = _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateAlertStateChangedListener (ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateAlertStateChangedListener = _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AutoTakeOffModeChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateAutoTakeOffModeChangedListener (ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener = null;
+
+    /**
+     * Set the listener for the command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneAnimationsFlipListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneAnimationsFlipListener (ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener_PARAM) {
+        _ARCommandMiniDroneAnimationsFlipListener = _ARCommandMiniDroneAnimationsFlipListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener = null;
+
+    /**
+     * Set the listener for the command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneAnimationsCapListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneAnimationsCapListener (ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener_PARAM) {
+        _ARCommandMiniDroneAnimationsCapListener = _ARCommandMiniDroneAnimationsCapListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener = null;
+
+    /**
+     * Set the listener for the command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordPictureListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordPictureListener (ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordPictureListener = _ARCommandMiniDroneMediaRecordPictureListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordPictureV2Listener (ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM) {
+        _ARCommandMiniDroneMediaRecordPictureV2Listener = _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordStatePictureStateChangedListener (ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>PictureStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordStatePictureStateChangedV2Listener (ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM) {
+        _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordEventPictureEventChangedListener (ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsMaxAltitudeListener (ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsMaxTiltListener (ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsMaxTiltListener = _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxAltitudeChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsStateMaxAltitudeChangedListener (ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxTiltChanged</code> of class <code>PilotingSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsStateMaxTiltChangedListener (ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxVerticalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxRotationSpeedListener (ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener = null;
+
+    /**
+     * Set the listener for the command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsWheelsListener (ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsWheelsListener = _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxVerticalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WheelsChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateWheelsChangedListener (ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener = null;
+
+    /**
+     * Set the listener for the command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsCutOutModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsCutOutModeListener (ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener_PARAM) {
+        _ARCommandMiniDroneSettingsCutOutModeListener = _ARCommandMiniDroneSettingsCutOutModeListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateProductMotorsVersionChangedListener (ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateProductInertialVersionChangedListener (ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CutOutModeChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateCutOutModeChangedListener (ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneFloodControlStateFloodControlChangedListener (ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM) {
+        _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerLatitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneGPSControllerLatitudeForRunListener (ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM) {
+        _ARCommandMiniDroneGPSControllerLatitudeForRunListener = _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneGPSControllerLongitudeForRunListener (ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM) {
+        _ARCommandMiniDroneGPSControllerLongitudeForRunListener = _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM;
+    }
+
+
+    private static ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerType</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneConfigurationControllerTypeListener (ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM) {
+        _ARCommandMiniDroneConfigurationControllerTypeListener = _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneConfigurationControllerNameListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneConfigurationControllerNameListener (ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener_PARAM) {
+        _ARCommandMiniDroneConfigurationControllerNameListener = _ARCommandMiniDroneConfigurationControllerNameListener_PARAM;
+    }
+
+
+
+    private static ARCommandMiniDroneDebugDebugTest1Listener _ARCommandMiniDroneDebugDebugTest1Listener = null;
+
+    /**
+     * Set the listener for the command <code>Test1</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneDebugDebugTest1Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneDebugDebugTest1Listener (ARCommandMiniDroneDebugDebugTest1Listener _ARCommandMiniDroneDebugDebugTest1Listener_PARAM) {
+        _ARCommandMiniDroneDebugDebugTest1Listener = _ARCommandMiniDroneDebugDebugTest1Listener_PARAM;
+    }
+
+    private static ARCommandMiniDroneDebugDebugTest2Listener _ARCommandMiniDroneDebugDebugTest2Listener = null;
+
+    /**
+     * Set the listener for the command <code>Test2</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneDebugDebugTest2Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneDebugDebugTest2Listener (ARCommandMiniDroneDebugDebugTest2Listener _ARCommandMiniDroneDebugDebugTest2Listener_PARAM) {
+        _ARCommandMiniDroneDebugDebugTest2Listener = _ARCommandMiniDroneDebugDebugTest2Listener_PARAM;
+    }
+
+    private static ARCommandMiniDroneDebugDebugTest3Listener _ARCommandMiniDroneDebugDebugTest3Listener = null;
+
+    /**
+     * Set the listener for the command <code>Test3</code> of class <code>Debug</code> in project <code>MiniDroneDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneDebugDebugTest3Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneDebugDebugTest3Listener (ARCommandMiniDroneDebugDebugTest3Listener _ARCommandMiniDroneDebugDebugTest3Listener_PARAM) {
+        _ARCommandMiniDroneDebugDebugTest3Listener = _ARCommandMiniDroneDebugDebugTest3Listener_PARAM;
+    }
+
+
+
+    private static ARCommandSkyControllerWifiStateWifiListListener _ARCommandSkyControllerWifiStateWifiListListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiList</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiStateWifiListListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiStateWifiListListener (ARCommandSkyControllerWifiStateWifiListListener _ARCommandSkyControllerWifiStateWifiListListener_PARAM) {
+        _ARCommandSkyControllerWifiStateWifiListListener = _ARCommandSkyControllerWifiStateWifiListListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiStateConnexionChangedListener _ARCommandSkyControllerWifiStateConnexionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ConnexionChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiStateConnexionChangedListener (ARCommandSkyControllerWifiStateConnexionChangedListener _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM) {
+        _ARCommandSkyControllerWifiStateConnexionChangedListener = _ARCommandSkyControllerWifiStateConnexionChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiStateWifiAuthChannelListChangedListener (ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM) {
+        _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener = _ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiStateAllWifiAuthChannelChangedListener (ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM) {
+        _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener = _ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiStateWifiSignalChangedListener _ARCommandSkyControllerWifiStateWifiSignalChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiStateWifiSignalChangedListener (ARCommandSkyControllerWifiStateWifiSignalChangedListener _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM) {
+        _ARCommandSkyControllerWifiStateWifiSignalChangedListener = _ARCommandSkyControllerWifiStateWifiSignalChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerWifiRequestWifiListListener _ARCommandSkyControllerWifiRequestWifiListListener = null;
+
+    /**
+     * Set the listener for the command <code>RequestWifiList</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiRequestWifiListListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiRequestWifiListListener (ARCommandSkyControllerWifiRequestWifiListListener _ARCommandSkyControllerWifiRequestWifiListListener_PARAM) {
+        _ARCommandSkyControllerWifiRequestWifiListListener = _ARCommandSkyControllerWifiRequestWifiListListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiRequestCurrentWifiListener _ARCommandSkyControllerWifiRequestCurrentWifiListener = null;
+
+    /**
+     * Set the listener for the command <code>RequestCurrentWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiRequestCurrentWifiListener (ARCommandSkyControllerWifiRequestCurrentWifiListener _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM) {
+        _ARCommandSkyControllerWifiRequestCurrentWifiListener = _ARCommandSkyControllerWifiRequestCurrentWifiListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiConnectToWifiListener _ARCommandSkyControllerWifiConnectToWifiListener = null;
+
+    /**
+     * Set the listener for the command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiConnectToWifiListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiConnectToWifiListener (ARCommandSkyControllerWifiConnectToWifiListener _ARCommandSkyControllerWifiConnectToWifiListener_PARAM) {
+        _ARCommandSkyControllerWifiConnectToWifiListener = _ARCommandSkyControllerWifiConnectToWifiListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiForgetWifiListener _ARCommandSkyControllerWifiForgetWifiListener = null;
+
+    /**
+     * Set the listener for the command <code>ForgetWifi</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiForgetWifiListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiForgetWifiListener (ARCommandSkyControllerWifiForgetWifiListener _ARCommandSkyControllerWifiForgetWifiListener_PARAM) {
+        _ARCommandSkyControllerWifiForgetWifiListener = _ARCommandSkyControllerWifiForgetWifiListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerWifiWifiAuthChannelListener _ARCommandSkyControllerWifiWifiAuthChannelListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiAuthChannel</code> of class <code>Wifi</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerWifiWifiAuthChannelListener (ARCommandSkyControllerWifiWifiAuthChannelListener _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM) {
+        _ARCommandSkyControllerWifiWifiAuthChannelListener = _ARCommandSkyControllerWifiWifiAuthChannelListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerDeviceRequestDeviceListListener _ARCommandSkyControllerDeviceRequestDeviceListListener = null;
+
+    /**
+     * Set the listener for the command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDeviceRequestDeviceListListener (ARCommandSkyControllerDeviceRequestDeviceListListener _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM) {
+        _ARCommandSkyControllerDeviceRequestDeviceListListener = _ARCommandSkyControllerDeviceRequestDeviceListListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerDeviceRequestCurrentDeviceListener _ARCommandSkyControllerDeviceRequestCurrentDeviceListener = null;
+
+    /**
+     * Set the listener for the command <code>RequestCurrentDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDeviceRequestCurrentDeviceListener (ARCommandSkyControllerDeviceRequestCurrentDeviceListener _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM) {
+        _ARCommandSkyControllerDeviceRequestCurrentDeviceListener = _ARCommandSkyControllerDeviceRequestCurrentDeviceListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerDeviceConnectToDeviceListener _ARCommandSkyControllerDeviceConnectToDeviceListener = null;
+
+    /**
+     * Set the listener for the command <code>ConnectToDevice</code> of class <code>Device</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDeviceConnectToDeviceListener (ARCommandSkyControllerDeviceConnectToDeviceListener _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM) {
+        _ARCommandSkyControllerDeviceConnectToDeviceListener = _ARCommandSkyControllerDeviceConnectToDeviceListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerDeviceStateDeviceListListener _ARCommandSkyControllerDeviceStateDeviceListListener = null;
+
+    /**
+     * Set the listener for the command <code>DeviceList</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDeviceStateDeviceListListener (ARCommandSkyControllerDeviceStateDeviceListListener _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM) {
+        _ARCommandSkyControllerDeviceStateDeviceListListener = _ARCommandSkyControllerDeviceStateDeviceListListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerDeviceStateConnexionChangedListener _ARCommandSkyControllerDeviceStateConnexionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDeviceStateConnexionChangedListener (ARCommandSkyControllerDeviceStateConnexionChangedListener _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM) {
+        _ARCommandSkyControllerDeviceStateConnexionChangedListener = _ARCommandSkyControllerDeviceStateConnexionChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerSettingsAllSettingsListener _ARCommandSkyControllerSettingsAllSettingsListener = null;
+
+    /**
+     * Set the listener for the command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsAllSettingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsAllSettingsListener (ARCommandSkyControllerSettingsAllSettingsListener _ARCommandSkyControllerSettingsAllSettingsListener_PARAM) {
+        _ARCommandSkyControllerSettingsAllSettingsListener = _ARCommandSkyControllerSettingsAllSettingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerSettingsResetListener _ARCommandSkyControllerSettingsResetListener = null;
+
+    /**
+     * Set the listener for the command <code>Reset</code> of class <code>Settings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsResetListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsResetListener (ARCommandSkyControllerSettingsResetListener _ARCommandSkyControllerSettingsResetListener_PARAM) {
+        _ARCommandSkyControllerSettingsResetListener = _ARCommandSkyControllerSettingsResetListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerSettingsStateAllSettingsChangedListener _ARCommandSkyControllerSettingsStateAllSettingsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsStateAllSettingsChangedListener (ARCommandSkyControllerSettingsStateAllSettingsChangedListener _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM) {
+        _ARCommandSkyControllerSettingsStateAllSettingsChangedListener = _ARCommandSkyControllerSettingsStateAllSettingsChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerSettingsStateResetChangedListener _ARCommandSkyControllerSettingsStateResetChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsStateResetChangedListener (ARCommandSkyControllerSettingsStateResetChangedListener _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM) {
+        _ARCommandSkyControllerSettingsStateResetChangedListener = _ARCommandSkyControllerSettingsStateResetChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerSettingsStateProductSerialChangedListener _ARCommandSkyControllerSettingsStateProductSerialChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductSerialChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsStateProductSerialChangedListener (ARCommandSkyControllerSettingsStateProductSerialChangedListener _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM) {
+        _ARCommandSkyControllerSettingsStateProductSerialChangedListener = _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCommonAllStatesListener _ARCommandSkyControllerCommonAllStatesListener = null;
+
+    /**
+     * Set the listener for the command <code>AllStates</code> of class <code>Common</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCommonAllStatesListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCommonAllStatesListener (ARCommandSkyControllerCommonAllStatesListener _ARCommandSkyControllerCommonAllStatesListener_PARAM) {
+        _ARCommandSkyControllerCommonAllStatesListener = _ARCommandSkyControllerCommonAllStatesListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCommonStateAllStatesChangedListener _ARCommandSkyControllerCommonStateAllStatesChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCommonStateAllStatesChangedListener (ARCommandSkyControllerCommonStateAllStatesChangedListener _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM) {
+        _ARCommandSkyControllerCommonStateAllStatesChangedListener = _ARCommandSkyControllerCommonStateAllStatesChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerSkyControllerStateBatteryChangedListener _ARCommandSkyControllerSkyControllerStateBatteryChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSkyControllerStateBatteryChangedListener (ARCommandSkyControllerSkyControllerStateBatteryChangedListener _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM) {
+        _ARCommandSkyControllerSkyControllerStateBatteryChangedListener = _ARCommandSkyControllerSkyControllerStateBatteryChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerSkyControllerStateGpsFixChangedListener _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSkyControllerStateGpsFixChangedListener (ARCommandSkyControllerSkyControllerStateGpsFixChangedListener _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM) {
+        _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener = _ARCommandSkyControllerSkyControllerStateGpsFixChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSkyControllerStateGpsPositionChangedListener (ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM) {
+        _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener = _ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessPointSSID</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsAccessPointSSIDListener (ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener = _ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsAccessPointChannelListener (ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener = _ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAccessPointSettingsWifiSelectionListener _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsWifiSelectionListener (ARCommandSkyControllerAccessPointSettingsWifiSelectionListener _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener = _ARCommandSkyControllerAccessPointSettingsWifiSelectionListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener (ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener = _ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessPointChannelChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener (ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener = _ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSelectionChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAccessPointSettingsStateWifiSelectionChangedListener (ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM) {
+        _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener = _ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCameraResetOrientationListener _ARCommandSkyControllerCameraResetOrientationListener = null;
+
+    /**
+     * Set the listener for the command <code>ResetOrientation</code> of class <code>Camera</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCameraResetOrientationListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCameraResetOrientationListener (ARCommandSkyControllerCameraResetOrientationListener _ARCommandSkyControllerCameraResetOrientationListener_PARAM) {
+        _ARCommandSkyControllerCameraResetOrientationListener = _ARCommandSkyControllerCameraResetOrientationListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerGamepadInfosGetGamepadControlsListener _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener = null;
+
+    /**
+     * Set the listener for the command <code>GetGamepadControls</code> of class <code>GamepadInfos</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerGamepadInfosGetGamepadControlsListener (ARCommandSkyControllerGamepadInfosGetGamepadControlsListener _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM) {
+        _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener = _ARCommandSkyControllerGamepadInfosGetGamepadControlsListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerGamepadInfosStateGamepadControlListener _ARCommandSkyControllerGamepadInfosStateGamepadControlListener = null;
+
+    /**
+     * Set the listener for the command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerGamepadInfosStateGamepadControlListener (ARCommandSkyControllerGamepadInfosStateGamepadControlListener _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM) {
+        _ARCommandSkyControllerGamepadInfosStateGamepadControlListener = _ARCommandSkyControllerGamepadInfosStateGamepadControlListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllGamepadControlsSent</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerGamepadInfosStateAllGamepadControlsSentListener (ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM) {
+        _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener = _ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>GetCurrentButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsGetCurrentButtonMappingsListener (ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener = _ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>GetAvailableButtonMappings</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsGetAvailableButtonMappingsListener (ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener = _ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsSetButtonMappingListener _ARCommandSkyControllerButtonMappingsSetButtonMappingListener = null;
+
+    /**
+     * Set the listener for the command <code>SetButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsSetButtonMappingListener (ARCommandSkyControllerButtonMappingsSetButtonMappingListener _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsSetButtonMappingListener = _ARCommandSkyControllerButtonMappingsSetButtonMappingListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener = null;
+
+    /**
+     * Set the listener for the command <code>DefaultButtonMapping</code> of class <code>ButtonMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsDefaultButtonMappingListener (ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener = _ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsStateCurrentButtonMappingsListener (ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener = _ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllCurrentButtonMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener (ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener = _ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>AvailableButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsStateAvailableButtonMappingsListener (ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener = _ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllAvailableButtonsMappingsSent</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener (ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM) {
+        _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener = _ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>GetCurrentAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsGetCurrentAxisMappingsListener (ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener = _ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsGetAvailableAxisMappingsListener (ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener = _ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsSetAxisMappingListener _ARCommandSkyControllerAxisMappingsSetAxisMappingListener = null;
+
+    /**
+     * Set the listener for the command <code>SetAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsSetAxisMappingListener (ARCommandSkyControllerAxisMappingsSetAxisMappingListener _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsSetAxisMappingListener = _ARCommandSkyControllerAxisMappingsSetAxisMappingListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener = null;
+
+    /**
+     * Set the listener for the command <code>DefaultAxisMapping</code> of class <code>AxisMappings</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsDefaultAxisMappingListener (ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener = _ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsStateCurrentAxisMappingsListener (ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener = _ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllCurrentAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener (ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener = _ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener = null;
+
+    /**
+     * Set the listener for the command <code>AvailableAxisMappings</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsStateAvailableAxisMappingsListener (ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener = _ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllAvailableAxisMappingsSent</code> of class <code>AxisMappingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener (ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM) {
+        _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener = _ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener = null;
+
+    /**
+     * Set the listener for the command <code>GetCurrentAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersGetCurrentAxisFiltersListener (ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener = _ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener = null;
+
+    /**
+     * Set the listener for the command <code>GetPresetAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersGetPresetAxisFiltersListener (ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener = _ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersSetAxisFilterListener _ARCommandSkyControllerAxisFiltersSetAxisFilterListener = null;
+
+    /**
+     * Set the listener for the command <code>SetAxisFilter</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersSetAxisFilterListener (ARCommandSkyControllerAxisFiltersSetAxisFilterListener _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersSetAxisFilterListener = _ARCommandSkyControllerAxisFiltersSetAxisFilterListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener = null;
+
+    /**
+     * Set the listener for the command <code>DefaultAxisFilters</code> of class <code>AxisFilters</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersDefaultAxisFiltersListener (ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener = _ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersStateCurrentAxisFiltersListener (ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener = _ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllCurrentFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersStateAllCurrentFiltersSentListener (ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener = _ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener = null;
+
+    /**
+     * Set the listener for the command <code>PresetAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersStatePresetAxisFiltersListener (ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener = _ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener = null;
+
+    /**
+     * Set the listener for the command <code>AllPresetFiltersSent</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerAxisFiltersStateAllPresetFiltersSentListener (ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM) {
+        _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener = _ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCoPilotingSetPilotingSourceListener _ARCommandSkyControllerCoPilotingSetPilotingSourceListener = null;
+
+    /**
+     * Set the listener for the command <code>SetPilotingSource</code> of class <code>CoPiloting</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCoPilotingSetPilotingSourceListener (ARCommandSkyControllerCoPilotingSetPilotingSourceListener _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM) {
+        _ARCommandSkyControllerCoPilotingSetPilotingSourceListener = _ARCommandSkyControllerCoPilotingSetPilotingSourceListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCoPilotingStatePilotingSourceListener _ARCommandSkyControllerCoPilotingStatePilotingSourceListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCoPilotingStatePilotingSourceListener (ARCommandSkyControllerCoPilotingStatePilotingSourceListener _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM) {
+        _ARCommandSkyControllerCoPilotingStatePilotingSourceListener = _ARCommandSkyControllerCoPilotingStatePilotingSourceListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener = null;
+
+    /**
+     * Set the listener for the command <code>EnableMagnetoCalibrationQualityUpdates</code> of class <code>Calibration</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener (ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM) {
+        _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener = _ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCalibrationStateMagnetoCalibrationStateListener (ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM) {
+        _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener = _ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener_PARAM;
+    }
+
+    private static ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener (ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM) {
+        _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener = _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM;
+    }
+
+
+
+    private static ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener = null;
+
+    /**
+     * Set the listener for the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerDebugDebugTest1Listener_PARAM New listener for the command
+     */
+    public static void setSkyControllerDebugDebugTest1Listener (ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener_PARAM) {
+        _ARCommandSkyControllerDebugDebugTest1Listener = _ARCommandSkyControllerDebugDebugTest1Listener_PARAM;
+    }
+
+
+
+    private static ARCommandCommonNetworkDisconnectListener _ARCommandCommonNetworkDisconnectListener = null;
+
+    /**
+     * Set the listener for the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonNetworkDisconnectListener_PARAM New listener for the command
+     */
+    public static void setCommonNetworkDisconnectListener (ARCommandCommonNetworkDisconnectListener _ARCommandCommonNetworkDisconnectListener_PARAM) {
+        _ARCommandCommonNetworkDisconnectListener = _ARCommandCommonNetworkDisconnectListener_PARAM;
+    }
+
+
+    private static ARCommandCommonNetworkEventDisconnectionListener _ARCommandCommonNetworkEventDisconnectionListener = null;
+
+    /**
+     * Set the listener for the command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonNetworkEventDisconnectionListener_PARAM New listener for the command
+     */
+    public static void setCommonNetworkEventDisconnectionListener (ARCommandCommonNetworkEventDisconnectionListener _ARCommandCommonNetworkEventDisconnectionListener_PARAM) {
+        _ARCommandCommonNetworkEventDisconnectionListener = _ARCommandCommonNetworkEventDisconnectionListener_PARAM;
+    }
+
+
+    private static ARCommandCommonSettingsAllSettingsListener _ARCommandCommonSettingsAllSettingsListener = null;
+
+    /**
+     * Set the listener for the command <code>AllSettings</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsAllSettingsListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsAllSettingsListener (ARCommandCommonSettingsAllSettingsListener _ARCommandCommonSettingsAllSettingsListener_PARAM) {
+        _ARCommandCommonSettingsAllSettingsListener = _ARCommandCommonSettingsAllSettingsListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsResetListener _ARCommandCommonSettingsResetListener = null;
+
+    /**
+     * Set the listener for the command <code>Reset</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsResetListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsResetListener (ARCommandCommonSettingsResetListener _ARCommandCommonSettingsResetListener_PARAM) {
+        _ARCommandCommonSettingsResetListener = _ARCommandCommonSettingsResetListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsProductNameListener _ARCommandCommonSettingsProductNameListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsProductNameListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsProductNameListener (ARCommandCommonSettingsProductNameListener _ARCommandCommonSettingsProductNameListener_PARAM) {
+        _ARCommandCommonSettingsProductNameListener = _ARCommandCommonSettingsProductNameListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsCountryListener _ARCommandCommonSettingsCountryListener = null;
+
+    /**
+     * Set the listener for the command <code>Country</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsCountryListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsCountryListener (ARCommandCommonSettingsCountryListener _ARCommandCommonSettingsCountryListener_PARAM) {
+        _ARCommandCommonSettingsCountryListener = _ARCommandCommonSettingsCountryListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsAutoCountryListener _ARCommandCommonSettingsAutoCountryListener = null;
+
+    /**
+     * Set the listener for the command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsAutoCountryListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsAutoCountryListener (ARCommandCommonSettingsAutoCountryListener _ARCommandCommonSettingsAutoCountryListener_PARAM) {
+        _ARCommandCommonSettingsAutoCountryListener = _ARCommandCommonSettingsAutoCountryListener_PARAM;
+    }
+
+
+    private static ARCommandCommonSettingsStateAllSettingsChangedListener _ARCommandCommonSettingsStateAllSettingsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AllSettingsChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateAllSettingsChangedListener (ARCommandCommonSettingsStateAllSettingsChangedListener _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateAllSettingsChangedListener = _ARCommandCommonSettingsStateAllSettingsChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateResetChangedListener _ARCommandCommonSettingsStateResetChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateResetChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateResetChangedListener (ARCommandCommonSettingsStateResetChangedListener _ARCommandCommonSettingsStateResetChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateResetChangedListener = _ARCommandCommonSettingsStateResetChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateProductNameChangedListener _ARCommandCommonSettingsStateProductNameChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductNameChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateProductNameChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateProductNameChangedListener (ARCommandCommonSettingsStateProductNameChangedListener _ARCommandCommonSettingsStateProductNameChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateProductNameChangedListener = _ARCommandCommonSettingsStateProductNameChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateProductVersionChangedListener _ARCommandCommonSettingsStateProductVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateProductVersionChangedListener (ARCommandCommonSettingsStateProductVersionChangedListener _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateProductVersionChangedListener = _ARCommandCommonSettingsStateProductVersionChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateProductSerialHighChangedListener _ARCommandCommonSettingsStateProductSerialHighChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductSerialHighChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateProductSerialHighChangedListener (ARCommandCommonSettingsStateProductSerialHighChangedListener _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateProductSerialHighChangedListener = _ARCommandCommonSettingsStateProductSerialHighChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateProductSerialLowChangedListener _ARCommandCommonSettingsStateProductSerialLowChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateProductSerialLowChangedListener (ARCommandCommonSettingsStateProductSerialLowChangedListener _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateProductSerialLowChangedListener = _ARCommandCommonSettingsStateProductSerialLowChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateCountryChangedListener _ARCommandCommonSettingsStateCountryChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateCountryChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateCountryChangedListener (ARCommandCommonSettingsStateCountryChangedListener _ARCommandCommonSettingsStateCountryChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateCountryChangedListener = _ARCommandCommonSettingsStateCountryChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonSettingsStateAutoCountryChangedListener _ARCommandCommonSettingsStateAutoCountryChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AutoCountryChanged</code> of class <code>SettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonSettingsStateAutoCountryChangedListener (ARCommandCommonSettingsStateAutoCountryChangedListener _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM) {
+        _ARCommandCommonSettingsStateAutoCountryChangedListener = _ARCommandCommonSettingsStateAutoCountryChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonCommonAllStatesListener _ARCommandCommonCommonAllStatesListener = null;
+
+    /**
+     * Set the listener for the command <code>AllStates</code> of class <code>Common</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonAllStatesListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonAllStatesListener (ARCommandCommonCommonAllStatesListener _ARCommandCommonCommonAllStatesListener_PARAM) {
+        _ARCommandCommonCommonAllStatesListener = _ARCommandCommonCommonAllStatesListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonCurrentDateListener _ARCommandCommonCommonCurrentDateListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentDate</code> of class <code>Common</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonCurrentDateListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonCurrentDateListener (ARCommandCommonCommonCurrentDateListener _ARCommandCommonCommonCurrentDateListener_PARAM) {
+        _ARCommandCommonCommonCurrentDateListener = _ARCommandCommonCommonCurrentDateListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonCurrentTimeListener _ARCommandCommonCommonCurrentTimeListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonCurrentTimeListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonCurrentTimeListener (ARCommandCommonCommonCurrentTimeListener _ARCommandCommonCommonCurrentTimeListener_PARAM) {
+        _ARCommandCommonCommonCurrentTimeListener = _ARCommandCommonCommonCurrentTimeListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonRebootListener _ARCommandCommonCommonRebootListener = null;
+
+    /**
+     * Set the listener for the command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonRebootListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonRebootListener (ARCommandCommonCommonRebootListener _ARCommandCommonCommonRebootListener_PARAM) {
+        _ARCommandCommonCommonRebootListener = _ARCommandCommonCommonRebootListener_PARAM;
+    }
+
+
+    private static ARCommandCommonCommonStateAllStatesChangedListener _ARCommandCommonCommonStateAllStatesChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AllStatesChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateAllStatesChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateAllStatesChangedListener (ARCommandCommonCommonStateAllStatesChangedListener _ARCommandCommonCommonStateAllStatesChangedListener_PARAM) {
+        _ARCommandCommonCommonStateAllStatesChangedListener = _ARCommandCommonCommonStateAllStatesChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateBatteryStateChangedListener _ARCommandCommonCommonStateBatteryStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateBatteryStateChangedListener (ARCommandCommonCommonStateBatteryStateChangedListener _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM) {
+        _ARCommandCommonCommonStateBatteryStateChangedListener = _ARCommandCommonCommonStateBatteryStateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateMassStorageStateListChangedListener _ARCommandCommonCommonStateMassStorageStateListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MassStorageStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateMassStorageStateListChangedListener (ARCommandCommonCommonStateMassStorageStateListChangedListener _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM) {
+        _ARCommandCommonCommonStateMassStorageStateListChangedListener = _ARCommandCommonCommonStateMassStorageStateListChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateMassStorageInfoStateListChangedListener _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateMassStorageInfoStateListChangedListener (ARCommandCommonCommonStateMassStorageInfoStateListChangedListener _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM) {
+        _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener = _ARCommandCommonCommonStateMassStorageInfoStateListChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateCurrentDateChangedListener _ARCommandCommonCommonStateCurrentDateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateCurrentDateChangedListener (ARCommandCommonCommonStateCurrentDateChangedListener _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM) {
+        _ARCommandCommonCommonStateCurrentDateChangedListener = _ARCommandCommonCommonStateCurrentDateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateCurrentTimeChangedListener _ARCommandCommonCommonStateCurrentTimeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentTimeChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateCurrentTimeChangedListener (ARCommandCommonCommonStateCurrentTimeChangedListener _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM) {
+        _ARCommandCommonCommonStateCurrentTimeChangedListener = _ARCommandCommonCommonStateCurrentTimeChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateMassStorageInfoRemainingListChangedListener (ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM) {
+        _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener = _ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateWifiSignalChangedListener _ARCommandCommonCommonStateWifiSignalChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateWifiSignalChangedListener (ARCommandCommonCommonStateWifiSignalChangedListener _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM) {
+        _ARCommandCommonCommonStateWifiSignalChangedListener = _ARCommandCommonCommonStateWifiSignalChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateSensorsStatesListChangedListener _ARCommandCommonCommonStateSensorsStatesListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SensorsStatesListChanged</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateSensorsStatesListChangedListener (ARCommandCommonCommonStateSensorsStatesListChangedListener _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM) {
+        _ARCommandCommonCommonStateSensorsStatesListChangedListener = _ARCommandCommonCommonStateSensorsStatesListChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateProductModelListener _ARCommandCommonCommonStateProductModelListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductModel</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateProductModelListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateProductModelListener (ARCommandCommonCommonStateProductModelListener _ARCommandCommonCommonStateProductModelListener_PARAM) {
+        _ARCommandCommonCommonStateProductModelListener = _ARCommandCommonCommonStateProductModelListener_PARAM;
+    }
+
+    private static ARCommandCommonCommonStateCountryListKnownListener _ARCommandCommonCommonStateCountryListKnownListener = null;
+
+    /**
+     * Set the listener for the command <code>CountryListKnown</code> of class <code>CommonState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateCountryListKnownListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateCountryListKnownListener (ARCommandCommonCommonStateCountryListKnownListener _ARCommandCommonCommonStateCountryListKnownListener_PARAM) {
+        _ARCommandCommonCommonStateCountryListKnownListener = _ARCommandCommonCommonStateCountryListKnownListener_PARAM;
+    }
+
+
+    private static ARCommandCommonOverHeatSwitchOffListener _ARCommandCommonOverHeatSwitchOffListener = null;
+
+    /**
+     * Set the listener for the command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonOverHeatSwitchOffListener_PARAM New listener for the command
+     */
+    public static void setCommonOverHeatSwitchOffListener (ARCommandCommonOverHeatSwitchOffListener _ARCommandCommonOverHeatSwitchOffListener_PARAM) {
+        _ARCommandCommonOverHeatSwitchOffListener = _ARCommandCommonOverHeatSwitchOffListener_PARAM;
+    }
+
+    private static ARCommandCommonOverHeatVentilateListener _ARCommandCommonOverHeatVentilateListener = null;
+
+    /**
+     * Set the listener for the command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonOverHeatVentilateListener_PARAM New listener for the command
+     */
+    public static void setCommonOverHeatVentilateListener (ARCommandCommonOverHeatVentilateListener _ARCommandCommonOverHeatVentilateListener_PARAM) {
+        _ARCommandCommonOverHeatVentilateListener = _ARCommandCommonOverHeatVentilateListener_PARAM;
+    }
+
+
+    private static ARCommandCommonOverHeatStateOverHeatChangedListener _ARCommandCommonOverHeatStateOverHeatChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>OverHeatChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonOverHeatStateOverHeatChangedListener (ARCommandCommonOverHeatStateOverHeatChangedListener _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM) {
+        _ARCommandCommonOverHeatStateOverHeatChangedListener = _ARCommandCommonOverHeatStateOverHeatChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonOverHeatStateOverHeatRegulationChangedListener _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonOverHeatStateOverHeatRegulationChangedListener (ARCommandCommonOverHeatStateOverHeatRegulationChangedListener _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM) {
+        _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener = _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonControllerStateIsPilotingChangedListener (ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM) {
+        _ARCommandCommonControllerStateIsPilotingChangedListener = _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonWifiSettingsOutdoorSettingListener _ARCommandCommonWifiSettingsOutdoorSettingListener = null;
+
+    /**
+     * Set the listener for the command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM New listener for the command
+     */
+    public static void setCommonWifiSettingsOutdoorSettingListener (ARCommandCommonWifiSettingsOutdoorSettingListener _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM) {
+        _ARCommandCommonWifiSettingsOutdoorSettingListener = _ARCommandCommonWifiSettingsOutdoorSettingListener_PARAM;
+    }
+
+
+    private static ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>OutdoorSettingsChanged</code> of class <code>WifiSettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonWifiSettingsStateOutdoorSettingsChangedListener (ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM) {
+        _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener = _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonMavlinkStartListener _ARCommandCommonMavlinkStartListener = null;
+
+    /**
+     * Set the listener for the command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonMavlinkStartListener_PARAM New listener for the command
+     */
+    public static void setCommonMavlinkStartListener (ARCommandCommonMavlinkStartListener _ARCommandCommonMavlinkStartListener_PARAM) {
+        _ARCommandCommonMavlinkStartListener = _ARCommandCommonMavlinkStartListener_PARAM;
+    }
+
+    private static ARCommandCommonMavlinkPauseListener _ARCommandCommonMavlinkPauseListener = null;
+
+    /**
+     * Set the listener for the command <code>Pause</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonMavlinkPauseListener_PARAM New listener for the command
+     */
+    public static void setCommonMavlinkPauseListener (ARCommandCommonMavlinkPauseListener _ARCommandCommonMavlinkPauseListener_PARAM) {
+        _ARCommandCommonMavlinkPauseListener = _ARCommandCommonMavlinkPauseListener_PARAM;
+    }
+
+    private static ARCommandCommonMavlinkStopListener _ARCommandCommonMavlinkStopListener = null;
+
+    /**
+     * Set the listener for the command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonMavlinkStopListener_PARAM New listener for the command
+     */
+    public static void setCommonMavlinkStopListener (ARCommandCommonMavlinkStopListener _ARCommandCommonMavlinkStopListener_PARAM) {
+        _ARCommandCommonMavlinkStopListener = _ARCommandCommonMavlinkStopListener_PARAM;
+    }
+
+
+    private static ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonMavlinkStateMavlinkFilePlayingStateChangedListener (ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM) {
+        _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener = _ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonMavlinkStateMavlinkPlayErrorStateChangedListener (ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM) {
+        _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener = _ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonCalibrationMagnetoCalibrationListener _ARCommandCommonCalibrationMagnetoCalibrationListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibration</code> of class <code>Calibration</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM New listener for the command
+     */
+    public static void setCommonCalibrationMagnetoCalibrationListener (ARCommandCommonCalibrationMagnetoCalibrationListener _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM) {
+        _ARCommandCommonCalibrationMagnetoCalibrationListener = _ARCommandCommonCalibrationMagnetoCalibrationListener_PARAM;
+    }
+
+
+    private static ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCalibrationStateMagnetoCalibrationStateChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM) {
+        _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM New listener for the command
+     */
+    public static void setCommonCalibrationStateMagnetoCalibrationRequiredStateListener (ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM) {
+        _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener = _ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener_PARAM;
+    }
+
+    private static ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationAxisToCalibrateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM) {
+        _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MagnetoCalibrationStartedChanged</code> of class <code>CalibrationState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCalibrationStateMagnetoCalibrationStartedChangedListener (ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM) {
+        _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener = _ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonCameraSettingsStateCameraSettingsChangedListener _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCameraSettingsStateCameraSettingsChangedListener (ARCommandCommonCameraSettingsStateCameraSettingsChangedListener _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM) {
+        _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener = _ARCommandCommonCameraSettingsStateCameraSettingsChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonGPSControllerPositionForRunListener _ARCommandCommonGPSControllerPositionForRunListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonGPSControllerPositionForRunListener_PARAM New listener for the command
+     */
+    public static void setCommonGPSControllerPositionForRunListener (ARCommandCommonGPSControllerPositionForRunListener _ARCommandCommonGPSControllerPositionForRunListener_PARAM) {
+        _ARCommandCommonGPSControllerPositionForRunListener = _ARCommandCommonGPSControllerPositionForRunListener_PARAM;
+    }
+
+
+    private static ARCommandCommonFlightPlanStateAvailabilityStateChangedListener _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AvailabilityStateChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonFlightPlanStateAvailabilityStateChangedListener (ARCommandCommonFlightPlanStateAvailabilityStateChangedListener _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM) {
+        _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener = _ARCommandCommonFlightPlanStateAvailabilityStateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonFlightPlanStateComponentStateListChangedListener _ARCommandCommonFlightPlanStateComponentStateListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonFlightPlanStateComponentStateListChangedListener (ARCommandCommonFlightPlanStateComponentStateListChangedListener _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM) {
+        _ARCommandCommonFlightPlanStateComponentStateListChangedListener = _ARCommandCommonFlightPlanStateComponentStateListChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonFlightPlanEventStartingErrorEventListener _ARCommandCommonFlightPlanEventStartingErrorEventListener = null;
+
+    /**
+     * Set the listener for the command <code>StartingErrorEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM New listener for the command
+     */
+    public static void setCommonFlightPlanEventStartingErrorEventListener (ARCommandCommonFlightPlanEventStartingErrorEventListener _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM) {
+        _ARCommandCommonFlightPlanEventStartingErrorEventListener = _ARCommandCommonFlightPlanEventStartingErrorEventListener_PARAM;
+    }
+
+    private static ARCommandCommonFlightPlanEventSpeedBridleEventListener _ARCommandCommonFlightPlanEventSpeedBridleEventListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM New listener for the command
+     */
+    public static void setCommonFlightPlanEventSpeedBridleEventListener (ARCommandCommonFlightPlanEventSpeedBridleEventListener _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM) {
+        _ARCommandCommonFlightPlanEventSpeedBridleEventListener = _ARCommandCommonFlightPlanEventSpeedBridleEventListener_PARAM;
+    }
+
+
+    private static ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM New listener for the command
+     */
+    public static void setCommonARLibsVersionsStateControllerLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM) {
+        _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener_PARAM;
+    }
+
+    private static ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener = null;
+
+    /**
+     * Set the listener for the command <code>SkyControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM New listener for the command
+     */
+    public static void setCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM) {
+        _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener_PARAM;
+    }
+
+    private static ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener = null;
+
+    /**
+     * Set the listener for the command <code>DeviceLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM New listener for the command
+     */
+    public static void setCommonARLibsVersionsStateDeviceLibARCommandsVersionListener (ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM) {
+        _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener = _ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAudioControllerReadyForStreamingListener _ARCommandCommonAudioControllerReadyForStreamingListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerReadyForStreaming</code> of class <code>Audio</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM New listener for the command
+     */
+    public static void setCommonAudioControllerReadyForStreamingListener (ARCommandCommonAudioControllerReadyForStreamingListener _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM) {
+        _ARCommandCommonAudioControllerReadyForStreamingListener = _ARCommandCommonAudioControllerReadyForStreamingListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAudioStateAudioStreamingRunningListener _ARCommandCommonAudioStateAudioStreamingRunningListener = null;
+
+    /**
+     * Set the listener for the command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM New listener for the command
+     */
+    public static void setCommonAudioStateAudioStreamingRunningListener (ARCommandCommonAudioStateAudioStreamingRunningListener _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM) {
+        _ARCommandCommonAudioStateAudioStreamingRunningListener = _ARCommandCommonAudioStateAudioStreamingRunningListener_PARAM;
+    }
+
+
+    private static ARCommandCommonHeadlightsIntensityListener _ARCommandCommonHeadlightsIntensityListener = null;
+
+    /**
+     * Set the listener for the command <code>Intensity</code> of class <code>Headlights</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonHeadlightsIntensityListener_PARAM New listener for the command
+     */
+    public static void setCommonHeadlightsIntensityListener (ARCommandCommonHeadlightsIntensityListener _ARCommandCommonHeadlightsIntensityListener_PARAM) {
+        _ARCommandCommonHeadlightsIntensityListener = _ARCommandCommonHeadlightsIntensityListener_PARAM;
+    }
+
+
+    private static ARCommandCommonHeadlightsStateIntensityChangedListener _ARCommandCommonHeadlightsStateIntensityChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonHeadlightsStateIntensityChangedListener (ARCommandCommonHeadlightsStateIntensityChangedListener _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM) {
+        _ARCommandCommonHeadlightsStateIntensityChangedListener = _ARCommandCommonHeadlightsStateIntensityChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAnimationsStartAnimationListener _ARCommandCommonAnimationsStartAnimationListener = null;
+
+    /**
+     * Set the listener for the command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAnimationsStartAnimationListener_PARAM New listener for the command
+     */
+    public static void setCommonAnimationsStartAnimationListener (ARCommandCommonAnimationsStartAnimationListener _ARCommandCommonAnimationsStartAnimationListener_PARAM) {
+        _ARCommandCommonAnimationsStartAnimationListener = _ARCommandCommonAnimationsStartAnimationListener_PARAM;
+    }
+
+    private static ARCommandCommonAnimationsStopAnimationListener _ARCommandCommonAnimationsStopAnimationListener = null;
+
+    /**
+     * Set the listener for the command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAnimationsStopAnimationListener_PARAM New listener for the command
+     */
+    public static void setCommonAnimationsStopAnimationListener (ARCommandCommonAnimationsStopAnimationListener _ARCommandCommonAnimationsStopAnimationListener_PARAM) {
+        _ARCommandCommonAnimationsStopAnimationListener = _ARCommandCommonAnimationsStopAnimationListener_PARAM;
+    }
+
+    private static ARCommandCommonAnimationsStopAllAnimationsListener _ARCommandCommonAnimationsStopAllAnimationsListener = null;
+
+    /**
+     * Set the listener for the command <code>StopAllAnimations</code> of class <code>Animations</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM New listener for the command
+     */
+    public static void setCommonAnimationsStopAllAnimationsListener (ARCommandCommonAnimationsStopAllAnimationsListener _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM) {
+        _ARCommandCommonAnimationsStopAllAnimationsListener = _ARCommandCommonAnimationsStopAllAnimationsListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAnimationsStateListListener _ARCommandCommonAnimationsStateListListener = null;
+
+    /**
+     * Set the listener for the command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAnimationsStateListListener_PARAM New listener for the command
+     */
+    public static void setCommonAnimationsStateListListener (ARCommandCommonAnimationsStateListListener _ARCommandCommonAnimationsStateListListener_PARAM) {
+        _ARCommandCommonAnimationsStateListListener = _ARCommandCommonAnimationsStateListListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAccessoryConfigListener _ARCommandCommonAccessoryConfigListener = null;
+
+    /**
+     * Set the listener for the command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAccessoryConfigListener_PARAM New listener for the command
+     */
+    public static void setCommonAccessoryConfigListener (ARCommandCommonAccessoryConfigListener _ARCommandCommonAccessoryConfigListener_PARAM) {
+        _ARCommandCommonAccessoryConfigListener = _ARCommandCommonAccessoryConfigListener_PARAM;
+    }
+
+
+    private static ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonAccessoryStateSupportedAccessoriesListChangedListener (ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM) {
+        _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener = _ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonAccessoryStateAccessoryConfigChangedListener _ARCommandCommonAccessoryStateAccessoryConfigChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonAccessoryStateAccessoryConfigChangedListener (ARCommandCommonAccessoryStateAccessoryConfigChangedListener _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM) {
+        _ARCommandCommonAccessoryStateAccessoryConfigChangedListener = _ARCommandCommonAccessoryStateAccessoryConfigChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener = null;
+
+    /**
+     * Set the listener for the command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM New listener for the command
+     */
+    public static void setCommonAccessoryStateAccessoryConfigModificationEnabledListener (ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM) {
+        _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener = _ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener_PARAM;
+    }
+
+
+    private static ARCommandCommonChargerSetMaxChargeRateListener _ARCommandCommonChargerSetMaxChargeRateListener = null;
+
+    /**
+     * Set the listener for the command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonChargerSetMaxChargeRateListener_PARAM New listener for the command
+     */
+    public static void setCommonChargerSetMaxChargeRateListener (ARCommandCommonChargerSetMaxChargeRateListener _ARCommandCommonChargerSetMaxChargeRateListener_PARAM) {
+        _ARCommandCommonChargerSetMaxChargeRateListener = _ARCommandCommonChargerSetMaxChargeRateListener_PARAM;
+    }
+
+
+    private static ARCommandCommonChargerStateMaxChargeRateChangedListener _ARCommandCommonChargerStateMaxChargeRateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonChargerStateMaxChargeRateChangedListener (ARCommandCommonChargerStateMaxChargeRateChangedListener _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM) {
+        _ARCommandCommonChargerStateMaxChargeRateChangedListener = _ARCommandCommonChargerStateMaxChargeRateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonChargerStateCurrentChargeStateChangedListener _ARCommandCommonChargerStateCurrentChargeStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonChargerStateCurrentChargeStateChangedListener (ARCommandCommonChargerStateCurrentChargeStateChangedListener _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM) {
+        _ARCommandCommonChargerStateCurrentChargeStateChangedListener = _ARCommandCommonChargerStateCurrentChargeStateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonChargerStateLastChargeRateChangedListener _ARCommandCommonChargerStateLastChargeRateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonChargerStateLastChargeRateChangedListener (ARCommandCommonChargerStateLastChargeRateChangedListener _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM) {
+        _ARCommandCommonChargerStateLastChargeRateChangedListener = _ARCommandCommonChargerStateLastChargeRateChangedListener_PARAM;
+    }
+
+    private static ARCommandCommonChargerStateChargingInfoListener _ARCommandCommonChargerStateChargingInfoListener = null;
+
+    /**
+     * Set the listener for the command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonChargerStateChargingInfoListener_PARAM New listener for the command
+     */
+    public static void setCommonChargerStateChargingInfoListener (ARCommandCommonChargerStateChargingInfoListener _ARCommandCommonChargerStateChargingInfoListener_PARAM) {
+        _ARCommandCommonChargerStateChargingInfoListener = _ARCommandCommonChargerStateChargingInfoListener_PARAM;
+    }
+
+
+
+    private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
+
+    /**
+     * Set the listener for the command <code>SendPacket</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsSendPacketListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsSendPacketListener (ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener_PARAM) {
+        _ARCommandCommonDebugStatsSendPacketListener = _ARCommandCommonDebugStatsSendPacketListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = null;
+
+    /**
+     * Set the listener for the command <code>StartSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsStartSendingPacketFromDroneListener (ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM) {
+        _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = null;
+
+    /**
+     * Set the listener for the command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsStopSendingPacketFromDroneListener (ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM) {
+        _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM;
+    }
+
+
+    private static ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener = null;
+
+    /**
+     * Set the listener for the command <code>SendPacket</code> of class <code>StatsEvent</code> in project <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsEventSendPacketListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsEventSendPacketListener (ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener_PARAM) {
+        _ARCommandCommonDebugStatsEventSendPacketListener = _ARCommandCommonDebugStatsEventSendPacketListener_PARAM;
+    }
+
+
+
+    private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>BoughtFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProBoughtFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProBoughtFeaturesListener (ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener_PARAM) {
+        _ARCommandProProBoughtFeaturesListener = _ARCommandProProBoughtFeaturesListener_PARAM;
+    }
+
+    private static ARCommandProProResponseListener _ARCommandProProResponseListener = null;
+
+    /**
+     * Set the listener for the command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProResponseListener_PARAM New listener for the command
+     */
+    public static void setProProResponseListener (ARCommandProProResponseListener _ARCommandProProResponseListener_PARAM) {
+        _ARCommandProProResponseListener = _ARCommandProProResponseListener_PARAM;
+    }
+
+    private static ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProActivateFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProActivateFeaturesListener (ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener_PARAM) {
+        _ARCommandProProActivateFeaturesListener = _ARCommandProProActivateFeaturesListener_PARAM;
+    }
+
+
+    private static ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>SupportedFeatures</code> of class <code>ProState</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProStateSupportedFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProStateSupportedFeaturesListener (ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener_PARAM) {
+        _ARCommandProProStateSupportedFeaturesListener = _ARCommandProProStateSupportedFeaturesListener_PARAM;
+    }
+
+    private static ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener = null;
+
+    /**
+     * Set the listener for the command <code>FeaturesActivated</code> of class <code>ProState</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProStateFeaturesActivatedListener_PARAM New listener for the command
+     */
+    public static void setProProStateFeaturesActivatedListener (ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener_PARAM) {
+        _ARCommandProProStateFeaturesActivatedListener = _ARCommandProProStateFeaturesActivatedListener_PARAM;
+    }
+
+
+    private static ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener = null;
+
+    /**
+     * Set the listener for the command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProEventChallengeEventListener_PARAM New listener for the command
+     */
+    public static void setProProEventChallengeEventListener (ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener_PARAM) {
+        _ARCommandProProEventChallengeEventListener = _ARCommandProProEventChallengeEventListener_PARAM;
+    }
+
+
+
 
     private native String  nativeToString (long jpdata, int jdataSize);
     private static native String  nativeStaticToString (long jpdata, int jdataSize);
     private native int     nativeDecode (long jpdata, int jdataSize);
-
-    private native int     nativeSetSkyControllerWifiStateWifiList (long pdata, int dataTotalLength, String bssid, String ssid, byte secured, byte saved, int rssi, int frequency);
-    private native int     nativeSetSkyControllerWifiStateConnexionChanged (long pdata, int dataTotalLength, String ssid, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM status);
-    private native int     nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out);
-    private native int     nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerWifiStateWifiSignalChanged (long pdata, int dataTotalLength, byte level);
-
-    private native int     nativeSetSkyControllerWifiRequestWifiList (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerWifiRequestCurrentWifi (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerWifiConnectToWifi (long pdata, int dataTotalLength, String bssid, String ssid, String passphrase);
-    private native int     nativeSetSkyControllerWifiForgetWifi (long pdata, int dataTotalLength, String ssid);
-    private native int     nativeSetSkyControllerWifiWifiAuthChannel (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerDeviceRequestDeviceList (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerDeviceRequestCurrentDevice (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerDeviceConnectToDevice (long pdata, int dataTotalLength, String deviceName);
-
-    private native int     nativeSetSkyControllerDeviceStateDeviceList (long pdata, int dataTotalLength, String name);
-    private native int     nativeSetSkyControllerDeviceStateConnexionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM status, String deviceName, short deviceProductID);
-
-    private native int     nativeSetSkyControllerSettingsAllSettings (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerSettingsReset (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerSettingsStateResetChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerSettingsStateProductSerialChanged (long pdata, int dataTotalLength, String serialNumber);
-
-    private native int     nativeSetSkyControllerCommonAllStates (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerCommonStateAllStatesChanged (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerSkyControllerStateBatteryChanged (long pdata, int dataTotalLength, byte percent);
-    private native int     nativeSetSkyControllerSkyControllerStateGpsFixChanged (long pdata, int dataTotalLength, byte fixed);
-    private native int     nativeSetSkyControllerSkyControllerStateGpsPositionChanged (long pdata, int dataTotalLength, double latitude, double longitude, double altitude, float heading);
-
-    private native int     nativeSetSkyControllerAccessPointSettingsAccessPointSSID (long pdata, int dataTotalLength, String ssid);
-    private native int     nativeSetSkyControllerAccessPointSettingsAccessPointChannel (long pdata, int dataTotalLength, byte channel);
-    private native int     nativeSetSkyControllerAccessPointSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (long pdata, int dataTotalLength, String ssid);
-    private native int     nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (long pdata, int dataTotalLength, byte channel);
-    private native int     nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetSkyControllerCameraResetOrientation (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerGamepadInfosGetGamepadControls (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerGamepadInfosStateGamepadControl (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name);
-    private native int     nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerButtonMappingsSetButtonMapping (long pdata, int dataTotalLength, int key_id, String mapping_uid);
-    private native int     nativeSetSkyControllerButtonMappingsDefaultButtonMapping (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (long pdata, int dataTotalLength, int key_id, String mapping_uid);
-    private native int     nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (long pdata, int dataTotalLength, String mapping_uid, String name);
-    private native int     nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisMappingsSetAxisMapping (long pdata, int dataTotalLength, int axis_id, String mapping_uid);
-    private native int     nativeSetSkyControllerAxisMappingsDefaultAxisMapping (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (long pdata, int dataTotalLength, int axis_id, String mapping_uid);
-    private native int     nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (long pdata, int dataTotalLength, String mapping_uid, String name);
-    private native int     nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisFiltersSetAxisFilter (long pdata, int dataTotalLength, int axis_id, String filter_uid_or_builder);
-    private native int     nativeSetSkyControllerAxisFiltersDefaultAxisFilters (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (long pdata, int dataTotalLength, int axis_id, String filter_uid_or_builder);
-    private native int     nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (long pdata, int dataTotalLength);
-    private native int     nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (long pdata, int dataTotalLength, String filter_uid, String name);
-    private native int     nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (long pdata, int dataTotalLength);
-
-    private native int     nativeSetSkyControllerCoPilotingSetPilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM source);
-
-    private native int     nativeSetSkyControllerCoPilotingStatePilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source);
-
-    private native int     nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (long pdata, int dataTotalLength, byte enable);
-
-    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality);
-    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (long pdata, int dataTotalLength, byte enabled);
-
-
-    private native int     nativeSetSkyControllerDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);
-
-
-    private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
-    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge);
-    private native int     nativeSetProProActivateFeatures (long pdata, int dataTotalLength, long features);
-
-    private native int     nativeSetProProStateSupportedFeatures (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features);
-    private native int     nativeSetProProStateFeaturesActivated (long pdata, int dataTotalLength, long features);
-
-    private native int     nativeSetProProEventChallengeEvent (long pdata, int dataTotalLength, String challenge);
-
-
-    private native int     nativeSetMiniDronePilotingFlatTrim (long pdata, int dataTotalLength);
-    private native int     nativeSetMiniDronePilotingTakeOff (long pdata, int dataTotalLength);
-    private native int     nativeSetMiniDronePilotingPCMD (long pdata, int dataTotalLength, byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestamp);
-    private native int     nativeSetMiniDronePilotingLanding (long pdata, int dataTotalLength);
-    private native int     nativeSetMiniDronePilotingEmergency (long pdata, int dataTotalLength);
-    private native int     nativeSetMiniDronePilotingAutoTakeOffMode (long pdata, int dataTotalLength, byte state);
-
-    private native int     nativeSetMiniDronePilotingStateFlatTrimChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetMiniDronePilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
-    private native int     nativeSetMiniDronePilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
-    private native int     nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (long pdata, int dataTotalLength, byte state);
-
-    private native int     nativeSetMiniDroneAnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
-    private native int     nativeSetMiniDroneAnimationsCap (long pdata, int dataTotalLength, short offset);
-
-    private native int     nativeSetMiniDroneMediaRecordPicture (long pdata, int dataTotalLength, byte mass_storage_id);
-    private native int     nativeSetMiniDroneMediaRecordPictureV2 (long pdata, int dataTotalLength);
-
-    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
-    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error);
-
-    private native int     nativeSetMiniDroneMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error);
-
-    private native int     nativeSetMiniDronePilotingSettingsMaxAltitude (long pdata, int dataTotalLength, float current);
-    private native int     nativeSetMiniDronePilotingSettingsMaxTilt (long pdata, int dataTotalLength, float current);
-
-    private native int     nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (long pdata, int dataTotalLength, float current, float min, float max);
-    private native int     nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (long pdata, int dataTotalLength, float current, float min, float max);
-
-    private native int     nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
-    private native int     nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
-    private native int     nativeSetMiniDroneSpeedSettingsWheels (long pdata, int dataTotalLength, byte present);
-
-    private native int     nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
-    private native int     nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
-    private native int     nativeSetMiniDroneSpeedSettingsStateWheelsChanged (long pdata, int dataTotalLength, byte present);
-
-    private native int     nativeSetMiniDroneSettingsCutOutMode (long pdata, int dataTotalLength, byte enable);
-
-    private native int     nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (long pdata, int dataTotalLength, byte motor, String type, String software, String hardware);
-    private native int     nativeSetMiniDroneSettingsStateProductInertialVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
-    private native int     nativeSetMiniDroneSettingsStateCutOutModeChanged (long pdata, int dataTotalLength, byte enable);
-
-    private native int     nativeSetMiniDroneFloodControlStateFloodControlChanged (long pdata, int dataTotalLength, short delay);
-
-    private native int     nativeSetMiniDroneGPSControllerLatitudeForRun (long pdata, int dataTotalLength, double latitude);
-    private native int     nativeSetMiniDroneGPSControllerLongitudeForRun (long pdata, int dataTotalLength, double longitude);
-
-    private native int     nativeSetMiniDroneConfigurationControllerType (long pdata, int dataTotalLength, String type);
-    private native int     nativeSetMiniDroneConfigurationControllerName (long pdata, int dataTotalLength, String name);
-
-
-    private native int     nativeSetMiniDroneDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);
-    private native int     nativeSetMiniDroneDebugDebugTest2 (long pdata, int dataTotalLength, byte t2Args);
-    private native int     nativeSetMiniDroneDebugDebugTest3 (long pdata, int dataTotalLength, byte t3Args);
-
-
-    private native int     nativeSetCommonNetworkDisconnect (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonNetworkEventDisconnection (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause);
-
-    private native int     nativeSetCommonSettingsAllSettings (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonSettingsReset (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonSettingsProductName (long pdata, int dataTotalLength, String name);
-    private native int     nativeSetCommonSettingsCountry (long pdata, int dataTotalLength, String code);
-    private native int     nativeSetCommonSettingsAutoCountry (long pdata, int dataTotalLength, byte automatic);
-
-    private native int     nativeSetCommonSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonSettingsStateResetChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonSettingsStateProductNameChanged (long pdata, int dataTotalLength, String name);
-    private native int     nativeSetCommonSettingsStateProductVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
-    private native int     nativeSetCommonSettingsStateProductSerialHighChanged (long pdata, int dataTotalLength, String high);
-    private native int     nativeSetCommonSettingsStateProductSerialLowChanged (long pdata, int dataTotalLength, String low);
-    private native int     nativeSetCommonSettingsStateCountryChanged (long pdata, int dataTotalLength, String code);
-    private native int     nativeSetCommonSettingsStateAutoCountryChanged (long pdata, int dataTotalLength, byte automatic);
-
-    private native int     nativeSetCommonCommonAllStates (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonCommonCurrentDate (long pdata, int dataTotalLength, String date);
-    private native int     nativeSetCommonCommonCurrentTime (long pdata, int dataTotalLength, String time);
-    private native int     nativeSetCommonCommonReboot (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonCommonStateAllStatesChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonCommonStateBatteryStateChanged (long pdata, int dataTotalLength, byte percent);
-    private native int     nativeSetCommonCommonStateMassStorageStateListChanged (long pdata, int dataTotalLength, byte mass_storage_id, String name);
-    private native int     nativeSetCommonCommonStateMassStorageInfoStateListChanged (long pdata, int dataTotalLength, byte mass_storage_id, int size, int used_size, byte plugged, byte full, byte internal);
-    private native int     nativeSetCommonCommonStateCurrentDateChanged (long pdata, int dataTotalLength, String date);
-    private native int     nativeSetCommonCommonStateCurrentTimeChanged (long pdata, int dataTotalLength, String time);
-    private native int     nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (long pdata, int dataTotalLength, int free_space, short rec_time, int photo_remaining);
-    private native int     nativeSetCommonCommonStateWifiSignalChanged (long pdata, int dataTotalLength, short rssi);
-    private native int     nativeSetCommonCommonStateSensorsStatesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState);
-    private native int     nativeSetCommonCommonStateProductModel (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model);
-    private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, String countryCodes);
-
-    private native int     nativeSetCommonOverHeatSwitchOff (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonOverHeatVentilate (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonOverHeatStateOverHeatChanged (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonOverHeatStateOverHeatRegulationChanged (long pdata, int dataTotalLength, byte regulationType);
-
-    private native int     nativeSetCommonControllerStateIsPilotingChanged (long pdata, int dataTotalLength, byte piloting);
-
-    private native int     nativeSetCommonWifiSettingsOutdoorSetting (long pdata, int dataTotalLength, byte outdoor);
-
-    private native int     nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (long pdata, int dataTotalLength, byte outdoor);
-
-    private native int     nativeSetCommonMavlinkStart (long pdata, int dataTotalLength, String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type);
-    private native int     nativeSetCommonMavlinkPause (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonMavlinkStop (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM state, String filepath, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM type);
-    private native int     nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error);
-
-    private native int     nativeSetCommonCalibrationMagnetoCalibration (long pdata, int dataTotalLength, byte calibrate);
-
-    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (long pdata, int dataTotalLength, byte xAxisCalibration, byte yAxisCalibration, byte zAxisCalibration, byte calibrationFailed);
-    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (long pdata, int dataTotalLength, byte required);
-    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM axis);
-    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (long pdata, int dataTotalLength, byte started);
-
-    private native int     nativeSetCommonCameraSettingsStateCameraSettingsChanged (long pdata, int dataTotalLength, float fov, float panMax, float panMin, float tiltMax, float tiltMin);
-
-    private native int     nativeSetCommonGPSControllerPositionForRun (long pdata, int dataTotalLength, double latitude, double longitude);
-
-    private native int     nativeSetCommonFlightPlanStateAvailabilityStateChanged (long pdata, int dataTotalLength, byte AvailabilityState);
-    private native int     nativeSetCommonFlightPlanStateComponentStateListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM component, byte State);
-
-    private native int     nativeSetCommonFlightPlanEventStartingErrorEvent (long pdata, int dataTotalLength);
-    private native int     nativeSetCommonFlightPlanEventSpeedBridleEvent (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (long pdata, int dataTotalLength, String version);
-    private native int     nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (long pdata, int dataTotalLength, String version);
-    private native int     nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (long pdata, int dataTotalLength, String version);
-
-    private native int     nativeSetCommonAudioControllerReadyForStreaming (long pdata, int dataTotalLength, byte ready);
-
-    private native int     nativeSetCommonAudioStateAudioStreamingRunning (long pdata, int dataTotalLength, byte running);
-
-    private native int     nativeSetCommonHeadlightsIntensity (long pdata, int dataTotalLength, byte left, byte right);
-
-    private native int     nativeSetCommonHeadlightsStateIntensityChanged (long pdata, int dataTotalLength, byte left, byte right);
-
-    private native int     nativeSetCommonAnimationsStartAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim);
-    private native int     nativeSetCommonAnimationsStopAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim);
-    private native int     nativeSetCommonAnimationsStopAllAnimations (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonAnimationsStateList (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM anim, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM state, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM error);
-
-    private native int     nativeSetCommonAccessoryConfig (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory);
-
-    private native int     nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory);
-    private native int     nativeSetCommonAccessoryStateAccessoryConfigChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM newAccessory, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM error);
-    private native int     nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (long pdata, int dataTotalLength, byte enabled);
-
-    private native int     nativeSetCommonChargerSetMaxChargeRate (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate);
-
-    private native int     nativeSetCommonChargerStateMaxChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM rate);
-    private native int     nativeSetCommonChargerStateCurrentChargeStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase);
-    private native int     nativeSetCommonChargerStateLastChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate);
-    private native int     nativeSetCommonChargerStateChargingInfo (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime);
-
-
-    private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
-    private native int     nativeSetCommonDebugStatsStartSendingPacketFromDrone (long pdata, int dataTotalLength, byte frequency, byte packetSize, int date);
-    private native int     nativeSetCommonDebugStatsStopSendingPacketFromDrone (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonDebugStatsEventSendPacket (long pdata, int dataTotalLength, String packet);
-
 
     private native int     nativeSetARDrone3PilotingFlatTrim (long pdata, int dataTotalLength);
     private native int     nativeSetARDrone3PilotingTakeOff (long pdata, int dataTotalLength);
@@ -15413,6 +15143,276 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetJumpingSumoDebugUserScriptUserScriptUploaded (long pdata, int dataTotalLength);
 
     private native int     nativeSetJumpingSumoDebugUserScriptStateUserScriptParsed (long pdata, int dataTotalLength, byte success, String message);
+
+
+    private native int     nativeSetMiniDronePilotingFlatTrim (long pdata, int dataTotalLength);
+    private native int     nativeSetMiniDronePilotingTakeOff (long pdata, int dataTotalLength);
+    private native int     nativeSetMiniDronePilotingPCMD (long pdata, int dataTotalLength, byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestamp);
+    private native int     nativeSetMiniDronePilotingLanding (long pdata, int dataTotalLength);
+    private native int     nativeSetMiniDronePilotingEmergency (long pdata, int dataTotalLength);
+    private native int     nativeSetMiniDronePilotingAutoTakeOffMode (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetMiniDronePilotingStateFlatTrimChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetMiniDronePilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetMiniDronePilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetMiniDroneAnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
+    private native int     nativeSetMiniDroneAnimationsCap (long pdata, int dataTotalLength, short offset);
+
+    private native int     nativeSetMiniDroneMediaRecordPicture (long pdata, int dataTotalLength, byte mass_storage_id);
+    private native int     nativeSetMiniDroneMediaRecordPictureV2 (long pdata, int dataTotalLength);
+
+    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
+    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error);
+
+    private native int     nativeSetMiniDroneMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error);
+
+    private native int     nativeSetMiniDronePilotingSettingsMaxAltitude (long pdata, int dataTotalLength, float current);
+    private native int     nativeSetMiniDronePilotingSettingsMaxTilt (long pdata, int dataTotalLength, float current);
+
+    private native int     nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (long pdata, int dataTotalLength, float current, float min, float max);
+    private native int     nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (long pdata, int dataTotalLength, float current, float min, float max);
+
+    private native int     nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
+    private native int     nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
+    private native int     nativeSetMiniDroneSpeedSettingsWheels (long pdata, int dataTotalLength, byte present);
+
+    private native int     nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
+    private native int     nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
+    private native int     nativeSetMiniDroneSpeedSettingsStateWheelsChanged (long pdata, int dataTotalLength, byte present);
+
+    private native int     nativeSetMiniDroneSettingsCutOutMode (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (long pdata, int dataTotalLength, byte motor, String type, String software, String hardware);
+    private native int     nativeSetMiniDroneSettingsStateProductInertialVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
+    private native int     nativeSetMiniDroneSettingsStateCutOutModeChanged (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetMiniDroneFloodControlStateFloodControlChanged (long pdata, int dataTotalLength, short delay);
+
+    private native int     nativeSetMiniDroneGPSControllerLatitudeForRun (long pdata, int dataTotalLength, double latitude);
+    private native int     nativeSetMiniDroneGPSControllerLongitudeForRun (long pdata, int dataTotalLength, double longitude);
+
+    private native int     nativeSetMiniDroneConfigurationControllerType (long pdata, int dataTotalLength, String type);
+    private native int     nativeSetMiniDroneConfigurationControllerName (long pdata, int dataTotalLength, String name);
+
+
+    private native int     nativeSetMiniDroneDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);
+    private native int     nativeSetMiniDroneDebugDebugTest2 (long pdata, int dataTotalLength, byte t2Args);
+    private native int     nativeSetMiniDroneDebugDebugTest3 (long pdata, int dataTotalLength, byte t3Args);
+
+
+    private native int     nativeSetSkyControllerWifiStateWifiList (long pdata, int dataTotalLength, String bssid, String ssid, byte secured, byte saved, int rssi, int frequency);
+    private native int     nativeSetSkyControllerWifiStateConnexionChanged (long pdata, int dataTotalLength, String ssid, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM status);
+    private native int     nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out);
+    private native int     nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerWifiStateWifiSignalChanged (long pdata, int dataTotalLength, byte level);
+
+    private native int     nativeSetSkyControllerWifiRequestWifiList (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerWifiRequestCurrentWifi (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerWifiConnectToWifi (long pdata, int dataTotalLength, String bssid, String ssid, String passphrase);
+    private native int     nativeSetSkyControllerWifiForgetWifi (long pdata, int dataTotalLength, String ssid);
+    private native int     nativeSetSkyControllerWifiWifiAuthChannel (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerDeviceRequestDeviceList (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerDeviceRequestCurrentDevice (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerDeviceConnectToDevice (long pdata, int dataTotalLength, String deviceName);
+
+    private native int     nativeSetSkyControllerDeviceStateDeviceList (long pdata, int dataTotalLength, String name);
+    private native int     nativeSetSkyControllerDeviceStateConnexionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM status, String deviceName, short deviceProductID);
+
+    private native int     nativeSetSkyControllerSettingsAllSettings (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerSettingsReset (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerSettingsStateResetChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerSettingsStateProductSerialChanged (long pdata, int dataTotalLength, String serialNumber);
+
+    private native int     nativeSetSkyControllerCommonAllStates (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerCommonStateAllStatesChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerSkyControllerStateBatteryChanged (long pdata, int dataTotalLength, byte percent);
+    private native int     nativeSetSkyControllerSkyControllerStateGpsFixChanged (long pdata, int dataTotalLength, byte fixed);
+    private native int     nativeSetSkyControllerSkyControllerStateGpsPositionChanged (long pdata, int dataTotalLength, double latitude, double longitude, double altitude, float heading);
+
+    private native int     nativeSetSkyControllerAccessPointSettingsAccessPointSSID (long pdata, int dataTotalLength, String ssid);
+    private native int     nativeSetSkyControllerAccessPointSettingsAccessPointChannel (long pdata, int dataTotalLength, byte channel);
+    private native int     nativeSetSkyControllerAccessPointSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
+
+    private native int     nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (long pdata, int dataTotalLength, String ssid);
+    private native int     nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (long pdata, int dataTotalLength, byte channel);
+    private native int     nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
+
+    private native int     nativeSetSkyControllerCameraResetOrientation (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerGamepadInfosGetGamepadControls (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerGamepadInfosStateGamepadControl (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name);
+    private native int     nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerButtonMappingsSetButtonMapping (long pdata, int dataTotalLength, int key_id, String mapping_uid);
+    private native int     nativeSetSkyControllerButtonMappingsDefaultButtonMapping (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (long pdata, int dataTotalLength, int key_id, String mapping_uid);
+    private native int     nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (long pdata, int dataTotalLength, String mapping_uid, String name);
+    private native int     nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisMappingsSetAxisMapping (long pdata, int dataTotalLength, int axis_id, String mapping_uid);
+    private native int     nativeSetSkyControllerAxisMappingsDefaultAxisMapping (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (long pdata, int dataTotalLength, int axis_id, String mapping_uid);
+    private native int     nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (long pdata, int dataTotalLength, String mapping_uid, String name);
+    private native int     nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisFiltersSetAxisFilter (long pdata, int dataTotalLength, int axis_id, String filter_uid_or_builder);
+    private native int     nativeSetSkyControllerAxisFiltersDefaultAxisFilters (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (long pdata, int dataTotalLength, int axis_id, String filter_uid_or_builder);
+    private native int     nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (long pdata, int dataTotalLength);
+    private native int     nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (long pdata, int dataTotalLength, String filter_uid, String name);
+    private native int     nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (long pdata, int dataTotalLength);
+
+    private native int     nativeSetSkyControllerCoPilotingSetPilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM source);
+
+    private native int     nativeSetSkyControllerCoPilotingStatePilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source);
+
+    private native int     nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality);
+    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (long pdata, int dataTotalLength, byte enabled);
+
+
+    private native int     nativeSetSkyControllerDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);
+
+
+    private native int     nativeSetCommonNetworkDisconnect (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonNetworkEventDisconnection (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause);
+
+    private native int     nativeSetCommonSettingsAllSettings (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonSettingsReset (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonSettingsProductName (long pdata, int dataTotalLength, String name);
+    private native int     nativeSetCommonSettingsCountry (long pdata, int dataTotalLength, String code);
+    private native int     nativeSetCommonSettingsAutoCountry (long pdata, int dataTotalLength, byte automatic);
+
+    private native int     nativeSetCommonSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonSettingsStateResetChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonSettingsStateProductNameChanged (long pdata, int dataTotalLength, String name);
+    private native int     nativeSetCommonSettingsStateProductVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
+    private native int     nativeSetCommonSettingsStateProductSerialHighChanged (long pdata, int dataTotalLength, String high);
+    private native int     nativeSetCommonSettingsStateProductSerialLowChanged (long pdata, int dataTotalLength, String low);
+    private native int     nativeSetCommonSettingsStateCountryChanged (long pdata, int dataTotalLength, String code);
+    private native int     nativeSetCommonSettingsStateAutoCountryChanged (long pdata, int dataTotalLength, byte automatic);
+
+    private native int     nativeSetCommonCommonAllStates (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonCommonCurrentDate (long pdata, int dataTotalLength, String date);
+    private native int     nativeSetCommonCommonCurrentTime (long pdata, int dataTotalLength, String time);
+    private native int     nativeSetCommonCommonReboot (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonCommonStateAllStatesChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonCommonStateBatteryStateChanged (long pdata, int dataTotalLength, byte percent);
+    private native int     nativeSetCommonCommonStateMassStorageStateListChanged (long pdata, int dataTotalLength, byte mass_storage_id, String name);
+    private native int     nativeSetCommonCommonStateMassStorageInfoStateListChanged (long pdata, int dataTotalLength, byte mass_storage_id, int size, int used_size, byte plugged, byte full, byte internal);
+    private native int     nativeSetCommonCommonStateCurrentDateChanged (long pdata, int dataTotalLength, String date);
+    private native int     nativeSetCommonCommonStateCurrentTimeChanged (long pdata, int dataTotalLength, String time);
+    private native int     nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (long pdata, int dataTotalLength, int free_space, short rec_time, int photo_remaining);
+    private native int     nativeSetCommonCommonStateWifiSignalChanged (long pdata, int dataTotalLength, short rssi);
+    private native int     nativeSetCommonCommonStateSensorsStatesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState);
+    private native int     nativeSetCommonCommonStateProductModel (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model);
+    private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, String countryCodes);
+
+    private native int     nativeSetCommonOverHeatSwitchOff (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonOverHeatVentilate (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonOverHeatStateOverHeatChanged (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonOverHeatStateOverHeatRegulationChanged (long pdata, int dataTotalLength, byte regulationType);
+
+    private native int     nativeSetCommonControllerStateIsPilotingChanged (long pdata, int dataTotalLength, byte piloting);
+
+    private native int     nativeSetCommonWifiSettingsOutdoorSetting (long pdata, int dataTotalLength, byte outdoor);
+
+    private native int     nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (long pdata, int dataTotalLength, byte outdoor);
+
+    private native int     nativeSetCommonMavlinkStart (long pdata, int dataTotalLength, String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type);
+    private native int     nativeSetCommonMavlinkPause (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonMavlinkStop (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM state, String filepath, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM type);
+    private native int     nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error);
+
+    private native int     nativeSetCommonCalibrationMagnetoCalibration (long pdata, int dataTotalLength, byte calibrate);
+
+    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (long pdata, int dataTotalLength, byte xAxisCalibration, byte yAxisCalibration, byte zAxisCalibration, byte calibrationFailed);
+    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (long pdata, int dataTotalLength, byte required);
+    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM axis);
+    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (long pdata, int dataTotalLength, byte started);
+
+    private native int     nativeSetCommonCameraSettingsStateCameraSettingsChanged (long pdata, int dataTotalLength, float fov, float panMax, float panMin, float tiltMax, float tiltMin);
+
+    private native int     nativeSetCommonGPSControllerPositionForRun (long pdata, int dataTotalLength, double latitude, double longitude);
+
+    private native int     nativeSetCommonFlightPlanStateAvailabilityStateChanged (long pdata, int dataTotalLength, byte AvailabilityState);
+    private native int     nativeSetCommonFlightPlanStateComponentStateListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM component, byte State);
+
+    private native int     nativeSetCommonFlightPlanEventStartingErrorEvent (long pdata, int dataTotalLength);
+    private native int     nativeSetCommonFlightPlanEventSpeedBridleEvent (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (long pdata, int dataTotalLength, String version);
+    private native int     nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (long pdata, int dataTotalLength, String version);
+    private native int     nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (long pdata, int dataTotalLength, String version);
+
+    private native int     nativeSetCommonAudioControllerReadyForStreaming (long pdata, int dataTotalLength, byte ready);
+
+    private native int     nativeSetCommonAudioStateAudioStreamingRunning (long pdata, int dataTotalLength, byte running);
+
+    private native int     nativeSetCommonHeadlightsIntensity (long pdata, int dataTotalLength, byte left, byte right);
+
+    private native int     nativeSetCommonHeadlightsStateIntensityChanged (long pdata, int dataTotalLength, byte left, byte right);
+
+    private native int     nativeSetCommonAnimationsStartAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim);
+    private native int     nativeSetCommonAnimationsStopAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim);
+    private native int     nativeSetCommonAnimationsStopAllAnimations (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonAnimationsStateList (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM anim, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM state, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM error);
+
+    private native int     nativeSetCommonAccessoryConfig (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory);
+
+    private native int     nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory);
+    private native int     nativeSetCommonAccessoryStateAccessoryConfigChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM newAccessory, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM error);
+    private native int     nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (long pdata, int dataTotalLength, byte enabled);
+
+    private native int     nativeSetCommonChargerSetMaxChargeRate (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate);
+
+    private native int     nativeSetCommonChargerStateMaxChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM rate);
+    private native int     nativeSetCommonChargerStateCurrentChargeStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase);
+    private native int     nativeSetCommonChargerStateLastChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate);
+    private native int     nativeSetCommonChargerStateChargingInfo (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime);
+
+
+    private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
+    private native int     nativeSetCommonDebugStatsStartSendingPacketFromDrone (long pdata, int dataTotalLength, byte frequency, byte packetSize, int date);
+    private native int     nativeSetCommonDebugStatsStopSendingPacketFromDrone (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonDebugStatsEventSendPacket (long pdata, int dataTotalLength, String packet);
+
+
+    private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
+    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge);
+    private native int     nativeSetProProActivateFeatures (long pdata, int dataTotalLength, long features);
+
+    private native int     nativeSetProProStateSupportedFeatures (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features);
+    private native int     nativeSetProProStateFeaturesActivated (long pdata, int dataTotalLength, long features);
+
+    private native int     nativeSetProProEventChallengeEvent (long pdata, int dataTotalLength, String challenge);
 
 
 }

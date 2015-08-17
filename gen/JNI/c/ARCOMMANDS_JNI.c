@@ -93,5430 +93,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeDecode (JNIEnv *env, jobject th
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring bssid, jstring ssid, jbyte secured, jbyte saved, jint rssi, jint frequency)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_bssid = (*env)->GetStringUTFChars (env, bssid, NULL);
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_bssid, c_ssid, (uint8_t)secured, (uint8_t)saved, (int32_t)rssi, (int32_t)frequency);
-    (*env)->ReleaseStringUTFChars (env, bssid, c_bssid);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateConnexionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid, jobject status)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateConnexionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid, j_status_enum);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject band, jbyte channel, jbyte in_or_out)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM");
-    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
-    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiAuthChannelListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_band_enum, (uint8_t)channel, (uint8_t)in_or_out);
-    (*env)->DeleteLocalRef (env, j_band_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateAllWifiAuthChannelChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiSignalChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte level)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiSignalChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)level);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiRequestWifiList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiRequestWifiList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiRequestCurrentWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiRequestCurrentWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiConnectToWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring bssid, jstring ssid, jstring passphrase)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_bssid = (*env)->GetStringUTFChars (env, bssid, NULL);
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    const char *c_passphrase = (*env)->GetStringUTFChars (env, passphrase, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiConnectToWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_bssid, c_ssid, c_passphrase);
-    (*env)->ReleaseStringUTFChars (env, bssid, c_bssid);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    (*env)->ReleaseStringUTFChars (env, passphrase, c_passphrase);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiForgetWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiForgetWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiWifiAuthChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiWifiAuthChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceRequestDeviceList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceRequestDeviceList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceRequestCurrentDevice (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceRequestCurrentDevice ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceConnectToDevice (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring deviceName)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_deviceName = (*env)->GetStringUTFChars (env, deviceName, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceConnectToDevice ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_deviceName);
-    (*env)->ReleaseStringUTFChars (env, deviceName, c_deviceName);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceStateDeviceList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateDeviceList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceStateConnexionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jstring deviceName, jshort deviceProductID)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    const char *c_deviceName = (*env)->GetStringUTFChars (env, deviceName, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateConnexionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, c_deviceName, (uint16_t)deviceProductID);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    (*env)->ReleaseStringUTFChars (env, deviceName, c_deviceName);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsAllSettings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsAllSettings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsReset (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsReset ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateAllSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateAllSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateResetChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateResetChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateProductSerialChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring serialNumber)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_serialNumber = (*env)->GetStringUTFChars (env, serialNumber, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductSerialChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_serialNumber);
-    (*env)->ReleaseStringUTFChars (env, serialNumber, c_serialNumber);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCommonAllStates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCommonStateAllStatesChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCommonStateAllStatesChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateBatteryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte percent)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateBatteryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)percent);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateGpsFixChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte fixed)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateGpsFixChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)fixed);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateGpsPositionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude, jdouble longitude, jdouble altitude, jfloat heading)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateGpsPositionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude, (double)longitude, (double)altitude, (float)heading);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsAccessPointSSID (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointSSID ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsAccessPointChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte channel)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)channel);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsWifiSelection (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jobject band, jbyte channel)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM");
-    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
-    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsWifiSelection ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, j_band_enum, (uint8_t)channel);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    (*env)->DeleteLocalRef (env, j_band_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateAccessPointSSIDChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
-    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte channel)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateAccessPointChannelChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)channel);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jobject band, jbyte channel)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM");
-    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
-    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateWifiSelectionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, j_band_enum, (uint8_t)channel);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    (*env)->DeleteLocalRef (env, j_band_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCameraResetOrientation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCameraResetOrientation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosGetGamepadControls (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosGetGamepadControls ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosStateGamepadControl (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jint id, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateGamepadControl ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, (int32_t)id, c_name);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateAllGamepadControlsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetCurrentButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetAvailableButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsSetButtonMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint key_id, jstring mapping_uid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsSetButtonMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)key_id, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsDefaultButtonMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsDefaultButtonMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint key_id, jstring mapping_uid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateCurrentButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)key_id, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring mapping_uid, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAvailableButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_mapping_uid, c_name);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetCurrentAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetAvailableAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsSetAxisMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring mapping_uid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsSetAxisMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsDefaultAxisMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsDefaultAxisMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring mapping_uid)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateCurrentAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring mapping_uid, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAvailableAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_mapping_uid, c_name);
-    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetCurrentAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetPresetAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersSetAxisFilter (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring filter_uid_or_builder)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_filter_uid_or_builder = (*env)->GetStringUTFChars (env, filter_uid_or_builder, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersSetAxisFilter ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_filter_uid_or_builder);
-    (*env)->ReleaseStringUTFChars (env, filter_uid_or_builder, c_filter_uid_or_builder);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersDefaultAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersDefaultAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring filter_uid_or_builder)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_filter_uid_or_builder = (*env)->GetStringUTFChars (env, filter_uid_or_builder, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateCurrentAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_filter_uid_or_builder);
-    (*env)->ReleaseStringUTFChars (env, filter_uid_or_builder, c_filter_uid_or_builder);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllCurrentFiltersSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring filter_uid, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_filter_uid = (*env)->GetStringUTFChars (env, filter_uid, NULL);
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStatePresetAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_filter_uid, c_name);
-    (*env)->ReleaseStringUTFChars (env, filter_uid, c_filter_uid);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllPresetFiltersSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCoPilotingSetPilotingSource (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject source)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM");
-    jmethodID j_source_mid = (*env)->GetMethodID (env, j_source_class, "getValue", "()I");
-    jint j_source_enum = (*env)->CallIntMethod (env, source, j_source_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingSetPilotingSource ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_source_enum);
-    (*env)->DeleteLocalRef (env, j_source_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCoPilotingStatePilotingSource (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject source)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM");
-    jmethodID j_source_mid = (*env)->GetMethodID (env, j_source_class, "getValue", "()I");
-    jint j_source_enum = (*env)->CallIntMethod (env, source, j_source_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingStatePilotingSource ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_source_enum);
-    (*env)->DeleteLocalRef (env, j_source_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jbyte X_Quality, jbyte Y_Quality, jbyte Z_Quality)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, (uint8_t)X_Quality, (uint8_t)Y_Quality, (uint8_t)Z_Quality);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enabled)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDebugDebugTest1 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t1Args)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t1Args);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProBoughtFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateProProBoughtFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProResponse (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jstring signedChallenge)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    const char *c_signedChallenge = (*env)->GetStringUTFChars (env, signedChallenge, NULL);
-    err = ARCOMMANDS_Generator_GenerateProProResponse ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, c_signedChallenge);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    (*env)->ReleaseStringUTFChars (env, signedChallenge, c_signedChallenge);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProActivateFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateProProActivateFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProStateSupportedFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jlong features)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    err = ARCOMMANDS_Generator_GenerateProProStateSupportedFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, (uint64_t)features);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProStateFeaturesActivated (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateProProStateFeaturesActivated ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProEventChallengeEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring challenge)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_challenge = (*env)->GetStringUTFChars (env, challenge, NULL);
-    err = ARCOMMANDS_Generator_GenerateProProEventChallengeEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_challenge);
-    (*env)->ReleaseStringUTFChars (env, challenge, c_challenge);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingFlatTrim (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingFlatTrim ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingTakeOff (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingTakeOff ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingPCMD (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte flag, jbyte roll, jbyte pitch, jbyte yaw, jbyte gaz, jint timestamp)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingPCMD ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)flag, (int8_t)roll, (int8_t)pitch, (int8_t)yaw, (int8_t)gaz, (uint32_t)timestamp);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingLanding (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingLanding ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingEmergency (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingEmergency ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingAutoTakeOffMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTakeOffMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlatTrimChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlyingStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM");
-    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
-    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum);
-    (*env)->DeleteLocalRef (env, j_state_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateAlertStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM");
-    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
-    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum);
-    (*env)->DeleteLocalRef (env, j_state_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneAnimationsFlip (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM");
-    jmethodID j_direction_mid = (*env)->GetMethodID (env, j_direction_class, "getValue", "()I");
-    jint j_direction_enum = (*env)->CallIntMethod (env, direction, j_direction_mid);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_direction_enum);
-    (*env)->DeleteLocalRef (env, j_direction_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneAnimationsCap (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort offset)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsCap ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int16_t)offset);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordPicture (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPicture ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordPictureV2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPictureV2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordStatePictureStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state, jbyte mass_storage_id)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state, (uint8_t)mass_storage_id);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state, jobject error)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM");
-    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
-    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
-    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM");
-    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
-    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum, j_error_enum);
-    (*env)->DeleteLocalRef (env, j_state_class);
-    (*env)->DeleteLocalRef (env, j_error_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordEventPictureEventChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject event, jobject error)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_event_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM");
-    jmethodID j_event_mid = (*env)->GetMethodID (env, j_event_class, "getValue", "()I");
-    jint j_event_enum = (*env)->CallIntMethod (env, event, j_event_mid);
-    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM");
-    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
-    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_event_enum, j_error_enum);
-    (*env)->DeleteLocalRef (env, j_event_class);
-    (*env)->DeleteLocalRef (env, j_error_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsMaxAltitude (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxAltitude ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsMaxTilt (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxTilt ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxRotationSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsWheels (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte present)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsWheels ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)present);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxRotationSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateWheelsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte present)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)present);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsCutOutMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte motor, jstring type, jstring software, jstring hardware)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_type = (*env)->GetStringUTFChars (env, type, NULL);
-    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
-    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)motor, c_type, c_software, c_hardware);
-    (*env)->ReleaseStringUTFChars (env, type, c_type);
-    (*env)->ReleaseStringUTFChars (env, software, c_software);
-    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateProductInertialVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring software, jstring hardware)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
-    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductInertialVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_software, c_hardware);
-    (*env)->ReleaseStringUTFChars (env, software, c_software);
-    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateCutOutModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateCutOutModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneFloodControlStateFloodControlChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort delay)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)delay);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneGPSControllerLatitudeForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneGPSControllerLongitudeForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble longitude)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)longitude);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneConfigurationControllerType (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring type)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_type = (*env)->GetStringUTFChars (env, type, NULL);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_type);
-    (*env)->ReleaseStringUTFChars (env, type, c_type);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneConfigurationControllerName (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest1 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t1Args)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest1 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t1Args);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t2Args)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t2Args);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest3 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t3Args)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest3 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t3Args);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonNetworkDisconnect (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonNetworkDisconnect ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonNetworkEventDisconnection (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject cause)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_cause_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM");
-    jmethodID j_cause_mid = (*env)->GetMethodID (env, j_cause_class, "getValue", "()I");
-    jint j_cause_enum = (*env)->CallIntMethod (env, cause, j_cause_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonNetworkEventDisconnection ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_cause_enum);
-    (*env)->DeleteLocalRef (env, j_cause_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsAllSettings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsAllSettings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsReset (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsReset ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsProductName (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsProductName ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring code)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_code);
-    (*env)->ReleaseStringUTFChars (env, code, c_code);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsAutoCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsAutoCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateAllSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateAllSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateResetChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateResetChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductNameChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductNameChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring software, jstring hardware)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
-    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_software, c_hardware);
-    (*env)->ReleaseStringUTFChars (env, software, c_software);
-    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductSerialHighChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring high)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_high = (*env)->GetStringUTFChars (env, high, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductSerialHighChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_high);
-    (*env)->ReleaseStringUTFChars (env, high, c_high);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductSerialLowChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring low)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_low = (*env)->GetStringUTFChars (env, low, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductSerialLowChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_low);
-    (*env)->ReleaseStringUTFChars (env, low, c_low);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring code)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_code);
-    (*env)->ReleaseStringUTFChars (env, code, c_code);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateAutoCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateAutoCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonAllStates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonAllStates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonCurrentDate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring date)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_date = (*env)->GetStringUTFChars (env, date, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonCurrentDate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_date);
-    (*env)->ReleaseStringUTFChars (env, date, c_date);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonCurrentTime (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring time)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_time = (*env)->GetStringUTFChars (env, time, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonCurrentTime ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_time);
-    (*env)->ReleaseStringUTFChars (env, time, c_time);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonReboot (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonReboot ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateAllStatesChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateAllStatesChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateBatteryStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte percent)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateBatteryStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)percent);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id, jstring name)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id, c_name);
-    (*env)->ReleaseStringUTFChars (env, name, c_name);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageInfoStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id, jint size, jint used_size, jbyte plugged, jbyte full, jbyte internal)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageInfoStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id, (uint32_t)size, (uint32_t)used_size, (uint8_t)plugged, (uint8_t)full, (uint8_t)internal);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCurrentDateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring date)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_date = (*env)->GetStringUTFChars (env, date, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCurrentDateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_date);
-    (*env)->ReleaseStringUTFChars (env, date, c_date);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCurrentTimeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring time)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_time = (*env)->GetStringUTFChars (env, time, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCurrentTimeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_time);
-    (*env)->ReleaseStringUTFChars (env, time, c_time);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint free_space, jshort rec_time, jint photo_remaining)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageInfoRemainingListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)free_space, (uint16_t)rec_time, (uint32_t)photo_remaining);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateWifiSignalChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort rssi)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateWifiSignalChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int16_t)rssi);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateSensorsStatesListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject sensorName, jbyte sensorState)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_sensorName_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM");
-    jmethodID j_sensorName_mid = (*env)->GetMethodID (env, j_sensorName_class, "getValue", "()I");
-    jint j_sensorName_enum = (*env)->CallIntMethod (env, sensorName, j_sensorName_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateSensorsStatesListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_sensorName_enum, (uint8_t)sensorState);
-    (*env)->DeleteLocalRef (env, j_sensorName_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateProductModel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject model)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_model_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM");
-    jmethodID j_model_mid = (*env)->GetMethodID (env, j_model_class, "getValue", "()I");
-    jint j_model_enum = (*env)->CallIntMethod (env, model, j_model_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateProductModel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_model_enum);
-    (*env)->DeleteLocalRef (env, j_model_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryListKnown (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring countryCodes)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_countryCodes = (*env)->GetStringUTFChars (env, countryCodes, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_countryCodes);
-    (*env)->ReleaseStringUTFChars (env, countryCodes, c_countryCodes);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatSwitchOff (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonOverHeatSwitchOff ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatVentilate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatRegulationChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte regulationType)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatRegulationChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)regulationType);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonControllerStateIsPilotingChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte piloting)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)piloting);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonWifiSettingsOutdoorSetting (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte outdoor)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonWifiSettingsOutdoorSetting ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)outdoor);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte outdoor)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonWifiSettingsStateOutdoorSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)outdoor);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStart (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring filepath, jobject type)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_filepath = (*env)->GetStringUTFChars (env, filepath, NULL);
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStart ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_filepath, j_type_enum);
-    (*env)->ReleaseStringUTFChars (env, filepath, c_filepath);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkPause (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonMavlinkPause ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStop (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStop ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state, jstring filepath, jobject type)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM");
-    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
-    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
-    const char *c_filepath = (*env)->GetStringUTFChars (env, filepath, NULL);
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStateMavlinkFilePlayingStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum, c_filepath, j_type_enum);
-    (*env)->DeleteLocalRef (env, j_state_class);
-    (*env)->ReleaseStringUTFChars (env, filepath, c_filepath);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject error)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM");
-    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
-    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStateMavlinkPlayErrorStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_error_enum);
-    (*env)->DeleteLocalRef (env, j_error_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationMagnetoCalibration (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte calibrate)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCalibrationMagnetoCalibration ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)calibrate);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte xAxisCalibration, jbyte yAxisCalibration, jbyte zAxisCalibration, jbyte calibrationFailed)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)xAxisCalibration, (uint8_t)yAxisCalibration, (uint8_t)zAxisCalibration, (uint8_t)calibrationFailed);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte required)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationRequiredState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)required);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject axis)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_axis_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM");
-    jmethodID j_axis_mid = (*env)->GetMethodID (env, j_axis_class, "getValue", "()I");
-    jint j_axis_enum = (*env)->CallIntMethod (env, axis, j_axis_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_axis_enum);
-    (*env)->DeleteLocalRef (env, j_axis_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte started)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationStartedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)started);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCameraSettingsStateCameraSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat fov, jfloat panMax, jfloat panMin, jfloat tiltMax, jfloat tiltMin)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonCameraSettingsStateCameraSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)fov, (float)panMax, (float)panMin, (float)tiltMax, (float)tiltMin);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonGPSControllerPositionForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude, jdouble longitude)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonGPSControllerPositionForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude, (double)longitude);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanStateAvailabilityStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte AvailabilityState)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanStateAvailabilityStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)AvailabilityState);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanStateComponentStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject component, jbyte State)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_component_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM");
-    jmethodID j_component_mid = (*env)->GetMethodID (env, j_component_class, "getValue", "()I");
-    jint j_component_enum = (*env)->CallIntMethod (env, component, j_component_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanStateComponentStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_component_enum, (uint8_t)State);
-    (*env)->DeleteLocalRef (env, j_component_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanEventStartingErrorEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanEventStartingErrorEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanEventSpeedBridleEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanEventSpeedBridleEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateControllerLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
-    (*env)->ReleaseStringUTFChars (env, version, c_version);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateSkyControllerLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
-    (*env)->ReleaseStringUTFChars (env, version, c_version);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateDeviceLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
-    (*env)->ReleaseStringUTFChars (env, version, c_version);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAudioControllerReadyForStreaming (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte ready)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonAudioControllerReadyForStreaming ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)ready);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAudioStateAudioStreamingRunning (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte running)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonAudioStateAudioStreamingRunning ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)running);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonHeadlightsIntensity (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte left, jbyte right)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonHeadlightsIntensity ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)left, (uint8_t)right);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonHeadlightsStateIntensityChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte left, jbyte right)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonHeadlightsStateIntensityChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)left, (uint8_t)right);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStartAnimation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM");
-    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
-    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStartAnimation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum);
-    (*env)->DeleteLocalRef (env, j_anim_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStopAnimation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM");
-    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
-    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAnimation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum);
-    (*env)->DeleteLocalRef (env, j_anim_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStopAllAnimations (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAllAnimations ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStateList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim, jobject state, jobject error)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM");
-    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
-    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
-    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM");
-    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
-    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
-    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM");
-    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
-    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStateList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum, j_state_enum, j_error_enum);
-    (*env)->DeleteLocalRef (env, j_anim_class);
-    (*env)->DeleteLocalRef (env, j_state_class);
-    (*env)->DeleteLocalRef (env, j_error_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryConfig (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject accessory)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM");
-    jmethodID j_accessory_mid = (*env)->GetMethodID (env, j_accessory_class, "getValue", "()I");
-    jint j_accessory_enum = (*env)->CallIntMethod (env, accessory, j_accessory_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAccessoryConfig ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_accessory_enum);
-    (*env)->DeleteLocalRef (env, j_accessory_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject accessory)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM");
-    jmethodID j_accessory_mid = (*env)->GetMethodID (env, j_accessory_class, "getValue", "()I");
-    jint j_accessory_enum = (*env)->CallIntMethod (env, accessory, j_accessory_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateSupportedAccessoriesListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_accessory_enum);
-    (*env)->DeleteLocalRef (env, j_accessory_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateAccessoryConfigChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject newAccessory, jobject error)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_newAccessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM");
-    jmethodID j_newAccessory_mid = (*env)->GetMethodID (env, j_newAccessory_class, "getValue", "()I");
-    jint j_newAccessory_enum = (*env)->CallIntMethod (env, newAccessory, j_newAccessory_mid);
-    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM");
-    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
-    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateAccessoryConfigChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_newAccessory_enum, j_error_enum);
-    (*env)->DeleteLocalRef (env, j_newAccessory_class);
-    (*env)->DeleteLocalRef (env, j_error_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enabled)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateAccessoryConfigModificationEnabled ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerSetMaxChargeRate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM");
-    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
-    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonChargerSetMaxChargeRate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
-    (*env)->DeleteLocalRef (env, j_rate_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateMaxChargeRateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM");
-    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
-    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonChargerStateMaxChargeRateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
-    (*env)->DeleteLocalRef (env, j_rate_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateCurrentChargeStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jobject phase)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
-    jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM");
-    jmethodID j_phase_mid = (*env)->GetMethodID (env, j_phase_class, "getValue", "()I");
-    jint j_phase_enum = (*env)->CallIntMethod (env, phase, j_phase_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonChargerStateCurrentChargeStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, j_phase_enum);
-    (*env)->DeleteLocalRef (env, j_status_class);
-    (*env)->DeleteLocalRef (env, j_phase_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateLastChargeRateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM");
-    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
-    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonChargerStateLastChargeRateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
-    (*env)->DeleteLocalRef (env, j_rate_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateChargingInfo (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject phase, jobject rate, jbyte intensity, jbyte fullChargingTime)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM");
-    jmethodID j_phase_mid = (*env)->GetMethodID (env, j_phase_class, "getValue", "()I");
-    jint j_phase_enum = (*env)->CallIntMethod (env, phase, j_phase_mid);
-    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM");
-    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
-    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
-    err = ARCOMMANDS_Generator_GenerateCommonChargerStateChargingInfo ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_phase_enum, j_rate_enum, (uint8_t)intensity, (uint8_t)fullChargingTime);
-    (*env)->DeleteLocalRef (env, j_phase_class);
-    (*env)->DeleteLocalRef (env, j_rate_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsSendPacket (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring packet)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_packet = (*env)->GetStringUTFChars (env, packet, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_packet);
-    (*env)->ReleaseStringUTFChars (env, packet, c_packet);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsStartSendingPacketFromDrone (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte frequency, jbyte packetSize, jint date)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)frequency, (uint8_t)packetSize, (uint32_t)date);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsStopSendingPacketFromDrone (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsEventSendPacket (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring packet)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    const char *c_packet = (*env)->GetStringUTFChars (env, packet, NULL);
-    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_packet);
-    (*env)->ReleaseStringUTFChars (env, packet, c_packet);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-
-
-JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingFlatTrim (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
     int32_t c_dataSize = 0;
@@ -10614,4349 +5190,5426 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetJumpingSumoDebugUserScriptSt
 
 
 
-void ARCOMMANDS_JNI_SkyControllerWifiStateWifiListnativeCb (char * bssid, char * ssid, uint8_t secured, uint8_t saved, int32_t rssi, int32_t frequency, void *custom)
-{
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiListListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
-
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiListUpdate", "(Ljava/lang/String;Ljava/lang/String;BBII)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
-    {
-        jstring j_bssid = (*env)->NewStringUTF (env, bssid);
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_bssid, j_ssid, (jbyte)secured, (jbyte)saved, rssi, frequency);
-        (*env)->DeleteLocalRef (env, j_bssid);
-        (*env)->DeleteLocalRef (env, j_ssid);
-    }
-    (*env)->DeleteLocalRef (env, delegate);
-}
-
-void ARCOMMANDS_JNI_SkyControllerWifiStateConnexionChangednativeCb (char * ssid, eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS status, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingFlatTrim (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateConnexionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateConnexionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
-
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateConnexionChangedUpdate", "(Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingFlatTrim ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid, j_status_enum);
-        (*env)->DeleteLocalRef (env, j_ssid);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiStateWifiAuthChannelListChangednativeCb (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingTakeOff (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiAuthChannelListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM;BB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingTakeOff ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM");
-        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM;");
-        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_band_enum, (jbyte)channel, (jbyte)in_or_out);
-        (*env)->DeleteLocalRef (env, j_band_class);
-        (*env)->DeleteLocalRef (env, j_band_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiStateAllWifiAuthChannelChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingPCMD (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte flag, jbyte roll, jbyte pitch, jbyte yaw, jbyte gaz, jint timestamp)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
-
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateAllWifiAuthChannelChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
     }
-    (*env)->DeleteLocalRef (env, delegate);
+
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingPCMD ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)flag, (int8_t)roll, (int8_t)pitch, (int8_t)yaw, (int8_t)gaz, (uint32_t)timestamp);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiStateWifiSignalChangednativeCb (uint8_t level, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingLanding (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiSignalChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiSignalChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiSignalChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingLanding ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)level);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerWifiRequestWifiListnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingEmergency (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiRequestWifiListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiRequestWifiListListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiRequestWifiListUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingEmergency ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiRequestCurrentWifinativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingAutoTakeOffMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiRequestCurrentWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiRequestCurrentWifiListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiRequestCurrentWifiUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTakeOffMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiConnectToWifinativeCb (char * bssid, char * ssid, char * passphrase, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlatTrimChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiConnectToWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiConnectToWifiListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiConnectToWifiUpdate", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_bssid = (*env)->NewStringUTF (env, bssid);
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        jstring j_passphrase = (*env)->NewStringUTF (env, passphrase);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_bssid, j_ssid, j_passphrase);
-        (*env)->DeleteLocalRef (env, j_bssid);
-        (*env)->DeleteLocalRef (env, j_ssid);
-        (*env)->DeleteLocalRef (env, j_passphrase);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiForgetWifinativeCb (char * ssid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlyingStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiForgetWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiForgetWifiListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiForgetWifiUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM");
+    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
+    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum);
+    (*env)->DeleteLocalRef (env, j_state_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
-        (*env)->DeleteLocalRef (env, j_ssid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerWifiWifiAuthChannelnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateAlertStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiWifiAuthChannelListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiWifiAuthChannelListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiWifiAuthChannelUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM");
+    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
+    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum);
+    (*env)->DeleteLocalRef (env, j_state_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerDeviceRequestDeviceListnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceRequestDeviceListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceRequestDeviceListListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceRequestDeviceListUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_SkyControllerDeviceRequestCurrentDevicenativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneAnimationsFlip (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceRequestCurrentDeviceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceRequestCurrentDeviceListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceRequestCurrentDeviceUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM");
+    jmethodID j_direction_mid = (*env)->GetMethodID (env, j_direction_class, "getValue", "()I");
+    jint j_direction_enum = (*env)->CallIntMethod (env, direction, j_direction_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_direction_enum);
+    (*env)->DeleteLocalRef (env, j_direction_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerDeviceConnectToDevicenativeCb (char * deviceName, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneAnimationsCap (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort offset)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceConnectToDeviceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceConnectToDeviceListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceConnectToDeviceUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsCap ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int16_t)offset);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_deviceName = (*env)->NewStringUTF (env, deviceName);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_deviceName);
-        (*env)->DeleteLocalRef (env, j_deviceName);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerDeviceStateDeviceListnativeCb (char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordPicture (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceStateDeviceListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceStateDeviceListListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceStateDeviceListUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPicture ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerDeviceStateConnexionChangednativeCb (eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS status, char * deviceName, uint16_t deviceProductID, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordPictureV2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceStateConnexionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceStateConnexionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceStateConnexionChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM;Ljava/lang/String;S)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPictureV2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        jstring j_deviceName = (*env)->NewStringUTF (env, deviceName);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_deviceName, (jshort)deviceProductID);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
-        (*env)->DeleteLocalRef (env, j_deviceName);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerSettingsAllSettingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordStatePictureStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state, jbyte mass_storage_id)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsAllSettingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsAllSettingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsAllSettingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state, (uint8_t)mass_storage_id);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerSettingsResetnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state, jobject error)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsResetListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsResetListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsResetUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM");
+    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
+    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
+    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM");
+    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
+    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum, j_error_enum);
+    (*env)->DeleteLocalRef (env, j_state_class);
+    (*env)->DeleteLocalRef (env, j_error_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerSettingsStateAllSettingsChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMediaRecordEventPictureEventChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject event, jobject error)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateAllSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateAllSettingsChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateAllSettingsChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_event_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM");
+    jmethodID j_event_mid = (*env)->GetMethodID (env, j_event_class, "getValue", "()I");
+    jint j_event_enum = (*env)->CallIntMethod (env, event, j_event_mid);
+    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM");
+    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
+    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_event_enum, j_error_enum);
+    (*env)->DeleteLocalRef (env, j_event_class);
+    (*env)->DeleteLocalRef (env, j_error_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerSettingsStateResetChangednativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsMaxAltitude (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateResetChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateResetChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateResetChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxAltitude ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb (char * serialNumber, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsMaxTilt (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateProductSerialChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateProductSerialChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateProductSerialChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxTilt ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_serialNumber = (*env)->NewStringUTF (env, serialNumber);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_serialNumber);
-        (*env)->DeleteLocalRef (env, j_serialNumber);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCommonAllStatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCommonAllStatesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCommonAllStatesUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerCommonStateAllStatesChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCommonStateAllStatesChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCommonStateAllStatesChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCommonStateAllStatesChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerSkyControllerStateBatteryChangednativeCb (uint8_t percent, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateBatteryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateBatteryChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateBatteryChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)percent);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsFixChangednativeCb (uint8_t fixed, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateGpsFixChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateGpsFixChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateGpsFixChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxRotationSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)fixed);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsPositionChangednativeCb (double latitude, double longitude, double altitude, float heading, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsWheels (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte present)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateGpsPositionChangedUpdate", "(DDDF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsWheels ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)present);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude, longitude, altitude, heading);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointSSIDnativeCb (char * ssid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsAccessPointSSIDUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
-        (*env)->DeleteLocalRef (env, j_ssid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointChannelnativeCb (uint8_t channel, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsAccessPointChannelUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxRotationSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)channel);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsWifiSelectionnativeCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateWheelsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte present)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsWifiSelectionListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsWifiSelectionListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsWifiSelectionUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM;B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)present);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM");
-        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM;");
-        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_band_enum, (jbyte)channel);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_band_class);
-        (*env)->DeleteLocalRef (env, j_band_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointSSIDChangednativeCb (char * ssid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsCutOutMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateAccessPointSSIDChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
-        (*env)->DeleteLocalRef (env, j_ssid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointChannelChangednativeCb (uint8_t channel, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte motor, jstring type, jstring software, jstring hardware)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateAccessPointChannelChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_type = (*env)->GetStringUTFChars (env, type, NULL);
+    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
+    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)motor, c_type, c_software, c_hardware);
+    (*env)->ReleaseStringUTFChars (env, type, c_type);
+    (*env)->ReleaseStringUTFChars (env, software, c_software);
+    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)channel);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateWifiSelectionChangednativeCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND band, uint8_t channel, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateProductInertialVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring software, jstring hardware)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateWifiSelectionChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM;B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
+    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductInertialVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_software, c_hardware);
+    (*env)->ReleaseStringUTFChars (env, software, c_software);
+    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM");
-        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM;");
-        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_band_enum, (jbyte)channel);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_band_class);
-        (*env)->DeleteLocalRef (env, j_band_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerCameraResetOrientationnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSettingsStateCutOutModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCameraResetOrientationListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCameraResetOrientationListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCameraResetOrientationUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateCutOutModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerGamepadInfosGetGamepadControlsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneFloodControlStateFloodControlChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort delay)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosGetGamepadControlsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosGetGamepadControlsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosGetGamepadControlsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)delay);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerGamepadInfosStateGamepadControlnativeCb (eARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE type, int32_t id, char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneGPSControllerLatitudeForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosStateGamepadControlListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosStateGamepadControlListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosStateGamepadControlUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM;ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, id, j_name);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerGamepadInfosStateAllGamepadControlsSentnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneGPSControllerLongitudeForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble longitude)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosStateAllGamepadControlsSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)longitude);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsGetCurrentButtonMappingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneConfigurationControllerType (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring type)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsGetCurrentButtonMappingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_type = (*env)->GetStringUTFChars (env, type, NULL);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_type);
+    (*env)->ReleaseStringUTFChars (env, type, c_type);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsGetAvailableButtonMappingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneConfigurationControllerName (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsGetAvailableButtonMappingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
+
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsSetButtonMappingnativeCb (int32_t key_id, char * mapping_uid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest1 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t1Args)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsSetButtonMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsSetButtonMappingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsSetButtonMappingUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest1 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t1Args);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, key_id, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsDefaultButtonMappingnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest2 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t2Args)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsDefaultButtonMappingUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest2 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t2Args);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateCurrentButtonMappingsnativeCb (int32_t key_id, char * mapping_uid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneDebugDebugTest3 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t3Args)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateCurrentButtonMappingsUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest3 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t3Args);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, key_id, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentnativeCb (void *custom)
+
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring bssid, jstring ssid, jbyte secured, jbyte saved, jint rssi, jint frequency)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_bssid = (*env)->GetStringUTFChars (env, bssid, NULL);
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_bssid, c_ssid, (uint8_t)secured, (uint8_t)saved, (int32_t)rssi, (int32_t)frequency);
+    (*env)->ReleaseStringUTFChars (env, bssid, c_bssid);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAvailableButtonMappingsnativeCb (char * mapping_uid, char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateConnexionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid, jobject status)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAvailableButtonMappingsUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateConnexionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid, j_status_enum);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mapping_uid, j_name);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject band, jbyte channel, jbyte in_or_out)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM");
+    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
+    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiAuthChannelListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_band_enum, (uint8_t)channel, (uint8_t)in_or_out);
+    (*env)->DeleteLocalRef (env, j_band_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsGetCurrentAxisMappingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsGetCurrentAxisMappingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateAllWifiAuthChannelChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsGetAvailableAxisMappingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiStateWifiSignalChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte level)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsGetAvailableAxisMappingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiSignalChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)level);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsSetAxisMappingnativeCb (int32_t axis_id, char * mapping_uid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiRequestWifiList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsSetAxisMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsSetAxisMappingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsSetAxisMappingUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiRequestWifiList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsDefaultAxisMappingnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiRequestCurrentWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsDefaultAxisMappingUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiRequestCurrentWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateCurrentAxisMappingsnativeCb (int32_t axis_id, char * mapping_uid, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiConnectToWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring bssid, jstring ssid, jstring passphrase)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateCurrentAxisMappingsUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_bssid = (*env)->GetStringUTFChars (env, bssid, NULL);
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    const char *c_passphrase = (*env)->GetStringUTFChars (env, passphrase, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiConnectToWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_bssid, c_ssid, c_passphrase);
+    (*env)->ReleaseStringUTFChars (env, bssid, c_bssid);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    (*env)->ReleaseStringUTFChars (env, passphrase, c_passphrase);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiForgetWifi (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiForgetWifi ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAvailableAxisMappingsnativeCb (char * mapping_uid, char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerWifiWifiAuthChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAvailableAxisMappingsUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerWifiWifiAuthChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mapping_uid, j_name);
-        (*env)->DeleteLocalRef (env, j_mapping_uid);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentnativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceRequestDeviceList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceRequestDeviceList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersGetCurrentAxisFiltersnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceRequestCurrentDevice (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersGetCurrentAxisFiltersUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceRequestCurrentDevice ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersGetPresetAxisFiltersnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceConnectToDevice (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring deviceName)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersGetPresetAxisFiltersUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_deviceName = (*env)->GetStringUTFChars (env, deviceName, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceConnectToDevice ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_deviceName);
+    (*env)->ReleaseStringUTFChars (env, deviceName, c_deviceName);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersSetAxisFilternativeCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceStateDeviceList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersSetAxisFilterListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersSetAxisFilterListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersSetAxisFilterUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateDeviceList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_filter_uid_or_builder = (*env)->NewStringUTF (env, filter_uid_or_builder);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_filter_uid_or_builder);
-        (*env)->DeleteLocalRef (env, j_filter_uid_or_builder);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersDefaultAxisFiltersnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDeviceStateConnexionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jstring deviceName, jshort deviceProductID)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersDefaultAxisFiltersUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    const char *c_deviceName = (*env)->GetStringUTFChars (env, deviceName, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateConnexionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, c_deviceName, (uint16_t)deviceProductID);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    (*env)->ReleaseStringUTFChars (env, deviceName, c_deviceName);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateCurrentAxisFiltersnativeCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsAllSettings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateCurrentAxisFiltersUpdate", "(ILjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsAllSettings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_filter_uid_or_builder = (*env)->NewStringUTF (env, filter_uid_or_builder);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_filter_uid_or_builder);
-        (*env)->DeleteLocalRef (env, j_filter_uid_or_builder);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllCurrentFiltersSentnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsReset (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateAllCurrentFiltersSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsReset ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersStatePresetAxisFiltersnativeCb (char * filter_uid, char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateAllSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStatePresetAxisFiltersUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateAllSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_filter_uid = (*env)->NewStringUTF (env, filter_uid);
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_filter_uid, j_name);
-        (*env)->DeleteLocalRef (env, j_filter_uid);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllPresetFiltersSentnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateResetChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateAllPresetFiltersSentUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateResetChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_SkyControllerCoPilotingSetPilotingSourcenativeCb (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE source, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateProductSerialChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring serialNumber)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCoPilotingSetPilotingSourceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCoPilotingSetPilotingSourceListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCoPilotingSetPilotingSourceUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_serialNumber = (*env)->GetStringUTFChars (env, serialNumber, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductSerialChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_serialNumber);
+    (*env)->ReleaseStringUTFChars (env, serialNumber, c_serialNumber);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM");
-        jmethodID j_source_mid = (*env)->GetStaticMethodID (env, j_source_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM;");
-        jobject j_source_enum = (*env)->CallStaticObjectMethod (env, j_source_class, j_source_mid, source);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_source_enum);
-        (*env)->DeleteLocalRef (env, j_source_class);
-        (*env)->DeleteLocalRef (env, j_source_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerCoPilotingStatePilotingSourcenativeCb (eARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE source, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCommonAllStates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCoPilotingStatePilotingSourceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCoPilotingStatePilotingSourceListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCoPilotingStatePilotingSourceUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM");
-        jmethodID j_source_mid = (*env)->GetStaticMethodID (env, j_source_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM;");
-        jobject j_source_enum = (*env)->CallStaticObjectMethod (env, j_source_class, j_source_mid, source);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_source_enum);
-        (*env)->DeleteLocalRef (env, j_source_class);
-        (*env)->DeleteLocalRef (env, j_source_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesnativeCb (uint8_t enable, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCommonStateAllStatesChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCommonStateAllStatesChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationStatenativeCb (eARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS status, uint8_t X_Quality, uint8_t Y_Quality, uint8_t Z_Quality, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateBatteryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte percent)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationStateMagnetoCalibrationStateUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM;BBB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateBatteryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)percent);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, (jbyte)X_Quality, (jbyte)Y_Quality, (jbyte)Z_Quality);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStatenativeCb (uint8_t enabled, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateGpsFixChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte fixed)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateGpsFixChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)fixed);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
-
 
-void ARCOMMANDS_JNI_SkyControllerDebugDebugTest1nativeCb (int8_t t1Args, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSkyControllerStateGpsPositionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude, jdouble longitude, jdouble altitude, jfloat heading)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDebugDebugTest1Listener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDebugDebugTest1Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDebugDebugTest1Update", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateGpsPositionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude, (double)longitude, (double)altitude, (float)heading);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, t1Args);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-
-void ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb (uint64_t features, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsAccessPointSSID (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProBoughtFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProBoughtFeaturesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProBoughtFeaturesUpdate", "(J)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointSSID ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_ProProResponsenativeCb (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsAccessPointChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte channel)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProResponseListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProResponseListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProResponseUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)channel);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        jstring j_signedChallenge = (*env)->NewStringUTF (env, signedChallenge);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_signedChallenge);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
-        (*env)->DeleteLocalRef (env, j_signedChallenge);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_ProProActivateFeaturesnativeCb (uint64_t features, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsWifiSelection (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jobject band, jbyte channel)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProActivateFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProActivateFeaturesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProActivateFeaturesUpdate", "(J)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM");
+    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
+    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsWifiSelection ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, j_band_enum, (uint8_t)channel);
+    (*env)->DeleteLocalRef (env, j_type_class);
+    (*env)->DeleteLocalRef (env, j_band_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_ProProStateSupportedFeaturesnativeCb (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS status, uint64_t features, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProStateSupportedFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProStateSupportedFeaturesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProStateSupportedFeaturesUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM;J)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_ssid = (*env)->GetStringUTFChars (env, ssid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateAccessPointSSIDChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_ssid);
+    (*env)->ReleaseStringUTFChars (env, ssid, c_ssid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, (jlong)features);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_ProProStateFeaturesActivatednativeCb (uint64_t features, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte channel)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProStateFeaturesActivatedListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProStateFeaturesActivatedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProStateFeaturesActivatedUpdate", "(J)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateAccessPointChannelChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)channel);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_ProProEventChallengeEventnativeCb (char * challenge, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jobject band, jbyte channel)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProEventChallengeEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProEventChallengeEventListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProEventChallengeEventUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM");
+    jmethodID j_band_mid = (*env)->GetMethodID (env, j_band_class, "getValue", "()I");
+    jint j_band_enum = (*env)->CallIntMethod (env, band, j_band_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateWifiSelectionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, j_band_enum, (uint8_t)channel);
+    (*env)->DeleteLocalRef (env, j_type_class);
+    (*env)->DeleteLocalRef (env, j_band_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_challenge = (*env)->NewStringUTF (env, challenge);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_challenge);
-        (*env)->DeleteLocalRef (env, j_challenge);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
 
-void ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCameraResetOrientation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingFlatTrimListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingFlatTrimListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingFlatTrimUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCameraResetOrientation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingTakeOffnativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosGetGamepadControls (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingTakeOffListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingTakeOffListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingTakeOffUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosGetGamepadControls ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingPCMDnativeCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestamp, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosStateGamepadControl (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jint id, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingPCMDListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingPCMDListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingPCMDUpdate", "(BBBBBI)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateGamepadControl ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, (int32_t)id, c_name);
+    (*env)->DeleteLocalRef (env, j_type_class);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)flag, roll, pitch, yaw, gaz, (jint)timestamp);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingLandingnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingLandingListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingLandingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingLandingUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateAllGamepadControlsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingEmergencynativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsGetCurrentButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingEmergencyListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingEmergencyListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingEmergencyUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetCurrentButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb (uint8_t state, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsGetAvailableButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingAutoTakeOffModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingAutoTakeOffModeListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingAutoTakeOffModeUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetAvailableButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsSetButtonMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint key_id, jstring mapping_uid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateFlatTrimChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateFlatTrimChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateFlatTrimChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsSetButtonMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)key_id, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingStateFlyingStateChangednativeCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsDefaultButtonMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateFlyingStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateFlyingStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateFlyingStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsDefaultButtonMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM");
-        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM;");
-        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum);
-        (*env)->DeleteLocalRef (env, j_state_class);
-        (*env)->DeleteLocalRef (env, j_state_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_MiniDronePilotingStateAlertStateChangednativeCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateCurrentButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint key_id, jstring mapping_uid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateAlertStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateAlertStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateAlertStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateCurrentButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)key_id, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM");
-        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM;");
-        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum);
-        (*env)->DeleteLocalRef (env, j_state_class);
-        (*env)->DeleteLocalRef (env, j_state_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb (uint8_t state, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateAutoTakeOffModeChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAvailableButtonMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring mapping_uid, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneAnimationsFlipListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneAnimationsFlipListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneAnimationsFlipUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAvailableButtonMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_mapping_uid, c_name);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM");
-        jmethodID j_direction_mid = (*env)->GetStaticMethodID (env, j_direction_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM;");
-        jobject j_direction_enum = (*env)->CallStaticObjectMethod (env, j_direction_class, j_direction_mid, direction);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_direction_enum);
-        (*env)->DeleteLocalRef (env, j_direction_class);
-        (*env)->DeleteLocalRef (env, j_direction_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneAnimationsCapnativeCb (int16_t offset, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneAnimationsCapListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneAnimationsCapListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneAnimationsCapUpdate", "(S)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, offset);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_MiniDroneMediaRecordPicturenativeCb (uint8_t mass_storage_id, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsGetCurrentAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordPictureListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordPictureListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordPictureUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetCurrentAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneMediaRecordPictureV2nativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsGetAvailableAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordPictureV2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordPictureV2Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordPictureV2Update", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetAvailableAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangednativeCb (uint8_t state, uint8_t mass_storage_id, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsSetAxisMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring mapping_uid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordStatePictureStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordStatePictureStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordStatePictureStateChangedUpdate", "(BB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsSetAxisMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state, (jbyte)mass_storage_id);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangedV2nativeCb (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsDefaultAxisMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordStatePictureStateChangedV2Update", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsDefaultAxisMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM");
-        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM;");
-        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
-        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM");
-        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM;");
-        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum, j_error_enum);
-        (*env)->DeleteLocalRef (env, j_state_class);
-        (*env)->DeleteLocalRef (env, j_state_enum);
-        (*env)->DeleteLocalRef (env, j_error_class);
-        (*env)->DeleteLocalRef (env, j_error_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_MiniDroneMediaRecordEventPictureEventChangednativeCb (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT event, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR error, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateCurrentAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring mapping_uid)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordEventPictureEventChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordEventPictureEventChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordEventPictureEventChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateCurrentAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_event_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM");
-        jmethodID j_event_mid = (*env)->GetStaticMethodID (env, j_event_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM;");
-        jobject j_event_enum = (*env)->CallStaticObjectMethod (env, j_event_class, j_event_mid, event);
-        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM");
-        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM;");
-        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_event_enum, j_error_enum);
-        (*env)->DeleteLocalRef (env, j_event_class);
-        (*env)->DeleteLocalRef (env, j_event_enum);
-        (*env)->DeleteLocalRef (env, j_error_class);
-        (*env)->DeleteLocalRef (env, j_error_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxAltitudenativeCb (float current, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsMaxAltitudeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsMaxAltitudeListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsMaxAltitudeUpdate", "(F)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxTiltnativeCb (float current, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAvailableAxisMappings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring mapping_uid, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsMaxTiltListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsMaxTiltListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsMaxTiltUpdate", "(F)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_mapping_uid = (*env)->GetStringUTFChars (env, mapping_uid, NULL);
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAvailableAxisMappings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_mapping_uid, c_name);
+    (*env)->ReleaseStringUTFChars (env, mapping_uid, c_mapping_uid);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxAltitudeChangednativeCb (float current, float min, float max, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsStateMaxAltitudeChangedUpdate", "(FFF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxTiltChangednativeCb (float current, float min, float max, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersGetCurrentAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsStateMaxTiltChangedUpdate", "(FFF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetCurrentAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxVerticalSpeednativeCb (float current, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersGetPresetAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsMaxVerticalSpeedUpdate", "(F)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetPresetAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxRotationSpeednativeCb (float current, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersSetAxisFilter (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring filter_uid_or_builder)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsMaxRotationSpeedUpdate", "(F)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_filter_uid_or_builder = (*env)->GetStringUTFChars (env, filter_uid_or_builder, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersSetAxisFilter ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_filter_uid_or_builder);
+    (*env)->ReleaseStringUTFChars (env, filter_uid_or_builder, c_filter_uid_or_builder);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb (uint8_t present, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersDefaultAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsWheelsListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsWheelsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsWheelsUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersDefaultAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)present);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb (float current, float min, float max, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateCurrentAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis_id, jstring filter_uid_or_builder)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedUpdate", "(FFF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_filter_uid_or_builder = (*env)->GetStringUTFChars (env, filter_uid_or_builder, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateCurrentAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int32_t)axis_id, c_filter_uid_or_builder);
+    (*env)->ReleaseStringUTFChars (env, filter_uid_or_builder, c_filter_uid_or_builder);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxRotationSpeedChangednativeCb (float current, float min, float max, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateMaxRotationSpeedChangedUpdate", "(FFF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllCurrentFiltersSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb (uint8_t present, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStatePresetAxisFilters (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring filter_uid, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateWheelsChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_filter_uid = (*env)->GetStringUTFChars (env, filter_uid, NULL);
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStatePresetAxisFilters ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_filter_uid, c_name);
+    (*env)->ReleaseStringUTFChars (env, filter_uid, c_filter_uid);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)present);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_MiniDroneSettingsCutOutModenativeCb (uint8_t enable, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsCutOutModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsCutOutModeListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsCutOutModeUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllPresetFiltersSent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_MiniDroneSettingsStateProductMotorsVersionChangednativeCb (uint8_t motor, char * type, char * software, char * hardware, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCoPilotingSetPilotingSource (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject source)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateProductMotorsVersionChangedUpdate", "(BLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM");
+    jmethodID j_source_mid = (*env)->GetMethodID (env, j_source_class, "getValue", "()I");
+    jint j_source_enum = (*env)->CallIntMethod (env, source, j_source_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingSetPilotingSource ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_source_enum);
+    (*env)->DeleteLocalRef (env, j_source_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_type = (*env)->NewStringUTF (env, type);
-        jstring j_software = (*env)->NewStringUTF (env, software);
-        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)motor, j_type, j_software, j_hardware);
-        (*env)->DeleteLocalRef (env, j_type);
-        (*env)->DeleteLocalRef (env, j_software);
-        (*env)->DeleteLocalRef (env, j_hardware);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneSettingsStateProductInertialVersionChangednativeCb (char * software, char * hardware, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCoPilotingStatePilotingSource (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject source)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateProductInertialVersionChangedUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM");
+    jmethodID j_source_mid = (*env)->GetMethodID (env, j_source_class, "getValue", "()I");
+    jint j_source_enum = (*env)->CallIntMethod (env, source, j_source_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingStatePilotingSource ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_source_enum);
+    (*env)->DeleteLocalRef (env, j_source_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_software = (*env)->NewStringUTF (env, software);
-        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_software, j_hardware);
-        (*env)->DeleteLocalRef (env, j_software);
-        (*env)->DeleteLocalRef (env, j_hardware);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_MiniDroneSettingsStateCutOutModeChangednativeCb (uint8_t enable, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateCutOutModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateCutOutModeChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateCutOutModeChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enable);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb (uint16_t delay, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jbyte X_Quality, jbyte Y_Quality, jbyte Z_Quality)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneFloodControlStateFloodControlChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneFloodControlStateFloodControlChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneFloodControlStateFloodControlChangedUpdate", "(S)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, (uint8_t)X_Quality, (uint8_t)Y_Quality, (uint8_t)Z_Quality);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)delay);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_MiniDroneGPSControllerLatitudeForRunnativeCb (double latitude, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enabled)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneGPSControllerLatitudeForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneGPSControllerLatitudeForRunListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneGPSControllerLatitudeForRunUpdate", "(D)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneGPSControllerLongitudeForRunnativeCb (double longitude, void *custom)
+
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerDebugDebugTest1 (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte t1Args)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneGPSControllerLongitudeForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneGPSControllerLongitudeForRunListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneGPSControllerLongitudeForRunUpdate", "(D)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)t1Args);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, longitude);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
 
-void ARCOMMANDS_JNI_MiniDroneConfigurationControllerTypenativeCb (char * type, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonNetworkDisconnect (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneConfigurationControllerTypeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneConfigurationControllerTypeListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneConfigurationControllerTypeUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonNetworkDisconnect ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_type = (*env)->NewStringUTF (env, type);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type);
-        (*env)->DeleteLocalRef (env, j_type);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb (char * name, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonNetworkEventDisconnection (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject cause)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneConfigurationControllerNameListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneConfigurationControllerNameListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneConfigurationControllerNameUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_cause_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM");
+    jmethodID j_cause_mid = (*env)->GetMethodID (env, j_cause_class, "getValue", "()I");
+    jint j_cause_enum = (*env)->CallIntMethod (env, cause, j_cause_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonNetworkEventDisconnection ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_cause_enum);
+    (*env)->DeleteLocalRef (env, j_cause_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-
-void ARCOMMANDS_JNI_MiniDroneDebugDebugTest1nativeCb (int8_t t1Args, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsAllSettings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest1Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest1Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest1Update", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsAllSettings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, t1Args);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneDebugDebugTest2nativeCb (int8_t t2Args, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsReset (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest2Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest2Update", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsReset ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, t2Args);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_MiniDroneDebugDebugTest3nativeCb (int8_t t3Args, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsProductName (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest3Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest3Listener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest3Update", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsProductName ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, t3Args);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-
-void ARCOMMANDS_JNI_CommonNetworkDisconnectnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring code)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonNetworkDisconnectListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonNetworkDisconnectListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonNetworkDisconnectUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_code);
+    (*env)->ReleaseStringUTFChars (env, code, c_code);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonNetworkEventDisconnectionnativeCb (eARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE cause, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsAutoCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonNetworkEventDisconnectionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonNetworkEventDisconnectionListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonNetworkEventDisconnectionUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsAutoCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_cause_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM");
-        jmethodID j_cause_mid = (*env)->GetStaticMethodID (env, j_cause_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM;");
-        jobject j_cause_enum = (*env)->CallStaticObjectMethod (env, j_cause_class, j_cause_mid, cause);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_cause_enum);
-        (*env)->DeleteLocalRef (env, j_cause_class);
-        (*env)->DeleteLocalRef (env, j_cause_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonSettingsAllSettingsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateAllSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsAllSettingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsAllSettingsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsAllSettingsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateAllSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsResetnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateResetChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsResetListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsResetListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsResetUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateResetChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsProductNamenativeCb (char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductNameChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsProductNameListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsProductNameListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsProductNameUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductNameChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_name);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsCountrynativeCb (char * code, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductVersionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring software, jstring hardware)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsCountryListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsCountryListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsCountryUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_software = (*env)->GetStringUTFChars (env, software, NULL);
+    const char *c_hardware = (*env)->GetStringUTFChars (env, hardware, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductVersionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_software, c_hardware);
+    (*env)->ReleaseStringUTFChars (env, software, c_software);
+    (*env)->ReleaseStringUTFChars (env, hardware, c_hardware);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_code = (*env)->NewStringUTF (env, code);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_code);
-        (*env)->DeleteLocalRef (env, j_code);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsAutoCountrynativeCb (uint8_t automatic, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductSerialHighChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring high)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsAutoCountryListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsAutoCountryListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsAutoCountryUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_high = (*env)->GetStringUTFChars (env, high, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductSerialHighChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_high);
+    (*env)->ReleaseStringUTFChars (env, high, c_high);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonSettingsStateAllSettingsChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateProductSerialLowChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring low)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateAllSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateAllSettingsChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateAllSettingsChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_low = (*env)->GetStringUTFChars (env, low, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateProductSerialLowChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_low);
+    (*env)->ReleaseStringUTFChars (env, low, c_low);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateResetChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring code)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateResetChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateResetChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateResetChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_code);
+    (*env)->ReleaseStringUTFChars (env, code, c_code);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateProductNameChangednativeCb (char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonSettingsStateAutoCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductNameChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductNameChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductNameChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonSettingsStateAutoCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateProductVersionChangednativeCb (char * software, char * hardware, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonAllStates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductVersionChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductVersionChangedUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonAllStates ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_software = (*env)->NewStringUTF (env, software);
-        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_software, j_hardware);
-        (*env)->DeleteLocalRef (env, j_software);
-        (*env)->DeleteLocalRef (env, j_hardware);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateProductSerialHighChangednativeCb (char * high, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonCurrentDate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring date)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductSerialHighChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductSerialHighChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductSerialHighChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_date = (*env)->GetStringUTFChars (env, date, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonCurrentDate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_date);
+    (*env)->ReleaseStringUTFChars (env, date, c_date);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_high = (*env)->NewStringUTF (env, high);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_high);
-        (*env)->DeleteLocalRef (env, j_high);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateProductSerialLowChangednativeCb (char * low, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonCurrentTime (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring time)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductSerialLowChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductSerialLowChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductSerialLowChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_time = (*env)->GetStringUTFChars (env, time, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonCurrentTime ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_time);
+    (*env)->ReleaseStringUTFChars (env, time, c_time);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_low = (*env)->NewStringUTF (env, low);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_low);
-        (*env)->DeleteLocalRef (env, j_low);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateCountryChangednativeCb (char * code, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonReboot (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateCountryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateCountryChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateCountryChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonReboot ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_code = (*env)->NewStringUTF (env, code);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_code);
-        (*env)->DeleteLocalRef (env, j_code);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonSettingsStateAutoCountryChangednativeCb (uint8_t automatic, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateAllStatesChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateAutoCountryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateAutoCountryChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateAutoCountryChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateAllStatesChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonCommonAllStatesnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateBatteryStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte percent)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonAllStatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonAllStatesListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonAllStatesUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateBatteryStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)percent);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonCurrentDatenativeCb (char * date, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id, jstring name)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonCurrentDateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonCurrentDateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonCurrentDateUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_name = (*env)->GetStringUTFChars (env, name, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id, c_name);
+    (*env)->ReleaseStringUTFChars (env, name, c_name);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_date = (*env)->NewStringUTF (env, date);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_date);
-        (*env)->DeleteLocalRef (env, j_date);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonCurrentTimenativeCb (char * time, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageInfoStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id, jint size, jint used_size, jbyte plugged, jbyte full, jbyte internal)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonCurrentTimeListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonCurrentTimeListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonCurrentTimeUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageInfoStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id, (uint32_t)size, (uint32_t)used_size, (uint8_t)plugged, (uint8_t)full, (uint8_t)internal);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_time = (*env)->NewStringUTF (env, time);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_time);
-        (*env)->DeleteLocalRef (env, j_time);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonRebootnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCurrentDateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring date)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonRebootListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonRebootListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonRebootUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_date = (*env)->GetStringUTFChars (env, date, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCurrentDateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_date);
+    (*env)->ReleaseStringUTFChars (env, date, c_date);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_CommonCommonStateAllStatesChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCurrentTimeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring time)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateAllStatesChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateAllStatesChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateAllStatesChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_time = (*env)->GetStringUTFChars (env, time, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCurrentTimeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_time);
+    (*env)->ReleaseStringUTFChars (env, time, c_time);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateBatteryStateChangednativeCb (uint8_t percent, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageInfoRemainingListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint free_space, jshort rec_time, jint photo_remaining)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateBatteryStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateBatteryStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateBatteryStateChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageInfoRemainingListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)free_space, (uint16_t)rec_time, (uint32_t)photo_remaining);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)percent);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateMassStorageStateListChangednativeCb (uint8_t mass_storage_id, char * name, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateWifiSignalChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort rssi)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageStateListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageStateListChangedUpdate", "(BLjava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateWifiSignalChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int16_t)rssi);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_name = (*env)->NewStringUTF (env, name);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id, j_name);
-        (*env)->DeleteLocalRef (env, j_name);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoStateListChangednativeCb (uint8_t mass_storage_id, uint32_t size, uint32_t used_size, uint8_t plugged, uint8_t full, uint8_t internal, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateSensorsStatesListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject sensorName, jbyte sensorState)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageInfoStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageInfoStateListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageInfoStateListChangedUpdate", "(BIIBBB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_sensorName_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM");
+    jmethodID j_sensorName_mid = (*env)->GetMethodID (env, j_sensorName_class, "getValue", "()I");
+    jint j_sensorName_enum = (*env)->CallIntMethod (env, sensorName, j_sensorName_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateSensorsStatesListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_sensorName_enum, (uint8_t)sensorState);
+    (*env)->DeleteLocalRef (env, j_sensorName_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id, (jint)size, (jint)used_size, (jbyte)plugged, (jbyte)full, (jbyte)internal);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateCurrentDateChangednativeCb (char * date, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateProductModel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject model)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCurrentDateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCurrentDateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCurrentDateChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_model_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM");
+    jmethodID j_model_mid = (*env)->GetMethodID (env, j_model_class, "getValue", "()I");
+    jint j_model_enum = (*env)->CallIntMethod (env, model, j_model_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateProductModel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_model_enum);
+    (*env)->DeleteLocalRef (env, j_model_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_date = (*env)->NewStringUTF (env, date);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_date);
-        (*env)->DeleteLocalRef (env, j_date);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateCurrentTimeChangednativeCb (char * time, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryListKnown (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring countryCodes)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCurrentTimeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCurrentTimeChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCurrentTimeChangedUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_countryCodes = (*env)->GetStringUTFChars (env, countryCodes, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateCountryListKnown ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_countryCodes);
+    (*env)->ReleaseStringUTFChars (env, countryCodes, c_countryCodes);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_time = (*env)->NewStringUTF (env, time);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_time);
-        (*env)->DeleteLocalRef (env, j_time);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoRemainingListChangednativeCb (uint32_t free_space, uint16_t rec_time, uint32_t photo_remaining, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatSwitchOff (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageInfoRemainingListChangedUpdate", "(ISI)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonOverHeatSwitchOff ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)free_space, (jshort)rec_time, (jint)photo_remaining);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateWifiSignalChangednativeCb (int16_t rssi, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatVentilate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateWifiSignalChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateWifiSignalChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateWifiSignalChangedUpdate", "(S)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, rssi);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateSensorsStatesListChangednativeCb (eARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME sensorName, uint8_t sensorState, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateSensorsStatesListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateSensorsStatesListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateSensorsStatesListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM;B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_sensorName_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM");
-        jmethodID j_sensorName_mid = (*env)->GetStaticMethodID (env, j_sensorName_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM;");
-        jobject j_sensorName_enum = (*env)->CallStaticObjectMethod (env, j_sensorName_class, j_sensorName_mid, sensorName);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_sensorName_enum, (jbyte)sensorState);
-        (*env)->DeleteLocalRef (env, j_sensorName_class);
-        (*env)->DeleteLocalRef (env, j_sensorName_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCommonStateProductModelnativeCb (eARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL model, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatRegulationChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte regulationType)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateProductModelListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateProductModelListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateProductModelUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatRegulationChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)regulationType);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_model_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM");
-        jmethodID j_model_mid = (*env)->GetStaticMethodID (env, j_model_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM;");
-        jobject j_model_enum = (*env)->CallStaticObjectMethod (env, j_model_class, j_model_mid, model);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_model_enum);
-        (*env)->DeleteLocalRef (env, j_model_class);
-        (*env)->DeleteLocalRef (env, j_model_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (char * countryCodes, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonControllerStateIsPilotingChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte piloting)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCountryListKnownListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCountryListKnownListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCountryListKnownUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)piloting);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_countryCodes = (*env)->NewStringUTF (env, countryCodes);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_countryCodes);
-        (*env)->DeleteLocalRef (env, j_countryCodes);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonOverHeatSwitchOffnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonWifiSettingsOutdoorSetting (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte outdoor)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatSwitchOffListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatSwitchOffListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatSwitchOffUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonWifiSettingsOutdoorSetting ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)outdoor);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonOverHeatVentilatenativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte outdoor)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatVentilateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatVentilateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatVentilateUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonWifiSettingsStateOutdoorSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)outdoor);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStart (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring filepath, jobject type)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatStateOverHeatChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatStateOverHeatChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatStateOverHeatChangedUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_filepath = (*env)->GetStringUTFChars (env, filepath, NULL);
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStart ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_filepath, j_type_enum);
+    (*env)->ReleaseStringUTFChars (env, filepath, c_filepath);
+    (*env)->DeleteLocalRef (env, j_type_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb (uint8_t regulationType, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkPause (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatStateOverHeatRegulationChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatStateOverHeatRegulationChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatStateOverHeatRegulationChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonMavlinkPause ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)regulationType);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb (uint8_t piloting, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStop (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonControllerStateIsPilotingChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonControllerStateIsPilotingChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonControllerStateIsPilotingChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStop ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)piloting);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonWifiSettingsOutdoorSettingnativeCb (uint8_t outdoor, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject state, jstring filepath, jobject type)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonWifiSettingsOutdoorSettingListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonWifiSettingsOutdoorSettingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonWifiSettingsOutdoorSettingUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM");
+    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
+    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
+    const char *c_filepath = (*env)->GetStringUTFChars (env, filepath, NULL);
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStateMavlinkFilePlayingStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_state_enum, c_filepath, j_type_enum);
+    (*env)->DeleteLocalRef (env, j_state_class);
+    (*env)->ReleaseStringUTFChars (env, filepath, c_filepath);
+    (*env)->DeleteLocalRef (env, j_type_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)outdoor);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonWifiSettingsStateOutdoorSettingsChangednativeCb (uint8_t outdoor, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject error)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonWifiSettingsStateOutdoorSettingsChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM");
+    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
+    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonMavlinkStateMavlinkPlayErrorStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_error_enum);
+    (*env)->DeleteLocalRef (env, j_error_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)outdoor);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonMavlinkStartnativeCb (char * filepath, eARCOMMANDS_COMMON_MAVLINK_START_TYPE type, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationMagnetoCalibration (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte calibrate)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStartListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStartListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStartUpdate", "(Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCalibrationMagnetoCalibration ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)calibrate);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_filepath = (*env)->NewStringUTF (env, filepath);
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_filepath, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_filepath);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonMavlinkPausenativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte xAxisCalibration, jbyte yAxisCalibration, jbyte zAxisCalibration, jbyte calibrationFailed)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkPauseListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkPauseListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkPauseUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)xAxisCalibration, (uint8_t)yAxisCalibration, (uint8_t)zAxisCalibration, (uint8_t)calibrationFailed);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonMavlinkStopnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte required)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStopListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStopListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStopUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationRequiredState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)required);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_CommonMavlinkStateMavlinkFilePlayingStateChangednativeCb (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE state, char * filepath, eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE type, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject axis)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStateMavlinkFilePlayingStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM;Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_axis_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM");
+    jmethodID j_axis_mid = (*env)->GetMethodID (env, j_axis_class, "getValue", "()I");
+    jint j_axis_enum = (*env)->CallIntMethod (env, axis, j_axis_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_axis_enum);
+    (*env)->DeleteLocalRef (env, j_axis_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM");
-        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM;");
-        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
-        jstring j_filepath = (*env)->NewStringUTF (env, filepath);
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum, j_filepath, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_state_class);
-        (*env)->DeleteLocalRef (env, j_state_enum);
-        (*env)->DeleteLocalRef (env, j_filepath);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonMavlinkStateMavlinkPlayErrorStateChangednativeCb (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR error, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte started)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStateMavlinkPlayErrorStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationStartedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)started);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM");
-        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM;");
-        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_error_enum);
-        (*env)->DeleteLocalRef (env, j_error_class);
-        (*env)->DeleteLocalRef (env, j_error_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonCalibrationMagnetoCalibrationnativeCb (uint8_t calibrate, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCameraSettingsStateCameraSettingsChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat fov, jfloat panMax, jfloat panMin, jfloat tiltMax, jfloat tiltMin)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationMagnetoCalibrationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationMagnetoCalibrationListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationMagnetoCalibrationUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonCameraSettingsStateCameraSettingsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)fov, (float)panMax, (float)panMin, (float)tiltMax, (float)tiltMin);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)calibrate);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStateChangednativeCb (uint8_t xAxisCalibration, uint8_t yAxisCalibration, uint8_t zAxisCalibration, uint8_t calibrationFailed, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonGPSControllerPositionForRun (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jdouble latitude, jdouble longitude)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationStateChangedUpdate", "(BBBB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonGPSControllerPositionForRun ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (double)latitude, (double)longitude);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)xAxisCalibration, (jbyte)yAxisCalibration, (jbyte)zAxisCalibration, (jbyte)calibrationFailed);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationRequiredStatenativeCb (uint8_t required, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanStateAvailabilityStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte AvailabilityState)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationRequiredStateUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanStateAvailabilityStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)AvailabilityState);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)required);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangednativeCb (eARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS axis, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanStateComponentStateListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject component, jbyte State)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_component_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM");
+    jmethodID j_component_mid = (*env)->GetMethodID (env, j_component_class, "getValue", "()I");
+    jint j_component_enum = (*env)->CallIntMethod (env, component, j_component_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanStateComponentStateListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_component_enum, (uint8_t)State);
+    (*env)->DeleteLocalRef (env, j_component_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_axis_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM");
-        jmethodID j_axis_mid = (*env)->GetStaticMethodID (env, j_axis_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM;");
-        jobject j_axis_enum = (*env)->CallStaticObjectMethod (env, j_axis_class, j_axis_mid, axis);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_axis_enum);
-        (*env)->DeleteLocalRef (env, j_axis_class);
-        (*env)->DeleteLocalRef (env, j_axis_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStartedChangednativeCb (uint8_t started, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanEventStartingErrorEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationStartedChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanEventStartingErrorEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)started);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonCameraSettingsStateCameraSettingsChangednativeCb (float fov, float panMax, float panMin, float tiltMax, float tiltMin, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonFlightPlanEventSpeedBridleEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCameraSettingsStateCameraSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCameraSettingsStateCameraSettingsChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCameraSettingsStateCameraSettingsChangedUpdate", "(FFFFF)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonFlightPlanEventSpeedBridleEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, fov, panMax, panMin, tiltMax, tiltMin);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonGPSControllerPositionForRunnativeCb (double latitude, double longitude, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateControllerLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonGPSControllerPositionForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonGPSControllerPositionForRunListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonGPSControllerPositionForRunUpdate", "(DD)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateControllerLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
+    (*env)->ReleaseStringUTFChars (env, version, c_version);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude, longitude);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonFlightPlanStateAvailabilityStateChangednativeCb (uint8_t AvailabilityState, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateSkyControllerLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanStateAvailabilityStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanStateAvailabilityStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanStateAvailabilityStateChangedUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateSkyControllerLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
+    (*env)->ReleaseStringUTFChars (env, version, c_version);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)AvailabilityState);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonFlightPlanStateComponentStateListChangednativeCb (eARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT component, uint8_t State, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonARLibsVersionsStateDeviceLibARCommandsVersion (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring version)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanStateComponentStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanStateComponentStateListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanStateComponentStateListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM;B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_version = (*env)->GetStringUTFChars (env, version, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateDeviceLibARCommandsVersion ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_version);
+    (*env)->ReleaseStringUTFChars (env, version, c_version);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_component_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM");
-        jmethodID j_component_mid = (*env)->GetStaticMethodID (env, j_component_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM;");
-        jobject j_component_enum = (*env)->CallStaticObjectMethod (env, j_component_class, j_component_mid, component);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_component_enum, (jbyte)State);
-        (*env)->DeleteLocalRef (env, j_component_class);
-        (*env)->DeleteLocalRef (env, j_component_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonFlightPlanEventStartingErrorEventnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAudioControllerReadyForStreaming (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte ready)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanEventStartingErrorEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanEventStartingErrorEventListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanEventStartingErrorEventUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonAudioControllerReadyForStreaming ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)ready);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonFlightPlanEventSpeedBridleEventnativeCb (void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAudioStateAudioStreamingRunning (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte running)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanEventSpeedBridleEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanEventSpeedBridleEventListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanEventSpeedBridleEventUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonAudioStateAudioStreamingRunning ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)running);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonARLibsVersionsStateControllerLibARCommandsVersionnativeCb (char * version, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonHeadlightsIntensity (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte left, jbyte right)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateControllerLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonHeadlightsIntensity ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)left, (uint8_t)right);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_version = (*env)->NewStringUTF (env, version);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
-        (*env)->DeleteLocalRef (env, j_version);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionnativeCb (char * version, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonHeadlightsStateIntensityChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte left, jbyte right)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateSkyControllerLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonHeadlightsStateIntensityChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)left, (uint8_t)right);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_version = (*env)->NewStringUTF (env, version);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
-        (*env)->DeleteLocalRef (env, j_version);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonARLibsVersionsStateDeviceLibARCommandsVersionnativeCb (char * version, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStartAnimation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateDeviceLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM");
+    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
+    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStartAnimation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum);
+    (*env)->DeleteLocalRef (env, j_anim_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_version = (*env)->NewStringUTF (env, version);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
-        (*env)->DeleteLocalRef (env, j_version);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonAudioControllerReadyForStreamingnativeCb (uint8_t ready, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStopAnimation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAudioControllerReadyForStreamingListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAudioControllerReadyForStreamingListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAudioControllerReadyForStreamingUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM");
+    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
+    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAnimation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum);
+    (*env)->DeleteLocalRef (env, j_anim_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)ready);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_CommonAudioStateAudioStreamingRunningnativeCb (uint8_t running, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStopAllAnimations (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAudioStateAudioStreamingRunningListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAudioStateAudioStreamingRunningListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAudioStateAudioStreamingRunningUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAllAnimations ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)running);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonHeadlightsIntensitynativeCb (uint8_t left, uint8_t right, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAnimationsStateList (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject anim, jobject state, jobject error)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonHeadlightsIntensityListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonHeadlightsIntensityListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonHeadlightsIntensityUpdate", "(BB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM");
+    jmethodID j_anim_mid = (*env)->GetMethodID (env, j_anim_class, "getValue", "()I");
+    jint j_anim_enum = (*env)->CallIntMethod (env, anim, j_anim_mid);
+    jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM");
+    jmethodID j_state_mid = (*env)->GetMethodID (env, j_state_class, "getValue", "()I");
+    jint j_state_enum = (*env)->CallIntMethod (env, state, j_state_mid);
+    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM");
+    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
+    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAnimationsStateList ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_anim_enum, j_state_enum, j_error_enum);
+    (*env)->DeleteLocalRef (env, j_anim_class);
+    (*env)->DeleteLocalRef (env, j_state_class);
+    (*env)->DeleteLocalRef (env, j_error_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)left, (jbyte)right);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonHeadlightsStateIntensityChangednativeCb (uint8_t left, uint8_t right, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryConfig (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject accessory)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonHeadlightsStateIntensityChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonHeadlightsStateIntensityChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonHeadlightsStateIntensityChangedUpdate", "(BB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM");
+    jmethodID j_accessory_mid = (*env)->GetMethodID (env, j_accessory_class, "getValue", "()I");
+    jint j_accessory_enum = (*env)->CallIntMethod (env, accessory, j_accessory_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAccessoryConfig ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_accessory_enum);
+    (*env)->DeleteLocalRef (env, j_accessory_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)left, (jbyte)right);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonAnimationsStartAnimationnativeCb (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM anim, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject accessory)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStartAnimationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStartAnimationListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStartAnimationUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM");
+    jmethodID j_accessory_mid = (*env)->GetMethodID (env, j_accessory_class, "getValue", "()I");
+    jint j_accessory_enum = (*env)->CallIntMethod (env, accessory, j_accessory_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateSupportedAccessoriesListChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_accessory_enum);
+    (*env)->DeleteLocalRef (env, j_accessory_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM");
-        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM;");
-        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum);
-        (*env)->DeleteLocalRef (env, j_anim_class);
-        (*env)->DeleteLocalRef (env, j_anim_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonAnimationsStopAnimationnativeCb (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM anim, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateAccessoryConfigChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject newAccessory, jobject error)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStopAnimationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStopAnimationListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStopAnimationUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_newAccessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM");
+    jmethodID j_newAccessory_mid = (*env)->GetMethodID (env, j_newAccessory_class, "getValue", "()I");
+    jint j_newAccessory_enum = (*env)->CallIntMethod (env, newAccessory, j_newAccessory_mid);
+    jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM");
+    jmethodID j_error_mid = (*env)->GetMethodID (env, j_error_class, "getValue", "()I");
+    jint j_error_enum = (*env)->CallIntMethod (env, error, j_error_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateAccessoryConfigChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_newAccessory_enum, j_error_enum);
+    (*env)->DeleteLocalRef (env, j_newAccessory_class);
+    (*env)->DeleteLocalRef (env, j_error_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM");
-        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM;");
-        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum);
-        (*env)->DeleteLocalRef (env, j_anim_class);
-        (*env)->DeleteLocalRef (env, j_anim_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonAnimationsStopAllAnimationsnativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enabled)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStopAllAnimationsListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStopAllAnimationsListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStopAllAnimationsUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonAccessoryStateAccessoryConfigModificationEnabled ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonAnimationsStateListnativeCb (eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM anim, eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE state, eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR error, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerSetMaxChargeRate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStateListListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStateListListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStateListUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM");
+    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
+    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonChargerSetMaxChargeRate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
+    (*env)->DeleteLocalRef (env, j_rate_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM");
-        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM;");
-        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
-        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM");
-        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM;");
-        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
-        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM");
-        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM;");
-        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum, j_state_enum, j_error_enum);
-        (*env)->DeleteLocalRef (env, j_anim_class);
-        (*env)->DeleteLocalRef (env, j_anim_enum);
-        (*env)->DeleteLocalRef (env, j_state_class);
-        (*env)->DeleteLocalRef (env, j_state_enum);
-        (*env)->DeleteLocalRef (env, j_error_class);
-        (*env)->DeleteLocalRef (env, j_error_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonAccessoryConfignativeCb (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY accessory, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateMaxChargeRateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryConfigListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryConfigListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryConfigUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM");
+    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
+    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonChargerStateMaxChargeRateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
+    (*env)->DeleteLocalRef (env, j_rate_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM");
-        jmethodID j_accessory_mid = (*env)->GetStaticMethodID (env, j_accessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM;");
-        jobject j_accessory_enum = (*env)->CallStaticObjectMethod (env, j_accessory_class, j_accessory_mid, accessory);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_accessory_enum);
-        (*env)->DeleteLocalRef (env, j_accessory_class);
-        (*env)->DeleteLocalRef (env, j_accessory_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-
-void ARCOMMANDS_JNI_CommonAccessoryStateSupportedAccessoriesListChangednativeCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY accessory, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateCurrentChargeStateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jobject phase)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateSupportedAccessoriesListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM");
+    jmethodID j_phase_mid = (*env)->GetMethodID (env, j_phase_class, "getValue", "()I");
+    jint j_phase_enum = (*env)->CallIntMethod (env, phase, j_phase_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonChargerStateCurrentChargeStateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, j_phase_enum);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    (*env)->DeleteLocalRef (env, j_phase_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM");
-        jmethodID j_accessory_mid = (*env)->GetStaticMethodID (env, j_accessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM;");
-        jobject j_accessory_enum = (*env)->CallStaticObjectMethod (env, j_accessory_class, j_accessory_mid, accessory);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_accessory_enum);
-        (*env)->DeleteLocalRef (env, j_accessory_class);
-        (*env)->DeleteLocalRef (env, j_accessory_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigChangednativeCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY newAccessory, eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR error, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateLastChargeRateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject rate)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateAccessoryConfigChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateAccessoryConfigChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateAccessoryConfigChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM");
+    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
+    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonChargerStateLastChargeRateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_rate_enum);
+    (*env)->DeleteLocalRef (env, j_rate_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_newAccessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM");
-        jmethodID j_newAccessory_mid = (*env)->GetStaticMethodID (env, j_newAccessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM;");
-        jobject j_newAccessory_enum = (*env)->CallStaticObjectMethod (env, j_newAccessory_class, j_newAccessory_mid, newAccessory);
-        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM");
-        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM;");
-        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_newAccessory_enum, j_error_enum);
-        (*env)->DeleteLocalRef (env, j_newAccessory_class);
-        (*env)->DeleteLocalRef (env, j_newAccessory_enum);
-        (*env)->DeleteLocalRef (env, j_error_class);
-        (*env)->DeleteLocalRef (env, j_error_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigModificationEnablednativeCb (uint8_t enabled, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateChargingInfo (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject phase, jobject rate, jbyte intensity, jbyte fullChargingTime)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateAccessoryConfigModificationEnabledUpdate", "(B)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM");
+    jmethodID j_phase_mid = (*env)->GetMethodID (env, j_phase_class, "getValue", "()I");
+    jint j_phase_enum = (*env)->CallIntMethod (env, phase, j_phase_mid);
+    jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM");
+    jmethodID j_rate_mid = (*env)->GetMethodID (env, j_rate_class, "getValue", "()I");
+    jint j_rate_enum = (*env)->CallIntMethod (env, rate, j_rate_mid);
+    err = ARCOMMANDS_Generator_GenerateCommonChargerStateChargingInfo ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_phase_enum, j_rate_enum, (uint8_t)intensity, (uint8_t)fullChargingTime);
+    (*env)->DeleteLocalRef (env, j_phase_class);
+    (*env)->DeleteLocalRef (env, j_rate_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
 
-void ARCOMMANDS_JNI_CommonChargerSetMaxChargeRatenativeCb (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE rate, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsSendPacket (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring packet)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerSetMaxChargeRateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerSetMaxChargeRateListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerSetMaxChargeRateUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_packet = (*env)->GetStringUTFChars (env, packet, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_packet);
+    (*env)->ReleaseStringUTFChars (env, packet, c_packet);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM");
-        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM;");
-        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
-        (*env)->DeleteLocalRef (env, j_rate_class);
-        (*env)->DeleteLocalRef (env, j_rate_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
-
 
-void ARCOMMANDS_JNI_CommonChargerStateMaxChargeRateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE rate, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsStartSendingPacketFromDrone (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte frequency, jbyte packetSize, jint date)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateMaxChargeRateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateMaxChargeRateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateMaxChargeRateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)frequency, (uint8_t)packetSize, (uint32_t)date);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM");
-        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM;");
-        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
-        (*env)->DeleteLocalRef (env, j_rate_class);
-        (*env)->DeleteLocalRef (env, j_rate_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonChargerStateCurrentChargeStateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS status, eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE phase, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsStopSendingPacketFromDrone (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateCurrentChargeStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateCurrentChargeStateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateCurrentChargeStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
-        jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM");
-        jmethodID j_phase_mid = (*env)->GetStaticMethodID (env, j_phase_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM;");
-        jobject j_phase_enum = (*env)->CallStaticObjectMethod (env, j_phase_class, j_phase_mid, phase);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_phase_enum);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
-        (*env)->DeleteLocalRef (env, j_phase_class);
-        (*env)->DeleteLocalRef (env, j_phase_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonChargerStateLastChargeRateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE rate, void *custom)
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsEventSendPacket (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring packet)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateLastChargeRateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateLastChargeRateChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateLastChargeRateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_packet = (*env)->GetStringUTFChars (env, packet, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_packet);
+    (*env)->ReleaseStringUTFChars (env, packet, c_packet);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM");
-        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM;");
-        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
-        (*env)->DeleteLocalRef (env, j_rate_class);
-        (*env)->DeleteLocalRef (env, j_rate_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE phase, eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE rate, uint8_t intensity, uint8_t fullChargingTime, void *custom)
+
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProBoughtFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateChargingInfoListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateChargingInfoListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateChargingInfoUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM;BB)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateProProBoughtFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM");
-        jmethodID j_phase_mid = (*env)->GetStaticMethodID (env, j_phase_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM;");
-        jobject j_phase_enum = (*env)->CallStaticObjectMethod (env, j_phase_class, j_phase_mid, phase);
-        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM");
-        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM;");
-        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_phase_enum, j_rate_enum, (jbyte)intensity, (jbyte)fullChargingTime);
-        (*env)->DeleteLocalRef (env, j_phase_class);
-        (*env)->DeleteLocalRef (env, j_phase_enum);
-        (*env)->DeleteLocalRef (env, j_rate_class);
-        (*env)->DeleteLocalRef (env, j_rate_enum);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProResponse (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jstring signedChallenge)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    const char *c_signedChallenge = (*env)->GetStringUTFChars (env, signedChallenge, NULL);
+    err = ARCOMMANDS_Generator_GenerateProProResponse ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, c_signedChallenge);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    (*env)->ReleaseStringUTFChars (env, signedChallenge, c_signedChallenge);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
 
-void ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb (char * packet, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProActivateFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsSendPacketListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsSendPacketListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsSendPacketUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateProProActivateFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_packet = (*env)->NewStringUTF (env, packet);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_packet);
-        (*env)->DeleteLocalRef (env, j_packet);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
+
 
-void ARCOMMANDS_JNI_CommonDebugStatsStartSendingPacketFromDronenativeCb (uint8_t frequency, uint8_t packetSize, uint32_t date, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProStateSupportedFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jlong features)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsStartSendingPacketFromDroneListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsStartSendingPacketFromDroneListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsStartSendingPacketFromDroneUpdate", "(BBI)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM");
+    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
+    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
+    err = ARCOMMANDS_Generator_GenerateProProStateSupportedFeatures ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, (uint64_t)features);
+    (*env)->DeleteLocalRef (env, j_status_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)frequency, (jbyte)packetSize, (jint)date);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
-void ARCOMMANDS_JNI_CommonDebugStatsStopSendingPacketFromDronenativeCb (void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProStateFeaturesActivated (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsStopSendingPacketFromDroneListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsStopSendingPacketFromDroneListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsStopSendingPacketFromDroneUpdate", "()V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    err = ARCOMMANDS_Generator_GenerateProProStateFeaturesActivated ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint64_t)features);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
-void ARCOMMANDS_JNI_CommonDebugStatsEventSendPacketnativeCb (char * packet, void *custom)
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProEventChallengeEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring challenge)
 {
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsEventSendPacketListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsEventSendPacketListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
 
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsEventSendPacketUpdate", "(Ljava/lang/String;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
+    const char *c_challenge = (*env)->GetStringUTFChars (env, challenge, NULL);
+    err = ARCOMMANDS_Generator_GenerateProProEventChallengeEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_challenge);
+    (*env)->ReleaseStringUTFChars (env, challenge, c_challenge);
+    if (err == ARCOMMANDS_GENERATOR_OK)
     {
-        jstring j_packet = (*env)->NewStringUTF (env, packet);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_packet);
-        (*env)->DeleteLocalRef (env, j_packet);
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
     }
-    (*env)->DeleteLocalRef (env, delegate);
+    return err;
 }
 
 
@@ -19088,6 +14741,4353 @@ void ARCOMMANDS_JNI_JumpingSumoDebugUserScriptStateUserScriptParsednativeCb (uin
 
 
 
+void ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingFlatTrimListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingFlatTrimListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingFlatTrimUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingTakeOffnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingTakeOffListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingTakeOffListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingTakeOffUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingPCMDnativeCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestamp, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingPCMDListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingPCMDListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingPCMDUpdate", "(BBBBBI)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)flag, roll, pitch, yaw, gaz, (jint)timestamp);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingLandingnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingLandingListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingLandingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingLandingUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingEmergencynativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingEmergencyListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingEmergencyListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingEmergencyUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb (uint8_t state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingAutoTakeOffModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingAutoTakeOffModeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingAutoTakeOffModeUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateFlatTrimChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateFlatTrimChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateFlatTrimChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingStateFlyingStateChangednativeCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateFlyingStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateFlyingStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateFlyingStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum);
+        (*env)->DeleteLocalRef (env, j_state_class);
+        (*env)->DeleteLocalRef (env, j_state_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingStateAlertStateChangednativeCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateAlertStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateAlertStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateAlertStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum);
+        (*env)->DeleteLocalRef (env, j_state_class);
+        (*env)->DeleteLocalRef (env, j_state_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb (uint8_t state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateAutoTakeOffModeChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneAnimationsFlipListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneAnimationsFlipListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneAnimationsFlipUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM");
+        jmethodID j_direction_mid = (*env)->GetStaticMethodID (env, j_direction_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM;");
+        jobject j_direction_enum = (*env)->CallStaticObjectMethod (env, j_direction_class, j_direction_mid, direction);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_direction_enum);
+        (*env)->DeleteLocalRef (env, j_direction_class);
+        (*env)->DeleteLocalRef (env, j_direction_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneAnimationsCapnativeCb (int16_t offset, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneAnimationsCapListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneAnimationsCapListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneAnimationsCapUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, offset);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneMediaRecordPicturenativeCb (uint8_t mass_storage_id, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordPictureListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordPictureListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordPictureUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneMediaRecordPictureV2nativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordPictureV2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordPictureV2Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordPictureV2Update", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangednativeCb (uint8_t state, uint8_t mass_storage_id, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordStatePictureStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordStatePictureStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordStatePictureStateChangedUpdate", "(BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state, (jbyte)mass_storage_id);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangedV2nativeCb (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordStatePictureStateChangedV2Update", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM");
+        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM;");
+        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum, j_error_enum);
+        (*env)->DeleteLocalRef (env, j_state_class);
+        (*env)->DeleteLocalRef (env, j_state_enum);
+        (*env)->DeleteLocalRef (env, j_error_class);
+        (*env)->DeleteLocalRef (env, j_error_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneMediaRecordEventPictureEventChangednativeCb (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT event, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR error, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMediaRecordEventPictureEventChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMediaRecordEventPictureEventChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMediaRecordEventPictureEventChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_event_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM");
+        jmethodID j_event_mid = (*env)->GetStaticMethodID (env, j_event_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM;");
+        jobject j_event_enum = (*env)->CallStaticObjectMethod (env, j_event_class, j_event_mid, event);
+        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM");
+        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM;");
+        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_event_enum, j_error_enum);
+        (*env)->DeleteLocalRef (env, j_event_class);
+        (*env)->DeleteLocalRef (env, j_event_enum);
+        (*env)->DeleteLocalRef (env, j_error_class);
+        (*env)->DeleteLocalRef (env, j_error_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxAltitudenativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsMaxAltitudeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsMaxAltitudeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsMaxAltitudeUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxTiltnativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsMaxTiltListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsMaxTiltListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsMaxTiltUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxAltitudeChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsStateMaxAltitudeChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxTiltChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingSettingsStateMaxTiltChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxVerticalSpeednativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsMaxVerticalSpeedUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxRotationSpeednativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsMaxRotationSpeedUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb (uint8_t present, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsWheelsListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsWheelsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsWheelsUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)present);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxRotationSpeedChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateMaxRotationSpeedChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb (uint8_t present, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateWheelsChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)present);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneSettingsCutOutModenativeCb (uint8_t enable, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsCutOutModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsCutOutModeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsCutOutModeUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneSettingsStateProductMotorsVersionChangednativeCb (uint8_t motor, char * type, char * software, char * hardware, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateProductMotorsVersionChangedUpdate", "(BLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_type = (*env)->NewStringUTF (env, type);
+        jstring j_software = (*env)->NewStringUTF (env, software);
+        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)motor, j_type, j_software, j_hardware);
+        (*env)->DeleteLocalRef (env, j_type);
+        (*env)->DeleteLocalRef (env, j_software);
+        (*env)->DeleteLocalRef (env, j_hardware);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSettingsStateProductInertialVersionChangednativeCb (char * software, char * hardware, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateProductInertialVersionChangedUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_software = (*env)->NewStringUTF (env, software);
+        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_software, j_hardware);
+        (*env)->DeleteLocalRef (env, j_software);
+        (*env)->DeleteLocalRef (env, j_hardware);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSettingsStateCutOutModeChangednativeCb (uint8_t enable, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSettingsStateCutOutModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSettingsStateCutOutModeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSettingsStateCutOutModeChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb (uint16_t delay, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneFloodControlStateFloodControlChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneFloodControlStateFloodControlChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneFloodControlStateFloodControlChangedUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)delay);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneGPSControllerLatitudeForRunnativeCb (double latitude, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneGPSControllerLatitudeForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneGPSControllerLatitudeForRunListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneGPSControllerLatitudeForRunUpdate", "(D)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneGPSControllerLongitudeForRunnativeCb (double longitude, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneGPSControllerLongitudeForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneGPSControllerLongitudeForRunListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneGPSControllerLongitudeForRunUpdate", "(D)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, longitude);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_MiniDroneConfigurationControllerTypenativeCb (char * type, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneConfigurationControllerTypeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneConfigurationControllerTypeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneConfigurationControllerTypeUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_type = (*env)->NewStringUTF (env, type);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type);
+        (*env)->DeleteLocalRef (env, j_type);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb (char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneConfigurationControllerNameListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneConfigurationControllerNameListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneConfigurationControllerNameUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_MiniDroneDebugDebugTest1nativeCb (int8_t t1Args, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest1Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest1Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest1Update", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, t1Args);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneDebugDebugTest2nativeCb (int8_t t2Args, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest2Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest2Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest2Update", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, t2Args);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneDebugDebugTest3nativeCb (int8_t t3Args, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneDebugDebugTest3Listener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneDebugDebugTest3Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneDebugDebugTest3Update", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, t3Args);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_SkyControllerWifiStateWifiListnativeCb (char * bssid, char * ssid, uint8_t secured, uint8_t saved, int32_t rssi, int32_t frequency, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiListListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiListUpdate", "(Ljava/lang/String;Ljava/lang/String;BBII)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_bssid = (*env)->NewStringUTF (env, bssid);
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_bssid, j_ssid, (jbyte)secured, (jbyte)saved, rssi, frequency);
+        (*env)->DeleteLocalRef (env, j_bssid);
+        (*env)->DeleteLocalRef (env, j_ssid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiStateConnexionChangednativeCb (char * ssid, eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS status, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateConnexionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateConnexionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateConnexionChangedUpdate", "(Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid, j_status_enum);
+        (*env)->DeleteLocalRef (env, j_ssid);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiStateWifiAuthChannelListChangednativeCb (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiAuthChannelListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM;BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM");
+        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM;");
+        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_band_enum, (jbyte)channel, (jbyte)in_or_out);
+        (*env)->DeleteLocalRef (env, j_band_class);
+        (*env)->DeleteLocalRef (env, j_band_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiStateAllWifiAuthChannelChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateAllWifiAuthChannelChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiStateWifiSignalChangednativeCb (uint8_t level, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiStateWifiSignalChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiStateWifiSignalChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiStateWifiSignalChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)level);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerWifiRequestWifiListnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiRequestWifiListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiRequestWifiListListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiRequestWifiListUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiRequestCurrentWifinativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiRequestCurrentWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiRequestCurrentWifiListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiRequestCurrentWifiUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiConnectToWifinativeCb (char * bssid, char * ssid, char * passphrase, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiConnectToWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiConnectToWifiListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiConnectToWifiUpdate", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_bssid = (*env)->NewStringUTF (env, bssid);
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        jstring j_passphrase = (*env)->NewStringUTF (env, passphrase);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_bssid, j_ssid, j_passphrase);
+        (*env)->DeleteLocalRef (env, j_bssid);
+        (*env)->DeleteLocalRef (env, j_ssid);
+        (*env)->DeleteLocalRef (env, j_passphrase);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiForgetWifinativeCb (char * ssid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiForgetWifiListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiForgetWifiListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiForgetWifiUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
+        (*env)->DeleteLocalRef (env, j_ssid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerWifiWifiAuthChannelnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerWifiWifiAuthChannelListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerWifiWifiAuthChannelListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerWifiWifiAuthChannelUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerDeviceRequestDeviceListnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceRequestDeviceListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceRequestDeviceListListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceRequestDeviceListUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerDeviceRequestCurrentDevicenativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceRequestCurrentDeviceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceRequestCurrentDeviceListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceRequestCurrentDeviceUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerDeviceConnectToDevicenativeCb (char * deviceName, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceConnectToDeviceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceConnectToDeviceListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceConnectToDeviceUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_deviceName = (*env)->NewStringUTF (env, deviceName);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_deviceName);
+        (*env)->DeleteLocalRef (env, j_deviceName);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerDeviceStateDeviceListnativeCb (char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceStateDeviceListListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceStateDeviceListListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceStateDeviceListUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerDeviceStateConnexionChangednativeCb (eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS status, char * deviceName, uint16_t deviceProductID, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDeviceStateConnexionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDeviceStateConnexionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDeviceStateConnexionChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM;Ljava/lang/String;S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        jstring j_deviceName = (*env)->NewStringUTF (env, deviceName);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_deviceName, (jshort)deviceProductID);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->DeleteLocalRef (env, j_deviceName);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerSettingsAllSettingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsAllSettingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsAllSettingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsAllSettingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerSettingsResetnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsResetListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsResetListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsResetUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerSettingsStateAllSettingsChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateAllSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateAllSettingsChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateAllSettingsChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerSettingsStateResetChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateResetChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateResetChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateResetChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb (char * serialNumber, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateProductSerialChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateProductSerialChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateProductSerialChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_serialNumber = (*env)->NewStringUTF (env, serialNumber);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_serialNumber);
+        (*env)->DeleteLocalRef (env, j_serialNumber);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCommonAllStatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCommonAllStatesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCommonAllStatesUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCommonStateAllStatesChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCommonStateAllStatesChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCommonStateAllStatesChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCommonStateAllStatesChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerSkyControllerStateBatteryChangednativeCb (uint8_t percent, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateBatteryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateBatteryChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateBatteryChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)percent);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsFixChangednativeCb (uint8_t fixed, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateGpsFixChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateGpsFixChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateGpsFixChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)fixed);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsPositionChangednativeCb (double latitude, double longitude, double altitude, float heading, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSkyControllerStateGpsPositionChangedUpdate", "(DDDF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude, longitude, altitude, heading);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointSSIDnativeCb (char * ssid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsAccessPointSSIDListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsAccessPointSSIDUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
+        (*env)->DeleteLocalRef (env, j_ssid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointChannelnativeCb (uint8_t channel, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsAccessPointChannelUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)channel);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsWifiSelectionnativeCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsWifiSelectionListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsWifiSelectionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsWifiSelectionUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM");
+        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM;");
+        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_band_enum, (jbyte)channel);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_band_class);
+        (*env)->DeleteLocalRef (env, j_band_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointSSIDChangednativeCb (char * ssid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateAccessPointSSIDChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_ssid = (*env)->NewStringUTF (env, ssid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_ssid);
+        (*env)->DeleteLocalRef (env, j_ssid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointChannelChangednativeCb (uint8_t channel, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateAccessPointChannelChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateAccessPointChannelChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)channel);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateWifiSelectionChangednativeCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND band, uint8_t channel, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAccessPointSettingsStateWifiSelectionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAccessPointSettingsStateWifiSelectionChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM");
+        jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM;");
+        jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_band_enum, (jbyte)channel);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_band_class);
+        (*env)->DeleteLocalRef (env, j_band_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCameraResetOrientationnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCameraResetOrientationListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCameraResetOrientationListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCameraResetOrientationUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerGamepadInfosGetGamepadControlsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosGetGamepadControlsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosGetGamepadControlsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosGetGamepadControlsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerGamepadInfosStateGamepadControlnativeCb (eARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE type, int32_t id, char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosStateGamepadControlListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosStateGamepadControlListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosStateGamepadControlUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM;ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, id, j_name);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerGamepadInfosStateAllGamepadControlsSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerGamepadInfosStateAllGamepadControlsSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerGamepadInfosStateAllGamepadControlsSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsGetCurrentButtonMappingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsGetCurrentButtonMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsGetCurrentButtonMappingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsGetAvailableButtonMappingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsGetAvailableButtonMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsGetAvailableButtonMappingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsSetButtonMappingnativeCb (int32_t key_id, char * mapping_uid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsSetButtonMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsSetButtonMappingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsSetButtonMappingUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, key_id, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsDefaultButtonMappingnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsDefaultButtonMappingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsDefaultButtonMappingUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateCurrentButtonMappingsnativeCb (int32_t key_id, char * mapping_uid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateCurrentButtonMappingsUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, key_id, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAvailableButtonMappingsnativeCb (char * mapping_uid, char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAvailableButtonMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAvailableButtonMappingsUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mapping_uid, j_name);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsGetCurrentAxisMappingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsGetCurrentAxisMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsGetCurrentAxisMappingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsGetAvailableAxisMappingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsGetAvailableAxisMappingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsSetAxisMappingnativeCb (int32_t axis_id, char * mapping_uid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsSetAxisMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsSetAxisMappingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsSetAxisMappingUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsDefaultAxisMappingnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsDefaultAxisMappingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsDefaultAxisMappingUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateCurrentAxisMappingsnativeCb (int32_t axis_id, char * mapping_uid, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateCurrentAxisMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateCurrentAxisMappingsUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAvailableAxisMappingsnativeCb (char * mapping_uid, char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAvailableAxisMappingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAvailableAxisMappingsUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_mapping_uid = (*env)->NewStringUTF (env, mapping_uid);
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mapping_uid, j_name);
+        (*env)->DeleteLocalRef (env, j_mapping_uid);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersGetCurrentAxisFiltersnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersGetCurrentAxisFiltersListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersGetCurrentAxisFiltersUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersGetPresetAxisFiltersnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersGetPresetAxisFiltersListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersGetPresetAxisFiltersUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersSetAxisFilternativeCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersSetAxisFilterListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersSetAxisFilterListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersSetAxisFilterUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_filter_uid_or_builder = (*env)->NewStringUTF (env, filter_uid_or_builder);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_filter_uid_or_builder);
+        (*env)->DeleteLocalRef (env, j_filter_uid_or_builder);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersDefaultAxisFiltersnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersDefaultAxisFiltersListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersDefaultAxisFiltersUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateCurrentAxisFiltersnativeCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateCurrentAxisFiltersUpdate", "(ILjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_filter_uid_or_builder = (*env)->NewStringUTF (env, filter_uid_or_builder);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, axis_id, j_filter_uid_or_builder);
+        (*env)->DeleteLocalRef (env, j_filter_uid_or_builder);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllCurrentFiltersSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateAllCurrentFiltersSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateAllCurrentFiltersSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersStatePresetAxisFiltersnativeCb (char * filter_uid, char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStatePresetAxisFiltersListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStatePresetAxisFiltersUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_filter_uid = (*env)->NewStringUTF (env, filter_uid);
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_filter_uid, j_name);
+        (*env)->DeleteLocalRef (env, j_filter_uid);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllPresetFiltersSentnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerAxisFiltersStateAllPresetFiltersSentListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerAxisFiltersStateAllPresetFiltersSentUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCoPilotingSetPilotingSourcenativeCb (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE source, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCoPilotingSetPilotingSourceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCoPilotingSetPilotingSourceListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCoPilotingSetPilotingSourceUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM");
+        jmethodID j_source_mid = (*env)->GetStaticMethodID (env, j_source_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM;");
+        jobject j_source_enum = (*env)->CallStaticObjectMethod (env, j_source_class, j_source_mid, source);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_source_enum);
+        (*env)->DeleteLocalRef (env, j_source_class);
+        (*env)->DeleteLocalRef (env, j_source_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCoPilotingStatePilotingSourcenativeCb (eARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE source, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCoPilotingStatePilotingSourceListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCoPilotingStatePilotingSourceListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCoPilotingStatePilotingSourceUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_source_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM");
+        jmethodID j_source_mid = (*env)->GetStaticMethodID (env, j_source_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM;");
+        jobject j_source_enum = (*env)->CallStaticObjectMethod (env, j_source_class, j_source_mid, source);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_source_enum);
+        (*env)->DeleteLocalRef (env, j_source_class);
+        (*env)->DeleteLocalRef (env, j_source_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesnativeCb (uint8_t enable, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enable);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationStatenativeCb (eARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS status, uint8_t X_Quality, uint8_t Y_Quality, uint8_t Z_Quality, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationStateMagnetoCalibrationStateUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM;BBB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, (jbyte)X_Quality, (jbyte)Y_Quality, (jbyte)Z_Quality);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStatenativeCb (uint8_t enabled, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_SkyControllerDebugDebugTest1nativeCb (int8_t t1Args, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerDebugDebugTest1Listener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerDebugDebugTest1Listener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerDebugDebugTest1Update", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, t1Args);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_CommonNetworkDisconnectnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonNetworkDisconnectListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonNetworkDisconnectListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonNetworkDisconnectUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonNetworkEventDisconnectionnativeCb (eARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE cause, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonNetworkEventDisconnectionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonNetworkEventDisconnectionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonNetworkEventDisconnectionUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_cause_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM");
+        jmethodID j_cause_mid = (*env)->GetStaticMethodID (env, j_cause_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM;");
+        jobject j_cause_enum = (*env)->CallStaticObjectMethod (env, j_cause_class, j_cause_mid, cause);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_cause_enum);
+        (*env)->DeleteLocalRef (env, j_cause_class);
+        (*env)->DeleteLocalRef (env, j_cause_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonSettingsAllSettingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsAllSettingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsAllSettingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsAllSettingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsResetnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsResetListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsResetListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsResetUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsProductNamenativeCb (char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsProductNameListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsProductNameListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsProductNameUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsCountrynativeCb (char * code, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsCountryListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsCountryListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsCountryUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_code = (*env)->NewStringUTF (env, code);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_code);
+        (*env)->DeleteLocalRef (env, j_code);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsAutoCountrynativeCb (uint8_t automatic, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsAutoCountryListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsAutoCountryListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsAutoCountryUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonSettingsStateAllSettingsChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateAllSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateAllSettingsChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateAllSettingsChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateResetChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateResetChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateResetChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateResetChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateProductNameChangednativeCb (char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductNameChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductNameChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductNameChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_name);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateProductVersionChangednativeCb (char * software, char * hardware, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductVersionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductVersionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductVersionChangedUpdate", "(Ljava/lang/String;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_software = (*env)->NewStringUTF (env, software);
+        jstring j_hardware = (*env)->NewStringUTF (env, hardware);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_software, j_hardware);
+        (*env)->DeleteLocalRef (env, j_software);
+        (*env)->DeleteLocalRef (env, j_hardware);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateProductSerialHighChangednativeCb (char * high, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductSerialHighChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductSerialHighChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductSerialHighChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_high = (*env)->NewStringUTF (env, high);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_high);
+        (*env)->DeleteLocalRef (env, j_high);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateProductSerialLowChangednativeCb (char * low, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateProductSerialLowChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateProductSerialLowChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateProductSerialLowChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_low = (*env)->NewStringUTF (env, low);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_low);
+        (*env)->DeleteLocalRef (env, j_low);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateCountryChangednativeCb (char * code, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateCountryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateCountryChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateCountryChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_code = (*env)->NewStringUTF (env, code);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_code);
+        (*env)->DeleteLocalRef (env, j_code);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonSettingsStateAutoCountryChangednativeCb (uint8_t automatic, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonSettingsStateAutoCountryChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonSettingsStateAutoCountryChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonSettingsStateAutoCountryChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonCommonAllStatesnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonAllStatesListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonAllStatesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonAllStatesUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonCurrentDatenativeCb (char * date, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonCurrentDateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonCurrentDateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonCurrentDateUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_date = (*env)->NewStringUTF (env, date);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_date);
+        (*env)->DeleteLocalRef (env, j_date);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonCurrentTimenativeCb (char * time, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonCurrentTimeListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonCurrentTimeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonCurrentTimeUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_time = (*env)->NewStringUTF (env, time);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_time);
+        (*env)->DeleteLocalRef (env, j_time);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonRebootnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonRebootListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonRebootListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonRebootUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonCommonStateAllStatesChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateAllStatesChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateAllStatesChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateAllStatesChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateBatteryStateChangednativeCb (uint8_t percent, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateBatteryStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateBatteryStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateBatteryStateChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)percent);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateMassStorageStateListChangednativeCb (uint8_t mass_storage_id, char * name, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageStateListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageStateListChangedUpdate", "(BLjava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_name = (*env)->NewStringUTF (env, name);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id, j_name);
+        (*env)->DeleteLocalRef (env, j_name);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoStateListChangednativeCb (uint8_t mass_storage_id, uint32_t size, uint32_t used_size, uint8_t plugged, uint8_t full, uint8_t internal, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageInfoStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageInfoStateListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageInfoStateListChangedUpdate", "(BIIBBB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id, (jint)size, (jint)used_size, (jbyte)plugged, (jbyte)full, (jbyte)internal);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateCurrentDateChangednativeCb (char * date, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCurrentDateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCurrentDateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCurrentDateChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_date = (*env)->NewStringUTF (env, date);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_date);
+        (*env)->DeleteLocalRef (env, j_date);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateCurrentTimeChangednativeCb (char * time, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCurrentTimeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCurrentTimeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCurrentTimeChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_time = (*env)->NewStringUTF (env, time);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_time);
+        (*env)->DeleteLocalRef (env, j_time);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoRemainingListChangednativeCb (uint32_t free_space, uint16_t rec_time, uint32_t photo_remaining, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageInfoRemainingListChangedUpdate", "(ISI)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)free_space, (jshort)rec_time, (jint)photo_remaining);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateWifiSignalChangednativeCb (int16_t rssi, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateWifiSignalChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateWifiSignalChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateWifiSignalChangedUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, rssi);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateSensorsStatesListChangednativeCb (eARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME sensorName, uint8_t sensorState, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateSensorsStatesListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateSensorsStatesListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateSensorsStatesListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_sensorName_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM");
+        jmethodID j_sensorName_mid = (*env)->GetStaticMethodID (env, j_sensorName_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM;");
+        jobject j_sensorName_enum = (*env)->CallStaticObjectMethod (env, j_sensorName_class, j_sensorName_mid, sensorName);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_sensorName_enum, (jbyte)sensorState);
+        (*env)->DeleteLocalRef (env, j_sensorName_class);
+        (*env)->DeleteLocalRef (env, j_sensorName_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateProductModelnativeCb (eARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL model, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateProductModelListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateProductModelListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateProductModelUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_model_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM");
+        jmethodID j_model_mid = (*env)->GetStaticMethodID (env, j_model_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM;");
+        jobject j_model_enum = (*env)->CallStaticObjectMethod (env, j_model_class, j_model_mid, model);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_model_enum);
+        (*env)->DeleteLocalRef (env, j_model_class);
+        (*env)->DeleteLocalRef (env, j_model_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (char * countryCodes, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateCountryListKnownListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateCountryListKnownListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateCountryListKnownUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_countryCodes = (*env)->NewStringUTF (env, countryCodes);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_countryCodes);
+        (*env)->DeleteLocalRef (env, j_countryCodes);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonOverHeatSwitchOffnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatSwitchOffListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatSwitchOffListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatSwitchOffUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonOverHeatVentilatenativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatVentilateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatVentilateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatVentilateUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatStateOverHeatChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatStateOverHeatChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatStateOverHeatChangedUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb (uint8_t regulationType, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonOverHeatStateOverHeatRegulationChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonOverHeatStateOverHeatRegulationChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonOverHeatStateOverHeatRegulationChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)regulationType);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb (uint8_t piloting, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonControllerStateIsPilotingChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonControllerStateIsPilotingChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonControllerStateIsPilotingChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)piloting);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonWifiSettingsOutdoorSettingnativeCb (uint8_t outdoor, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonWifiSettingsOutdoorSettingListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonWifiSettingsOutdoorSettingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonWifiSettingsOutdoorSettingUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)outdoor);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonWifiSettingsStateOutdoorSettingsChangednativeCb (uint8_t outdoor, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonWifiSettingsStateOutdoorSettingsChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)outdoor);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonMavlinkStartnativeCb (char * filepath, eARCOMMANDS_COMMON_MAVLINK_START_TYPE type, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStartListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStartListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStartUpdate", "(Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_filepath = (*env)->NewStringUTF (env, filepath);
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_filepath, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_filepath);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonMavlinkPausenativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkPauseListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkPauseListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkPauseUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonMavlinkStopnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStopListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStopListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStopUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonMavlinkStateMavlinkFilePlayingStateChangednativeCb (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE state, char * filepath, eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE type, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStateMavlinkFilePlayingStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM;Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        jstring j_filepath = (*env)->NewStringUTF (env, filepath);
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_state_enum, j_filepath, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_state_class);
+        (*env)->DeleteLocalRef (env, j_state_enum);
+        (*env)->DeleteLocalRef (env, j_filepath);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonMavlinkStateMavlinkPlayErrorStateChangednativeCb (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR error, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonMavlinkStateMavlinkPlayErrorStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM");
+        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM;");
+        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_error_enum);
+        (*env)->DeleteLocalRef (env, j_error_class);
+        (*env)->DeleteLocalRef (env, j_error_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonCalibrationMagnetoCalibrationnativeCb (uint8_t calibrate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationMagnetoCalibrationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationMagnetoCalibrationListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationMagnetoCalibrationUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)calibrate);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStateChangednativeCb (uint8_t xAxisCalibration, uint8_t yAxisCalibration, uint8_t zAxisCalibration, uint8_t calibrationFailed, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationStateChangedUpdate", "(BBBB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)xAxisCalibration, (jbyte)yAxisCalibration, (jbyte)zAxisCalibration, (jbyte)calibrationFailed);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationRequiredStatenativeCb (uint8_t required, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationRequiredStateUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)required);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangednativeCb (eARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS axis, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_axis_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM");
+        jmethodID j_axis_mid = (*env)->GetStaticMethodID (env, j_axis_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM;");
+        jobject j_axis_enum = (*env)->CallStaticObjectMethod (env, j_axis_class, j_axis_mid, axis);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_axis_enum);
+        (*env)->DeleteLocalRef (env, j_axis_class);
+        (*env)->DeleteLocalRef (env, j_axis_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStartedChangednativeCb (uint8_t started, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCalibrationStateMagnetoCalibrationStartedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCalibrationStateMagnetoCalibrationStartedChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)started);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonCameraSettingsStateCameraSettingsChangednativeCb (float fov, float panMax, float panMin, float tiltMax, float tiltMin, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCameraSettingsStateCameraSettingsChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCameraSettingsStateCameraSettingsChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCameraSettingsStateCameraSettingsChangedUpdate", "(FFFFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, fov, panMax, panMin, tiltMax, tiltMin);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonGPSControllerPositionForRunnativeCb (double latitude, double longitude, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonGPSControllerPositionForRunListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonGPSControllerPositionForRunListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonGPSControllerPositionForRunUpdate", "(DD)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, latitude, longitude);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonFlightPlanStateAvailabilityStateChangednativeCb (uint8_t AvailabilityState, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanStateAvailabilityStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanStateAvailabilityStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanStateAvailabilityStateChangedUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)AvailabilityState);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonFlightPlanStateComponentStateListChangednativeCb (eARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT component, uint8_t State, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanStateComponentStateListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanStateComponentStateListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanStateComponentStateListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_component_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM");
+        jmethodID j_component_mid = (*env)->GetStaticMethodID (env, j_component_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM;");
+        jobject j_component_enum = (*env)->CallStaticObjectMethod (env, j_component_class, j_component_mid, component);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_component_enum, (jbyte)State);
+        (*env)->DeleteLocalRef (env, j_component_class);
+        (*env)->DeleteLocalRef (env, j_component_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonFlightPlanEventStartingErrorEventnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanEventStartingErrorEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanEventStartingErrorEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanEventStartingErrorEventUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonFlightPlanEventSpeedBridleEventnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonFlightPlanEventSpeedBridleEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonFlightPlanEventSpeedBridleEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonFlightPlanEventSpeedBridleEventUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonARLibsVersionsStateControllerLibARCommandsVersionnativeCb (char * version, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateControllerLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_version = (*env)->NewStringUTF (env, version);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
+        (*env)->DeleteLocalRef (env, j_version);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionnativeCb (char * version, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateSkyControllerLibARCommandsVersionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateSkyControllerLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_version = (*env)->NewStringUTF (env, version);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
+        (*env)->DeleteLocalRef (env, j_version);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonARLibsVersionsStateDeviceLibARCommandsVersionnativeCb (char * version, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonARLibsVersionsStateDeviceLibARCommandsVersionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonARLibsVersionsStateDeviceLibARCommandsVersionUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_version = (*env)->NewStringUTF (env, version);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_version);
+        (*env)->DeleteLocalRef (env, j_version);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAudioControllerReadyForStreamingnativeCb (uint8_t ready, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAudioControllerReadyForStreamingListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAudioControllerReadyForStreamingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAudioControllerReadyForStreamingUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)ready);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAudioStateAudioStreamingRunningnativeCb (uint8_t running, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAudioStateAudioStreamingRunningListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAudioStateAudioStreamingRunningListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAudioStateAudioStreamingRunningUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)running);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonHeadlightsIntensitynativeCb (uint8_t left, uint8_t right, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonHeadlightsIntensityListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonHeadlightsIntensityListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonHeadlightsIntensityUpdate", "(BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)left, (jbyte)right);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonHeadlightsStateIntensityChangednativeCb (uint8_t left, uint8_t right, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonHeadlightsStateIntensityChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonHeadlightsStateIntensityChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonHeadlightsStateIntensityChangedUpdate", "(BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)left, (jbyte)right);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAnimationsStartAnimationnativeCb (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM anim, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStartAnimationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStartAnimationListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStartAnimationUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM");
+        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM;");
+        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum);
+        (*env)->DeleteLocalRef (env, j_anim_class);
+        (*env)->DeleteLocalRef (env, j_anim_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonAnimationsStopAnimationnativeCb (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM anim, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStopAnimationListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStopAnimationListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStopAnimationUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM");
+        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM;");
+        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum);
+        (*env)->DeleteLocalRef (env, j_anim_class);
+        (*env)->DeleteLocalRef (env, j_anim_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonAnimationsStopAllAnimationsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStopAllAnimationsListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStopAllAnimationsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStopAllAnimationsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAnimationsStateListnativeCb (eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM anim, eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE state, eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR error, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAnimationsStateListListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAnimationsStateListListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAnimationsStateListUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_anim_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM");
+        jmethodID j_anim_mid = (*env)->GetStaticMethodID (env, j_anim_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM;");
+        jobject j_anim_enum = (*env)->CallStaticObjectMethod (env, j_anim_class, j_anim_mid, anim);
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM");
+        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM;");
+        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_anim_enum, j_state_enum, j_error_enum);
+        (*env)->DeleteLocalRef (env, j_anim_class);
+        (*env)->DeleteLocalRef (env, j_anim_enum);
+        (*env)->DeleteLocalRef (env, j_state_class);
+        (*env)->DeleteLocalRef (env, j_state_enum);
+        (*env)->DeleteLocalRef (env, j_error_class);
+        (*env)->DeleteLocalRef (env, j_error_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAccessoryConfignativeCb (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY accessory, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryConfigListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryConfigListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryConfigUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM");
+        jmethodID j_accessory_mid = (*env)->GetStaticMethodID (env, j_accessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM;");
+        jobject j_accessory_enum = (*env)->CallStaticObjectMethod (env, j_accessory_class, j_accessory_mid, accessory);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_accessory_enum);
+        (*env)->DeleteLocalRef (env, j_accessory_class);
+        (*env)->DeleteLocalRef (env, j_accessory_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonAccessoryStateSupportedAccessoriesListChangednativeCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY accessory, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateSupportedAccessoriesListChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_accessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM");
+        jmethodID j_accessory_mid = (*env)->GetStaticMethodID (env, j_accessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM;");
+        jobject j_accessory_enum = (*env)->CallStaticObjectMethod (env, j_accessory_class, j_accessory_mid, accessory);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_accessory_enum);
+        (*env)->DeleteLocalRef (env, j_accessory_class);
+        (*env)->DeleteLocalRef (env, j_accessory_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigChangednativeCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY newAccessory, eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR error, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateAccessoryConfigChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateAccessoryConfigChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateAccessoryConfigChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_newAccessory_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM");
+        jmethodID j_newAccessory_mid = (*env)->GetStaticMethodID (env, j_newAccessory_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM;");
+        jobject j_newAccessory_enum = (*env)->CallStaticObjectMethod (env, j_newAccessory_class, j_newAccessory_mid, newAccessory);
+        jclass j_error_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM");
+        jmethodID j_error_mid = (*env)->GetStaticMethodID (env, j_error_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM;");
+        jobject j_error_enum = (*env)->CallStaticObjectMethod (env, j_error_class, j_error_mid, error);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_newAccessory_enum, j_error_enum);
+        (*env)->DeleteLocalRef (env, j_newAccessory_class);
+        (*env)->DeleteLocalRef (env, j_newAccessory_enum);
+        (*env)->DeleteLocalRef (env, j_error_class);
+        (*env)->DeleteLocalRef (env, j_error_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigModificationEnablednativeCb (uint8_t enabled, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonAccessoryStateAccessoryConfigModificationEnabledUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonChargerSetMaxChargeRatenativeCb (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE rate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerSetMaxChargeRateListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerSetMaxChargeRateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerSetMaxChargeRateUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM");
+        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM;");
+        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
+        (*env)->DeleteLocalRef (env, j_rate_class);
+        (*env)->DeleteLocalRef (env, j_rate_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonChargerStateMaxChargeRateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE rate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateMaxChargeRateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateMaxChargeRateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateMaxChargeRateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM");
+        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM;");
+        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
+        (*env)->DeleteLocalRef (env, j_rate_class);
+        (*env)->DeleteLocalRef (env, j_rate_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonChargerStateCurrentChargeStateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS status, eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE phase, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateCurrentChargeStateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateCurrentChargeStateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateCurrentChargeStateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM");
+        jmethodID j_phase_mid = (*env)->GetStaticMethodID (env, j_phase_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM;");
+        jobject j_phase_enum = (*env)->CallStaticObjectMethod (env, j_phase_class, j_phase_mid, phase);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_phase_enum);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->DeleteLocalRef (env, j_phase_class);
+        (*env)->DeleteLocalRef (env, j_phase_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonChargerStateLastChargeRateChangednativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE rate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateLastChargeRateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateLastChargeRateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateLastChargeRateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM");
+        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM;");
+        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_rate_enum);
+        (*env)->DeleteLocalRef (env, j_rate_class);
+        (*env)->DeleteLocalRef (env, j_rate_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb (eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE phase, eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE rate, uint8_t intensity, uint8_t fullChargingTime, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonChargerStateChargingInfoListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonChargerStateChargingInfoListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonChargerStateChargingInfoUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM;BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_phase_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM");
+        jmethodID j_phase_mid = (*env)->GetStaticMethodID (env, j_phase_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM;");
+        jobject j_phase_enum = (*env)->CallStaticObjectMethod (env, j_phase_class, j_phase_mid, phase);
+        jclass j_rate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM");
+        jmethodID j_rate_mid = (*env)->GetStaticMethodID (env, j_rate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM;");
+        jobject j_rate_enum = (*env)->CallStaticObjectMethod (env, j_rate_class, j_rate_mid, rate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_phase_enum, j_rate_enum, (jbyte)intensity, (jbyte)fullChargingTime);
+        (*env)->DeleteLocalRef (env, j_phase_class);
+        (*env)->DeleteLocalRef (env, j_phase_enum);
+        (*env)->DeleteLocalRef (env, j_rate_class);
+        (*env)->DeleteLocalRef (env, j_rate_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb (char * packet, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsSendPacketListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsSendPacketListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsSendPacketUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_packet = (*env)->NewStringUTF (env, packet);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_packet);
+        (*env)->DeleteLocalRef (env, j_packet);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonDebugStatsStartSendingPacketFromDronenativeCb (uint8_t frequency, uint8_t packetSize, uint32_t date, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsStartSendingPacketFromDroneListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsStartSendingPacketFromDroneListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsStartSendingPacketFromDroneUpdate", "(BBI)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)frequency, (jbyte)packetSize, (jint)date);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_CommonDebugStatsStopSendingPacketFromDronenativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsStopSendingPacketFromDroneListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsStopSendingPacketFromDroneListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsStopSendingPacketFromDroneUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_CommonDebugStatsEventSendPacketnativeCb (char * packet, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonDebugStatsEventSendPacketListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonDebugStatsEventSendPacketListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonDebugStatsEventSendPacketUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_packet = (*env)->NewStringUTF (env, packet);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_packet);
+        (*env)->DeleteLocalRef (env, j_packet);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
+void ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb (uint64_t features, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProBoughtFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProBoughtFeaturesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProBoughtFeaturesUpdate", "(J)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ProProResponsenativeCb (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProResponseListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProResponseListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProResponseUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        jstring j_signedChallenge = (*env)->NewStringUTF (env, signedChallenge);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_signedChallenge);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->DeleteLocalRef (env, j_signedChallenge);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ProProActivateFeaturesnativeCb (uint64_t features, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProActivateFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProActivateFeaturesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProActivateFeaturesUpdate", "(J)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_ProProStateSupportedFeaturesnativeCb (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS status, uint64_t features, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProStateSupportedFeaturesListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProStateSupportedFeaturesListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProStateSupportedFeaturesUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM;J)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM");
+        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM;");
+        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, (jlong)features);
+        (*env)->DeleteLocalRef (env, j_status_class);
+        (*env)->DeleteLocalRef (env, j_status_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ProProStateFeaturesActivatednativeCb (uint64_t features, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProStateFeaturesActivatedListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProStateFeaturesActivatedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProStateFeaturesActivatedUpdate", "(J)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jlong)features);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_ProProEventChallengeEventnativeCb (char * challenge, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandProProEventChallengeEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandProProEventChallengeEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProEventChallengeEventUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_challenge = (*env)->NewStringUTF (env, challenge);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_challenge);
+        (*env)->DeleteLocalRef (env, j_challenge);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+
 JNIEXPORT jint JNICALL
 JNI_OnLoad (JavaVM *vm, void *reserved)
 {
@@ -19107,276 +19107,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     {
         return -1;
     }
-
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiListCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiListnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateConnexionChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateConnexionChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiAuthChannelListChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiAuthChannelListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateAllWifiAuthChannelChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateAllWifiAuthChannelChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiSignalChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiSignalChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerWifiRequestWifiListCallback (ARCOMMANDS_JNI_SkyControllerWifiRequestWifiListnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiRequestCurrentWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiRequestCurrentWifinativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiConnectToWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiConnectToWifinativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiForgetWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiForgetWifinativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerWifiWifiAuthChannelCallback (ARCOMMANDS_JNI_SkyControllerWifiWifiAuthChannelnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestDeviceListCallback (ARCOMMANDS_JNI_SkyControllerDeviceRequestDeviceListnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestCurrentDeviceCallback (ARCOMMANDS_JNI_SkyControllerDeviceRequestCurrentDevicenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceConnectToDeviceCallback (ARCOMMANDS_JNI_SkyControllerDeviceConnectToDevicenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateDeviceListCallback (ARCOMMANDS_JNI_SkyControllerDeviceStateDeviceListnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateConnexionChangedCallback (ARCOMMANDS_JNI_SkyControllerDeviceStateConnexionChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsAllSettingsCallback (ARCOMMANDS_JNI_SkyControllerSettingsAllSettingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsResetCallback (ARCOMMANDS_JNI_SkyControllerSettingsResetnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateAllSettingsChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateResetChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCommonAllStatesCallback (ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback (ARCOMMANDS_JNI_SkyControllerCommonStateAllStatesChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateBatteryChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsFixChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsFixChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsPositionChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsPositionChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointSSIDCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointSSIDnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointChannelCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointChannelnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsWifiSelectionCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsWifiSelectionnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointSSIDChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointChannelChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateWifiSelectionChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCameraResetOrientationCallback (ARCOMMANDS_JNI_SkyControllerCameraResetOrientationnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosGetGamepadControlsCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosGetGamepadControlsnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateGamepadControlCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosStateGamepadControlnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateAllGamepadControlsSentCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosStateAllGamepadControlsSentnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetCurrentButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsGetCurrentButtonMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetAvailableButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsGetAvailableButtonMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsSetButtonMappingCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsSetButtonMappingnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsDefaultButtonMappingCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsDefaultButtonMappingnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateCurrentButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateCurrentButtonMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAvailableButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAvailableButtonMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetCurrentAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsGetCurrentAxisMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetAvailableAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsGetAvailableAxisMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsSetAxisMappingCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsSetAxisMappingnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsDefaultAxisMappingCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsDefaultAxisMappingnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateCurrentAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateCurrentAxisMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAvailableAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAvailableAxisMappingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetCurrentAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersGetCurrentAxisFiltersnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetPresetAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersGetPresetAxisFiltersnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersSetAxisFilterCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersSetAxisFilternativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersDefaultAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersDefaultAxisFiltersnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateCurrentAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateCurrentAxisFiltersnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllCurrentFiltersSentCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllCurrentFiltersSentnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStatePresetAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStatePresetAxisFiltersnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllPresetFiltersSentCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllPresetFiltersSentnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingSetPilotingSourceCallback (ARCOMMANDS_JNI_SkyControllerCoPilotingSetPilotingSourcenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingStatePilotingSourceCallback (ARCOMMANDS_JNI_SkyControllerCoPilotingStatePilotingSourcenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback (ARCOMMANDS_JNI_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationStatenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStatenativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback (ARCOMMANDS_JNI_SkyControllerDebugDebugTest1nativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetProProResponseCallback (ARCOMMANDS_JNI_ProProResponsenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback (ARCOMMANDS_JNI_ProProActivateFeaturesnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetProProStateSupportedFeaturesCallback (ARCOMMANDS_JNI_ProProStateSupportedFeaturesnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetProProStateFeaturesActivatedCallback (ARCOMMANDS_JNI_ProProStateFeaturesActivatednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetProProEventChallengeEventCallback (ARCOMMANDS_JNI_ProProEventChallengeEventnativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback (ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback (ARCOMMANDS_JNI_MiniDronePilotingTakeOffnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback (ARCOMMANDS_JNI_MiniDronePilotingPCMDnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback (ARCOMMANDS_JNI_MiniDronePilotingLandingnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback (ARCOMMANDS_JNI_MiniDronePilotingEmergencynativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlyingStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAlertStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback (ARCOMMANDS_JNI_MiniDroneAnimationsCapnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordPicturenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback (ARCOMMANDS_JNI_MiniDroneMediaRecordPictureV2nativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback (ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangedV2nativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordEventPictureEventChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxAltitudenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxTiltnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxAltitudeChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxTiltChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxVerticalSpeednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxRotationSpeednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxRotationSpeedChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback (ARCOMMANDS_JNI_MiniDroneSettingsCutOutModenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateProductMotorsVersionChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateProductInertialVersionChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateCutOutModeChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback (ARCOMMANDS_JNI_MiniDroneGPSControllerLatitudeForRunnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback (ARCOMMANDS_JNI_MiniDroneGPSControllerLongitudeForRunnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback (ARCOMMANDS_JNI_MiniDroneConfigurationControllerTypenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest1Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest1nativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest2Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest2nativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest3Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest3nativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetCommonNetworkDisconnectCallback (ARCOMMANDS_JNI_CommonNetworkDisconnectnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback (ARCOMMANDS_JNI_CommonNetworkEventDisconnectionnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonSettingsAllSettingsCallback (ARCOMMANDS_JNI_CommonSettingsAllSettingsnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsResetCallback (ARCOMMANDS_JNI_CommonSettingsResetnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsProductNameCallback (ARCOMMANDS_JNI_CommonSettingsProductNamenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsCountryCallback (ARCOMMANDS_JNI_CommonSettingsCountrynativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsAutoCountryCallback (ARCOMMANDS_JNI_CommonSettingsAutoCountrynativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonSettingsStateAllSettingsChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateAllSettingsChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateResetChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateResetChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateProductNameChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductNameChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateProductVersionChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductVersionChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateProductSerialHighChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductSerialHighChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateProductSerialLowChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductSerialLowChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateCountryChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateCountryChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonSettingsStateAutoCountryChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateAutoCountryChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonCommonAllStatesCallback (ARCOMMANDS_JNI_CommonCommonAllStatesnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonCurrentDateCallback (ARCOMMANDS_JNI_CommonCommonCurrentDatenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonCurrentTimeCallback (ARCOMMANDS_JNI_CommonCommonCurrentTimenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonRebootCallback (ARCOMMANDS_JNI_CommonCommonRebootnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonCommonStateAllStatesChangedCallback (ARCOMMANDS_JNI_CommonCommonStateAllStatesChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateBatteryStateChangedCallback (ARCOMMANDS_JNI_CommonCommonStateBatteryStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageStateListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageStateListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageInfoStateListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoStateListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateCurrentDateChangedCallback (ARCOMMANDS_JNI_CommonCommonStateCurrentDateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateCurrentTimeChangedCallback (ARCOMMANDS_JNI_CommonCommonStateCurrentTimeChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageInfoRemainingListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoRemainingListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateWifiSignalChangedCallback (ARCOMMANDS_JNI_CommonCommonStateWifiSignalChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateSensorsStatesListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateSensorsStatesListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateProductModelCallback (ARCOMMANDS_JNI_CommonCommonStateProductModelnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback (ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonOverHeatSwitchOffCallback (ARCOMMANDS_JNI_CommonOverHeatSwitchOffnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback (ARCOMMANDS_JNI_CommonOverHeatVentilatenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback (ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback (ARCOMMANDS_JNI_CommonWifiSettingsOutdoorSettingnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonWifiSettingsStateOutdoorSettingsChangedCallback (ARCOMMANDS_JNI_CommonWifiSettingsStateOutdoorSettingsChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonMavlinkStartCallback (ARCOMMANDS_JNI_CommonMavlinkStartnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonMavlinkPauseCallback (ARCOMMANDS_JNI_CommonMavlinkPausenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonMavlinkStopCallback (ARCOMMANDS_JNI_CommonMavlinkStopnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkFilePlayingStateChangedCallback (ARCOMMANDS_JNI_CommonMavlinkStateMavlinkFilePlayingStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkPlayErrorStateChangedCallback (ARCOMMANDS_JNI_CommonMavlinkStateMavlinkPlayErrorStateChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonCalibrationMagnetoCalibrationCallback (ARCOMMANDS_JNI_CommonCalibrationMagnetoCalibrationnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStateChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationRequiredStateCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationRequiredStatenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStartedChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStartedChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonCameraSettingsStateCameraSettingsChangedCallback (ARCOMMANDS_JNI_CommonCameraSettingsStateCameraSettingsChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonGPSControllerPositionForRunCallback (ARCOMMANDS_JNI_CommonGPSControllerPositionForRunnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonFlightPlanStateAvailabilityStateChangedCallback (ARCOMMANDS_JNI_CommonFlightPlanStateAvailabilityStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonFlightPlanStateComponentStateListChangedCallback (ARCOMMANDS_JNI_CommonFlightPlanStateComponentStateListChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonFlightPlanEventStartingErrorEventCallback (ARCOMMANDS_JNI_CommonFlightPlanEventStartingErrorEventnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonFlightPlanEventSpeedBridleEventCallback (ARCOMMANDS_JNI_CommonFlightPlanEventSpeedBridleEventnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateControllerLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateControllerLibARCommandsVersionnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateSkyControllerLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateDeviceLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateDeviceLibARCommandsVersionnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAudioControllerReadyForStreamingCallback (ARCOMMANDS_JNI_CommonAudioControllerReadyForStreamingnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAudioStateAudioStreamingRunningCallback (ARCOMMANDS_JNI_CommonAudioStateAudioStreamingRunningnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonHeadlightsIntensityCallback (ARCOMMANDS_JNI_CommonHeadlightsIntensitynativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonHeadlightsStateIntensityChangedCallback (ARCOMMANDS_JNI_CommonHeadlightsStateIntensityChangednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAnimationsStartAnimationCallback (ARCOMMANDS_JNI_CommonAnimationsStartAnimationnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonAnimationsStopAnimationCallback (ARCOMMANDS_JNI_CommonAnimationsStopAnimationnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonAnimationsStopAllAnimationsCallback (ARCOMMANDS_JNI_CommonAnimationsStopAllAnimationsnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAnimationsStateListCallback (ARCOMMANDS_JNI_CommonAnimationsStateListnativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAccessoryConfigCallback (ARCOMMANDS_JNI_CommonAccessoryConfignativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonAccessoryStateSupportedAccessoriesListChangedCallback (ARCOMMANDS_JNI_CommonAccessoryStateSupportedAccessoriesListChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigChangedCallback (ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigModificationEnabledCallback (ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigModificationEnablednativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonChargerSetMaxChargeRateCallback (ARCOMMANDS_JNI_CommonChargerSetMaxChargeRatenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonChargerStateMaxChargeRateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateMaxChargeRateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonChargerStateCurrentChargeStateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateCurrentChargeStateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateLastChargeRateChangednativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback (ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb, (void *)g_class);
-
-
-    ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_JNI_CommonDebugStatsStartSendingPacketFromDronenativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_JNI_CommonDebugStatsStopSendingPacketFromDronenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_JNI_CommonDebugStatsEventSendPacketnativeCb, (void *)g_class);
-
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingFlatTrimCallback (ARCOMMANDS_JNI_ARDrone3PilotingFlatTrimnativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3PilotingTakeOffCallback (ARCOMMANDS_JNI_ARDrone3PilotingTakeOffnativeCb, (void *)g_class);
@@ -19618,6 +19348,276 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetJumpingSumoDebugUserScriptUserScriptUploadedCallback (ARCOMMANDS_JNI_JumpingSumoDebugUserScriptUserScriptUploadednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetJumpingSumoDebugUserScriptStateUserScriptParsedCallback (ARCOMMANDS_JNI_JumpingSumoDebugUserScriptStateUserScriptParsednativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback (ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback (ARCOMMANDS_JNI_MiniDronePilotingTakeOffnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback (ARCOMMANDS_JNI_MiniDronePilotingPCMDnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback (ARCOMMANDS_JNI_MiniDronePilotingLandingnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback (ARCOMMANDS_JNI_MiniDronePilotingEmergencynativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlyingStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAlertStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback (ARCOMMANDS_JNI_MiniDroneAnimationsCapnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordPicturenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback (ARCOMMANDS_JNI_MiniDroneMediaRecordPictureV2nativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback (ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangedV2nativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordEventPictureEventChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxAltitudenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsMaxTiltnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxAltitudeChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingSettingsStateMaxTiltChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxVerticalSpeednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxRotationSpeednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxRotationSpeedChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback (ARCOMMANDS_JNI_MiniDroneSettingsCutOutModenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateProductMotorsVersionChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateProductInertialVersionChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateCutOutModeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback (ARCOMMANDS_JNI_MiniDroneGPSControllerLatitudeForRunnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback (ARCOMMANDS_JNI_MiniDroneGPSControllerLongitudeForRunnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback (ARCOMMANDS_JNI_MiniDroneConfigurationControllerTypenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest1Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest1nativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest2Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest2nativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest3Callback (ARCOMMANDS_JNI_MiniDroneDebugDebugTest3nativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiListCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiListnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateConnexionChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateConnexionChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiAuthChannelListChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiAuthChannelListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateAllWifiAuthChannelChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateAllWifiAuthChannelChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiSignalChangedCallback (ARCOMMANDS_JNI_SkyControllerWifiStateWifiSignalChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerWifiRequestWifiListCallback (ARCOMMANDS_JNI_SkyControllerWifiRequestWifiListnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiRequestCurrentWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiRequestCurrentWifinativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiConnectToWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiConnectToWifinativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiForgetWifiCallback (ARCOMMANDS_JNI_SkyControllerWifiForgetWifinativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerWifiWifiAuthChannelCallback (ARCOMMANDS_JNI_SkyControllerWifiWifiAuthChannelnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestDeviceListCallback (ARCOMMANDS_JNI_SkyControllerDeviceRequestDeviceListnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestCurrentDeviceCallback (ARCOMMANDS_JNI_SkyControllerDeviceRequestCurrentDevicenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceConnectToDeviceCallback (ARCOMMANDS_JNI_SkyControllerDeviceConnectToDevicenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateDeviceListCallback (ARCOMMANDS_JNI_SkyControllerDeviceStateDeviceListnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateConnexionChangedCallback (ARCOMMANDS_JNI_SkyControllerDeviceStateConnexionChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsAllSettingsCallback (ARCOMMANDS_JNI_SkyControllerSettingsAllSettingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsResetCallback (ARCOMMANDS_JNI_SkyControllerSettingsResetnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateAllSettingsChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateResetChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCommonAllStatesCallback (ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback (ARCOMMANDS_JNI_SkyControllerCommonStateAllStatesChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateBatteryChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsFixChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsFixChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsPositionChangedCallback (ARCOMMANDS_JNI_SkyControllerSkyControllerStateGpsPositionChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointSSIDCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointSSIDnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointChannelCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsAccessPointChannelnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsWifiSelectionCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsWifiSelectionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointSSIDChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateAccessPointChannelChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedCallback (ARCOMMANDS_JNI_SkyControllerAccessPointSettingsStateWifiSelectionChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCameraResetOrientationCallback (ARCOMMANDS_JNI_SkyControllerCameraResetOrientationnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosGetGamepadControlsCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosGetGamepadControlsnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateGamepadControlCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosStateGamepadControlnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateAllGamepadControlsSentCallback (ARCOMMANDS_JNI_SkyControllerGamepadInfosStateAllGamepadControlsSentnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetCurrentButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsGetCurrentButtonMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetAvailableButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsGetAvailableButtonMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsSetButtonMappingCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsSetButtonMappingnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsDefaultButtonMappingCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsDefaultButtonMappingnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateCurrentButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateCurrentButtonMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAvailableButtonMappingsCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAvailableButtonMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetCurrentAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsGetCurrentAxisMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetAvailableAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsGetAvailableAxisMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsSetAxisMappingCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsSetAxisMappingnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsDefaultAxisMappingCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsDefaultAxisMappingnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateCurrentAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateCurrentAxisMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAvailableAxisMappingsCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAvailableAxisMappingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback (ARCOMMANDS_JNI_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetCurrentAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersGetCurrentAxisFiltersnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetPresetAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersGetPresetAxisFiltersnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersSetAxisFilterCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersSetAxisFilternativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersDefaultAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersDefaultAxisFiltersnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateCurrentAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateCurrentAxisFiltersnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllCurrentFiltersSentCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllCurrentFiltersSentnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStatePresetAxisFiltersCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStatePresetAxisFiltersnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllPresetFiltersSentCallback (ARCOMMANDS_JNI_SkyControllerAxisFiltersStateAllPresetFiltersSentnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingSetPilotingSourceCallback (ARCOMMANDS_JNI_SkyControllerCoPilotingSetPilotingSourcenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingStatePilotingSourceCallback (ARCOMMANDS_JNI_SkyControllerCoPilotingStatePilotingSourcenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback (ARCOMMANDS_JNI_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationStatenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStatenativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback (ARCOMMANDS_JNI_SkyControllerDebugDebugTest1nativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetCommonNetworkDisconnectCallback (ARCOMMANDS_JNI_CommonNetworkDisconnectnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback (ARCOMMANDS_JNI_CommonNetworkEventDisconnectionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonSettingsAllSettingsCallback (ARCOMMANDS_JNI_CommonSettingsAllSettingsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsResetCallback (ARCOMMANDS_JNI_CommonSettingsResetnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsProductNameCallback (ARCOMMANDS_JNI_CommonSettingsProductNamenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsCountryCallback (ARCOMMANDS_JNI_CommonSettingsCountrynativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsAutoCountryCallback (ARCOMMANDS_JNI_CommonSettingsAutoCountrynativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonSettingsStateAllSettingsChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateAllSettingsChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateResetChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateResetChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateProductNameChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductNameChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateProductVersionChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductVersionChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateProductSerialHighChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductSerialHighChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateProductSerialLowChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateProductSerialLowChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateCountryChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateCountryChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonSettingsStateAutoCountryChangedCallback (ARCOMMANDS_JNI_CommonSettingsStateAutoCountryChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonCommonAllStatesCallback (ARCOMMANDS_JNI_CommonCommonAllStatesnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonCurrentDateCallback (ARCOMMANDS_JNI_CommonCommonCurrentDatenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonCurrentTimeCallback (ARCOMMANDS_JNI_CommonCommonCurrentTimenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonRebootCallback (ARCOMMANDS_JNI_CommonCommonRebootnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonCommonStateAllStatesChangedCallback (ARCOMMANDS_JNI_CommonCommonStateAllStatesChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateBatteryStateChangedCallback (ARCOMMANDS_JNI_CommonCommonStateBatteryStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageStateListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageStateListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageInfoStateListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoStateListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateCurrentDateChangedCallback (ARCOMMANDS_JNI_CommonCommonStateCurrentDateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateCurrentTimeChangedCallback (ARCOMMANDS_JNI_CommonCommonStateCurrentTimeChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageInfoRemainingListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageInfoRemainingListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateWifiSignalChangedCallback (ARCOMMANDS_JNI_CommonCommonStateWifiSignalChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateSensorsStatesListChangedCallback (ARCOMMANDS_JNI_CommonCommonStateSensorsStatesListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateProductModelCallback (ARCOMMANDS_JNI_CommonCommonStateProductModelnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback (ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonOverHeatSwitchOffCallback (ARCOMMANDS_JNI_CommonOverHeatSwitchOffnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback (ARCOMMANDS_JNI_CommonOverHeatVentilatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback (ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback (ARCOMMANDS_JNI_CommonWifiSettingsOutdoorSettingnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonWifiSettingsStateOutdoorSettingsChangedCallback (ARCOMMANDS_JNI_CommonWifiSettingsStateOutdoorSettingsChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonMavlinkStartCallback (ARCOMMANDS_JNI_CommonMavlinkStartnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonMavlinkPauseCallback (ARCOMMANDS_JNI_CommonMavlinkPausenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonMavlinkStopCallback (ARCOMMANDS_JNI_CommonMavlinkStopnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkFilePlayingStateChangedCallback (ARCOMMANDS_JNI_CommonMavlinkStateMavlinkFilePlayingStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkPlayErrorStateChangedCallback (ARCOMMANDS_JNI_CommonMavlinkStateMavlinkPlayErrorStateChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonCalibrationMagnetoCalibrationCallback (ARCOMMANDS_JNI_CommonCalibrationMagnetoCalibrationnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStateChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationRequiredStateCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationRequiredStatenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStartedChangedCallback (ARCOMMANDS_JNI_CommonCalibrationStateMagnetoCalibrationStartedChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonCameraSettingsStateCameraSettingsChangedCallback (ARCOMMANDS_JNI_CommonCameraSettingsStateCameraSettingsChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonGPSControllerPositionForRunCallback (ARCOMMANDS_JNI_CommonGPSControllerPositionForRunnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonFlightPlanStateAvailabilityStateChangedCallback (ARCOMMANDS_JNI_CommonFlightPlanStateAvailabilityStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonFlightPlanStateComponentStateListChangedCallback (ARCOMMANDS_JNI_CommonFlightPlanStateComponentStateListChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonFlightPlanEventStartingErrorEventCallback (ARCOMMANDS_JNI_CommonFlightPlanEventStartingErrorEventnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonFlightPlanEventSpeedBridleEventCallback (ARCOMMANDS_JNI_CommonFlightPlanEventSpeedBridleEventnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateControllerLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateControllerLibARCommandsVersionnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateSkyControllerLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateDeviceLibARCommandsVersionCallback (ARCOMMANDS_JNI_CommonARLibsVersionsStateDeviceLibARCommandsVersionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAudioControllerReadyForStreamingCallback (ARCOMMANDS_JNI_CommonAudioControllerReadyForStreamingnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAudioStateAudioStreamingRunningCallback (ARCOMMANDS_JNI_CommonAudioStateAudioStreamingRunningnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonHeadlightsIntensityCallback (ARCOMMANDS_JNI_CommonHeadlightsIntensitynativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonHeadlightsStateIntensityChangedCallback (ARCOMMANDS_JNI_CommonHeadlightsStateIntensityChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAnimationsStartAnimationCallback (ARCOMMANDS_JNI_CommonAnimationsStartAnimationnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonAnimationsStopAnimationCallback (ARCOMMANDS_JNI_CommonAnimationsStopAnimationnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonAnimationsStopAllAnimationsCallback (ARCOMMANDS_JNI_CommonAnimationsStopAllAnimationsnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAnimationsStateListCallback (ARCOMMANDS_JNI_CommonAnimationsStateListnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAccessoryConfigCallback (ARCOMMANDS_JNI_CommonAccessoryConfignativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonAccessoryStateSupportedAccessoriesListChangedCallback (ARCOMMANDS_JNI_CommonAccessoryStateSupportedAccessoriesListChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigChangedCallback (ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigModificationEnabledCallback (ARCOMMANDS_JNI_CommonAccessoryStateAccessoryConfigModificationEnablednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonChargerSetMaxChargeRateCallback (ARCOMMANDS_JNI_CommonChargerSetMaxChargeRatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonChargerStateMaxChargeRateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateMaxChargeRateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonChargerStateCurrentChargeStateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateCurrentChargeStateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateLastChargeRateChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback (ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_JNI_CommonDebugStatsStartSendingPacketFromDronenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_JNI_CommonDebugStatsStopSendingPacketFromDronenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_JNI_CommonDebugStatsEventSendPacketnativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetProProResponseCallback (ARCOMMANDS_JNI_ProProResponsenativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback (ARCOMMANDS_JNI_ProProActivateFeaturesnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetProProStateSupportedFeaturesCallback (ARCOMMANDS_JNI_ProProStateSupportedFeaturesnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetProProStateFeaturesActivatedCallback (ARCOMMANDS_JNI_ProProStateFeaturesActivatednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetProProEventChallengeEventCallback (ARCOMMANDS_JNI_ProProEventChallengeEventnativeCb, (void *)g_class);
 
 
 
