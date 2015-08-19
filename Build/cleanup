@@ -4,14 +4,6 @@ if [ -e Makefile ] ; then
 	make clean
 fi
 
-#Python generated C/H files
-rm -rf $(python ../Xml/generateLibARCommands.py -fname)
-#Python generated Directories (if empty)
-PDIR=$(python ../Xml/generateLibARCommands.py -dname)
-for DIR in $PDIR; do
-	rmdir $DIR 2>/dev/null
-done
-
 # Generated files.
 rm -f \
     INSTALL \
