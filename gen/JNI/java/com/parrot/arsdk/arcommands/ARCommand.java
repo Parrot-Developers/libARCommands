@@ -3090,6 +3090,37 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>DefaultCameraOrientation</code> of class <code>CameraState</code> in project <code>ARDrone3</code><br>
+     * <br>
+     * Project ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class CameraState description:<br>
+     * Camera state<br>
+     * <br>
+     * Command DefaultCameraOrientation description:<br>
+     * Orientation of the camera center.<br>
+     * This is the value to send when we want to center the camera.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _tilt Tilt value (in degree)
+     * @param _pan Pan value (in degree)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3CameraStateDefaultCameraOrientation (byte tilt, byte pan) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3CameraStateDefaultCameraOrientation (pointer, capacity, tilt, pan);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>ElectricFrequency</code> of class <code>Antiflickering</code> in project <code>ARDrone3</code><br>
      * <br>
      * Project ARDrone3 description:<br>
@@ -11895,6 +11926,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3CameraStateOrientationListener = _ARCommandARDrone3CameraStateOrientationListener_PARAM;
     }
 
+    private static ARCommandARDrone3CameraStateDefaultCameraOrientationListener _ARCommandARDrone3CameraStateDefaultCameraOrientationListener = null;
+
+    /**
+     * Set the listener for the command <code>DefaultCameraOrientation</code> of class <code>CameraState</code> in project <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3CameraStateDefaultCameraOrientationListener_PARAM New listener for the command
+     */
+    public static void setARDrone3CameraStateDefaultCameraOrientationListener (ARCommandARDrone3CameraStateDefaultCameraOrientationListener _ARCommandARDrone3CameraStateDefaultCameraOrientationListener_PARAM) {
+        _ARCommandARDrone3CameraStateDefaultCameraOrientationListener = _ARCommandARDrone3CameraStateDefaultCameraOrientationListener_PARAM;
+    }
+
 
     private static ARCommandARDrone3AntiflickeringElectricFrequencyListener _ARCommandARDrone3AntiflickeringElectricFrequencyListener = null;
 
@@ -15032,6 +15074,7 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3GPSSettingsStateReturnHomeDelayChanged (long pdata, int dataTotalLength, short delay);
 
     private native int     nativeSetARDrone3CameraStateOrientation (long pdata, int dataTotalLength, byte tilt, byte pan);
+    private native int     nativeSetARDrone3CameraStateDefaultCameraOrientation (long pdata, int dataTotalLength, byte tilt, byte pan);
 
     private native int     nativeSetARDrone3AntiflickeringElectricFrequency (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY_ENUM frequency);
     private native int     nativeSetARDrone3AntiflickeringSetMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE_ENUM mode);

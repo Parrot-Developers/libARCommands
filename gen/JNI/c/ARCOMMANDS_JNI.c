@@ -2943,6 +2943,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3CameraStateOrientati
     return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3CameraStateDefaultCameraOrientation (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte tilt, jbyte pan)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3CameraStateDefaultCameraOrientation ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (int8_t)tilt, (int8_t)pan);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3AntiflickeringElectricFrequency (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject frequency)
@@ -12905,6 +12932,27 @@ void ARCOMMANDS_JNI_ARDrone3CameraStateOrientationnativeCb (int8_t tilt, int8_t 
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3CameraStateDefaultCameraOrientationnativeCb (int8_t tilt, int8_t pan, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3CameraStateDefaultCameraOrientationListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3CameraStateDefaultCameraOrientationListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3CameraStateDefaultCameraOrientationUpdate", "(BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, tilt, pan);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 
 void ARCOMMANDS_JNI_ARDrone3AntiflickeringElectricFrequencynativeCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY frequency, void *custom)
 {
@@ -19233,6 +19281,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateReturnHomeDelayChangedCallback (ARCOMMANDS_JNI_ARDrone3GPSSettingsStateReturnHomeDelayChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3CameraStateOrientationCallback (ARCOMMANDS_JNI_ARDrone3CameraStateOrientationnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3CameraStateDefaultCameraOrientationCallback (ARCOMMANDS_JNI_ARDrone3CameraStateDefaultCameraOrientationnativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringElectricFrequencyCallback (ARCOMMANDS_JNI_ARDrone3AntiflickeringElectricFrequencynativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringSetModeCallback (ARCOMMANDS_JNI_ARDrone3AntiflickeringSetModenativeCb, (void *)g_class);

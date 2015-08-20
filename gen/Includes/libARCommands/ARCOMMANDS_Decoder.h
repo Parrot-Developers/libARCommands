@@ -1219,6 +1219,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3CameraStateOrientationCallback_t) (int
  */
 void ARCOMMANDS_Decoder_SetARDrone3CameraStateOrientationCallback (ARCOMMANDS_Decoder_ARDrone3CameraStateOrientationCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command ARDrone3.CameraState.defaultCameraOrientation
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t) (int8_t tilt, int8_t pan, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.CameraState.defaultCameraOrientation
+ * @param callback new callback for the command ARDrone3.CameraState.defaultCameraOrientation
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3CameraStateDefaultCameraOrientationCallback (ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t callback, void *custom);
+
 // Command class Antiflickering
 
 /**

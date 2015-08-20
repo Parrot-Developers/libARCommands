@@ -175,6 +175,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior;
     // Class CameraState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraStateOrientationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraStateDefaultCameraOrientationBehavior;
     // Class Antiflickering
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringElectricFrequencyBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringSetModeBehavior;
@@ -724,6 +725,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior = defaultBehavior;
         // Class CameraState
         retFilter->CmdARDrone3CameraStateOrientationBehavior = defaultBehavior;
+        retFilter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = defaultBehavior;
         // Class Antiflickering
         retFilter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = defaultBehavior;
         retFilter->CmdARDrone3AntiflickeringSetModeBehavior = defaultBehavior;
@@ -1952,6 +1954,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3CameraStateOrientationBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_ORIENTATION */
+                case ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION:
+                {
+                    retStatus = filter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4643,6 +4650,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3GPSSettingsStateHomeTypeChangedBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior = behavior;
         filter->CmdARDrone3CameraStateOrientationBehavior = behavior;
+        filter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = behavior;
         filter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = behavior;
         filter->CmdARDrone3AntiflickeringSetModeBehavior = behavior;
         filter->CmdARDrone3AntiflickeringStateElectricFrequencyChangedBehavior = behavior;
@@ -5398,6 +5406,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateBehavior (ARCOM
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3CameraStateOrientationBehavior = behavior;
+        filter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = behavior;
     }
 
     return retError;
@@ -7760,6 +7769,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateOrientationBeha
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3CameraStateOrientationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateDefaultCameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = behavior;
     }
 
     return retError;

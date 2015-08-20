@@ -1302,6 +1302,18 @@ void ARCOMMANDS_Decoder_SetARDrone3CameraStateOrientationCallback (ARCOMMANDS_De
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3CameraStateDefaultCameraOrientationCallback (ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 
 // Command class Antiflickering
 static ARCOMMANDS_Decoder_ARDrone3AntiflickeringElectricFrequencyCallback_t ARCOMMANDS_Decoder_ARDrone3AntiflickeringElectricFrequencyCb = NULL;
@@ -8176,6 +8188,41 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_ORIENTATION */
+                case ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCb != NULL)
+                    {
+                        int8_t _tilt;
+                        int8_t _pan;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _tilt =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _pan =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCb (_tilt, _pan, ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -19910,6 +19957,39 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_ORIENTATION */
+                case ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.CameraState.defaultCameraOrientation:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | tilt -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | pan -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.CameraState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

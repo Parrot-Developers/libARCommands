@@ -146,6 +146,7 @@ int ARDrone3GPSSettingsStateGPSUpdateStateChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateHomeTypeChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateReturnHomeDelayChangedShouldBeCalled = 0;
 int ARDrone3CameraStateOrientationShouldBeCalled = 0;
+int ARDrone3CameraStateDefaultCameraOrientationShouldBeCalled = 0;
 int ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 0;
 int ARDrone3AntiflickeringSetModeShouldBeCalled = 0;
 int ARDrone3AntiflickeringStateElectricFrequencyChangedShouldBeCalled = 0;
@@ -2299,6 +2300,27 @@ void ARCOMMANDS_Testbench_ARDrone3CameraStateOrientationCb (int8_t tilt, int8_t 
         errcount++ ;
     }
     if (ARDrone3CameraStateOrientationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+void ARCOMMANDS_Testbench_ARDrone3CameraStateDefaultCameraOrientationCb (int8_t tilt, int8_t pan, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.CameraState.defaultCameraOrientation --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "tilt value : <%d>", tilt);
+    if (tilt != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "pan value : <%d>", pan);
+    if (pan != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    if (ARDrone3CameraStateDefaultCameraOrientationShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6774,6 +6796,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateHomeTypeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateHomeTypeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeTypeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateReturnHomeDelayChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateReturnHomeDelayChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateReturnHomeDelayChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3CameraStateOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraStateOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraStateOrientationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3CameraStateDefaultCameraOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraStateDefaultCameraOrientationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringElectricFrequencyCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringElectricFrequencyCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringElectricFrequencyCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringSetModeCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringSetModeCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringSetModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringStateElectricFrequencyChangedCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringStateElectricFrequencyChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateElectricFrequencyChangedCb, (void *)cbCustom++ );
@@ -10242,6 +10265,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3CameraStateOrientationShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3CameraStateOrientationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3CameraStateDefaultCameraOrientation (buffer, buffSize, &resSize, -42, -42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.CameraState.DefaultCameraOrientation\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.CameraState.DefaultCameraOrientation succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3CameraStateDefaultCameraOrientationBehavior);
+        ARDrone3CameraStateDefaultCameraOrientationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3CameraStateDefaultCameraOrientationShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

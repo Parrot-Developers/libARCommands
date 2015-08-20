@@ -5860,6 +5860,67 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3CameraStateOrie
     return retVal;
 }
 
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3CameraStateDefaultCameraOrientation (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _tilt, int8_t _pan)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write project header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_PROJECT_ARDRONE3, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_CLASS_CAMERASTATE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_CAMERASTATE_CMD_DEFAULTCAMERAORIENTATION, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _tilt
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _tilt, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _pan
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _pan, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
 
 // Command class Antiflickering
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringElectricFrequency (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY _frequency)
