@@ -201,125 +201,6 @@ struct ARCOMMANDS_Filter_t
     // Class GPSDebugState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3DebugGPSDebugStateNbSatelliteChangedBehavior;
 
-    // Project common
-    // Class Network
-    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkDisconnectBehavior;
-    // Class NetworkEvent
-    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkEventDisconnectionBehavior;
-    // Class Settings
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAllSettingsBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsResetBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsProductNameBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsCountryBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAutoCountryBehavior;
-    // Class SettingsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAllSettingsChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateResetChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductNameChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductVersionChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductSerialHighChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductSerialLowChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateCountryChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAutoCountryChangedBehavior;
-    // Class Common
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonAllStatesBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentDateBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentTimeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonRebootBehavior;
-    // Class CommonState
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateAllStatesChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateBatteryStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageStateListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageInfoStateListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCurrentDateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCurrentTimeChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateWifiSignalChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateSensorsStatesListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateProductModelBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCountryListKnownBehavior;
-    // Class OverHeat
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatSwitchOffBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatVentilateBehavior;
-    // Class OverHeatState
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
-    // Class ControllerState
-    eARCOMMANDS_FILTER_STATUS CmdCommonControllerStateIsPilotingChangedBehavior;
-    // Class WifiSettings
-    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
-    // Class WifiSettingsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
-    // Class Mavlink
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStartBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkPauseBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStopBehavior;
-    // Class MavlinkState
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
-    // Class Calibration
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationMagnetoCalibrationBehavior;
-    // Class CalibrationState
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior;
-    // Class CameraSettingsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonCameraSettingsStateCameraSettingsChangedBehavior;
-    // Class GPS
-    eARCOMMANDS_FILTER_STATUS CmdCommonGPSControllerPositionForRunBehavior;
-    // Class FlightPlanState
-    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateAvailabilityStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateComponentStateListChangedBehavior;
-    // Class FlightPlanEvent
-    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventStartingErrorEventBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventSpeedBridleEventBehavior;
-    // Class ARLibsVersionsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior;
-    // Class Audio
-    eARCOMMANDS_FILTER_STATUS CmdCommonAudioControllerReadyForStreamingBehavior;
-    // Class AudioState
-    eARCOMMANDS_FILTER_STATUS CmdCommonAudioStateAudioStreamingRunningBehavior;
-    // Class Headlights
-    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsIntensityBehavior;
-    // Class HeadlightsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsStateIntensityChangedBehavior;
-    // Class Animations
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStartAnimationBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAnimationBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAllAnimationsBehavior;
-    // Class AnimationsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStateListBehavior;
-    // Class Accessory
-    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryConfigBehavior;
-    // Class AccessoryState
-    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior;
-    // Class Charger
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerSetMaxChargeRateBehavior;
-    // Class ChargerState
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateMaxChargeRateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateCurrentChargeStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateLastChargeRateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
-
-    // Project commonDebug
-    // Class Stats
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsSendPacketBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
-    // Class StatsEvent
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsEventSendPacketBehavior;
-    // Class DebugSettings
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsGetAllBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsSetBehavior;
-    // Class DebugSettingsState
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateInfoBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateListChangedBehavior;
-
     // Project JumpingSumo
     // Class Piloting
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPCMDBehavior;
@@ -473,17 +354,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneDebugDebugTest2Behavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneDebugDebugTest3Behavior;
 
-    // Project pro
-    // Class Pro
-    eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdProProResponseBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdProProActivateFeaturesBehavior;
-    // Class ProState
-    eARCOMMANDS_FILTER_STATUS CmdProProStateSupportedFeaturesBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdProProStateFeaturesActivatedBehavior;
-    // Class ProEvent
-    eARCOMMANDS_FILTER_STATUS CmdProProEventChallengeEventBehavior;
-
     // Project SkyController
     // Class WifiState
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiListBehavior;
@@ -577,6 +447,136 @@ struct ARCOMMANDS_Filter_t
     // Project SkyControllerDebug
     // Class Debug
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerDebugDebugTest1Behavior;
+
+    // Project common
+    // Class Network
+    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkDisconnectBehavior;
+    // Class NetworkEvent
+    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkEventDisconnectionBehavior;
+    // Class Settings
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAllSettingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsResetBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsProductNameBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsCountryBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAutoCountryBehavior;
+    // Class SettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAllSettingsChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateResetChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductNameChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductVersionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductSerialHighChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductSerialLowChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateCountryChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAutoCountryChangedBehavior;
+    // Class Common
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonAllStatesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentDateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentTimeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonRebootBehavior;
+    // Class CommonState
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateAllStatesChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateBatteryStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageStateListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageInfoStateListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCurrentDateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCurrentTimeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateWifiSignalChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateSensorsStatesListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateProductModelBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCountryListKnownBehavior;
+    // Class OverHeat
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatSwitchOffBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatVentilateBehavior;
+    // Class OverHeatState
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
+    // Class ControllerState
+    eARCOMMANDS_FILTER_STATUS CmdCommonControllerStateIsPilotingChangedBehavior;
+    // Class WifiSettings
+    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
+    // Class WifiSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
+    // Class Mavlink
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStartBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkPauseBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStopBehavior;
+    // Class MavlinkState
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
+    // Class Calibration
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationMagnetoCalibrationBehavior;
+    // Class CalibrationState
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior;
+    // Class CameraSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonCameraSettingsStateCameraSettingsChangedBehavior;
+    // Class GPS
+    eARCOMMANDS_FILTER_STATUS CmdCommonGPSControllerPositionForRunBehavior;
+    // Class FlightPlanState
+    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateAvailabilityStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateComponentStateListChangedBehavior;
+    // Class FlightPlanEvent
+    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventStartingErrorEventBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventSpeedBridleEventBehavior;
+    // Class ARLibsVersionsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior;
+    // Class Audio
+    eARCOMMANDS_FILTER_STATUS CmdCommonAudioControllerReadyForStreamingBehavior;
+    // Class AudioState
+    eARCOMMANDS_FILTER_STATUS CmdCommonAudioStateAudioStreamingRunningBehavior;
+    // Class Headlights
+    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsIntensityBehavior;
+    // Class HeadlightsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsStateIntensityChangedBehavior;
+    // Class Animations
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStartAnimationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAnimationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAllAnimationsBehavior;
+    // Class AnimationsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStateListBehavior;
+    // Class Accessory
+    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryConfigBehavior;
+    // Class AccessoryState
+    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior;
+    // Class Charger
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerSetMaxChargeRateBehavior;
+    // Class ChargerState
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateMaxChargeRateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateCurrentChargeStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateLastChargeRateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
+
+    // Project commonDebug
+    // Class Stats
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsSendPacketBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
+    // Class StatsEvent
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsEventSendPacketBehavior;
+    // Class DebugSettings
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsGetAllBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsSetBehavior;
+    // Class DebugSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateInfoBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateListChangedBehavior;
+
+    // Project pro
+    // Class Pro
+    eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdProProResponseBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdProProActivateFeaturesBehavior;
+    // Class ProState
+    eARCOMMANDS_FILTER_STATUS CmdProProStateSupportedFeaturesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdProProStateFeaturesActivatedBehavior;
+    // Class ProEvent
+    eARCOMMANDS_FILTER_STATUS CmdProProEventChallengeEventBehavior;
 
 };
 
@@ -755,123 +755,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedBehavior = defaultBehavior;
         // Class GPSDebugState
         retFilter->CmdARDrone3DebugGPSDebugStateNbSatelliteChangedBehavior = defaultBehavior;
-        // Projects common
-        // Class Network
-        retFilter->CmdCommonNetworkDisconnectBehavior = defaultBehavior;
-        // Class NetworkEvent
-        retFilter->CmdCommonNetworkEventDisconnectionBehavior = defaultBehavior;
-        // Class Settings
-        retFilter->CmdCommonSettingsAllSettingsBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsResetBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsProductNameBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsCountryBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsAutoCountryBehavior = defaultBehavior;
-        // Class SettingsState
-        retFilter->CmdCommonSettingsStateAllSettingsChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateResetChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateProductNameChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateProductVersionChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateProductSerialHighChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateProductSerialLowChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateCountryChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonSettingsStateAutoCountryChangedBehavior = defaultBehavior;
-        // Class Common
-        retFilter->CmdCommonCommonAllStatesBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonCurrentDateBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonCurrentTimeBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonRebootBehavior = defaultBehavior;
-        // Class CommonState
-        retFilter->CmdCommonCommonStateAllStatesChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateBatteryStateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateMassStorageStateListChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateCurrentDateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateCurrentTimeChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateWifiSignalChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateSensorsStatesListChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateProductModelBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonStateCountryListKnownBehavior = defaultBehavior;
-        // Class OverHeat
-        retFilter->CmdCommonOverHeatSwitchOffBehavior = defaultBehavior;
-        retFilter->CmdCommonOverHeatVentilateBehavior = defaultBehavior;
-        // Class OverHeatState
-        retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
-        // Class ControllerState
-        retFilter->CmdCommonControllerStateIsPilotingChangedBehavior = defaultBehavior;
-        // Class WifiSettings
-        retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
-        // Class WifiSettingsState
-        retFilter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = defaultBehavior;
-        // Class Mavlink
-        retFilter->CmdCommonMavlinkStartBehavior = defaultBehavior;
-        retFilter->CmdCommonMavlinkPauseBehavior = defaultBehavior;
-        retFilter->CmdCommonMavlinkStopBehavior = defaultBehavior;
-        // Class MavlinkState
-        retFilter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = defaultBehavior;
-        // Class Calibration
-        retFilter->CmdCommonCalibrationMagnetoCalibrationBehavior = defaultBehavior;
-        // Class CalibrationState
-        retFilter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = defaultBehavior;
-        retFilter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = defaultBehavior;
-        // Class CameraSettingsState
-        retFilter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = defaultBehavior;
-        // Class GPS
-        retFilter->CmdCommonGPSControllerPositionForRunBehavior = defaultBehavior;
-        // Class FlightPlanState
-        retFilter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = defaultBehavior;
-        // Class FlightPlanEvent
-        retFilter->CmdCommonFlightPlanEventStartingErrorEventBehavior = defaultBehavior;
-        retFilter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = defaultBehavior;
-        // Class ARLibsVersionsState
-        retFilter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = defaultBehavior;
-        retFilter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = defaultBehavior;
-        retFilter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = defaultBehavior;
-        // Class Audio
-        retFilter->CmdCommonAudioControllerReadyForStreamingBehavior = defaultBehavior;
-        // Class AudioState
-        retFilter->CmdCommonAudioStateAudioStreamingRunningBehavior = defaultBehavior;
-        // Class Headlights
-        retFilter->CmdCommonHeadlightsIntensityBehavior = defaultBehavior;
-        // Class HeadlightsState
-        retFilter->CmdCommonHeadlightsStateIntensityChangedBehavior = defaultBehavior;
-        // Class Animations
-        retFilter->CmdCommonAnimationsStartAnimationBehavior = defaultBehavior;
-        retFilter->CmdCommonAnimationsStopAnimationBehavior = defaultBehavior;
-        retFilter->CmdCommonAnimationsStopAllAnimationsBehavior = defaultBehavior;
-        // Class AnimationsState
-        retFilter->CmdCommonAnimationsStateListBehavior = defaultBehavior;
-        // Class Accessory
-        retFilter->CmdCommonAccessoryConfigBehavior = defaultBehavior;
-        // Class AccessoryState
-        retFilter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = defaultBehavior;
-        // Class Charger
-        retFilter->CmdCommonChargerSetMaxChargeRateBehavior = defaultBehavior;
-        // Class ChargerState
-        retFilter->CmdCommonChargerStateMaxChargeRateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
-        // Projects commonDebug
-        // Class Stats
-        retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = defaultBehavior;
-        // Class StatsEvent
-        retFilter->CmdCommonDebugStatsEventSendPacketBehavior = defaultBehavior;
-        // Class DebugSettings
-        retFilter->CmdCommonDebugDebugSettingsGetAllBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsSetBehavior = defaultBehavior;
-        // Class DebugSettingsState
-        retFilter->CmdCommonDebugDebugSettingsStateInfoBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsStateListChangedBehavior = defaultBehavior;
         // Projects JumpingSumo
         // Class Piloting
         retFilter->CmdJumpingSumoPilotingPCMDBehavior = defaultBehavior;
@@ -1021,16 +904,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneDebugDebugTest1Behavior = defaultBehavior;
         retFilter->CmdMiniDroneDebugDebugTest2Behavior = defaultBehavior;
         retFilter->CmdMiniDroneDebugDebugTest3Behavior = defaultBehavior;
-        // Projects pro
-        // Class Pro
-        retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
-        retFilter->CmdProProResponseBehavior = defaultBehavior;
-        retFilter->CmdProProActivateFeaturesBehavior = defaultBehavior;
-        // Class ProState
-        retFilter->CmdProProStateSupportedFeaturesBehavior = defaultBehavior;
-        retFilter->CmdProProStateFeaturesActivatedBehavior = defaultBehavior;
-        // Class ProEvent
-        retFilter->CmdProProEventChallengeEventBehavior = defaultBehavior;
         // Projects SkyController
         // Class WifiState
         retFilter->CmdSkyControllerWifiStateWifiListBehavior = defaultBehavior;
@@ -1123,6 +996,133 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         // Projects SkyControllerDebug
         // Class Debug
         retFilter->CmdSkyControllerDebugDebugTest1Behavior = defaultBehavior;
+        // Projects common
+        // Class Network
+        retFilter->CmdCommonNetworkDisconnectBehavior = defaultBehavior;
+        // Class NetworkEvent
+        retFilter->CmdCommonNetworkEventDisconnectionBehavior = defaultBehavior;
+        // Class Settings
+        retFilter->CmdCommonSettingsAllSettingsBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsResetBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsProductNameBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsCountryBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsAutoCountryBehavior = defaultBehavior;
+        // Class SettingsState
+        retFilter->CmdCommonSettingsStateAllSettingsChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateResetChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateProductNameChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateProductVersionChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateProductSerialHighChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateProductSerialLowChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateCountryChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonSettingsStateAutoCountryChangedBehavior = defaultBehavior;
+        // Class Common
+        retFilter->CmdCommonCommonAllStatesBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonCurrentDateBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonCurrentTimeBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonRebootBehavior = defaultBehavior;
+        // Class CommonState
+        retFilter->CmdCommonCommonStateAllStatesChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateBatteryStateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateMassStorageStateListChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateCurrentDateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateCurrentTimeChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateWifiSignalChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateSensorsStatesListChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateProductModelBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateCountryListKnownBehavior = defaultBehavior;
+        // Class OverHeat
+        retFilter->CmdCommonOverHeatSwitchOffBehavior = defaultBehavior;
+        retFilter->CmdCommonOverHeatVentilateBehavior = defaultBehavior;
+        // Class OverHeatState
+        retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
+        // Class ControllerState
+        retFilter->CmdCommonControllerStateIsPilotingChangedBehavior = defaultBehavior;
+        // Class WifiSettings
+        retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
+        // Class WifiSettingsState
+        retFilter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = defaultBehavior;
+        // Class Mavlink
+        retFilter->CmdCommonMavlinkStartBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkPauseBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkStopBehavior = defaultBehavior;
+        // Class MavlinkState
+        retFilter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = defaultBehavior;
+        // Class Calibration
+        retFilter->CmdCommonCalibrationMagnetoCalibrationBehavior = defaultBehavior;
+        // Class CalibrationState
+        retFilter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = defaultBehavior;
+        retFilter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = defaultBehavior;
+        // Class CameraSettingsState
+        retFilter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = defaultBehavior;
+        // Class GPS
+        retFilter->CmdCommonGPSControllerPositionForRunBehavior = defaultBehavior;
+        // Class FlightPlanState
+        retFilter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = defaultBehavior;
+        // Class FlightPlanEvent
+        retFilter->CmdCommonFlightPlanEventStartingErrorEventBehavior = defaultBehavior;
+        retFilter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = defaultBehavior;
+        // Class ARLibsVersionsState
+        retFilter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = defaultBehavior;
+        retFilter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = defaultBehavior;
+        retFilter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = defaultBehavior;
+        // Class Audio
+        retFilter->CmdCommonAudioControllerReadyForStreamingBehavior = defaultBehavior;
+        // Class AudioState
+        retFilter->CmdCommonAudioStateAudioStreamingRunningBehavior = defaultBehavior;
+        // Class Headlights
+        retFilter->CmdCommonHeadlightsIntensityBehavior = defaultBehavior;
+        // Class HeadlightsState
+        retFilter->CmdCommonHeadlightsStateIntensityChangedBehavior = defaultBehavior;
+        // Class Animations
+        retFilter->CmdCommonAnimationsStartAnimationBehavior = defaultBehavior;
+        retFilter->CmdCommonAnimationsStopAnimationBehavior = defaultBehavior;
+        retFilter->CmdCommonAnimationsStopAllAnimationsBehavior = defaultBehavior;
+        // Class AnimationsState
+        retFilter->CmdCommonAnimationsStateListBehavior = defaultBehavior;
+        // Class Accessory
+        retFilter->CmdCommonAccessoryConfigBehavior = defaultBehavior;
+        // Class AccessoryState
+        retFilter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = defaultBehavior;
+        // Class Charger
+        retFilter->CmdCommonChargerSetMaxChargeRateBehavior = defaultBehavior;
+        // Class ChargerState
+        retFilter->CmdCommonChargerStateMaxChargeRateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
+        retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
+        // Projects commonDebug
+        // Class Stats
+        retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
+        retFilter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = defaultBehavior;
+        retFilter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = defaultBehavior;
+        // Class StatsEvent
+        retFilter->CmdCommonDebugStatsEventSendPacketBehavior = defaultBehavior;
+        // Class DebugSettings
+        retFilter->CmdCommonDebugDebugSettingsGetAllBehavior = defaultBehavior;
+        retFilter->CmdCommonDebugDebugSettingsSetBehavior = defaultBehavior;
+        // Class DebugSettingsState
+        retFilter->CmdCommonDebugDebugSettingsStateInfoBehavior = defaultBehavior;
+        retFilter->CmdCommonDebugDebugSettingsStateListChangedBehavior = defaultBehavior;
+        // Projects pro
+        // Class Pro
+        retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
+        retFilter->CmdProProResponseBehavior = defaultBehavior;
+        retFilter->CmdProProActivateFeaturesBehavior = defaultBehavior;
+        // Class ProState
+        retFilter->CmdProProStateSupportedFeaturesBehavior = defaultBehavior;
+        retFilter->CmdProProStateFeaturesActivatedBehavior = defaultBehavior;
+        // Class ProEvent
+        retFilter->CmdProProEventChallengeEventBehavior = defaultBehavior;
     } // No else : Processing block
 
     if (localError != ARCOMMANDS_FILTER_OK)
@@ -2143,771 +2143,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_PROJECT_ARDRONE3DEBUG */
-        case ARCOMMANDS_ID_PROJECT_COMMON:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMON_CLASS_NETWORK:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_NETWORK_CMD_DISCONNECT:
-                {
-                    retStatus = filter->CmdCommonNetworkDisconnectBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_NETWORK_CMD_DISCONNECT */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_NETWORK */
-            case ARCOMMANDS_ID_COMMON_CLASS_NETWORKEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_NETWORKEVENT_CMD_DISCONNECTION:
-                {
-                    retStatus = filter->CmdCommonNetworkEventDisconnectionBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_NETWORKEVENT_CMD_DISCONNECTION */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_NETWORKEVENT */
-            case ARCOMMANDS_ID_COMMON_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_ALLSETTINGS:
-                {
-                    retStatus = filter->CmdCommonSettingsAllSettingsBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_ALLSETTINGS */
-                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_RESET:
-                {
-                    retStatus = filter->CmdCommonSettingsResetBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_RESET */
-                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_PRODUCTNAME:
-                {
-                    retStatus = filter->CmdCommonSettingsProductNameBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_PRODUCTNAME */
-                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_COUNTRY:
-                {
-                    retStatus = filter->CmdCommonSettingsCountryBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_COUNTRY */
-                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_AUTOCOUNTRY:
-                {
-                    retStatus = filter->CmdCommonSettingsAutoCountryBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_AUTOCOUNTRY */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_SETTINGS */
-            case ARCOMMANDS_ID_COMMON_CLASS_SETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_ALLSETTINGSCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateAllSettingsChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_ALLSETTINGSCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_RESETCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateResetChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_RESETCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTNAMECHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateProductNameChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTNAMECHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateProductVersionChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALHIGHCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateProductSerialHighChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALHIGHCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALLOWCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateProductSerialLowChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALLOWCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_COUNTRYCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateCountryChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_COUNTRYCHANGED */
-                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_AUTOCOUNTRYCHANGED:
-                {
-                    retStatus = filter->CmdCommonSettingsStateAutoCountryChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_AUTOCOUNTRYCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_COMMON:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES:
-                {
-                    retStatus = filter->CmdCommonCommonAllStatesBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES */
-                case ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTDATE:
-                {
-                    retStatus = filter->CmdCommonCommonCurrentDateBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTDATE */
-                case ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTTIME:
-                {
-                    retStatus = filter->CmdCommonCommonCurrentTimeBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTTIME */
-                case ARCOMMANDS_ID_COMMON_COMMON_CMD_REBOOT:
-                {
-                    retStatus = filter->CmdCommonCommonRebootBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_REBOOT */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_COMMON */
-            case ARCOMMANDS_ID_COMMON_CLASS_COMMONSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_ALLSTATESCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateAllStatesChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_ALLSTATESCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_BATTERYSTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateBatteryStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_BATTERYSTATECHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGESTATELISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateMassStorageStateListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGESTATELISTCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOSTATELISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOSTATELISTCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTDATECHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateCurrentDateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTDATECHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTTIMECHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateCurrentTimeChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTTIMECHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOREMAININGLISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOREMAININGLISTCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_WIFISIGNALCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateWifiSignalChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_WIFISIGNALCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_SENSORSSTATESLISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonCommonStateSensorsStatesListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_SENSORSSTATESLISTCHANGED */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_PRODUCTMODEL:
-                {
-                    retStatus = filter->CmdCommonCommonStateProductModelBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_PRODUCTMODEL */
-                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN:
-                {
-                    retStatus = filter->CmdCommonCommonStateCountryListKnownBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_COMMONSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_OVERHEAT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_SWITCHOFF:
-                {
-                    retStatus = filter->CmdCommonOverHeatSwitchOffBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_SWITCHOFF */
-                case ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_VENTILATE:
-                {
-                    retStatus = filter->CmdCommonOverHeatVentilateBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_VENTILATE */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEAT */
-            case ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATCHANGED:
-                {
-                    retStatus = filter->CmdCommonOverHeatStateOverHeatChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATCHANGED */
-                case ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATREGULATIONCHANGED:
-                {
-                    retStatus = filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATREGULATIONCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
-                {
-                    retStatus = filter->CmdCommonControllerStateIsPilotingChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_WIFISETTINGS_CMD_OUTDOORSETTING:
-                {
-                    retStatus = filter->CmdCommonWifiSettingsOutdoorSettingBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_WIFISETTINGS_CMD_OUTDOORSETTING */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS */
-            case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_WIFISETTINGSSTATE_CMD_OUTDOORSETTINGSCHANGED:
-                {
-                    retStatus = filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_WIFISETTINGSSTATE_CMD_OUTDOORSETTINGSCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_MAVLINK:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_START:
-                {
-                    retStatus = filter->CmdCommonMavlinkStartBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_START */
-                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_PAUSE:
-                {
-                    retStatus = filter->CmdCommonMavlinkPauseBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_PAUSE */
-                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_STOP:
-                {
-                    retStatus = filter->CmdCommonMavlinkStopBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_STOP */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_MAVLINK */
-            case ARCOMMANDS_ID_COMMON_CLASS_MAVLINKSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKFILEPLAYINGSTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKFILEPLAYINGSTATECHANGED */
-                case ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKPLAYERRORSTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKPLAYERRORSTATECHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_MAVLINKSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CALIBRATION:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CALIBRATION_CMD_MAGNETOCALIBRATION:
-                {
-                    retStatus = filter->CmdCommonCalibrationMagnetoCalibrationBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CALIBRATION_CMD_MAGNETOCALIBRATION */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CALIBRATION */
-            case ARCOMMANDS_ID_COMMON_CLASS_CALIBRATIONSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTATECHANGED */
-                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONREQUIREDSTATE:
-                {
-                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONREQUIREDSTATE */
-                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED:
-                {
-                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED */
-                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTARTEDCHANGED:
-                {
-                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTARTEDCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CALIBRATIONSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CAMERASETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CAMERASETTINGSSTATE_CMD_CAMERASETTINGSCHANGED:
-                {
-                    retStatus = filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CAMERASETTINGSSTATE_CMD_CAMERASETTINGSCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CAMERASETTINGSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_GPS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_GPS_CMD_CONTROLLERPOSITIONFORRUN:
-                {
-                    retStatus = filter->CmdCommonGPSControllerPositionForRunBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_GPS_CMD_CONTROLLERPOSITIONFORRUN */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_GPS */
-            case ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_AVAILABILITYSTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_AVAILABILITYSTATECHANGED */
-                case ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_COMPONENTSTATELISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_COMPONENTSTATELISTCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_STARTINGERROREVENT:
-                {
-                    retStatus = filter->CmdCommonFlightPlanEventStartingErrorEventBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_STARTINGERROREVENT */
-                case ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_SPEEDBRIDLEEVENT:
-                {
-                    retStatus = filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_SPEEDBRIDLEEVENT */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANEVENT */
-            case ARCOMMANDS_ID_COMMON_CLASS_ARLIBSVERSIONSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_CONTROLLERLIBARCOMMANDSVERSION:
-                {
-                    retStatus = filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_CONTROLLERLIBARCOMMANDSVERSION */
-                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_SKYCONTROLLERLIBARCOMMANDSVERSION:
-                {
-                    retStatus = filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_SKYCONTROLLERLIBARCOMMANDSVERSION */
-                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_DEVICELIBARCOMMANDSVERSION:
-                {
-                    retStatus = filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_DEVICELIBARCOMMANDSVERSION */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_ARLIBSVERSIONSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_AUDIO:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_AUDIO_CMD_CONTROLLERREADYFORSTREAMING:
-                {
-                    retStatus = filter->CmdCommonAudioControllerReadyForStreamingBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_AUDIO_CMD_CONTROLLERREADYFORSTREAMING */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_AUDIO */
-            case ARCOMMANDS_ID_COMMON_CLASS_AUDIOSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_AUDIOSTATE_CMD_AUDIOSTREAMINGRUNNING:
-                {
-                    retStatus = filter->CmdCommonAudioStateAudioStreamingRunningBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_AUDIOSTATE_CMD_AUDIOSTREAMINGRUNNING */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_AUDIOSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_HEADLIGHTS_CMD_INTENSITY:
-                {
-                    retStatus = filter->CmdCommonHeadlightsIntensityBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_HEADLIGHTS_CMD_INTENSITY */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTS */
-            case ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_HEADLIGHTSSTATE_CMD_INTENSITYCHANGED:
-                {
-                    retStatus = filter->CmdCommonHeadlightsStateIntensityChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_HEADLIGHTSSTATE_CMD_INTENSITYCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STARTANIMATION:
-                {
-                    retStatus = filter->CmdCommonAnimationsStartAnimationBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STARTANIMATION */
-                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPANIMATION:
-                {
-                    retStatus = filter->CmdCommonAnimationsStopAnimationBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPANIMATION */
-                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPALLANIMATIONS:
-                {
-                    retStatus = filter->CmdCommonAnimationsStopAllAnimationsBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPALLANIMATIONS */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONS */
-            case ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_ANIMATIONSSTATE_CMD_LIST:
-                {
-                    retStatus = filter->CmdCommonAnimationsStateListBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONSSTATE_CMD_LIST */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONSSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_ACCESSORY:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_ACCESSORY_CMD_CONFIG:
-                {
-                    retStatus = filter->CmdCommonAccessoryConfigBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ACCESSORY_CMD_CONFIG */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_ACCESSORY */
-            case ARCOMMANDS_ID_COMMON_CLASS_ACCESSORYSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_SUPPORTEDACCESSORIESLISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_SUPPORTEDACCESSORIESLISTCHANGED */
-                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGCHANGED:
-                {
-                    retStatus = filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGCHANGED */
-                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGMODIFICATIONENABLED:
-                {
-                    retStatus = filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGMODIFICATIONENABLED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_ACCESSORYSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CHARGER:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CHARGER_CMD_SETMAXCHARGERATE:
-                {
-                    retStatus = filter->CmdCommonChargerSetMaxChargeRateBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CHARGER_CMD_SETMAXCHARGERATE */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGER */
-            case ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_MAXCHARGERATECHANGED:
-                {
-                    retStatus = filter->CmdCommonChargerStateMaxChargeRateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_MAXCHARGERATECHANGED */
-                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CURRENTCHARGESTATECHANGED:
-                {
-                    retStatus = filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CURRENTCHARGESTATECHANGED */
-                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_LASTCHARGERATECHANGED:
-                {
-                    retStatus = filter->CmdCommonChargerStateLastChargeRateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_LASTCHARGERATECHANGED */
-                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CHARGINGINFO:
-                {
-                    retStatus = filter->CmdCommonChargerStateChargingInfoBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CHARGINGINFO */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE */
-            default:
-                // Do nothing, the default answer is already UNKNOWN
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_PROJECT_COMMON */
-        case ARCOMMANDS_ID_PROJECT_COMMONDEBUG:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
-                {
-                    retStatus = filter->CmdCommonDebugStatsSendPacketBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
-                {
-                    retStatus = filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
-                {
-                    retStatus = filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    retStatus = filter->CmdCommonDebugStatsEventSendPacketBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsGetAllBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsSetBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsStateInfoBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsStateListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
-                // Do nothing, the default answer is already UNKNOWN
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_PROJECT_COMMONDEBUG */
         case ARCOMMANDS_ID_PROJECT_JUMPINGSUMO:
         {
             switch (commandClass)
@@ -3898,76 +3133,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_PROJECT_MINIDRONEDEBUG */
-        case ARCOMMANDS_ID_PROJECT_PRO:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_PRO_CLASS_PRO:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
-                {
-                    retStatus = filter->CmdProProBoughtFeaturesBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
-                {
-                    retStatus = filter->CmdProProResponseBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
-                {
-                    retStatus = filter->CmdProProActivateFeaturesBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
-            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
-                {
-                    retStatus = filter->CmdProProStateSupportedFeaturesBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
-                {
-                    retStatus = filter->CmdProProStateFeaturesActivatedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
-            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
-                {
-                    retStatus = filter->CmdProProEventChallengeEventBehavior;
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
-            default:
-                // Do nothing, the default answer is already UNKNOWN
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_PROJECT_PRO */
         case ARCOMMANDS_ID_PROJECT_SKYCONTROLLER:
         {
             switch (commandClass)
@@ -4563,6 +3728,841 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_PROJECT_SKYCONTROLLERDEBUG */
+        case ARCOMMANDS_ID_PROJECT_COMMON:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_COMMON_CLASS_NETWORK:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_NETWORK_CMD_DISCONNECT:
+                {
+                    retStatus = filter->CmdCommonNetworkDisconnectBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_NETWORK_CMD_DISCONNECT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_NETWORK */
+            case ARCOMMANDS_ID_COMMON_CLASS_NETWORKEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_NETWORKEVENT_CMD_DISCONNECTION:
+                {
+                    retStatus = filter->CmdCommonNetworkEventDisconnectionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_NETWORKEVENT_CMD_DISCONNECTION */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_NETWORKEVENT */
+            case ARCOMMANDS_ID_COMMON_CLASS_SETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_ALLSETTINGS:
+                {
+                    retStatus = filter->CmdCommonSettingsAllSettingsBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_ALLSETTINGS */
+                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_RESET:
+                {
+                    retStatus = filter->CmdCommonSettingsResetBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_RESET */
+                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_PRODUCTNAME:
+                {
+                    retStatus = filter->CmdCommonSettingsProductNameBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_PRODUCTNAME */
+                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_COUNTRY:
+                {
+                    retStatus = filter->CmdCommonSettingsCountryBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_COUNTRY */
+                case ARCOMMANDS_ID_COMMON_SETTINGS_CMD_AUTOCOUNTRY:
+                {
+                    retStatus = filter->CmdCommonSettingsAutoCountryBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGS_CMD_AUTOCOUNTRY */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_SETTINGS */
+            case ARCOMMANDS_ID_COMMON_CLASS_SETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_ALLSETTINGSCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateAllSettingsChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_ALLSETTINGSCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_RESETCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateResetChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_RESETCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTNAMECHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateProductNameChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTNAMECHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateProductVersionChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALHIGHCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateProductSerialHighChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALHIGHCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALLOWCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateProductSerialLowChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_PRODUCTSERIALLOWCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_COUNTRYCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateCountryChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_COUNTRYCHANGED */
+                case ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_AUTOCOUNTRYCHANGED:
+                {
+                    retStatus = filter->CmdCommonSettingsStateAutoCountryChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_SETTINGSSTATE_CMD_AUTOCOUNTRYCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_SETTINGSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_COMMON:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES:
+                {
+                    retStatus = filter->CmdCommonCommonAllStatesBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_ALLSTATES */
+                case ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTDATE:
+                {
+                    retStatus = filter->CmdCommonCommonCurrentDateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTDATE */
+                case ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTTIME:
+                {
+                    retStatus = filter->CmdCommonCommonCurrentTimeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_CURRENTTIME */
+                case ARCOMMANDS_ID_COMMON_COMMON_CMD_REBOOT:
+                {
+                    retStatus = filter->CmdCommonCommonRebootBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMON_CMD_REBOOT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_COMMON */
+            case ARCOMMANDS_ID_COMMON_CLASS_COMMONSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_ALLSTATESCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateAllStatesChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_ALLSTATESCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_BATTERYSTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateBatteryStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_BATTERYSTATECHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGESTATELISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateMassStorageStateListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGESTATELISTCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOSTATELISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOSTATELISTCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTDATECHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateCurrentDateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTDATECHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTTIMECHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateCurrentTimeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_CURRENTTIMECHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOREMAININGLISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGEINFOREMAININGLISTCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_WIFISIGNALCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateWifiSignalChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_WIFISIGNALCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_SENSORSSTATESLISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateSensorsStatesListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_SENSORSSTATESLISTCHANGED */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_PRODUCTMODEL:
+                {
+                    retStatus = filter->CmdCommonCommonStateProductModelBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_PRODUCTMODEL */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN:
+                {
+                    retStatus = filter->CmdCommonCommonStateCountryListKnownBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_COMMONSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_OVERHEAT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_SWITCHOFF:
+                {
+                    retStatus = filter->CmdCommonOverHeatSwitchOffBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_SWITCHOFF */
+                case ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_VENTILATE:
+                {
+                    retStatus = filter->CmdCommonOverHeatVentilateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_OVERHEAT_CMD_VENTILATE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEAT */
+            case ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATCHANGED:
+                {
+                    retStatus = filter->CmdCommonOverHeatStateOverHeatChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATCHANGED */
+                case ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATREGULATIONCHANGED:
+                {
+                    retStatus = filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_OVERHEATSTATE_CMD_OVERHEATREGULATIONCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
+                {
+                    retStatus = filter->CmdCommonControllerStateIsPilotingChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_WIFISETTINGS_CMD_OUTDOORSETTING:
+                {
+                    retStatus = filter->CmdCommonWifiSettingsOutdoorSettingBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_WIFISETTINGS_CMD_OUTDOORSETTING */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS */
+            case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_WIFISETTINGSSTATE_CMD_OUTDOORSETTINGSCHANGED:
+                {
+                    retStatus = filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_WIFISETTINGSSTATE_CMD_OUTDOORSETTINGSCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_MAVLINK:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_START:
+                {
+                    retStatus = filter->CmdCommonMavlinkStartBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_START */
+                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_PAUSE:
+                {
+                    retStatus = filter->CmdCommonMavlinkPauseBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_PAUSE */
+                case ARCOMMANDS_ID_COMMON_MAVLINK_CMD_STOP:
+                {
+                    retStatus = filter->CmdCommonMavlinkStopBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_MAVLINK_CMD_STOP */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_MAVLINK */
+            case ARCOMMANDS_ID_COMMON_CLASS_MAVLINKSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKFILEPLAYINGSTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKFILEPLAYINGSTATECHANGED */
+                case ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKPLAYERRORSTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_MAVLINKSTATE_CMD_MAVLINKPLAYERRORSTATECHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_MAVLINKSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_CALIBRATION:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CALIBRATION_CMD_MAGNETOCALIBRATION:
+                {
+                    retStatus = filter->CmdCommonCalibrationMagnetoCalibrationBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CALIBRATION_CMD_MAGNETOCALIBRATION */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CALIBRATION */
+            case ARCOMMANDS_ID_COMMON_CLASS_CALIBRATIONSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTATECHANGED */
+                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONREQUIREDSTATE:
+                {
+                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONREQUIREDSTATE */
+                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED:
+                {
+                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED */
+                case ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTARTEDCHANGED:
+                {
+                    retStatus = filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CALIBRATIONSTATE_CMD_MAGNETOCALIBRATIONSTARTEDCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CALIBRATIONSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_CAMERASETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CAMERASETTINGSSTATE_CMD_CAMERASETTINGSCHANGED:
+                {
+                    retStatus = filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CAMERASETTINGSSTATE_CMD_CAMERASETTINGSCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CAMERASETTINGSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_GPS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_GPS_CMD_CONTROLLERPOSITIONFORRUN:
+                {
+                    retStatus = filter->CmdCommonGPSControllerPositionForRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_GPS_CMD_CONTROLLERPOSITIONFORRUN */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_GPS */
+            case ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_AVAILABILITYSTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_AVAILABILITYSTATECHANGED */
+                case ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_COMPONENTSTATELISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANSTATE_CMD_COMPONENTSTATELISTCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_STARTINGERROREVENT:
+                {
+                    retStatus = filter->CmdCommonFlightPlanEventStartingErrorEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_STARTINGERROREVENT */
+                case ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_SPEEDBRIDLEEVENT:
+                {
+                    retStatus = filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_FLIGHTPLANEVENT_CMD_SPEEDBRIDLEEVENT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_FLIGHTPLANEVENT */
+            case ARCOMMANDS_ID_COMMON_CLASS_ARLIBSVERSIONSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_CONTROLLERLIBARCOMMANDSVERSION:
+                {
+                    retStatus = filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_CONTROLLERLIBARCOMMANDSVERSION */
+                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_SKYCONTROLLERLIBARCOMMANDSVERSION:
+                {
+                    retStatus = filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_SKYCONTROLLERLIBARCOMMANDSVERSION */
+                case ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_DEVICELIBARCOMMANDSVERSION:
+                {
+                    retStatus = filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ARLIBSVERSIONSSTATE_CMD_DEVICELIBARCOMMANDSVERSION */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_ARLIBSVERSIONSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_AUDIO:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_AUDIO_CMD_CONTROLLERREADYFORSTREAMING:
+                {
+                    retStatus = filter->CmdCommonAudioControllerReadyForStreamingBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_AUDIO_CMD_CONTROLLERREADYFORSTREAMING */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_AUDIO */
+            case ARCOMMANDS_ID_COMMON_CLASS_AUDIOSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_AUDIOSTATE_CMD_AUDIOSTREAMINGRUNNING:
+                {
+                    retStatus = filter->CmdCommonAudioStateAudioStreamingRunningBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_AUDIOSTATE_CMD_AUDIOSTREAMINGRUNNING */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_AUDIOSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_HEADLIGHTS_CMD_INTENSITY:
+                {
+                    retStatus = filter->CmdCommonHeadlightsIntensityBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_HEADLIGHTS_CMD_INTENSITY */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTS */
+            case ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_HEADLIGHTSSTATE_CMD_INTENSITYCHANGED:
+                {
+                    retStatus = filter->CmdCommonHeadlightsStateIntensityChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_HEADLIGHTSSTATE_CMD_INTENSITYCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_HEADLIGHTSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STARTANIMATION:
+                {
+                    retStatus = filter->CmdCommonAnimationsStartAnimationBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STARTANIMATION */
+                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPANIMATION:
+                {
+                    retStatus = filter->CmdCommonAnimationsStopAnimationBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPANIMATION */
+                case ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPALLANIMATIONS:
+                {
+                    retStatus = filter->CmdCommonAnimationsStopAllAnimationsBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONS_CMD_STOPALLANIMATIONS */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONS */
+            case ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_ANIMATIONSSTATE_CMD_LIST:
+                {
+                    retStatus = filter->CmdCommonAnimationsStateListBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ANIMATIONSSTATE_CMD_LIST */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_ANIMATIONSSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_ACCESSORY:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_ACCESSORY_CMD_CONFIG:
+                {
+                    retStatus = filter->CmdCommonAccessoryConfigBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ACCESSORY_CMD_CONFIG */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_ACCESSORY */
+            case ARCOMMANDS_ID_COMMON_CLASS_ACCESSORYSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_SUPPORTEDACCESSORIESLISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_SUPPORTEDACCESSORIESLISTCHANGED */
+                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGCHANGED:
+                {
+                    retStatus = filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGCHANGED */
+                case ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGMODIFICATIONENABLED:
+                {
+                    retStatus = filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_ACCESSORYSTATE_CMD_ACCESSORYCONFIGMODIFICATIONENABLED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_ACCESSORYSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_CHARGER:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CHARGER_CMD_SETMAXCHARGERATE:
+                {
+                    retStatus = filter->CmdCommonChargerSetMaxChargeRateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CHARGER_CMD_SETMAXCHARGERATE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGER */
+            case ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_MAXCHARGERATECHANGED:
+                {
+                    retStatus = filter->CmdCommonChargerStateMaxChargeRateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_MAXCHARGERATECHANGED */
+                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CURRENTCHARGESTATECHANGED:
+                {
+                    retStatus = filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CURRENTCHARGESTATECHANGED */
+                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_LASTCHARGERATECHANGED:
+                {
+                    retStatus = filter->CmdCommonChargerStateLastChargeRateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_LASTCHARGERATECHANGED */
+                case ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CHARGINGINFO:
+                {
+                    retStatus = filter->CmdCommonChargerStateChargingInfoBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_CHARGERSTATE_CMD_CHARGINGINFO */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE */
+            default:
+                // Do nothing, the default answer is already UNKNOWN
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_PROJECT_COMMON */
+        case ARCOMMANDS_ID_PROJECT_COMMONDEBUG:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                {
+                    retStatus = filter->CmdCommonDebugStatsSendPacketBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                {
+                    retStatus = filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
+                {
+                    retStatus = filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
+                {
+                    retStatus = filter->CmdCommonDebugStatsEventSendPacketBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
+                {
+                    retStatus = filter->CmdCommonDebugDebugSettingsGetAllBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
+                {
+                    retStatus = filter->CmdCommonDebugDebugSettingsSetBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
+                {
+                    retStatus = filter->CmdCommonDebugDebugSettingsStateInfoBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
+                {
+                    retStatus = filter->CmdCommonDebugDebugSettingsStateListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
+            default:
+                // Do nothing, the default answer is already UNKNOWN
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_PROJECT_COMMONDEBUG */
+        case ARCOMMANDS_ID_PROJECT_PRO:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_PRO_CLASS_PRO:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
+                {
+                    retStatus = filter->CmdProProBoughtFeaturesBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
+                {
+                    retStatus = filter->CmdProProResponseBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
+                {
+                    retStatus = filter->CmdProProActivateFeaturesBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
+            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
+                {
+                    retStatus = filter->CmdProProStateSupportedFeaturesBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
+                {
+                    retStatus = filter->CmdProProStateFeaturesActivatedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
+            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
+                {
+                    retStatus = filter->CmdProProEventChallengeEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
+            default:
+                // Do nothing, the default answer is already UNKNOWN
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_PROJECT_PRO */
         default:
             // Do nothing, the default answer is already UNKNOWN
             break;
@@ -8315,2918 +8315,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3DebugGPSDebugStateNbSatell
 
 
 
-// Project common
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkDisconnectBehavior = behavior;
-        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
-        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
-        filter->CmdCommonSettingsResetBehavior = behavior;
-        filter->CmdCommonSettingsProductNameBehavior = behavior;
-        filter->CmdCommonSettingsCountryBehavior = behavior;
-        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
-        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
-        filter->CmdCommonCommonAllStatesBehavior = behavior;
-        filter->CmdCommonCommonCurrentDateBehavior = behavior;
-        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
-        filter->CmdCommonCommonRebootBehavior = behavior;
-        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
-        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
-        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
-        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateProductModelBehavior = behavior;
-        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
-        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
-        filter->CmdCommonOverHeatVentilateBehavior = behavior;
-        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
-        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
-        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
-        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
-        filter->CmdCommonMavlinkStartBehavior = behavior;
-        filter->CmdCommonMavlinkPauseBehavior = behavior;
-        filter->CmdCommonMavlinkStopBehavior = behavior;
-        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
-        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
-        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
-        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
-        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
-        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
-        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
-        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
-        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
-        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
-        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
-        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
-        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
-        filter->CmdCommonAnimationsStateListBehavior = behavior;
-        filter->CmdCommonAccessoryConfigBehavior = behavior;
-        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
-        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
-        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
-        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
-        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Network
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkDisconnectBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class NetworkEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
-        filter->CmdCommonSettingsResetBehavior = behavior;
-        filter->CmdCommonSettingsProductNameBehavior = behavior;
-        filter->CmdCommonSettingsCountryBehavior = behavior;
-        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class SettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
-        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Common
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonAllStatesBehavior = behavior;
-        filter->CmdCommonCommonCurrentDateBehavior = behavior;
-        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
-        filter->CmdCommonCommonRebootBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class CommonState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
-        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
-        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
-        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
-        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
-        filter->CmdCommonCommonStateProductModelBehavior = behavior;
-        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class OverHeat
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
-        filter->CmdCommonOverHeatVentilateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class OverHeatState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
-        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class ControllerState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class WifiSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class WifiSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Mavlink
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStartBehavior = behavior;
-        filter->CmdCommonMavlinkPauseBehavior = behavior;
-        filter->CmdCommonMavlinkStopBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class MavlinkState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
-        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Calibration
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class CalibrationState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class CameraSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class GPS
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class FlightPlanState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
-        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class FlightPlanEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
-        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class ARLibsVersionsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Audio
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class AudioState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Headlights
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class HeadlightsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Animations
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class AnimationsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStateListBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Accessory
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryConfigBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class AccessoryState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
-        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
-        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Charger
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class ChargerState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
-        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Network
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkDisconnectBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkDisconnectBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class NetworkEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsResetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsResetBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsProductNameBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsProductNameBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsCountryBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAutoCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAllSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateResetChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductNameChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductSerialHighChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductSerialLowChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAutoCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Common
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonAllStatesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonCurrentDateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonRebootBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonRebootBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CommonState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateAllStatesChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateBatteryStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageInfoStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCurrentDateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCurrentTimeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageInfoRemainingListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateWifiSignalChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateSensorsStatesListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateProductModelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateProductModelBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCountryListKnownBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class OverHeat
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatVentilateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class OverHeatState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulationChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ControllerState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class WifiSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class WifiSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateOutdoorSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Mavlink
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStartBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkPauseBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStopBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MavlinkState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Calibration
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CalibrationState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CameraSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateCameraSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class GPS
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class FlightPlanState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateAvailabilityStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateComponentStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class FlightPlanEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventStartingErrorEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventSpeedBridleEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ARLibsVersionsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Audio
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AudioState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateAudioStreamingRunningBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Headlights
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class HeadlightsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateIntensityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Animations
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AnimationsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStateListBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Accessory
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryConfigBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AccessoryState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateSupportedAccessoriesListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateAccessoryConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateAccessoryConfigModificationEnabledBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Charger
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ChargerState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateMaxChargeRateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateCurrentChargeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateLastChargeRateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateChargingInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-
-// Project commonDebug
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Stats
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class StatsEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class DebugSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class DebugSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Stats
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class StatsEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class DebugSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class DebugSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-
 // Project JumpingSumo
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -14942,256 +12030,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneDebugDebugTest3Behavior (
 
 
 
-// Project pro
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProBoughtFeaturesBehavior = behavior;
-        filter->CmdProProResponseBehavior = behavior;
-        filter->CmdProProActivateFeaturesBehavior = behavior;
-        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
-        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
-        filter->CmdProProEventChallengeEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Pro
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProBoughtFeaturesBehavior = behavior;
-        filter->CmdProProResponseBehavior = behavior;
-        filter->CmdProProActivateFeaturesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class ProState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
-        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class ProEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProEventChallengeEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Pro
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProBoughtFeaturesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProResponseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProResponseBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProActivateFeaturesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ProState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ProEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdProProEventChallengeEventBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-
 // Project SkyController
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -17470,6 +14308,3168 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDebugDebugTest1Behavi
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerDebugDebugTest1Behavior = behavior;
+    }
+
+    return retError;
+}
+
+
+
+// Project common
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkDisconnectBehavior = behavior;
+        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
+        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
+        filter->CmdCommonSettingsResetBehavior = behavior;
+        filter->CmdCommonSettingsProductNameBehavior = behavior;
+        filter->CmdCommonSettingsCountryBehavior = behavior;
+        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
+        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
+        filter->CmdCommonCommonAllStatesBehavior = behavior;
+        filter->CmdCommonCommonCurrentDateBehavior = behavior;
+        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
+        filter->CmdCommonCommonRebootBehavior = behavior;
+        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
+        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
+        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
+        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateProductModelBehavior = behavior;
+        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
+        filter->CmdCommonOverHeatVentilateBehavior = behavior;
+        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
+        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
+        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
+        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
+        filter->CmdCommonMavlinkStartBehavior = behavior;
+        filter->CmdCommonMavlinkPauseBehavior = behavior;
+        filter->CmdCommonMavlinkStopBehavior = behavior;
+        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
+        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
+        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
+        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
+        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
+        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
+        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
+        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
+        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
+        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
+        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
+        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
+        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
+        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
+        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
+        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
+        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
+        filter->CmdCommonAnimationsStateListBehavior = behavior;
+        filter->CmdCommonAccessoryConfigBehavior = behavior;
+        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
+        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
+        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
+        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
+        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Network
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkDisconnectBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class NetworkEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Settings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
+        filter->CmdCommonSettingsResetBehavior = behavior;
+        filter->CmdCommonSettingsProductNameBehavior = behavior;
+        filter->CmdCommonSettingsCountryBehavior = behavior;
+        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class SettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
+        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Common
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonAllStatesBehavior = behavior;
+        filter->CmdCommonCommonCurrentDateBehavior = behavior;
+        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
+        filter->CmdCommonCommonRebootBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class CommonState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
+        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
+        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
+        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
+        filter->CmdCommonCommonStateProductModelBehavior = behavior;
+        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class OverHeat
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
+        filter->CmdCommonOverHeatVentilateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class OverHeatState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
+        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class ControllerState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class WifiSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class WifiSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Mavlink
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStartBehavior = behavior;
+        filter->CmdCommonMavlinkPauseBehavior = behavior;
+        filter->CmdCommonMavlinkStopBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MavlinkState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
+        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Calibration
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class CalibrationState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class CameraSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class GPS
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class FlightPlanState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
+        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class FlightPlanEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
+        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class ARLibsVersionsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
+        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
+        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Audio
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class AudioState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Headlights
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class HeadlightsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Animations
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class AnimationsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStateListBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Accessory
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryConfigBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class AccessoryState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
+        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
+        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Charger
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class ChargerState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
+        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Network
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkDisconnectBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkDisconnectBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class NetworkEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Settings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsAllSettingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsResetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsResetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsProductNameBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsProductNameBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsCountryBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAutoCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsAutoCountryBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class SettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAllSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateResetChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductNameChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateProductVersionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductSerialHighChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateProductSerialHighChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateProductSerialLowChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAutoCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Common
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonAllStatesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonCurrentDateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonRebootBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonRebootBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class CommonState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateAllStatesChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateBatteryStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageInfoStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateMassStorageInfoStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCurrentDateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateCurrentDateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCurrentTimeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateCurrentTimeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageInfoRemainingListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateMassStorageInfoRemainingListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateWifiSignalChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateWifiSignalChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateSensorsStatesListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateProductModelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateProductModelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCountryListKnownBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class OverHeat
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatVentilateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class OverHeatState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulationChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ControllerState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class WifiSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class WifiSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateOutdoorSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Mavlink
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStartBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkPauseBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStopBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class MavlinkState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Calibration
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class CalibrationState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class CameraSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateCameraSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class GPS
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class FlightPlanState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateAvailabilityStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateComponentStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class FlightPlanEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventStartingErrorEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventSpeedBridleEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ARLibsVersionsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Audio
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class AudioState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateAudioStreamingRunningBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Headlights
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class HeadlightsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateIntensityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Animations
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class AnimationsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStateListBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Accessory
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryConfigBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class AccessoryState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateSupportedAccessoriesListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateAccessoryConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateAccessoryConfigModificationEnabledBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class Charger
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ChargerState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateMaxChargeRateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateCurrentChargeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateLastChargeRateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateChargingInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+
+// Project commonDebug
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
+        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
+        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
+        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Stats
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
+        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
+        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class StatsEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class DebugSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class DebugSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
+        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Stats
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class StatsEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class DebugSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class DebugSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+
+// Project pro
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProBoughtFeaturesBehavior = behavior;
+        filter->CmdProProResponseBehavior = behavior;
+        filter->CmdProProActivateFeaturesBehavior = behavior;
+        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
+        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
+        filter->CmdProProEventChallengeEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Pro
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProBoughtFeaturesBehavior = behavior;
+        filter->CmdProProResponseBehavior = behavior;
+        filter->CmdProProActivateFeaturesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class ProState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
+        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class ProEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProEventChallengeEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Pro
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProBoughtFeaturesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProResponseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProResponseBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProActivateFeaturesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ProState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProStateSupportedFeaturesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProStateFeaturesActivatedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ProEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdProProEventChallengeEventBehavior = behavior;
     }
 
     return retError;
