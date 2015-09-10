@@ -4528,11 +4528,14 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProBoughtFeatures (u
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _status Status of the response
+ * @param _listFlags List entry attribute Bitfield.
+ * @param _listFlags 0x01: First: indicate it's the first element of the list.
+ * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+ * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
  * @param _signedChallenge the signed challenge
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProResponse (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_PRO_PRO_RESPONSE_STATUS _status, const char * _signedChallenge);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProResponse (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, const char * _signedChallenge);
 
 /**
  * @brief Activate some pro features

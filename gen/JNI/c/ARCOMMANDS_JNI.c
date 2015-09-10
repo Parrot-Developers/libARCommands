@@ -10623,7 +10623,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProBoughtFeatures (JNIEnv
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProResponse (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject status, jstring signedChallenge)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProResponse (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte listFlags, jstring signedChallenge)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -10641,12 +10641,8 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProResponse (JNIEnv *env,
         }
     }
 
-    jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
-    jmethodID j_status_mid = (*env)->GetMethodID (env, j_status_class, "getValue", "()I");
-    jint j_status_enum = (*env)->CallIntMethod (env, status, j_status_mid);
     const char *c_signedChallenge = (*env)->GetStringUTFChars (env, signedChallenge, NULL);
-    err = ARCOMMANDS_Generator_GenerateProProResponse ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_status_enum, c_signedChallenge);
-    (*env)->DeleteLocalRef (env, j_status_class);
+    err = ARCOMMANDS_Generator_GenerateProProResponse ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)listFlags, c_signedChallenge);
     (*env)->ReleaseStringUTFChars (env, signedChallenge, c_signedChallenge);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
@@ -19255,7 +19251,7 @@ void ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb (uint64_t features, void *custo
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_ProProResponsenativeCb (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom)
+void ARCOMMANDS_JNI_ProProResponsenativeCb (uint8_t listFlags, char * signedChallenge, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -19267,17 +19263,12 @@ void ARCOMMANDS_JNI_ProProResponsenativeCb (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS 
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProResponseUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;Ljava/lang/String;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onProProResponseUpdate", "(BLjava/lang/String;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
-        jclass j_status_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM");
-        jmethodID j_status_mid = (*env)->GetStaticMethodID (env, j_status_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM;");
-        jobject j_status_enum = (*env)->CallStaticObjectMethod (env, j_status_class, j_status_mid, status);
         jstring j_signedChallenge = (*env)->NewStringUTF (env, signedChallenge);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_status_enum, j_signedChallenge);
-        (*env)->DeleteLocalRef (env, j_status_class);
-        (*env)->DeleteLocalRef (env, j_status_enum);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)listFlags, j_signedChallenge);
         (*env)->DeleteLocalRef (env, j_signedChallenge);
     }
     (*env)->DeleteLocalRef (env, delegate);

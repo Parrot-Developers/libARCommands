@@ -10808,16 +10808,19 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _status Status of the response
+     * @param _listFlags List entry attribute Bitfield.
+     * @param _listFlags 0x01: First: indicate it's the first element of the list.
+     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _signedChallenge the signed challenge
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (byte listFlags, String signedChallenge) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetProProResponse (pointer, capacity, status, signedChallenge);
+        int errInt = nativeSetProProResponse (pointer, capacity, listFlags, signedChallenge);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15636,7 +15639,7 @@ public class ARCommand extends ARNativeData {
 
 
     private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
-    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge);
+    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, byte listFlags, String signedChallenge);
     private native int     nativeSetProProActivateFeatures (long pdata, int dataTotalLength, long features);
 
     private native int     nativeSetProProStateSupportedFeatures (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features);

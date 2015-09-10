@@ -1926,21 +1926,6 @@ typedef enum
 } eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE;
 
 // Project pro
-// Class Pro
-// Command Response
-
-/**
- * @brief Status of the response
- */
-typedef enum
-{
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_OK = 0,    ///< Challenge has been signed
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_FEATURE_LIST,    ///< The features received don't match the features available (ignore signedChallenge param)
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_CHALLENGE_FORMAT,    ///< Format of the challenge is not expected (ignore signedChallenge param)
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_MAX
-} eARCOMMANDS_PRO_PRO_RESPONSE_STATUS;
-
-// Project pro
 // Class ProState
 // Command SupportedFeatures
 

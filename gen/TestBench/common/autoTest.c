@@ -6722,13 +6722,13 @@ void ARCOMMANDS_Testbench_ProProBoughtFeaturesCb (uint64_t features, void *custo
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ProProResponseCb (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom)
+void ARCOMMANDS_Testbench_ProProResponseCb (uint8_t listFlags, char * signedChallenge, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command pro.Pro.Response --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "status value : <%d>", status);
-    if (status != (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "listFlags value : <%u>", listFlags);
+    if (listFlags != 42)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "signedChallenge value : <%s>", signedChallenge);
@@ -18764,7 +18764,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateProProResponse (buffer, buffSize, &resSize, (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)0, "Test string with spaces");
+    res = ARCOMMANDS_Generator_GenerateProProResponse (buffer, buffSize, &resSize, 42, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Pro.Pro.Response\n\n");

@@ -94,19 +94,13 @@
                 Bought features
             </arg>
         </cmd>
-        <cmd name="Response">
+        <cmd name="Response" listtype="LIST">
             Response to the challenge string sent by the controller
-            <arg name="status" type="enum">
-                Status of the response
-                <enum name="OK">
-                    Challenge has been signed
-                </enum>
-                <enum name="BAD_FEATURE_LIST">
-                    The features received don't match the features available (ignore signedChallenge param)
-                </enum>
-                <enum name="BAD_CHALLENGE_FORMAT">
-                    Format of the challenge is not expected (ignore signedChallenge param)
-                </enum>
+            <arg name="listFlags" type="u8">
+                    List entry attribute Bitfield.
+                    0x01: First: indicate it's the first element of the list.
+                    0x02: Last:  indicate it's the last element of the list.
+                    0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
             </arg>
             <arg name="signedChallenge" type="string">
                 the signed challenge

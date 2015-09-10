@@ -4360,7 +4360,7 @@ void ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_Decoder_ProP
 /**
  * @brief callback type for the command pro.Pro.Response
  */
-typedef void (*ARCOMMANDS_Decoder_ProProResponseCallback_t) (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ProProResponseCallback_t) (uint8_t listFlags, char * signedChallenge, void *custom);
 /**
  * @brief callback setter for the command pro.Pro.Response
  * @param callback new callback for the command pro.Pro.Response

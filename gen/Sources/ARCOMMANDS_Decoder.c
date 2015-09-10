@@ -16827,11 +16827,11 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
                     if (ARCOMMANDS_Decoder_ProProResponseCb != NULL)
                     {
-                        eARCOMMANDS_PRO_PRO_RESPONSE_STATUS _status;
+                        uint8_t _listFlags;
                         char * _signedChallenge = NULL;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _status = (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -16847,7 +16847,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_ProProResponseCb (_status, _signedChallenge, ARCOMMANDS_Decoder_ProProResponseCustom);
+                            ARCOMMANDS_Decoder_ProProResponseCb (_listFlags, _signedChallenge, ARCOMMANDS_Decoder_ProProResponseCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -27794,10 +27794,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.Response:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_PRO_PRO_RESPONSE_STATUS arg = (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS)ARCOMMANDS_ReadWrite_PrintI32 (" | status -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
