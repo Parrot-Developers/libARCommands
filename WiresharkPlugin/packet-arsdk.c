@@ -39,6 +39,7 @@
 #include <glib.h>
 #include <epan/packet.h>
 #include <epan/expert.h>
+#include <epan/range.h>
 #include <epan/value_string.h>
 #include <epan/prefs.h>
 #endif
@@ -79,7 +80,8 @@ static unsigned int hf_arsdk_allocated;
 /* Global sample port preference - real port preferences should generally
  * default to 0 unless there is an IANA-registered (or equivalent) port for your
  * protocol. */
-static guint gPORT_PREF = 54321;
+#define ARSDK_DEFAULT_PORTS "54321,43210,34512,34521"
+static range_t *global_arsdk_port_range;
 
 /* Initialize the subtree pointers */
 static gint ett_arsdk = -1;
@@ -1140,14 +1142,16 @@ void proto_register_arsdk(void)
      * proto_reg_handoff_arsdk in the following.
      */
     arsdk_module = prefs_register_protocol(proto_arsdk,
-            proto_reg_handoff_arsdk);
+                                           proto_reg_handoff_arsdk);
 
     /* Register an example port preference */
-    prefs_register_uint_preference(arsdk_module, "udp.port",
-				   "ARSDK UDP destination port",
-				   " ARSDK UDP destination port if "
-				   "other than the default",
-				   10, &gPORT_PREF);
+    range_convert_str(&global_arsdk_port_range, ARSDK_DEFAULT_PORTS, MAX_UDP_PORT);
+
+    prefs_register_range_preference(arsdk_module, "udp_ports",
+                                    "ARSDK UDP destination port",
+                                    "Port numbers used by ARSDK protocol "
+                                    "(default " ARSDK_DEFAULT_PORTS ")",
+                                    &global_arsdk_port_range, MAX_UDP_PORT);
 }
 
 /* If this dissector uses sub-dissector registration add a registration routine.
@@ -1170,7 +1174,7 @@ proto_reg_handoff_arsdk(void)
 {
     static gboolean initialized = FALSE;
     static dissector_handle_t arsdk_handle;
-    static int currentPort;
+    static range_t *arsdk_port_range;
 
     if (!initialized) {
         /* Use new_create_dissector_handle() to indicate that
@@ -1190,11 +1194,12 @@ proto_reg_handoff_arsdk(void)
          * preference can be saved using local statics in this
          * function (proto_reg_handoff).
          */
-        dissector_delete_uint("udp.port", currentPort, arsdk_handle);
+        dissector_delete_uint_range("udp.port", arsdk_port_range, arsdk_handle);
+        g_free(arsdk_port_range);
     }
 
-    currentPort = gPORT_PREF;
-    dissector_add_uint("udp.port", currentPort, arsdk_handle);
+    arsdk_port_range = range_copy(global_arsdk_port_range);
+    dissector_add_uint_range("udp.port", arsdk_port_range, arsdk_handle);
 }
 
 #if defined(STANDALONE_BUILD)
