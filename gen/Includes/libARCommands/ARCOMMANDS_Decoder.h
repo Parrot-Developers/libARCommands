@@ -446,6 +446,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkWifiAuthChannelCallback_t) (voi
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback (ARCOMMANDS_Decoder_ARDrone3NetworkWifiAuthChannelCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command ARDrone3.Network.wifiSecurity
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCallback_t) (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE keyType, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.Network.wifiSecurity
+ * @param callback new callback for the command ARDrone3.Network.wifiSecurity
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3NetworkWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCallback_t callback, void *custom);
+
 // Command class NetworkState
 
 /**
@@ -820,6 +831,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.NetworkSettings.wifiSecurityChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCallback_t) (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE type, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.NetworkSettings.wifiSecurityChanged
+ * @param callback new callback for the command ARDrone3.NetworkSettings.wifiSecurityChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCallback_t callback, void *custom);
 
 // Command class NetworkSettingsState
 

@@ -315,6 +315,33 @@ typedef enum
 } eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND;
 
 // Project ARDrone3
+// Class Network
+// Command wifiSecurity
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE;
+
+// Project ARDrone3
+// Class Network
+// Command wifiSecurity
+
+/**
+ * @brief Type of the key
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_PLAIN = 0,    ///< Key is plain text, not encrypted
+    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE;
+
+// Project ARDrone3
 // Class NetworkState
 // Command WifiScanListChanged
 
@@ -370,6 +397,20 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_ALL,    ///< Both 2.4 and 5 GHz bands
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND;
+
+// Project ARDrone3
+// Class NetworkSettings
+// Command wifiSecurityChanged
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE;
 
 // Project ARDrone3
 // Class NetworkSettingsState

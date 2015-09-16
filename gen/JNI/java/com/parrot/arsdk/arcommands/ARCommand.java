@@ -1103,6 +1103,37 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>WifiSecurity</code> of class <code>Network</code> in project <code>ARDrone3</code><br>
+     * <br>
+     * Project ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command WifiSecurity description:<br>
+     * Sent by the controller to set the wifi security<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi security (open, wpa2)
+     * @param _key The key to secure the network (empty if type is open)
+     * @param _keyType Type of the key
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3NetworkWifiSecurity (ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM keyType) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3NetworkWifiSecurity (pointer, capacity, type, key, keyType);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>WifiScanListChanged</code> of class <code>NetworkState</code> in project <code>ARDrone3</code><br>
      * <br>
      * Project ARDrone3 description:<br>
@@ -2068,6 +2099,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetARDrone3NetworkSettingsWifiSelection (pointer, capacity, type, band, channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>WifiSecurityChanged</code> of class <code>NetworkSettings</code> in project <code>ARDrone3</code><br>
+     * <br>
+     * Project ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class NetworkSettings description:<br>
+     * Network settings commands<br>
+     * <br>
+     * Command WifiSecurityChanged description:<br>
+     * Sent by the drone when its wifi security changes<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi security (open, wpa2)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3NetworkSettingsWifiSecurityChanged (ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3NetworkSettingsWifiSecurityChanged (pointer, capacity, type);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11305,6 +11365,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3NetworkWifiAuthChannelListener = _ARCommandARDrone3NetworkWifiAuthChannelListener_PARAM;
     }
 
+    private static ARCommandARDrone3NetworkWifiSecurityListener _ARCommandARDrone3NetworkWifiSecurityListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSecurity</code> of class <code>Network</code> in project <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3NetworkWifiSecurityListener_PARAM New listener for the command
+     */
+    public static void setARDrone3NetworkWifiSecurityListener (ARCommandARDrone3NetworkWifiSecurityListener _ARCommandARDrone3NetworkWifiSecurityListener_PARAM) {
+        _ARCommandARDrone3NetworkWifiSecurityListener = _ARCommandARDrone3NetworkWifiSecurityListener_PARAM;
+    }
+
 
     private static ARCommandARDrone3NetworkStateWifiScanListChangedListener _ARCommandARDrone3NetworkStateWifiScanListChangedListener = null;
 
@@ -11672,6 +11743,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setARDrone3NetworkSettingsWifiSelectionListener (ARCommandARDrone3NetworkSettingsWifiSelectionListener _ARCommandARDrone3NetworkSettingsWifiSelectionListener_PARAM) {
         _ARCommandARDrone3NetworkSettingsWifiSelectionListener = _ARCommandARDrone3NetworkSettingsWifiSelectionListener_PARAM;
+    }
+
+    private static ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener _ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>WifiSecurityChanged</code> of class <code>NetworkSettings</code> in project <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener_PARAM New listener for the command
+     */
+    public static void setARDrone3NetworkSettingsWifiSecurityChangedListener (ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener _ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener_PARAM) {
+        _ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener = _ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener_PARAM;
     }
 
 
@@ -15169,6 +15251,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3NetworkWifiScan (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND_ENUM band);
     private native int     nativeSetARDrone3NetworkWifiAuthChannel (long pdata, int dataTotalLength);
+    private native int     nativeSetARDrone3NetworkWifiSecurity (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM keyType);
 
     private native int     nativeSetARDrone3NetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, ARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM band, byte channel);
     private native int     nativeSetARDrone3NetworkStateAllWifiScanChanged (long pdata, int dataTotalLength);
@@ -15208,6 +15291,7 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3SpeedSettingsStateOutdoorChanged (long pdata, int dataTotalLength, byte outdoor);
 
     private native int     nativeSetARDrone3NetworkSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
+    private native int     nativeSetARDrone3NetworkSettingsWifiSecurityChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM type);
 
     private native int     nativeSetARDrone3NetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
 
