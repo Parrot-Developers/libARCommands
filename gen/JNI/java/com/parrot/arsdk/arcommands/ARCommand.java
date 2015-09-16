@@ -3391,6 +3391,7 @@ public class ARCommand extends ARNativeData {
      * All ARDrone3-only commands<br>
      * <br>
      * Class PROState description:<br>
+     * @deprecated<br>
      * Pro features enabled on the Bebop<br>
      * <br>
      * Command Features description:<br>
@@ -3399,9 +3400,6 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _features Bitfield representing enabled features.
-     * @param _features Currently supported bits are:
-     * @param _features - 0 : 720p streaming
-     * @param _features - 1 : No interface on SkyController HDMI
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PROStateFeatures (long features) {

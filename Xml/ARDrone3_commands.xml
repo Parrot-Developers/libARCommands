@@ -1643,16 +1643,14 @@
         </cmd>
     </class>
 
-	<class name="PROState" id="32">
-	  Pro features enabled on the Bebop
-	  <cmd name="Features">
-		Features enabled
-		<arg name="features" type="u64">
-		  Bitfield representing enabled features.
-		  Currently supported bits are:
-		  - 0 : 720p streaming
-		  - 1 : No interface on SkyController HDMI
-		</arg>
-	  </cmd>
-	</class>
+    <class name="PROState" id="32">
+        @deprecated
+        Pro features enabled on the Bebop
+        <cmd name="Features">
+            Features enabled
+            <arg name="features" type="u64">
+                Bitfield representing enabled features.
+            </arg>
+        </cmd>
+    </class>
 </project>

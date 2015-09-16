@@ -1407,9 +1407,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3GPSStateHomeTyp
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _features Bitfield representing enabled features.
- * @param _features Currently supported bits are:
- * @param _features - 0 : 720p streaming
- * @param _features - 1 : No interface on SkyController HDMI
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PROStateFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);

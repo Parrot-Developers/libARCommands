@@ -39,9 +39,6 @@ public interface ARCommandARDrone3PROStateFeaturesListener {
     /**
      * Called when a command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> is decoded
      * @param _features Bitfield representing enabled features.
-     * @param _features Currently supported bits are:
-     * @param _features - 0 : 720p streaming
-     * @param _features - 1 : No interface on SkyController HDMI
      */
     void onARDrone3PROStateFeaturesUpdate (long features);
 }
