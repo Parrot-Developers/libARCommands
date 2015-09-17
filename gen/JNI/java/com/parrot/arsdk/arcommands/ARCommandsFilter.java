@@ -640,18 +640,6 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetARDrone3NetworkWifiSecurityBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Network.WifiSecurity.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkWifiSecurityBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
 
     // - Class NetworkState
     private native int nativeSetARDrone3NetworkStateBehavior (long cFilter, int behavior);
@@ -1132,15 +1120,15 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetARDrone3NetworkSettingsWifiSecurityChangedBehavior (long cFilter, int behavior);
+    private native int nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSecurityChanged.
+     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSecurity.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
@@ -1167,6 +1155,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSecurityChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

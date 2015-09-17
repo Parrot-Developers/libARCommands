@@ -79,7 +79,6 @@ int ARDrone3PilotingStateAltitudeChangedShouldBeCalled = 0;
 int ARDrone3PilotingEventMoveByEndShouldBeCalled = 0;
 int ARDrone3NetworkWifiScanShouldBeCalled = 0;
 int ARDrone3NetworkWifiAuthChannelShouldBeCalled = 0;
-int ARDrone3NetworkWifiSecurityShouldBeCalled = 0;
 int ARDrone3NetworkStateWifiScanListChangedShouldBeCalled = 0;
 int ARDrone3NetworkStateAllWifiScanChangedShouldBeCalled = 0;
 int ARDrone3NetworkStateWifiAuthChannelListChangedShouldBeCalled = 0;
@@ -113,8 +112,9 @@ int ARDrone3SpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateHullProtectionChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
 int ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
-int ARDrone3NetworkSettingsWifiSecurityChangedShouldBeCalled = 0;
+int ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
 int ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled = 0;
+int ARDrone3NetworkSettingsStateWifiSecurityChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateProductMotorVersionListChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateProductGPSVersionChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateMotorErrorStateChangedShouldBeCalled = 0;
@@ -1024,33 +1024,6 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb (void *custom)
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ARDrone3NetworkWifiSecurityCb (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE keyType, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Network.wifiSecurity --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
-    if (strcmp ("Test string with spaces", key) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "keyType value : <%d>", keyType);
-    if (keyType != (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3NetworkWifiSecurityShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
 
 void ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiScanListChangedCb (char * ssid, int16_t rssi, eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND band, uint8_t channel, void *custom)
 {
@@ -1642,16 +1615,28 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb (eARCOMMANDS_AR
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityChangedCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE type, void *custom)
+void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE keyType, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.wifiSecurityChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.wifiSecurity --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)0)
+    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0>");
         errcount++ ;
     }
-    if (ARDrone3NetworkSettingsWifiSecurityChangedShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "keyType value : <%d>", keyType);
+    if (keyType != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkSettingsWifiSecurityShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1680,6 +1665,21 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSelectionChangedCb (eA
         errcount++ ;
     }
     if (ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityChangedCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettingsState.wifiSecurityChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkSettingsStateWifiSecurityChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6893,7 +6893,6 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingEventMoveByEndCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingEventMoveByEndCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingEventMoveByEndCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkWifiScanCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiScanCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiScanCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiAuthChannelCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiSecurityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateWifiScanListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiScanListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiScanListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateAllWifiScanChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateAllWifiScanChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiScanChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateWifiAuthChannelListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiAuthChannelListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiAuthChannelListChangedCb, (void *)cbCustom++ );
@@ -6927,8 +6926,9 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateHullProtectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateHullProtectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateOutdoorChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductMotorVersionListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateProductMotorVersionListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateProductMotorVersionListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductGPSVersionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateProductGPSVersionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateProductGPSVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorErrorStateChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateMotorErrorStateChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorStateChangedCb, (void *)cbCustom++ );
@@ -8329,37 +8329,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Network.WifiSecurity\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Network.WifiSecurity succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkWifiSecurityBehavior);
-        ARDrone3NetworkWifiSecurityShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkWifiSecurityShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
 
     // Command class NetworkState
     res = ARCOMMANDS_Generator_GenerateARDrone3NetworkStateWifiScanListChanged (buffer, buffSize, &resSize, "Test string with spaces", -4200, (eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND)0, 42);
@@ -9395,15 +9364,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurityChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)0);
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.WifiSecurityChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.WifiSecurity\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.WifiSecurityChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.WifiSecurity succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9415,10 +9384,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityChangedBehavior);
-        ARDrone3NetworkSettingsWifiSecurityChangedShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior);
+        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkSettingsWifiSecurityChangedShouldBeCalled = 0;
+        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9452,6 +9421,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSecurityChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettingsState.WifiSecurityChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettingsState.WifiSecurityChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior);
+        ARDrone3NetworkSettingsStateWifiSecurityChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkSettingsStateWifiSecurityChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

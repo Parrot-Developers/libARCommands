@@ -462,18 +462,6 @@ void ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback (ARCOMMANDS_De
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCallback_t ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCb = NULL;
-static void *ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCustom = NULL;
-void ARCOMMANDS_Decoder_SetARDrone3NetworkWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCb = callback;
-        ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
 
 // Command class NetworkState
 static ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiScanListChangedCallback_t ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiScanListChangedCb = NULL;
@@ -882,15 +870,15 @@ void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback (ARCOMMA
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCallback_t ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCb = callback;
-        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCustom = custom;
+        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -905,6 +893,18 @@ void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallb
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCb = callback;
         ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -5946,50 +5946,6 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFIAUTHCHANNEL */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCb != NULL)
-                    {
-                        eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE _type;
-                        char * _key = NULL;
-                        eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE _keyType;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _keyType = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCb (_type, _key, _keyType, ARCOMMANDS_Decoder_ARDrone3NetworkWifiSecurityCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -7043,15 +6999,17 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISELECTION */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED:
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCb != NULL)
+                    if (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCb != NULL)
                     {
-                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE _type;
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE _type;
+                        char * _key = NULL;
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE _keyType;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _type = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _type = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -7059,7 +7017,23 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCb (_type, ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityChangedCustom);
+                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _keyType = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCb (_type, _key, _keyType, ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -7068,7 +7042,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED */
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -7123,6 +7097,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE _type;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _type = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCb (_type, ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -18175,51 +18175,6 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFIAUTHCHANNEL */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Network.wifiSecurity:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE arg = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE arg = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | keyType -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Network.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -19159,15 +19114,39 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISELECTION */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED:
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.NetworkSettings.wifiSecurityChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.NetworkSettings.wifiSecurity:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE arg = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE arg = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE arg = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | keyType -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -19179,7 +19158,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED */
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.NetworkSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -19236,6 +19215,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.NetworkSettingsState.wifiSecurityChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE arg = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.NetworkSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

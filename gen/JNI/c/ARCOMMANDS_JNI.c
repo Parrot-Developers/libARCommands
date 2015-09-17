@@ -1036,43 +1036,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkWifiAuthChann
     return err;
 }
 
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkWifiSecurity (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jstring key, jobject keyType)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM");
-    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
-    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    const char *c_key = (*env)->GetStringUTFChars (env, key, NULL);
-    jclass j_keyType_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM");
-    jmethodID j_keyType_mid = (*env)->GetMethodID (env, j_keyType_class, "getValue", "()I");
-    jint j_keyType_enum = (*env)->CallIntMethod (env, keyType, j_keyType_mid);
-    err = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiSecurity ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, c_key, j_keyType_enum);
-    (*env)->DeleteLocalRef (env, j_type_class);
-    (*env)->ReleaseStringUTFChars (env, key, c_key);
-    (*env)->DeleteLocalRef (env, j_keyType_class);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkStateWifiScanListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring ssid, jshort rssi, jobject band, jbyte channel)
@@ -1989,7 +1952,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsWifiS
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsWifiSecurityChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsWifiSecurity (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type, jstring key, jobject keyType)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -2007,11 +1970,17 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsWifiS
         }
     }
 
-    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM");
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM");
     jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
     jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
-    err = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurityChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum);
+    const char *c_key = (*env)->GetStringUTFChars (env, key, NULL);
+    jclass j_keyType_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM");
+    jmethodID j_keyType_mid = (*env)->GetMethodID (env, j_keyType_class, "getValue", "()I");
+    jint j_keyType_enum = (*env)->CallIntMethod (env, keyType, j_keyType_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurity ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, c_key, j_keyType_enum);
     (*env)->DeleteLocalRef (env, j_type_class);
+    (*env)->ReleaseStringUTFChars (env, key, c_key);
+    (*env)->DeleteLocalRef (env, j_keyType_class);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -2048,6 +2017,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsState
     err = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSelectionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum, j_band_enum, (uint8_t)channel);
     (*env)->DeleteLocalRef (env, j_type_class);
     (*env)->DeleteLocalRef (env, j_band_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject type)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM");
+    jmethodID j_type_mid = (*env)->GetMethodID (env, j_type_class, "getValue", "()I");
+    jint j_type_enum = (*env)->CallIntMethod (env, type, j_type_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSecurityChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_type_enum);
+    (*env)->DeleteLocalRef (env, j_type_class);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -11607,39 +11607,6 @@ void ARCOMMANDS_JNI_ARDrone3NetworkWifiAuthChannelnativeCb (void *custom)
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_ARDrone3NetworkWifiSecuritynativeCb (eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE keyType, void *custom)
-{
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3NetworkWifiSecurityListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3NetworkWifiSecurityListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
-
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3NetworkWifiSecurityUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM;Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM;)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
-    {
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM;");
-        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        jstring j_key = (*env)->NewStringUTF (env, key);
-        jclass j_keyType_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM");
-        jmethodID j_keyType_mid = (*env)->GetStaticMethodID (env, j_keyType_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM;");
-        jobject j_keyType_enum = (*env)->CallStaticObjectMethod (env, j_keyType_class, j_keyType_mid, keyType);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_key, j_keyType_enum);
-        (*env)->DeleteLocalRef (env, j_type_class);
-        (*env)->DeleteLocalRef (env, j_type_enum);
-        (*env)->DeleteLocalRef (env, j_key);
-        (*env)->DeleteLocalRef (env, j_keyType_class);
-        (*env)->DeleteLocalRef (env, j_keyType_enum);
-    }
-    (*env)->DeleteLocalRef (env, delegate);
-}
-
 
 void ARCOMMANDS_JNI_ARDrone3NetworkStateWifiScanListChangednativeCb (char * ssid, int16_t rssi, eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND band, uint8_t channel, void *custom)
 {
@@ -12361,28 +12328,35 @@ void ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSelectionnativeCb (eARCOMMANDS_AR
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSecurityChangednativeCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE type, void *custom)
+void ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSecuritynativeCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE keyType, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
     JNIEnv *env = NULL;
     res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
     if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3NetworkSettingsWifiSecurityChangedListener;");
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3NetworkSettingsWifiSecurityListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3NetworkSettingsWifiSecurityListener;");
     jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3NetworkSettingsWifiSecurityChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3NetworkSettingsWifiSecurityUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM;Ljava/lang/String;Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
-        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM");
-        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM;");
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM;");
         jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum);
+        jstring j_key = (*env)->NewStringUTF (env, key);
+        jclass j_keyType_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM");
+        jmethodID j_keyType_mid = (*env)->GetStaticMethodID (env, j_keyType_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM;");
+        jobject j_keyType_enum = (*env)->CallStaticObjectMethod (env, j_keyType_class, j_keyType_mid, keyType);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum, j_key, j_keyType_enum);
         (*env)->DeleteLocalRef (env, j_type_class);
         (*env)->DeleteLocalRef (env, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_key);
+        (*env)->DeleteLocalRef (env, j_keyType_class);
+        (*env)->DeleteLocalRef (env, j_keyType_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -12415,6 +12389,32 @@ void ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSelectionChangednativeCb (eA
         (*env)->DeleteLocalRef (env, j_type_enum);
         (*env)->DeleteLocalRef (env, j_band_class);
         (*env)->DeleteLocalRef (env, j_band_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSecurityChangednativeCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE type, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3NetworkSettingsStateWifiSecurityChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3NetworkSettingsStateWifiSecurityChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3NetworkSettingsStateWifiSecurityChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_type_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM");
+        jmethodID j_type_mid = (*env)->GetStaticMethodID (env, j_type_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM;");
+        jobject j_type_enum = (*env)->CallStaticObjectMethod (env, j_type_class, j_type_mid, type);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_type_enum);
+        (*env)->DeleteLocalRef (env, j_type_class);
+        (*env)->DeleteLocalRef (env, j_type_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -19556,7 +19556,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetARDrone3NetworkWifiScanCallback (ARCOMMANDS_JNI_ARDrone3NetworkWifiScannativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback (ARCOMMANDS_JNI_ARDrone3NetworkWifiAuthChannelnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiSecurityCallback (ARCOMMANDS_JNI_ARDrone3NetworkWifiSecuritynativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateWifiScanListChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkStateWifiScanListChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateAllWifiScanChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkStateAllWifiScanChangednativeCb, (void *)g_class);
@@ -19596,9 +19595,10 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateOutdoorChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSelectionnativeCb, (void *)g_class);
-    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSecurityChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSecuritynativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSelectionChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSecurityChangednativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductMotorVersionListChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateProductMotorVersionListChangednativeCb, (void *)g_class);

@@ -418,14 +418,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkWifiAu
     return (jint)err;
 }
 
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkWifiSecurityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkWifiSecurityBehavior (filter, behavior);
-    return (jint)err;
-}
-
 
     // - Class NetworkState
 JNIEXPORT jint JNICALL
@@ -751,10 +743,10 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettin
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettingsWifiSecurityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityChangedBehavior (filter, behavior);
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (filter, behavior);
     return (jint)err;
 }
 
@@ -773,6 +765,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettin
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (filter, behavior);
     return (jint)err;
 }
 

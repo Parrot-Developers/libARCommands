@@ -90,7 +90,6 @@ struct ARCOMMANDS_Filter_t
     // Class Network
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkWifiScanBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkWifiAuthChannelBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkWifiSecurityBehavior;
     // Class NetworkState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateWifiScanListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateAllWifiScanChangedBehavior;
@@ -130,9 +129,10 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior;
     // Class NetworkSettings
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityBehavior;
     // Class NetworkSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
     // Class Settings
     // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior;
@@ -648,7 +648,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         // Class Network
         retFilter->CmdARDrone3NetworkWifiScanBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkWifiAuthChannelBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkWifiSecurityBehavior = defaultBehavior;
         // Class NetworkState
         retFilter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = defaultBehavior;
@@ -688,9 +687,10 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
         // Class NetworkSettings
         retFilter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = defaultBehavior;
         // Class NetworkSettingsState
         retFilter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = defaultBehavior;
         // Class Settings
         // Class SettingsState
         retFilter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = defaultBehavior;
@@ -1455,11 +1455,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3NetworkWifiAuthChannelBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFIAUTHCHANNEL */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY:
-                {
-                    retStatus = filter->CmdARDrone3NetworkWifiSecurityBehavior;
-                }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORK_CMD_WIFISECURITY */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1685,11 +1680,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISELECTION */
-                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED:
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY:
                 {
-                    retStatus = filter->CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior;
+                    retStatus = filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior;
                 }
-                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITYCHANGED */
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1705,6 +1700,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED:
+                {
+                    retStatus = filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4649,7 +4649,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingEventMoveByEndBehavior = behavior;
         filter->CmdARDrone3NetworkWifiScanBehavior = behavior;
         filter->CmdARDrone3NetworkWifiAuthChannelBehavior = behavior;
-        filter->CmdARDrone3NetworkWifiSecurityBehavior = behavior;
         filter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = behavior;
         filter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = behavior;
         filter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = behavior;
@@ -4683,8 +4682,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
-        filter->CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateProductGPSVersionChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateMotorErrorStateChangedBehavior = behavior;
@@ -4975,7 +4975,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkBehavior (ARCOMMAND
     {
         filter->CmdARDrone3NetworkWifiScanBehavior = behavior;
         filter->CmdARDrone3NetworkWifiAuthChannelBehavior = behavior;
-        filter->CmdARDrone3NetworkWifiSecurityBehavior = behavior;
     }
 
     return retError;
@@ -5153,7 +5152,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsBehavior (A
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
-        filter->CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
     }
 
     return retError;
@@ -5179,6 +5178,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateBehavi
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
     }
 
     return retError;
@@ -6316,28 +6316,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBeha
     return retError;
 }
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkWifiSecurityBehavior = behavior;
-    }
-
-    return retError;
-}
-
 
 // Command class NetworkState
 
@@ -7082,7 +7060,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelecti
     return retError;
 }
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
     if (filter == NULL)
@@ -7098,7 +7076,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurit
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdARDrone3NetworkSettingsWifiSecurityChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
     }
 
     return retError;
@@ -7124,6 +7102,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSe
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
     }
 
     return retError;

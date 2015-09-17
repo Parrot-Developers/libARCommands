@@ -650,27 +650,6 @@
             Controller inquire the list of authorized wifi channels.
         </cmd>
         
-        <cmd name="wifiSecurity">
-            Sent by the controller to set the wifi security
-            <arg name="type" type="enum">
-                The type of wifi security (open, wpa2)
-                <enum name="open">
-                    Wifi is not protected by any security (default)
-                </enum>
-                <enum name="wpa2">
-                    Wifi is protected by wpa2
-                </enum>
-            </arg>
-            <arg name="key" type="string">
-                The key to secure the network (empty if type is open)
-            </arg>
-            <arg name="keyType" type="enum">
-                Type of the key
-                <enum name="plain">
-                    Key is plain text, not encrypted
-                </enum>
-            </arg>
-        </cmd>
     </class>
     
     <class name="NetworkState" id="14">
@@ -979,8 +958,8 @@
                 The channel (not used in auto mode)
             </arg>
         </cmd>
-        <cmd name="wifiSecurityChanged">
-            Sent by the drone when its wifi security changes
+        <cmd name="wifiSecurity">
+            Sent by the controller to set the wifi security
             <arg name="type" type="enum">
                 The type of wifi security (open, wpa2)
                 <enum name="open">
@@ -988,6 +967,15 @@
                 </enum>
                 <enum name="wpa2">
                     Wifi is protected by wpa2
+                </enum>
+            </arg>
+            <arg name="key" type="string">
+                The key to secure the network (empty if type is open)
+            </arg>
+            <arg name="keyType" type="enum">
+                Type of the key
+                <enum name="plain">
+                    Key is plain text, not encrypted
                 </enum>
             </arg>
         </cmd>
@@ -1026,6 +1014,18 @@
             </arg>
             <arg name="channel" type="u8">
                 The channel (depends of the band)
+            </arg>
+        </cmd>
+        <cmd name="wifiSecurityChanged">
+            Sent by the drone when its wifi security changes
+            <arg name="type" type="enum">
+                The type of wifi security (open, wpa2)
+                <enum name="open">
+                    Wifi is not protected by any security (default)
+                </enum>
+                <enum name="wpa2">
+                    Wifi is protected by wpa2
+                </enum>
             </arg>
         </cmd>
     </class>
