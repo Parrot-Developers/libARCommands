@@ -13592,6 +13592,58 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSettingsSt
     return retVal;
 }
 
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVariantChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT _variant)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write project header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_PROJECT_SKYCONTROLLER, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLER_CLASS_SETTINGSSTATE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _variant
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _variant, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
 
 // Command class Common
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen)
@@ -16000,6 +16052,51 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibratio
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
         currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _enabled, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
+
+// Command class ButtonEvents
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerButtonEventsSettings (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write project header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_PROJECT_SKYCONTROLLER, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;

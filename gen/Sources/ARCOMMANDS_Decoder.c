@@ -3082,6 +3082,18 @@ void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallbac
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCb = callback;
+        ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 
 // Command class Common
 static ARCOMMANDS_Decoder_SkyControllerCommonAllStatesCallback_t ARCOMMANDS_Decoder_SkyControllerCommonAllStatesCb = NULL;
@@ -3643,6 +3655,20 @@ void ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualit
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCb = callback;
         ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+
+// Command class ButtonEvents
+static ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCb = NULL;
+static void *ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCustom = NULL;
+void ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCb = callback;
+        ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -12791,6 +12817,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTSERIALCHANGED */
+                case ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCb != NULL)
+                    {
+                        eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT _variant;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _variant = (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCb (_variant, ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -14130,6 +14182,33 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_CALIBRATIONSTATE */
+            case ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCb (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS */
             default:
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                 break;
@@ -24320,6 +24399,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTSERIALCHANGED */
+                case ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("SkyController.SettingsState.ProductVariantChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT arg = (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)ARCOMMANDS_ReadWrite_PrintI32 (" | variant -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("SkyController.SettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -25461,6 +25561,26 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_CALIBRATIONSTATE */
+            case ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("SkyController.ButtonEvents.Settings:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("SkyController.ButtonEvents.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS */
             default:
                 strOffset = ARCOMMANDS_ReadWrite_WriteString ("SkyController.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

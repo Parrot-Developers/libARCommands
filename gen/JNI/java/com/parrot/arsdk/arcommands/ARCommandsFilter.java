@@ -4256,6 +4256,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetSkyControllerSettingsStateProductVariantChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command SkyController.SettingsState.ProductVariantChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerSettingsStateProductVariantChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetSkyControllerSettingsStateProductVariantChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class Common
     private native int nativeSetSkyControllerCommonBehavior (long cFilter, int behavior);
@@ -5037,9 +5049,35 @@ public class ARCommandsFilter
     }
 
 
+    // - Class ButtonEvents
+    private native int nativeSetSkyControllerButtonEventsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands SkyController.ButtonEvents.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerButtonEventsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetSkyControllerButtonEventsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetSkyControllerButtonEventsSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command SkyController.ButtonEvents.Settings.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerButtonEventsSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetSkyControllerButtonEventsSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
 
     // Project SkyControllerDebug
-    // - Class CalibrationState
+    // - Class ButtonEvents
     private native int nativeSetSkyControllerDebugBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands SkyControllerDebug.XXX.XXX.

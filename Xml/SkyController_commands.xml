@@ -266,6 +266,21 @@
                 Serial number (hexadecimal value)
             </arg>
         </cmd>
+
+        <cmd name="ProductVariantChanged">
+          Product variant of SkyController
+          <arg name="variant" type="enum">
+            Variant of the product
+            <enum name="bebop">
+              SkyController of the bebop generation.
+              (Bebop battery, and original key layout)
+            </enum>
+            <enum name="bebop2">
+              SkyController of the bebop2 generation.
+              (Bebop2 battery, and updated key layout)
+            </enum>
+          </arg>
+        </cmd>
     </class>
     
     <class name="Common" id="6">
@@ -697,6 +712,16 @@
 		  1 = The skycontroller sends updated when quality is updated
 		  0 = The skycontroller only sent updated when state is updated
 		</arg>
+	  </cmd>
+	</class>
+
+	<class name="ButtonEvents" id="24">
+	  Events sent on SkyController button presses.
+	  These events are sent under certain conditions only.
+	  <cmd name="Settings">
+		Event sent when the settings button is pressed.
+		This event is sent only when the sky controller is connected
+		to a drone.
 	  </cmd>
 	</class>
 </project>

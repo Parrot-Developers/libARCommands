@@ -3003,6 +3003,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateResetCha
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductSerialChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
+/**
+ * @brief Sets the filter behavior for the command SkyController.SettingsState.ProductVariantChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
 
 // Command class Common
 
@@ -3552,6 +3560,25 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagne
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class ButtonEvents
+
+/**
+ * @brief Sets the filter behavior for all commands SkyController.ButtonEvents.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command SkyController.ButtonEvents.Settings.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 

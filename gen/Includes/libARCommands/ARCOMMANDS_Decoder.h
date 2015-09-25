@@ -2862,6 +2862,17 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChanged
  */
 void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command SkyController.SettingsState.ProductVariantChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT variant, void *custom);
+/**
+ * @brief callback setter for the command SkyController.SettingsState.ProductVariantChanged
+ * @param callback new callback for the command SkyController.SettingsState.ProductVariantChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t callback, void *custom);
+
 // Command class Common
 
 /**
@@ -3381,6 +3392,19 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibratio
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback (ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback_t callback, void *custom);
+
+// Command class ButtonEvents
+
+/**
+ * @brief callback type for the command SkyController.ButtonEvents.Settings
+ */
+typedef void (*ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command SkyController.ButtonEvents.Settings
+ * @param callback new callback for the command SkyController.ButtonEvents.Settings
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t callback, void *custom);
 
 
 // Project SkyControllerDebug

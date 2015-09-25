@@ -7106,6 +7106,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductVariantChanged description:<br>
+     * Product variant of SkyController<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _variant Variant of the product
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateProductVariantChanged (ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM variant) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsStateProductVariantChanged (pointer, capacity, variant);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>AllStates</code> of class <code>Common</code> in project <code>SkyController</code><br>
      * <br>
      * Project SkyController description:<br>
@@ -8391,6 +8420,37 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (pointer, capacity, enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Settings</code> of class <code>ButtonEvents</code> in project <code>SkyController</code><br>
+     * <br>
+     * Project SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class ButtonEvents description:<br>
+     * Events sent on SkyController button presses.<br>
+     * These events are sent under certain conditions only.<br>
+     * <br>
+     * Command Settings description:<br>
+     * Event sent when the settings button is pressed.<br>
+     * This event is sent only when the sky controller is connected<br>
+     * to a drone.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerButtonEventsSettings () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerButtonEventsSettings (pointer, capacity);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -13690,6 +13750,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandSkyControllerSettingsStateProductSerialChangedListener = _ARCommandSkyControllerSettingsStateProductSerialChangedListener_PARAM;
     }
 
+    private static ARCommandSkyControllerSettingsStateProductVariantChangedListener _ARCommandSkyControllerSettingsStateProductVariantChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsStateProductVariantChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsStateProductVariantChangedListener (ARCommandSkyControllerSettingsStateProductVariantChangedListener _ARCommandSkyControllerSettingsStateProductVariantChangedListener_PARAM) {
+        _ARCommandSkyControllerSettingsStateProductVariantChangedListener = _ARCommandSkyControllerSettingsStateProductVariantChangedListener_PARAM;
+    }
+
 
     private static ARCommandSkyControllerCommonAllStatesListener _ARCommandSkyControllerCommonAllStatesListener = null;
 
@@ -14190,6 +14261,18 @@ public class ARCommand extends ARNativeData {
      */
     public static void setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener (ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM) {
         _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener = _ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener_PARAM;
+    }
+
+
+    private static ARCommandSkyControllerButtonEventsSettingsListener _ARCommandSkyControllerButtonEventsSettingsListener = null;
+
+    /**
+     * Set the listener for the command <code>Settings</code> of class <code>ButtonEvents</code> in project <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerButtonEventsSettingsListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerButtonEventsSettingsListener (ARCommandSkyControllerButtonEventsSettingsListener _ARCommandSkyControllerButtonEventsSettingsListener_PARAM) {
+        _ARCommandSkyControllerButtonEventsSettingsListener = _ARCommandSkyControllerButtonEventsSettingsListener_PARAM;
     }
 
 
@@ -15536,6 +15619,7 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetSkyControllerSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
     private native int     nativeSetSkyControllerSettingsStateResetChanged (long pdata, int dataTotalLength);
     private native int     nativeSetSkyControllerSettingsStateProductSerialChanged (long pdata, int dataTotalLength, String serialNumber);
+    private native int     nativeSetSkyControllerSettingsStateProductVariantChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM variant);
 
     private native int     nativeSetSkyControllerCommonAllStates (long pdata, int dataTotalLength);
 
@@ -15598,6 +15682,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality);
     private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (long pdata, int dataTotalLength, byte enabled);
+
+    private native int     nativeSetSkyControllerButtonEventsSettings (long pdata, int dataTotalLength);
 
 
     private native int     nativeSetSkyControllerDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);

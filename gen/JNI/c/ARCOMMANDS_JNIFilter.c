@@ -2880,6 +2880,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettings
     return (jint)err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateProductVariantChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
 
     // - Class Common
 JNIEXPORT jint JNICALL
@@ -3409,6 +3417,24 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrat
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // - Class ButtonEvents
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (filter, behavior);
     return (jint)err;
 }
 

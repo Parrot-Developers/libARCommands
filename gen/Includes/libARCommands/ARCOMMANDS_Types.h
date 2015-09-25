@@ -1394,6 +1394,20 @@ typedef enum
 } eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS;
 
 // Project SkyController
+// Class SettingsState
+// Command ProductVariantChanged
+
+/**
+ * @brief Variant of the product
+ */
+typedef enum
+{
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP = 0,    ///< SkyController of the bebop generation.
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP2,    ///< SkyController of the bebop2 generation.
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_MAX
+} eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT;
+
+// Project SkyController
 // Class AccessPointSettings
 // Command WifiSelection
 

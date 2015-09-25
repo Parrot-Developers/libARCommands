@@ -6977,6 +6977,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStatePr
     return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerSettingsStateProductVariantChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject variant)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_variant_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM");
+    jmethodID j_variant_mid = (*env)->GetMethodID (env, j_variant_class, "getValue", "()I");
+    jint j_variant_enum = (*env)->CallIntMethod (env, variant, j_variant_mid);
+    err = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVariantChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_variant_enum);
+    (*env)->DeleteLocalRef (env, j_variant_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCommonAllStates (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
@@ -8238,6 +8269,34 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerCalibrationStat
     }
 
     err = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetSkyControllerButtonEventsSettings (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateSkyControllerButtonEventsSettings ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -16392,6 +16451,32 @@ void ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb (char
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_SkyControllerSettingsStateProductVariantChangednativeCb (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT variant, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerSettingsStateProductVariantChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerSettingsStateProductVariantChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerSettingsStateProductVariantChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_variant_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM");
+        jmethodID j_variant_mid = (*env)->GetStaticMethodID (env, j_variant_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM;");
+        jobject j_variant_enum = (*env)->CallStaticObjectMethod (env, j_variant_class, j_variant_mid, variant);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_variant_enum);
+        (*env)->DeleteLocalRef (env, j_variant_class);
+        (*env)->DeleteLocalRef (env, j_variant_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 
 void ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb (void *custom)
 {
@@ -17400,6 +17485,28 @@ void ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdate
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
+void ARCOMMANDS_JNI_SkyControllerButtonEventsSettingsnativeCb (void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandSkyControllerButtonEventsSettingsListener", "Lcom/parrot/arsdk/arcommands/ARCommandSkyControllerButtonEventsSettingsListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onSkyControllerButtonEventsSettingsUpdate", "()V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -19843,6 +19950,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateAllSettingsChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateResetChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateProductSerialChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback (ARCOMMANDS_JNI_SkyControllerSettingsStateProductVariantChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetSkyControllerCommonAllStatesCallback (ARCOMMANDS_JNI_SkyControllerCommonAllStatesnativeCb, (void *)g_class);
 
@@ -19905,6 +20013,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationStatenativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback (ARCOMMANDS_JNI_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback (ARCOMMANDS_JNI_SkyControllerButtonEventsSettingsnativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback (ARCOMMANDS_JNI_SkyControllerDebugDebugTest1nativeCb, (void *)g_class);

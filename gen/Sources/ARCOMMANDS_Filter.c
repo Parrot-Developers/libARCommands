@@ -383,6 +383,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateAllSettingsChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateResetChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductSerialChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVariantChangedBehavior;
     // Class Common
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonAllStatesBehavior;
     // Class CommonState
@@ -445,6 +446,8 @@ struct ARCOMMANDS_Filter_t
     // Class CalibrationState
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior;
+    // Class ButtonEvents
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonEventsSettingsBehavior;
 
     // Project SkyControllerDebug
     // Class Debug
@@ -935,6 +938,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateResetChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = defaultBehavior;
         // Class Common
         retFilter->CmdSkyControllerCommonAllStatesBehavior = defaultBehavior;
         // Class CommonState
@@ -997,6 +1001,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         // Class CalibrationState
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = defaultBehavior;
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = defaultBehavior;
+        // Class ButtonEvents
+        retFilter->CmdSkyControllerButtonEventsSettingsBehavior = defaultBehavior;
         // Projects SkyControllerDebug
         // Class Debug
         retFilter->CmdSkyControllerDebugDebugTest1Behavior = defaultBehavior;
@@ -3305,6 +3311,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTSERIALCHANGED */
+                case ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED:
+                {
+                    retStatus = filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3711,6 +3722,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_CALIBRATIONSTATE */
+            case ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS:
+                {
+                    retStatus = filter->CmdSkyControllerButtonEventsSettingsBehavior;
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -12131,6 +12157,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
         filter->CmdSkyControllerCommonAllStatesBehavior = behavior;
         filter->CmdSkyControllerCommonStateAllStatesChangedBehavior = behavior;
         filter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = behavior;
@@ -12175,6 +12202,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = behavior;
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
     }
 
     return retError;
@@ -12339,6 +12367,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateBehavior
         filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
     }
 
     return retError;
@@ -12820,6 +12849,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateBehav
     return retError;
 }
 
+// Command class ButtonEvents
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
 // Command class WifiState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -13272,6 +13326,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductS
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
     }
 
     return retError;
@@ -14294,6 +14370,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagne
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class ButtonEvents
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
     }
 
     return retError;

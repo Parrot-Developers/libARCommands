@@ -283,6 +283,7 @@ int SkyControllerSettingsResetShouldBeCalled = 0;
 int SkyControllerSettingsStateAllSettingsChangedShouldBeCalled = 0;
 int SkyControllerSettingsStateResetChangedShouldBeCalled = 0;
 int SkyControllerSettingsStateProductSerialChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
 int SkyControllerCommonAllStatesShouldBeCalled = 0;
 int SkyControllerCommonStateAllStatesChangedShouldBeCalled = 0;
 int SkyControllerSkyControllerStateBatteryChangedShouldBeCalled = 0;
@@ -327,6 +328,7 @@ int SkyControllerCoPilotingStatePilotingSourceShouldBeCalled = 0;
 int SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 0;
 int SkyControllerCalibrationStateMagnetoCalibrationStateShouldBeCalled = 0;
 int SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled = 0;
+int SkyControllerButtonEventsSettingsShouldBeCalled = 0;
 int SkyControllerDebugDebugTest1ShouldBeCalled = 0;
 int commonNetworkDisconnectShouldBeCalled = 0;
 int commonNetworkEventDisconnectionShouldBeCalled = 0;
@@ -4641,6 +4643,21 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb (char
         errcount++ ;
     }
 }
+void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT variant, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.ProductVariantChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "variant value : <%d>", variant);
+    if (variant != (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)0>");
+        errcount++ ;
+    }
+    if (SkyControllerSettingsStateProductVariantChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
 
 void ARCOMMANDS_Testbench_SkyControllerCommonAllStatesCb (void *custom)
 {
@@ -5320,6 +5337,16 @@ void ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationQuality
         errcount++ ;
     }
     if (SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonEvents.Settings --> Custom PTR = %p", custom);
+    if (SkyControllerButtonEventsSettingsShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -7097,6 +7124,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateAllSettingsChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateAllSettingsChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateResetChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCommonAllStatesCallback ((ARCOMMANDS_Decoder_SkyControllerCommonAllStatesCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonAllStatesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback ((ARCOMMANDS_Decoder_SkyControllerCommonStateAllStatesChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonStateAllStatesChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateBatteryChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateBatteryChangedCb, (void *)cbCustom++ );
@@ -7141,6 +7169,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback ((ARCOMMANDS_Decoder_SkyControllerDebugDebugTest1Callback_t) ARCOMMANDS_Testbench_SkyControllerDebugDebugTest1Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonNetworkDisconnectCallback ((ARCOMMANDS_Decoder_CommonNetworkDisconnectCallback_t) ARCOMMANDS_Testbench_CommonNetworkDisconnectCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback ((ARCOMMANDS_Decoder_CommonNetworkEventDisconnectionCallback_t) ARCOMMANDS_Testbench_CommonNetworkEventDisconnectionCb, (void *)cbCustom++ );
@@ -14819,6 +14848,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVariantChanged (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.SettingsState.ProductVariantChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.SettingsState.ProductVariantChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior);
+        SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
 
     // Command class Common
     res = ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates (buffer, buffSize, &resSize);
@@ -16212,6 +16272,39 @@ int ARCOMMANDS_Testbench_AutoTest ()
         SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+
+    // Command class ButtonEvents
+    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonEventsSettings (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonEvents.Settings\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonEvents.Settings succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior);
+        SkyControllerButtonEventsSettingsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerButtonEventsSettingsShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
