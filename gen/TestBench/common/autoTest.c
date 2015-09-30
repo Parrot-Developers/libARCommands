@@ -405,6 +405,7 @@ int commonChargerStateMaxChargeRateChangedShouldBeCalled = 0;
 int commonChargerStateCurrentChargeStateChangedShouldBeCalled = 0;
 int commonChargerStateLastChargeRateChangedShouldBeCalled = 0;
 int commonChargerStateChargingInfoShouldBeCalled = 0;
+int commonRunStateRunIdChangedShouldBeCalled = 0;
 int commonDebugStatsSendPacketShouldBeCalled = 0;
 int commonDebugStatsStartSendingPacketFromDroneShouldBeCalled = 0;
 int commonDebugStatsStopSendingPacketFromDroneShouldBeCalled = 0;
@@ -6636,6 +6637,22 @@ void ARCOMMANDS_Testbench_CommonChargerStateChargingInfoCb (eARCOMMANDS_COMMON_C
     }
 }
 
+void ARCOMMANDS_Testbench_CommonRunStateRunIdChangedCb (char * runId, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.RunState.RunIdChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "runId value : <%s>", runId);
+    if (strcmp ("Test string with spaces", runId) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonRunStateRunIdChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 
 void ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb (char * packet, void *custom)
 {
@@ -7290,6 +7307,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonChargerStateCurrentChargeStateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateCurrentChargeStateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateCurrentChargeStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateLastChargeRateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateLastChargeRateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback ((ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t) ARCOMMANDS_Testbench_CommonChargerStateChargingInfoCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback ((ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t) ARCOMMANDS_Testbench_CommonRunStateRunIdChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStopSendingPacketFromDroneCb, (void *)cbCustom++ );
@@ -18773,6 +18791,39 @@ int ARCOMMANDS_Testbench_AutoTest ()
         commonChargerStateChargingInfoShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         commonChargerStateChargingInfoShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+
+    // Command class RunState
+    res = ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.RunState.RunIdChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.RunState.RunIdChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior);
+        commonRunStateRunIdChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonRunStateRunIdChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

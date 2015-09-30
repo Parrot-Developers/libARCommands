@@ -4310,6 +4310,19 @@ typedef void (*ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t) (eAR
  */
 void ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback (ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t callback, void *custom);
 
+// Command class RunState
+
+/**
+ * @brief callback type for the command common.RunState.RunIdChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t) (char * runId, void *custom);
+/**
+ * @brief callback setter for the command common.RunState.RunIdChanged
+ * @param callback new callback for the command common.RunState.RunIdChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t callback, void *custom);
+
 
 // Project commonDebug
 

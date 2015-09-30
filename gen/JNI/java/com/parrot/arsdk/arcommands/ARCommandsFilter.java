@@ -6451,9 +6451,35 @@ public class ARCommandsFilter
     }
 
 
+    // - Class RunState
+    private native int nativeSetCommonRunStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Common.RunState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonRunStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonRunStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonRunStateRunIdChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Common.RunState.RunIdChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonRunStateRunIdChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonRunStateRunIdChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
 
     // Project commonDebug
-    // - Class ChargerState
+    // - Class RunState
     private native int nativeSetCommonDebugBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands CommonDebug.XXX.XXX.

@@ -4460,6 +4460,20 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonChargerStateLastC
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonChargerStateChargingInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE _phase, eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE _rate, uint8_t _intensity, uint8_t _fullChargingTime);
 
+// Command class RunState
+
+/**
+ * @brief Sent when a run id has changed
+ * Run ids are uniquely identifying a run or a flight
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _runId Id of the run
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _runId);
+
 
 // Project commonDebug
 

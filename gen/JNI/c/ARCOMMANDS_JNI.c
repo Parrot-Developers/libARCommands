@@ -10528,6 +10528,36 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonChargerStateChargingIn
 }
 
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonRunStateRunIdChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring runId)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    const char *c_runId = (*env)->GetStringUTFChars (env, runId, NULL);
+    err = ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, c_runId);
+    (*env)->ReleaseStringUTFChars (env, runId, c_runId);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonDebugStatsSendPacket (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jstring packet)
@@ -19358,6 +19388,30 @@ void ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb (eARCOMMANDS_COMMON_C
 }
 
 
+void ARCOMMANDS_JNI_CommonRunStateRunIdChangednativeCb (char * runId, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonRunStateRunIdChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonRunStateRunIdChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonRunStateRunIdChangedUpdate", "(Ljava/lang/String;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jstring j_runId = (*env)->NewStringUTF (env, runId);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_runId);
+        (*env)->DeleteLocalRef (env, j_runId);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
 
 void ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb (char * packet, void *custom)
 {
@@ -20220,6 +20274,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetCommonChargerStateCurrentChargeStateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateCurrentChargeStateChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback (ARCOMMANDS_JNI_CommonChargerStateLastChargeRateChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback (ARCOMMANDS_JNI_CommonChargerStateChargingInfonativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_JNI_CommonRunStateRunIdChangednativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_JNI_CommonDebugStatsSendPacketnativeCb, (void *)g_class);

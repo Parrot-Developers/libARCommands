@@ -559,6 +559,8 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateCurrentChargeStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateLastChargeRateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
+    // Class RunState
+    eARCOMMANDS_FILTER_STATUS CmdCommonRunStateRunIdChangedBehavior;
 
     // Project commonDebug
     // Class Stats
@@ -1114,6 +1116,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
+        // Class RunState
+        retFilter->CmdCommonRunStateRunIdChangedBehavior = defaultBehavior;
         // Projects commonDebug
         // Class Stats
         retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
@@ -4451,6 +4455,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_RUNSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_RUNSTATE_CMD_RUNIDCHANGED:
+                {
+                    retStatus = filter->CmdCommonRunStateRunIdChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_RUNSTATE_CMD_RUNIDCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_RUNSTATE */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -14632,6 +14651,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
         filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;
@@ -15425,6 +15445,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateBehavior (ARCOMM
         filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
         filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class RunState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;
@@ -17120,6 +17165,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateChargingInfoBeha
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class RunState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;

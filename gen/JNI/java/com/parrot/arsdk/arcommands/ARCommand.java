@@ -10695,6 +10695,36 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code><br>
+     * <br>
+     * Project Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class RunState description:<br>
+     * Commands sent by the drone to inform about the run or flight state<br>
+     * <br>
+     * Command RunIdChanged description:<br>
+     * Sent when a run id has changed<br>
+     * Run ids are uniquely identifying a run or a flight<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _runId Id of the run
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonRunStateRunIdChanged (String runId) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonRunStateRunIdChanged (pointer, capacity, runId);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SendPacket</code> of class <code>Stats</code> in project <code>CommonDebug</code><br>
      * <br>
      * Project CommonDebug description:<br>
@@ -15205,6 +15235,18 @@ public class ARCommand extends ARNativeData {
     }
 
 
+    private static ARCommandCommonRunStateRunIdChangedListener _ARCommandCommonRunStateRunIdChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonRunStateRunIdChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonRunStateRunIdChangedListener (ARCommandCommonRunStateRunIdChangedListener _ARCommandCommonRunStateRunIdChangedListener_PARAM) {
+        _ARCommandCommonRunStateRunIdChangedListener = _ARCommandCommonRunStateRunIdChangedListener_PARAM;
+    }
+
+
 
     private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
 
@@ -15875,6 +15917,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetCommonChargerStateCurrentChargeStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase);
     private native int     nativeSetCommonChargerStateLastChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate);
     private native int     nativeSetCommonChargerStateChargingInfo (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime);
+
+    private native int     nativeSetCommonRunStateRunIdChanged (long pdata, int dataTotalLength, String runId);
 
 
     private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
