@@ -2535,6 +2535,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsM
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsWheels (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
 
+/**
+ * @brief Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max Horizontal speed in m/s
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
 // Command class SpeedSettingsState
 
 /**
@@ -2573,6 +2584,19 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsS
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
+
+/**
+ * @brief Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max horizontal speed in m/s
+ * @param _min Range min of horizontal speed
+ * @param _max Range max of horizontal speed
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
 
 // Command class Settings
 

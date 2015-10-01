@@ -3624,6 +3624,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.SpeedSettings.MaxHorizontalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class SpeedSettingsState
     private native int nativeSetMiniDroneSpeedSettingsStateBehavior (long cFilter, int behavior);
@@ -3671,6 +3683,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsStateWheelsChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDroneSpeedSettingsStateWheelsChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

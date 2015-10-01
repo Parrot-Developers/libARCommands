@@ -5969,6 +5969,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsWheels
     return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxHorizontalSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
@@ -6044,6 +6071,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateW
     }
 
     err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)present);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -15650,6 +15704,27 @@ void ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb (uint8_t present, void 
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxHorizontalSpeednativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsMaxHorizontalSpeedUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 
 void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb (float current, float min, float max, void *custom)
 {
@@ -15710,6 +15785,27 @@ void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb (uint8_t pr
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)present);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -19900,10 +19996,12 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxVerticalSpeednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxRotationSpeednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsWheelsnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsMaxHorizontalSpeednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxRotationSpeedChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateWheelsChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_JNI_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback (ARCOMMANDS_JNI_MiniDroneSettingsCutOutModenativeCb, (void *)g_class);
 

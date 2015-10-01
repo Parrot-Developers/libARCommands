@@ -2630,6 +2630,18 @@ void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_Deco
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 
 // Command class SpeedSettingsState
 static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb = NULL;
@@ -2665,6 +2677,18 @@ void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARC
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb = callback;
         ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -11667,6 +11691,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -11791,6 +11841,50 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -23379,6 +23473,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxHorizontalSpeed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -23501,6 +23616,51 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

@@ -6081,6 +6081,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>MaxHorizontalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command MaxHorizontalSpeed description:<br>
+     * Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max Horizontal speed in m/s
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxHorizontalSpeed (float current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeed (pointer, capacity, current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>MaxVerticalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
      * <br>
      * Project MiniDrone description:<br>
@@ -6165,6 +6194,37 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneSpeedSettingsStateWheelsChanged (pointer, capacity, present);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MaxHorizontalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * <br>
+     * Project MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command MaxHorizontalSpeedChanged description:<br>
+     * Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max horizontal speed in m/s
+     * @param _min Range min of horizontal speed
+     * @param _max Range max of horizontal speed
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (float current, float min, float max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (pointer, capacity, current, min, max);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -13350,6 +13410,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDroneSpeedSettingsWheelsListener = _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM;
     }
 
+    private static ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxHorizontalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxHorizontalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM;
+    }
+
 
     private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
 
@@ -13382,6 +13453,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDroneSpeedSettingsStateWheelsChangedListener (ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM) {
         _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MaxHorizontalSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM;
     }
 
 
@@ -15569,10 +15651,12 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
     private native int     nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
     private native int     nativeSetMiniDroneSpeedSettingsWheels (long pdata, int dataTotalLength, byte present);
+    private native int     nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
     private native int     nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
     private native int     nativeSetMiniDroneSpeedSettingsStateWheelsChanged (long pdata, int dataTotalLength, byte present);
+    private native int     nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
     private native int     nativeSetMiniDroneSettingsCutOutMode (long pdata, int dataTotalLength, byte enable);
 

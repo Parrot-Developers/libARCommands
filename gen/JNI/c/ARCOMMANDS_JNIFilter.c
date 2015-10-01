@@ -2450,6 +2450,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSetting
     return (jint)err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (filter, behavior);
+    return (jint)err;
+}
+
 
     // - Class SpeedSettingsState
 JNIEXPORT jint JNICALL
@@ -2481,6 +2489,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSetting
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateWheelsChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (filter, behavior);
     return (jint)err;
 }
 

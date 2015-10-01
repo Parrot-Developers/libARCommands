@@ -2445,6 +2445,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t) (uint8
  */
 void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command MiniDrone.SpeedSettings.MaxHorizontalSpeed
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t) (float current, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.SpeedSettings.MaxHorizontalSpeed
+ * @param callback new callback for the command MiniDrone.SpeedSettings.MaxHorizontalSpeed
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t callback, void *custom);
+
 // Command class SpeedSettingsState
 
 /**
@@ -2479,6 +2490,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallba
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t) (float current, float min, float max, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged
+ * @param callback new callback for the command MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t callback, void *custom);
 
 // Command class Settings
 

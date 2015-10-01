@@ -331,10 +331,12 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsWheelsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior;
     // Class SpeedSettingsState
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior;
     // Class Settings
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsCutOutModeBehavior;
     // Class SettingsState
@@ -888,10 +890,12 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsWheelsBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = defaultBehavior;
         // Class SpeedSettingsState
         retFilter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = defaultBehavior;
         // Class Settings
         retFilter->CmdMiniDroneSettingsCutOutModeBehavior = defaultBehavior;
         // Class SettingsState
@@ -2986,6 +2990,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdMiniDroneSpeedSettingsWheelsBehavior;
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                {
+                    retStatus = filter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3011,6 +3020,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
+                {
+                    retStatus = filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -10743,9 +10757,11 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsWheelsBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSettingsCutOutModeBehavior = behavior;
         filter->CmdMiniDroneSettingsStateProductMotorsVersionChangedBehavior = behavior;
         filter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = behavior;
@@ -10995,6 +11011,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsBehavior (AR
         filter->CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsWheelsBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = behavior;
     }
 
     return retError;
@@ -11022,6 +11039,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateBehavio
         filter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = behavior;
     }
 
     return retError;
@@ -11710,6 +11728,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsWheelsBehavi
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
 
 // Command class SpeedSettingsState
 
@@ -11774,6 +11814,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateWheelsC
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = behavior;
     }
 
     return retError;
