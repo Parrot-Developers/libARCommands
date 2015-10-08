@@ -212,15 +212,15 @@ public class ARCommand extends ARNativeData {
      * @param _pitch Pitch consign for the drone [-100;100]
      * @param _yaw Yaw consign for the drone [-100;100]
      * @param _gaz Gaz consign for the drone [-100;100]
-     * @param _psi [NOT USED] - Magnetic north heading of the controlling device (deg) [-180;180]
+     * @param _timestampAndSeqNum Command timestamp in milliseconds (low 24 bits) + command sequence number [0;255] (high 8 bits).
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingPCMD (byte flag, byte roll, byte pitch, byte yaw, byte gaz, float psi) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingPCMD (byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestampAndSeqNum) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingPCMD (pointer, capacity, flag, roll, pitch, yaw, gaz, psi);
+        int errInt = nativeSetARDrone3PilotingPCMD (pointer, capacity, flag, roll, pitch, yaw, gaz, timestampAndSeqNum);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15418,7 +15418,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingFlatTrim (long pdata, int dataTotalLength);
     private native int     nativeSetARDrone3PilotingTakeOff (long pdata, int dataTotalLength);
-    private native int     nativeSetARDrone3PilotingPCMD (long pdata, int dataTotalLength, byte flag, byte roll, byte pitch, byte yaw, byte gaz, float psi);
+    private native int     nativeSetARDrone3PilotingPCMD (long pdata, int dataTotalLength, byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestampAndSeqNum);
     private native int     nativeSetARDrone3PilotingLanding (long pdata, int dataTotalLength);
     private native int     nativeSetARDrone3PilotingEmergency (long pdata, int dataTotalLength);
     private native int     nativeSetARDrone3PilotingNavigateHome (long pdata, int dataTotalLength, byte start);

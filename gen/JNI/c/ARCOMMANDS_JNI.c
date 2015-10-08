@@ -147,7 +147,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingTakeOff (JNI
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingPCMD (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte flag, jbyte roll, jbyte pitch, jbyte yaw, jbyte gaz, jfloat psi)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingPCMD (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte flag, jbyte roll, jbyte pitch, jbyte yaw, jbyte gaz, jint timestampAndSeqNum)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -165,7 +165,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingPCMD (JNIEnv
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingPCMD ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)flag, (int8_t)roll, (int8_t)pitch, (int8_t)yaw, (int8_t)gaz, (float)psi);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingPCMD ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)flag, (int8_t)roll, (int8_t)pitch, (int8_t)yaw, (int8_t)gaz, (uint32_t)timestampAndSeqNum);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -11022,7 +11022,7 @@ void ARCOMMANDS_JNI_ARDrone3PilotingTakeOffnativeCb (void *custom)
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_ARDrone3PilotingPCMDnativeCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, float psi, void *custom)
+void ARCOMMANDS_JNI_ARDrone3PilotingPCMDnativeCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestampAndSeqNum, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -11034,11 +11034,11 @@ void ARCOMMANDS_JNI_ARDrone3PilotingPCMDnativeCb (uint8_t flag, int8_t roll, int
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingPCMDUpdate", "(BBBBBF)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingPCMDUpdate", "(BBBBBI)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)flag, roll, pitch, yaw, gaz, psi);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)flag, roll, pitch, yaw, gaz, (jint)timestampAndSeqNum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }

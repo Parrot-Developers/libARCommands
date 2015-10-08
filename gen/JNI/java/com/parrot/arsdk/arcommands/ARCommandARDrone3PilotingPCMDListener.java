@@ -43,7 +43,7 @@ public interface ARCommandARDrone3PilotingPCMDListener {
      * @param _pitch Pitch consign for the drone [-100;100]
      * @param _yaw Yaw consign for the drone [-100;100]
      * @param _gaz Gaz consign for the drone [-100;100]
-     * @param _psi [NOT USED] - Magnetic north heading of the controlling device (deg) [-180;180]
+     * @param _timestampAndSeqNum Command timestamp in milliseconds (low 24 bits) + command sequence number [0;255] (high 8 bits).
      */
-    void onARDrone3PilotingPCMDUpdate (byte flag, byte roll, byte pitch, byte yaw, byte gaz, float psi);
+    void onARDrone3PilotingPCMDUpdate (byte flag, byte roll, byte pitch, byte yaw, byte gaz, int timestampAndSeqNum);
 }

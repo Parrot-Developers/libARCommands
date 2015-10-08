@@ -103,7 +103,7 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingTakeOffCallback (ARCOMMANDS_Decoder_A
 /**
  * @brief callback type for the command ARDrone3.Piloting.PCMD
  */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCallback_t) (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, float psi, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCallback_t) (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestampAndSeqNum, void *custom);
 /**
  * @brief callback setter for the command ARDrone3.Piloting.PCMD
  * @param callback new callback for the command ARDrone3.Piloting.PCMD

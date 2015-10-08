@@ -108,8 +108,8 @@
                 Gaz consign for the drone [-100;100]
             </arg>
             
-            <arg name="psi" type="float">
-                [NOT USED] - Magnetic north heading of the controlling device (deg) [-180;180]
+            <arg name="timestampAndSeqNum" type="u32">
+                Command timestamp in milliseconds (low 24 bits) + command sequence number [0;255] (high 8 bits).
             </arg>
         </cmd>
         

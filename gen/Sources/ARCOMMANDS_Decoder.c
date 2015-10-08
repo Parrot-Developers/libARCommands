@@ -4962,7 +4962,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         int8_t _pitch;
                         int8_t _yaw;
                         int8_t _gaz;
-                        float _psi;
+                        uint32_t _timestampAndSeqNum;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
                             _flag = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
@@ -5005,7 +5005,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _psi = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            _timestampAndSeqNum = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -5013,7 +5013,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCb (_flag, _roll, _pitch, _yaw, _gaz, _psi, ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCustom);
+                            ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCb (_flag, _roll, _pitch, _yaw, _gaz, _timestampAndSeqNum, ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -17481,10 +17481,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | psi -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | timestampAndSeqNum -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {

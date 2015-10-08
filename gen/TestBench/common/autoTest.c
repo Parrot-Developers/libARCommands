@@ -439,7 +439,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingTakeOffCb (void *custom)
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, float psi, void *custom)
+void ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestampAndSeqNum, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.PCMD --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "flag value : <%u>", flag);
@@ -472,10 +472,10 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb (uint8_t flag, int8_t roll, int
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
         errcount++ ;
     }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "psi value : <%f>", psi);
-    if (psi != 42.125)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "timestampAndSeqNum value : <%u>", timestampAndSeqNum);
+    if (timestampAndSeqNum != 420000)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
         errcount++ ;
     }
     if (ARDrone3PilotingPCMDShouldBeCalled == 0)
@@ -7476,7 +7476,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingPCMD (buffer, buffSize, &resSize, 42, -42, -42, -42, -42, 42.125);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingPCMD (buffer, buffSize, &resSize, 42, -42, -42, -42, -42, 420000);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.PCMD\n\n");
