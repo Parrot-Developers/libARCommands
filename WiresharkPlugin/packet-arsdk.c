@@ -431,6 +431,9 @@ static void add_frame_fields(void)
 	{.value = NETWORK_DC_SOUND_ACK_ID,
 	 .strptr = "DC_SOUND_ACK"},
 
+	{.value = NETWORK_CUSTOM_ID,
+	 .strptr = "Fake packet"},
+
 	{.value = NETWORK_CD_NONACK_ID+128,
 	 .strptr = "ACK_CD_NONACK"},
 	{.value = NETWORK_CD_ACK_ID+128,
@@ -1068,6 +1071,7 @@ static int dissect_arsdk(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree,
 	case NETWORK_CD_EMERGENCY_ID:
 	case NETWORK_DC_NONACK_ID:
 	case NETWORK_DC_ACK_ID:
+	case NETWORK_CUSTOM_ID:
 	    (void)dissect_arcommand(tvb, pinfo, frame_tree, offset+7,
 				    framesize-7, frames, frameseq);
 	    break;
