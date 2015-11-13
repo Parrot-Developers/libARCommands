@@ -1,5 +1,8 @@
-JNI/
-Sources/
-TestBench/
-Includes/
-Build/
+/Build/autom4te.cache
+/Build/config
+/Build/m4
+/Build/*.in
+/Build/aclocal.m4
+/Build/configure
+/Build/INSTALL
+/Build/libtool

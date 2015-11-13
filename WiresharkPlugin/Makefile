@@ -4,7 +4,7 @@ OBJS	:= packet-arsdk.o
 
 TREE	:= tree.h
 GEN	:= ../Xml/generateLibARCommands.py
-INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes
+INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes -I ../gen/Includes
 
 WARN	:= -Wall -W -Wextra -Wdeclaration-after-statement -Wendif-labels \
 	-Wpointer-arith -Wno-pointer-sign -Warray-bounds -Wformat-security \
@@ -17,6 +17,18 @@ CFLAGS	:= -g -O2 $(WARN) $(INC) -fPIC -DPIC -DSTANDALONE_BUILD \
 	-fno-strict-overflow -fno-delete-null-pointer-checks
 
 LDFLAGS	:= -shared -fPIC -DPIC
+STRIP_ARGS :=
+
+UNAME_S := $(shell uname -s)
+# if platform is on MacOS
+ifeq ($(UNAME_S),Darwin)
+    LDFLAGS += -L/Applications/Wireshark.app/Contents/Resources/lib -lwireshark
+    STRIP_ARGS += -x
+endif
+# if platform is on Linux
+ifeq ($(UNAME_S),Linux)
+    LDFLAGS += -Wl,-soname -Wl,$(PLUGIN)
+endif
 
 all: $(PLUGIN)
 
@@ -24,7 +36,7 @@ all: $(PLUGIN)
 .PHONY: .FORCE
 
 $(TREE): .FORCE
-	python $(GEN) -projects all -gen-tree $(TREE)
+	python $(GEN) -debug-cmds yes -projects all -gen-tree $(TREE)
 
 %.o: %.c $(TREE) .FORCE
 	@echo "CC $@"
@@ -32,9 +44,9 @@ $(TREE): .FORCE
 
 $(PLUGIN): $(OBJS)
 	@echo "CCLD $@"
-	@$(CC) $(LDFLAGS) $^ -Wl,-soname -Wl,$(PLUGIN) -o $@
+	@$(CC) $(LDFLAGS) $^ -o $@
 	@echo "STRIP $@"
-	@strip $@
+	@strip $(STRIP_ARGS) $@
 
 clean:
 	-rm -f $(OBJS) $(TREE) $(PLUGIN)

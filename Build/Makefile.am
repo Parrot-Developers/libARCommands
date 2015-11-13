@@ -4,24 +4,23 @@
 ACLOCAL_AMFLAGS                         =   -I m4
 
 # The list of header files that belong to the library (to be installed later)
-HEADER_FILES                            =   ../Includes/libARCommands/ARCOMMANDS_Generator.h    \
-                                            ../Includes/libARCommands/ARCOMMANDS_Decoder.h      \
-                                            ../Includes/libARCommands/ARCOMMANDS_Types.h        \
-                                            ../Includes/libARCommands/ARCOMMANDS_Filter.h       \
+HEADER_FILES                            =   ../gen/Includes/libARCommands/ARCOMMANDS_Generator.h    \
+                                            ../gen/Includes/libARCommands/ARCOMMANDS_Decoder.h      \
+                                            ../gen/Includes/libARCommands/ARCOMMANDS_Types.h        \
+                                            ../gen/Includes/libARCommands/ARCOMMANDS_Filter.h       \
                                             ../Includes/libARCommands/ARCOMMANDS_Version.h      \
-                                            ../Includes/libARCommands/ARCOMMANDS_Ids.h          \
+                                            ../gen/Includes/libARCommands/ARCOMMANDS_Ids.h          \
                                             ../Includes/libARCommands/ARCommands.h
 
 
 # The sources to add to the library and to add to the source distribution
 SOURCE_FILES                            =   $(HEADER_FILES)                     \
-                                            ../Sources/ARCOMMANDS_Generator.c   \
-                                            ../Sources/ARCOMMANDS_Decoder.c     \
-                                            ../Sources/ARCOMMANDS_Filter.c      \
-                                            ../Sources/ARCOMMANDS_ReadWrite.c   \
+                                            ../gen/Sources/ARCOMMANDS_Generator.c   \
+                                            ../gen/Sources/ARCOMMANDS_Decoder.c     \
+                                            ../gen/Sources/ARCOMMANDS_Filter.c      \
+                                            ../gen/Sources/ARCOMMANDS_ReadWrite.c   \
                                             ../Sources/ARCOMMANDS_Version.c     \
-                                            ../Sources/ARCOMMANDS_Ids.h         \
-                                            ../Sources/ARCOMMANDS_ReadWrite.h
+                                            ../gen/Sources/ARCOMMANDS_ReadWrite.h
 
 # The library names to build (note we are building static and shared libs)
 if DEBUG_MODE

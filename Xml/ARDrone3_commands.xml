@@ -1501,6 +1501,17 @@
                 Pan camera consign for the drone [-100;100]
             </arg>
         </cmd>
+        
+        <cmd name="defaultCameraOrientation">
+            Orientation of the camera center.
+            This is the value to send when we want to center the camera.
+            <arg name="tilt" type="i8">
+                Tilt value (in degree)
+            </arg>
+            <arg name="pan" type="i8">
+                Pan value (in degree)
+            </arg>
+        </cmd>
     </class>
     
     <class name="Antiflickering" id="29">

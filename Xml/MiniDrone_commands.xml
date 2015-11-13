@@ -413,6 +413,12 @@
                 1 if present, 0 if not present
             </arg>
         </cmd>
+        <cmd name="MaxHorizontalSpeed">
+            Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+            <arg name="current" type="float">
+                Current max Horizontal speed in m/s
+            </arg>
+        </cmd>
     </class>
     
     <class name="SpeedSettingsState" id="5">
@@ -445,6 +451,18 @@
             Presence of wheels sent by product
             <arg name="present" type="u8">
                 1 if present, 0 if not present
+            </arg>
+        </cmd>
+        <cmd name="MaxHorizontalSpeedChanged">
+            Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+            <arg name="current" type="float">
+                Current max horizontal speed in m/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of horizontal speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of horizontal speed
             </arg>
         </cmd>
     </class>
