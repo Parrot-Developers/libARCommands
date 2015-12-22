@@ -38,29 +38,27 @@ package com.parrot.arsdk.arcommands;
 import java.util.HashMap;
 
 /**
- * Java copy of the eARCOMMANDS_PRO_PRO_RESPONSE_STATUS enum
+ * Java copy of the eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE enum
  */
-public enum ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM {
+public enum ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM {
    /** Dummy value for all unknown cases */
-    eARCOMMANDS_PRO_PRO_RESPONSE_STATUS_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-   /** Challenge has been signed */
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_OK (0, "Challenge has been signed"),
-   /** The features received don't match the features available (ignore signedChallenge param) */
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_FEATURE_LIST (1, "The features received don't match the features available (ignore signedChallenge param)"),
-   /** Format of the challenge is not expected (ignore signedChallenge param) */
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_CHALLENGE_FORMAT (2, "Format of the challenge is not expected (ignore signedChallenge param)"),
-   ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_MAX (3);
+    eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
+   /** Wifi is not protected by any security (default) */
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_OPEN (0, "Wifi is not protected by any security (default)"),
+   /** Wifi is protected by wpa2 */
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_WPA2 (1, "Wifi is protected by wpa2"),
+   ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_MAX (2);
 
     private final int value;
     private final String comment;
-    static HashMap<Integer, ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM> valuesList;
+    static HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM> valuesList;
 
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM (int value) {
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM (int value) {
         this.value = value;
         this.comment = null;
     }
 
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM (int value, String comment) {
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM (int value, String comment) {
         this.value = value;
         this.comment = comment;
     }
@@ -74,21 +72,21 @@ public enum ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM {
     }
 
     /**
-     * Gets the ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM instance from a C enum value
+     * Gets the ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM instance from a C enum value
      * @param value C value of the enum
-     * @return The ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM instance, or null if the C enum value was not valid
+     * @return The ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM instance, or null if the C enum value was not valid
      */
-    public static ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM getFromValue (int value) {
+    public static ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM getFromValue (int value) {
         if (null == valuesList) {
-            ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM [] valuesArray = ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM.values ();
-            valuesList = new HashMap<Integer, ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM> (valuesArray.length);
-            for (ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM entry : valuesArray) {
+            ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM [] valuesArray = ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM.values ();
+            valuesList = new HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM> (valuesArray.length);
+            for (ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM entry : valuesArray) {
                 valuesList.put (entry.getValue (), entry);
             }
         }
-        ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM retVal = valuesList.get (value);
+        ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_ENUM retVal = valuesList.get (value);
         if (retVal == null) {
-            retVal = eARCOMMANDS_PRO_PRO_RESPONSE_STATUS_UNKNOWN_ENUM_VALUE;
+            retVal = eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITYCHANGED_TYPE_UNKNOWN_ENUM_VALUE;
         }
         return retVal;    }
 

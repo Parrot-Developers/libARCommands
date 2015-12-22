@@ -129,8 +129,10 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior;
     // Class NetworkSettings
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityBehavior;
     // Class NetworkSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
     // Class Settings
     // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior;
@@ -383,6 +385,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateAllSettingsChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateResetChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductSerialChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVariantChangedBehavior;
     // Class Common
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonAllStatesBehavior;
     // Class CommonState
@@ -445,6 +448,8 @@ struct ARCOMMANDS_Filter_t
     // Class CalibrationState
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior;
+    // Class ButtonEvents
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonEventsSettingsBehavior;
 
     // Project SkyControllerDebug
     // Class Debug
@@ -554,6 +559,8 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateCurrentChargeStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateLastChargeRateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
+    // Class RunState
+    eARCOMMANDS_FILTER_STATUS CmdCommonRunStateRunIdChangedBehavior;
 
     // Project commonDebug
     // Class Stats
@@ -687,8 +694,10 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
         // Class NetworkSettings
         retFilter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = defaultBehavior;
         // Class NetworkSettingsState
         retFilter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = defaultBehavior;
         // Class Settings
         // Class SettingsState
         retFilter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = defaultBehavior;
@@ -935,6 +944,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateResetChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = defaultBehavior;
         // Class Common
         retFilter->CmdSkyControllerCommonAllStatesBehavior = defaultBehavior;
         // Class CommonState
@@ -997,6 +1007,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         // Class CalibrationState
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = defaultBehavior;
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = defaultBehavior;
+        // Class ButtonEvents
+        retFilter->CmdSkyControllerButtonEventsSettingsBehavior = defaultBehavior;
         // Projects SkyControllerDebug
         // Class Debug
         retFilter->CmdSkyControllerDebugDebugTest1Behavior = defaultBehavior;
@@ -1104,6 +1116,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
+        // Class RunState
+        retFilter->CmdCommonRunStateRunIdChangedBehavior = defaultBehavior;
         // Projects commonDebug
         // Class Stats
         retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
@@ -1680,6 +1694,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISELECTION */
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY:
+                {
+                    retStatus = filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGS_CMD_WIFISECURITY */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1695,6 +1714,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED:
+                {
+                    retStatus = filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_NETWORKSETTINGSSTATE_CMD_WIFISECURITYCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3305,6 +3329,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTSERIALCHANGED */
+                case ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED:
+                {
+                    retStatus = filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3711,6 +3740,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_CALIBRATIONSTATE */
+            case ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS:
+                {
+                    retStatus = filter->CmdSkyControllerButtonEventsSettingsBehavior;
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_BUTTONEVENTS_CMD_SETTINGS */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_SKYCONTROLLER_CLASS_BUTTONEVENTS */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -4411,6 +4455,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_CHARGERSTATE */
+            case ARCOMMANDS_ID_COMMON_CLASS_RUNSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMON_RUNSTATE_CMD_RUNIDCHANGED:
+                {
+                    retStatus = filter->CmdCommonRunStateRunIdChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_RUNSTATE_CMD_RUNIDCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_RUNSTATE */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -4682,7 +4741,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateProductGPSVersionChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateMotorErrorStateChangedBehavior = behavior;
@@ -5150,6 +5211,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsBehavior (A
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
     }
 
     return retError;
@@ -5175,6 +5237,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateBehavi
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
     }
 
     return retError;
@@ -7056,6 +7119,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelecti
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
+    }
+
+    return retError;
+}
+
 
 // Command class NetworkSettingsState
 
@@ -7076,6 +7161,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSe
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
     }
 
     return retError;
@@ -12131,6 +12238,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
         filter->CmdSkyControllerCommonAllStatesBehavior = behavior;
         filter->CmdSkyControllerCommonStateAllStatesChangedBehavior = behavior;
         filter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = behavior;
@@ -12175,6 +12283,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = behavior;
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
     }
 
     return retError;
@@ -12339,6 +12448,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateBehavior
         filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
     }
 
     return retError;
@@ -12820,6 +12930,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateBehav
     return retError;
 }
 
+// Command class ButtonEvents
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
 // Command class WifiState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -13272,6 +13407,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductS
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
     }
 
     return retError;
@@ -14300,6 +14457,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagne
 }
 
 
+// Command class ButtonEvents
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
 
 // Project SkyControllerDebug
 
@@ -14469,6 +14651,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
         filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;
@@ -15262,6 +15445,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateBehavior (ARCOMM
         filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
         filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class RunState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;
@@ -16957,6 +17165,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateChargingInfoBeha
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdCommonChargerStateChargingInfoBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Command class RunState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonRunStateRunIdChangedBehavior = behavior;
     }
 
     return retError;

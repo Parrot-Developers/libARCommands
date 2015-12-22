@@ -17,8 +17,26 @@ LOCAL_AUTOTOOLS_CONFIGURE_SCRIPT := Build/configure
 
 # Autotools variable
 LOCAL_AUTOTOOLS_CONFIGURE_ARGS := \
-	--with-libARSALInstallDir="" \
-	--enable-debug-commands
+	--with-libARSALInstallDir=""
+
+ifeq ("$(TARGET_OS_FLAVOUR)","android")
+
+LOCAL_AUTOTOOLS_CONFIGURE_ARGS += \
+	--disable-static \
+	--enable-shared \
+	--disable-so-version
+
+else ifneq ($(filter iphoneos iphonesimulator, $(TARGET_OS_FLAVOUR)),)
+
+LOCAL_AUTOTOOLS_CONFIGURE_ARGS += \
+	--enable-static \
+	--disable-shared \
+	CCASFLAGS=" -x assembler-with-cpp -std=gnu99 $(TARGET_GLOBAL_CFLAGS)" \
+	OBJCFLAGS=" -x objective-c -fobjc-arc -std=gnu99 $(TARGET_GLOBAL_CFLAGS)" \
+	OBJC="$(TARGET_CC)" \
+	CFLAGS=" -std=gnu99 -x c $(TARGET_GLOBAL_CFLAGS)"
+
+endif
 
 # User define command to be launch before configure step.
 # Generates files used by configure

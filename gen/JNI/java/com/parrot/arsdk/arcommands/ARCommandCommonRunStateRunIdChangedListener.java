@@ -31,14 +31,14 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandARDrone3PROStateFeaturesListener {
+public interface ARCommandCommonRunStateRunIdChangedListener {
 
     /**
-     * Called when a command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> is decoded
-     * @param _features Bitfield representing enabled features.
+     * Called when a command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code> is decoded
+     * @param _runId Id of the run
      */
-    void onARDrone3PROStateFeaturesUpdate (long features);
+    void onCommonRunStateRunIdChangedUpdate (String runId);
 }

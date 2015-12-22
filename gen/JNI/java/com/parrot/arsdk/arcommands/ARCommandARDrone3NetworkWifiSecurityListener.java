@@ -31,14 +31,16 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>WifiSecurity</code> of class <code>Network</code> in project <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandARDrone3PROStateFeaturesListener {
+public interface ARCommandARDrone3NetworkWifiSecurityListener {
 
     /**
-     * Called when a command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> is decoded
-     * @param _features Bitfield representing enabled features.
+     * Called when a command <code>WifiSecurity</code> of class <code>Network</code> in project <code>ARDrone3</code> is decoded
+     * @param _type The type of wifi security (open, wpa2)
+     * @param _key The key to secure the network (empty if type is open)
+     * @param _keyType Type of the key
      */
-    void onARDrone3PROStateFeaturesUpdate (long features);
+    void onARDrone3NetworkWifiSecurityUpdate (ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_KEYTYPE_ENUM keyType);
 }

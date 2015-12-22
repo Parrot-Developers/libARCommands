@@ -108,8 +108,8 @@
                 Gaz consign for the drone [-100;100]
             </arg>
             
-            <arg name="psi" type="float">
-                [NOT USED] - Magnetic north heading of the controlling device (deg) [-180;180]
+            <arg name="timestampAndSeqNum" type="u32">
+                Command timestamp in milliseconds (low 24 bits) + command sequence number [0;255] (high 8 bits).
             </arg>
         </cmd>
         
@@ -651,6 +651,7 @@
         <cmd name="WifiAuthChannel">
             Controller inquire the list of authorized wifi channels.
         </cmd>
+        
     </class>
     
     <class name="NetworkState" id="14">
@@ -969,6 +970,27 @@
                 The channel (not used in auto mode)
             </arg>
         </cmd>
+        <cmd name="wifiSecurity">
+            Sent by the controller to set the wifi security
+            <arg name="type" type="enum">
+                The type of wifi security (open, wpa2)
+                <enum name="open">
+                    Wifi is not protected by any security (default)
+                </enum>
+                <enum name="wpa2">
+                    Wifi is protected by wpa2
+                </enum>
+            </arg>
+            <arg name="key" type="string">
+                The key to secure the network (empty if type is open)
+            </arg>
+            <arg name="keyType" type="enum">
+                Type of the key
+                <enum name="plain">
+                    Key is plain text, not encrypted
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="NetworkSettingsState" id="10">
@@ -1004,6 +1026,18 @@
             </arg>
             <arg name="channel" type="u8">
                 The channel (depends of the band)
+            </arg>
+        </cmd>
+        <cmd name="wifiSecurityChanged">
+            Sent by the drone when its wifi security changes
+            <arg name="type" type="enum">
+                The type of wifi security (open, wpa2)
+                <enum name="open">
+                    Wifi is not protected by any security (default)
+                </enum>
+                <enum name="wpa2">
+                    Wifi is protected by wpa2
+                </enum>
             </arg>
         </cmd>
     </class>
@@ -1621,16 +1655,14 @@
         </cmd>
     </class>
 
-	<class name="PROState" id="32">
-	  Pro features enabled on the Bebop
-	  <cmd name="Features">
-		Features enabled
-		<arg name="features" type="u64">
-		  Bitfield representing enabled features.
-		  Currently supported bits are:
-		  - 0 : 720p streaming
-		  - 1 : No interface on SkyController HDMI
-		</arg>
-	  </cmd>
-	</class>
+    <class name="PROState" id="32">
+        @deprecated
+        Pro features enabled on the Bebop
+        <cmd name="Features">
+            Features enabled
+            <arg name="features" type="u64">
+                Bitfield representing enabled features.
+            </arg>
+        </cmd>
+    </class>
 </project>

@@ -31,14 +31,14 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandARDrone3PROStateFeaturesListener {
+public interface ARCommandSkyControllerSettingsStateProductVariantChangedListener {
 
     /**
-     * Called when a command <code>Features</code> of class <code>PROState</code> in project <code>ARDrone3</code> is decoded
-     * @param _features Bitfield representing enabled features.
+     * Called when a command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> is decoded
+     * @param _variant Variant of the product
      */
-    void onARDrone3PROStateFeaturesUpdate (long features);
+    void onSkyControllerSettingsStateProductVariantChangedUpdate (ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM variant);
 }

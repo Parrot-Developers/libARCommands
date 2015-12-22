@@ -103,7 +103,7 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingTakeOffCallback (ARCOMMANDS_Decoder_A
 /**
  * @brief callback type for the command ARDrone3.Piloting.PCMD
  */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCallback_t) (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, float psi, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCallback_t) (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestampAndSeqNum, void *custom);
 /**
  * @brief callback setter for the command ARDrone3.Piloting.PCMD
  * @param callback new callback for the command ARDrone3.Piloting.PCMD
@@ -821,6 +821,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command ARDrone3.NetworkSettings.wifiSecurity
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t) (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE keyType, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.NetworkSettings.wifiSecurity
+ * @param callback new callback for the command ARDrone3.NetworkSettings.wifiSecurity
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t callback, void *custom);
+
 // Command class NetworkSettingsState
 
 /**
@@ -833,6 +844,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChang
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.NetworkSettingsState.wifiSecurityChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t) (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE type, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.NetworkSettingsState.wifiSecurityChanged
+ * @param callback new callback for the command ARDrone3.NetworkSettingsState.wifiSecurityChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t callback, void *custom);
 
 // Command class Settings
 
@@ -2862,6 +2884,17 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChanged
  */
 void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command SkyController.SettingsState.ProductVariantChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT variant, void *custom);
+/**
+ * @brief callback setter for the command SkyController.SettingsState.ProductVariantChanged
+ * @param callback new callback for the command SkyController.SettingsState.ProductVariantChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t callback, void *custom);
+
 // Command class Common
 
 /**
@@ -3381,6 +3414,19 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibratio
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback (ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback_t callback, void *custom);
+
+// Command class ButtonEvents
+
+/**
+ * @brief callback type for the command SkyController.ButtonEvents.Settings
+ */
+typedef void (*ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command SkyController.ButtonEvents.Settings
+ * @param callback new callback for the command SkyController.ButtonEvents.Settings
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t callback, void *custom);
 
 
 // Project SkyControllerDebug
@@ -4264,6 +4310,19 @@ typedef void (*ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t) (eAR
  */
 void ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback (ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t callback, void *custom);
 
+// Command class RunState
+
+/**
+ * @brief callback type for the command common.RunState.RunIdChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t) (char * runId, void *custom);
+/**
+ * @brief callback setter for the command common.RunState.RunIdChanged
+ * @param callback new callback for the command common.RunState.RunIdChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t callback, void *custom);
+
 
 // Project commonDebug
 
@@ -4382,7 +4441,7 @@ void ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_Decoder_ProP
 /**
  * @brief callback type for the command pro.Pro.Response
  */
-typedef void (*ARCOMMANDS_Decoder_ProProResponseCallback_t) (eARCOMMANDS_PRO_PRO_RESPONSE_STATUS status, char * signedChallenge, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ProProResponseCallback_t) (uint8_t listFlags, char * signedChallenge, void *custom);
 /**
  * @brief callback setter for the command pro.Pro.Response
  * @param callback new callback for the command pro.Pro.Response

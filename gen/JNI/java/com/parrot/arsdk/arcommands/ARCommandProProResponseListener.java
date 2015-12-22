@@ -38,8 +38,11 @@ public interface ARCommandProProResponseListener {
 
     /**
      * Called when a command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code> is decoded
-     * @param _status Status of the response
+     * @param _listFlags List entry attribute Bitfield.
+     * @param _listFlags 0x01: First: indicate it's the first element of the list.
+     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
+     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _signedChallenge the signed challenge
      */
-    void onProProResponseUpdate (ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_ENUM status, String signedChallenge);
+    void onProProResponseUpdate (byte listFlags, String signedChallenge);
 }

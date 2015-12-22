@@ -372,6 +372,33 @@ typedef enum
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND;
 
 // Project ARDrone3
+// Class NetworkSettings
+// Command wifiSecurity
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE;
+
+// Project ARDrone3
+// Class NetworkSettings
+// Command wifiSecurity
+
+/**
+ * @brief Type of the key
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_PLAIN = 0,    ///< Key is plain text, not encrypted
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE;
+
+// Project ARDrone3
 // Class NetworkSettingsState
 // Command WifiSelectionChanged
 
@@ -401,6 +428,20 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ALL,    ///< Both 2.4 and 5 GHz bands
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND;
+
+// Project ARDrone3
+// Class NetworkSettingsState
+// Command wifiSecurityChanged
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE;
 
 // Project ARDrone3
 // Class SettingsState
@@ -1353,6 +1394,20 @@ typedef enum
 } eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS;
 
 // Project SkyController
+// Class SettingsState
+// Command ProductVariantChanged
+
+/**
+ * @brief Variant of the product
+ */
+typedef enum
+{
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP = 0,    ///< SkyController of the bebop generation.
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP2,    ///< SkyController of the bebop2 generation.
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_MAX
+} eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT;
+
+// Project SkyController
 // Class AccessPointSettings
 // Command WifiSelection
 
@@ -1924,21 +1979,6 @@ typedef enum
     ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_READ_WRITE,    ///< Controller can read and write setting.
     ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_MAX
 } eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE;
-
-// Project pro
-// Class Pro
-// Command Response
-
-/**
- * @brief Status of the response
- */
-typedef enum
-{
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_OK = 0,    ///< Challenge has been signed
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_FEATURE_LIST,    ///< The features received don't match the features available (ignore signedChallenge param)
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_BAD_CHALLENGE_FORMAT,    ///< Format of the challenge is not expected (ignore signedChallenge param)
-    ARCOMMANDS_PRO_PRO_RESPONSE_STATUS_MAX
-} eARCOMMANDS_PRO_PRO_RESPONSE_STATUS;
 
 // Project pro
 // Class ProState

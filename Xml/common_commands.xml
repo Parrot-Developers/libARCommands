@@ -1129,5 +1129,14 @@
             </arg>
         </cmd>
     </class>
-
+    <class name="RunState" id="30">
+        Commands sent by the drone to inform about the run or flight state
+        <cmd name="RunIdChanged">
+            Sent when a run id has changed
+            Run ids are uniquely identifying a run or a flight
+            <arg name="runId" type="string">
+                Id of the run
+            </arg>
+        </cmd>
+    </class>
 </project>
