@@ -31,14 +31,16 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>MaxRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandARDrone3SpeedSettingsMaxRotationSpeedListener {
+public interface ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener {
 
     /**
-     * Called when a command <code>MaxRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> is decoded
-     * @param _current Current max yaw rotation speed in degree/s
+     * Called when a command <code>MaxRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * @param _current Current max roll rotation speed in degree/s
+     * @param _min Range min of roll rotation speed
+     * @param _max Range max of roll rotation speed
      */
-    void onARDrone3SpeedSettingsMaxRotationSpeedUpdate (float current);
+    void onARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedUpdate (float current, float min, float max);
 }

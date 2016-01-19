@@ -107,10 +107,14 @@ int ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
 int ARDrone3SpeedSettingsOutdoorShouldBeCalled = 0;
+int ARDrone3SpeedSettingsMaxRollRotationSpeedShouldBeCalled = 0;
+int ARDrone3SpeedSettingsMaxPitchRotationSpeedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateHullProtectionChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
+int ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedShouldBeCalled = 0;
+int ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
 int ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
 int ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled = 0;
@@ -1507,6 +1511,36 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb (uint8_t outdoor, void 
         errcount++ ;
     }
 }
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRollRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxRollRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsMaxRollRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxPitchRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxPitchRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsMaxPitchRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
 
 void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCb (float current, float min, float max, void *custom)
 {
@@ -1587,6 +1621,60 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb (uint8_t ou
         errcount++ ;
     }
     if (ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCb (float current, float min, float max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCb (float current, float min, float max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -7009,10 +7097,14 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsHullProtectionCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsHullProtectionCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsOutdoorCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsOutdoorCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRollRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRollRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRollRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxPitchRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxPitchRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateHullProtectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateHullProtectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateOutdoorChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
@@ -9298,6 +9390,68 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxRollRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxRollRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxRollRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRollRotationSpeedBehavior);
+        ARDrone3SpeedSettingsMaxRollRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsMaxRollRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxPitchRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxPitchRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxPitchRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior);
+        ARDrone3SpeedSettingsMaxPitchRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsMaxPitchRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
 
     // Command class SpeedSettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
@@ -9417,6 +9571,68 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior);
+        ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior);
+        ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

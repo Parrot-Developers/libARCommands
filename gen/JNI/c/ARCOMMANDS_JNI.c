@@ -1806,6 +1806,60 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsOutdoor
     return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsMaxRollRotationSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxRollRotationSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsMaxPitchRotationSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxPitchRotationSpeed ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
@@ -1908,6 +1962,60 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsStateOu
     }
 
     err = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateOutdoorChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)outdoor);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current, jfloat min, jfloat max)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -12354,6 +12462,48 @@ void ARCOMMANDS_JNI_ARDrone3SpeedSettingsOutdoornativeCb (uint8_t outdoor, void 
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxRollRotationSpeednativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3SpeedSettingsMaxRollRotationSpeedUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxPitchRotationSpeednativeCb (float current, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3SpeedSettingsMaxPitchRotationSpeedUpdate", "(F)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 
 void ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangednativeCb (float current, float min, float max, void *custom)
 {
@@ -12435,6 +12585,48 @@ void ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateOutdoorChangednativeCb (uint8_t ou
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)outdoor);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangednativeCb (float current, float min, float max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedUpdate", "(FFF)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -19845,11 +20037,15 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxRotationSpeednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsHullProtectionCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsHullProtectionnativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsOutdoorCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsOutdoornativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRollRotationSpeedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxRollRotationSpeednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxPitchRotationSpeedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxPitchRotationSpeednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxRotationSpeedChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateHullProtectionChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateHullProtectionChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateOutdoorChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSelectionnativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsWifiSecuritynativeCb, (void *)g_class);

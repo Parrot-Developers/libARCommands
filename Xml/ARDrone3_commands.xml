@@ -870,9 +870,9 @@
             </arg>
         </cmd>
         <cmd name="MaxRotationSpeed">
-            Set Max Rotation speed
+            Set Max Yaw Rotation speed
             <arg name="current" type="float">
-                Current max rotation speed in degree/s
+                Current max yaw rotation speed in degree/s
             </arg>
         </cmd>
         <cmd name="HullProtection">
@@ -885,6 +885,18 @@
             Outdoor property
             <arg name="outdoor" type="u8">
                 1 if outdoor flight, 0 if indoor flight
+            </arg>
+        </cmd>
+        <cmd name="MaxRollRotationSpeed">
+            Set Max Roll Rotation speed
+            <arg name="current" type="float">
+                Current max roll speed in degree/s
+            </arg>
+        </cmd>
+        <cmd name="MaxPitchRotationSpeed">
+            Set Max Pitch Rotation speed
+            <arg name="current" type="float">
+                Current max pitch rotation speed in degree/s
             </arg>
         </cmd>
     </class>
@@ -904,15 +916,15 @@
             </arg>
         </cmd>
         <cmd name="MaxRotationSpeedChanged">
-            Max rotation speed sent by product
+            Max yaw rotation speed sent by product
             <arg name="current" type="float">
-                Current max rotation speed in degree/s
+                Current max yaw rotation speed in degree/s
             </arg>
             <arg name="min" type="float">
-                Range min of rotation speed
+                Range min of yaw rotation speed
             </arg>
             <arg name="max" type="float">
-                Range max of rotation speed
+                Range max of yaw rotation speed
             </arg>
         </cmd>
         <cmd name="HullProtectionChanged">
@@ -925,6 +937,30 @@
             Outdoor property sent by product
             <arg name="outdoor" type="u8">
                 1 if outdoor flight, 0 if indoor flight
+            </arg>
+        </cmd>
+        <cmd name="MaxRollRotationSpeedChanged">
+            Max roll rotation speed sent by product
+            <arg name="current" type="float">
+                Current max roll rotation speed in degree/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of roll rotation speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of roll rotation speed
+            </arg>
+        </cmd>
+        <cmd name="MaxPitchRotationSpeedChanged">
+            Max pitch rotation speed sent by product
+            <arg name="current" type="float">
+                Current max pitch rotation speed in degree/s
+            </arg>
+            <arg name="min" type="float">
+                Range min of pitch rotation speed
+            </arg>
+            <arg name="max" type="float">
+                Range max of pitch rotation speed
             </arg>
         </cmd>
     </class>

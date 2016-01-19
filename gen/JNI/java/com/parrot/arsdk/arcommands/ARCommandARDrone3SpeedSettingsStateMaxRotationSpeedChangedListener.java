@@ -38,9 +38,9 @@ public interface ARCommandARDrone3SpeedSettingsStateMaxRotationSpeedChangedListe
 
     /**
      * Called when a command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code> is decoded
-     * @param _current Current max rotation speed in degree/s
-     * @param _min Range min of rotation speed
-     * @param _max Range max of rotation speed
+     * @param _current Current max yaw rotation speed in degree/s
+     * @param _min Range min of yaw rotation speed
+     * @param _max Range max of yaw rotation speed
      */
     void onARDrone3SpeedSettingsStateMaxRotationSpeedChangedUpdate (float current, float min, float max);
 }

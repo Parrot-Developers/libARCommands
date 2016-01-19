@@ -122,11 +122,15 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsOutdoorBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior;
     // Class SpeedSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior;
     // Class NetworkSettings
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSelectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityBehavior;
@@ -687,11 +691,15 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsOutdoorBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior = defaultBehavior;
         // Class SpeedSettingsState
         retFilter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior = defaultBehavior;
         // Class NetworkSettings
         retFilter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = defaultBehavior;
@@ -1649,6 +1657,16 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3SpeedSettingsOutdoorBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGS_CMD_OUTDOOR */
+                case ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGS_CMD_MAXROLLROTATIONSPEED:
+                {
+                    retStatus = filter->CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGS_CMD_MAXROLLROTATIONSPEED */
+                case ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGS_CMD_MAXPITCHROTATIONSPEED:
+                {
+                    retStatus = filter->CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGS_CMD_MAXPITCHROTATIONSPEED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1679,6 +1697,16 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGSSTATE_CMD_OUTDOORCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGSSTATE_CMD_MAXROLLROTATIONSPEEDCHANGED:
+                {
+                    retStatus = filter->CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGSSTATE_CMD_MAXROLLROTATIONSPEEDCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGSSTATE_CMD_MAXPITCHROTATIONSPEEDCHANGED:
+                {
+                    retStatus = filter->CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_SPEEDSETTINGSSTATE_CMD_MAXPITCHROTATIONSPEEDCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4736,10 +4764,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
@@ -5158,6 +5190,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsBehavior (ARC
         filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior = behavior;
     }
 
     return retError;
@@ -5186,6 +5220,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateBehavior
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior = behavior;
     }
 
     return retError;
@@ -7003,6 +7039,50 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavi
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsMaxRollRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
 
 // Command class SpeedSettingsState
 
@@ -7089,6 +7169,50 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateOutdoorC
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior = behavior;
     }
 
     return retError;
