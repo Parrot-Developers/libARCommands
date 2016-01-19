@@ -38,27 +38,25 @@ package com.parrot.arsdk.arcommands;
 import java.util.HashMap;
 
 /**
- * Java copy of the eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE enum
+ * Java copy of the eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE enum
  */
-public enum ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM {
+public enum ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM {
    /** Dummy value for all unknown cases */
-    eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-   /** Wifi is not protected by any security (default) */
-    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_OPEN (0, "Wifi is not protected by any security (default)"),
-   /** Wifi is protected by wpa2 */
-    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_WPA2 (1, "Wifi is protected by wpa2"),
-   ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_MAX (2);
+    eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
+   /** Key is plain text, not encrypted */
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_PLAIN (0, "Key is plain text, not encrypted"),
+   ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_MAX (1);
 
     private final int value;
     private final String comment;
-    static HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM> valuesList;
+    static HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM> valuesList;
 
-    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM (int value) {
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM (int value) {
         this.value = value;
         this.comment = null;
     }
 
-    ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM (int value, String comment) {
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM (int value, String comment) {
         this.value = value;
         this.comment = comment;
     }
@@ -72,21 +70,21 @@ public enum ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM {
     }
 
     /**
-     * Gets the ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM instance from a C enum value
+     * Gets the ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM instance from a C enum value
      * @param value C value of the enum
-     * @return The ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM instance, or null if the C enum value was not valid
+     * @return The ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM instance, or null if the C enum value was not valid
      */
-    public static ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM getFromValue (int value) {
+    public static ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM getFromValue (int value) {
         if (null == valuesList) {
-            ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM [] valuesArray = ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM.values ();
-            valuesList = new HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM> (valuesArray.length);
-            for (ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM entry : valuesArray) {
+            ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM [] valuesArray = ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM.values ();
+            valuesList = new HashMap<Integer, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM> (valuesArray.length);
+            for (ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM entry : valuesArray) {
                 valuesList.put (entry.getValue (), entry);
             }
         }
-        ARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_ENUM retVal = valuesList.get (value);
+        ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM retVal = valuesList.get (value);
         if (retVal == null) {
-            retVal = eARCOMMANDS_ARDRONE3_NETWORK_WIFISECURITY_TYPE_UNKNOWN_ENUM_VALUE;
+            retVal = eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_UNKNOWN_ENUM_VALUE;
         }
         return retVal;    }
 

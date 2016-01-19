@@ -878,6 +878,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChange
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command ARDrone3.NetworkSettingsState.wifiSecurity
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityCallback_t) (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE keyType, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.NetworkSettingsState.wifiSecurity
+ * @param callback new callback for the command ARDrone3.NetworkSettingsState.wifiSecurity
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityCallback_t callback, void *custom);
+
 // Command class Settings
 
 // Command class SettingsState

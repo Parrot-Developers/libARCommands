@@ -792,6 +792,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettin
     return (jint)err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettingsStateWifiSecurityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityBehavior (filter, behavior);
+    return (jint)err;
+}
+
 
     // - Class Settings
 JNIEXPORT jint JNICALL

@@ -444,6 +444,33 @@ typedef enum
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE;
 
 // Project ARDrone3
+// Class NetworkSettingsState
+// Command wifiSecurity
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE;
+
+// Project ARDrone3
+// Class NetworkSettingsState
+// Command wifiSecurity
+
+/**
+ * @brief Type of the key
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_PLAIN = 0,    ///< Key is plain text, not encrypted
+    ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_MAX
+} eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE;
+
+// Project ARDrone3
 // Class SettingsState
 // Command MotorErrorStateChanged
 
