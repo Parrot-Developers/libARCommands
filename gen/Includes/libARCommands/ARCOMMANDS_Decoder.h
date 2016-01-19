@@ -763,26 +763,15 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsOutdoorCallback_t) (uint8
 void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsOutdoorCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsOutdoorCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command ARDrone3.SpeedSettings.MaxRollRotationSpeed
+ * @brief callback type for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed
  */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRollRotationSpeedCallback_t) (float current, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRollRotationSpeedCallback_t) (float current, void *custom);
 /**
- * @brief callback setter for the command ARDrone3.SpeedSettings.MaxRollRotationSpeed
- * @param callback new callback for the command ARDrone3.SpeedSettings.MaxRollRotationSpeed
+ * @brief callback setter for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed
+ * @param callback new callback for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRollRotationSpeedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRollRotationSpeedCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command ARDrone3.SpeedSettings.MaxPitchRotationSpeed
- */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRotationSpeedCallback_t) (float current, void *custom);
-/**
- * @brief callback setter for the command ARDrone3.SpeedSettings.MaxPitchRotationSpeed
- * @param callback new callback for the command ARDrone3.SpeedSettings.MaxPitchRotationSpeed
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxPitchRotationSpeedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRotationSpeedCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRollRotationSpeedCallback_t callback, void *custom);
 
 // Command class SpeedSettingsState
 
@@ -831,26 +820,15 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateOutdoorChangedCallba
 void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateOutdoorChangedCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged
+ * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged
  */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback_t) (float current, float min, float max, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCallback_t) (float current, float min, float max, void *custom);
 /**
- * @brief callback setter for the command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged
- * @param callback new callback for the command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged
+ * @brief callback setter for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged
+ * @param callback new callback for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged
- */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback_t) (float current, float min, float max, void *custom);
-/**
- * @brief callback setter for the command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged
- * @param callback new callback for the command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCallback_t callback, void *custom);
 
 // Command class NetworkSettings
 

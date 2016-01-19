@@ -887,16 +887,10 @@
                 1 if outdoor flight, 0 if indoor flight
             </arg>
         </cmd>
-        <cmd name="MaxRollRotationSpeed">
-            Set Max Roll Rotation speed
+        <cmd name="MaxPitchRollRotationSpeed">
+            Set Max Pitch/Rool Rotation speed
             <arg name="current" type="float">
-                Current max roll speed in degree/s
-            </arg>
-        </cmd>
-        <cmd name="MaxPitchRotationSpeed">
-            Set Max Pitch Rotation speed
-            <arg name="current" type="float">
-                Current max pitch rotation speed in degree/s
+                Current max pitch/roll rotation speed in degree/s
             </arg>
         </cmd>
     </class>
@@ -939,28 +933,16 @@
                 1 if outdoor flight, 0 if indoor flight
             </arg>
         </cmd>
-        <cmd name="MaxRollRotationSpeedChanged">
-            Max roll rotation speed sent by product
+        <cmd name="MaxPitchRollRotationSpeedChanged">
+            Max pitch/roll rotation speed sent by product
             <arg name="current" type="float">
-                Current max roll rotation speed in degree/s
+                Current max pitch/roll rotation speed in degree/s
             </arg>
             <arg name="min" type="float">
-                Range min of roll rotation speed
+                Range min of pitch/roll rotation speed
             </arg>
             <arg name="max" type="float">
-                Range max of roll rotation speed
-            </arg>
-        </cmd>
-        <cmd name="MaxPitchRotationSpeedChanged">
-            Max pitch rotation speed sent by product
-            <arg name="current" type="float">
-                Current max pitch rotation speed in degree/s
-            </arg>
-            <arg name="min" type="float">
-                Range min of pitch rotation speed
-            </arg>
-            <arg name="max" type="float">
-                Range max of pitch rotation speed
+                Range max of pitch/roll rotation speed
             </arg>
         </cmd>
     </class>

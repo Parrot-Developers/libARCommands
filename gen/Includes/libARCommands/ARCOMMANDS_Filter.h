@@ -727,20 +727,12 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectio
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxRollRotationSpeed.
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxPitchRotationSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class SpeedSettingsState
@@ -786,20 +778,12 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateHullProt
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxRollRotationSpeedChanged.
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRotationSpeedChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class NetworkSettings

@@ -683,18 +683,10 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettings
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsMaxRollRotationSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRollRotationSpeedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRotationSpeedBehavior (filter, behavior);
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (filter, behavior);
     return (jint)err;
 }
 
@@ -741,18 +733,10 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettings
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedBehavior (filter, behavior);
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (filter, behavior);
     return (jint)err;
 }
 

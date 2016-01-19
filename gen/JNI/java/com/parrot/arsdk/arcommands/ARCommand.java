@@ -1924,7 +1924,7 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>MaxRollRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
+     * Set an ARCommand to hold the command <code>MaxPitchRollRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
      * <br>
      * Project ARDrone3 description:<br>
      * All ARDrone3-only commands<br>
@@ -1932,49 +1932,20 @@ public class ARCommand extends ARNativeData {
      * Class SpeedSettings description:<br>
      * Speed Settings commands<br>
      * <br>
-     * Command MaxRollRotationSpeed description:<br>
-     * Set Max Roll Rotation speed<br>
+     * Command MaxPitchRollRotationSpeed description:<br>
+     * Set Max Pitch/Rool Rotation speed<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _current Current max roll speed in degree/s
+     * @param _current Current max pitch/roll rotation speed in degree/s
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsMaxRollRotationSpeed (float current) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsMaxPitchRollRotationSpeed (float current) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3SpeedSettingsMaxRollRotationSpeed (pointer, capacity, current);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxPitchRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
-     * <br>
-     * Project ARDrone3 description:<br>
-     * All ARDrone3-only commands<br>
-     * <br>
-     * Class SpeedSettings description:<br>
-     * Speed Settings commands<br>
-     * <br>
-     * Command MaxPitchRotationSpeed description:<br>
-     * Set Max Pitch Rotation speed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max pitch rotation speed in degree/s
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsMaxPitchRotationSpeed (float current) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetARDrone3SpeedSettingsMaxPitchRotationSpeed (pointer, capacity, current);
+        int errInt = nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeed (pointer, capacity, current);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2102,7 +2073,7 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>MaxRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
+     * Set an ARCommand to hold the command <code>MaxPitchRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
      * <br>
      * Project ARDrone3 description:<br>
      * All ARDrone3-only commands<br>
@@ -2110,53 +2081,22 @@ public class ARCommand extends ARNativeData {
      * Class SpeedSettingsState description:<br>
      * Speed Settings state from product<br>
      * <br>
-     * Command MaxRollRotationSpeedChanged description:<br>
-     * Max roll rotation speed sent by product<br>
+     * Command MaxPitchRollRotationSpeedChanged description:<br>
+     * Max pitch/roll rotation speed sent by product<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _current Current max roll rotation speed in degree/s
-     * @param _min Range min of roll rotation speed
-     * @param _max Range max of roll rotation speed
+     * @param _current Current max pitch/roll rotation speed in degree/s
+     * @param _min Range min of pitch/roll rotation speed
+     * @param _max Range max of pitch/roll rotation speed
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged (float current, float min, float max) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChanged (float current, float min, float max) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged (pointer, capacity, current, min, max);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MaxPitchRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
-     * <br>
-     * Project ARDrone3 description:<br>
-     * All ARDrone3-only commands<br>
-     * <br>
-     * Class SpeedSettingsState description:<br>
-     * Speed Settings state from product<br>
-     * <br>
-     * Command MaxPitchRotationSpeedChanged description:<br>
-     * Max pitch rotation speed sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _current Current max pitch rotation speed in degree/s
-     * @param _min Range min of pitch rotation speed
-     * @param _max Range max of pitch rotation speed
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged (float current, float min, float max) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged (pointer, capacity, current, min, max);
+        int errInt = nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChanged (pointer, capacity, current, min, max);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11945,26 +11885,15 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3SpeedSettingsOutdoorListener = _ARCommandARDrone3SpeedSettingsOutdoorListener_PARAM;
     }
 
-    private static ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener = null;
+    private static ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener = null;
 
     /**
-     * Set the listener for the command <code>MaxRollRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
+     * Set the listener for the command <code>MaxPitchRollRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener_PARAM New listener for the command
+     * @param _ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener_PARAM New listener for the command
      */
-    public static void setARDrone3SpeedSettingsMaxRollRotationSpeedListener (ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener_PARAM) {
-        _ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener = _ARCommandARDrone3SpeedSettingsMaxRollRotationSpeedListener_PARAM;
-    }
-
-    private static ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxPitchRotationSpeed</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener_PARAM New listener for the command
-     */
-    public static void setARDrone3SpeedSettingsMaxPitchRotationSpeedListener (ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener_PARAM) {
-        _ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener = _ARCommandARDrone3SpeedSettingsMaxPitchRotationSpeedListener_PARAM;
+    public static void setARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener (ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener _ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener_PARAM) {
+        _ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener = _ARCommandARDrone3SpeedSettingsMaxPitchRollRotationSpeedListener_PARAM;
     }
 
 
@@ -12012,26 +11941,15 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3SpeedSettingsStateOutdoorChangedListener = _ARCommandARDrone3SpeedSettingsStateOutdoorChangedListener_PARAM;
     }
 
-    private static ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener = null;
+    private static ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener = null;
 
     /**
-     * Set the listener for the command <code>MaxRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
+     * Set the listener for the command <code>MaxPitchRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener_PARAM New listener for the command
+     * @param _ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener_PARAM New listener for the command
      */
-    public static void setARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener (ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener_PARAM) {
-        _ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener = _ARCommandARDrone3SpeedSettingsStateMaxRollRotationSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MaxPitchRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener (ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener_PARAM) {
-        _ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener = _ARCommandARDrone3SpeedSettingsStateMaxPitchRotationSpeedChangedListener_PARAM;
+    public static void setARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener (ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener_PARAM) {
+        _ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener = _ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener_PARAM;
     }
 
 
@@ -15652,15 +15570,13 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3SpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
     private native int     nativeSetARDrone3SpeedSettingsHullProtection (long pdata, int dataTotalLength, byte present);
     private native int     nativeSetARDrone3SpeedSettingsOutdoor (long pdata, int dataTotalLength, byte outdoor);
-    private native int     nativeSetARDrone3SpeedSettingsMaxRollRotationSpeed (long pdata, int dataTotalLength, float current);
-    private native int     nativeSetARDrone3SpeedSettingsMaxPitchRotationSpeed (long pdata, int dataTotalLength, float current);
+    private native int     nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
     private native int     nativeSetARDrone3SpeedSettingsStateMaxRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
     private native int     nativeSetARDrone3SpeedSettingsStateHullProtectionChanged (long pdata, int dataTotalLength, byte present);
     private native int     nativeSetARDrone3SpeedSettingsStateOutdoorChanged (long pdata, int dataTotalLength, byte outdoor);
-    private native int     nativeSetARDrone3SpeedSettingsStateMaxRollRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
-    private native int     nativeSetARDrone3SpeedSettingsStateMaxPitchRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
+    private native int     nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
     private native int     nativeSetARDrone3NetworkSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
     private native int     nativeSetARDrone3NetworkSettingsWifiSecurity (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM keyType);
