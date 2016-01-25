@@ -945,8 +945,6 @@ void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityCallback (ARC
     } // No else --> do nothing if library can not be initialized
 }
 
-// Command class Settings
-
 // Command class SettingsState
 static ARCOMMANDS_Decoder_ARDrone3SettingsStateProductMotorVersionListChangedCallback_t ARCOMMANDS_Decoder_ARDrone3SettingsStateProductMotorVersionListChangedCb = NULL;
 static void *ARCOMMANDS_Decoder_ARDrone3SettingsStateProductMotorVersionListChangedCustom = NULL;
@@ -1032,10 +1030,6 @@ void ARCOMMANDS_Decoder_SetARDrone3SettingsStateP7IDCallback (ARCOMMANDS_Decoder
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-
-// Command class DirectorMode
-
-// Command class DirectorModeState
 
 // Command class PictureSettings
 static ARCOMMANDS_Decoder_ARDrone3PictureSettingsPictureFormatSelectionCallback_t ARCOMMANDS_Decoder_ARDrone3PictureSettingsPictureFormatSelectionCb = NULL;
@@ -1740,8 +1734,6 @@ void ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCall
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-
-// Command class Settings
 
 // Command class SettingsState
 static ARCOMMANDS_Decoder_JumpingSumoSettingsStateProductGPSVersionChangedCallback_t ARCOMMANDS_Decoder_JumpingSumoSettingsStateProductGPSVersionChangedCb = NULL;
@@ -7343,16 +7335,6 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_NETWORKSETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)
@@ -7608,26 +7590,6 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE:
-            {
-                switch (commandId)
-                {
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE:
-            {
-                switch (commandId)
-                {
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_PICTURESETTINGS:
             {
                 switch (commandId)
@@ -9466,16 +9428,6 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_ANIMATIONSSTATE */
-            case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS */
             case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)
@@ -19727,17 +19679,6 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_NETWORKSETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Settings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)
@@ -19980,28 +19921,6 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE:
-            {
-                switch (commandId)
-                {
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.DirectorMode.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE:
-            {
-                switch (commandId)
-                {
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.DirectorModeState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_PICTURESETTINGS:
             {
                 switch (commandId)
@@ -21652,17 +21571,6 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_ANIMATIONSSTATE */
-            case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("JumpingSumo.Settings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS */
             case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)

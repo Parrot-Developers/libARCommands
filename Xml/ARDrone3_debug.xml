@@ -76,13 +76,13 @@
 
     <class name="Video" id="0">
         Debug commands for video
-        <cmd name="EnableWobbleCancellation">
+        <cmd name="EnableWobbleCancellation" id="0">
             Turn on/off wobble cancellation
             <arg name="enable" type="u8">
                 When enable=0, wobble cancellation is disabled else it's enabled
             </arg>
         </cmd>
-        <cmd name="SyncAnglesGyros">
+        <cmd name="SyncAnglesGyros" id="1">
             Adjust delay between angles/gyros and frame for video stabilization and wobble cancellation
 
             <arg name="anglesDelay_s" type="float">
@@ -94,13 +94,13 @@
 			</arg>
 
         </cmd>
-        <cmd name="ManualWhiteBalance">
+        <cmd name="ManualWhiteBalance" id="2">
             Tune white balance
         </cmd>
     </class>
     <class name="BatteryDebugSettings" id="1">
     	Debug commands for drone3 battery
-    	<cmd name="UseDrone2Battery">
+    	<cmd name="UseDrone2Battery" id="0">
     		Use or not the drone2 battery
     		<arg name="drone2BatteryUsed" type="u8">
     			1 if the drone2 battery is used, 0 if the drone3 battery is used
@@ -109,7 +109,7 @@
     </class>
     <class name="BatteryDebugSettingsState" id="2">
     	Debug commands for drone3 battery state
-    	<cmd name="UseDrone2BatteryChanged">
+    	<cmd name="UseDrone2BatteryChanged" id="0">
     		Use or not the drone2 battery
     		<arg name="drone2BatteryUsed" type="u8">
     			1 if the drone2 battery is used, 0 if the drone3 battery is used
@@ -118,7 +118,7 @@
     </class>
     <class name="GPSDebugState" id="3">
     	Debug commands for drone3 gps state
-    	<cmd name="nbSatelliteChanged">
+    	<cmd name="nbSatelliteChanged" id="0">
     		Nb of satellite that gps is linked to
     		<arg name="nbSatellite" type="u8">
     			Amount of satellite used by gps location

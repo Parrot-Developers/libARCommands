@@ -77,7 +77,7 @@
     <class name="Debug" id="0">
         Temporary, debug commands
         
-        <cmd name="Test1">
+        <cmd name="Test1" id="0">
             Test 1 command
             <arg name="t1Args" type="i8">
                 Test 1 argument

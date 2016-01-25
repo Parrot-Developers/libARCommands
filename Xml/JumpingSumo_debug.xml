@@ -77,7 +77,7 @@
   <class name="Jump" id="0">
     All debug commands.
 
-    <cmd name="setJumpMotor">
+    <cmd name="setJumpMotor" id="0">
       Ask the JS speed and turn ratio.
 
       <arg name="speed" type="i8">
@@ -86,7 +86,7 @@
 
     </cmd>
 
-    <cmd name="setCameraOrientation">
+    <cmd name="setCameraOrientation" id="1">
         Change the camera vertical orientation.
         <arg name="speedIncrement" type="i8">
             Orientation increment speed [-100:100].
@@ -98,7 +98,7 @@
   <class name="Audio" id="1">
     All audio debug commands.
 
-    <cmd name="playSoundWithName">
+    <cmd name="playSoundWithName" id="0">
       Play a sound from a file.
 
       <arg name="filename" type="string">
@@ -112,7 +112,7 @@
   <class name="Misc" id="2">
     All debug commands that you don't know where ot put.
 
-    <cmd name="debugEvent">
+    <cmd name="debugEvent" id="0">
       Command to create an event in colibry state machine for all kinds of debug.
     </cmd>
     
@@ -121,7 +121,7 @@
   <class name="Animation" id="3">
     Triggerable animations.
 
-    <cmd name="playAnimation">
+    <cmd name="playAnimation" id="0">
         Play an animation.
         
         <arg name="id" type="enum">
@@ -162,7 +162,7 @@
               </enum>
         </arg>
     </cmd>
-    <cmd name="addCapOffset">
+    <cmd name="addCapOffset" id="1">
         Add the specified offset to the current cap.
         <arg name="offset" type="float">
             Offset value in radians.
@@ -173,14 +173,14 @@
   <class name="UserScript" id="4">
     All commands related to user scripts.
 
-    <cmd name="userScriptUploaded">
+    <cmd name="userScriptUploaded" id="0">
       Command to notify the firmware that a new user script was uploaded.
     </cmd>
   </class>
 
   <class name="UserScriptState" id="5">
     All status information related with user scripts.
-    <cmd name="userScriptParsed">
+    <cmd name="userScriptParsed" id="0">
       Notification sent by the firmware after attempting to parse the user script.
       <arg name="success" type="u8">
         Whether the script was loaded successfully (0 = failed, 1 = success).

@@ -1207,20 +1207,6 @@ public class ARCommandsFilter
     }
 
 
-    // - Class Settings
-    private native int nativeSetARDrone3SettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Settings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
     // - Class SettingsState
     private native int nativeSetARDrone3SettingsStateBehavior (long cFilter, int behavior);
     /**
@@ -1315,34 +1301,6 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetARDrone3SettingsStateP7IDBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class DirectorMode
-    private native int nativeSetARDrone3DirectorModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.DirectorMode.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3DirectorModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3DirectorModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class DirectorModeState
-    private native int nativeSetARDrone3DirectorModeStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.DirectorModeState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3DirectorModeStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3DirectorModeStateBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
@@ -2299,20 +2257,6 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class Settings
-    private native int nativeSetJumpingSumoSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands JumpingSumo.Settings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setJumpingSumoSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetJumpingSumoSettingsBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

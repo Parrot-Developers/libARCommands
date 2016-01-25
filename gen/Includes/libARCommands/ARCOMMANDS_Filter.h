@@ -848,17 +848,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSe
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
-// Command class Settings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Settings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
 // Command class SettingsState
 
 /**
@@ -924,28 +913,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorErrorLas
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class DirectorMode
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.DirectorMode.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3DirectorModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class DirectorModeState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.DirectorModeState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3DirectorModeStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class PictureSettings
@@ -1617,17 +1584,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpType
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class Settings
-
-/**
- * @brief Sets the filter behavior for all commands JumpingSumo.Settings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class SettingsState

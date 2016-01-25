@@ -1763,7 +1763,6 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityCb (eARCOMMAND
     }
 }
 
-
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateProductMotorVersionListChangedCb (uint8_t motor_number, char * type, char * software, char * hardware, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.ProductMotorVersionListChanged --> Custom PTR = %p", custom);
@@ -1911,8 +1910,6 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateP7IDCb (char * serialID, void *cu
         errcount++ ;
     }
 }
-
-
 
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsPictureFormatSelectionCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE type, void *custom)
 {
@@ -2891,7 +2888,6 @@ void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb (e
         errcount++ ;
     }
 }
-
 
 void ARCOMMANDS_Testbench_JumpingSumoSettingsStateProductGPSVersionChangedCb (char * software, char * hardware, void *custom)
 {
@@ -9721,8 +9717,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-    // Command class Settings
-
     // Command class SettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3SettingsStateProductMotorVersionListChanged (buffer, buffSize, &resSize, 42, "Test string with spaces", "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
@@ -9941,10 +9935,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class DirectorMode
-
-    // Command class DirectorModeState
 
     // Command class PictureSettings
     res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsPictureFormatSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0);
@@ -11692,8 +11682,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Settings
 
     // Command class SettingsState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoSettingsStateProductGPSVersionChanged (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");

@@ -801,16 +801,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3NetworkSettin
 }
 
 
-    // - Class Settings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
     // - Class SettingsState
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
@@ -873,26 +863,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SettingsState
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // - Class DirectorMode
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3DirectorModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3DirectorModeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // - Class DirectorModeState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3DirectorModeStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3DirectorModeStateBehavior (filter, behavior);
     return (jint)err;
 }
 
@@ -1543,16 +1513,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimations
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // - Class Settings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSettingsBehavior (filter, behavior);
     return (jint)err;
 }
 

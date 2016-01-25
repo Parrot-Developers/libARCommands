@@ -889,8 +889,6 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityCallba
  */
 void ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityCallback (ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityCallback_t callback, void *custom);
 
-// Command class Settings
-
 // Command class SettingsState
 
 /**
@@ -969,10 +967,6 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3SettingsStateP7IDCallback_t) (char * s
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3SettingsStateP7IDCallback (ARCOMMANDS_Decoder_ARDrone3SettingsStateP7IDCallback_t callback, void *custom);
-
-// Command class DirectorMode
-
-// Command class DirectorModeState
 
 // Command class PictureSettings
 
@@ -1622,8 +1616,6 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpMotorProblemChan
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCallback (ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpMotorProblemChangedCallback_t callback, void *custom);
-
-// Command class Settings
 
 // Command class SettingsState
 

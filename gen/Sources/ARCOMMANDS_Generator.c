@@ -4177,8 +4177,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3NetworkSettings
 }
 
 
-// Command class Settings
-
 // Command class SettingsState
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateProductMotorVersionListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _motor_number, const char * _type, const char * _software, const char * _hardware)
 {
@@ -4638,10 +4636,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateP7
     return retVal;
 }
 
-
-// Command class DirectorMode
-
-// Command class DirectorModeState
 
 // Command class PictureSettings
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsPictureFormatSelection (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE _type)
@@ -7744,8 +7738,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsSt
     return retVal;
 }
 
-
-// Command class Settings
 
 // Command class SettingsState
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoSettingsStateProductGPSVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _software, const char * _hardware)

@@ -12042,7 +12042,6 @@ public class ARCommand extends ARNativeData {
     }
 
 
-
     private static ARCommandARDrone3SettingsStateProductMotorVersionListChangedListener _ARCommandARDrone3SettingsStateProductMotorVersionListChangedListener = null;
 
     /**
@@ -12119,8 +12118,6 @@ public class ARCommand extends ARNativeData {
     public static void setARDrone3SettingsStateP7IDListener (ARCommandARDrone3SettingsStateP7IDListener _ARCommandARDrone3SettingsStateP7IDListener_PARAM) {
         _ARCommandARDrone3SettingsStateP7IDListener = _ARCommandARDrone3SettingsStateP7IDListener_PARAM;
     }
-
-
 
 
     private static ARCommandARDrone3PictureSettingsPictureFormatSelectionListener _ARCommandARDrone3PictureSettingsPictureFormatSelectionListener = null;
@@ -12747,7 +12744,6 @@ public class ARCommand extends ARNativeData {
     public static void setJumpingSumoAnimationsStateJumpMotorProblemChangedListener (ARCommandJumpingSumoAnimationsStateJumpMotorProblemChangedListener _ARCommandJumpingSumoAnimationsStateJumpMotorProblemChangedListener_PARAM) {
         _ARCommandJumpingSumoAnimationsStateJumpMotorProblemChangedListener = _ARCommandJumpingSumoAnimationsStateJumpMotorProblemChangedListener_PARAM;
     }
-
 
 
     private static ARCommandJumpingSumoSettingsStateProductGPSVersionChangedListener _ARCommandJumpingSumoSettingsStateProductGPSVersionChangedListener = null;
@@ -15628,7 +15624,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM type);
     private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurity (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM keyType);
 
-
     private native int     nativeSetARDrone3SettingsStateProductMotorVersionListChanged (long pdata, int dataTotalLength, byte motor_number, String type, String software, String hardware);
     private native int     nativeSetARDrone3SettingsStateProductGPSVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
     private native int     nativeSetARDrone3SettingsStateMotorErrorStateChanged (long pdata, int dataTotalLength, byte motorIds, ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR_ENUM motorError);
@@ -15636,8 +15631,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3SettingsStateMotorFlightsStatusChanged (long pdata, int dataTotalLength, short nbFlights, short lastFlightDuration, int totalFlightDuration);
     private native int     nativeSetARDrone3SettingsStateMotorErrorLastErrorChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR_ENUM motorError);
     private native int     nativeSetARDrone3SettingsStateP7ID (long pdata, int dataTotalLength, String serialID);
-
-
 
     private native int     nativeSetARDrone3PictureSettingsPictureFormatSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE_ENUM type);
     private native int     nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE_ENUM type);
@@ -15714,7 +15707,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetJumpingSumoAnimationsStateJumpLoadChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM state);
     private native int     nativeSetJumpingSumoAnimationsStateJumpTypeChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE_ENUM state);
     private native int     nativeSetJumpingSumoAnimationsStateJumpMotorProblemChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR_ENUM error);
-
 
     private native int     nativeSetJumpingSumoSettingsStateProductGPSVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
 

@@ -76,21 +76,21 @@
     <class name="Debug" id="0">
         Temporary, debug commands
         
-        <cmd name="Test1">
+        <cmd name="Test1" id="0">
             Test 1 command
             <arg name="t1Args" type="i8">
                 Test 1 argument
             </arg>
         </cmd>
         
-        <cmd name="Test2">
+        <cmd name="Test2" id="1">
             Test 2 command
             <arg name="t2Args" type="i8">
                 Test 2 argument
             </arg>
         </cmd>
         
-        <cmd name="Test3">
+        <cmd name="Test3" id="2">
             Test 3 command
             <arg name="t3Args" type="i8">
                 Test 3 argument

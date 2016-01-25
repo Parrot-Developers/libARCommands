@@ -927,8 +927,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3NetworkSettings
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSecurity (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE _type, const char * _key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE _keyType);
 
-// Command class Settings
-
 // Command class SettingsState
 
 /**
@@ -1014,10 +1012,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateMo
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateP7ID (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _serialID);
-
-// Command class DirectorMode
-
-// Command class DirectorModeState
 
 // Command class PictureSettings
 
@@ -1690,8 +1684,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsSt
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpMotorProblemChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR _error);
-
-// Command class Settings
 
 // Command class SettingsState
 

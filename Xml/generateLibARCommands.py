@@ -586,12 +586,7 @@ for proj in allProjects:
         ENAME=proj.name + '_' + cl.name + '_CMD'
         first = True
         for cmd in cl.cmds:
-            if first:
-                hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cmd.name) + ' = 0,\n')
-                first = False
-            else:
-                hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cmd.name) + ',\n')
-        hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, 'MAX') + ',\n')
+            hfile.write ('    ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, ENAME, cmd.name) + ' = ' + cmd.ident + ',\n')
         hfile.write ('} ' + AREnumName (LIB_MODULE, ID_SUBMODULE, ENAME) + ';\n')
         hfile.write ('\n')
     hfile.write ('\n')

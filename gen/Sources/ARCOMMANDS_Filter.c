@@ -136,7 +136,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityBehavior;
-    // Class Settings
     // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductGPSVersionChangedBehavior;
@@ -145,8 +144,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateP7IDBehavior;
-    // Class DirectorMode
-    // Class DirectorModeState
     // Class PictureSettings
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsPictureFormatSelectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior;
@@ -225,7 +222,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior;
-    // Class Settings
     // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior;
     // Class MediaRecord
@@ -704,7 +700,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityBehavior = defaultBehavior;
-        // Class Settings
         // Class SettingsState
         retFilter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateProductGPSVersionChangedBehavior = defaultBehavior;
@@ -713,8 +708,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateP7IDBehavior = defaultBehavior;
-        // Class DirectorMode
-        // Class DirectorModeState
         // Class PictureSettings
         retFilter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = defaultBehavior;
@@ -791,7 +784,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = defaultBehavior;
-        // Class Settings
         // Class SettingsState
         retFilter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = defaultBehavior;
         // Class MediaRecord
@@ -1746,16 +1738,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_NETWORKSETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGS */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)
@@ -1801,26 +1783,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE:
-            {
-                switch (commandId)
-                {
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODE */
-            case ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE:
-            {
-                switch (commandId)
-                {
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_ARDRONE3_CLASS_DIRECTORMODESTATE */
             case ARCOMMANDS_ID_ARDRONE3_CLASS_PICTURESETTINGS:
             {
                 switch (commandId)
@@ -2306,16 +2268,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_ANIMATIONSSTATE */
-            case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGS */
             case ARCOMMANDS_ID_JUMPINGSUMO_CLASS_SETTINGSSTATE:
             {
                 switch (commandId)
@@ -5270,30 +5222,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateBehavi
     return retError;
 }
 
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-    }
-
-    return retError;
-}
-
 // Command class SettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -5320,54 +5248,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateBehavior (ARC
         filter->CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateP7IDBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class DirectorMode
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3DirectorModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-    }
-
-    return retError;
-}
-
-// Command class DirectorModeState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3DirectorModeStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
     }
 
     return retError;
@@ -7282,9 +7162,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSe
 }
 
 
-// Command class Settings
-
-
 // Command class SettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -7440,12 +7317,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior 
 
     return retError;
 }
-
-
-// Command class DirectorMode
-
-
-// Command class DirectorModeState
 
 
 // Command class PictureSettings
@@ -8716,30 +8587,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateBehavior
     return retError;
 }
 
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-    }
-
-    return retError;
-}
-
 // Command class SettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -9529,9 +9376,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMoto
 
     return retError;
 }
-
-
-// Command class Settings
 
 
 // Command class SettingsState

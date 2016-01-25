@@ -2147,7 +2147,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3NetworkSettingsState
 }
 
 
-
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SettingsStateProductMotorVersionListChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte motor_number, jstring type, jstring software, jstring hardware)
 {
@@ -2358,8 +2357,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SettingsStateP7ID (J
     }
     return err;
 }
-
-
 
 
 JNIEXPORT jint JNICALL
@@ -3954,7 +3951,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetJumpingSumoAnimationsStateJu
     }
     return err;
 }
-
 
 
 JNIEXPORT jint JNICALL
@@ -12729,7 +12725,6 @@ void ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSecuritynativeCb (eARCOMMAND
 }
 
 
-
 void ARCOMMANDS_JNI_ARDrone3SettingsStateProductMotorVersionListChangednativeCb (uint8_t motor_number, char * type, char * software, char * hardware, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -12900,8 +12895,6 @@ void ARCOMMANDS_JNI_ARDrone3SettingsStateP7IDnativeCb (char * serialID, void *cu
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
-
-
 
 
 void ARCOMMANDS_JNI_ARDrone3PictureSettingsPictureFormatSelectionnativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE type, void *custom)
@@ -14188,7 +14181,6 @@ void ARCOMMANDS_JNI_JumpingSumoAnimationsStateJumpMotorProblemChangednativeCb (e
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
-
 
 
 void ARCOMMANDS_JNI_JumpingSumoSettingsStateProductGPSVersionChangednativeCb (char * software, char * hardware, void *custom)
@@ -20026,7 +20018,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSecurityChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityCallback (ARCOMMANDS_JNI_ARDrone3NetworkSettingsStateWifiSecuritynativeCb, (void *)g_class);
 
-
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductMotorVersionListChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateProductMotorVersionListChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductGPSVersionChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateProductGPSVersionChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorErrorStateChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateMotorErrorStateChangednativeCb, (void *)g_class);
@@ -20034,8 +20025,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorFlightsStatusChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateMotorFlightsStatusChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorErrorLastErrorChangedCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateMotorErrorLastErrorChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateP7IDCallback (ARCOMMANDS_JNI_ARDrone3SettingsStateP7IDnativeCb, (void *)g_class);
-
-
 
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsPictureFormatSelectionCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsPictureFormatSelectionnativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsAutoWhiteBalanceSelectionnativeCb, (void *)g_class);
@@ -20112,7 +20101,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpLoadChangedCallback (ARCOMMANDS_JNI_JumpingSumoAnimationsStateJumpLoadChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpTypeChangedCallback (ARCOMMANDS_JNI_JumpingSumoAnimationsStateJumpTypeChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCallback (ARCOMMANDS_JNI_JumpingSumoAnimationsStateJumpMotorProblemChangednativeCb, (void *)g_class);
-
 
     ARCOMMANDS_Decoder_SetJumpingSumoSettingsStateProductGPSVersionChangedCallback (ARCOMMANDS_JNI_JumpingSumoSettingsStateProductGPSVersionChangednativeCb, (void *)g_class);
 

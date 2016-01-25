@@ -77,14 +77,14 @@
     <class name="Stats" id='2'>
         Commands to make stats
         
-        <cmd name="SendPacket">
+        <cmd name="SendPacket" id="0">
             Send a packet to the drone
             <arg name="packet" type="string">
                 Packet to send to the drone
             </arg>
         </cmd>
         
-        <cmd name="StartSendingPacketFromDrone">
+        <cmd name="StartSendingPacketFromDrone" id="1">
             Ask drone to start sending packets
             <arg name="frequency" type="u8">
                 Frequency of the packet
@@ -99,7 +99,7 @@
             </arg>
         </cmd>
         
-        <cmd name="StopSendingPacketFromDrone">
+        <cmd name="StopSendingPacketFromDrone" id="2">
             Ask drone to stop sending packets
         </cmd>
         
@@ -108,7 +108,7 @@
     <class name="StatsEvent" id="3">
         Stats Event from drone
         
-        <cmd name="SendPacket">
+        <cmd name="SendPacket" id="0">
             Send a packet from drone
             <arg name="packet" type="string">
                 packet from drone
@@ -120,11 +120,11 @@
     <class name="DebugSettings" id="4">
         Debug custom commands sent to the drone
 
-        <cmd name="GetAll">
+        <cmd name="GetAll" id="0">
             Cmd sent by controller to get all settings info (generate "SettingInfo" events).
         </cmd>
 
-        <cmd name="Set">
+        <cmd name="Set" id="1">
             Change setting value.
             Cmd sent by controller to change a writable setting.
             <arg name="id" type="u16">
@@ -139,7 +139,7 @@
     <class name="DebugSettingsState" id="5">
         Debug custom commands sent by the drone
 
-        <cmd name="Info"  listtype="LIST">
+        <cmd name="Info"  listtype="LIST" id="0">
                 Sent by the drone as answer to GetSettingsInfo
                 Describe a debug setting and give the current value.
             <arg name="listFlags" type="u8">
@@ -189,7 +189,7 @@
             </arg>
         </cmd>
 
-        <cmd name="ListChanged">
+        <cmd name="ListChanged" id="1">
             Setting value changed.
             Cmd sent by drone when setting changed occurred.
             <arg name="id" type="u16">
