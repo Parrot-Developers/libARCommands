@@ -8610,35 +8610,6 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
-     * <br>
-     * Project SkyControllerDebug description:<br>
-     * All debug SkyController-only commands<br>
-     * <br>
-     * Class Debug description:<br>
-     * Temporary, debug commands<br>
-     * <br>
-     * Command Test1 description:<br>
-     * Test 1 command<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _t1Args Test 1 argument
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerDebugDebugTest1 (byte t1Args) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetSkyControllerDebugDebugTest1 (pointer, capacity, t1Args);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
      * Set an ARCommand to hold the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code><br>
      * <br>
      * Project Common description:<br>
@@ -14510,19 +14481,6 @@ public class ARCommand extends ARNativeData {
 
 
 
-    private static ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener = null;
-
-    /**
-     * Set the listener for the command <code>Test1</code> of class <code>Debug</code> in project <code>SkyControllerDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandSkyControllerDebugDebugTest1Listener_PARAM New listener for the command
-     */
-    public static void setSkyControllerDebugDebugTest1Listener (ARCommandSkyControllerDebugDebugTest1Listener _ARCommandSkyControllerDebugDebugTest1Listener_PARAM) {
-        _ARCommandSkyControllerDebugDebugTest1Listener = _ARCommandSkyControllerDebugDebugTest1Listener_PARAM;
-    }
-
-
-
     private static ARCommandCommonNetworkDisconnectListener _ARCommandCommonNetworkDisconnectListener = null;
 
     /**
@@ -15930,9 +15888,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (long pdata, int dataTotalLength, byte enabled);
 
     private native int     nativeSetSkyControllerButtonEventsSettings (long pdata, int dataTotalLength);
-
-
-    private native int     nativeSetSkyControllerDebugDebugTest1 (long pdata, int dataTotalLength, byte t1Args);
 
 
     private native int     nativeSetCommonNetworkDisconnect (long pdata, int dataTotalLength);

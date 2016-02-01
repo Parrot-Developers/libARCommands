@@ -16424,63 +16424,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerButtonEven
 
 
 
-// Project SkyControllerDebug
-
-// Command class Debug
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _t1Args)
-{
-    int32_t currIndexInBuffer = 0;
-    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
-    if ((buffer == NULL) ||
-        (cmdLen == NULL))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-    // Write project header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_PROJECT_SKYCONTROLLERDEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write class header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLERDEBUG_CLASS_DEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write id header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_SKYCONTROLLERDEBUG_DEBUG_CMD_TEST1, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _t1Args
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _t1Args, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        *cmdLen = currIndexInBuffer;
-    } // No else --> Do not set cmdLen if an error occured
-    return retVal;
-}
-
-
-
 // Project common
 
 // Command class Network

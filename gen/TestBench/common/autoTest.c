@@ -334,7 +334,6 @@ int SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled
 int SkyControllerCalibrationStateMagnetoCalibrationStateShouldBeCalled = 0;
 int SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled = 0;
 int SkyControllerButtonEventsSettingsShouldBeCalled = 0;
-int SkyControllerDebugDebugTest1ShouldBeCalled = 0;
 int commonNetworkDisconnectShouldBeCalled = 0;
 int commonNetworkEventDisconnectionShouldBeCalled = 0;
 int commonSettingsAllSettingsShouldBeCalled = 0;
@@ -5467,23 +5466,6 @@ void ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb (void *custom)
 }
 
 
-void ARCOMMANDS_Testbench_SkyControllerDebugDebugTest1Cb (int8_t t1Args, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyControllerDebug.Debug.Test1 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "t1Args value : <%d>", t1Args);
-    if (t1Args != -42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
-        errcount++ ;
-    }
-    if (SkyControllerDebugDebugTest1ShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-
 void ARCOMMANDS_Testbench_CommonNetworkDisconnectCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Network.Disconnect --> Custom PTR = %p", custom);
@@ -7304,7 +7286,6 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback ((ARCOMMANDS_Decoder_SkyControllerDebugDebugTest1Callback_t) ARCOMMANDS_Testbench_SkyControllerDebugDebugTest1Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonNetworkDisconnectCallback ((ARCOMMANDS_Decoder_CommonNetworkDisconnectCallback_t) ARCOMMANDS_Testbench_CommonNetworkDisconnectCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback ((ARCOMMANDS_Decoder_CommonNetworkEventDisconnectionCallback_t) ARCOMMANDS_Testbench_CommonNetworkEventDisconnectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsAllSettingsCallback ((ARCOMMANDS_Decoder_CommonSettingsAllSettingsCallback_t) ARCOMMANDS_Testbench_CommonSettingsAllSettingsCb, (void *)cbCustom++ );
@@ -16587,41 +16568,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         SkyControllerButtonEventsSettingsShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         SkyControllerButtonEventsSettingsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-
-    // Project SkyControllerDebug
-    // Command class Debug
-    res = ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyControllerDebug.Debug.Test1\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyControllerDebug.Debug.Test1 succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDebugDebugTest1Behavior);
-        SkyControllerDebugDebugTest1ShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerDebugDebugTest1ShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

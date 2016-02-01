@@ -3440,34 +3440,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEv
 
 
 
-    // Project SkyControllerDebug
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDebugBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDebugBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Debug
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDebugDebugBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDebugDebugBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDebugDebugTest1Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDebugDebugTest1Behavior (filter, behavior);
-    return (jint)err;
-}
-
-
-
     // Project common
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)

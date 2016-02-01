@@ -450,10 +450,6 @@ struct ARCOMMANDS_Filter_t
     // Class ButtonEvents
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonEventsSettingsBehavior;
 
-    // Project SkyControllerDebug
-    // Class Debug
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerDebugDebugTest1Behavior;
-
     // Project common
     // Class Network
     eARCOMMANDS_FILTER_STATUS CmdCommonNetworkDisconnectBehavior;
@@ -1007,9 +1003,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = defaultBehavior;
         // Class ButtonEvents
         retFilter->CmdSkyControllerButtonEventsSettingsBehavior = defaultBehavior;
-        // Projects SkyControllerDebug
-        // Class Debug
-        retFilter->CmdSkyControllerDebugDebugTest1Behavior = defaultBehavior;
         // Projects common
         // Class Network
         retFilter->CmdCommonNetworkDisconnectBehavior = defaultBehavior;
@@ -3734,31 +3727,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_PROJECT_SKYCONTROLLER */
-        case ARCOMMANDS_ID_PROJECT_SKYCONTROLLERDEBUG:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_SKYCONTROLLERDEBUG_CLASS_DEBUG:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_SKYCONTROLLERDEBUG_DEBUG_CMD_TEST1:
-                {
-                    retStatus = filter->CmdSkyControllerDebugDebugTest1Behavior;
-                }
-                break; /* ARCOMMANDS_ID_SKYCONTROLLERDEBUG_DEBUG_CMD_TEST1 */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_SKYCONTROLLERDEBUG_CLASS_DEBUG */
-            default:
-                // Do nothing, the default answer is already UNKNOWN
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_PROJECT_SKYCONTROLLERDEBUG */
         case ARCOMMANDS_ID_PROJECT_COMMON:
         {
             switch (commandClass)
@@ -14413,82 +14381,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsB
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-
-// Project SkyControllerDebug
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDebugDebugTest1Behavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Debug
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDebugDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDebugDebugTest1Behavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class Debug
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDebugDebugTest1Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDebugDebugTest1Behavior = behavior;
     }
 
     return retError;

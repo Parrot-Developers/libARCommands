@@ -3454,22 +3454,6 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) (
 void ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback (ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t callback, void *custom);
 
 
-// Project SkyControllerDebug
-
-// Command class Debug
-
-/**
- * @brief callback type for the command SkyControllerDebug.Debug.Test1
- */
-typedef void (*ARCOMMANDS_Decoder_SkyControllerDebugDebugTest1Callback_t) (int8_t t1Args, void *custom);
-/**
- * @brief callback setter for the command SkyControllerDebug.Debug.Test1
- * @param callback new callback for the command SkyControllerDebug.Debug.Test1
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback (ARCOMMANDS_Decoder_SkyControllerDebugDebugTest1Callback_t callback, void *custom);
-
-
 // Project common
 
 // Command class Network

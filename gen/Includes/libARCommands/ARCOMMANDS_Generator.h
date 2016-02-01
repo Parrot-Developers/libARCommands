@@ -3578,22 +3578,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibratio
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerButtonEventsSettings (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 
-// Project SkyControllerDebug
-
-// Command class Debug
-
-/**
- * @brief Test 1 command
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _t1Args Test 1 argument
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _t1Args);
-
-
 // Project common
 
 // Command class Network

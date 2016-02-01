@@ -5080,49 +5080,8 @@ public class ARCommandsFilter
 
 
 
-    // Project SkyControllerDebug
-    // - Class ButtonEvents
-    private native int nativeSetSkyControllerDebugBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands SkyControllerDebug.XXX.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetSkyControllerDebugBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    // - Class Debug
-    private native int nativeSetSkyControllerDebugDebugBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands SkyControllerDebug.Debug.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerDebugDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetSkyControllerDebugDebugBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetSkyControllerDebugDebugTest1Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command SkyControllerDebug.Debug.Test1.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setSkyControllerDebugDebugTest1Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetSkyControllerDebugDebugTest1Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-
     // Project common
-    // - Class Debug
+    // - Class ButtonEvents
     private native int nativeSetCommonBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands Common.XXX.XXX.
