@@ -71,7 +71,7 @@
  -->
 
 
-<project id="128">
+<project name="common_dbg" id="128">
     All debug commands shared between all projects
     
     <class name="Stats" id='2'>

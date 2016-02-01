@@ -83,7 +83,7 @@
  -    enum:  : enumeration define on arg
  -->
 
-<project id="2">
+<project name="minidrone" id="2">
     All MiniDrone-only commands
     
     <class name="Piloting" id="0">

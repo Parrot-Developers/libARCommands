@@ -71,7 +71,7 @@
 -->
 
 
-<project id="131">
+<project name="jpsumo_dbg" id="131">
   All debug commands specific to the Jumping Sumo.
 
   <class name="Jump" id="0">

@@ -83,7 +83,7 @@
  -    enum:  : enumeration define on arg
  -->
 
-<project id="7">
+<project name="pro" id="7">
     Pro Feature
     <class name="Pro" id="0">
         Pro related commands from the controller to the product

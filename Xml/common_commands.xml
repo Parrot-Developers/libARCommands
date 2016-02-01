@@ -71,7 +71,7 @@
  -->
 
 
-<project id="0">
+<project name="common" id="0">
     All common commands shared between all projects
 
     <class name="Network" id="0">

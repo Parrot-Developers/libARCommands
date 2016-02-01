@@ -71,7 +71,7 @@
  -->
 
 
-<project id="4">
+<project name="skyctrl" id="4">
     All SkyController-only commands
     
     <class name="WifiState" id="0">

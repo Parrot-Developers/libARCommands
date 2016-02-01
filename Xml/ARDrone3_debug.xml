@@ -71,7 +71,7 @@
  -->
 
 
-<project id="129">
+<project name="ardrone3_dbg" id="129">
     All debug ARDrone3-only commands
 
     <class name="Video" id="0">

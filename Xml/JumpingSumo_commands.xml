@@ -71,7 +71,7 @@
  -->
 
 
-<project id="3">
+<project name="jpsumo" id="3">
     All commands specific to the Jumping Sumo.
 
     <class name="Piloting" id="0">

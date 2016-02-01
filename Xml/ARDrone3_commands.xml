@@ -71,7 +71,7 @@
  -->
 
 
-<project id="1">
+<project name="ardrone3" id="1">
     All ARDrone3-only commands
     
     <class name="Piloting" id="0">
