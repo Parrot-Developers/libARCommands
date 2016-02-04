@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>GPSControllerLongitudeForRun</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneGPSControllerLongitudeForRunListener {
 
     /**
-     * Called when a command <code>ControllerLongitudeForRun</code> of class <code>GPS</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>GPSControllerLongitudeForRun</code> in feature <code>MiniDrone</code> is decoded
      * @param _longitude Controller longitude in decimal degrees
      */
     void onMiniDroneGPSControllerLongitudeForRunUpdate (double longitude);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code> listener
+ * Interface for the command <code>AccessoryConfig</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAccessoryConfigListener {
 
     /**
-     * Called when a command <code>Config</code> of class <code>Accessory</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AccessoryConfig</code> in feature <code>Common</code> is decoded
      * @param _accessory Accessory configuration to set.
      */
     void onCommonAccessoryConfigUpdate (ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory);

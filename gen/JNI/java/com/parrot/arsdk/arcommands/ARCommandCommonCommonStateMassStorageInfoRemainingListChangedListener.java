@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonStateMassStorageInfoRemainingListChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonStateMassStorageInfoRemainingListChangedListener {
 
     /**
-     * Called when a command <code>MassStorageInfoRemainingListChanged</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonStateMassStorageInfoRemainingListChanged</code> in feature <code>Common</code> is decoded
      * @param _free_space Mass storage free space in MBytes
      * @param _rec_time Mass storage record time reamining in minute
      * @param _photo_remaining Mass storage photo remaining

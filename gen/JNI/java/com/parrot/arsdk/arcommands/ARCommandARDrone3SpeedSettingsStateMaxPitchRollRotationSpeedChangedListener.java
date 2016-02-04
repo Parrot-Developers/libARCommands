@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxPitchRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SpeedSettingsStateMaxPitchRollRotationSpeedChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedListener {
 
     /**
-     * Called when a command <code>MaxPitchRollRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SpeedSettingsStateMaxPitchRollRotationSpeedChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _current Current max pitch/roll rotation speed in degree/s
      * @param _min Range min of pitch/roll rotation speed
      * @param _max Range max of pitch/roll rotation speed

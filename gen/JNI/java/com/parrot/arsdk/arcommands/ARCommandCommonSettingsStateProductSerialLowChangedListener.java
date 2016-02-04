@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>SettingsStateProductSerialLowChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonSettingsStateProductSerialLowChangedListener {
 
     /**
-     * Called when a command <code>ProductSerialLowChanged</code> of class <code>SettingsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>SettingsStateProductSerialLowChanged</code> in feature <code>Common</code> is decoded
      * @param _low Serial low number (hexadecimal value)
      */
     void onCommonSettingsStateProductSerialLowChangedUpdate (String low);

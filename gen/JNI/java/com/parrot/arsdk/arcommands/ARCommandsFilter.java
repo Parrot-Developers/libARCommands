@@ -117,8 +117,33 @@ public class ARCommandsFilter
     private native void nativeDeleteFilter (long cFilter);
     private native int nativeFilterCommand (long cFilter, long command, int len);
 
-    // Project ARDrone3
-    // - Class ProEvent
+    // Feature generic
+    private native int nativeSetGenericBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Generic.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setGenericBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetGenericBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetGenericDefaultBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Generic.Default.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setGenericDefaultBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetGenericDefaultBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // Feature ARDrone3
     private native int nativeSetARDrone3Behavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands ARDrone3.XXX.XXX.
@@ -1880,8 +1905,297 @@ public class ARCommandsFilter
 
 
 
-    // Project JumpingSumo
-    // - Class PROState
+    // Feature unknown_feature_1
+    private native int nativeSetUnknownFeature_1Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands UnknownFeature_1.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1GeographicRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.GeographicRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1GeographicRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RelativeRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.RelativeRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RelativeRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1LookAtRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.LookAtRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1LookAtRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SpiralAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SpiralAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SpiralAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SwingAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SwingAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SwingAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1BoomerangAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1BoomerangAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1CandleAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.CandleAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1CandleAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1DollySlideAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1DollySlideAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserFramingPositionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserFramingPosition.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserFramingPositionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserGPSDataBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserGPSData.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserGPSDataBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserBaroDataBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserBaroData.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserBaroDataBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1LynxDetectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.LynxDetection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1LynxDetectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1AvailabilityBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.Availability.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1AvailabilityBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.Run.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1GeographicConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.GeographicConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1GeographicConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RelativeConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.RelativeConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RelativeConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1AnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.AnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1AnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SpiralAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SwingAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.CandleAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserFramingPositionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // Feature JumpingSumo
     private native int nativeSetJumpingSumoBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands JumpingSumo.XXX.XXX.
@@ -2839,8 +3153,7 @@ public class ARCommandsFilter
 
 
 
-    // Project MiniDrone
-    // - Class VideoSettingsState
+    // Feature MiniDrone
     private native int nativeSetMiniDroneBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands MiniDrone.XXX.XXX.
@@ -3520,8 +3833,7 @@ public class ARCommandsFilter
 
 
 
-    // Project SkyController
-    // - Class Configuration
+    // Feature SkyController
     private native int nativeSetSkyControllerBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands SkyController.XXX.XXX.
@@ -4677,8 +4989,7 @@ public class ARCommandsFilter
 
 
 
-    // Project common
-    // - Class ButtonEvents
+    // Feature common
     private native int nativeSetCommonBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands Common.XXX.XXX.
@@ -6014,8 +6325,7 @@ public class ARCommandsFilter
 
 
 
-    // Project commonDebug
-    // - Class RunState
+    // Feature commonDebug
     private native int nativeSetCommonDebugBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands CommonDebug.XXX.XXX.
@@ -6181,8 +6491,7 @@ public class ARCommandsFilter
 
 
 
-    // Project pro
-    // - Class DebugSettingsState
+    // Feature pro
     private native int nativeSetProBehavior (long cFilter, int behavior);
     /**
      * Sets the behavior for all commands Pro.XXX.XXX.
@@ -6308,6 +6617,176 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+
+
+    // Feature wifi
+    private native int nativeSetWifiBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Wifi.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiScanBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.Scan.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScanBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiScanBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiUpdateAuthorizedChannelsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.UpdateAuthorizedChannels.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiUpdateAuthorizedChannelsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiSetApChannelBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.SetApChannel.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetApChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiSetApChannelBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiSetSecurityBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.SetSecurity.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiSetSecurityBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiSetCountryBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.SetCountry.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetCountryBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiSetCountryBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiSetEnvironementBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.SetEnvironement.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetEnvironementBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiSetEnvironementBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiScannedItemBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.ScannedItem.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScannedItemBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiScannedItemBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiAuthorizedChannelBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.AuthorizedChannel.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiAuthorizedChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiAuthorizedChannelBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiApChannelChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.ApChannelChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiApChannelChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiApChannelChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiSecurityChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.SecurityChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiCountryChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.CountryChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiCountryChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiCountryChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiEnvironementChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.EnvironementChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiEnvironementChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiEnvironementChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetWifiRssiChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.RssiChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiRssiChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiRssiChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
 
 
 }

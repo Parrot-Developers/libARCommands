@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SettingsAllSettings</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSettingsAllSettingsListener {
 
     /**
-     * Called when a command <code>AllSettings</code> of class <code>Settings</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SettingsAllSettings</code> in feature <code>SkyController</code> is decoded
      */
     void onSkyControllerSettingsAllSettingsUpdate ();
 }

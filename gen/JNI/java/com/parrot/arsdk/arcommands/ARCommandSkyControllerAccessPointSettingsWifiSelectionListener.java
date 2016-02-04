@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>AccessPointSettingsWifiSelection</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerAccessPointSettingsWifiSelectionListener {
 
     /**
-     * Called when a command <code>WifiSelection</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>AccessPointSettingsWifiSelection</code> in feature <code>SkyController</code> is decoded
      * @param _type The type of wifi selection (only manual at the moment)
      * @param _band The allowed band : 2.4 Ghz or 5 Ghz
      * @param _channel The channel

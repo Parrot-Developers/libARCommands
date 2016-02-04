@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SkyControllerStateGpsFixChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSkyControllerStateGpsFixChangedListener {
 
     /**
-     * Called when a command <code>GpsFixChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SkyControllerStateGpsFixChanged</code> in feature <code>SkyController</code> is decoded
      * @param _fixed SkyController fixed
      */
     void onSkyControllerSkyControllerStateGpsFixChangedUpdate (byte fixed);

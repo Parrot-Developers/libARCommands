@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoV2</code> of class <code>MediaRecord</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaRecordVideoV2</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaRecordVideoV2Listener {
 
     /**
-     * Called when a command <code>VideoV2</code> of class <code>MediaRecord</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaRecordVideoV2</code> in feature <code>JumpingSumo</code> is decoded
      * @param _record Command to record video
      */
     void onJumpingSumoMediaRecordVideoV2Update (ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD_ENUM record);

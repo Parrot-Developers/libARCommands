@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code> listener
+ * Interface for the command <code>MavlinkStateMavlinkPlayErrorStateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonMavlinkStateMavlinkPlayErrorStateChangedListener {
 
     /**
-     * Called when a command <code>MavlinkPlayErrorStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>MavlinkStateMavlinkPlayErrorStateChanged</code> in feature <code>Common</code> is decoded
      * @param _error State of play error
      */
     void onCommonMavlinkStateMavlinkPlayErrorStateChangedUpdate (ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error);

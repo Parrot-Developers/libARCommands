@@ -94,7 +94,7 @@
                 Bought features
             </arg>
         </cmd>
-        <cmd name="Response" id="1" listtype="LIST">
+        <cmd name="Response" id="1" type="LIST_ITEM">
             Response to the challenge string sent by the controller
             <arg name="listFlags" type="u8">
                     List entry attribute Bitfield.
@@ -138,7 +138,7 @@
             </arg>
         </cmd>
     </class>
-    <class name="ProEvent" id="2">
+    <class name="ProEvent" id="2" notification="TRUE">
         Pro related events from the product to the controller
         <cmd name="ChallengeEvent" id="0">
             Challenge event sent from the drone

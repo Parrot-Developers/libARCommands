@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AddCapOffset</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>PilotingAddCapOffset</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoPilotingAddCapOffsetListener {
 
     /**
-     * Called when a command <code>AddCapOffset</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>PilotingAddCapOffset</code> in feature <code>JumpingSumo</code> is decoded
      * @param _offset Offset value in radians.
      */
     void onJumpingSumoPilotingAddCapOffsetUpdate (float offset);

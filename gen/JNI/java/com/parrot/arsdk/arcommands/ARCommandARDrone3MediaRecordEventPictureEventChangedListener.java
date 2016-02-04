@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3MediaRecordEventPictureEventChangedListener {
 
     /**
-     * Called when a command <code>PictureEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>MediaRecordEventPictureEventChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _event Last event of picture recording
      * @param _error Error to explain the event
      */

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Orientation</code> of class <code>Camera</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>CameraOrientation</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3CameraOrientationListener {
 
     /**
-     * Called when a command <code>Orientation</code> of class <code>Camera</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>CameraOrientation</code> in feature <code>ARDrone3</code> is decoded
      * @param _tilt Tilt camera consign for the drone (in degree)
      * @param _tilt The value is saturated by the drone.
      * @param _tilt Saturation value is sent by thre drone through CameraSettingsChanged command.

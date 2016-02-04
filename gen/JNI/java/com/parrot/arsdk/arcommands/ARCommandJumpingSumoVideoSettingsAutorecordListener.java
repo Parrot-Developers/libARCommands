@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Autorecord</code> of class <code>VideoSettings</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>VideoSettingsAutorecord</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoVideoSettingsAutorecordListener {
 
     /**
-     * Called when a command <code>Autorecord</code> of class <code>VideoSettings</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>VideoSettingsAutorecord</code> in feature <code>JumpingSumo</code> is decoded
      * @param _enabled 0: Disabled 1: Enabled.
      */
     void onJumpingSumoVideoSettingsAutorecordUpdate (byte enabled);

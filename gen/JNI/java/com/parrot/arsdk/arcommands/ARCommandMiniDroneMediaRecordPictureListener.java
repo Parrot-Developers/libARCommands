@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>MediaRecordPicture</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneMediaRecordPictureListener {
 
     /**
-     * Called when a command <code>Picture</code> of class <code>MediaRecord</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>MediaRecordPicture</code> in feature <code>MiniDrone</code> is decoded
      * @param _mass_storage_id Mass storage id to take picture
      */
     void onMiniDroneMediaRecordPictureUpdate (byte mass_storage_id);

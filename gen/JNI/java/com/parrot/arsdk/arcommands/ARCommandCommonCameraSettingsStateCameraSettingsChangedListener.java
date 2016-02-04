@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CameraSettingsStateCameraSettingsChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCameraSettingsStateCameraSettingsChangedListener {
 
     /**
-     * Called when a command <code>CameraSettingsChanged</code> of class <code>CameraSettingsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CameraSettingsStateCameraSettingsChanged</code> in feature <code>Common</code> is decoded
      * @param _fov Value of the camera horizontal fov (in degree)
      * @param _panMax Value of max pan (right pan) (in degree)
      * @param _panMin Value of min pan (left pan) (in degree)

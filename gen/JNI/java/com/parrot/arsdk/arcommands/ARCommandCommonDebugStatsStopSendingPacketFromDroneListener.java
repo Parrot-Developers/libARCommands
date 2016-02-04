@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code> listener
+ * Interface for the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonDebugStatsStopSendingPacketFromDroneListener {
 
     /**
-     * Called when a command <code>StopSendingPacketFromDrone</code> of class <code>Stats</code> in project <code>CommonDebug</code> is decoded
+     * Called when a command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code> is decoded
      */
     void onCommonDebugStatsStopSendingPacketFromDroneUpdate ();
 }

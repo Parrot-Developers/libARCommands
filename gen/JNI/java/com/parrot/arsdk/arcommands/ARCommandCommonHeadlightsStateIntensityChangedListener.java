@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>HeadlightsStateIntensityChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonHeadlightsStateIntensityChangedListener {
 
     /**
-     * Called when a command <code>IntensityChanged</code> of class <code>HeadlightsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>HeadlightsStateIntensityChanged</code> in feature <code>Common</code> is decoded
      * @param _left The intensity value for the left LED (0 through 255).
      * @param _right The intensity value for the right LED (0 through 255).
      */

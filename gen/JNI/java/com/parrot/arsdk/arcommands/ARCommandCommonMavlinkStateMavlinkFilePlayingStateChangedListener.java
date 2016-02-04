@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code> listener
+ * Interface for the command <code>MavlinkStateMavlinkFilePlayingStateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonMavlinkStateMavlinkFilePlayingStateChangedListener {
 
     /**
-     * Called when a command <code>MavlinkFilePlayingStateChanged</code> of class <code>MavlinkState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>MavlinkStateMavlinkFilePlayingStateChanged</code> in feature <code>Common</code> is decoded
      * @param _state State of the mavlink
      * @param _filepath flight plan file path from the mavlink ftp root
      * @param _type type of the played mavlink file

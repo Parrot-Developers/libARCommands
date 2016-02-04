@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code> listener
+ * Interface for the command <code>ProResponse</code> in feature <code>Pro</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandProProResponseListener {
 
     /**
-     * Called when a command <code>Response</code> of class <code>Pro</code> in project <code>Pro</code> is decoded
+     * Called when a command <code>ProResponse</code> in feature <code>Pro</code> is decoded
      * @param _listFlags List entry attribute Bitfield.
      * @param _listFlags 0x01: First: indicate it's the first element of the list.
      * @param _listFlags 0x02: Last:  indicate it's the last element of the list.

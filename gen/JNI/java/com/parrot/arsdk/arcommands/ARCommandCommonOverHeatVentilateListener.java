@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code> listener
+ * Interface for the command <code>OverHeatVentilate</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonOverHeatVentilateListener {
 
     /**
-     * Called when a command <code>Ventilate</code> of class <code>OverHeat</code> in project <code>Common</code> is decoded
+     * Called when a command <code>OverHeatVentilate</code> in feature <code>Common</code> is decoded
      */
     void onCommonOverHeatVentilateUpdate ();
 }

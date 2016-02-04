@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code> listener
+ * Interface for the command <code>SettingsProductName</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonSettingsProductNameListener {
 
     /**
-     * Called when a command <code>ProductName</code> of class <code>Settings</code> in project <code>Common</code> is decoded
+     * Called when a command <code>SettingsProductName</code> in feature <code>Common</code> is decoded
      * @param _name Product name
      */
     void onCommonSettingsProductNameUpdate (String name);

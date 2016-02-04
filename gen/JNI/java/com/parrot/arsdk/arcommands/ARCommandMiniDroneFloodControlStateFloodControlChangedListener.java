@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>FloodControlStateFloodControlChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneFloodControlStateFloodControlChangedListener {
 
     /**
-     * Called when a command <code>FloodControlChanged</code> of class <code>FloodControlState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>FloodControlStateFloodControlChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _delay Delay (in ms) between two PCMD
      */
     void onMiniDroneFloodControlStateFloodControlChangedUpdate (short delay);

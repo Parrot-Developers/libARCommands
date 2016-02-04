@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoEnableChanged</code> of class <code>MediaStreamingState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3MediaStreamingStateVideoEnableChangedListener {
 
     /**
-     * Called when a command <code>VideoEnableChanged</code> of class <code>MediaStreamingState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _enabled Current video streaming status.
      */
     void onARDrone3MediaStreamingStateVideoEnableChangedUpdate (ARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM enabled);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>ButtonMappingsStateCurrentButtonMappings</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerButtonMappingsStateCurrentButtonMappingsListener {
 
     /**
-     * Called when a command <code>CurrentButtonMappings</code> of class <code>ButtonMappingsState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>ButtonMappingsStateCurrentButtonMappings</code> in feature <code>SkyController</code> is decoded
      * @param _key_id The keycode mapped
      * @param _mapping_uid The mapping associated
      */

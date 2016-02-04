@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>WifiConnectToWifi</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerWifiConnectToWifiListener {
 
     /**
-     * Called when a command <code>ConnectToWifi</code> of class <code>Wifi</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>WifiConnectToWifi</code> in feature <code>SkyController</code> is decoded
      * @param _bssid Wifi bssid
      * @param _ssid Wifi ssid
      * @param _passphrase Wifi passphrase

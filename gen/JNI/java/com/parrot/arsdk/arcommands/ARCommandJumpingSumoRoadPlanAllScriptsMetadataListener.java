@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AllScriptsMetadata</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanAllScriptsMetadata</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanAllScriptsMetadataListener {
 
     /**
-     * Called when a command <code>AllScriptsMetadata</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanAllScriptsMetadata</code> in feature <code>JumpingSumo</code> is decoded
      */
     void onJumpingSumoRoadPlanAllScriptsMetadataUpdate ();
 }

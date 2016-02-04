@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>MediaRecordStatePictureStateChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneMediaRecordStatePictureStateChangedListener {
 
     /**
-     * Called when a command <code>PictureStateChanged</code> of class <code>MediaRecordState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>MediaRecordStatePictureStateChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _state 1 if picture has been taken, 0 otherwise
      * @param _mass_storage_id Mass storage id to record
      */

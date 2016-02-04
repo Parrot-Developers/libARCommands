@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>HullProtection</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SpeedSettingsHullProtection</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SpeedSettingsHullProtectionListener {
 
     /**
-     * Called when a command <code>HullProtection</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SpeedSettingsHullProtection</code> in feature <code>ARDrone3</code> is decoded
      * @param _present 1 if present, 0 if not present
      */
     void onARDrone3SpeedSettingsHullProtectionUpdate (byte present);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingAutoTakeOffMode</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingAutoTakeOffModeListener {
 
     /**
-     * Called when a command <code>AutoTakeOffMode</code> of class <code>Piloting</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingAutoTakeOffMode</code> in feature <code>MiniDrone</code> is decoded
      * @param _state State of automatic take off mode
      */
     void onMiniDronePilotingAutoTakeOffModeUpdate (byte state);

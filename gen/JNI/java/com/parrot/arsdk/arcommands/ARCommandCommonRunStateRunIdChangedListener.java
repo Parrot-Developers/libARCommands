@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code> listener
+ * Interface for the command <code>RunStateRunIdChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonRunStateRunIdChangedListener {
 
     /**
-     * Called when a command <code>RunIdChanged</code> of class <code>RunState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>RunStateRunIdChanged</code> in feature <code>Common</code> is decoded
      * @param _runId Id of the run
      */
     void onCommonRunStateRunIdChangedUpdate (String runId);

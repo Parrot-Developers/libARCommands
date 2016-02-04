@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaRecordStateVideoStateChangedV2Listener {
 
     /**
-     * Called when a command <code>VideoStateChangedV2</code> of class <code>MediaRecordState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>JumpingSumo</code> is decoded
      * @param _state State of device video recording
      * @param _error Error to explain the state
      */

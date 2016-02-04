@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AbsolutControl</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsAbsolutControl</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingSettingsAbsolutControlListener {
 
     /**
-     * Called when a command <code>AbsolutControl</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsAbsolutControl</code> in feature <code>ARDrone3</code> is decoded
      * @param _on 1 to enable, 0 to disable
      */
     void onARDrone3PilotingSettingsAbsolutControlUpdate (byte on);

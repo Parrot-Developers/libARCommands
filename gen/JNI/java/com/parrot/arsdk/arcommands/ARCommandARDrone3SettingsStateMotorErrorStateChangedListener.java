@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MotorErrorStateChanged</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SettingsStateMotorErrorStateChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SettingsStateMotorErrorStateChangedListener {
 
     /**
-     * Called when a command <code>MotorErrorStateChanged</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SettingsStateMotorErrorStateChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _motorIds Bit field for concerned motor. If bit 0 = 1, motor 1 is affected by this error. Same with bit 1, 2 and 3.
      * @param _motorError Enumeration of the motor error
      */

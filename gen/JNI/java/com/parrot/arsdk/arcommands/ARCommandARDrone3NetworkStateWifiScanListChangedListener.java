@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiScanListChanged</code> of class <code>NetworkState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkStateWifiScanListChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkStateWifiScanListChangedListener {
 
     /**
-     * Called when a command <code>WifiScanListChanged</code> of class <code>NetworkState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkStateWifiScanListChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _ssid SSID of the AP
      * @param _rssi RSSI of the AP in dbm (negative value)
      * @param _band The band : 2.4 GHz or 5 GHz

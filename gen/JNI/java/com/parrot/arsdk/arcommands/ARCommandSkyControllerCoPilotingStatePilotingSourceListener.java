@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>CoPilotingStatePilotingSource</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerCoPilotingStatePilotingSourceListener {
 
     /**
-     * Called when a command <code>PilotingSource</code> of class <code>CoPilotingState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>CoPilotingStatePilotingSource</code> in feature <code>SkyController</code> is decoded
      * @param _source The source
      */
     void onSkyControllerCoPilotingStatePilotingSourceUpdate (ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source);

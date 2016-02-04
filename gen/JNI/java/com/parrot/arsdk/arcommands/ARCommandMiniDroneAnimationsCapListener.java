@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>AnimationsCap</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneAnimationsCapListener {
 
     /**
-     * Called when a command <code>Cap</code> of class <code>Animations</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>AnimationsCap</code> in feature <code>MiniDrone</code> is decoded
      * @param _offset Change the cap with offset angle [-180;180]
      */
     void onMiniDroneAnimationsCapUpdate (short offset);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Posture</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>PilotingPosture</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoPilotingPostureListener {
 
     /**
-     * Called when a command <code>Posture</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>PilotingPosture</code> in feature <code>JumpingSumo</code> is decoded
      * @param _type Type of Posture
      */
     void onJumpingSumoPilotingPostureUpdate (ARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE_ENUM type);

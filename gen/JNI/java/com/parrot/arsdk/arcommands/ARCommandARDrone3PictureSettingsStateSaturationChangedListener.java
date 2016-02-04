@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SaturationChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsStateSaturationChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsStateSaturationChangedListener {
 
     /**
-     * Called when a command <code>SaturationChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsStateSaturationChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _value Saturation value
      * @param _min Min saturation value
      * @param _max Max saturation value

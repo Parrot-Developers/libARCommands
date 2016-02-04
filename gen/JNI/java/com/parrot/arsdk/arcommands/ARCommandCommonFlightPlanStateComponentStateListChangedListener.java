@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code> listener
+ * Interface for the command <code>FlightPlanStateComponentStateListChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonFlightPlanStateComponentStateListChangedListener {
 
     /**
-     * Called when a command <code>ComponentStateListChanged</code> of class <code>FlightPlanState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>FlightPlanStateComponentStateListChanged</code> in feature <code>Common</code> is decoded
      * @param _component Drone FlightPlan component id (unique)
      * @param _State State of the FlightPlan component (1 FlightPlan component OK, otherwise 0)
      */

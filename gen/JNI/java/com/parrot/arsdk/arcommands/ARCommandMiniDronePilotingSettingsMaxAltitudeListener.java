@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingSettingsMaxAltitude</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingSettingsMaxAltitudeListener {
 
     /**
-     * Called when a command <code>MaxAltitude</code> of class <code>PilotingSettings</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingSettingsMaxAltitude</code> in feature <code>MiniDrone</code> is decoded
      * @param _current Current altitude max in m
      */
     void onMiniDronePilotingSettingsMaxAltitudeUpdate (float current);

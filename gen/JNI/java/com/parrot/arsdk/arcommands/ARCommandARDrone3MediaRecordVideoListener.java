@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Video</code> of class <code>MediaRecord</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>MediaRecordVideo</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3MediaRecordVideoListener {
 
     /**
-     * Called when a command <code>Video</code> of class <code>MediaRecord</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>MediaRecordVideo</code> in feature <code>ARDrone3</code> is decoded
      * @param _record Command to record video
      * @param _mass_storage_id Mass storage id to record
      */

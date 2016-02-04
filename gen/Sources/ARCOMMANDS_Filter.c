@@ -48,8 +48,10 @@
 // ARCOMMANDS_Filter_t structure definition
 struct ARCOMMANDS_Filter_t
 {
-    // Project ARDrone3
-    // Class Piloting
+    // Feature generic
+    eARCOMMANDS_FILTER_STATUS CmdGenericDefaultBehavior;
+
+    // Feature ARDrone3
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingFlatTrimBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingTakeOffBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingPCMDBehavior;
@@ -58,44 +60,14 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingNavigateHomeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingAutoTakeOffModeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingMoveByBehavior;
-    // Class Animations
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AnimationsFlipBehavior;
-    // Class Camera
     eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraOrientationBehavior;
-    // Class MediaRecord
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordPictureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordVideoBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordPictureV2Behavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordVideoV2Behavior;
-    // Class MediaRecordState
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStatePictureStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStateVideoStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior;
-    // Class MediaRecordEvent
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordEventPictureEventChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordEventVideoEventChangedBehavior;
-    // Class PilotingState
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateFlatTrimChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateFlyingStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAlertStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStatePositionChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateSpeedChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAttitudeChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAltitudeChangedBehavior;
-    // Class PilotingEvent
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingEventMoveByEndBehavior;
-    // Class Network
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkWifiScanBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkWifiAuthChannelBehavior;
-    // Class NetworkState
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateWifiScanListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateAllWifiScanChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior;
-    // Class PilotingSettings
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsMaxAltitudeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsMaxTiltBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsAbsolutControlBehavior;
@@ -106,7 +78,47 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior;
-    // Class PilotingSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsOutdoorBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsPictureFormatSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsExpositionSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsSaturationSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsTimelapseSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaStreamingVideoEnableBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsSetHomeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsResetHomeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsSendControllerGPSBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsHomeTypeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsReturnHomeDelayBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringElectricFrequencyBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringSetModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStatePictureStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStateVideoStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordEventPictureEventChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordEventVideoEventChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateFlatTrimChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateFlyingStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAlertStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStatePositionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateSpeedChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAttitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingStateAltitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingEventMoveByEndBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateWifiScanListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateAllWifiScanChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateMaxTiltChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAbsolutControlChangedBehavior;
@@ -117,26 +129,14 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior;
-    // Class SpeedSettings
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsOutdoorBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior;
-    // Class SpeedSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior;
-    // Class NetworkSettings
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsWifiSecurityBehavior;
-    // Class NetworkSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3NetworkSettingsStateWifiSecurityBehavior;
-    // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateProductGPSVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateMotorErrorStateChangedBehavior;
@@ -144,290 +144,243 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SettingsStateP7IDBehavior;
-    // Class PictureSettings
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsPictureFormatSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsExpositionSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsSaturationSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsTimelapseSelectionBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior;
-    // Class PictureSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStatePictureFormatChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateExpositionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateSaturationChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateTimelapseChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior;
-    // Class MediaStreaming
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaStreamingVideoEnableBehavior;
-    // Class MediaStreamingState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior;
-    // Class GPSSettings
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsSetHomeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsResetHomeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsSendControllerGPSBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsHomeTypeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsReturnHomeDelayBehavior;
-    // Class GPSSettingsState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateHomeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateResetHomeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateGPSFixStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateHomeTypeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior;
-    // Class CameraState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraStateOrientationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraStateDefaultCameraOrientationBehavior;
-    // Class Antiflickering
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringElectricFrequencyBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringSetModeBehavior;
-    // Class AntiflickeringState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringStateElectricFrequencyChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AntiflickeringStateModeChangedBehavior;
-    // Class GPSState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSStateNumberOfSatelliteChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSStateHomeTypeAvailabilityChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSStateHomeTypeChosenChangedBehavior;
-    // Class PROState
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PROStateFeaturesBehavior;
 
-    // Project JumpingSumo
-    // Class Piloting
+    // Feature unknown_feature_1
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1GeographicRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1RelativeRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1LookAtRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1SpiralAnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1SwingAnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1BoomerangAnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1CandleAnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1DollySlideAnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1UserFramingPositionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1UserGPSDataBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1UserBaroDataBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1LynxDetectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1AvailabilityBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1RunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1GeographicConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1RelativeConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1AnimRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1SpiralAnimConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1SwingAnimConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1BoomerangAnimConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1CandleAnimConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1DollySlideAnimConfigChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1UserFramingPositionChangedBehavior;
+
+    // Feature JumpingSumo
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPCMDBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPostureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingAddCapOffsetBehavior;
-    // Class PilotingState
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStatePostureChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateAlertStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateSpeedChangedBehavior;
-    // Class Animations
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpStopBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpCancelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpLoadBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsSimpleAnimationBehavior;
-    // Class AnimationsState
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior;
-    // Class SettingsState
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior;
-    // Class MediaRecord
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordPictureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordVideoBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordPictureV2Behavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordVideoV2Behavior;
-    // Class MediaRecordState
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkSettingsWifiSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkWifiScanBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkWifiAuthChannelBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsMasterVolumeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsThemeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanScriptUploadedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanScriptDeleteBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanPlayScriptBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSpeedSettingsOutdoorBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaStreamingVideoEnableBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoVideoSettingsAutorecordBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStatePostureChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateAlertStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateSpeedChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordStatePictureStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordStateVideoStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordStatePictureStateChangedV2Behavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordStateVideoStateChangedV2Behavior;
-    // Class MediaRecordEvent
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordEventPictureEventChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaRecordEventVideoEventChangedBehavior;
-    // Class NetworkSettings
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkSettingsWifiSelectionBehavior;
-    // Class NetworkSettingsState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior;
-    // Class Network
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkWifiScanBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkWifiAuthChannelBehavior;
-    // Class NetworkState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkStateWifiScanListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkStateAllWifiScanChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoNetworkStateLinkQualityChangedBehavior;
-    // Class AudioSettings
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsMasterVolumeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsThemeBehavior;
-    // Class AudioSettingsState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAudioSettingsStateThemeChangedBehavior;
-    // Class RoadPlan
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanScriptUploadedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanScriptDeleteBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanPlayScriptBehavior;
-    // Class RoadPlanState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanStateScriptUploadChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanStateScriptDeleteChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoRoadPlanStatePlayScriptChangedBehavior;
-    // Class SpeedSettings
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSpeedSettingsOutdoorBehavior;
-    // Class SpeedSettingsState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoSpeedSettingsStateOutdoorChangedBehavior;
-    // Class MediaStreaming
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaStreamingVideoEnableBehavior;
-    // Class MediaStreamingState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaStreamingStateVideoEnableChangedBehavior;
-    // Class VideoSettings
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoVideoSettingsAutorecordBehavior;
-    // Class VideoSettingsState
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior;
 
-    // Project MiniDrone
-    // Class Piloting
+    // Feature MiniDrone
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingFlatTrimBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingTakeOffBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingPCMDBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingLandingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingEmergencyBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingAutoTakeOffModeBehavior;
-    // Class PilotingState
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlatTrimChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlyingStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAlertStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior;
-    // Class Animations
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneAnimationsFlipBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneAnimationsCapBehavior;
-    // Class MediaRecord
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordPictureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordPictureV2Behavior;
-    // Class MediaRecordState
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior;
-    // Class MediaRecordEvent
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordEventPictureEventChangedBehavior;
-    // Class PilotingSettings
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsMaxAltitudeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsMaxTiltBehavior;
-    // Class PilotingSettingsState
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior;
-    // Class SpeedSettings
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsWheelsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior;
-    // Class SpeedSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsCutOutModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneGPSControllerLatitudeForRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneGPSControllerLongitudeForRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerTypeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerNameBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlatTrimChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlyingStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAlertStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordEventPictureEventChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior;
-    // Class Settings
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsCutOutModeBehavior;
-    // Class SettingsState
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsStateProductMotorsVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsStateCutOutModeChangedBehavior;
-    // Class FloodControlState
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneFloodControlStateFloodControlChangedBehavior;
-    // Class GPS
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneGPSControllerLatitudeForRunBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneGPSControllerLongitudeForRunBehavior;
-    // Class Configuration
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerTypeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerNameBehavior;
 
-    // Project SkyController
-    // Class WifiState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiListBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateConnexionChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiSignalChangedBehavior;
-    // Class Wifi
+    // Feature SkyController
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiRequestWifiListBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiRequestCurrentWifiBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiConnectToWifiBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiForgetWifiBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiWifiAuthChannelBehavior;
-    // Class Device
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceRequestDeviceListBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceRequestCurrentDeviceBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceConnectToDeviceBehavior;
-    // Class DeviceState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceStateDeviceListBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceStateConnexionChangedBehavior;
-    // Class Settings
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsAllSettingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsResetBehavior;
-    // Class SettingsState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateAllSettingsChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateResetChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductSerialChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVariantChangedBehavior;
-    // Class Common
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonAllStatesBehavior;
-    // Class CommonState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonStateAllStatesChangedBehavior;
-    // Class SkyControllerState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateBatteryChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateGpsFixChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior;
-    // Class AccessPointSettings
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsAccessPointSSIDBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsAccessPointChannelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsWifiSelectionBehavior;
-    // Class AccessPointSettingsState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior;
-    // Class Camera
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCameraResetOrientationBehavior;
-    // Class GamepadInfos
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerGamepadInfosGetGamepadControlsBehavior;
-    // Class GamepadInfosState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerGamepadInfosStateGamepadControlBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior;
-    // Class ButtonMappings
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsSetButtonMappingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsDefaultButtonMappingBehavior;
-    // Class ButtonMappingsState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior;
-    // Class AxisMappings
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsSetAxisMappingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsDefaultAxisMappingBehavior;
-    // Class AxisMappingsState
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior;
-    // Class AxisFilters
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersGetPresetAxisFiltersBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersSetAxisFilterBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersDefaultAxisFiltersBehavior;
-    // Class AxisFiltersState
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCoPilotingSetPilotingSourceBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiListBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateConnexionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerWifiStateWifiSignalChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceStateDeviceListBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerDeviceStateConnexionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateAllSettingsChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateResetChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductSerialChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVariantChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonStateAllStatesChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateBatteryChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateGpsFixChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerGamepadInfosStateGamepadControlBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersStatePresetAxisFiltersBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior;
-    // Class CoPiloting
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCoPilotingSetPilotingSourceBehavior;
-    // Class CoPilotingState
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCoPilotingStatePilotingSourceBehavior;
-    // Class Calibration
-    eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior;
-    // Class CalibrationState
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior;
-    // Class ButtonEvents
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerButtonEventsSettingsBehavior;
 
-    // Project common
-    // Class Network
+    // Feature common
     eARCOMMANDS_FILTER_STATUS CmdCommonNetworkDisconnectBehavior;
-    // Class NetworkEvent
-    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkEventDisconnectionBehavior;
-    // Class Settings
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAllSettingsBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsResetBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsProductNameBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsCountryBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsAutoCountryBehavior;
-    // Class SettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonAllStatesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentDateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentTimeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonRebootBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatSwitchOffBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatVentilateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStartBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkPauseBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStopBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationMagnetoCalibrationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonGPSControllerPositionForRunBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAudioControllerReadyForStreamingBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsIntensityBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStartAnimationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAnimationBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAllAnimationsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryConfigBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonChargerSetMaxChargeRateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonNetworkEventDisconnectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAllSettingsChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateResetChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductNameChangedBehavior;
@@ -436,12 +389,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateProductSerialLowChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateCountryChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonSettingsStateAutoCountryChangedBehavior;
-    // Class Common
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonAllStatesBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentDateBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonCurrentTimeBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonCommonRebootBehavior;
-    // Class CommonState
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateAllStatesChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateBatteryStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageStateListChangedBehavior;
@@ -453,100 +400,68 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateSensorsStatesListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateProductModelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCountryListKnownBehavior;
-    // Class OverHeat
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatSwitchOffBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatVentilateBehavior;
-    // Class OverHeatState
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
-    // Class ControllerState
     eARCOMMANDS_FILTER_STATUS CmdCommonControllerStateIsPilotingChangedBehavior;
-    // Class WifiSettings
-    eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
-    // Class WifiSettingsState
     eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
-    // Class Mavlink
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStartBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkPauseBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStopBehavior;
-    // Class MavlinkState
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
-    // Class Calibration
-    eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationMagnetoCalibrationBehavior;
-    // Class CalibrationState
     eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior;
-    // Class CameraSettingsState
     eARCOMMANDS_FILTER_STATUS CmdCommonCameraSettingsStateCameraSettingsChangedBehavior;
-    // Class GPS
-    eARCOMMANDS_FILTER_STATUS CmdCommonGPSControllerPositionForRunBehavior;
-    // Class FlightPlanState
     eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateAvailabilityStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanStateComponentStateListChangedBehavior;
-    // Class FlightPlanEvent
     eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventStartingErrorEventBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonFlightPlanEventSpeedBridleEventBehavior;
-    // Class ARLibsVersionsState
     eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior;
-    // Class Audio
-    eARCOMMANDS_FILTER_STATUS CmdCommonAudioControllerReadyForStreamingBehavior;
-    // Class AudioState
     eARCOMMANDS_FILTER_STATUS CmdCommonAudioStateAudioStreamingRunningBehavior;
-    // Class Headlights
-    eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsIntensityBehavior;
-    // Class HeadlightsState
     eARCOMMANDS_FILTER_STATUS CmdCommonHeadlightsStateIntensityChangedBehavior;
-    // Class Animations
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStartAnimationBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAnimationBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStopAllAnimationsBehavior;
-    // Class AnimationsState
     eARCOMMANDS_FILTER_STATUS CmdCommonAnimationsStateListBehavior;
-    // Class Accessory
-    eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryConfigBehavior;
-    // Class AccessoryState
     eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior;
-    // Class Charger
-    eARCOMMANDS_FILTER_STATUS CmdCommonChargerSetMaxChargeRateBehavior;
-    // Class ChargerState
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateMaxChargeRateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateCurrentChargeStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateLastChargeRateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
-    // Class RunState
     eARCOMMANDS_FILTER_STATUS CmdCommonRunStateRunIdChangedBehavior;
 
-    // Project commonDebug
-    // Class Stats
+    // Feature commonDebug
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsSendPacketBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
-    // Class StatsEvent
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsEventSendPacketBehavior;
-    // Class DebugSettings
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsGetAllBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsSetBehavior;
-    // Class DebugSettingsState
+    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsEventSendPacketBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateInfoBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateListChangedBehavior;
 
-    // Project pro
-    // Class Pro
+    // Feature pro
     eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
     eARCOMMANDS_FILTER_STATUS CmdProProResponseBehavior;
     eARCOMMANDS_FILTER_STATUS CmdProProActivateFeaturesBehavior;
-    // Class ProState
     eARCOMMANDS_FILTER_STATUS CmdProProStateSupportedFeaturesBehavior;
     eARCOMMANDS_FILTER_STATUS CmdProProStateFeaturesActivatedBehavior;
-    // Class ProEvent
     eARCOMMANDS_FILTER_STATUS CmdProProEventChallengeEventBehavior;
+
+    // Feature wifi
+    eARCOMMANDS_FILTER_STATUS CmdWifiScanBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiUpdateAuthorizedChannelsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSetApChannelBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSetSecurityBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSetCountryBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSetEnvironementBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiScannedItemBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiAuthorizedChannelBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiApChannelChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSecurityChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiCountryChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiEnvironementChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiRssiChangedBehavior;
 
 };
 
@@ -574,8 +489,9 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
     // Setup default behavior
     if (localError == ARCOMMANDS_FILTER_OK)
     {
-        // Projects ARDrone3
-        // Class Piloting
+        // Feature generic
+        retFilter->CmdGenericDefaultBehavior = defaultBehavior;
+        // Feature ARDrone3
         retFilter->CmdARDrone3PilotingFlatTrimBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingTakeOffBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingPCMDBehavior = defaultBehavior;
@@ -584,44 +500,14 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingNavigateHomeBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingAutoTakeOffModeBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingMoveByBehavior = defaultBehavior;
-        // Class Animations
         retFilter->CmdARDrone3AnimationsFlipBehavior = defaultBehavior;
-        // Class Camera
         retFilter->CmdARDrone3CameraOrientationBehavior = defaultBehavior;
-        // Class MediaRecord
         retFilter->CmdARDrone3MediaRecordPictureBehavior = defaultBehavior;
         retFilter->CmdARDrone3MediaRecordVideoBehavior = defaultBehavior;
         retFilter->CmdARDrone3MediaRecordPictureV2Behavior = defaultBehavior;
         retFilter->CmdARDrone3MediaRecordVideoV2Behavior = defaultBehavior;
-        // Class MediaRecordState
-        retFilter->CmdARDrone3MediaRecordStatePictureStateChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3MediaRecordStateVideoStateChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
-        retFilter->CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior = defaultBehavior;
-        // Class MediaRecordEvent
-        retFilter->CmdARDrone3MediaRecordEventPictureEventChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3MediaRecordEventVideoEventChangedBehavior = defaultBehavior;
-        // Class PilotingState
-        retFilter->CmdARDrone3PilotingStateFlatTrimChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateFlyingStateChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateAlertStateChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStatePositionChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateSpeedChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateAttitudeChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PilotingStateAltitudeChangedBehavior = defaultBehavior;
-        // Class PilotingEvent
-        retFilter->CmdARDrone3PilotingEventMoveByEndBehavior = defaultBehavior;
-        // Class Network
         retFilter->CmdARDrone3NetworkWifiScanBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkWifiAuthChannelBehavior = defaultBehavior;
-        // Class NetworkState
-        retFilter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
-        // Class PilotingSettings
         retFilter->CmdARDrone3PilotingSettingsMaxAltitudeBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsMaxTiltBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsAbsolutControlBehavior = defaultBehavior;
@@ -632,7 +518,47 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = defaultBehavior;
-        // Class PilotingSettingsState
+        retFilter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsOutdoorBehavior = defaultBehavior;
+        retFilter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaStreamingVideoEnableBehavior = defaultBehavior;
+        retFilter->CmdARDrone3GPSSettingsSetHomeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3GPSSettingsResetHomeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = defaultBehavior;
+        retFilter->CmdARDrone3GPSSettingsHomeTypeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = defaultBehavior;
+        retFilter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = defaultBehavior;
+        retFilter->CmdARDrone3AntiflickeringSetModeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordStatePictureStateChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordStateVideoStateChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordEventPictureEventChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3MediaRecordEventVideoEventChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateFlatTrimChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateFlyingStateChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateAlertStateChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStatePositionChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateSpeedChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateAttitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingStateAltitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingEventMoveByEndBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateMaxTiltChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateAbsolutControlChangedBehavior = defaultBehavior;
@@ -643,26 +569,14 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = defaultBehavior;
-        // Class SpeedSettings
-        retFilter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
-        retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3SpeedSettingsOutdoorBehavior = defaultBehavior;
-        retFilter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = defaultBehavior;
-        // Class SpeedSettingsState
         retFilter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior = defaultBehavior;
-        // Class NetworkSettings
-        retFilter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = defaultBehavior;
-        // Class NetworkSettingsState
         retFilter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3NetworkSettingsStateWifiSecurityBehavior = defaultBehavior;
-        // Class SettingsState
         retFilter->CmdARDrone3SettingsStateProductMotorVersionListChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateProductGPSVersionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateMotorErrorStateChangedBehavior = defaultBehavior;
@@ -670,286 +584,238 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SettingsStateP7IDBehavior = defaultBehavior;
-        // Class PictureSettings
-        retFilter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = defaultBehavior;
-        retFilter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = defaultBehavior;
-        // Class PictureSettingsState
         retFilter->CmdARDrone3PictureSettingsStatePictureFormatChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateExpositionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateSaturationChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateTimelapseChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior = defaultBehavior;
-        // Class MediaStreaming
-        retFilter->CmdARDrone3MediaStreamingVideoEnableBehavior = defaultBehavior;
-        // Class MediaStreamingState
         retFilter->CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior = defaultBehavior;
-        // Class GPSSettings
-        retFilter->CmdARDrone3GPSSettingsSetHomeBehavior = defaultBehavior;
-        retFilter->CmdARDrone3GPSSettingsResetHomeBehavior = defaultBehavior;
-        retFilter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = defaultBehavior;
-        retFilter->CmdARDrone3GPSSettingsHomeTypeBehavior = defaultBehavior;
-        retFilter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = defaultBehavior;
-        // Class GPSSettingsState
         retFilter->CmdARDrone3GPSSettingsStateHomeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateResetHomeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateGPSFixStateChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateHomeTypeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior = defaultBehavior;
-        // Class CameraState
         retFilter->CmdARDrone3CameraStateOrientationBehavior = defaultBehavior;
         retFilter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = defaultBehavior;
-        // Class Antiflickering
-        retFilter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = defaultBehavior;
-        retFilter->CmdARDrone3AntiflickeringSetModeBehavior = defaultBehavior;
-        // Class AntiflickeringState
         retFilter->CmdARDrone3AntiflickeringStateElectricFrequencyChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3AntiflickeringStateModeChangedBehavior = defaultBehavior;
-        // Class GPSState
         retFilter->CmdARDrone3GPSStateNumberOfSatelliteChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSStateHomeTypeAvailabilityChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSStateHomeTypeChosenChangedBehavior = defaultBehavior;
-        // Class PROState
         retFilter->CmdARDrone3PROStateFeaturesBehavior = defaultBehavior;
-        // Projects JumpingSumo
-        // Class Piloting
+        // Feature unknown_feature_1
+        retFilter->CmdUnknownFeature_1GeographicRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1RelativeRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1LookAtRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1SpiralAnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1SwingAnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1BoomerangAnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1CandleAnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1DollySlideAnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1UserFramingPositionBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1UserGPSDataBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1UserBaroDataBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1LynxDetectionBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1AvailabilityBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1RunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1GeographicConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1RelativeConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1AnimRunBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1SpiralAnimConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1SwingAnimConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1BoomerangAnimConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1CandleAnimConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1DollySlideAnimConfigChangedBehavior = defaultBehavior;
+        retFilter->CmdUnknownFeature_1UserFramingPositionChangedBehavior = defaultBehavior;
+        // Feature JumpingSumo
         retFilter->CmdJumpingSumoPilotingPCMDBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingPostureBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingAddCapOffsetBehavior = defaultBehavior;
-        // Class PilotingState
-        retFilter->CmdJumpingSumoPilotingStatePostureChangedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = defaultBehavior;
-        // Class Animations
         retFilter->CmdJumpingSumoAnimationsJumpStopBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpCancelBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpLoadBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsSimpleAnimationBehavior = defaultBehavior;
-        // Class AnimationsState
-        retFilter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = defaultBehavior;
-        // Class SettingsState
-        retFilter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = defaultBehavior;
-        // Class MediaRecord
         retFilter->CmdJumpingSumoMediaRecordPictureBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordVideoBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordPictureV2Behavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordVideoV2Behavior = defaultBehavior;
-        // Class MediaRecordState
+        retFilter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoNetworkWifiScanBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoAudioSettingsThemeBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoRoadPlanPlayScriptBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoVideoSettingsAutorecordBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingStatePostureChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordStatePictureStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordStateVideoStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordStateVideoStateChangedV2Behavior = defaultBehavior;
-        // Class MediaRecordEvent
         retFilter->CmdJumpingSumoMediaRecordEventPictureEventChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaRecordEventVideoEventChangedBehavior = defaultBehavior;
-        // Class NetworkSettings
-        retFilter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = defaultBehavior;
-        // Class NetworkSettingsState
         retFilter->CmdJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
-        // Class Network
-        retFilter->CmdJumpingSumoNetworkWifiScanBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = defaultBehavior;
-        // Class NetworkState
         retFilter->CmdJumpingSumoNetworkStateWifiScanListChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoNetworkStateAllWifiScanChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoNetworkStateLinkQualityChangedBehavior = defaultBehavior;
-        // Class AudioSettings
-        retFilter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoAudioSettingsThemeBehavior = defaultBehavior;
-        // Class AudioSettingsState
         retFilter->CmdJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAudioSettingsStateThemeChangedBehavior = defaultBehavior;
-        // Class RoadPlan
-        retFilter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoRoadPlanPlayScriptBehavior = defaultBehavior;
-        // Class RoadPlanState
         retFilter->CmdJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoRoadPlanStateScriptUploadChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoRoadPlanStateScriptDeleteChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoRoadPlanStatePlayScriptChangedBehavior = defaultBehavior;
-        // Class SpeedSettings
-        retFilter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = defaultBehavior;
-        // Class SpeedSettingsState
         retFilter->CmdJumpingSumoSpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
-        // Class MediaStreaming
-        retFilter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = defaultBehavior;
-        // Class MediaStreamingState
         retFilter->CmdJumpingSumoMediaStreamingStateVideoEnableChangedBehavior = defaultBehavior;
-        // Class VideoSettings
-        retFilter->CmdJumpingSumoVideoSettingsAutorecordBehavior = defaultBehavior;
-        // Class VideoSettingsState
         retFilter->CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior = defaultBehavior;
-        // Projects MiniDrone
-        // Class Piloting
+        // Feature MiniDrone
         retFilter->CmdMiniDronePilotingFlatTrimBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingTakeOffBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingPCMDBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingLandingBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingEmergencyBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingAutoTakeOffModeBehavior = defaultBehavior;
-        // Class PilotingState
-        retFilter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = defaultBehavior;
-        retFilter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = defaultBehavior;
-        retFilter->CmdMiniDronePilotingStateAlertStateChangedBehavior = defaultBehavior;
-        retFilter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = defaultBehavior;
-        // Class Animations
         retFilter->CmdMiniDroneAnimationsFlipBehavior = defaultBehavior;
         retFilter->CmdMiniDroneAnimationsCapBehavior = defaultBehavior;
-        // Class MediaRecord
         retFilter->CmdMiniDroneMediaRecordPictureBehavior = defaultBehavior;
         retFilter->CmdMiniDroneMediaRecordPictureV2Behavior = defaultBehavior;
-        // Class MediaRecordState
-        retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = defaultBehavior;
-        retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
-        // Class MediaRecordEvent
-        retFilter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = defaultBehavior;
-        // Class PilotingSettings
         retFilter->CmdMiniDronePilotingSettingsMaxAltitudeBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingSettingsMaxTiltBehavior = defaultBehavior;
-        // Class PilotingSettingsState
-        retFilter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = defaultBehavior;
-        retFilter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = defaultBehavior;
-        // Class SpeedSettings
         retFilter->CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsWheelsBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = defaultBehavior;
-        // Class SpeedSettingsState
+        retFilter->CmdMiniDroneSettingsCutOutModeBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneGPSControllerLatitudeForRunBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneConfigurationControllerTypeBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneConfigurationControllerNameBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingStateAlertStateChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
+        retFilter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = defaultBehavior;
-        // Class Settings
-        retFilter->CmdMiniDroneSettingsCutOutModeBehavior = defaultBehavior;
-        // Class SettingsState
         retFilter->CmdMiniDroneSettingsStateProductMotorsVersionChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSettingsStateCutOutModeChangedBehavior = defaultBehavior;
-        // Class FloodControlState
         retFilter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = defaultBehavior;
-        // Class GPS
-        retFilter->CmdMiniDroneGPSControllerLatitudeForRunBehavior = defaultBehavior;
-        retFilter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = defaultBehavior;
-        // Class Configuration
-        retFilter->CmdMiniDroneConfigurationControllerTypeBehavior = defaultBehavior;
-        retFilter->CmdMiniDroneConfigurationControllerNameBehavior = defaultBehavior;
-        // Projects SkyController
-        // Class WifiState
-        retFilter->CmdSkyControllerWifiStateWifiListBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerWifiStateConnexionChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerWifiStateWifiSignalChangedBehavior = defaultBehavior;
-        // Class Wifi
+        // Feature SkyController
         retFilter->CmdSkyControllerWifiRequestWifiListBehavior = defaultBehavior;
         retFilter->CmdSkyControllerWifiRequestCurrentWifiBehavior = defaultBehavior;
         retFilter->CmdSkyControllerWifiConnectToWifiBehavior = defaultBehavior;
         retFilter->CmdSkyControllerWifiForgetWifiBehavior = defaultBehavior;
         retFilter->CmdSkyControllerWifiWifiAuthChannelBehavior = defaultBehavior;
-        // Class Device
         retFilter->CmdSkyControllerDeviceRequestDeviceListBehavior = defaultBehavior;
         retFilter->CmdSkyControllerDeviceRequestCurrentDeviceBehavior = defaultBehavior;
         retFilter->CmdSkyControllerDeviceConnectToDeviceBehavior = defaultBehavior;
-        // Class DeviceState
-        retFilter->CmdSkyControllerDeviceStateDeviceListBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerDeviceStateConnexionChangedBehavior = defaultBehavior;
-        // Class Settings
         retFilter->CmdSkyControllerSettingsAllSettingsBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsResetBehavior = defaultBehavior;
-        // Class SettingsState
-        retFilter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerSettingsStateResetChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = defaultBehavior;
-        // Class Common
         retFilter->CmdSkyControllerCommonAllStatesBehavior = defaultBehavior;
-        // Class CommonState
-        retFilter->CmdSkyControllerCommonStateAllStatesChangedBehavior = defaultBehavior;
-        // Class SkyControllerState
-        retFilter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior = defaultBehavior;
-        // Class AccessPointSettings
         retFilter->CmdSkyControllerAccessPointSettingsAccessPointSSIDBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAccessPointSettingsAccessPointChannelBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAccessPointSettingsWifiSelectionBehavior = defaultBehavior;
-        // Class AccessPointSettingsState
-        retFilter->CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
-        // Class Camera
         retFilter->CmdSkyControllerCameraResetOrientationBehavior = defaultBehavior;
-        // Class GamepadInfos
         retFilter->CmdSkyControllerGamepadInfosGetGamepadControlsBehavior = defaultBehavior;
-        // Class GamepadInfosState
-        retFilter->CmdSkyControllerGamepadInfosStateGamepadControlBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior = defaultBehavior;
-        // Class ButtonMappings
         retFilter->CmdSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior = defaultBehavior;
         retFilter->CmdSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior = defaultBehavior;
         retFilter->CmdSkyControllerButtonMappingsSetButtonMappingBehavior = defaultBehavior;
         retFilter->CmdSkyControllerButtonMappingsDefaultButtonMappingBehavior = defaultBehavior;
-        // Class ButtonMappingsState
-        retFilter->CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior = defaultBehavior;
-        // Class AxisMappings
         retFilter->CmdSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisMappingsSetAxisMappingBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisMappingsDefaultAxisMappingBehavior = defaultBehavior;
-        // Class AxisMappingsState
-        retFilter->CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior = defaultBehavior;
-        retFilter->CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior = defaultBehavior;
-        // Class AxisFilters
         retFilter->CmdSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersGetPresetAxisFiltersBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersSetAxisFilterBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersDefaultAxisFiltersBehavior = defaultBehavior;
-        // Class AxisFiltersState
+        retFilter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerWifiStateWifiListBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerWifiStateConnexionChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerWifiStateWifiSignalChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerDeviceStateDeviceListBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerDeviceStateConnexionChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateResetChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerCommonStateAllStatesChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerGamepadInfosStateGamepadControlBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersStatePresetAxisFiltersBehavior = defaultBehavior;
         retFilter->CmdSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior = defaultBehavior;
-        // Class CoPiloting
-        retFilter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = defaultBehavior;
-        // Class CoPilotingState
         retFilter->CmdSkyControllerCoPilotingStatePilotingSourceBehavior = defaultBehavior;
-        // Class Calibration
-        retFilter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = defaultBehavior;
-        // Class CalibrationState
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = defaultBehavior;
         retFilter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = defaultBehavior;
-        // Class ButtonEvents
         retFilter->CmdSkyControllerButtonEventsSettingsBehavior = defaultBehavior;
-        // Projects common
-        // Class Network
+        // Feature common
         retFilter->CmdCommonNetworkDisconnectBehavior = defaultBehavior;
-        // Class NetworkEvent
-        retFilter->CmdCommonNetworkEventDisconnectionBehavior = defaultBehavior;
-        // Class Settings
         retFilter->CmdCommonSettingsAllSettingsBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsResetBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsProductNameBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsCountryBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsAutoCountryBehavior = defaultBehavior;
-        // Class SettingsState
+        retFilter->CmdCommonCommonAllStatesBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonCurrentDateBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonCurrentTimeBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonRebootBehavior = defaultBehavior;
+        retFilter->CmdCommonOverHeatSwitchOffBehavior = defaultBehavior;
+        retFilter->CmdCommonOverHeatVentilateBehavior = defaultBehavior;
+        retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkStartBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkPauseBehavior = defaultBehavior;
+        retFilter->CmdCommonMavlinkStopBehavior = defaultBehavior;
+        retFilter->CmdCommonCalibrationMagnetoCalibrationBehavior = defaultBehavior;
+        retFilter->CmdCommonGPSControllerPositionForRunBehavior = defaultBehavior;
+        retFilter->CmdCommonAudioControllerReadyForStreamingBehavior = defaultBehavior;
+        retFilter->CmdCommonHeadlightsIntensityBehavior = defaultBehavior;
+        retFilter->CmdCommonAnimationsStartAnimationBehavior = defaultBehavior;
+        retFilter->CmdCommonAnimationsStopAnimationBehavior = defaultBehavior;
+        retFilter->CmdCommonAnimationsStopAllAnimationsBehavior = defaultBehavior;
+        retFilter->CmdCommonAccessoryConfigBehavior = defaultBehavior;
+        retFilter->CmdCommonChargerSetMaxChargeRateBehavior = defaultBehavior;
+        retFilter->CmdCommonNetworkEventDisconnectionBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsStateAllSettingsChangedBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsStateResetChangedBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsStateProductNameChangedBehavior = defaultBehavior;
@@ -958,12 +824,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonSettingsStateProductSerialLowChangedBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsStateCountryChangedBehavior = defaultBehavior;
         retFilter->CmdCommonSettingsStateAutoCountryChangedBehavior = defaultBehavior;
-        // Class Common
-        retFilter->CmdCommonCommonAllStatesBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonCurrentDateBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonCurrentTimeBehavior = defaultBehavior;
-        retFilter->CmdCommonCommonRebootBehavior = defaultBehavior;
-        // Class CommonState
         retFilter->CmdCommonCommonStateAllStatesChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateBatteryStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateMassStorageStateListChangedBehavior = defaultBehavior;
@@ -975,98 +835,65 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonCommonStateSensorsStatesListChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateProductModelBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateCountryListKnownBehavior = defaultBehavior;
-        // Class OverHeat
-        retFilter->CmdCommonOverHeatSwitchOffBehavior = defaultBehavior;
-        retFilter->CmdCommonOverHeatVentilateBehavior = defaultBehavior;
-        // Class OverHeatState
         retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
-        // Class ControllerState
         retFilter->CmdCommonControllerStateIsPilotingChangedBehavior = defaultBehavior;
-        // Class WifiSettings
-        retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
-        // Class WifiSettingsState
         retFilter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = defaultBehavior;
-        // Class Mavlink
-        retFilter->CmdCommonMavlinkStartBehavior = defaultBehavior;
-        retFilter->CmdCommonMavlinkPauseBehavior = defaultBehavior;
-        retFilter->CmdCommonMavlinkStopBehavior = defaultBehavior;
-        // Class MavlinkState
         retFilter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = defaultBehavior;
-        // Class Calibration
-        retFilter->CmdCommonCalibrationMagnetoCalibrationBehavior = defaultBehavior;
-        // Class CalibrationState
         retFilter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = defaultBehavior;
         retFilter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = defaultBehavior;
-        // Class CameraSettingsState
         retFilter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = defaultBehavior;
-        // Class GPS
-        retFilter->CmdCommonGPSControllerPositionForRunBehavior = defaultBehavior;
-        // Class FlightPlanState
         retFilter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = defaultBehavior;
-        // Class FlightPlanEvent
         retFilter->CmdCommonFlightPlanEventStartingErrorEventBehavior = defaultBehavior;
         retFilter->CmdCommonFlightPlanEventSpeedBridleEventBehavior = defaultBehavior;
-        // Class ARLibsVersionsState
         retFilter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = defaultBehavior;
         retFilter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = defaultBehavior;
         retFilter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = defaultBehavior;
-        // Class Audio
-        retFilter->CmdCommonAudioControllerReadyForStreamingBehavior = defaultBehavior;
-        // Class AudioState
         retFilter->CmdCommonAudioStateAudioStreamingRunningBehavior = defaultBehavior;
-        // Class Headlights
-        retFilter->CmdCommonHeadlightsIntensityBehavior = defaultBehavior;
-        // Class HeadlightsState
         retFilter->CmdCommonHeadlightsStateIntensityChangedBehavior = defaultBehavior;
-        // Class Animations
-        retFilter->CmdCommonAnimationsStartAnimationBehavior = defaultBehavior;
-        retFilter->CmdCommonAnimationsStopAnimationBehavior = defaultBehavior;
-        retFilter->CmdCommonAnimationsStopAllAnimationsBehavior = defaultBehavior;
-        // Class AnimationsState
         retFilter->CmdCommonAnimationsStateListBehavior = defaultBehavior;
-        // Class Accessory
-        retFilter->CmdCommonAccessoryConfigBehavior = defaultBehavior;
-        // Class AccessoryState
         retFilter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = defaultBehavior;
         retFilter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = defaultBehavior;
         retFilter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = defaultBehavior;
-        // Class Charger
-        retFilter->CmdCommonChargerSetMaxChargeRateBehavior = defaultBehavior;
-        // Class ChargerState
         retFilter->CmdCommonChargerStateMaxChargeRateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
-        // Class RunState
         retFilter->CmdCommonRunStateRunIdChangedBehavior = defaultBehavior;
-        // Projects commonDebug
-        // Class Stats
+        // Feature commonDebug
         retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
         retFilter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = defaultBehavior;
         retFilter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = defaultBehavior;
-        // Class StatsEvent
-        retFilter->CmdCommonDebugStatsEventSendPacketBehavior = defaultBehavior;
-        // Class DebugSettings
         retFilter->CmdCommonDebugDebugSettingsGetAllBehavior = defaultBehavior;
         retFilter->CmdCommonDebugDebugSettingsSetBehavior = defaultBehavior;
-        // Class DebugSettingsState
+        retFilter->CmdCommonDebugStatsEventSendPacketBehavior = defaultBehavior;
         retFilter->CmdCommonDebugDebugSettingsStateInfoBehavior = defaultBehavior;
         retFilter->CmdCommonDebugDebugSettingsStateListChangedBehavior = defaultBehavior;
-        // Projects pro
-        // Class Pro
+        // Feature pro
         retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
         retFilter->CmdProProResponseBehavior = defaultBehavior;
         retFilter->CmdProProActivateFeaturesBehavior = defaultBehavior;
-        // Class ProState
         retFilter->CmdProProStateSupportedFeaturesBehavior = defaultBehavior;
         retFilter->CmdProProStateFeaturesActivatedBehavior = defaultBehavior;
-        // Class ProEvent
         retFilter->CmdProProEventChallengeEventBehavior = defaultBehavior;
+        // Feature wifi
+        retFilter->CmdWifiScanBehavior = defaultBehavior;
+        retFilter->CmdWifiUpdateAuthorizedChannelsBehavior = defaultBehavior;
+        retFilter->CmdWifiSetApChannelBehavior = defaultBehavior;
+        retFilter->CmdWifiSetSecurityBehavior = defaultBehavior;
+        retFilter->CmdWifiSetCountryBehavior = defaultBehavior;
+        retFilter->CmdWifiSetEnvironementBehavior = defaultBehavior;
+        retFilter->CmdWifiScannedItemBehavior = defaultBehavior;
+        retFilter->CmdWifiAuthorizedChannelBehavior = defaultBehavior;
+        retFilter->CmdWifiApChannelChangedBehavior = defaultBehavior;
+        retFilter->CmdWifiSecurityChangedBehavior = defaultBehavior;
+        retFilter->CmdWifiCountryChangedBehavior = defaultBehavior;
+        retFilter->CmdWifiEnvironementChangedBehavior = defaultBehavior;
+        retFilter->CmdWifiRssiChangedBehavior = defaultBehavior;
     } // No else : Processing block
 
     if (localError != ARCOMMANDS_FILTER_OK)
@@ -1096,7 +923,7 @@ void ARCOMMANDS_Filter_DeleteFilter (ARCOMMANDS_Filter_t **filter)
 
 eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *filter, uint8_t *buffer, uint32_t len, eARCOMMANDS_FILTER_ERROR *error)
 {
-    eARCOMMANDS_ID_PROJECT commandProject = -1;
+    eARCOMMANDS_ID_FEATURE commandFeature = -1;
     int commandClass = -1;
     int commandId = -1;
     int32_t offset = 0;
@@ -1118,7 +945,7 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
 
     if (localError == ARCOMMANDS_FILTER_OK)
     {
-        commandProject = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, len, &offset, &readError);
+        commandFeature = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, len, &offset, &readError);
         if (readError == 1)
         {
             localError = ARCOMMANDS_FILTER_ERROR_BAD_BUFFER;
@@ -1145,9 +972,28 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
 
     if (localError == ARCOMMANDS_FILTER_OK)
     {
-        switch (commandProject)
+        switch (commandFeature)
         {
-        case ARCOMMANDS_ID_PROJECT_ARDRONE3:
+        case ARCOMMANDS_ID_FEATURE_GENERIC:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_GENERIC_CMD_DEFAULT:
+                {
+                    retStatus = filter->CmdGenericDefaultBehavior;
+                }
+                break; /* ARCOMMANDS_ID_GENERIC_CMD_DEFAULT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            //Else Do nothing, the default answer is already UNKNOWN
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_GENERIC */
+        case ARCOMMANDS_ID_FEATURE_ARDRONE3:
         {
             switch (commandClass)
             {
@@ -2001,8 +1847,137 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_ARDRONE3 */
-        case ARCOMMANDS_ID_PROJECT_JUMPINGSUMO:
+        break; /* ARCOMMANDS_ID_FEATURE_ARDRONE3 */
+        case ARCOMMANDS_ID_FEATURE_FOLLOW_ME:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_GEOGRAPHIC_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1GeographicRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_GEOGRAPHIC_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1RelativeRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_LOOK_AT_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1LookAtRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_LOOK_AT_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1SpiralAnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1SwingAnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1BoomerangAnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1CandleAnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1DollySlideAnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION:
+                {
+                    retStatus = filter->CmdUnknownFeature_1UserFramingPositionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_GPS_DATA:
+                {
+                    retStatus = filter->CmdUnknownFeature_1UserGPSDataBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_GPS_DATA */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_BARO_DATA:
+                {
+                    retStatus = filter->CmdUnknownFeature_1UserBaroDataBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_BARO_DATA */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_LYNX_DETECTION:
+                {
+                    retStatus = filter->CmdUnknownFeature_1LynxDetectionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_LYNX_DETECTION */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_AVAILABILITY:
+                {
+                    retStatus = filter->CmdUnknownFeature_1AvailabilityBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_AVAILABILITY */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1RunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_GEOGRAPHIC_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1GeographicConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_GEOGRAPHIC_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1RelativeConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_ANIM_RUN:
+                {
+                    retStatus = filter->CmdUnknownFeature_1AnimRunBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_ANIM_RUN */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1SpiralAnimConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1SwingAnimConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1BoomerangAnimConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1CandleAnimConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_CONFIG_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1DollySlideAnimConfigChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_CONFIG_CHANGED */
+                case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION_CHANGED:
+                {
+                    retStatus = filter->CmdUnknownFeature_1UserFramingPositionChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION_CHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            //Else Do nothing, the default answer is already UNKNOWN
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_FOLLOW_ME */
+        case ARCOMMANDS_ID_FEATURE_JUMPINGSUMO:
         {
             switch (commandClass)
             {
@@ -2496,8 +2471,8 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_JUMPINGSUMO */
-        case ARCOMMANDS_ID_PROJECT_MINIDRONE:
+        break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
+        case ARCOMMANDS_ID_FEATURE_MINIDRONE:
         {
             switch (commandClass)
             {
@@ -2846,8 +2821,8 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_MINIDRONE */
-        case ARCOMMANDS_ID_PROJECT_SKYCONTROLLER:
+        break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        case ARCOMMANDS_ID_FEATURE_SKYCONTROLLER:
         {
             switch (commandClass)
             {
@@ -3436,8 +3411,8 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_SKYCONTROLLER */
-        case ARCOMMANDS_ID_PROJECT_COMMON:
+        break; /* ARCOMMANDS_ID_FEATURE_SKYCONTROLLER */
+        case ARCOMMANDS_ID_FEATURE_COMMON:
         {
             switch (commandClass)
             {
@@ -4126,8 +4101,8 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_COMMON */
-        case ARCOMMANDS_ID_PROJECT_COMMONDEBUG:
+        break; /* ARCOMMANDS_ID_FEATURE_COMMON */
+        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
         {
             switch (commandClass)
             {
@@ -4216,8 +4191,8 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_COMMONDEBUG */
-        case ARCOMMANDS_ID_PROJECT_PRO:
+        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
+        case ARCOMMANDS_ID_FEATURE_PRO:
         {
             switch (commandClass)
             {
@@ -4286,7 +4261,86 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_PROJECT_PRO */
+        break; /* ARCOMMANDS_ID_FEATURE_PRO */
+        case ARCOMMANDS_ID_FEATURE_WIFI:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_WIFI_CMD_SCAN:
+                {
+                    retStatus = filter->CmdWifiScanBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SCAN */
+                case ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS:
+                {
+                    retStatus = filter->CmdWifiUpdateAuthorizedChannelsBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL:
+                {
+                    retStatus = filter->CmdWifiSetApChannelBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY:
+                {
+                    retStatus = filter->CmdWifiSetSecurityBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY:
+                {
+                    retStatus = filter->CmdWifiSetCountryBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
+                {
+                    retStatus = filter->CmdWifiSetEnvironementBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT */
+                case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
+                {
+                    retStatus = filter->CmdWifiScannedItemBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM */
+                case ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL:
+                {
+                    retStatus = filter->CmdWifiAuthorizedChannelBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED:
+                {
+                    retStatus = filter->CmdWifiApChannelChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED:
+                {
+                    retStatus = filter->CmdWifiSecurityChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED:
+                {
+                    retStatus = filter->CmdWifiCountryChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
+                {
+                    retStatus = filter->CmdWifiEnvironementChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
+                {
+                    retStatus = filter->CmdWifiRssiChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            //Else Do nothing, the default answer is already UNKNOWN
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_WIFI */
         default:
             // Do nothing, the default answer is already UNKNOWN
             break;
@@ -4308,7 +4362,55 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
 
 
 // Filter ON/OFF functions
-// Project ARDrone3
+// Feature generic
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetGenericBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdGenericDefaultBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetGenericDefaultBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdGenericDefaultBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Feature ARDrone3
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -4341,6 +4443,39 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3MediaRecordVideoBehavior = behavior;
         filter->CmdARDrone3MediaRecordPictureV2Behavior = behavior;
         filter->CmdARDrone3MediaRecordVideoV2Behavior = behavior;
+        filter->CmdARDrone3NetworkWifiScanBehavior = behavior;
+        filter->CmdARDrone3NetworkWifiAuthChannelBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsMaxAltitudeBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsMaxTiltBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsAbsolutControlBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsMaxDistanceBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
+        filter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
+        filter->CmdARDrone3MediaStreamingVideoEnableBehavior = behavior;
+        filter->CmdARDrone3GPSSettingsSetHomeBehavior = behavior;
+        filter->CmdARDrone3GPSSettingsResetHomeBehavior = behavior;
+        filter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = behavior;
+        filter->CmdARDrone3GPSSettingsHomeTypeBehavior = behavior;
+        filter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = behavior;
+        filter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = behavior;
+        filter->CmdARDrone3AntiflickeringSetModeBehavior = behavior;
         filter->CmdARDrone3MediaRecordStatePictureStateChangedBehavior = behavior;
         filter->CmdARDrone3MediaRecordStateVideoStateChangedBehavior = behavior;
         filter->CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior = behavior;
@@ -4357,22 +4492,10 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior = behavior;
         filter->CmdARDrone3PilotingStateAltitudeChangedBehavior = behavior;
         filter->CmdARDrone3PilotingEventMoveByEndBehavior = behavior;
-        filter->CmdARDrone3NetworkWifiScanBehavior = behavior;
-        filter->CmdARDrone3NetworkWifiAuthChannelBehavior = behavior;
         filter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = behavior;
         filter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = behavior;
         filter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = behavior;
         filter->CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsMaxAltitudeBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsMaxTiltBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsAbsolutControlBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsMaxDistanceBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
-        filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateMaxTiltChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAbsolutControlChangedBehavior = behavior;
@@ -4383,18 +4506,11 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = behavior;
-        filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
-        filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
-        filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
-        filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
-        filter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateOutdoorChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior = behavior;
-        filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
-        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSelectionChangedBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSecurityChangedBehavior = behavior;
         filter->CmdARDrone3NetworkSettingsStateWifiSecurityBehavior = behavior;
@@ -4405,25 +4521,13 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3SettingsStateMotorFlightsStatusChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateMotorErrorLastErrorChangedBehavior = behavior;
         filter->CmdARDrone3SettingsStateP7IDBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
-        filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStatePictureFormatChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateExpositionChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateSaturationChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateTimelapseChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior = behavior;
-        filter->CmdARDrone3MediaStreamingVideoEnableBehavior = behavior;
         filter->CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior = behavior;
-        filter->CmdARDrone3GPSSettingsSetHomeBehavior = behavior;
-        filter->CmdARDrone3GPSSettingsResetHomeBehavior = behavior;
-        filter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = behavior;
-        filter->CmdARDrone3GPSSettingsHomeTypeBehavior = behavior;
-        filter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateHomeChangedBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateResetHomeChangedBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateGPSFixStateChangedBehavior = behavior;
@@ -4432,8 +4536,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior = behavior;
         filter->CmdARDrone3CameraStateOrientationBehavior = behavior;
         filter->CmdARDrone3CameraStateDefaultCameraOrientationBehavior = behavior;
-        filter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = behavior;
-        filter->CmdARDrone3AntiflickeringSetModeBehavior = behavior;
         filter->CmdARDrone3AntiflickeringStateElectricFrequencyChangedBehavior = behavior;
         filter->CmdARDrone3AntiflickeringStateModeChangedBehavior = behavior;
         filter->CmdARDrone3GPSStateNumberOfSatelliteChangedBehavior = behavior;
@@ -5230,8 +5332,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateBehavior (ARCOMMAN
     return retError;
 }
 
-// Command class Piloting
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingFlatTrimBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -5408,9 +5508,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingMoveByBehavior (AR
     return retError;
 }
 
-
-// Command class Animations
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsFlipBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -5433,9 +5530,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsFlipBehavior (AR
     return retError;
 }
 
-
-// Command class Camera
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -5457,9 +5551,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraOrientationBehavior 
 
     return retError;
 }
-
-
-// Command class MediaRecord
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordPictureBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -5549,373 +5640,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordVideoV2Behavior
     return retError;
 }
 
-
-// Command class MediaRecordState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordStatePictureStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordStateVideoStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MediaRecordEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordEventPictureEventChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaRecordEventVideoEventChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class PilotingState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateFlatTrimChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateFlyingStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateAlertStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStatePositionChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateSpeedChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateAttitudeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingStateAltitudeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class PilotingEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PilotingEventMoveByEndBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Network
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -5959,100 +5683,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBeha
 
     return retError;
 }
-
-
-// Command class NetworkState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class PilotingSettings
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -6274,8 +5904,907 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonom
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
 
-// Command class PilotingSettingsState
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaStreamingVideoEnableBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3GPSSettingsSetHomeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3GPSSettingsResetHomeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3GPSSettingsHomeTypeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3AntiflickeringSetModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordStatePictureStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordStateVideoStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordStatePictureStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordStateVideoStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordEventPictureEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3MediaRecordEventVideoEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateFlatTrimChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateFlyingStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateAlertStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateNavigateHomeStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStatePositionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateSpeedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateAttitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateAutoTakeOffModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingStateAltitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingEventMoveByEndBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkStateWifiScanListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkStateAllWifiScanChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkStateWifiAuthChannelListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3NetworkStateAllWifiAuthChannelChangedBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -6497,122 +7026,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAuton
     return retError;
 }
 
-
-// Command class SpeedSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3SpeedSettingsOutdoorBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SpeedSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -6723,56 +7136,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitch
     return retError;
 }
 
-
-// Command class NetworkSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkSettingsWifiSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3NetworkSettingsWifiSecurityBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class NetworkSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -6838,9 +7201,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSe
 
     return retError;
 }
-
-
-// Command class SettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -6996,144 +7356,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior 
     return retError;
 }
 
-
-// Command class PictureSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsPictureFormatSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsExpositionSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsSaturationSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class PictureSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStatePictureFormatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -7266,34 +7488,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoA
     return retError;
 }
 
-
-// Command class MediaStreaming
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3MediaStreamingVideoEnableBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MediaStreamingState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -7315,122 +7509,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateVideoEn
 
     return retError;
 }
-
-
-// Command class GPSSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3GPSSettingsSetHomeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3GPSSettingsResetHomeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3GPSSettingsSendControllerGPSBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3GPSSettingsHomeTypeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3GPSSettingsReturnHomeDelayBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class GPSSettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateHomeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -7564,9 +7642,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateReturnHome
     return retError;
 }
 
-
-// Command class CameraState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -7611,56 +7686,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateDefaultCameraOr
     return retError;
 }
 
-
-// Command class Antiflickering
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3AntiflickeringElectricFrequencyBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdARDrone3AntiflickeringSetModeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AntiflickeringState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -7704,9 +7729,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateModeCha
 
     return retError;
 }
-
-
-// Command class GPSState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateNumberOfSatelliteChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -7774,9 +7796,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateHomeTypeChosenChan
     return retError;
 }
 
-
-// Command class PROState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -7800,8 +7819,561 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateFeaturesBehavior (
 }
 
 
+// Feature unknown_feature_1
 
-// Project JumpingSumo
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1GeographicRunBehavior = behavior;
+        filter->CmdUnknownFeature_1RelativeRunBehavior = behavior;
+        filter->CmdUnknownFeature_1LookAtRunBehavior = behavior;
+        filter->CmdUnknownFeature_1SpiralAnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1SwingAnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1BoomerangAnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1CandleAnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1DollySlideAnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1UserFramingPositionBehavior = behavior;
+        filter->CmdUnknownFeature_1UserGPSDataBehavior = behavior;
+        filter->CmdUnknownFeature_1UserBaroDataBehavior = behavior;
+        filter->CmdUnknownFeature_1LynxDetectionBehavior = behavior;
+        filter->CmdUnknownFeature_1AvailabilityBehavior = behavior;
+        filter->CmdUnknownFeature_1RunBehavior = behavior;
+        filter->CmdUnknownFeature_1GeographicConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1RelativeConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1AnimRunBehavior = behavior;
+        filter->CmdUnknownFeature_1SpiralAnimConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1SwingAnimConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1BoomerangAnimConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1CandleAnimConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1DollySlideAnimConfigChangedBehavior = behavior;
+        filter->CmdUnknownFeature_1UserFramingPositionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1GeographicRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1RelativeRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1LookAtRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1SpiralAnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1SwingAnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1BoomerangAnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1CandleAnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1DollySlideAnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1UserFramingPositionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1UserGPSDataBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1UserBaroDataBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1LynxDetectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1AvailabilityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1RunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1GeographicConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1RelativeConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1AnimRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1SpiralAnimConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1SwingAnimConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1BoomerangAnimConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1CandleAnimConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1DollySlideAnimConfigChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdUnknownFeature_1UserFramingPositionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Feature JumpingSumo
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -7823,55 +8395,55 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Fi
         filter->CmdJumpingSumoPilotingPCMDBehavior = behavior;
         filter->CmdJumpingSumoPilotingPostureBehavior = behavior;
         filter->CmdJumpingSumoPilotingAddCapOffsetBehavior = behavior;
-        filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
-        filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
-        filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpStopBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpCancelBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpLoadBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpBehavior = behavior;
         filter->CmdJumpingSumoAnimationsSimpleAnimationBehavior = behavior;
-        filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
-        filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
-        filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
-        filter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordPictureBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordVideoBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordPictureV2Behavior = behavior;
         filter->CmdJumpingSumoMediaRecordVideoV2Behavior = behavior;
+        filter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = behavior;
+        filter->CmdJumpingSumoNetworkWifiScanBehavior = behavior;
+        filter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = behavior;
+        filter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = behavior;
+        filter->CmdJumpingSumoAudioSettingsThemeBehavior = behavior;
+        filter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = behavior;
+        filter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = behavior;
+        filter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = behavior;
+        filter->CmdJumpingSumoRoadPlanPlayScriptBehavior = behavior;
+        filter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = behavior;
+        filter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = behavior;
+        filter->CmdJumpingSumoVideoSettingsAutorecordBehavior = behavior;
+        filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
+        filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
+        filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
+        filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
+        filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
+        filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
+        filter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordStatePictureStateChangedBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordStateVideoStateChangedBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordStatePictureStateChangedV2Behavior = behavior;
         filter->CmdJumpingSumoMediaRecordStateVideoStateChangedV2Behavior = behavior;
         filter->CmdJumpingSumoMediaRecordEventPictureEventChangedBehavior = behavior;
         filter->CmdJumpingSumoMediaRecordEventVideoEventChangedBehavior = behavior;
-        filter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = behavior;
         filter->CmdJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior = behavior;
-        filter->CmdJumpingSumoNetworkWifiScanBehavior = behavior;
-        filter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = behavior;
         filter->CmdJumpingSumoNetworkStateWifiScanListChangedBehavior = behavior;
         filter->CmdJumpingSumoNetworkStateAllWifiScanChangedBehavior = behavior;
         filter->CmdJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior = behavior;
         filter->CmdJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior = behavior;
         filter->CmdJumpingSumoNetworkStateLinkQualityChangedBehavior = behavior;
-        filter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = behavior;
-        filter->CmdJumpingSumoAudioSettingsThemeBehavior = behavior;
         filter->CmdJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior = behavior;
         filter->CmdJumpingSumoAudioSettingsStateThemeChangedBehavior = behavior;
-        filter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = behavior;
-        filter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = behavior;
-        filter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = behavior;
-        filter->CmdJumpingSumoRoadPlanPlayScriptBehavior = behavior;
         filter->CmdJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior = behavior;
         filter->CmdJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior = behavior;
         filter->CmdJumpingSumoRoadPlanStateScriptUploadChangedBehavior = behavior;
         filter->CmdJumpingSumoRoadPlanStateScriptDeleteChangedBehavior = behavior;
         filter->CmdJumpingSumoRoadPlanStatePlayScriptChangedBehavior = behavior;
-        filter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = behavior;
         filter->CmdJumpingSumoSpeedSettingsStateOutdoorChangedBehavior = behavior;
-        filter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = behavior;
         filter->CmdJumpingSumoMediaStreamingStateVideoEnableChangedBehavior = behavior;
-        filter->CmdJumpingSumoVideoSettingsAutorecordBehavior = behavior;
         filter->CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior = behavior;
     }
 
@@ -8459,8 +9031,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateBehav
     return retError;
 }
 
-// Command class Piloting
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingPCMDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -8526,78 +9096,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingAddCapOffsetBeh
 
     return retError;
 }
-
-
-// Command class PilotingState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Animations
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -8709,103 +9207,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsSimpleAnimati
     return retError;
 }
 
-
-// Command class AnimationsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MediaRecord
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordPictureBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -8894,8 +9295,423 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordVideoV2Behav
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
 
-// Command class MediaRecordState
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoNetworkWifiScanBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoAudioSettingsThemeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoRoadPlanPlayScriptBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoVideoSettingsAutorecordBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoSettingsStateProductGPSVersionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -8985,9 +9801,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateVideoSt
     return retError;
 }
 
-
-// Command class MediaRecordEvent
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -9032,34 +9845,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventVideoEv
     return retError;
 }
 
-
-// Command class NetworkSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoNetworkSettingsWifiSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class NetworkSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -9081,56 +9866,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateWif
 
     return retError;
 }
-
-
-// Command class Network
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoNetworkWifiScanBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoNetworkWifiAuthChannelBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class NetworkState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -9242,56 +9977,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoNetworkStateLinkQuality
     return retError;
 }
 
-
-// Command class AudioSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoAudioSettingsMasterVolumeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoAudioSettingsThemeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AudioSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -9335,100 +10020,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateTheme
 
     return retError;
 }
-
-
-// Command class RoadPlan
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoRoadPlanAllScriptsMetadataBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoRoadPlanScriptUploadedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoRoadPlanScriptDeleteBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoRoadPlanPlayScriptBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class RoadPlanState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -9540,34 +10131,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStatePlayScript
     return retError;
 }
 
-
-// Command class SpeedSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoSpeedSettingsOutdoorBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SpeedSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -9590,34 +10153,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateOutdo
     return retError;
 }
 
-
-// Command class MediaStreaming
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoMediaStreamingVideoEnableBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MediaStreamingState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -9639,34 +10174,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateVide
 
     return retError;
 }
-
-
-// Command class VideoSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoVideoSettingsAutorecordBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class VideoSettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutorecordChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -9691,8 +10198,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutor
 }
 
 
-
-// Project MiniDrone
+// Feature MiniDrone
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -9717,38 +10223,38 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDronePilotingLandingBehavior = behavior;
         filter->CmdMiniDronePilotingEmergencyBehavior = behavior;
         filter->CmdMiniDronePilotingAutoTakeOffModeBehavior = behavior;
-        filter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = behavior;
-        filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
-        filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
-        filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
         filter->CmdMiniDroneAnimationsFlipBehavior = behavior;
         filter->CmdMiniDroneAnimationsCapBehavior = behavior;
         filter->CmdMiniDroneMediaRecordPictureBehavior = behavior;
         filter->CmdMiniDroneMediaRecordPictureV2Behavior = behavior;
-        filter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = behavior;
-        filter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = behavior;
-        filter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = behavior;
         filter->CmdMiniDronePilotingSettingsMaxAltitudeBehavior = behavior;
         filter->CmdMiniDronePilotingSettingsMaxTiltBehavior = behavior;
-        filter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = behavior;
-        filter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsWheelsBehavior = behavior;
         filter->CmdMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior = behavior;
-        filter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
-        filter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
-        filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = behavior;
-        filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = behavior;
         filter->CmdMiniDroneSettingsCutOutModeBehavior = behavior;
-        filter->CmdMiniDroneSettingsStateProductMotorsVersionChangedBehavior = behavior;
-        filter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = behavior;
-        filter->CmdMiniDroneSettingsStateCutOutModeChangedBehavior = behavior;
-        filter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = behavior;
         filter->CmdMiniDroneGPSControllerLatitudeForRunBehavior = behavior;
         filter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = behavior;
         filter->CmdMiniDroneConfigurationControllerTypeBehavior = behavior;
         filter->CmdMiniDroneConfigurationControllerNameBehavior = behavior;
+        filter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
+        filter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = behavior;
+        filter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = behavior;
+        filter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateWheelsChangedBehavior = behavior;
+        filter->CmdMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior = behavior;
+        filter->CmdMiniDroneSettingsStateProductMotorsVersionChangedBehavior = behavior;
+        filter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = behavior;
+        filter->CmdMiniDroneSettingsStateCutOutModeChangedBehavior = behavior;
+        filter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = behavior;
     }
 
     return retError;
@@ -10152,8 +10658,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationBehavior (AR
     return retError;
 }
 
-// Command class Piloting
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingFlatTrimBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10286,100 +10790,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingAutoTakeOffModeBe
     return retError;
 }
 
-
-// Command class PilotingState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Animations
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneAnimationsFlipBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10423,9 +10833,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneAnimationsCapBehavior (AR
 
     return retError;
 }
-
-
-// Command class MediaRecord
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -10471,81 +10878,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureV2Behav
     return retError;
 }
 
-
-// Command class MediaRecordState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MediaRecordEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class PilotingSettings
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10589,56 +10921,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxTiltBe
 
     return retError;
 }
-
-
-// Command class PilotingSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SpeedSettings
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -10728,8 +11010,313 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizonta
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
 
-// Command class SpeedSettingsState
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneSettingsCutOutModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneGPSControllerLatitudeForRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneConfigurationControllerTypeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneConfigurationControllerNameBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingSettingsStateMaxTiltChangedBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -10819,34 +11406,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHori
     return retError;
 }
 
-
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneSettingsCutOutModeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSettingsStateProductMotorsVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10913,9 +11472,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSettingsStateCutOutModeCh
     return retError;
 }
 
-
-// Command class FloodControlState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneFloodControlStateFloodControlChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10939,102 +11495,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneFloodControlStateFloodCon
 }
 
 
-// Command class GPS
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneGPSControllerLatitudeForRunBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Configuration
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneConfigurationControllerTypeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneConfigurationControllerNameBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-
-// Project SkyController
+// Feature SkyController
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -11053,11 +11514,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdSkyControllerWifiStateWifiListBehavior = behavior;
-        filter->CmdSkyControllerWifiStateConnexionChangedBehavior = behavior;
-        filter->CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior = behavior;
-        filter->CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior = behavior;
-        filter->CmdSkyControllerWifiStateWifiSignalChangedBehavior = behavior;
         filter->CmdSkyControllerWifiRequestWifiListBehavior = behavior;
         filter->CmdSkyControllerWifiRequestCurrentWifiBehavior = behavior;
         filter->CmdSkyControllerWifiConnectToWifiBehavior = behavior;
@@ -11066,56 +11522,61 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerDeviceRequestDeviceListBehavior = behavior;
         filter->CmdSkyControllerDeviceRequestCurrentDeviceBehavior = behavior;
         filter->CmdSkyControllerDeviceConnectToDeviceBehavior = behavior;
-        filter->CmdSkyControllerDeviceStateDeviceListBehavior = behavior;
-        filter->CmdSkyControllerDeviceStateConnexionChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsAllSettingsBehavior = behavior;
         filter->CmdSkyControllerSettingsResetBehavior = behavior;
-        filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
-        filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
-        filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
-        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
         filter->CmdSkyControllerCommonAllStatesBehavior = behavior;
-        filter->CmdSkyControllerCommonStateAllStatesChangedBehavior = behavior;
-        filter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = behavior;
-        filter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = behavior;
-        filter->CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior = behavior;
         filter->CmdSkyControllerAccessPointSettingsAccessPointSSIDBehavior = behavior;
         filter->CmdSkyControllerAccessPointSettingsAccessPointChannelBehavior = behavior;
         filter->CmdSkyControllerAccessPointSettingsWifiSelectionBehavior = behavior;
-        filter->CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior = behavior;
-        filter->CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior = behavior;
-        filter->CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior = behavior;
         filter->CmdSkyControllerCameraResetOrientationBehavior = behavior;
         filter->CmdSkyControllerGamepadInfosGetGamepadControlsBehavior = behavior;
-        filter->CmdSkyControllerGamepadInfosStateGamepadControlBehavior = behavior;
-        filter->CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior = behavior;
         filter->CmdSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior = behavior;
         filter->CmdSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior = behavior;
         filter->CmdSkyControllerButtonMappingsSetButtonMappingBehavior = behavior;
         filter->CmdSkyControllerButtonMappingsDefaultButtonMappingBehavior = behavior;
-        filter->CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior = behavior;
-        filter->CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior = behavior;
-        filter->CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior = behavior;
-        filter->CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior = behavior;
         filter->CmdSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior = behavior;
         filter->CmdSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior = behavior;
         filter->CmdSkyControllerAxisMappingsSetAxisMappingBehavior = behavior;
         filter->CmdSkyControllerAxisMappingsDefaultAxisMappingBehavior = behavior;
-        filter->CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior = behavior;
-        filter->CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior = behavior;
-        filter->CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior = behavior;
-        filter->CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersGetPresetAxisFiltersBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersSetAxisFilterBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersDefaultAxisFiltersBehavior = behavior;
+        filter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = behavior;
+        filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
+        filter->CmdSkyControllerWifiStateWifiListBehavior = behavior;
+        filter->CmdSkyControllerWifiStateConnexionChangedBehavior = behavior;
+        filter->CmdSkyControllerWifiStateWifiAuthChannelListChangedBehavior = behavior;
+        filter->CmdSkyControllerWifiStateAllWifiAuthChannelChangedBehavior = behavior;
+        filter->CmdSkyControllerWifiStateWifiSignalChangedBehavior = behavior;
+        filter->CmdSkyControllerDeviceStateDeviceListBehavior = behavior;
+        filter->CmdSkyControllerDeviceStateConnexionChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateAllSettingsChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
+        filter->CmdSkyControllerCommonStateAllStatesChangedBehavior = behavior;
+        filter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = behavior;
+        filter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = behavior;
+        filter->CmdSkyControllerSkyControllerStateGpsPositionChangedBehavior = behavior;
+        filter->CmdSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior = behavior;
+        filter->CmdSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior = behavior;
+        filter->CmdSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdSkyControllerGamepadInfosStateGamepadControlBehavior = behavior;
+        filter->CmdSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior = behavior;
+        filter->CmdSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior = behavior;
+        filter->CmdSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior = behavior;
+        filter->CmdSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior = behavior;
+        filter->CmdSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior = behavior;
+        filter->CmdSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior = behavior;
+        filter->CmdSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior = behavior;
+        filter->CmdSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior = behavior;
+        filter->CmdSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersStatePresetAxisFiltersBehavior = behavior;
         filter->CmdSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior = behavior;
-        filter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = behavior;
         filter->CmdSkyControllerCoPilotingStatePilotingSourceBehavior = behavior;
-        filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationStateBehavior = behavior;
         filter->CmdSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior = behavior;
         filter->CmdSkyControllerButtonEventsSettingsBehavior = behavior;
@@ -11790,7 +12251,665 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior 
     return retError;
 }
 
-// Command class WifiState
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiRequestWifiListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerWifiRequestWifiListBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiRequestCurrentWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerWifiRequestCurrentWifiBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiConnectToWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerWifiConnectToWifiBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiForgetWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerWifiForgetWifiBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerWifiWifiAuthChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceRequestDeviceListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerDeviceRequestDeviceListBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceRequestCurrentDeviceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerDeviceRequestCurrentDeviceBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceConnectToDeviceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerDeviceConnectToDeviceBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerSettingsAllSettingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsResetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerSettingsResetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerCommonAllStatesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAccessPointSettingsAccessPointSSIDBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAccessPointSettingsAccessPointChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAccessPointSettingsWifiSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerCameraResetOrientationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerGamepadInfosGetGamepadControlsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonMappingsSetButtonMappingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerButtonMappingsDefaultButtonMappingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisMappingsSetAxisMappingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisMappingsDefaultAxisMappingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisFiltersGetPresetAxisFiltersBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisFiltersSetAxisFilterBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerAxisFiltersDefaultAxisFiltersBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -11902,191 +13021,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiSignalCh
     return retError;
 }
 
-
-// Command class Wifi
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiRequestWifiListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerWifiRequestWifiListBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiRequestCurrentWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerWifiRequestCurrentWifiBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiConnectToWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerWifiConnectToWifiBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiForgetWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerWifiForgetWifiBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerWifiWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerWifiWifiAuthChannelBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Device
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceRequestDeviceListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDeviceRequestDeviceListBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceRequestCurrentDeviceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDeviceRequestCurrentDeviceBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceConnectToDeviceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerDeviceConnectToDeviceBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class DeviceState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceStateDeviceListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -12130,56 +13064,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerDeviceStateConnexionC
 
     return retError;
 }
-
-
-// Command class Settings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerSettingsAllSettingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsResetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerSettingsResetBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class SettingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateAllSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -12269,34 +13153,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductV
     return retError;
 }
 
-
-// Command class Common
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerCommonAllStatesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CommonState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCommonStateAllStatesChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -12318,9 +13174,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCommonStateAllStatesC
 
     return retError;
 }
-
-
-// Command class SkyControllerState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateBatteryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -12388,78 +13241,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateGps
     return retError;
 }
 
-
-// Command class AccessPointSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAccessPointSettingsAccessPointSSIDBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAccessPointSettingsAccessPointChannelBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAccessPointSettingsWifiSelectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AccessPointSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -12526,59 +13307,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsSt
     return retError;
 }
 
-
-// Command class Camera
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerCameraResetOrientationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class GamepadInfos
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerGamepadInfosGetGamepadControlsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class GamepadInfosState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateGamepadControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -12622,100 +13350,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateAllG
 
     return retError;
 }
-
-
-// Command class ButtonMappings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerButtonMappingsSetButtonMappingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerButtonMappingsDefaultButtonMappingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ButtonMappingsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -12805,100 +13439,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAl
     return retError;
 }
 
-
-// Command class AxisMappings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisMappingsSetAxisMappingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisMappingsDefaultAxisMappingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AxisMappingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -12986,100 +13526,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAllA
 
     return retError;
 }
-
-
-// Command class AxisFilters
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisFiltersGetPresetAxisFiltersBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisFiltersSetAxisFilterBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerAxisFiltersDefaultAxisFiltersBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AxisFiltersState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -13169,34 +13615,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateAllPr
     return retError;
 }
 
-
-// Command class CoPiloting
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerCoPilotingSetPilotingSourceBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CoPilotingState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCoPilotingStatePilotingSourceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -13218,34 +13636,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCoPilotingStatePiloti
 
     return retError;
 }
-
-
-// Command class Calibration
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CalibrationState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -13291,9 +13681,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagne
     return retError;
 }
 
-
-// Command class ButtonEvents
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -13317,8 +13704,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsB
 }
 
 
-
-// Project common
+// Feature common
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -13338,12 +13724,31 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdCommonNetworkDisconnectBehavior = behavior;
-        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
         filter->CmdCommonSettingsAllSettingsBehavior = behavior;
         filter->CmdCommonSettingsResetBehavior = behavior;
         filter->CmdCommonSettingsProductNameBehavior = behavior;
         filter->CmdCommonSettingsCountryBehavior = behavior;
         filter->CmdCommonSettingsAutoCountryBehavior = behavior;
+        filter->CmdCommonCommonAllStatesBehavior = behavior;
+        filter->CmdCommonCommonCurrentDateBehavior = behavior;
+        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
+        filter->CmdCommonCommonRebootBehavior = behavior;
+        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
+        filter->CmdCommonOverHeatVentilateBehavior = behavior;
+        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
+        filter->CmdCommonMavlinkStartBehavior = behavior;
+        filter->CmdCommonMavlinkPauseBehavior = behavior;
+        filter->CmdCommonMavlinkStopBehavior = behavior;
+        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
+        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
+        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
+        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
+        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
+        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
+        filter->CmdCommonAccessoryConfigBehavior = behavior;
+        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
+        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
         filter->CmdCommonSettingsStateAllSettingsChangedBehavior = behavior;
         filter->CmdCommonSettingsStateResetChangedBehavior = behavior;
         filter->CmdCommonSettingsStateProductNameChangedBehavior = behavior;
@@ -13352,10 +13757,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonSettingsStateProductSerialLowChangedBehavior = behavior;
         filter->CmdCommonSettingsStateCountryChangedBehavior = behavior;
         filter->CmdCommonSettingsStateAutoCountryChangedBehavior = behavior;
-        filter->CmdCommonCommonAllStatesBehavior = behavior;
-        filter->CmdCommonCommonCurrentDateBehavior = behavior;
-        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
-        filter->CmdCommonCommonRebootBehavior = behavior;
         filter->CmdCommonCommonStateAllStatesChangedBehavior = behavior;
         filter->CmdCommonCommonStateBatteryStateChangedBehavior = behavior;
         filter->CmdCommonCommonStateMassStorageStateListChangedBehavior = behavior;
@@ -13367,25 +13768,17 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
         filter->CmdCommonCommonStateProductModelBehavior = behavior;
         filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
-        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
-        filter->CmdCommonOverHeatVentilateBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
         filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
-        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
         filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
-        filter->CmdCommonMavlinkStartBehavior = behavior;
-        filter->CmdCommonMavlinkPauseBehavior = behavior;
-        filter->CmdCommonMavlinkStopBehavior = behavior;
         filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
         filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
-        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
         filter->CmdCommonCalibrationStateMagnetoCalibrationStateChangedBehavior = behavior;
         filter->CmdCommonCalibrationStateMagnetoCalibrationRequiredStateBehavior = behavior;
         filter->CmdCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedBehavior = behavior;
         filter->CmdCommonCalibrationStateMagnetoCalibrationStartedChangedBehavior = behavior;
         filter->CmdCommonCameraSettingsStateCameraSettingsChangedBehavior = behavior;
-        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
         filter->CmdCommonFlightPlanStateAvailabilityStateChangedBehavior = behavior;
         filter->CmdCommonFlightPlanStateComponentStateListChangedBehavior = behavior;
         filter->CmdCommonFlightPlanEventStartingErrorEventBehavior = behavior;
@@ -13393,19 +13786,12 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior = behavior;
         filter->CmdCommonARLibsVersionsStateSkyControllerLibARCommandsVersionBehavior = behavior;
         filter->CmdCommonARLibsVersionsStateDeviceLibARCommandsVersionBehavior = behavior;
-        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
         filter->CmdCommonAudioStateAudioStreamingRunningBehavior = behavior;
-        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
         filter->CmdCommonHeadlightsStateIntensityChangedBehavior = behavior;
-        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
-        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
         filter->CmdCommonAnimationsStateListBehavior = behavior;
-        filter->CmdCommonAccessoryConfigBehavior = behavior;
         filter->CmdCommonAccessoryStateSupportedAccessoriesListChangedBehavior = behavior;
         filter->CmdCommonAccessoryStateAccessoryConfigChangedBehavior = behavior;
         filter->CmdCommonAccessoryStateAccessoryConfigModificationEnabledBehavior = behavior;
-        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
         filter->CmdCommonChargerStateMaxChargeRateChangedBehavior = behavior;
         filter->CmdCommonChargerStateCurrentChargeStateChangedBehavior = behavior;
         filter->CmdCommonChargerStateLastChargeRateChangedBehavior = behavior;
@@ -14234,8 +14620,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateBehavior (ARCOMMANDS
     return retError;
 }
 
-// Command class Network
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkDisconnectBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -14257,34 +14641,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkDisconnectBehavior (A
 
     return retError;
 }
-
-
-// Command class NetworkEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class Settings
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -14396,8 +14752,445 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsAutoCountryBehavior 
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
 
-// Command class SettingsState
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonAllStatesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonCurrentDateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonRebootBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonRebootBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonOverHeatVentilateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStartBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkPauseBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonMavlinkStopBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonAccessoryConfigBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonNetworkEventDisconnectionBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAllSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -14574,100 +15367,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonSettingsStateAutoCountryChan
 
     return retError;
 }
-
-
-// Command class Common
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonAllStatesBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonCurrentDateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonCurrentTimeBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonRebootBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCommonRebootBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CommonState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateAllStatesChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -14911,56 +15610,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCountryListKnownB
     return retError;
 }
 
-
-// Command class OverHeat
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonOverHeatVentilateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class OverHeatState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15005,9 +15654,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulat
     return retError;
 }
 
-
-// Command class ControllerState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15030,34 +15676,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingCha
     return retError;
 }
 
-
-// Command class WifiSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class WifiSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateOutdoorSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15079,78 +15697,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsStateOutdoorSett
 
     return retError;
 }
-
-
-// Command class Mavlink
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStartBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkPauseBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonMavlinkStopBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class MavlinkState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15195,34 +15741,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonMavlinkStateMavlinkPlayError
 
     return retError;
 }
-
-
-// Command class Calibration
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonCalibrationMagnetoCalibrationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class CalibrationState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalibrationStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15312,9 +15830,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCalibrationStateMagnetoCalib
     return retError;
 }
 
-
-// Command class CameraSettingsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateCameraSettingsChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15336,34 +15851,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCameraSettingsStateCameraSet
 
     return retError;
 }
-
-
-// Command class GPS
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonGPSControllerPositionForRunBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class FlightPlanState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateAvailabilityStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15409,9 +15896,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanStateComponentStat
     return retError;
 }
 
-
-// Command class FlightPlanEvent
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventStartingErrorEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15455,9 +15939,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonFlightPlanEventSpeedBridleEv
 
     return retError;
 }
-
-
-// Command class ARLibsVersionsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateControllerLibARCommandsVersionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15525,34 +16006,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonARLibsVersionsStateDeviceLib
     return retError;
 }
 
-
-// Command class Audio
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAudioControllerReadyForStreamingBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AudioState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateAudioStreamingRunningBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15574,34 +16027,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAudioStateAudioStreamingRunn
 
     return retError;
 }
-
-
-// Command class Headlights
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonHeadlightsIntensityBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class HeadlightsState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateIntensityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15625,78 +16050,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonHeadlightsStateIntensityChan
     return retError;
 }
 
-
-// Command class Animations
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStartAnimationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStopAnimationBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAnimationsStopAllAnimationsBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AnimationsState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15718,34 +16071,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAnimationsStateListBehavior 
 
     return retError;
 }
-
-
-// Command class Accessory
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonAccessoryConfigBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class AccessoryState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateSupportedAccessoriesListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15812,34 +16137,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonAccessoryStateAccessoryConfi
 
     return retError;
 }
-
-
-// Command class Charger
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonChargerSetMaxChargeRateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class ChargerState
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateMaxChargeRateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15929,9 +16226,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonChargerStateChargingInfoBeha
     return retError;
 }
 
-
-// Command class RunState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15955,8 +16249,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior
 }
 
 
-
-// Project commonDebug
+// Feature commonDebug
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -15978,9 +16271,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Fi
         filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
         filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
         filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
         filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
         filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
+        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
         filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
         filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
     }
@@ -16092,8 +16385,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehav
     return retError;
 }
 
-// Command class Stats
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16160,34 +16451,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketF
     return retError;
 }
 
-
-// Command class StatsEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-
-// Command class DebugSettings
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16232,8 +16495,27 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavio
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
 
-// Command class DebugSettingsState
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
+    }
+
+    return retError;
+}
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -16280,8 +16562,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListC
 }
 
 
-
-// Project pro
+// Feature pro
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
@@ -16389,8 +16670,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventBehavior (ARCOMMANDS_Fi
     return retError;
 }
 
-// Command class Pro
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16457,9 +16736,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (AR
     return retError;
 }
 
-
-// Command class ProState
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16504,9 +16780,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavi
     return retError;
 }
 
-
-// Command class ProEvent
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16529,6 +16802,329 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior 
     return retError;
 }
 
+
+// Feature wifi
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiScanBehavior = behavior;
+        filter->CmdWifiUpdateAuthorizedChannelsBehavior = behavior;
+        filter->CmdWifiSetApChannelBehavior = behavior;
+        filter->CmdWifiSetSecurityBehavior = behavior;
+        filter->CmdWifiSetCountryBehavior = behavior;
+        filter->CmdWifiSetEnvironementBehavior = behavior;
+        filter->CmdWifiScannedItemBehavior = behavior;
+        filter->CmdWifiAuthorizedChannelBehavior = behavior;
+        filter->CmdWifiApChannelChangedBehavior = behavior;
+        filter->CmdWifiSecurityChangedBehavior = behavior;
+        filter->CmdWifiCountryChangedBehavior = behavior;
+        filter->CmdWifiEnvironementChangedBehavior = behavior;
+        filter->CmdWifiRssiChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiScanBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiUpdateAuthorizedChannelsBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetApChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiSetApChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiSetSecurityBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiSetCountryBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiSetEnvironementBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScannedItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiScannedItemBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiAuthorizedChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiApChannelChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiSecurityChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiCountryChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiEnvironementChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiRssiChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdWifiRssiChangedBehavior = behavior;
+    }
+
+    return retError;
+}
 
 
 // END GENERATED CODE

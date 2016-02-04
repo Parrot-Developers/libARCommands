@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PositionChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingStatePositionChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingStatePositionChangedListener {
 
     /**
-     * Called when a command <code>PositionChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingStatePositionChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _latitude Latitude position in decimal degrees (500.0 if not available)
      * @param _longitude Longitude position in decimal degrees (500.0 if not available)
      * @param _altitude Altitude in meters (from GPS)

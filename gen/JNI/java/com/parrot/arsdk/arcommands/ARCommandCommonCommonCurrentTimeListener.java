@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonCurrentTime</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonCurrentTimeListener {
 
     /**
-     * Called when a command <code>CurrentTime</code> of class <code>Common</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonCurrentTime</code> in feature <code>Common</code> is decoded
      * @param _time Time with ISO-8601 format
      */
     void onCommonCommonCurrentTimeUpdate (String time);

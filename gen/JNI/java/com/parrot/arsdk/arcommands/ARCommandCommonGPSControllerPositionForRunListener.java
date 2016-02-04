@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code> listener
+ * Interface for the command <code>GPSControllerPositionForRun</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonGPSControllerPositionForRunListener {
 
     /**
-     * Called when a command <code>ControllerPositionForRun</code> of class <code>GPS</code> in project <code>Common</code> is decoded
+     * Called when a command <code>GPSControllerPositionForRun</code> in feature <code>Common</code> is decoded
      * @param _latitude Controller latitude in decimal degrees
      * @param _longitude Controller longitude in decimal degrees
      */

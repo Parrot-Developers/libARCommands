@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ListChanged</code> of class <code>DebugSettingsState</code> in project <code>CommonDebug</code> listener
+ * Interface for the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonDebugDebugSettingsStateListChangedListener {
 
     /**
-     * Called when a command <code>ListChanged</code> of class <code>DebugSettingsState</code> in project <code>CommonDebug</code> is decoded
+     * Called when a command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code> is decoded
      * @param _id Setting Id.
      * @param _value New setting value (string encoded).
      */

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MoveByEnd</code> of class <code>PilotingEvent</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingEventMoveByEnd</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingEventMoveByEndListener {
 
     /**
-     * Called when a command <code>MoveByEnd</code> of class <code>PilotingEvent</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingEventMoveByEnd</code> in feature <code>ARDrone3</code> is decoded
      * @param _dX Distance traveled along the front axis [m]
      * @param _dY Distance traveled along the right axis [m]
      * @param _dZ Distance traveled along the down axis [m]

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MotorErrorLastErrorChanged</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SettingsStateMotorErrorLastErrorChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SettingsStateMotorErrorLastErrorChangedListener {
 
     /**
-     * Called when a command <code>MotorErrorLastErrorChanged</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SettingsStateMotorErrorLastErrorChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _motorError Enumeration of the motor error
      */
     void onARDrone3SettingsStateMotorErrorLastErrorChangedUpdate (ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR_ENUM motorError);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SpeedSettingsWheels</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSpeedSettingsWheelsListener {
 
     /**
-     * Called when a command <code>Wheels</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SpeedSettingsWheels</code> in feature <code>MiniDrone</code> is decoded
      * @param _present 1 if present, 0 if not present
      */
     void onMiniDroneSpeedSettingsWheelsUpdate (byte present);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GetAll</code> of class <code>DebugSettings</code> in project <code>CommonDebug</code> listener
+ * Interface for the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonDebugDebugSettingsGetAllListener {
 
     /**
-     * Called when a command <code>GetAll</code> of class <code>DebugSettings</code> in project <code>CommonDebug</code> is decoded
+     * Called when a command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code> is decoded
      */
     void onCommonDebugDebugSettingsGetAllUpdate ();
 }

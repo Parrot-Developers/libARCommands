@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code> listener
+ * Interface for the command <code>ProActivateFeatures</code> in feature <code>Pro</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandProProActivateFeaturesListener {
 
     /**
-     * Called when a command <code>ActivateFeatures</code> of class <code>Pro</code> in project <code>Pro</code> is decoded
+     * Called when a command <code>ProActivateFeatures</code> in feature <code>Pro</code> is decoded
      * @param _features Pro features to activate
      */
     void onProProActivateFeaturesUpdate (long features);

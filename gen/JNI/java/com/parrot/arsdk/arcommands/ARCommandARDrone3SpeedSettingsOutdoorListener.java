@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Outdoor</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SpeedSettingsOutdoor</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SpeedSettingsOutdoorListener {
 
     /**
-     * Called when a command <code>Outdoor</code> of class <code>SpeedSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SpeedSettingsOutdoor</code> in feature <code>ARDrone3</code> is decoded
      * @param _outdoor 1 if outdoor flight, 0 if indoor flight
      */
     void onARDrone3SpeedSettingsOutdoorUpdate (byte outdoor);

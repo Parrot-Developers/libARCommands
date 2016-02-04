@@ -464,7 +464,7 @@
     <class name="MediaRecordEvent" id="20">
         Events of media recording
         
-        <cmd name="PictureEventChanged" id="0">
+        <cmd name="PictureEventChanged" id="0" notification="TRUE">
             Event of picture recording
             <arg name="event" type="enum">
                 Last event of picture recording
@@ -499,7 +499,7 @@
             </arg>
         </cmd>
         
-        <cmd name="VideoEventChanged" id="1">
+        <cmd name="VideoEventChanged" id="1" notification="TRUE">
             Event of video recording
             <arg name="event" type="enum">
                 Event of video recording
@@ -637,7 +637,7 @@
     <class name="NetworkState" id="11">
         Network state from Product
 
-        <cmd name="WifiScanListChanged" id="0" listtype="MAP">
+        <cmd name="WifiScanListChanged" id="0" type="MAP_ITEM">
             One scanning result found
             <arg name="ssid" type="string">
                 SSID of the AP
@@ -663,7 +663,7 @@
             State sent when all scanning result sent
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged" id="2" listtype="LIST">
+        <cmd name="WifiAuthChannelListChanged" id="2" type="LIST_ITEM">
             Notify of an Authorized Channel.
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -780,7 +780,7 @@
 
     <class name="RoadPlanState" id="15">
         RoadPlan command responses.
-        <cmd name="ScriptMetadataListChanged" id="0" listtype="MAP">
+        <cmd name="ScriptMetadataListChanged" id="0" type="MAP_ITEM">
             Update the controller with metadata.
             <arg name="uuid" type="string">
                 Script uuid for which metadata changed.
