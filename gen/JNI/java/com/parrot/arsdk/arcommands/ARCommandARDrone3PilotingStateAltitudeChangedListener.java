@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AltitudeChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingStateAltitudeChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingStateAltitudeChangedListener {
 
     /**
-     * Called when a command <code>AltitudeChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingStateAltitudeChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _altitude Altitude in meters
      */
     void onARDrone3PilotingStateAltitudeChangedUpdate (double altitude);

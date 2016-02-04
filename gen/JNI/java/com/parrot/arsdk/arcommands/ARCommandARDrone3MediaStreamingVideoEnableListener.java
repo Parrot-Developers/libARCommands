@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoEnable</code> of class <code>MediaStreaming</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>MediaStreamingVideoEnable</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3MediaStreamingVideoEnableListener {
 
     /**
-     * Called when a command <code>VideoEnable</code> of class <code>MediaStreaming</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>MediaStreamingVideoEnable</code> in feature <code>ARDrone3</code> is decoded
      * @param _enable 1 to enable, 0 to disable.
      */
     void onARDrone3MediaStreamingVideoEnableUpdate (byte enable);

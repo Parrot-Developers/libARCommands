@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoEnableChanged</code> of class <code>MediaStreamingState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaStreamingStateVideoEnableChangedListener {
 
     /**
-     * Called when a command <code>VideoEnableChanged</code> of class <code>MediaStreamingState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _enabled Current video streaming status.
      */
     void onJumpingSumoMediaStreamingStateVideoEnableChangedUpdate (ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM enabled);

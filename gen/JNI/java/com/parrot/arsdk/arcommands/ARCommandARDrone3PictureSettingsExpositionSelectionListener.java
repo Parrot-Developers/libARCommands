@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ExpositionSelection</code> of class <code>PictureSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsExpositionSelection</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsExpositionSelectionListener {
 
     /**
-     * Called when a command <code>ExpositionSelection</code> of class <code>PictureSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsExpositionSelection</code> in feature <code>ARDrone3</code> is decoded
      * @param _value Exposition value (bounds given by ExpositionChanged arg min and max, by default [-3:3])
      */
     void onARDrone3PictureSettingsExpositionSelectionUpdate (float value);

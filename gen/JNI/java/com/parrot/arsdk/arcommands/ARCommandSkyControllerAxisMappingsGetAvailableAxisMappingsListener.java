@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>AxisMappingsGetAvailableAxisMappings</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerAxisMappingsGetAvailableAxisMappingsListener {
 
     /**
-     * Called when a command <code>GetAvailableAxisMappings</code> of class <code>AxisMappings</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>AxisMappingsGetAvailableAxisMappings</code> in feature <code>SkyController</code> is decoded
      */
     void onSkyControllerAxisMappingsGetAvailableAxisMappingsUpdate ();
 }

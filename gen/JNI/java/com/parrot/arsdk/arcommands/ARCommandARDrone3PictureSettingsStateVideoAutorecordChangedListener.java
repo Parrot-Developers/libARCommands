@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoAutorecordChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsStateVideoAutorecordChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsStateVideoAutorecordChangedListener {
 
     /**
-     * Called when a command <code>VideoAutorecordChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsStateVideoAutorecordChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _enabled 1 if video autorecord is enabled, 0 otherwise
      * @param _mass_storage_id Mass storage id for the taken video
      */

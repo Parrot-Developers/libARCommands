@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SettingsStateResetChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSettingsStateResetChangedListener {
 
     /**
-     * Called when a command <code>ResetChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SettingsStateResetChanged</code> in feature <code>SkyController</code> is decoded
      */
     void onSkyControllerSettingsStateResetChangedUpdate ();
 }

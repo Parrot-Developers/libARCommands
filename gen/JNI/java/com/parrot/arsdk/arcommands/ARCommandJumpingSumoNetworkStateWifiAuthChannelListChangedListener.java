@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiAuthChannelListChanged</code> of class <code>NetworkState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoNetworkStateWifiAuthChannelListChangedListener {
 
     /**
-     * Called when a command <code>WifiAuthChannelListChanged</code> of class <code>NetworkState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _band The band of this channel : 2.4 GHz or 5 GHz
      * @param _channel The authorized channel.
      * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)

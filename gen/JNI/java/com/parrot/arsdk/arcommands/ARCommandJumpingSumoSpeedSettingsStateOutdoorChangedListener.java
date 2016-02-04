@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>OutdoorChanged</code> of class <code>SpeedSettingsState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>SpeedSettingsStateOutdoorChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoSpeedSettingsStateOutdoorChangedListener {
 
     /**
-     * Called when a command <code>OutdoorChanged</code> of class <code>SpeedSettingsState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>SpeedSettingsStateOutdoorChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _outdoor 1 if outdoor, 0 if indoor
      */
     void onJumpingSumoSpeedSettingsStateOutdoorChangedUpdate (byte outdoor);

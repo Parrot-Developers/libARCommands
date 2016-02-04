@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PlayScript</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanPlayScript</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanPlayScriptListener {
 
     /**
-     * Called when a command <code>PlayScript</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanPlayScript</code> in feature <code>JumpingSumo</code> is decoded
      * @param _uuid UUID of the file to play.
      */
     void onJumpingSumoRoadPlanPlayScriptUpdate (String uuid);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code> listener
+ * Interface for the command <code>ChargerStateLastChargeRateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonChargerStateLastChargeRateChangedListener {
 
     /**
-     * Called when a command <code>LastChargeRateChanged</code> of class <code>ChargerState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ChargerStateLastChargeRateChanged</code> in feature <code>Common</code> is decoded
      * @param _rate The charge rate recorded by the firmware for the last charge.
      */
     void onCommonChargerStateLastChargeRateChangedUpdate (ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SettingsStateProductInertialVersionChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener {
 
     /**
-     * Called when a command <code>ProductInertialVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SettingsStateProductInertialVersionChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _software Product Inertial software version
      * @param _hardware Product Inertial hardware version
      */

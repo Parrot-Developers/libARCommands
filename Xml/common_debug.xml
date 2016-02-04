@@ -139,7 +139,7 @@
     <class name="DebugSettingsState" id="5">
         Debug custom commands sent by the drone
 
-        <cmd name="Info"  listtype="LIST" id="0">
+        <cmd name="Info"  type="LIST_ITEM" id="0">
                 Sent by the drone as answer to GetSettingsInfo
                 Describe a debug setting and give the current value.
             <arg name="listFlags" type="u8">

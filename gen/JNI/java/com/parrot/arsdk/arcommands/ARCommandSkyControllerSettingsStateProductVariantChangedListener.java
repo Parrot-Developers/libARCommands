@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SettingsStateProductVariantChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSettingsStateProductVariantChangedListener {
 
     /**
-     * Called when a command <code>ProductVariantChanged</code> of class <code>SettingsState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SettingsStateProductVariantChanged</code> in feature <code>SkyController</code> is decoded
      * @param _variant Variant of the product
      */
     void onSkyControllerSettingsStateProductVariantChangedUpdate (ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM variant);

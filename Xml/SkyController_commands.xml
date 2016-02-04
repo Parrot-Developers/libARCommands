@@ -76,7 +76,7 @@
     
     <class name="WifiState" id="0">
         Wifi state
-        <cmd name="WifiList" id="0" listtype="MAP">
+        <cmd name="WifiList" id="0" type="MAP_ITEM">
             Return the available wifi list
             <arg name="bssid" type="string">
                 Wifi bssid
@@ -117,7 +117,7 @@
             </arg>
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged" id="2" listtype="LIST">
+        <cmd name="WifiAuthChannelListChanged" id="2" type="LIST_ITEM">
             Notify of an Authorized Channel
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -204,7 +204,7 @@
     <class name="DeviceState" id="3">
         Device state
         
-        <cmd name="DeviceList" id="0" listtype="LIST">
+        <cmd name="DeviceList" id="0" type="LIST_ITEM">
             Return the available Device list
             <arg name="name" type="string">
                 Device name
@@ -422,7 +422,7 @@
 
 	<class name="GamepadInfosState" id="19">
 	  Informations about the gamepad of the SkyController
-	  <cmd name="gamepadControl" id="0" listtype="LIST">
+	  <cmd name="gamepadControl" id="0" type="LIST_ITEM">
 		Describe an existing button or axis of the gamepad
 		<arg name="type" type="enum">
 		  The type (axis/button) of the control
@@ -477,7 +477,7 @@
 	<class name="ButtonMappingsState" id="13">
 	  State of the button mappings of the SkyController
 
-	  <cmd name="currentButtonMappings" id="0" listtype="MAP">
+	  <cmd name="currentButtonMappings" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a mapping changes
 		<arg name="key_id" type="i32">
 		  The keycode mapped
@@ -491,7 +491,7 @@
 		Sent by the SkyController after sending its last 'currentButtonMappings' command
 	  </cmd>
 
-	  <cmd name="availableButtonMappings" id="2" listtype="MAP">
+	  <cmd name="availableButtonMappings" id="2" type="MAP_ITEM">
 		Sent after a 'getAvailableButtonMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -537,7 +537,7 @@
 	<class name="AxisMappingsState" id="15">
 	  State of the axis mappings of the SkyController
 
-	  <cmd name="currentAxisMappings" id="0" listtype="MAP">
+	  <cmd name="currentAxisMappings" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a mapping changes
 		<arg name="axis_id" type="i32">
 		  The axiscode mapped
@@ -551,7 +551,7 @@
 		Sent by the SkyController after sending its last 'currentAxisMappings' command
 	  </cmd>
 
-	  <cmd name="availableAxisMappings" id="2" listtype="MAP">
+	  <cmd name="availableAxisMappings" id="2" type="MAP_ITEM">
 		Sent after a 'getAvailableAxisMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -598,7 +598,7 @@
 	<class name="AxisFiltersState" id="17">
 	  State of the axis filters of the SkyController
 
-	  <cmd name="currentAxisFilters" id="0" listtype="MAP">
+	  <cmd name="currentAxisFilters" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a filter changes
 		<arg name="axis_id" type="i32">
 		  The axiscode filtered
@@ -612,7 +612,7 @@
 		Sent by the SkyController after sending its last 'currentAxisFilters' command
 	  </cmd>
 
-	  <cmd name="presetAxisFilters" id="2" listtype="MAP">
+	  <cmd name="presetAxisFilters" id="2" type="MAP_ITEM">
 		Sent after a 'getPresetAxisFilters' request
 		<arg name="filter_uid" type="string">
 		  The filter UID (used in communication with the SkyController)

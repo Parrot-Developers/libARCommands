@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code> listener
+ * Interface for the command <code>MavlinkStop</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonMavlinkStopListener {
 
     /**
-     * Called when a command <code>Stop</code> of class <code>Mavlink</code> in project <code>Common</code> is decoded
+     * Called when a command <code>MavlinkStop</code> in feature <code>Common</code> is decoded
      */
     void onCommonMavlinkStopUpdate ();
 }

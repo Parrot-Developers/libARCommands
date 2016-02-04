@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>AxisFiltersStateCurrentAxisFilters</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerAxisFiltersStateCurrentAxisFiltersListener {
 
     /**
-     * Called when a command <code>CurrentAxisFilters</code> of class <code>AxisFiltersState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>AxisFiltersStateCurrentAxisFilters</code> in feature <code>SkyController</code> is decoded
      * @param _axis_id The axiscode filtered
      * @param _filter_uid_or_builder The filter associated
      */

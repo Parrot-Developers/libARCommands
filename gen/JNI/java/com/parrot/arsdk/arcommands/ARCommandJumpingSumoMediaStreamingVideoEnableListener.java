@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoEnable</code> of class <code>MediaStreaming</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaStreamingVideoEnable</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaStreamingVideoEnableListener {
 
     /**
-     * Called when a command <code>VideoEnable</code> of class <code>MediaStreaming</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaStreamingVideoEnable</code> in feature <code>JumpingSumo</code> is decoded
      * @param _enable 1 to enable, 0 to disable.
      */
     void onJumpingSumoMediaStreamingVideoEnableUpdate (byte enable);

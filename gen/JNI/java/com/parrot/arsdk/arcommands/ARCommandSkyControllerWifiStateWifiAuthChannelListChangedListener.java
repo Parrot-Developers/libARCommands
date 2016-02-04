@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>WifiStateWifiAuthChannelListChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerWifiStateWifiAuthChannelListChangedListener {
 
     /**
-     * Called when a command <code>WifiAuthChannelListChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>WifiStateWifiAuthChannelListChanged</code> in feature <code>SkyController</code> is decoded
      * @param _band The band of this channel : 2.4 GHz or 5 GHz
      * @param _channel The authorized channel
      * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)

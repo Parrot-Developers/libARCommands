@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>HomeType</code> of class <code>GPSSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsHomeType</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsHomeTypeListener {
 
     /**
-     * Called when a command <code>HomeType</code> of class <code>GPSSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsHomeType</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of the home position
      */
     void onARDrone3GPSSettingsHomeTypeUpdate (ARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE_ENUM type);

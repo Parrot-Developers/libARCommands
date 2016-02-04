@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GPSFixStateChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsStateGPSFixStateChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsStateGPSFixStateChangedListener {
 
     /**
-     * Called when a command <code>GPSFixStateChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsStateGPSFixStateChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _fixed 1 if gps on drone is fixed, 0 otherwise
      */
     void onARDrone3GPSSettingsStateGPSFixStateChangedUpdate (byte fixed);

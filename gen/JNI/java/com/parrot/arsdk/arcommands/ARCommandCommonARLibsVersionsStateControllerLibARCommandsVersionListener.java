@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>ARLibsVersionsStateControllerLibARCommandsVersion</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonARLibsVersionsStateControllerLibARCommandsVersionListener {
 
     /**
-     * Called when a command <code>ControllerLibARCommandsVersion</code> of class <code>ARLibsVersionsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ARLibsVersionsStateControllerLibARCommandsVersion</code> in feature <code>Common</code> is decoded
      * @param _version version of libARCommands ("1.2.3.4" format)
      */
     void onCommonARLibsVersionsStateControllerLibARCommandsVersionUpdate (String version);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code> listener
+ * Interface for the command <code>ChargerStateCurrentChargeStateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonChargerStateCurrentChargeStateChangedListener {
 
     /**
-     * Called when a command <code>CurrentChargeStateChanged</code> of class <code>ChargerState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ChargerStateCurrentChargeStateChanged</code> in feature <code>Common</code> is decoded
      * @param _status Charger status.
      * @param _phase The current charging phase.
      */

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PlayScriptChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanStatePlayScriptChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanStatePlayScriptChangedListener {
 
     /**
-     * Called when a command <code>PlayScriptChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanStatePlayScriptChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _resultCode Error code.
      */
     void onJumpingSumoRoadPlanStatePlayScriptChangedUpdate (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE_ENUM resultCode);

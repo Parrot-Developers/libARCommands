@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>DeviceStateConnexionChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerDeviceStateConnexionChangedListener {
 
     /**
-     * Called when a command <code>ConnexionChanged</code> of class <code>DeviceState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>DeviceStateConnexionChanged</code> in feature <code>SkyController</code> is decoded
      * @param _status Wifi status to Device
      * @param _deviceName Device name
      * @param _deviceProductID Device name

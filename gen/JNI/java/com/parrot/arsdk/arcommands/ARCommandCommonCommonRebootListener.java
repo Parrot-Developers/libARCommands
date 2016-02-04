@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonReboot</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonRebootListener {
 
     /**
-     * Called when a command <code>Reboot</code> of class <code>Common</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonReboot</code> in feature <code>Common</code> is decoded
      */
     void onCommonCommonRebootUpdate ();
 }

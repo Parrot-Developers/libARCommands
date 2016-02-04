@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Jump</code> of class <code>Animations</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>AnimationsJump</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoAnimationsJumpListener {
 
     /**
-     * Called when a command <code>Jump</code> of class <code>Animations</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>AnimationsJump</code> in feature <code>JumpingSumo</code> is decoded
      * @param _type Type of jump
      */
     void onJumpingSumoAnimationsJumpUpdate (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_ENUM type);

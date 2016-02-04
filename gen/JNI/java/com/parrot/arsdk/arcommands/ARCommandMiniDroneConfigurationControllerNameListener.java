@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>ConfigurationControllerName</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneConfigurationControllerNameListener {
 
     /**
-     * Called when a command <code>ControllerName</code> of class <code>Configuration</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>ConfigurationControllerName</code> in feature <code>MiniDrone</code> is decoded
      * @param _name Controller name like com.parrot.freeflight3
      */
     void onMiniDroneConfigurationControllerNameUpdate (String name);

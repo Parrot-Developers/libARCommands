@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CalibrationStateMagnetoCalibrationStateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCalibrationStateMagnetoCalibrationStateChangedListener {
 
     /**
-     * Called when a command <code>MagnetoCalibrationStateChanged</code> of class <code>CalibrationState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CalibrationStateMagnetoCalibrationStateChanged</code> in feature <code>Common</code> is decoded
      * @param _xAxisCalibration State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
      * @param _yAxisCalibration State of the y axis (pitch) calibration : 1 if calibration is done, 0 otherwise
      * @param _zAxisCalibration State of the z axis (yaw) calibration : 1 if calibration is done, 0 otherwise

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>WifiStateAllWifiAuthChannelChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerWifiStateAllWifiAuthChannelChangedListener {
 
     /**
-     * Called when a command <code>AllWifiAuthChannelChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>WifiStateAllWifiAuthChannelChanged</code> in feature <code>SkyController</code> is decoded
      */
     void onSkyControllerWifiStateAllWifiAuthChannelChangedUpdate ();
 }

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonStateCurrentDateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonStateCurrentDateChangedListener {
 
     /**
-     * Called when a command <code>CurrentDateChanged</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonStateCurrentDateChanged</code> in feature <code>Common</code> is decoded
      * @param _date Date with ISO-8601 format
      */
     void onCommonCommonStateCurrentDateChangedUpdate (String date);

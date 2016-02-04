@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code> listener
+ * Interface for the command <code>OverHeatSwitchOff</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonOverHeatSwitchOffListener {
 
     /**
-     * Called when a command <code>SwitchOff</code> of class <code>OverHeat</code> in project <code>Common</code> is decoded
+     * Called when a command <code>OverHeatSwitchOff</code> in feature <code>Common</code> is decoded
      */
     void onCommonOverHeatSwitchOffUpdate ();
 }

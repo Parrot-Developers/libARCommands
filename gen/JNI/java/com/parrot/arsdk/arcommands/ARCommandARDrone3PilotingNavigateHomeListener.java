@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>NavigateHome</code> of class <code>Piloting</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingNavigateHome</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingNavigateHomeListener {
 
     /**
-     * Called when a command <code>NavigateHome</code> of class <code>Piloting</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingNavigateHome</code> in feature <code>ARDrone3</code> is decoded
      * @param _start 1 to start the navigate home, 0 to stop it
      */
     void onARDrone3PilotingNavigateHomeUpdate (byte start);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingStateFlatTrimChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingStateFlatTrimChangedListener {
 
     /**
-     * Called when a command <code>FlatTrimChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingStateFlatTrimChanged</code> in feature <code>MiniDrone</code> is decoded
      */
     void onMiniDronePilotingStateFlatTrimChangedUpdate ();
 }

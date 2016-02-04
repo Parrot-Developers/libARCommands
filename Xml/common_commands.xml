@@ -87,7 +87,7 @@
     <class name="NetworkEvent" id="1">
         Network Event from product
         
-        <cmd name="Disconnection" id="0">
+        <cmd name="Disconnection" id="0" notification="TRUE">
             Signals the remote that the host will disconnect and close its
             libARNetwork instance (and all threads that use libARNetwork)
             <arg name="cause" type="enum">
@@ -227,7 +227,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageStateListChanged" id="2" listtype="MAP">
+        <cmd name="MassStorageStateListChanged" id="2" type="MAP_ITEM">
             Mass storage state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage id (unique)
@@ -237,7 +237,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoStateListChanged" id="3" listtype="MAP">
+        <cmd name="MassStorageInfoStateListChanged" id="3" type="MAP_ITEM">
             Mass storage info state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage state id (unique)
@@ -273,7 +273,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoRemainingListChanged" id="6" listtype="LIST">
+        <cmd name="MassStorageInfoRemainingListChanged" id="6" type="LIST_ITEM">
             @deprecated
             Mass storage info remaining list
             <arg name="free_space" type="u32">
@@ -294,7 +294,7 @@
             </arg>
         </cmd>
         
-        <cmd name="SensorsStatesListChanged" id="8" listtype="MAP">
+        <cmd name="SensorsStatesListChanged" id="8" type="MAP_ITEM">
             Sensors states list
             <arg name="sensorName" type="enum">
                 Sensor name
@@ -368,7 +368,7 @@
             </arg>
         </cmd>
         
-        <cmd name="CountryListKnown" id="10" listtype="LIST">
+        <cmd name="CountryListKnown" id="10" type="LIST_ITEM">
             List of the countries known by the device
             <arg name="listFlags" type="u8">
                 List entry attribute Bitfield.
@@ -616,7 +616,7 @@
             </arg>
         </cmd>
 
-        <cmd name="ComponentStateListChanged" id="1" listtype="MAP">
+        <cmd name="ComponentStateListChanged" id="1" type="MAP_ITEM">
             List of state of drone flightPlan components
             <arg name="component" type="enum">
                 Drone FlightPlan component id (unique)
@@ -641,10 +641,10 @@
     
     <class name="FlightPlanEvent" id="19">
         FlightPlan Event commands
-        <cmd name="StartingErrorEvent" id="0">
+        <cmd name="StartingErrorEvent" id="0" notification="TRUE">
             Event of flight plan start error
         </cmd>
-        <cmd name="SpeedBridleEvent" id="1">
+        <cmd name="SpeedBridleEvent" id="1" notification="TRUE">
             Bridle speed of the drone
         </cmd>
     </class>
@@ -824,7 +824,7 @@
     <class name="AnimationsState" id="25">
         Animations-related notification/feedback commands.
 
-        <cmd name="List" listtype="MAP" id="0">
+        <cmd name="List" type="MAP_ITEM" id="0">
             List of animations state.
             <arg name="anim" type="enum">
                 Animation type.
@@ -921,7 +921,7 @@
 
     <class name="AccessoryState" id="27">
         Accessories-related commands.
-        <cmd name="SupportedAccessoriesListChanged" id="0" listtype="MAP">
+        <cmd name="SupportedAccessoriesListChanged" id="0" type="MAP_ITEM">
             List of supported accessories
             <arg name="accessory" type="enum">
                 Accessory configurations supported by the product.

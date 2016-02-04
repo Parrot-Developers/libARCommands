@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>AccessPointSettingsStateAccessPointSSIDChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerAccessPointSettingsStateAccessPointSSIDChangedListener {
 
     /**
-     * Called when a command <code>AccessPointSSIDChanged</code> of class <code>AccessPointSettingsState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>AccessPointSettingsStateAccessPointSSIDChanged</code> in feature <code>SkyController</code> is decoded
      * @param _ssid AccessPoint SSID
      */
     void onSkyControllerAccessPointSettingsStateAccessPointSSIDChangedUpdate (String ssid);

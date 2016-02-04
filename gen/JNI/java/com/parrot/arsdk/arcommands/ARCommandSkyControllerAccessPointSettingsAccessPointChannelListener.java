@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>AccessPointSettingsAccessPointChannel</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerAccessPointSettingsAccessPointChannelListener {
 
     /**
-     * Called when a command <code>AccessPointChannel</code> of class <code>AccessPointSettings</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>AccessPointSettingsAccessPointChannel</code> in feature <code>SkyController</code> is decoded
      * @param _channel AccessPoint Channel
      */
     void onSkyControllerAccessPointSettingsAccessPointChannelUpdate (byte channel);

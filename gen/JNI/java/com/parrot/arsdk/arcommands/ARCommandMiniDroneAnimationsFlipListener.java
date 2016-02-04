@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>AnimationsFlip</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneAnimationsFlipListener {
 
     /**
-     * Called when a command <code>Flip</code> of class <code>Animations</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>AnimationsFlip</code> in feature <code>MiniDrone</code> is decoded
      * @param _direction Direction for the flip
      */
     void onMiniDroneAnimationsFlipUpdate (ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction);

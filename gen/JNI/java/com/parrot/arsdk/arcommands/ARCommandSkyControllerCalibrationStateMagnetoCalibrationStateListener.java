@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>CalibrationStateMagnetoCalibrationState</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateListener {
 
     /**
-     * Called when a command <code>MagnetoCalibrationState</code> of class <code>CalibrationState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>CalibrationStateMagnetoCalibrationState</code> in feature <code>SkyController</code> is decoded
      * @param _status The global status of the calibration
      * @param _X_Quality Calibration quality on X axis.
      * @param _X_Quality 0 is bad, 255 is perfect

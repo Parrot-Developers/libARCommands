@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code> listener
+ * Interface for the command <code>NetworkDisconnect</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonNetworkDisconnectListener {
 
     /**
-     * Called when a command <code>Disconnect</code> of class <code>Network</code> in project <code>Common</code> is decoded
+     * Called when a command <code>NetworkDisconnect</code> in feature <code>Common</code> is decoded
      */
     void onCommonNetworkDisconnectUpdate ();
 }

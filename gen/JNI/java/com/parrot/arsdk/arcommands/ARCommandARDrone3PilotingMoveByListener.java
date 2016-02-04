@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MoveBy</code> of class <code>Piloting</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingMoveBy</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingMoveByListener {
 
     /**
-     * Called when a command <code>MoveBy</code> of class <code>Piloting</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingMoveBy</code> in feature <code>ARDrone3</code> is decoded
      * @param _dX Wanted displacement along the front axis [m]
      * @param _dY Wanted displacement along the right axis [m]
      * @param _dZ Wanted displacement along the down axis [m]

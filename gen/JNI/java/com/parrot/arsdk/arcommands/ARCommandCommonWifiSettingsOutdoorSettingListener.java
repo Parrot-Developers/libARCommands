@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code> listener
+ * Interface for the command <code>WifiSettingsOutdoorSetting</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonWifiSettingsOutdoorSettingListener {
 
     /**
-     * Called when a command <code>OutdoorSetting</code> of class <code>WifiSettings</code> in project <code>Common</code> is decoded
+     * Called when a command <code>WifiSettingsOutdoorSetting</code> in feature <code>Common</code> is decoded
      * @param _outdoor 1 if it should use outdoor wifi settings, 0 otherwise
      */
     void onCommonWifiSettingsOutdoorSettingUpdate (byte outdoor);

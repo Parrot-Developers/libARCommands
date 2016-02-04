@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SettingsCutOutMode</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSettingsCutOutModeListener {
 
     /**
-     * Called when a command <code>CutOutMode</code> of class <code>Settings</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SettingsCutOutMode</code> in feature <code>MiniDrone</code> is decoded
      * @param _enable Enable cut out mode (1 if is activate, 0 otherwise)
      */
     void onMiniDroneSettingsCutOutModeUpdate (byte enable);

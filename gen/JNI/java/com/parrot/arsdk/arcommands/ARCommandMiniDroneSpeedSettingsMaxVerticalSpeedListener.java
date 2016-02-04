@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener {
 
     /**
-     * Called when a command <code>MaxVerticalSpeed</code> of class <code>SpeedSettings</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>MiniDrone</code> is decoded
      * @param _current Current max vertical speed in m/s
      */
     void onMiniDroneSpeedSettingsMaxVerticalSpeedUpdate (float current);

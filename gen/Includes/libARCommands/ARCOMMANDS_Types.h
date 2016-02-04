@@ -21,9 +21,26 @@
  */
 #define ARCOMMANDS_HAS_DEBUG_COMMANDS (1)
 
-// Project ARDrone3
-// Class Animations
-// Command Flip
+// Feature generic
+
+/**
+ * @brief Flags use by maps and lists
+ */
+typedef enum
+{
+    ARCOMMANDS_GENERIC_LIST_FLAGS_FIRST = 0,    ///< indicate it's the first element of the list.
+    ARCOMMANDS_GENERIC_LIST_FLAGS_LAST,    ///< indicate it's the last element of the list.
+    ARCOMMANDS_GENERIC_LIST_FLAGS_EMPTY,    ///< indicate the list is empty (implies First/Last). All other arguments should be ignored.
+    ARCOMMANDS_GENERIC_LIST_FLAGS_REMOVE,    ///< This value should be removed from the existing list.
+    ARCOMMANDS_GENERIC_LIST_FLAGS_MAX
+} eARCOMMANDS_GENERIC_LIST_FLAGS;
+
+#define ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_FIRST)    ///< indicate it's the first element of the list.
+#define ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_LAST)    ///< indicate it's the last element of the list.
+#define ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_EMPTY)    ///< indicate the list is empty (implies First/Last). All other arguments should be ignored.
+#define ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_REMOVE)    ///< This value should be removed from the existing list.
+
+// Feature ARDrone3
 
 /**
  * @brief Direction for the flip
@@ -37,9 +54,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION_MAX
 } eARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION;
 
-// Project ARDrone3
-// Class MediaRecord
-// Command Video
 
 /**
  * @brief Command to record video
@@ -51,9 +65,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEO_RECORD_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEO_RECORD;
 
-// Project ARDrone3
-// Class MediaRecord
-// Command VideoV2
 
 /**
  * @brief Command to record video
@@ -65,9 +76,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEOV2_RECORD_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEOV2_RECORD;
 
-// Project ARDrone3
-// Class MediaRecordState
-// Command VideoStateChanged
 
 /**
  * @brief State of video
@@ -81,9 +89,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE;
 
-// Project ARDrone3
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief State of device picture recording
@@ -96,9 +101,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE;
 
-// Project ARDrone3
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief Error to explain the state
@@ -113,9 +115,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR;
 
-// Project ARDrone3
-// Class MediaRecordState
-// Command VideoStateChangedV2
 
 /**
  * @brief State of device video recording
@@ -128,9 +127,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE;
 
-// Project ARDrone3
-// Class MediaRecordState
-// Command VideoStateChangedV2
 
 /**
  * @brief Error to explain the state
@@ -145,9 +141,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR;
 
-// Project ARDrone3
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Last event of picture recording
@@ -159,9 +152,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT;
 
-// Project ARDrone3
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Error to explain the event
@@ -177,9 +167,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR;
 
-// Project ARDrone3
-// Class MediaRecordEvent
-// Command VideoEventChanged
 
 /**
  * @brief Event of video recording
@@ -192,9 +179,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT;
 
-// Project ARDrone3
-// Class MediaRecordEvent
-// Command VideoEventChanged
 
 /**
  * @brief Error to explain the event
@@ -211,9 +195,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_MAX
 } eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR;
 
-// Project ARDrone3
-// Class PilotingState
-// Command FlyingStateChanged
 
 /**
  * @brief Drone flying state
@@ -229,9 +210,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_MAX
 } eARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE;
 
-// Project ARDrone3
-// Class PilotingState
-// Command AlertStateChanged
 
 /**
  * @brief Drone alert state
@@ -247,9 +225,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PILOTINGSTATE_ALERTSTATECHANGED_STATE_MAX
 } eARCOMMANDS_ARDRONE3_PILOTINGSTATE_ALERTSTATECHANGED_STATE;
 
-// Project ARDrone3
-// Class PilotingState
-// Command NavigateHomeStateChanged
 
 /**
  * @brief State of navigate home
@@ -263,9 +238,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_STATE_MAX
 } eARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_STATE;
 
-// Project ARDrone3
-// Class PilotingState
-// Command NavigateHomeStateChanged
 
 /**
  * @brief Reason of the state
@@ -282,9 +254,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_REASON_MAX
 } eARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_REASON;
 
-// Project ARDrone3
-// Class PilotingEvent
-// Command moveByEnd
 
 /**
  * @brief Error to explain the event
@@ -299,9 +268,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PILOTINGEVENT_MOVEBYEND_ERROR_MAX
 } eARCOMMANDS_ARDRONE3_PILOTINGEVENT_MOVEBYEND_ERROR;
 
-// Project ARDrone3
-// Class Network
-// Command WifiScan
 
 /**
  * @brief The band(s) : 2.4 Ghz, 5 Ghz, or both
@@ -314,9 +280,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND;
 
-// Project ARDrone3
-// Class NetworkState
-// Command WifiScanListChanged
 
 /**
  * @brief The band : 2.4 GHz or 5 GHz
@@ -328,9 +291,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND;
 
-// Project ARDrone3
-// Class NetworkState
-// Command WifiAuthChannelListChanged
 
 /**
  * @brief The band of this channel : 2.4 GHz or 5 GHz
@@ -342,9 +302,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND;
 
-// Project ARDrone3
-// Class NetworkSettings
-// Command WifiSelection
 
 /**
  * @brief The type of wifi selection (auto, manual)
@@ -356,9 +313,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE;
 
-// Project ARDrone3
-// Class NetworkSettings
-// Command WifiSelection
 
 /**
  * @brief The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
@@ -371,9 +325,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND;
 
-// Project ARDrone3
-// Class NetworkSettings
-// Command wifiSecurity
 
 /**
  * @brief The type of wifi security (open, wpa2)
@@ -385,9 +336,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE;
 
-// Project ARDrone3
-// Class NetworkSettings
-// Command wifiSecurity
 
 /**
  * @brief Type of the key
@@ -398,9 +346,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE;
 
-// Project ARDrone3
-// Class NetworkSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The type of wifi selection settings
@@ -414,9 +359,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE;
 
-// Project ARDrone3
-// Class NetworkSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The actual  wifi band state
@@ -429,9 +371,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND;
 
-// Project ARDrone3
-// Class NetworkSettingsState
-// Command wifiSecurityChanged
 
 /**
  * @brief The type of wifi security (open, wpa2)
@@ -443,9 +382,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE;
 
-// Project ARDrone3
-// Class NetworkSettingsState
-// Command wifiSecurity
 
 /**
  * @brief The type of wifi security (open, wpa2)
@@ -457,9 +393,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE;
 
-// Project ARDrone3
-// Class NetworkSettingsState
-// Command wifiSecurity
 
 /**
  * @brief Type of the key
@@ -470,9 +403,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_MAX
 } eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE;
 
-// Project ARDrone3
-// Class SettingsState
-// Command MotorErrorStateChanged
 
 /**
  * @brief Enumeration of the motor error
@@ -496,9 +426,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR_MAX
 } eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR;
 
-// Project ARDrone3
-// Class SettingsState
-// Command MotorErrorLastErrorChanged
 
 /**
  * @brief Enumeration of the motor error
@@ -522,9 +449,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR_MAX
 } eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR;
 
-// Project ARDrone3
-// Class PictureSettings
-// Command PictureFormatSelection
 
 /**
  * @brief The type of photo format
@@ -538,9 +462,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE;
 
-// Project ARDrone3
-// Class PictureSettings
-// Command AutoWhiteBalanceSelection
 
 /**
  * @brief The type auto white balance
@@ -555,9 +476,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE;
 
-// Project ARDrone3
-// Class PictureSettingsState
-// Command PictureFormatChanged
 
 /**
  * @brief The type of photo format
@@ -571,9 +489,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_PICTUREFORMATCHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_PICTUREFORMATCHANGED_TYPE;
 
-// Project ARDrone3
-// Class PictureSettingsState
-// Command AutoWhiteBalanceChanged
 
 /**
  * @brief The type auto white balance
@@ -588,9 +503,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_AUTOWHITEBALANCECHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_AUTOWHITEBALANCECHANGED_TYPE;
 
-// Project ARDrone3
-// Class MediaStreamingState
-// Command VideoEnableChanged
 
 /**
  * @brief Current video streaming status.
@@ -603,9 +515,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_MAX
 } eARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED;
 
-// Project ARDrone3
-// Class GPSSettings
-// Command HomeType
 
 /**
  * @brief The type of the home position
@@ -617,9 +526,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE;
 
-// Project ARDrone3
-// Class GPSSettingsState
-// Command GPSUpdateStateChanged
 
 /**
  * @brief The state of the gps update
@@ -632,9 +538,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_GPSUPDATESTATECHANGED_STATE_MAX
 } eARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_GPSUPDATESTATECHANGED_STATE;
 
-// Project ARDrone3
-// Class GPSSettingsState
-// Command HomeTypeChanged
 
 /**
  * @brief The type of the home position
@@ -646,9 +549,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_HOMETYPECHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_HOMETYPECHANGED_TYPE;
 
-// Project ARDrone3
-// Class Antiflickering
-// Command electricFrequency
 
 /**
  * @brief Type of the electric frequency
@@ -660,9 +560,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY_MAX
 } eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY;
 
-// Project ARDrone3
-// Class Antiflickering
-// Command setMode
 
 /**
  * @brief Mode of the anti flickering functionnality
@@ -675,9 +572,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE_MAX
 } eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE;
 
-// Project ARDrone3
-// Class AntiflickeringState
-// Command electricFrequencyChanged
 
 /**
  * @brief Type of the electric frequency
@@ -689,9 +583,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY_MAX
 } eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY;
 
-// Project ARDrone3
-// Class AntiflickeringState
-// Command modeChanged
 
 /**
  * @brief Mode of the anti flickering functionnality
@@ -704,9 +595,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_MODECHANGED_MODE_MAX
 } eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_MODECHANGED_MODE;
 
-// Project ARDrone3
-// Class GPSState
-// Command HomeTypeAvailabilityChanged
 
 /**
  * @brief The type of the return home
@@ -719,9 +607,6 @@ typedef enum
     ARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPEAVAILABILITYCHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPEAVAILABILITYCHANGED_TYPE;
 
-// Project ARDrone3
-// Class GPSState
-// Command HomeTypeChosenChanged
 
 /**
  * @brief The type of the return home chosen
@@ -734,9 +619,48 @@ typedef enum
     ARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPECHOSENCHANGED_TYPE_MAX
 } eARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPECHOSENCHANGED_TYPE;
 
-// Project JumpingSumo
-// Class Piloting
-// Command Posture
+// Feature follow_me
+
+/**
+ * @brief Type of FollowMe
+ */
+typedef enum
+{
+    ARCOMMANDS_FOLLOW_ME_TYPE_NONE = 0,    ///< No follow me
+    ARCOMMANDS_FOLLOW_ME_TYPE_LOOK_AT,    ///< LookAt follow me type
+    ARCOMMANDS_FOLLOW_ME_TYPE_GEOGRAPHIC,    ///< Follow the target keeping the same vector
+    ARCOMMANDS_FOLLOW_ME_TYPE_RELATIVE,    ///< Follow the target keeping the same orientation to its direction
+    ARCOMMANDS_FOLLOW_ME_TYPE_MAX
+} eARCOMMANDS_FOLLOW_ME_TYPE;
+
+
+/**
+ * @brief Type of the current FollowMe animation
+ */
+typedef enum
+{
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_NONE = 0,    ///< No current follow me animation
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_SPIRAL,    ///< Current follow me animation is spiral
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_SWING,    ///< Current follow me animation is swing
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_BOOMERANG,    ///< Current follow me animation is boomerang
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_CANDLE,    ///< Current follow me animation is candle
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_DOLLY_SLIDE,    ///< Current follow me animation is dolly slide
+    ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_MAX
+} eARCOMMANDS_FOLLOW_ME_ANIM_TYPE;
+
+
+/**
+ * @brief Types of FollowMe available
+ */
+typedef enum
+{
+    ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_NONE = 0,    ///< No follow me available
+    ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_LOOK_AT,    ///< LookAt available, no other types
+    ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_LOOK_AND_FOLLOW,    ///< LookAt, Geographic and Relative follow me are available
+    ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_MAX
+} eARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE;
+
+// Feature JumpingSumo
 
 /**
  * @brief Type of Posture
@@ -749,9 +673,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE_MAX
 } eARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE;
 
-// Project JumpingSumo
-// Class PilotingState
-// Command PostureChanged
 
 /**
  * @brief State of posture
@@ -766,9 +687,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE;
 
-// Project JumpingSumo
-// Class PilotingState
-// Command AlertStateChanged
 
 /**
  * @brief JS alert state
@@ -781,9 +699,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE;
 
-// Project JumpingSumo
-// Class Animations
-// Command Jump
 
 /**
  * @brief Type of jump
@@ -795,9 +710,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE;
 
-// Project JumpingSumo
-// Class Animations
-// Command SimpleAnimation
 
 /**
  * @brief Animation ID.
@@ -817,9 +729,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID_MAX
 } eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID;
 
-// Project JumpingSumo
-// Class AnimationsState
-// Command JumpLoadChanged
 
 /**
  * @brief State of jump load
@@ -835,9 +744,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE;
 
-// Project JumpingSumo
-// Class AnimationsState
-// Command JumpTypeChanged
 
 /**
  * @brief State of jump type.
@@ -850,9 +756,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE;
 
-// Project JumpingSumo
-// Class AnimationsState
-// Command JumpMotorProblemChanged
 
 /**
  * @brief Enum describing the problem of the motor
@@ -865,9 +768,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR_MAX
 } eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR;
 
-// Project JumpingSumo
-// Class MediaRecord
-// Command Video
 
 /**
  * @brief Command to record video
@@ -879,9 +779,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD;
 
-// Project JumpingSumo
-// Class MediaRecord
-// Command VideoV2
 
 /**
  * @brief Command to record video
@@ -893,9 +790,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD;
 
-// Project JumpingSumo
-// Class MediaRecordState
-// Command VideoStateChanged
 
 /**
  * @brief State of video
@@ -908,9 +802,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE;
 
-// Project JumpingSumo
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief State of device picture recording
@@ -923,9 +814,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE;
 
-// Project JumpingSumo
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief Error to explain the state
@@ -940,9 +828,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR;
 
-// Project JumpingSumo
-// Class MediaRecordState
-// Command VideoStateChangedV2
 
 /**
  * @brief State of device video recording
@@ -955,9 +840,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE;
 
-// Project JumpingSumo
-// Class MediaRecordState
-// Command VideoStateChangedV2
 
 /**
  * @brief Error to explain the state
@@ -972,9 +854,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR;
 
-// Project JumpingSumo
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Last event of picture recording
@@ -986,9 +865,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT;
 
-// Project JumpingSumo
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Error to explain the event
@@ -1004,9 +880,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR;
 
-// Project JumpingSumo
-// Class MediaRecordEvent
-// Command VideoEventChanged
 
 /**
  * @brief Event of video recording
@@ -1019,9 +892,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT;
 
-// Project JumpingSumo
-// Class MediaRecordEvent
-// Command VideoEventChanged
 
 /**
  * @brief Error to explain the event
@@ -1038,9 +908,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR;
 
-// Project JumpingSumo
-// Class NetworkSettings
-// Command WifiSelection
 
 /**
  * @brief The type of wifi selection (auto, manual)
@@ -1052,9 +919,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE;
 
-// Project JumpingSumo
-// Class NetworkSettings
-// Command WifiSelection
 
 /**
  * @brief The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
@@ -1067,9 +931,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND;
 
-// Project JumpingSumo
-// Class NetworkSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The type of wifi selection settings
@@ -1083,9 +944,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE;
 
-// Project JumpingSumo
-// Class NetworkSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The actual  wifi band state
@@ -1098,9 +956,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND;
 
-// Project JumpingSumo
-// Class Network
-// Command WifiScan
 
 /**
  * @brief The band(s) : 2.4 Ghz, 5 Ghz, or both
@@ -1113,9 +968,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND;
 
-// Project JumpingSumo
-// Class NetworkState
-// Command WifiScanListChanged
 
 /**
  * @brief The band : 2.4 GHz or 5 GHz
@@ -1127,9 +979,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND;
 
-// Project JumpingSumo
-// Class NetworkState
-// Command WifiAuthChannelListChanged
 
 /**
  * @brief The band of this channel : 2.4 GHz or 5 GHz
@@ -1141,9 +990,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_MAX
 } eARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND;
 
-// Project JumpingSumo
-// Class AudioSettings
-// Command Theme
 
 /**
  * @brief The audio theme to set.
@@ -1157,9 +1003,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME_MAX
 } eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME;
 
-// Project JumpingSumo
-// Class AudioSettingsState
-// Command ThemeChanged
 
 /**
  * @brief The audio theme to set.
@@ -1173,9 +1016,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME_MAX
 } eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME;
 
-// Project JumpingSumo
-// Class RoadPlanState
-// Command ScriptUploadChanged
 
 /**
  * @brief Error code.
@@ -1190,9 +1030,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE;
 
-// Project JumpingSumo
-// Class RoadPlanState
-// Command ScriptDeleteChanged
 
 /**
  * @brief Error code.
@@ -1205,9 +1042,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE;
 
-// Project JumpingSumo
-// Class RoadPlanState
-// Command PlayScriptChanged
 
 /**
  * @brief Error code.
@@ -1221,9 +1055,6 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE_MAX
 } eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE;
 
-// Project JumpingSumo
-// Class MediaStreamingState
-// Command VideoEnableChanged
 
 /**
  * @brief Current video streaming status.
@@ -1236,9 +1067,7 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED;
 
-// Project MiniDrone
-// Class PilotingState
-// Command FlyingStateChanged
+// Feature MiniDrone
 
 /**
  * @brief Drone flying state
@@ -1256,9 +1085,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_MAX
 } eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE;
 
-// Project MiniDrone
-// Class PilotingState
-// Command AlertStateChanged
 
 /**
  * @brief Drone alert state
@@ -1273,9 +1099,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_MAX
 } eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE;
 
-// Project MiniDrone
-// Class Animations
-// Command Flip
 
 /**
  * @brief Direction for the flip
@@ -1289,9 +1112,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_MAX
 } eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION;
 
-// Project MiniDrone
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief State of device picture recording
@@ -1304,9 +1124,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_MAX
 } eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE;
 
-// Project MiniDrone
-// Class MediaRecordState
-// Command PictureStateChangedV2
 
 /**
  * @brief Error to explain the state
@@ -1321,9 +1138,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_MAX
 } eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR;
 
-// Project MiniDrone
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Last event of picture recording
@@ -1335,9 +1149,6 @@ typedef enum
     ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_MAX
 } eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT;
 
-// Project MiniDrone
-// Class MediaRecordEvent
-// Command PictureEventChanged
 
 /**
  * @brief Error to explain the event
@@ -1353,9 +1164,7 @@ typedef enum
     ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_MAX
 } eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR;
 
-// Project SkyController
-// Class WifiState
-// Command ConnexionChanged
+// Feature SkyController
 
 /**
  * @brief Wifi status
@@ -1368,9 +1177,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_MAX
 } eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS;
 
-// Project SkyController
-// Class WifiState
-// Command WifiAuthChannelListChanged
 
 /**
  * @brief The band of this channel : 2.4 GHz or 5 GHz
@@ -1382,9 +1188,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_MAX
 } eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND;
 
-// Project SkyController
-// Class DeviceState
-// Command ConnexionChanged
 
 /**
  * @brief Wifi status to Device
@@ -1398,9 +1201,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_MAX
 } eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS;
 
-// Project SkyController
-// Class SettingsState
-// Command ProductVariantChanged
 
 /**
  * @brief Variant of the product
@@ -1412,9 +1212,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_MAX
 } eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT;
 
-// Project SkyController
-// Class AccessPointSettings
-// Command WifiSelection
 
 /**
  * @brief The type of wifi selection (only manual at the moment)
@@ -1425,9 +1222,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_MAX
 } eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE;
 
-// Project SkyController
-// Class AccessPointSettings
-// Command WifiSelection
 
 /**
  * @brief The allowed band : 2.4 Ghz or 5 Ghz
@@ -1439,9 +1233,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_MAX
 } eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND;
 
-// Project SkyController
-// Class AccessPointSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The type of wifi selection (only manual at the moment)
@@ -1452,9 +1243,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_MAX
 } eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE;
 
-// Project SkyController
-// Class AccessPointSettingsState
-// Command WifiSelectionChanged
 
 /**
  * @brief The allowed band : 2.4 Ghz or 5 Ghz
@@ -1466,9 +1254,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_MAX
 } eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND;
 
-// Project SkyController
-// Class GamepadInfosState
-// Command gamepadControl
 
 /**
  * @brief The type (axis/button) of the control
@@ -1480,9 +1265,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_MAX
 } eARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE;
 
-// Project SkyController
-// Class CoPiloting
-// Command setPilotingSource
 
 /**
  * @brief The source
@@ -1494,9 +1276,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_MAX
 } eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE;
 
-// Project SkyController
-// Class CoPilotingState
-// Command pilotingSource
 
 /**
  * @brief The source
@@ -1508,9 +1287,6 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_MAX
 } eARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE;
 
-// Project SkyController
-// Class CalibrationState
-// Command MagnetoCalibrationState
 
 /**
  * @brief The global status of the calibration
@@ -1523,9 +1299,7 @@ typedef enum
     ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_MAX
 } eARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS;
 
-// Project common
-// Class NetworkEvent
-// Command Disconnection
+// Feature common
 
 /**
  * @brief Cause of the disconnection of the product
@@ -1537,9 +1311,6 @@ typedef enum
     ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_MAX
 } eARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE;
 
-// Project common
-// Class CommonState
-// Command SensorsStatesListChanged
 
 /**
  * @brief Sensor name
@@ -1555,9 +1326,6 @@ typedef enum
     ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_MAX
 } eARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME;
 
-// Project common
-// Class CommonState
-// Command ProductModel
 
 /**
  * @brief The Model of the product.
@@ -1580,9 +1348,6 @@ typedef enum
     ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_MAX
 } eARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL;
 
-// Project common
-// Class Mavlink
-// Command Start
 
 /**
  * @brief type of the played mavlink file
@@ -1594,9 +1359,6 @@ typedef enum
     ARCOMMANDS_COMMON_MAVLINK_START_TYPE_MAX
 } eARCOMMANDS_COMMON_MAVLINK_START_TYPE;
 
-// Project common
-// Class MavlinkState
-// Command MavlinkFilePlayingStateChanged
 
 /**
  * @brief State of the mavlink
@@ -1609,9 +1371,6 @@ typedef enum
     ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_MAX
 } eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE;
 
-// Project common
-// Class MavlinkState
-// Command MavlinkFilePlayingStateChanged
 
 /**
  * @brief type of the played mavlink file
@@ -1623,9 +1382,6 @@ typedef enum
     ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_MAX
 } eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE;
 
-// Project common
-// Class MavlinkState
-// Command MavlinkPlayErrorStateChanged
 
 /**
  * @brief State of play error
@@ -1639,9 +1395,6 @@ typedef enum
     ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_MAX
 } eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR;
 
-// Project common
-// Class CalibrationState
-// Command MagnetoCalibrationAxisToCalibrateChanged
 
 /**
  * @brief The axis to calibrate
@@ -1655,9 +1408,6 @@ typedef enum
     ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_MAX
 } eARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS;
 
-// Project common
-// Class FlightPlanState
-// Command ComponentStateListChanged
 
 /**
  * @brief Drone FlightPlan component id (unique)
@@ -1671,9 +1421,6 @@ typedef enum
     ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_MAX
 } eARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT;
 
-// Project common
-// Class Animations
-// Command StartAnimation
 
 /**
  * @brief Animation to start.
@@ -1696,9 +1443,6 @@ typedef enum
     ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_MAX
 } eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM;
 
-// Project common
-// Class Animations
-// Command StopAnimation
 
 /**
  * @brief Animation to stop.
@@ -1721,9 +1465,6 @@ typedef enum
     ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_MAX
 } eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM;
 
-// Project common
-// Class AnimationsState
-// Command List
 
 /**
  * @brief Animation type.
@@ -1746,9 +1487,6 @@ typedef enum
     ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_MAX
 } eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM;
 
-// Project common
-// Class AnimationsState
-// Command List
 
 /**
  * @brief State of the animation
@@ -1761,9 +1499,6 @@ typedef enum
     ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_MAX
 } eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE;
 
-// Project common
-// Class AnimationsState
-// Command List
 
 /**
  * @brief Error to explain the state
@@ -1775,9 +1510,6 @@ typedef enum
     ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_MAX
 } eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR;
 
-// Project common
-// Class Accessory
-// Command Config
 
 /**
  * @brief Accessory configuration to set.
@@ -1792,9 +1524,6 @@ typedef enum
     ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_MAX
 } eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY;
 
-// Project common
-// Class AccessoryState
-// Command SupportedAccessoriesListChanged
 
 /**
  * @brief Accessory configurations supported by the product.
@@ -1809,9 +1538,6 @@ typedef enum
     ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_MAX
 } eARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY;
 
-// Project common
-// Class AccessoryState
-// Command AccessoryConfigChanged
 
 /**
  * @brief Accessory configuration reported by firmware.
@@ -1827,9 +1553,6 @@ typedef enum
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_MAX
 } eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY;
 
-// Project common
-// Class AccessoryState
-// Command AccessoryConfigChanged
 
 /**
  * @brief Error code.
@@ -1842,9 +1565,6 @@ typedef enum
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_MAX
 } eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR;
 
-// Project common
-// Class Charger
-// Command SetMaxChargeRate
 
 /**
  * @brief The new maximum charge rate.
@@ -1857,9 +1577,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_MAX
 } eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE;
 
-// Project common
-// Class ChargerState
-// Command MaxChargeRateChanged
 
 /**
  * @brief The current maximum charge rate.
@@ -1872,9 +1589,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE;
 
-// Project common
-// Class ChargerState
-// Command CurrentChargeStateChanged
 
 /**
  * @brief Charger status.
@@ -1889,9 +1603,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS;
 
-// Project common
-// Class ChargerState
-// Command CurrentChargeStateChanged
 
 /**
  * @brief The current charging phase.
@@ -1906,9 +1617,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE;
 
-// Project common
-// Class ChargerState
-// Command LastChargeRateChanged
 
 /**
  * @brief The charge rate recorded by the firmware for the last charge.
@@ -1922,9 +1630,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE;
 
-// Project common
-// Class ChargerState
-// Command ChargingInfo
 
 /**
  * @brief The current charging phase.
@@ -1940,9 +1645,6 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE;
 
-// Project common
-// Class ChargerState
-// Command ChargingInfo
 
 /**
  * @brief The charge rate. If phase is DISCHARGING, refers to the last charge.
@@ -1956,9 +1658,7 @@ typedef enum
     ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_MAX
 } eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE;
 
-// Project commonDebug
-// Class DebugSettingsState
-// Command Info
+// Feature commonDebug
 
 /**
  * @brief Setting type.
@@ -1971,9 +1671,6 @@ typedef enum
     ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_MAX
 } eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE;
 
-// Project commonDebug
-// Class DebugSettingsState
-// Command Info
 
 /**
  * @brief Setting mode.
@@ -1985,9 +1682,7 @@ typedef enum
     ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_MAX
 } eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE;
 
-// Project pro
-// Class ProState
-// Command SupportedFeatures
+// Feature pro
 
 /**
  * @brief Status of the supported features
@@ -1998,6 +1693,69 @@ typedef enum
     ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_CHALLENGE_ERROR,    ///< The response received is not valid
     ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_MAX
 } eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS;
+
+// Feature wifi
+
+/**
+ * @brief The band : 2.4 Ghz or 5 Ghz
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_BAND_2_4GHZ = 0,    ///< 2.4 GHz band
+    ARCOMMANDS_WIFI_BAND_5GHZ,    ///< 5 GHz band
+    ARCOMMANDS_WIFI_BAND_MAX
+} eARCOMMANDS_WIFI_BAND;
+
+#define ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ (1 << ARCOMMANDS_WIFI_BAND_2_4GHZ)    ///< 2.4 GHz band
+#define ARCOMMANDS_FLAG_WIFI_BAND_5GHZ (1 << ARCOMMANDS_WIFI_BAND_5GHZ)    ///< 5 GHz band
+
+
+/**
+ * @brief The wifi selection type available
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_SELECTION_TYPE_AUTO_ALL = 0,    ///< Auto selection on all channels
+    ARCOMMANDS_WIFI_SELECTION_TYPE_AUTO_2_4_GHZ,    ///< Auto selection 2.4ghz
+    ARCOMMANDS_WIFI_SELECTION_TYPE_AUTO_5_GHZ,    ///< Auto selection 5 ghz
+    ARCOMMANDS_WIFI_SELECTION_TYPE_MANUAL,    ///< manual selection
+    ARCOMMANDS_WIFI_SELECTION_TYPE_MAX
+} eARCOMMANDS_WIFI_SELECTION_TYPE;
+
+
+/**
+ * @brief The type of wifi security (open, wpa2)
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_SECURITY_TYPE_OPEN = 0,    ///< Wifi is not protected by any security (default)
+    ARCOMMANDS_WIFI_SECURITY_TYPE_WPA2,    ///< Wifi is protected by wpa2
+    ARCOMMANDS_WIFI_SECURITY_TYPE_MAX
+} eARCOMMANDS_WIFI_SECURITY_TYPE;
+
+
+/**
+ * @brief Type of the key sent
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_PLAIN = 0,    ///< Key is plain text, not encrypted
+    ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_MAX
+} eARCOMMANDS_WIFI_SECURITY_KEY_TYPE;
+
+
+/**
+ * @brief Type of environement
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_ENVIRONEMENT_INDOOR = 0,    ///< indoor environement
+    ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR,    ///< outdoor environement
+    ARCOMMANDS_WIFI_ENVIRONEMENT_MAX
+} eARCOMMANDS_WIFI_ENVIRONEMENT;
+
+#define ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_INDOOR)    ///< indoor environement
+#define ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR)    ///< outdoor environement
 
 
 #endif /* _LIBARCOMMANDS_ARCOMMANDS_TYPES_H_ */

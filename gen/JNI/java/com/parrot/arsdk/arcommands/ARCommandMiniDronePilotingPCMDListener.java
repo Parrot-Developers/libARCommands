@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingPCMD</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingPCMDListener {
 
     /**
-     * Called when a command <code>PCMD</code> of class <code>Piloting</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingPCMD</code> in feature <code>MiniDrone</code> is decoded
      * @param _flag Boolean flag to activate roll/pitch movement
      * @param _roll Roll consign for the MiniDrone [-100;100]
      * @param _pitch Pitch consign for the MiniDrone [-100;100]

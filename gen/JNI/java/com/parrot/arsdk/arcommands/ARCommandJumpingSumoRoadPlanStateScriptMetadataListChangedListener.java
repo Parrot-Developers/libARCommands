@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ScriptMetadataListChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanStateScriptMetadataListChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanStateScriptMetadataListChangedListener {
 
     /**
-     * Called when a command <code>ScriptMetadataListChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanStateScriptMetadataListChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _uuid Script uuid for which metadata changed.
      * @param _version Version number for this script.
      * @param _product Product targeted by script.

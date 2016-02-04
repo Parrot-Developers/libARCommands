@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SetMode</code> of class <code>Antiflickering</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>AntiflickeringSetMode</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3AntiflickeringSetModeListener {
 
     /**
-     * Called when a command <code>SetMode</code> of class <code>Antiflickering</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>AntiflickeringSetMode</code> in feature <code>ARDrone3</code> is decoded
      * @param _mode Mode of the anti flickering functionnality
      */
     void onARDrone3AntiflickeringSetModeUpdate (ARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE_ENUM mode);

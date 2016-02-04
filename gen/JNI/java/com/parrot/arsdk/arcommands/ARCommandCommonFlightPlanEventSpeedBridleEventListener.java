@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code> listener
+ * Interface for the command <code>FlightPlanEventSpeedBridleEvent</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonFlightPlanEventSpeedBridleEventListener {
 
     /**
-     * Called when a command <code>SpeedBridleEvent</code> of class <code>FlightPlanEvent</code> in project <code>Common</code> is decoded
+     * Called when a command <code>FlightPlanEventSpeedBridleEvent</code> in feature <code>Common</code> is decoded
      */
     void onCommonFlightPlanEventSpeedBridleEventUpdate ();
 }

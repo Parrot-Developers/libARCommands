@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Country</code> of class <code>Settings</code> in project <code>Common</code> listener
+ * Interface for the command <code>SettingsCountry</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonSettingsCountryListener {
 
     /**
-     * Called when a command <code>Country</code> of class <code>Settings</code> in project <code>Common</code> is decoded
+     * Called when a command <code>SettingsCountry</code> in feature <code>Common</code> is decoded
      * @param _code Country code with ISO 3166 format
      */
     void onCommonSettingsCountryUpdate (String code);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code> listener
+ * Interface for the command <code>AccessoryStateAccessoryConfigModificationEnabled</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAccessoryStateAccessoryConfigModificationEnabledListener {
 
     /**
-     * Called when a command <code>AccessoryConfigModificationEnabled</code> of class <code>AccessoryState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AccessoryStateAccessoryConfigModificationEnabled</code> in feature <code>Common</code> is decoded
      * @param _enabled 1 if the modification of the accessory Config is enabled, 0 otherwise
      */
     void onCommonAccessoryStateAccessoryConfigModificationEnabledUpdate (byte enabled);

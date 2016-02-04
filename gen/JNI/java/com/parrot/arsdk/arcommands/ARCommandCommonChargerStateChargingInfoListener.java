@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code> listener
+ * Interface for the command <code>ChargerStateChargingInfo</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonChargerStateChargingInfoListener {
 
     /**
-     * Called when a command <code>ChargingInfo</code> of class <code>ChargerState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ChargerStateChargingInfo</code> in feature <code>Common</code> is decoded
      * @param _phase The current charging phase.
      * @param _rate The charge rate. If phase is DISCHARGING, refers to the last charge.
      * @param _intensity The charging intensity, in dA. (12dA = 1,2A) ; If phase is DISCHARGING, refers to the last charge. Equals to 0 if not known.

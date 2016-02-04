@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>AnimationsStateList</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAnimationsStateListListener {
 
     /**
-     * Called when a command <code>List</code> of class <code>AnimationsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AnimationsStateList</code> in feature <code>Common</code> is decoded
      * @param _anim Animation type.
      * @param _state State of the animation
      * @param _error Error to explain the state

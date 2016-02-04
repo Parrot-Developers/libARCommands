@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PCMD</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>PilotingPCMD</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoPilotingPCMDListener {
 
     /**
-     * Called when a command <code>PCMD</code> of class <code>Piloting</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>PilotingPCMD</code> in feature <code>JumpingSumo</code> is decoded
      * @param _flag Boolean for "touch screen".
      * @param _speed Speed value [-100:100].
      * @param _turn Turn value. [-100:100]

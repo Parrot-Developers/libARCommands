@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSecurity</code> of class <code>NetworkSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkSettingsStateWifiSecurity</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkSettingsStateWifiSecurityListener {
 
     /**
-     * Called when a command <code>WifiSecurity</code> of class <code>NetworkSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkSettingsStateWifiSecurity</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of wifi security (open, wpa2)
      * @param _key The key used to secure the network (empty if type is open)
      * @param _keyType Type of the key
