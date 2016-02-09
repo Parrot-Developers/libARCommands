@@ -128,6 +128,7 @@
             </arg>
         </cmd>
         <cmd name="AutoTakeOffMode" id="6">
+            @deprecated
             [NOT USED] Set Drone3 in automatic take off mode
             <arg name="state" type="u8">
                 State of automatic take off mode (1 for autotake off enabled)
@@ -135,7 +136,7 @@
         </cmd>
         
         <cmd name="moveBy" id="7">
-            Move the drone to a relative position and rotate heading by a given angle
+            [DRAFT] Move the drone to a relative position and rotate heading by a given angle
             The frame is horizontal and relative to the current drone orientation:
             - X is front
             - Y is right
@@ -572,6 +573,7 @@
             </arg>
         </cmd>
         <cmd name="AutoTakeOffModeChanged" id="7">
+            @deprecated
             Status of the drone3 automatic take off mode
             <arg name="state" type="u8">
                 State of automatic take off mode (1 if enabled)
@@ -589,7 +591,7 @@
         Events of Piloting
         
         <cmd name="moveByEnd" id="0">
-            End of relative displacement of the drone
+            [NOT USED] End of relative displacement of the drone
             The frame is horizontal and relative to the current drone orientation:
             - X is front
             - Y is right
@@ -720,7 +722,8 @@
             </arg>
         </cmd>
         <cmd name="AbsolutControl" id="2">
-            [NOT USED] Enable/Disable absolut control
+            @deprecated
+            Enable/Disable absolut control
             <arg name="on" type="u8">
                 1 to enable, 0 to disable
             </arg>
@@ -739,35 +742,35 @@
         </cmd>
         
         <cmd name="setAutonomousFlightMaxHorizontalSpeed" id="5">
-            Set the maximum horizontal speed used by the autonomous flight
+            [NOT USED] Set the maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
             </arg>
         </cmd>
         
         <cmd name="setAutonomousFlightMaxVerticalSpeed" id="6">
-            Set the maximum vertical speed used by the autonomous flight
+            [NOT USED] Set the maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
             </arg>
         </cmd>
         
         <cmd name="setAutonomousFlightMaxHorizontalAcceleration" id="7">
-            Set the maximum horizontal acceleration used by the autonomous flight
+            [NOT USED] Set the maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
             </arg>
         </cmd>
         
         <cmd name="setAutonomousFlightMaxVerticalAcceleration" id="8">
-            Set the maximum vertical acceleration used by the autonomous flight
+            [NOT USED] Set the maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
             </arg>
         </cmd>
         
         <cmd name="setAutonomousFlightMaxRotationSpeed" id="9">
-            Set the maximum yaw rotation speed used by the autonomous flight
+            [NOT USED] Set the maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
             </arg>
@@ -801,6 +804,7 @@
             </arg>
         </cmd>
         <cmd name="AbsolutControlChanged" id="2">
+            @deprecated
             Absolut control boolean sent by product
             <arg name="on" type="u8">
                 1 if enabled, 0 if disabled
@@ -826,35 +830,35 @@
         </cmd>
         
         <cmd name="AutonomousFlightMaxHorizontalSpeed" id="5">
-            Maximum horizontal speed used by the autonomous flight
+            [NOT USED] Maximum horizontal speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal speed [m/s]
             </arg>
         </cmd>
         
         <cmd name="AutonomousFlightMaxVerticalSpeed" id="6">
-            Maximum vertical speed used by the autonomous flight
+            [NOT USED] Maximum vertical speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical speed [m/s]
             </arg>
         </cmd>
         
         <cmd name="AutonomousFlightMaxHorizontalAcceleration" id="7">
-            Maximum horizontal acceleration used by the autonomous flight
+            [NOT USED] Maximum horizontal acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum horizontal acceleration [m/s2]
             </arg>
         </cmd>
         
         <cmd name="AutonomousFlightMaxVerticalAcceleration" id="8">
-            Maximum vertical acceleration used by the autonomous flight
+            [NOT USED] Maximum vertical acceleration used by the autonomous flight
             <arg name="value" type="float">
                 maximum vertical acceleration [m/s2]
             </arg>
         </cmd>
         
         <cmd name="AutonomousFlightMaxRotationSpeed" id="9">
-            Maximum yaw rotation speed used by the autonomous flight
+            [NOT USED] Maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
             </arg>
@@ -882,6 +886,7 @@
             </arg>
         </cmd>
         <cmd name="Outdoor" id="3">
+            @deprecated
             Outdoor property
             <arg name="outdoor" type="u8">
                 1 if outdoor flight, 0 if indoor flight
@@ -928,6 +933,7 @@
             </arg>
         </cmd>
         <cmd name="OutdoorChanged" id="3">
+            @deprecated
             Outdoor property sent by product
             <arg name="outdoor" type="u8">
                 1 if outdoor flight, 0 if indoor flight
@@ -1074,7 +1080,8 @@
         Settings state from product
 
         <cmd name="ProductMotorVersionListChanged" id="0" listtype="MAP">
-            DEPRECATED Product Motor version (the first argument is the unique identifier for the list)
+            @deprecated
+            Product Motor version (the first argument is the unique identifier for the list)
             <arg name="motor_number" type="u8">
                 Product Motor number
             </arg>
@@ -1149,6 +1156,7 @@
             </arg>
         </cmd>
         <cmd name="MotorSoftwareVersionChanged" id="3">
+            @deprecated
             Motor software version status
             <arg name="version" type="string">
                 name of the version : dot separated fields (major version - minor version - firmware type - nb motors handled). Firmware types : Release, Debug, Alpha, Test-bench
@@ -1215,6 +1223,7 @@
             </arg>
         </cmd>
         <cmd name="P7ID" id="6">
+            @deprecated
             Product P7ID
             <arg name="serialID" type="string">
                 Product P7ID
@@ -1418,6 +1427,7 @@
     <class name="GPSSettings" id="23">
         GPS settings
         <cmd name="SetHome" id="0">
+            @deprecated
             Set home location
             <arg name="latitude" type="double">
                 Home latitude in decimal degrees

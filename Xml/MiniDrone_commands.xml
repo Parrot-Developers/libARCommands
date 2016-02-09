@@ -476,6 +476,7 @@
         Settings state from product
         
         <cmd name="ProductMotorsVersionChanged" id="0">
+            @deprecated
             Product Motors versions
             <arg name="motor" type="u8">
                 Product Motor number [1 - 4]
@@ -491,6 +492,7 @@
             </arg>
         </cmd>
         <cmd name="ProductInertialVersionChanged" id="1">
+            @deprecated
             Product Inertial versions
             <arg name="software" type="string">
                 Product Inertial software version
@@ -513,6 +515,7 @@
         Settings state from product
         
         <cmd name="FloodControlChanged" id="0">
+            @deprecated
             Flood control regulation
             <arg name="delay" type="u16">
                 Delay (in ms) between two PCMD

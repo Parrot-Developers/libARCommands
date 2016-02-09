@@ -123,7 +123,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingEmergen
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingNavigateHome (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start);
 
 /**
- * @brief [NOT USED] Set Drone3 in automatic take off mode
+ * @brief @deprecated
+ * [NOT USED] Set Drone3 in automatic take off mode
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -134,7 +135,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingNavigat
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingAutoTakeOffMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
 
 /**
- * @brief Move the drone to a relative position and rotate heading by a given angle
+ * @brief [DRAFT] Move the drone to a relative position and rotate heading by a given angle
  * The frame is horizontal and relative to the current drone orientation:
  * - X is front
  * - Y is right
@@ -395,7 +396,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingStateSp
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingStateAttitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _roll, float _pitch, float _yaw);
 
 /**
- * @brief Status of the drone3 automatic take off mode
+ * @brief @deprecated
+ * Status of the drone3 automatic take off mode
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -419,7 +421,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingStateAl
 // Command class PilotingEvent
 
 /**
- * @brief End of relative displacement of the drone
+ * @brief [NOT USED] End of relative displacement of the drone
  * The frame is horizontal and relative to the current drone orientation:
  * - X is front
  * - Y is right
@@ -534,7 +536,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxTilt (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
 
 /**
- * @brief [NOT USED] Enable/Disable absolut control
+ * @brief @deprecated
+ * Enable/Disable absolut control
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -567,7 +570,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsNoFlyOverMaxDistance (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _shouldNotFlyOver);
 
 /**
- * @brief Set the maximum horizontal speed used by the autonomous flight
+ * @brief [NOT USED] Set the maximum horizontal speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -578,7 +581,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Set the maximum vertical speed used by the autonomous flight
+ * @brief [NOT USED] Set the maximum vertical speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -589,7 +592,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Set the maximum horizontal acceleration used by the autonomous flight
+ * @brief [NOT USED] Set the maximum horizontal acceleration used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -600,7 +603,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAcceleration (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Set the maximum vertical acceleration used by the autonomous flight
+ * @brief [NOT USED] Set the maximum vertical acceleration used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -611,7 +614,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAcceleration (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Set the maximum yaw rotation speed used by the autonomous flight
+ * @brief [NOT USED] Set the maximum yaw rotation speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -650,7 +653,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateMaxTiltChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
 
 /**
- * @brief Absolut control boolean sent by product
+ * @brief @deprecated
+ * Absolut control boolean sent by product
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -685,7 +689,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _shouldNotFlyOver);
 
 /**
- * @brief Maximum horizontal speed used by the autonomous flight
+ * @brief [NOT USED] Maximum horizontal speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -696,7 +700,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Maximum vertical speed used by the autonomous flight
+ * @brief [NOT USED] Maximum vertical speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -707,7 +711,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Maximum horizontal acceleration used by the autonomous flight
+ * @brief [NOT USED] Maximum horizontal acceleration used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -718,7 +722,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAcceleration (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Maximum vertical acceleration used by the autonomous flight
+ * @brief [NOT USED] Maximum vertical acceleration used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -729,7 +733,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAcceleration (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief Maximum yaw rotation speed used by the autonomous flight
+ * @brief [NOT USED] Maximum yaw rotation speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -775,7 +779,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMa
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsHullProtection (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
 
 /**
- * @brief Outdoor property
+ * @brief @deprecated
+ * Outdoor property
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -836,7 +841,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsSt
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateHullProtectionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
 
 /**
- * @brief Outdoor property sent by product
+ * @brief @deprecated
+ * Outdoor property sent by product
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -930,7 +936,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3NetworkSettings
 // Command class SettingsState
 
 /**
- * @brief DEPRECATED Product Motor version (the first argument is the unique identifier for the list)
+ * @brief @deprecated
+ * Product Motor version (the first argument is the unique identifier for the list)
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -968,7 +975,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStatePr
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateMotorErrorStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _motorIds, eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR _motorError);
 
 /**
- * @brief Motor software version status
+ * @brief @deprecated
+ * Motor software version status
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -1003,7 +1011,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateMo
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3SettingsStateMotorErrorLastErrorChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR _motorError);
 
 /**
- * @brief Product P7ID
+ * @brief @deprecated
+ * Product P7ID
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -1188,7 +1197,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3MediaStreamingS
 // Command class GPSSettings
 
 /**
- * @brief Set home location
+ * @brief @deprecated
+ * Set home location
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -1611,7 +1621,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsSt
 // Command class SettingsState
 
 /**
- * @brief Product GPS versions
+ * @brief @deprecated
+ * Product GPS versions
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -2018,7 +2029,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanStat
 // Command class SpeedSettings
 
 /**
- * @brief Outdoor property => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+ * @brief @deprecated
+ * Outdoor property
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -2031,7 +2043,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoSpeedSetting
 // Command class SpeedSettingsState
 
 /**
- * @brief Outdoor property sent by product => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+ * @brief @deprecated
+ * Outdoor property sent by product
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -2465,7 +2478,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOut
 // Command class SettingsState
 
 /**
- * @brief Product Motors versions
+ * @brief @deprecated
+ * Product Motors versions
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -2479,7 +2493,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOut
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _motor, const char * _type, const char * _software, const char * _hardware);
 
 /**
- * @brief Product Inertial versions
+ * @brief @deprecated
+ * Product Inertial versions
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -2504,7 +2519,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateC
 // Command class FloodControlState
 
 /**
- * @brief Flood control regulation
+ * @brief @deprecated
+ * Flood control regulation
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -3366,7 +3382,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerButtonEven
 // Command class Network
 
 /**
- * @brief Signals the remote that the host will disconnect and close its
+ * @brief @deprecated
+ * Signals the remote that the host will disconnect and close its
  * libARNetwork instance (and all threads that use libARNetwork)
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -3652,7 +3669,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateCurren
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateCurrentTimeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _time);
 
 /**
- * @brief Mass storage info remaining list
+ * @brief @deprecated
+ * Mass storage info remaining list
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -3740,7 +3758,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate
 // Command class OverHeatState
 
 /**
- * @brief Overheat temperature reached
+ * @brief @deprecated
+ * Overheat temperature reached
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
@@ -3750,7 +3769,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 /**
- * @brief Overheat regulation state changed
+ * @brief @deprecated
+ * Overheat regulation state changed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
