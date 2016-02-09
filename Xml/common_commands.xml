@@ -78,6 +78,7 @@
         Network related commands
         
         <cmd name="Disconnect">
+            @deprecated
             Signals the remote that the host will disconnect and close its
             libARNetwork instance (and all threads that use libARNetwork)
         </cmd>
@@ -273,6 +274,7 @@
         </cmd>
         
         <cmd name="MassStorageInfoRemainingListChanged" listtype="LIST">
+            @deprecated
             Mass storage info remaining list
             <arg name="free_space" type="u32">
                 Mass storage free space in MBytes
@@ -398,10 +400,12 @@
         Overheat state from product
         
         <cmd name="OverHeatChanged">
+            @deprecated
             Overheat temperature reached
         </cmd>
         
         <cmd name="OverHeatRegulationChanged">
+            @deprecated
             Overheat regulation state changed
             <arg name="regulationType" type="u8">
                 Type of overheat regulation : 0 for ventilation, 1 for switch off

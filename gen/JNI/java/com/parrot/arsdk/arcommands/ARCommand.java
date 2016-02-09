@@ -322,6 +322,7 @@ public class ARCommand extends ARNativeData {
      * All commands related to piloting the totoDrone<br>
      * <br>
      * Command AutoTakeOffMode description:<br>
+     * @deprecated<br>
      * [NOT USED] Set Drone3 in automatic take off mode<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -351,8 +352,7 @@ public class ARCommand extends ARNativeData {
      * All commands related to piloting the totoDrone<br>
      * <br>
      * Command MoveBy description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Move the drone to a relative position and rotate heading by a given angle<br>
+     * [DRAFT] Move the drone to a relative position and rotate heading by a given angle<br>
      * The frame is horizontal and relative to the current drone orientation:<br>
      * - X is front<br>
      * - Y is right<br>
@@ -961,6 +961,7 @@ public class ARCommand extends ARNativeData {
      * State from drone<br>
      * <br>
      * Command AutoTakeOffModeChanged description:<br>
+     * @deprecated<br>
      * Status of the drone3 automatic take off mode<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -1019,8 +1020,7 @@ public class ARCommand extends ARNativeData {
      * Events of Piloting<br>
      * <br>
      * Command MoveByEnd description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * End of relative displacement of the drone<br>
+     * [NOT USED] End of relative displacement of the drone<br>
      * The frame is horizontal and relative to the current drone orientation:<br>
      * - X is front<br>
      * - Y is right<br>
@@ -1291,7 +1291,8 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command AbsolutControl description:<br>
-     * [NOT USED] Enable/Disable absolut control<br>
+     * @deprecated<br>
+     * Enable/Disable absolut control<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1378,8 +1379,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxHorizontalSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Set the maximum horizontal speed used by the autonomous flight<br>
+     * [NOT USED] Set the maximum horizontal speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1408,8 +1408,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxVerticalSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Set the maximum vertical speed used by the autonomous flight<br>
+     * [NOT USED] Set the maximum vertical speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1438,8 +1437,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxHorizontalAcceleration description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Set the maximum horizontal acceleration used by the autonomous flight<br>
+     * [NOT USED] Set the maximum horizontal acceleration used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1468,8 +1466,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxVerticalAcceleration description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Set the maximum vertical acceleration used by the autonomous flight<br>
+     * [NOT USED] Set the maximum vertical acceleration used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1498,8 +1495,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxRotationSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Set the maximum yaw rotation speed used by the autonomous flight<br>
+     * [NOT USED] Set the maximum yaw rotation speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1590,6 +1586,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AbsolutControlChanged description:<br>
+     * @deprecated<br>
      * Absolut control boolean sent by product<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -1679,8 +1676,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AutonomousFlightMaxHorizontalSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Maximum horizontal speed used by the autonomous flight<br>
+     * [NOT USED] Maximum horizontal speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1709,8 +1705,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AutonomousFlightMaxVerticalSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Maximum vertical speed used by the autonomous flight<br>
+     * [NOT USED] Maximum vertical speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1739,8 +1734,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AutonomousFlightMaxHorizontalAcceleration description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Maximum horizontal acceleration used by the autonomous flight<br>
+     * [NOT USED] Maximum horizontal acceleration used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1769,8 +1763,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AutonomousFlightMaxVerticalAcceleration description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Maximum vertical acceleration used by the autonomous flight<br>
+     * [NOT USED] Maximum vertical acceleration used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1799,8 +1792,7 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings state from product<br>
      * <br>
      * Command AutonomousFlightMaxRotationSpeed description:<br>
-     * Draft: this command is not implemented yet by the firmware<br>
-     * Maximum yaw rotation speed used by the autonomous flight<br>
+     * [NOT USED] Maximum yaw rotation speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -1916,6 +1908,7 @@ public class ARCommand extends ARNativeData {
      * Speed Settings commands<br>
      * <br>
      * Command Outdoor description:<br>
+     * @deprecated<br>
      * Outdoor property<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -2036,6 +2029,7 @@ public class ARCommand extends ARNativeData {
      * Speed Settings state from product<br>
      * <br>
      * Command OutdoorChanged description:<br>
+     * @deprecated<br>
      * Outdoor property sent by product<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -2188,6 +2182,8 @@ public class ARCommand extends ARNativeData {
      * <br>
      * Command ProductMotorVersionListChanged description:<br>
      * DEPRECATED Product Motor version (the first argument is the unique identifier for the list)<br>
+     * @deprecated<br>
+     * Product Motor version (the first argument is the unique identifier for the list)<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -2279,6 +2275,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command MotorSoftwareVersionChanged description:<br>
+     * @deprecated<br>
      * Motor software version status<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -2368,6 +2365,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command P7ID description:<br>
+     * @deprecated<br>
      * Product P7ID<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -2813,6 +2811,7 @@ public class ARCommand extends ARNativeData {
      * GPS settings<br>
      * <br>
      * Command SetHome description:<br>
+     * @deprecated<br>
      * Set home location<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -4016,6 +4015,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command ProductGPSVersionChanged description:<br>
+     * @deprecated<br>
      * Product GPS versions<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -4993,7 +4993,8 @@ public class ARCommand extends ARNativeData {
      * Speed Settings commands<br>
      * <br>
      * Command Outdoor description:<br>
-     * Outdoor property => CAUTION : USED FOR WIFI, to know authorized wifi channels.<br>
+     * @deprecated<br>
+     * Outdoor property<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -5022,7 +5023,8 @@ public class ARCommand extends ARNativeData {
      * Speed Settings state from product<br>
      * <br>
      * Command OutdoorChanged description:<br>
-     * Outdoor property sent by product => CAUTION : USED FOR WIFI, to know authorized wifi channels.<br>
+     * @deprecated<br>
+     * Outdoor property sent by product<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
@@ -6282,6 +6284,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command ProductMotorsVersionChanged description:<br>
+     * @deprecated<br>
      * Product Motors versions<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -6314,6 +6317,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command ProductInertialVersionChanged description:<br>
+     * @deprecated<br>
      * Product Inertial versions<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -6373,6 +6377,7 @@ public class ARCommand extends ARNativeData {
      * Settings state from product<br>
      * <br>
      * Command FloodControlChanged description:<br>
+     * @deprecated<br>
      * Flood control regulation<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -8568,6 +8573,7 @@ public class ARCommand extends ARNativeData {
      * Network related commands<br>
      * <br>
      * Command Disconnect description:<br>
+     * @deprecated<br>
      * Signals the remote that the host will disconnect and close its<br>
      * libARNetwork instance (and all threads that use libARNetwork)<br>
      * <br>
@@ -9294,6 +9300,7 @@ public class ARCommand extends ARNativeData {
      * Common state from product<br>
      * <br>
      * Command MassStorageInfoRemainingListChanged description:<br>
+     * @deprecated<br>
      * Mass storage info remaining list<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -9504,6 +9511,7 @@ public class ARCommand extends ARNativeData {
      * Overheat state from product<br>
      * <br>
      * Command OverHeatChanged description:<br>
+     * @deprecated<br>
      * Overheat temperature reached<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -9532,6 +9540,7 @@ public class ARCommand extends ARNativeData {
      * Overheat state from product<br>
      * <br>
      * Command OverHeatRegulationChanged description:<br>
+     * @deprecated<br>
      * Overheat regulation state changed<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a

@@ -305,6 +305,7 @@
     <class name="SettingsState" id="5">
         Settings state from product
        <cmd name="ProductGPSVersionChanged">
+           @deprecated
             Product GPS versions
             <arg name="software" type="string">
                 Product GPS software version
@@ -864,7 +865,8 @@
     <class name="SpeedSettings" id="16">
         Speed Settings commands
         <cmd name="Outdoor">
-            Outdoor property => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+            @deprecated
+            Outdoor property
             <arg name="outdoor" type="u8">
                 1 if outdoor, 0 if indoor
             </arg>
@@ -873,7 +875,8 @@
     <class name="SpeedSettingsState" id="17">
         Speed Settings state from product
         <cmd name="OutdoorChanged">
-            Outdoor property sent by product => CAUTION : USED FOR WIFI, to know authorized wifi channels.
+            @deprecated
+            Outdoor property sent by product
             <arg name="outdoor" type="u8">
                 1 if outdoor, 0 if indoor
             </arg>
