@@ -1,3 +1,4 @@
+// ARSDK_NO_ENUM_PREPROCESS //
 /**
  * @file libARCommands/ARCOMMANDS_Types.h
  * @brief libARCommands types header.

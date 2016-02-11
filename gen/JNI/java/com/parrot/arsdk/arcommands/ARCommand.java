@@ -44,16 +44,16 @@ public class ARCommand extends ARNativeData {
     public static final int ARCOMMANDS_ARCOMMAND_HEADER_SIZE = 4;
     public static final boolean ARCOMMANDS_ARCOMMAND_HAS_DEBUG_COMMANDS = true;
 
-    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.ARCOMMANDS_GENERIC_LIST_FLAGS_FIRST.getValue());    ///< indicate it's the first element of the list.
-    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.ARCOMMANDS_GENERIC_LIST_FLAGS_LAST.getValue());    ///< indicate it's the last element of the list.
-    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.ARCOMMANDS_GENERIC_LIST_FLAGS_EMPTY.getValue());    ///< indicate the list is empty (implies First/Last). All other arguments should be ignored.
-    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.ARCOMMANDS_GENERIC_LIST_FLAGS_REMOVE.getValue());    ///< This value should be removed from the existing list.
+    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.FIRST.getValue());    ///< indicate it's the first element of the list.
+    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.LAST.getValue());    ///< indicate it's the last element of the list.
+    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.EMPTY.getValue());    ///< indicate the list is empty (implies First/Last). All other arguments should be ignored.
+    public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.REMOVE.getValue());    ///< This value should be removed from the existing list.
 
-    public static final int ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.ARCOMMANDS_WIFI_BAND_2_4GHZ.getValue());    ///< 2.4 GHz band
-    public static final int ARCOMMANDS_FLAG_WIFI_BAND_5GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.ARCOMMANDS_WIFI_BAND_5GHZ.getValue());    ///< 5 GHz band
+    public static final int ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_2_4GHZ.getValue());    ///< 2.4 GHz band
+    public static final int ARCOMMANDS_FLAG_WIFI_BAND_5GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_5GHZ.getValue());    ///< 5 GHz band
 
-    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.ARCOMMANDS_WIFI_ENVIRONEMENT_INDOOR.getValue());    ///< indoor environement
-    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR.getValue());    ///< outdoor environement
+    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.INDOOR.getValue());    ///< indoor environement
+    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.OUTDOOR.getValue());    ///< outdoor environement
 
     /**
      * Creates a new, empty ARCommand with the default size.<br>
