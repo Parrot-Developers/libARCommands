@@ -1515,6 +1515,8 @@ cfile.close ()
 
 hfile = open (COMMANDSTYPES_HFILE, 'w')
 
+hfile.write ('// ARSDK_NO_ENUM_PREPROCESS //')
+hfile.write ('\n')
 hfile.write ('/**\n')
 hfile.write (' * @file ' + COMMANDSTYPES_HFILE_NAME + '\n')
 hfile.write (' * @brief libARCommands types header.\n')
@@ -3053,10 +3055,11 @@ jfile.write ('\n')
 
 # Generate bit field flags 
 for ftr in allFeatures:
+    oldEnumValFrm = False if ftr.classes == None else True
     for enum in ftr.enums:
         if enum.usedLikeBitfield:
             for eVal in enum.values:
-                jfile.write ('    public static final int ' + ARFlagValue (LIB_MODULE, ftr.name, enum.name, eVal.name) + ' = (1 << '+ARJavaEnumValue (LIB_MODULE, ftr.name, enum.name, eVal.name)+ '.getValue());    ///< ' + eVal.comments[0] + '\n')
+                jfile.write ('    public static final int ' + ARFlagValue (LIB_MODULE, ftr.name, enum.name, eVal.name) + ' = (1 << '+ARJavaEnumValue (LIB_MODULE, ftr.name, enum.name, eVal.name, oldEnumValFrm)+ '.getValue());    ///< ' + eVal.comments[0] + '\n')
             jfile.write ('\n')
 
 jfile.write ('    /**\n')
@@ -3141,7 +3144,7 @@ jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be
 jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
 jfile.write ('     */\n')
 jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode () {\n')
-jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR', True) + ';\n')
 jfile.write ('        if (!valid) {\n')
 jfile.write ('            return err;\n')
 jfile.write ('        }\n')
@@ -3204,7 +3207,7 @@ for ftr in allFeatures:
                 jfile.write (', ')
             jfile.write (xmlToJava (ftr, cmd, arg) + ' _' + arg.name)
         jfile.write (') {\n')
-        jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR') + ';\n')
+        jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'ERROR', True) + ';\n')
         jfile.write ('        if (!valid) {\n')
         jfile.write ('            return err;\n')
         jfile.write ('        }\n')
@@ -3405,6 +3408,118 @@ for ftr in allFeatures:
 jfile.write ('}\n')
 
 jfile.close ()
+
+# Generate java enums type
+for ftr in allFeatures: 
+    for enum in ftr.enums:
+        
+        oldEnumValFrm = False if ftr.classes == None else True
+        CLASS_NAME = ARJavaEnumType (LIB_MODULE, ftr.name, enum.name)
+        JFILE_NAME = JNIJ_OUT_DIR + CLASS_NAME + '.java'
+        UNKNOWN_VALUE = ARJavaEnumValDef(LIB_MODULE, ftr.name, enum.name, 'UNKNOWN') if ftr.classes == None else 'e'+AREnumValue(LIB_MODULE, ftr.name, enum.name,'UNKNOWN_ENUM_VALUE')
+        
+        jfile      = open(JFILE_NAME, 'w')
+
+        jfile.write(LICENCE_HEADER)
+        jfile.write('\n')
+        jfile.write('package ' + JNI_PACKAGE_NAME + ';\n')
+        jfile.write('\n')
+        jfile.write('import java.util.HashMap;\n')
+        jfile.write('\n')
+        jfile.write('/**\n')
+        jfile.write(' * Java copy of the ' + AREnumName (LIB_MODULE, ftr.name, enum.name) + ' enum\n')
+        jfile.write(' */\n')
+        jfile.write('public enum ' + CLASS_NAME + ' {\n')
+        jfile.write('    /** Dummy value for all unknown cases */\n')
+        jfile.write('    ' + UNKNOWN_VALUE + ' (Integer.MIN_VALUE, "Dummy value for all unknown cases"),\n')
+        
+        previousVal = -1
+        for eVal in enum.values:
+            val = eVal.val if eVal.val is not None else previousVal +1
+            previousVal = int(val)
+            
+            jfile.write('    ')
+            if len(eVal.comments) > 0:
+                jfile.write('/**')
+                for comment in eVal.comments:
+                    jfile.write (' ' + comment)
+                jfile.write(' */\n    ')
+            if len(eVal.comments) > 0:
+                jfile.write(ARJavaEnumValDef(LIB_MODULE, ftr.name, enum.name, eVal.name, oldEnumValFrm)+ ' (' + str(val)+ ', "')
+                for comment in eVal.comments:
+                    jfile.write (comment)
+                jfile.write('")')
+                
+            else:
+                jfile.write(ARJavaEnumValDef(LIB_MODULE, ftr.name, enum.name, eVal.name, oldEnumValFrm) + ' (' + str(val) + ')')
+                
+            #If it is the last value of a feature enum.
+            if ftr.classes == None and eVal ==  enum.values[-1]:
+                jfile.write(';\n')
+            else:
+                jfile.write(',\n')
+        
+        # Add MAX value only if it is an old enum.
+        if ftr.classes: 
+            MAX_VALUE = ARJavaEnumValDef(LIB_MODULE, ftr.name, enum.name, 'MAX', oldEnumValFrm)
+            jfile.write('    ' + MAX_VALUE + ' ('+ str(previousVal + 1) +');\n')
+        jfile.write('\n')
+            
+        jfile.write('\n')
+        jfile.write('    private final int value;\n')
+        jfile.write('    private final String comment;\n');
+        jfile.write('    static HashMap<Integer, ' + CLASS_NAME + '> valuesList;\n')
+        jfile.write('\n')
+        jfile.write('    ' + CLASS_NAME + ' (int value) {\n')
+        jfile.write('        this.value = value;\n')
+        jfile.write('        this.comment = null;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    ' + CLASS_NAME + ' (int value, String comment) {\n')
+        jfile.write('        this.value = value;\n')
+        jfile.write('        this.comment = comment;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Gets the int value of the enum\n')
+        jfile.write('     * @return int value of the enum\n')
+        jfile.write('     */\n')
+        jfile.write('    public int getValue () {\n')
+        jfile.write('        return value;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Gets the ' + CLASS_NAME + ' instance from a C enum value\n')
+        jfile.write('     * @param value C value of the enum\n')
+        jfile.write('     * @return The ' + CLASS_NAME + ' instance, or null if the C enum value was not valid\n')
+        jfile.write('     */\n')
+        jfile.write('    public static ' + CLASS_NAME + ' getFromValue (int value) {\n')
+        jfile.write('        if (null == valuesList) {\n')
+        jfile.write('            ' + CLASS_NAME + ' [] valuesArray = ' + CLASS_NAME + '.values ();\n')
+        jfile.write('            valuesList = new HashMap<Integer, ' + CLASS_NAME + '> (valuesArray.length);\n')
+        jfile.write('            for (' + CLASS_NAME + ' entry : valuesArray) {\n')
+        jfile.write('                valuesList.put (entry.getValue (), entry);\n')
+        jfile.write('            }\n')
+        jfile.write('        }\n')
+        jfile.write('        ' + CLASS_NAME + ' retVal = valuesList.get (value);\n')
+        jfile.write('        if (retVal == null) {\n')
+        jfile.write('            retVal = ' + UNKNOWN_VALUE + ';\n')
+        jfile.write('        }\n')
+        jfile.write('        return retVal;')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Returns the enum comment as a description string\n')
+        jfile.write('     * @return The enum description\n')
+        jfile.write('     */\n')
+        jfile.write('    public String toString () {\n')
+        jfile.write('        if (this.comment != null) {\n')
+        jfile.write('            return this.comment;\n')
+        jfile.write('        }\n')
+        jfile.write('        return super.toString ();\n')
+        jfile.write('    }\n')
+        jfile.write('}\n')
+        jfile.close()
 
 cfile = open (JNI_CFILE, 'w')
 
