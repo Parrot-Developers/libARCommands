@@ -49,7 +49,7 @@
 
 static ARSAL_Mutex_t ARCOMMANDS_Decoder_Mutex;
 static int ARCOMMANDS_Decoder_IsInit = 0;
-int ARCOMMANDS_Decoder_Init (void)
+static int ARCOMMANDS_Decoder_Init (void)
 {
     if ((ARCOMMANDS_Decoder_IsInit == 0) &&
         (ARSAL_Mutex_Init (&ARCOMMANDS_Decoder_Mutex) == 0))
