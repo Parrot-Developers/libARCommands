@@ -15,6 +15,9 @@ LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/gen/Includes \
 	$(LOCAL_PATH)/Sources
 
+LOCAL_CFLAGS := \
+	-DHAVE_CONFIG_H
+
 LOCAL_SRC_FILES := \
 	gen/Sources/ARCOMMANDS_Generator.c \
 	gen/Sources/ARCOMMANDS_Decoder.c \
