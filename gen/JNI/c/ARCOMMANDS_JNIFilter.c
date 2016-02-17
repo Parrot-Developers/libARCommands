@@ -656,6 +656,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PictureSettin
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PictureSettingsVideoStabilizationModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabilizationModeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3MediaStreamingVideoEnableBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
@@ -1124,6 +1132,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PictureSettin
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (filter, behavior);
     return (jint)err;
 }
 

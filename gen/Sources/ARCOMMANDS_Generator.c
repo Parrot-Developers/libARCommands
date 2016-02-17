@@ -2216,6 +2216,58 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PictureSettings
     return retVal;
 }
 
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoStabilizationMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE _mode)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write feature header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_ARDRONE3, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_CLASS_PICTURESETTINGS, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _mode
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _mode, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3MediaStreamingVideoEnable (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable)
 {
     int32_t currIndexInBuffer = 0;
@@ -5812,6 +5864,58 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PictureSettings
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
         currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _mass_storage_id, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoStabilizationModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE _mode)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write feature header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_ARDRONE3, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_CLASS_PICTURESETTINGSSTATE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _mode
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _mode, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;

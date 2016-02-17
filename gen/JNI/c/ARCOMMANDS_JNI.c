@@ -1216,6 +1216,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsVideo
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsVideoStabilizationMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM");
+    jmethodID j_mode_mid = (*env)->GetMethodID (env, j_mode_class, "getValue", "()I");
+    jint j_mode_enum = (*env)->CallIntMethod (env, mode, j_mode_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoStabilizationMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_mode_enum);
+    (*env)->DeleteLocalRef (env, j_mode_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3MediaStreamingVideoEnable (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
 {
     int32_t c_dataSize = 0;
@@ -2931,6 +2962,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsState
     }
 
     err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoAutorecordChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)enabled, (uint8_t)mass_storage_id);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM");
+    jmethodID j_mode_mid = (*env)->GetMethodID (env, j_mode_class, "getValue", "()I");
+    jint j_mode_enum = (*env)->CallIntMethod (env, mode, j_mode_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoStabilizationModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_mode_enum);
+    (*env)->DeleteLocalRef (env, j_mode_class);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -12398,6 +12460,32 @@ void ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoAutorecordSelectionnativeCb (uin
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoStabilizationModenativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsVideoStabilizationModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsVideoStabilizationModeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsVideoStabilizationModeUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+        (*env)->DeleteLocalRef (env, j_mode_class);
+        (*env)->DeleteLocalRef (env, j_mode_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_ARDrone3MediaStreamingVideoEnablenativeCb (uint8_t enable, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -13791,6 +13879,32 @@ void ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoAutorecordChangednativeCb (
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)enabled, (jbyte)mass_storage_id);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoStabilizationModeChangednativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsStateVideoStabilizationModeChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+        (*env)->DeleteLocalRef (env, j_mode_class);
+        (*env)->DeleteLocalRef (env, j_mode_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -20789,6 +20903,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoAutorecordSelectionCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoAutorecordSelectionnativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoStabilizationModenativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback (ARCOMMANDS_JNI_ARDrone3MediaStreamingVideoEnablenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSetHomeCallback (ARCOMMANDS_JNI_ARDrone3GPSSettingsSetHomenativeCb, (void *)g_class);
@@ -20906,6 +21022,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateTimelapseChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateTimelapseChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoAutorecordChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoAutorecordChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoStabilizationModeChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingStateVideoEnableChangedCallback (ARCOMMANDS_JNI_ARDrone3MediaStreamingStateVideoEnableChangednativeCb, (void *)g_class);
 

@@ -1329,6 +1329,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PictureSettingsVideoStabilizationMode</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PictureSettings description:<br>
+     * Photo settings chosen by the user<br>
+     * <br>
+     * Command VideoStabilizationMode description:<br>
+     * Set Video stabilization mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Video stabilization mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PictureSettingsVideoStabilizationMode (ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PictureSettingsVideoStabilizationMode (pointer, capacity, _mode);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>MediaStreamingVideoEnable</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -3102,6 +3131,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetARDrone3PictureSettingsStateVideoAutorecordChanged (pointer, capacity, _enabled, _mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PictureSettingsStateVideoStabilizationModeChanged</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PictureSettingsState description:<br>
+     * Photo settings state from product<br>
+     * <br>
+     * Command VideoStabilizationModeChanged description:<br>
+     * Video stabilization mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Video stabilization mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PictureSettingsStateVideoStabilizationModeChanged (ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (pointer, capacity, _mode);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12395,6 +12453,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3PictureSettingsVideoAutorecordSelectionListener = _ARCommandARDrone3PictureSettingsVideoAutorecordSelectionListener_PARAM;
     }
 
+    private static ARCommandARDrone3PictureSettingsVideoStabilizationModeListener _ARCommandARDrone3PictureSettingsVideoStabilizationModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PictureSettingsVideoStabilizationMode</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PictureSettingsVideoStabilizationModeListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PictureSettingsVideoStabilizationModeListener (ARCommandARDrone3PictureSettingsVideoStabilizationModeListener _ARCommandARDrone3PictureSettingsVideoStabilizationModeListener_PARAM) {
+        _ARCommandARDrone3PictureSettingsVideoStabilizationModeListener = _ARCommandARDrone3PictureSettingsVideoStabilizationModeListener_PARAM;
+    }
+
     private static ARCommandARDrone3MediaStreamingVideoEnableListener _ARCommandARDrone3MediaStreamingVideoEnableListener = null;
 
     /**
@@ -13042,6 +13111,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setARDrone3PictureSettingsStateVideoAutorecordChangedListener (ARCommandARDrone3PictureSettingsStateVideoAutorecordChangedListener _ARCommandARDrone3PictureSettingsStateVideoAutorecordChangedListener_PARAM) {
         _ARCommandARDrone3PictureSettingsStateVideoAutorecordChangedListener = _ARCommandARDrone3PictureSettingsStateVideoAutorecordChangedListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener _ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PictureSettingsStateVideoStabilizationModeChanged</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PictureSettingsStateVideoStabilizationModeChangedListener (ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener _ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener_PARAM) {
+        _ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener = _ARCommandARDrone3PictureSettingsStateVideoStabilizationModeChangedListener_PARAM;
     }
 
     private static ARCommandARDrone3MediaStreamingStateVideoEnableChangedListener _ARCommandARDrone3MediaStreamingStateVideoEnableChangedListener = null;
@@ -16395,6 +16475,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PictureSettingsVideoAutorecordSelection (long pdata, int dataTotalLength, byte enabled, byte mass_storage_id);
 
+    private native int     nativeSetARDrone3PictureSettingsVideoStabilizationMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM mode);
+
     private native int     nativeSetARDrone3MediaStreamingVideoEnable (long pdata, int dataTotalLength, byte enable);
 
     private native int     nativeSetARDrone3GPSSettingsSetHome (long pdata, int dataTotalLength, double latitude, double longitude, double altitude);
@@ -16512,6 +16594,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3PictureSettingsStateTimelapseChanged (long pdata, int dataTotalLength, byte enabled, float interval, float minInterval, float maxInterval);
 
     private native int     nativeSetARDrone3PictureSettingsStateVideoAutorecordChanged (long pdata, int dataTotalLength, byte enabled, byte mass_storage_id);
+
+    private native int     nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM mode);
 
     private native int     nativeSetARDrone3MediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM enabled);
 

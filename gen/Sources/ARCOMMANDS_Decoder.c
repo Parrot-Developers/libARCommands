@@ -544,6 +544,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoAutorecordSelectionCallba
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCallback_t ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCb = NULL;
 static void *ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCustom = NULL;
 void ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback (ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t callback, void *custom)
@@ -1249,6 +1261,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoAutorecordChangedCal
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoAutorecordChangedCb = callback;
         ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoAutorecordChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback_t ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -7748,6 +7772,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOAUTORECORDSELECTION */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCb (_mode, ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -7986,6 +8036,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOAUTORECORDCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb (_mode, ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -21300,6 +21376,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOAUTORECORDSELECTION */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PictureSettings.VideoStabilizationMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE arg = (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PictureSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -21533,6 +21630,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOAUTORECORDCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PictureSettingsState.VideoStabilizationModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE arg = (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PictureSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
