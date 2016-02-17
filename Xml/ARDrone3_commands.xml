@@ -775,6 +775,12 @@
                 maximum yaw rotation speed [rad/s]
             </arg>
         </cmd>
+        <cmd name="BankedTurn" id="10">
+            Enable / Disable Banked Turn mode.
+            <arg name="value" type="u8">
+                1 to enable, 0 to disable
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -861,6 +867,13 @@
             [NOT USED] Maximum yaw rotation speed used by the autonomous flight
             <arg name="value" type="float">
                 maximum yaw rotation speed [rad/s]
+            </arg>
+        </cmd>
+
+        <cmd name="BankedTurn" id="10">
+            Banked Turn state.
+            <arg name="state" type="u8">
+                1 if enabled, 0 if disabled
             </arg>
         </cmd>
     </class>

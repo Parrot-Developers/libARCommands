@@ -945,6 +945,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsBankedTurn</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command BankedTurn description:<br>
+     * Enable / Disable Banked Turn mode.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value 1 to enable, 0 to disable
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsBankedTurn (byte _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsBankedTurn (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -2492,6 +2521,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeed (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStateBankedTurn</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command BankedTurn description:<br>
+     * Banked Turn state.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state 1 if enabled, 0 if disabled
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsStateBankedTurn (byte _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsStateBankedTurn (pointer, capacity, _state);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12310,6 +12368,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedListener = _ARCommandARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedListener_PARAM;
     }
 
+    private static ARCommandARDrone3PilotingSettingsBankedTurnListener _ARCommandARDrone3PilotingSettingsBankedTurnListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsBankedTurn</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsBankedTurnListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsBankedTurnListener (ARCommandARDrone3PilotingSettingsBankedTurnListener _ARCommandARDrone3PilotingSettingsBankedTurnListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsBankedTurnListener = _ARCommandARDrone3PilotingSettingsBankedTurnListener_PARAM;
+    }
+
     private static ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener _ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener = null;
 
     /**
@@ -12880,6 +12949,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener (ARCommandARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener _ARCommandARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener_PARAM) {
         _ARCommandARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener = _ARCommandARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PilotingSettingsStateBankedTurnListener _ARCommandARDrone3PilotingSettingsStateBankedTurnListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateBankedTurn</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsStateBankedTurnListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsStateBankedTurnListener (ARCommandARDrone3PilotingSettingsStateBankedTurnListener _ARCommandARDrone3PilotingSettingsStateBankedTurnListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsStateBankedTurnListener = _ARCommandARDrone3PilotingSettingsStateBankedTurnListener_PARAM;
     }
 
     private static ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener = null;
@@ -16449,6 +16529,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeed (long pdata, int dataTotalLength, float value);
 
+    private native int     nativeSetARDrone3PilotingSettingsBankedTurn (long pdata, int dataTotalLength, byte value);
+
     private native int     nativeSetARDrone3SpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetARDrone3SpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
@@ -16552,6 +16634,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAcceleration (long pdata, int dataTotalLength, float value);
 
     private native int     nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeed (long pdata, int dataTotalLength, float value);
+
+    private native int     nativeSetARDrone3PilotingSettingsStateBankedTurn (long pdata, int dataTotalLength, byte state);
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 

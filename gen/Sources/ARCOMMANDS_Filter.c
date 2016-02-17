@@ -78,6 +78,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsBankedTurnBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
@@ -130,6 +131,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateBankedTurnBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior;
@@ -520,6 +522,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsBankedTurnBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
@@ -572,6 +575,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsStateBankedTurnBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = defaultBehavior;
@@ -1335,6 +1339,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_SETAUTONOMOUSFLIGHTMAXROTATIONSPEED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_BANKEDTURN:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsBankedTurnBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_BANKEDTURN */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1395,6 +1404,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_AUTONOMOUSFLIGHTMAXROTATIONSPEED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsStateBankedTurnBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4469,6 +4483,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsBankedTurnBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
@@ -4521,6 +4536,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStateBankedTurnBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
@@ -4868,6 +4884,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBehavior (
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsBankedTurnBehavior = behavior;
     }
 
     return retError;
@@ -4902,6 +4919,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBehav
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStateBankedTurnBehavior = behavior;
     }
 
     return retError;
@@ -5917,6 +5935,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonom
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBankedTurnBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsBankedTurnBehavior = behavior;
     }
 
     return retError;
@@ -7061,6 +7101,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAuton
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBankedTurnBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsStateBankedTurnBehavior = behavior;
     }
 
     return retError;

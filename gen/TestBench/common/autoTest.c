@@ -74,6 +74,7 @@ int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 
 int ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 0;
 int ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
@@ -126,6 +127,7 @@ int ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedShouldBeCalled 
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateBankedTurnShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateHullProtectionChangedShouldBeCalled = 0;
@@ -890,6 +892,22 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotation
         errcount++ ;
     }
     if (ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsBankedTurnCb (uint8_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.BankedTurn --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%u>", value);
+    if (value != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsBankedTurnShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1938,6 +1956,22 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotati
         errcount++ ;
     }
     if (ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateBankedTurnCb (uint8_t state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.BankedTurn --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
+    if (state != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateBankedTurnShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8212,6 +8246,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsBankedTurnCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsBankedTurnCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsBankedTurnCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxVerticalSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsHullProtectionCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsHullProtectionCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb, (void *)cbCustom++ );
@@ -8264,6 +8299,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateBankedTurnCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateHullProtectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateHullProtectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb, (void *)cbCustom++ );
@@ -9505,6 +9541,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsBankedTurn (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.BankedTurn\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.BankedTurn succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBankedTurnBehavior);
+        ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -11117,6 +11184,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurn (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.BankedTurn\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.BankedTurn succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBankedTurnBehavior);
+        ARDrone3PilotingSettingsStateBankedTurnShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsStateBankedTurnShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
