@@ -1758,4 +1758,15 @@ typedef enum
 #define ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR)    ///< outdoor environement
 
 
+/**
+ * @brief Type of country selection
+ */
+typedef enum
+{
+    ARCOMMANDS_WIFI_COUNTRY_SELECTION_MANUAL = 0,    ///< Manual selection.
+    ARCOMMANDS_WIFI_COUNTRY_SELECTION_AUTO,    ///< Automatic selection.
+    ARCOMMANDS_WIFI_COUNTRY_SELECTION_MAX
+} eARCOMMANDS_WIFI_COUNTRY_SELECTION;
+
+
 #endif /* _LIBARCOMMANDS_ARCOMMANDS_TYPES_H_ */

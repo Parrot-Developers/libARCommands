@@ -36,7 +36,7 @@
 
 <feature id="135" name="wifi">
     All commands/events related to the Wifi
-    
+
      <enums>
         <enum name="band">
             The band : 2.4 Ghz or 5 Ghz
@@ -47,7 +47,7 @@
                 5 GHz band
             </value>
         </enum>
-        
+
         <enum name="selection_type">
             The wifi selection type available
             <value name="auto_all">
@@ -78,7 +78,7 @@
                 Key is plain text, not encrypted
             </value>
         </enum>
-        
+
         <enum name="environement">
             Type of environement
             <value name="indoor">
@@ -88,20 +88,31 @@
                 outdoor environement
             </value>
         </enum>
+
+        <enum name="country_selection">
+            Type of country selection
+            <value name="manual">
+                Manual selection.
+            </value>
+            <value name="auto">
+                Automatic selection.
+            </value>
+        </enum>
+        
     </enums>
-    
+
     <msgs>
         <cmd name="scan" id="1">
-            <comment 
+            <comment
                 title="Scan wifi network"
                 desc="Launches wifi network scan for a given band to get a list of all wifi networks found by the drone."
                 support="0901;0902;0904;0905;0906;090c"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="band" type="bitfield:u8:band"/>
         </cmd>
-        
+
         <evt name="scanned_item" id="2" type="MAP_ITEM:ssid">
-            <comment 
+            <comment
                 title="Wifi scan results"
                 desc="Wifi scan results."
                 support="0901;0902;0904;0905;0906;090c"
@@ -128,17 +139,17 @@
             </arg>
             -->
         </evt>
-        
+
         <cmd name="update_authorized_channels" id="3">
-            <comment 
+            <comment
                 title="Get all available Wifi channels"
                 desc="Get all available Wifi channels.\nThe list of available Wifi channels is related to the country of the drone. You can get this country with the event [WifiCountryChanged](#wifi-CountryChanged)."
                 support="0901;0902;0904;0905;0906;090c"
                 result="Event [AvailableChannelListChanged](#133-4) is triggered with all authorized channels."/>
         </cmd>
-        
+
         <evt name="authorized_channel" id="4" type="LIST_ITEM">
-            <comment 
+            <comment
                 title="Available channel results"
                 desc="Available channel results."
                 support="0901;0902;0904;0905;0906;090c"
@@ -148,9 +159,7 @@
             <arg name="channel" type="u8">
                 The channel number
             </arg>
-            <arg name="environement" type="bitfield:u8:environement">
-                Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
-            </arg>
+            <arg name="environement" type="bitfield:u8:environement"/>
             <arg name="list_flags" type="bitfield:u8:list_flags"/>
             <!-- implicit
             <arg name="list_flags" type="u8">
@@ -162,9 +171,9 @@
             </arg>
             -->
         </evt>
-        
+
         <cmd name="set_ap_channel" id="5">
-            <comment 
+            <comment
                 title="Wifi selection"
                 desc="Select channel of choosen band to put the drone's access point on this channel."
                 support="0901;0902;0904;0905;0906;090c"
@@ -176,7 +185,7 @@
             </arg>
         </cmd>
         <evt name="ap_channel_changed" id="6">
-            <comment 
+            <comment
                 title="Wifi selection changed"
                 desc="Wifi selection changed."
                 support="0901;0902;0904;0905;0906;090c"
@@ -187,9 +196,9 @@
                 The channel of the drone's access point
             </arg>
         </evt>
-        
+
         <cmd name="set_security" id="7">
-            <comment 
+            <comment
                 title="Set the wifi security"
                 desc="Set the wifi security.\nThe security is changed on the next boot."
                 support="0901;0902;0904;0905;0906;090c:3.1.0"
@@ -200,9 +209,9 @@
             </arg>
             <arg name="key_type" type="enum:security_key_type"/>
         </cmd>
-        
+
         <evt name="security_changed" id="8">
-            <comment 
+            <comment
                 title="Wifi security changed"
                 support="0901;0902;0904;0905;0906;090c:3.1.0"
                 triggered="Triggered by [SetWifiSecurity](#133-7)."/>
@@ -211,48 +220,42 @@
             </arg>
             <arg name="key_type" type="enum:security_type"/>
         </evt>
-        
+
         <cmd name="set_country" id="9">
-            <comment 
+            <comment
                 title="Set the wifi country"
                 desc="Set the wifi country."
                 support="0901;0902;0904;0905;0906;090c"
                 result="The country of the product is changed.\nThen, it will trigger [CountryChanged](#133-10)."/>
-            <arg name="automatic" type="u8">
-                Boolean : 0 : Manual / 1 : Auto
-            </arg>
+            <arg name="selection_mode" type="enum:country_selection"/>
             <arg name="code" type="string">
                 Country code with ISO 3166 format. Not used if automatic is 1.
             </arg>
         </cmd>
         
         <evt name="country_changed" id="10">
-            <comment 
+            <comment
                 title="Wifi country changed"
                 desc="Wifi country changed."
                 support="0901;0902;0904;0905;0906;090c"
                 triggered="Triggered by [SetCountry](#133-9)."/>
-            <arg name="automatic" type="u8">
-                Boolean : 0 : Manually chosen / 1 : Automatically chosen
-            </arg>
+            <arg name="selection_mode" type="enum:country_selection"/>
             <arg name="code" type="string">
                 Country code with ISO 3166 format, empty string means unknown country.
             </arg>
         </evt>
-        
+
         <cmd name="set_environement" id="11">
-            <comment 
+            <comment
                 title="Set indoor/outdoor wifi settings"
                 desc="Set indoor or outdoor wifi settings."
                 support="0901;0902;0904;0905;0906;090c"
                 result="The product change its indoor/outdoor wifi settings.\nThen, it will trigger [OutdoorChanged](#133-12).\nAccording to the country (defined by [SetAutoCountry](#wifi-AutoCountry) or [SetCountry](#wifi-Country)) laws the drone might change its wifi band and channel. So a disconnection might appear."/>
-            <arg name="environement" type="enum:environement">
-                1 if it should use outdoor wifi settings, 0 otherwise
-            </arg>
+            <arg name="environement" type="enum:environement"/>
         </cmd>
-        
+
         <evt name="environement_changed" id="12">
-            <comment 
+            <comment
                 title="Outdoor setting changed"
                 desc="Status of the wifi config : either indoor or outdoor."
                 support="0901;0902;0904;0905;0906;090c"
@@ -261,9 +264,9 @@
                 1 if it uses outdoor wifi settings, 0 otherwise
             </arg>
         </evt>
-        
+
         <evt name="rssi_changed" id="13">
-            <comment 
+            <comment
                 title="Rssi changed"
                 desc="Rssi Changed. This is an information about the Wifi link quality."
                 support="0901;0902;0904;0905;0906;090c"

@@ -4353,7 +4353,7 @@ void ARCOMMANDS_Decoder_SetWifiSetSecurityCallback (ARCOMMANDS_Decoder_WifiSetSe
 /**
  * @brief callback type for the command wifi.set_country
  */
-typedef void (*ARCOMMANDS_Decoder_WifiSetCountryCallback_t) (uint8_t automatic, char * code, void *custom);
+typedef void (*ARCOMMANDS_Decoder_WifiSetCountryCallback_t) (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom);
 /**
  * @brief callback setter for the command wifi.set_country
  * @param callback new callback for the command wifi.set_country
@@ -4419,7 +4419,7 @@ void ARCOMMANDS_Decoder_SetWifiSecurityChangedCallback (ARCOMMANDS_Decoder_WifiS
 /**
  * @brief callback type for the command wifi.country_changed
  */
-typedef void (*ARCOMMANDS_Decoder_WifiCountryChangedCallback_t) (uint8_t automatic, char * code, void *custom);
+typedef void (*ARCOMMANDS_Decoder_WifiCountryChangedCallback_t) (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom);
 /**
  * @brief callback setter for the command wifi.country_changed
  * @param callback new callback for the command wifi.country_changed

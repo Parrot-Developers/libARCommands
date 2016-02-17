@@ -11708,18 +11708,17 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _automatic Boolean : 0 : Manual / 1 : Auto
-     * @param _automatic Set the wifi country.
+     * @param _selection_mode Set the wifi country.
      * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
      * @param _code Set the wifi country.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetCountry (byte _automatic, String _code) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetCountry (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetWifiSetCountry (pointer, capacity, _automatic, _code);
+        int errInt = nativeSetWifiSetCountry (pointer, capacity, _selection_mode, _code);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11737,7 +11736,6 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _environement 1 if it should use outdoor wifi settings, 0 otherwise
      * @param _environement Set indoor or outdoor wifi settings.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
@@ -11801,7 +11799,6 @@ public class ARCommand extends ARNativeData {
      * @param _band Available channel results.
      * @param _channel The channel number
      * @param _channel Available channel results.
-     * @param _environement Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
      * @param _environement Available channel results.
      * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
      * @param _list_flags Available channel results.
@@ -11886,18 +11883,17 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _automatic Boolean : 0 : Manually chosen / 1 : Automatically chosen
-     * @param _automatic Wifi country changed.
+     * @param _selection_mode Wifi country changed.
      * @param _code Country code with ISO 3166 format, empty string means unknown country.
      * @param _code Wifi country changed.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiCountryChanged (byte _automatic, String _code) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiCountryChanged (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetWifiCountryChanged (pointer, capacity, _automatic, _code);
+        int errInt = nativeSetWifiCountryChanged (pointer, capacity, _selection_mode, _code);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -17099,7 +17095,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetWifiSetSecurity (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM type, String key, ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_ENUM key_type);
 
-    private native int     nativeSetWifiSetCountry (long pdata, int dataTotalLength, byte automatic, String code);
+    private native int     nativeSetWifiSetCountry (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
 
     private native int     nativeSetWifiSetEnvironement (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
 
@@ -17111,7 +17107,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetWifiSecurityChanged (long pdata, int dataTotalLength, String key, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM key_type);
 
-    private native int     nativeSetWifiCountryChanged (long pdata, int dataTotalLength, byte automatic, String code);
+    private native int     nativeSetWifiCountryChanged (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
 
     private native int     nativeSetWifiEnvironementChanged (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
 

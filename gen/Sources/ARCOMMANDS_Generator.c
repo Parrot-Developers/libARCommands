@@ -22566,7 +22566,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetSecurity (uint8_
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _automatic, const char * _code)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -22609,10 +22609,10 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
         } // No else --> Do not modify retVal if no issue was found
     } // No else --> Processing block
-    // Write arg _automatic
+    // Write arg _selection_mode
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _automatic, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _selection_mode, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -22998,7 +22998,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSecurityChanged (ui
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _automatic, const char * _code)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -23041,10 +23041,10 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uin
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
         } // No else --> Do not modify retVal if no issue was found
     } // No else --> Processing block
-    // Write arg _automatic
+    // Write arg _selection_mode
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _automatic, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _selection_mode, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
