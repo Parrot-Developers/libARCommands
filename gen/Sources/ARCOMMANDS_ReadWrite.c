@@ -52,7 +52,9 @@
 int32_t ARCOMMANDS_ReadWrite_AddU8ToBuffer (uint8_t *buffer, uint8_t newVal, int32_t oldOffset, int32_t buffCap)
 {
     int32_t retVal = 0;
-    if (buffCap < (oldOffset + sizeof (newVal)))
+    int32_t size = oldOffset + sizeof(newVal);
+
+    if (buffCap < size)
     {
         retVal = -1;
     }
@@ -72,7 +74,9 @@ int32_t ARCOMMANDS_ReadWrite_AddU8ToBuffer (uint8_t *buffer, uint8_t newVal, int
 int32_t ARCOMMANDS_ReadWrite_AddU16ToBuffer (uint8_t *buffer, uint16_t newVal, int32_t oldOffset, int32_t buffCap)
 {
     int32_t retVal = 0;
-    if (buffCap < (oldOffset + sizeof (newVal)))
+    int32_t size = oldOffset + sizeof(newVal);
+
+    if (buffCap < size)
     {
         retVal = -1;
     }
@@ -92,7 +96,9 @@ int32_t ARCOMMANDS_ReadWrite_AddU16ToBuffer (uint8_t *buffer, uint16_t newVal, i
 int32_t ARCOMMANDS_ReadWrite_AddU32ToBuffer (uint8_t *buffer, uint32_t newVal, int32_t oldOffset, int32_t buffCap)
 {
     int32_t retVal = 0;
-    if (buffCap < (oldOffset + sizeof (newVal)))
+    int32_t size = oldOffset + sizeof(newVal);
+
+    if (buffCap < size)
     {
         retVal = -1;
     }
@@ -112,7 +118,9 @@ int32_t ARCOMMANDS_ReadWrite_AddU32ToBuffer (uint8_t *buffer, uint32_t newVal, i
 int32_t ARCOMMANDS_ReadWrite_AddU64ToBuffer (uint8_t *buffer, uint64_t newVal, int32_t oldOffset, int32_t buffCap)
 {
     int32_t retVal = 0;
-    if (buffCap < (oldOffset + sizeof (newVal)))
+    int32_t size = oldOffset + sizeof(newVal);
+
+    if (buffCap < size)
     {
         retVal = -1;
     }
@@ -132,7 +140,9 @@ int32_t ARCOMMANDS_ReadWrite_AddU64ToBuffer (uint8_t *buffer, uint64_t newVal, i
 int32_t ARCOMMANDS_ReadWrite_AddStringToBuffer (uint8_t *buffer, const char *newVal, int32_t oldOffset, int32_t buffCap)
 {
     int32_t retVal = 0;
-    if (buffCap < (oldOffset + strlen (newVal) + 1))
+    int32_t size = oldOffset + sizeof(newVal);
+
+    if (buffCap < size)
     {
         retVal = -1;
     }
@@ -150,7 +160,11 @@ int32_t ARCOMMANDS_ReadWrite_AddStringToBuffer (uint8_t *buffer, const char *new
 // Returns the new offset in the buffer on success
 int32_t ARCOMMANDS_ReadWrite_AddFloatToBuffer (uint8_t *buffer, float newVal, int32_t oldOffset, int32_t buffCap)
 {
-    return ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, * (uint32_t *)&newVal, oldOffset, buffCap);
+    union {
+        float f;
+        uint32_t u32;
+    } val = { .f = newVal };
+    return ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, val.u32, oldOffset, buffCap);
 }
 
 // Add a double to the buffer
@@ -158,7 +172,11 @@ int32_t ARCOMMANDS_ReadWrite_AddFloatToBuffer (uint8_t *buffer, float newVal, in
 // Returns the new offset in the buffer on success
 int32_t ARCOMMANDS_ReadWrite_AddDoubleToBuffer (uint8_t *buffer, double newVal, int32_t oldOffset, int32_t buffCap)
 {
-    return ARCOMMANDS_ReadWrite_AddU64ToBuffer (buffer, * (uint64_t *)&newVal, oldOffset, buffCap);
+    union {
+        double d;
+        uint64_t u64;
+    } val = { .d = newVal };
+    return ARCOMMANDS_ReadWrite_AddU64ToBuffer (buffer, val.u64, oldOffset, buffCap);
 }
 
 // ------- //
