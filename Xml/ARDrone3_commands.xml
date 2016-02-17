@@ -1079,7 +1079,7 @@
     <class name="SettingsState" id="16">
         Settings state from product
 
-        <cmd name="ProductMotorVersionListChanged" id="0" listtype="MAP_ITEM">
+        <cmd name="ProductMotorVersionListChanged" id="0" type="MAP_ITEM">
             @deprecated
             Product Motor version (the first argument is the unique identifier for the list)
             <arg name="motor_number" type="u8">
