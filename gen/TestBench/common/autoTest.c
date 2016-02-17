@@ -87,6 +87,7 @@ int ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 0;
 int ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 0;
 int ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 0;
 int ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 0;
 int ARDrone3MediaStreamingVideoEnableShouldBeCalled = 0;
 int ARDrone3GPSSettingsSetHomeShouldBeCalled = 0;
 int ARDrone3GPSSettingsResetHomeShouldBeCalled = 0;
@@ -146,6 +147,7 @@ int ARDrone3PictureSettingsStateExpositionChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateSaturationChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateTimelapseChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateVideoAutorecordChangedShouldBeCalled = 0;
+int ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 0;
 int ARDrone3MediaStreamingStateVideoEnableChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateHomeChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateResetHomeChangedShouldBeCalled = 0;
@@ -1132,6 +1134,22 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb (uin
         errcount++ ;
     }
     if (ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoStabilizationModeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.VideoStabilizationMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2406,6 +2424,22 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoAutorecordChangedCb (
         errcount++ ;
     }
     if (ARDrone3PictureSettingsStateVideoAutorecordChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8191,6 +8225,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsSaturationSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsSaturationSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsSaturationSelectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsTimelapseSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsTimelapseSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsTimelapseSelectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoAutorecordSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoAutorecordSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoStabilizationModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback ((ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaStreamingVideoEnableCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsSetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsSetHomeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsResetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsResetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsResetHomeCb, (void *)cbCustom++ );
@@ -8250,6 +8285,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateSaturationChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateSaturationChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateSaturationChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateTimelapseChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateTimelapseChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateTimelapseChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoAutorecordChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoAutorecordChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoAutorecordChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingStateVideoEnableChangedCallback ((ARCOMMANDS_Decoder_ARDrone3MediaStreamingStateVideoEnableChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaStreamingStateVideoEnableChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateHomeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateHomeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateResetHomeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateResetHomeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateResetHomeChangedCb, (void *)cbCustom++ );
@@ -9872,6 +9908,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoStabilizationMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.VideoStabilizationMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.VideoStabilizationMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabilizationModeBehavior);
+        ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -11701,6 +11768,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3PictureSettingsStateVideoAutorecordChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3PictureSettingsStateVideoAutorecordChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoStabilizationModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior);
+        ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

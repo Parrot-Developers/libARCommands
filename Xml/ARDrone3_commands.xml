@@ -1302,8 +1302,25 @@
                 Mass storage id to take video
             </arg>
         </cmd>
+        <cmd name="VideoStabilizationMode" id="6">
+            Set Video stabilization mode
+            <arg name="mode" type="enum">
+                Video stabilization mode
+                <enum name="roll_pitch">
+                    Video flat on roll and pitch
+                </enum>
+                <enum name="pitch">
+                    Video flat on pitch only
+                </enum>
+                <enum name="roll">
+                    Video flat on roll only
+                </enum>
+                <enum name="none">
+                    Video follows drone angles
+                </enum>
+            </arg>
+        </cmd>
     </class>
-    
     <class name="PictureSettingsState" id="20">
         Photo settings state from product
         <cmd name="PictureFormatChanged" id="0">
@@ -1391,6 +1408,24 @@
             </arg>
             <arg name="mass_storage_id" type="u8">
                 Mass storage id for the taken video
+            </arg>
+        </cmd>
+        <cmd name="VideoStabilizationModeChanged" id="6">
+            Video stabilization mode
+            <arg name="mode" type="enum">
+                Video stabilization mode
+                <enum name="roll_pitch">
+                    Video flat on roll and pitch
+                </enum>
+                <enum name="pitch">
+                    Video flat on pitch only
+                </enum>
+                <enum name="roll">
+                    Video flat on roll only
+                </enum>
+                <enum name="none">
+                    Video follows drone angles
+                </enum>
             </arg>
         </cmd>
     </class>
