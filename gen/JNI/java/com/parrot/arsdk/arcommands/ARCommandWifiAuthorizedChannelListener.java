@@ -41,7 +41,6 @@ public interface ARCommandWifiAuthorizedChannelListener {
      * @param _band Available channel results.
      * @param _channel The channel number
      * @param _channel Available channel results.
-     * @param _environement Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
      * @param _environement Available channel results.
      * @param _list_flags Available channel results.
      */

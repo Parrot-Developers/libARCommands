@@ -7930,13 +7930,13 @@ void ARCOMMANDS_Testbench_WifiSetSecurityCb (eARCOMMANDS_WIFI_SECURITY_TYPE type
     }
 }
 
-void ARCOMMANDS_Testbench_WifiSetCountryCb (uint8_t automatic, char * code, void *custom)
+void ARCOMMANDS_Testbench_WifiSetCountryCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_country --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "automatic value : <%u>", automatic);
-    if (automatic != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "selection_mode value : <%d>", selection_mode);
+    if (selection_mode != (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_COUNTRY_SELECTION)0>");
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
@@ -8092,13 +8092,13 @@ void ARCOMMANDS_Testbench_WifiSecurityChangedCb (char * key, eARCOMMANDS_WIFI_SE
     }
 }
 
-void ARCOMMANDS_Testbench_WifiCountryChangedCb (uint8_t automatic, char * code, void *custom)
+void ARCOMMANDS_Testbench_WifiCountryChangedCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.country_changed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "automatic value : <%u>", automatic);
-    if (automatic != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "selection_mode value : <%d>", selection_mode);
+    if (selection_mode != (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_COUNTRY_SELECTION)0>");
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
@@ -20621,7 +20621,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateWifiSetCountry (buffer, buffSize, &resSize, 42, "Test string with spaces");
+    res = ARCOMMANDS_Generator_GenerateWifiSetCountry (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_country\n\n");
@@ -20807,7 +20807,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateWifiCountryChanged (buffer, buffSize, &resSize, 42, "Test string with spaces");
+    res = ARCOMMANDS_Generator_GenerateWifiCountryChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.country_changed\n\n");

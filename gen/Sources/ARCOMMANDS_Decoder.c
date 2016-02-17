@@ -18269,11 +18269,11 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
                     if (ARCOMMANDS_Decoder_WifiSetCountryCb != NULL)
                     {
-                        uint8_t _automatic;
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
                         char * _code = NULL;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _automatic = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -18289,7 +18289,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_WifiSetCountryCb (_automatic, _code, ARCOMMANDS_Decoder_WifiSetCountryCustom);
+                            ARCOMMANDS_Decoder_WifiSetCountryCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiSetCountryCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -18524,11 +18524,11 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
                     if (ARCOMMANDS_Decoder_WifiCountryChangedCb != NULL)
                     {
-                        uint8_t _automatic;
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
                         char * _code = NULL;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _automatic = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -18544,7 +18544,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_WifiCountryChangedCb (_automatic, _code, ARCOMMANDS_Decoder_WifiCountryChangedCustom);
+                            ARCOMMANDS_Decoder_WifiCountryChangedCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiCountryChangedCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -30933,10 +30933,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_country:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | automatic -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -31191,10 +31191,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.country_changed:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | automatic -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {

@@ -4779,13 +4779,12 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetSecurity (uint8_
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _automatic Boolean : 0 : Manual / 1 : Auto
- * @param _automatic Set the wifi country.
+ * @param _selection_mode Set the wifi country.
  * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
  * @param _code Set the wifi country.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _automatic, const char * _code);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
 
 /**
  * @brief Set indoor or outdoor wifi settings.
@@ -4793,7 +4792,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _environement 1 if it should use outdoor wifi settings, 0 otherwise
  * @param _environement Set indoor or outdoor wifi settings.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
@@ -4827,7 +4825,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScannedItem (uint8_
  * @param _band Available channel results.
  * @param _channel The channel number
  * @param _channel Available channel results.
- * @param _environement Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
  * @param _environement Available channel results.
  * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
  * @param _list_flags Available channel results.
@@ -4867,13 +4864,12 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSecurityChanged (ui
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _automatic Boolean : 0 : Manually chosen / 1 : Automatically chosen
- * @param _automatic Wifi country changed.
+ * @param _selection_mode Wifi country changed.
  * @param _code Country code with ISO 3166 format, empty string means unknown country.
  * @param _code Wifi country changed.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _automatic, const char * _code);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
 
 /**
  * @brief Status of the wifi config : either indoor or outdoor.

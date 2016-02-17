@@ -11218,7 +11218,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetSecurity (JNIEnv *env
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic, jstring code)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetCountry (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject selection_mode, jstring code)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -11236,8 +11236,12 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetCountry (JNIEnv *env,
         }
     }
 
+    jclass j_selection_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM");
+    jmethodID j_selection_mode_mid = (*env)->GetMethodID (env, j_selection_mode_class, "getValue", "()I");
+    jint j_selection_mode_enum = (*env)->CallIntMethod (env, selection_mode, j_selection_mode_mid);
     const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
-    err = ARCOMMANDS_Generator_GenerateWifiSetCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic, c_code);
+    err = ARCOMMANDS_Generator_GenerateWifiSetCountry ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_selection_mode_enum, c_code);
+    (*env)->DeleteLocalRef (env, j_selection_mode_class);
     (*env)->ReleaseStringUTFChars (env, code, c_code);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
@@ -11410,7 +11414,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSecurityChanged (JNIEnv 
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte automatic, jstring code)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiCountryChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject selection_mode, jstring code)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -11428,8 +11432,12 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiCountryChanged (JNIEnv *
         }
     }
 
+    jclass j_selection_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM");
+    jmethodID j_selection_mode_mid = (*env)->GetMethodID (env, j_selection_mode_class, "getValue", "()I");
+    jint j_selection_mode_enum = (*env)->CallIntMethod (env, selection_mode, j_selection_mode_mid);
     const char *c_code = (*env)->GetStringUTFChars (env, code, NULL);
-    err = ARCOMMANDS_Generator_GenerateWifiCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)automatic, c_code);
+    err = ARCOMMANDS_Generator_GenerateWifiCountryChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_selection_mode_enum, c_code);
+    (*env)->DeleteLocalRef (env, j_selection_mode_class);
     (*env)->ReleaseStringUTFChars (env, code, c_code);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
@@ -20437,7 +20445,7 @@ void ARCOMMANDS_JNI_WifiSetSecuritynativeCb (eARCOMMANDS_WIFI_SECURITY_TYPE type
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_WifiSetCountrynativeCb (uint8_t automatic, char * code, void *custom)
+void ARCOMMANDS_JNI_WifiSetCountrynativeCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -20449,12 +20457,17 @@ void ARCOMMANDS_JNI_WifiSetCountrynativeCb (uint8_t automatic, char * code, void
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiSetCountryUpdate", "(BLjava/lang/String;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiSetCountryUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM;Ljava/lang/String;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
+        jclass j_selection_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM");
+        jmethodID j_selection_mode_mid = (*env)->GetStaticMethodID (env, j_selection_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM;");
+        jobject j_selection_mode_enum = (*env)->CallStaticObjectMethod (env, j_selection_mode_class, j_selection_mode_mid, selection_mode);
         jstring j_code = (*env)->NewStringUTF (env, code);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic, j_code);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_selection_mode_enum, j_code);
+        (*env)->DeleteLocalRef (env, j_selection_mode_class);
+        (*env)->DeleteLocalRef (env, j_selection_mode_enum);
         (*env)->DeleteLocalRef (env, j_code);
     }
     (*env)->DeleteLocalRef (env, delegate);
@@ -20599,7 +20612,7 @@ void ARCOMMANDS_JNI_WifiSecurityChangednativeCb (char * key, eARCOMMANDS_WIFI_SE
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_WifiCountryChangednativeCb (uint8_t automatic, char * code, void *custom)
+void ARCOMMANDS_JNI_WifiCountryChangednativeCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -20611,12 +20624,17 @@ void ARCOMMANDS_JNI_WifiCountryChangednativeCb (uint8_t automatic, char * code, 
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiCountryChangedUpdate", "(BLjava/lang/String;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiCountryChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM;Ljava/lang/String;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
+        jclass j_selection_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM");
+        jmethodID j_selection_mode_mid = (*env)->GetStaticMethodID (env, j_selection_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM;");
+        jobject j_selection_mode_enum = (*env)->CallStaticObjectMethod (env, j_selection_mode_class, j_selection_mode_mid, selection_mode);
         jstring j_code = (*env)->NewStringUTF (env, code);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)automatic, j_code);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_selection_mode_enum, j_code);
+        (*env)->DeleteLocalRef (env, j_selection_mode_class);
+        (*env)->DeleteLocalRef (env, j_selection_mode_enum);
         (*env)->DeleteLocalRef (env, j_code);
     }
     (*env)->DeleteLocalRef (env, delegate);
