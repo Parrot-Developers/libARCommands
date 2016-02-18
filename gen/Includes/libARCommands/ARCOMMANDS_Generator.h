@@ -3984,7 +3984,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOver
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatRegulationChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _regulationType);
 
-// Command class ControllerState
+// Command class Controller
 
 /**
  * @brief Tell the device when the controller application enters/leaves the piloting HUD.
@@ -3995,7 +3995,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOver
  * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting);
 
 // Command class WifiSettings
 

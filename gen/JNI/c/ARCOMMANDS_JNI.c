@@ -9356,7 +9356,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatR
 
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonControllerStateIsPilotingChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte piloting)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonControllerIsPiloting (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte piloting)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -9374,7 +9374,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonControllerStateIsPilot
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)piloting);
+    err = ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)piloting);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -18427,19 +18427,19 @@ void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb (uint8_
 }
 
 
-void ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb (uint8_t piloting, void *custom)
+void ARCOMMANDS_JNI_CommonControllerIsPilotingnativeCb (uint8_t piloting, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
     JNIEnv *env = NULL;
     res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
     if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonControllerStateIsPilotingChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonControllerStateIsPilotingChangedListener;");
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonControllerIsPilotingListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonControllerIsPilotingListener;");
     jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonControllerStateIsPilotingChangedUpdate", "(B)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonControllerIsPilotingUpdate", "(B)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
@@ -20214,7 +20214,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb, (void *)g_class);
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb, (void *)g_class);
 
-    ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback (ARCOMMANDS_JNI_CommonControllerStateIsPilotingChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback (ARCOMMANDS_JNI_CommonControllerIsPilotingnativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback (ARCOMMANDS_JNI_CommonWifiSettingsOutdoorSettingnativeCb, (void *)g_class);
 

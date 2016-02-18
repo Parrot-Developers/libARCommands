@@ -18168,8 +18168,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOver
 }
 
 
-// Command class ControllerState
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting)
+// Command class Controller
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -18190,7 +18190,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerStateIs
     // Write class header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -18199,7 +18199,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerStateIs
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;

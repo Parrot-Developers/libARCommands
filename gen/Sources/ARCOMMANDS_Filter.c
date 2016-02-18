@@ -498,8 +498,8 @@ struct ARCOMMANDS_Filter_t
     // Class OverHeatState
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
-    // Class ControllerState
-    eARCOMMANDS_FILTER_STATUS CmdCommonControllerStateIsPilotingChangedBehavior;
+    // Class Controller
+    eARCOMMANDS_FILTER_STATUS CmdCommonControllerIsPilotingBehavior;
     // Class WifiSettings
     eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
     // Class WifiSettingsState
@@ -1055,8 +1055,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         // Class OverHeatState
         retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
-        // Class ControllerState
-        retFilter->CmdCommonControllerStateIsPilotingChangedBehavior = defaultBehavior;
+        // Class Controller
+        retFilter->CmdCommonControllerIsPilotingBehavior = defaultBehavior;
         // Class WifiSettings
         retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
         // Class WifiSettingsState
@@ -4040,21 +4040,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
+            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER:
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
+                case ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING:
                 {
-                    retStatus = filter->CmdCommonControllerStateIsPilotingChangedBehavior;
+                    retStatus = filter->CmdCommonControllerIsPilotingBehavior;
                 }
-                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
+                break; /* ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER */
             case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
             {
                 switch (commandId)
@@ -14612,7 +14612,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonOverHeatVentilateBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
         filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
         filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
         filter->CmdCommonMavlinkStartBehavior = behavior;
@@ -14883,9 +14883,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateBehavior (ARCOM
     return retError;
 }
 
-// Command class ControllerState
+// Command class Controller
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
 
@@ -14902,7 +14902,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARC
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
     }
 
     return retError;
@@ -16247,9 +16247,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulat
 }
 
 
-// Command class ControllerState
+// Command class Controller
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
     if (filter == NULL)
@@ -16265,7 +16265,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingCha
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
     }
 
     return retError;

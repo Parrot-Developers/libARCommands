@@ -9561,15 +9561,15 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
+     * Set an ARCommand to hold the command <code>IsPiloting</code> of class <code>Controller</code> in project <code>Common</code><br>
      * <br>
      * Project Common description:<br>
      * All common commands shared between all projects<br>
      * <br>
-     * Class ControllerState description:<br>
+     * Class Controller description:<br>
      * Notify the device about the state of the controller application.<br>
      * <br>
-     * Command IsPilotingChanged description:<br>
+     * Command IsPiloting description:<br>
      * Tell the device when the controller application enters/leaves the piloting HUD.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -9577,12 +9577,12 @@ public class ARCommand extends ARNativeData {
      * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerStateIsPilotingChanged (byte piloting) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerIsPiloting (byte piloting) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonControllerStateIsPilotingChanged (pointer, capacity, piloting);
+        int errInt = nativeSetCommonControllerIsPiloting (pointer, capacity, piloting);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -14805,15 +14805,15 @@ public class ARCommand extends ARNativeData {
     }
 
 
-    private static ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener = null;
+    private static ARCommandCommonControllerIsPilotingListener _ARCommandCommonControllerIsPilotingListener = null;
 
     /**
-     * Set the listener for the command <code>IsPilotingChanged</code> of class <code>ControllerState</code> in project <code>Common</code><br>
+     * Set the listener for the command <code>IsPiloting</code> of class <code>Controller</code> in project <code>Common</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM New listener for the command
+     * @param _ARCommandCommonControllerIsPilotingListener_PARAM New listener for the command
      */
-    public static void setCommonControllerStateIsPilotingChangedListener (ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM) {
-        _ARCommandCommonControllerStateIsPilotingChangedListener = _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM;
+    public static void setCommonControllerIsPilotingListener (ARCommandCommonControllerIsPilotingListener _ARCommandCommonControllerIsPilotingListener_PARAM) {
+        _ARCommandCommonControllerIsPilotingListener = _ARCommandCommonControllerIsPilotingListener_PARAM;
     }
 
 
@@ -15878,7 +15878,7 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetCommonOverHeatStateOverHeatChanged (long pdata, int dataTotalLength);
     private native int     nativeSetCommonOverHeatStateOverHeatRegulationChanged (long pdata, int dataTotalLength, byte regulationType);
 
-    private native int     nativeSetCommonControllerStateIsPilotingChanged (long pdata, int dataTotalLength, byte piloting);
+    private native int     nativeSetCommonControllerIsPiloting (long pdata, int dataTotalLength, byte piloting);
 
     private native int     nativeSetCommonWifiSettingsOutdoorSetting (long pdata, int dataTotalLength, byte outdoor);
 

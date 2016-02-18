@@ -4141,16 +4141,16 @@ void ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback 
     } // No else --> do nothing if library can not be initialized
 }
 
-// Command class ControllerState
-static ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCallback_t ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback (ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCallback_t callback, void *custom)
+// Command class Controller
+static ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t ARCOMMANDS_Decoder_CommonControllerIsPilotingCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonControllerIsPilotingCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback (ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCb = callback;
-        ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCustom = custom;
+        ARCOMMANDS_Decoder_CommonControllerIsPilotingCb = callback;
+        ARCOMMANDS_Decoder_CommonControllerIsPilotingCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -15337,14 +15337,14 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
+            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER:
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
+                case ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCb != NULL)
+                    if (ARCOMMANDS_Decoder_CommonControllerIsPilotingCb != NULL)
                     {
                         uint8_t _piloting;
                         if (retVal == ARCOMMANDS_DECODER_OK)
@@ -15357,7 +15357,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCb (_piloting, ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCustom);
+                            ARCOMMANDS_Decoder_CommonControllerIsPilotingCb (_piloting, ARCOMMANDS_Decoder_CommonControllerIsPilotingCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -15366,13 +15366,13 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
+                break; /* ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER */
             case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
             {
                 switch (commandId)
@@ -26647,13 +26647,13 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
+            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER:
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
+                case ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("common.ControllerState.isPilotingChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("common.Controller.isPiloting:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
@@ -26671,14 +26671,14 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
+                break; /* ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING */
                 default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("common.ControllerState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("common.Controller.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER */
             case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
             {
                 switch (commandId)
