@@ -9852,6 +9852,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>ControllerIsPiloting</code> in feature <code>Common</code><br>
+     * <br>
+     * Feature Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class Controller description:<br>
+     * Notify the device about the state of the controller application.<br>
+     * <br>
+     * Command IsPiloting description:<br>
+     * Tell the device when the controller application enters/leaves the piloting HUD.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerIsPiloting (byte _piloting) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonControllerIsPiloting (pointer, capacity, _piloting);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>WifiSettingsOutdoorSetting</code> in feature <code>Common</code><br>
      * <br>
      * Feature Common description:<br>
@@ -10877,35 +10906,6 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetCommonOverHeatStateOverHeatRegulationChanged (pointer, capacity, _regulationType);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ControllerStateIsPilotingChanged</code> in feature <code>Common</code><br>
-     * <br>
-     * Feature Common description:<br>
-     * All common commands shared between all projects<br>
-     * <br>
-     * Class ControllerState description:<br>
-     * Notify the device about the state of the controller application.<br>
-     * <br>
-     * Command IsPilotingChanged description:<br>
-     * Tell the device when the controller application enters/leaves the piloting HUD.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonControllerStateIsPilotingChanged (byte _piloting) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonControllerStateIsPilotingChanged (pointer, capacity, _piloting);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -16054,6 +16054,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandCommonOverHeatVentilateListener = _ARCommandCommonOverHeatVentilateListener_PARAM;
     }
 
+    private static ARCommandCommonControllerIsPilotingListener _ARCommandCommonControllerIsPilotingListener = null;
+
+    /**
+     * Set the listener for the command <code>ControllerIsPiloting</code> in feature <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonControllerIsPilotingListener_PARAM New listener for the command
+     */
+    public static void setCommonControllerIsPilotingListener (ARCommandCommonControllerIsPilotingListener _ARCommandCommonControllerIsPilotingListener_PARAM) {
+        _ARCommandCommonControllerIsPilotingListener = _ARCommandCommonControllerIsPilotingListener_PARAM;
+    }
+
     private static ARCommandCommonWifiSettingsOutdoorSettingListener _ARCommandCommonWifiSettingsOutdoorSettingListener = null;
 
     /**
@@ -16437,17 +16448,6 @@ public class ARCommand extends ARNativeData {
      */
     public static void setCommonOverHeatStateOverHeatRegulationChangedListener (ARCommandCommonOverHeatStateOverHeatRegulationChangedListener _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM) {
         _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener = _ARCommandCommonOverHeatStateOverHeatRegulationChangedListener_PARAM;
-    }
-
-    private static ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ControllerStateIsPilotingChanged</code> in feature <code>Common</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonControllerStateIsPilotingChangedListener (ARCommandCommonControllerStateIsPilotingChangedListener _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM) {
-        _ARCommandCommonControllerStateIsPilotingChangedListener = _ARCommandCommonControllerStateIsPilotingChangedListener_PARAM;
     }
 
     private static ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener _ARCommandCommonWifiSettingsStateOutdoorSettingsChangedListener = null;
@@ -17696,6 +17696,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonOverHeatVentilate (long pdata, int dataTotalLength);
 
+    private native int     nativeSetCommonControllerIsPiloting (long pdata, int dataTotalLength, byte piloting);
+
     private native int     nativeSetCommonWifiSettingsOutdoorSetting (long pdata, int dataTotalLength, byte outdoor);
 
     private native int     nativeSetCommonMavlinkStart (long pdata, int dataTotalLength, String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type);
@@ -17765,8 +17767,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetCommonOverHeatStateOverHeatChanged (long pdata, int dataTotalLength);
 
     private native int     nativeSetCommonOverHeatStateOverHeatRegulationChanged (long pdata, int dataTotalLength, byte regulationType);
-
-    private native int     nativeSetCommonControllerStateIsPilotingChanged (long pdata, int dataTotalLength, byte piloting);
 
     private native int     nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (long pdata, int dataTotalLength, byte outdoor);
 

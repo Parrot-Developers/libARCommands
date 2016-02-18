@@ -3660,6 +3660,17 @@ typedef void (*ARCOMMANDS_Decoder_CommonOverHeatVentilateCallback_t) (void *cust
 void ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback (ARCOMMANDS_Decoder_CommonOverHeatVentilateCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command common.Controller.isPiloting
+ */
+typedef void (*ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t) (uint8_t piloting, void *custom);
+/**
+ * @brief callback setter for the command common.Controller.isPiloting
+ * @param callback new callback for the command common.Controller.isPiloting
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback (ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command common.WifiSettings.OutdoorSetting
  */
 typedef void (*ARCOMMANDS_Decoder_CommonWifiSettingsOutdoorSettingCallback_t) (uint8_t outdoor, void *custom);
@@ -4043,17 +4054,6 @@ typedef void (*ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatRegulationChangedCa
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback (ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatRegulationChangedCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command common.ControllerState.isPilotingChanged
- */
-typedef void (*ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCallback_t) (uint8_t piloting, void *custom);
-/**
- * @brief callback setter for the command common.ControllerState.isPilotingChanged
- * @param callback new callback for the command common.ControllerState.isPilotingChanged
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback (ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command common.WifiSettingsState.outdoorSettingsChanged

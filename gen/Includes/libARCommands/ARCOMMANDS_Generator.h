@@ -4020,6 +4020,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatSwitchOff
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 /**
+ * @brief Tell the device when the controller application enters/leaves the piloting HUD.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting);
+
+/**
  * @brief Send to product if it should use its outdoor wifi config, or indoor
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -4420,17 +4431,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOver
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatRegulationChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _regulationType);
-
-/**
- * @brief Tell the device when the controller application enters/leaves the piloting HUD.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _piloting);
 
 /**
  * @brief Status of the wifi config : either indoor or outdoor

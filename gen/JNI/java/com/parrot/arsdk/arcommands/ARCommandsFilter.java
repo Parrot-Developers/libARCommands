@@ -5738,28 +5738,28 @@ public class ARCommandsFilter
     }
 
 
-    // - Class ControllerState
-    private native int nativeSetCommonControllerStateBehavior (long cFilter, int behavior);
+    // - Class Controller
+    private native int nativeSetCommonControllerBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands Common.ControllerState.XXX.
+     * Sets the behavior for all commands Common.Controller.XXX.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonControllerStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonControllerBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonControllerStateBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetCommonControllerBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonControllerStateIsPilotingChangedBehavior (long cFilter, int behavior);
+    private native int nativeSetCommonControllerIsPilotingBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command Common.ControllerState.IsPilotingChanged.
+     * Sets the behavior for the command Common.Controller.IsPiloting.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonControllerIsPilotingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonControllerStateIsPilotingChangedBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetCommonControllerIsPilotingBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

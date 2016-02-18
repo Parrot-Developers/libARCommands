@@ -371,6 +371,7 @@ int commonCommonCurrentTimeShouldBeCalled = 0;
 int commonCommonRebootShouldBeCalled = 0;
 int commonOverHeatSwitchOffShouldBeCalled = 0;
 int commonOverHeatVentilateShouldBeCalled = 0;
+int commonControllerIsPilotingShouldBeCalled = 0;
 int commonWifiSettingsOutdoorSettingShouldBeCalled = 0;
 int commonMavlinkStartShouldBeCalled = 0;
 int commonMavlinkPauseShouldBeCalled = 0;
@@ -406,7 +407,6 @@ int commonCommonStateProductModelShouldBeCalled = 0;
 int commonCommonStateCountryListKnownShouldBeCalled = 0;
 int commonOverHeatStateOverHeatChangedShouldBeCalled = 0;
 int commonOverHeatStateOverHeatRegulationChangedShouldBeCalled = 0;
-int commonControllerStateIsPilotingChangedShouldBeCalled = 0;
 int commonWifiSettingsStateOutdoorSettingsChangedShouldBeCalled = 0;
 int commonMavlinkStateMavlinkFilePlayingStateChangedShouldBeCalled = 0;
 int commonMavlinkStateMavlinkPlayErrorStateChangedShouldBeCalled = 0;
@@ -6761,6 +6761,22 @@ void ARCOMMANDS_Testbench_CommonOverHeatVentilateCb (void *custom)
     }
 }
 
+void ARCOMMANDS_Testbench_CommonControllerIsPilotingCb (uint8_t piloting, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Controller.isPiloting --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "piloting value : <%u>", piloting);
+    if (piloting != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonControllerIsPilotingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb (uint8_t outdoor, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.WifiSettings.OutdoorSetting --> Custom PTR = %p", custom);
@@ -7357,22 +7373,6 @@ void ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatRegulationChangedCb (uint8_
         errcount++ ;
     }
     if (commonOverHeatStateOverHeatRegulationChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonControllerStateIsPilotingChangedCb (uint8_t piloting, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ControllerState.isPilotingChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "piloting value : <%u>", piloting);
-    if (piloting != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonControllerStateIsPilotingChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8817,6 +8817,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonCommonRebootCallback ((ARCOMMANDS_Decoder_CommonCommonRebootCallback_t) ARCOMMANDS_Testbench_CommonCommonRebootCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatSwitchOffCallback ((ARCOMMANDS_Decoder_CommonOverHeatSwitchOffCallback_t) ARCOMMANDS_Testbench_CommonOverHeatSwitchOffCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback ((ARCOMMANDS_Decoder_CommonOverHeatVentilateCallback_t) ARCOMMANDS_Testbench_CommonOverHeatVentilateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback ((ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t) ARCOMMANDS_Testbench_CommonControllerIsPilotingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback ((ARCOMMANDS_Decoder_CommonWifiSettingsOutdoorSettingCallback_t) ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkStartCallback ((ARCOMMANDS_Decoder_CommonMavlinkStartCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStartCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkPauseCallback ((ARCOMMANDS_Decoder_CommonMavlinkPauseCallback_t) ARCOMMANDS_Testbench_CommonMavlinkPauseCb, (void *)cbCustom++ );
@@ -8852,7 +8853,6 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback ((ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t) ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback ((ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatChangedCallback_t) ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback ((ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatRegulationChangedCallback_t) ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatRegulationChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonControllerStateIsPilotingChangedCallback ((ARCOMMANDS_Decoder_CommonControllerStateIsPilotingChangedCallback_t) ARCOMMANDS_Testbench_CommonControllerStateIsPilotingChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonWifiSettingsStateOutdoorSettingsChangedCallback ((ARCOMMANDS_Decoder_CommonWifiSettingsStateOutdoorSettingsChangedCallback_t) ARCOMMANDS_Testbench_CommonWifiSettingsStateOutdoorSettingsChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkFilePlayingStateChangedCallback ((ARCOMMANDS_Decoder_CommonMavlinkStateMavlinkFilePlayingStateChangedCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkFilePlayingStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkPlayErrorStateChangedCallback ((ARCOMMANDS_Decoder_CommonMavlinkStateMavlinkPlayErrorStateChangedCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkPlayErrorStateChangedCb, (void *)cbCustom++ );
@@ -19053,6 +19053,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Controller.isPiloting\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Controller.isPiloting succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior);
+        commonControllerIsPilotingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonControllerIsPilotingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateCommonWifiSettingsOutdoorSetting (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -20131,37 +20162,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         commonOverHeatStateOverHeatRegulationChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         commonOverHeatStateOverHeatRegulationChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonControllerStateIsPilotingChanged (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.ControllerState.isPilotingChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.ControllerState.isPilotingChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior);
-        commonControllerStateIsPilotingChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonControllerStateIsPilotingChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

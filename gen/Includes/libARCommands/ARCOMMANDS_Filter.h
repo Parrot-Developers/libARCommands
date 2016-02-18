@@ -4018,23 +4018,23 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatChanged
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulationChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
-// Command class ControllerState
+// Command class Controller
 
 /**
- * @brief Sets the filter behavior for all commands common.ControllerState.XXX.
+ * @brief Sets the filter behavior for all commands common.Controller.XXX.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command common.ControllerState.isPilotingChanged.
+ * @brief Sets the filter behavior for the command common.Controller.isPiloting.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class WifiSettings
