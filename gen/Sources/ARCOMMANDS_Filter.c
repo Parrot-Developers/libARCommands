@@ -385,6 +385,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonRebootBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatSwitchOffBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatVentilateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonControllerIsPilotingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsOutdoorSettingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStartBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkPauseBehavior;
@@ -420,7 +421,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCountryListKnownBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonControllerStateIsPilotingChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior;
@@ -838,6 +838,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonCommonRebootBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatSwitchOffBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatVentilateBehavior = defaultBehavior;
+        retFilter->CmdCommonControllerIsPilotingBehavior = defaultBehavior;
         retFilter->CmdCommonWifiSettingsOutdoorSettingBehavior = defaultBehavior;
         retFilter->CmdCommonMavlinkStartBehavior = defaultBehavior;
         retFilter->CmdCommonMavlinkPauseBehavior = defaultBehavior;
@@ -873,7 +874,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonCommonStateCountryListKnownBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
-        retFilter->CmdCommonControllerStateIsPilotingChangedBehavior = defaultBehavior;
         retFilter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = defaultBehavior;
         retFilter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = defaultBehavior;
@@ -3792,21 +3792,21 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_COMMON_CLASS_OVERHEATSTATE */
-            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE:
+            case ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER:
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED:
+                case ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING:
                 {
-                    retStatus = filter->CmdCommonControllerStateIsPilotingChangedBehavior;
+                    retStatus = filter->CmdCommonControllerIsPilotingBehavior;
                 }
-                break; /* ARCOMMANDS_ID_COMMON_CONTROLLERSTATE_CMD_ISPILOTINGCHANGED */
+                break; /* ARCOMMANDS_ID_COMMON_CONTROLLER_CMD_ISPILOTING */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLERSTATE */
+            break; /* ARCOMMANDS_ID_COMMON_CLASS_CONTROLLER */
             case ARCOMMANDS_ID_COMMON_CLASS_WIFISETTINGS:
             {
                 switch (commandId)
@@ -14293,6 +14293,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonCommonRebootBehavior = behavior;
         filter->CmdCommonOverHeatSwitchOffBehavior = behavior;
         filter->CmdCommonOverHeatVentilateBehavior = behavior;
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
         filter->CmdCommonWifiSettingsOutdoorSettingBehavior = behavior;
         filter->CmdCommonMavlinkStartBehavior = behavior;
         filter->CmdCommonMavlinkPauseBehavior = behavior;
@@ -14328,7 +14329,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
         filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
         filter->CmdCommonMavlinkStateMavlinkFilePlayingStateChangedBehavior = behavior;
         filter->CmdCommonMavlinkStateMavlinkPlayErrorStateChangedBehavior = behavior;
@@ -14586,9 +14586,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateBehavior (ARCOM
     return retError;
 }
 
-// Command class ControllerState
+// Command class Controller
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
 
@@ -14605,7 +14605,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateBehavior (ARC
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
     }
 
     return retError;
@@ -15442,6 +15442,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior (A
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonControllerIsPilotingBehavior = behavior;
+    }
+
+    return retError;
+}
+
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -16207,28 +16229,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulat
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonControllerStateIsPilotingChangedBehavior = behavior;
     }
 
     return retError;

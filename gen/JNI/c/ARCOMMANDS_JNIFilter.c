@@ -3511,12 +3511,12 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonOverHeatStateBe
     return (jint)err;
 }
 
-    // - Class ControllerState
+    // - Class Controller
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonControllerStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonControllerBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonControllerStateBehavior (filter, behavior);
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonControllerBehavior (filter, behavior);
     return (jint)err;
 }
 
@@ -3815,6 +3815,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonOverHeatVentila
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonControllerIsPilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonWifiSettingsOutdoorSettingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
@@ -4091,14 +4099,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonOverHeatStateOv
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonOverHeatStateOverHeatRegulationChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonControllerStateIsPilotingChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonControllerStateIsPilotingChangedBehavior (filter, behavior);
     return (jint)err;
 }
 
