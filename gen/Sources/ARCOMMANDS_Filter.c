@@ -61,6 +61,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingAutoTakeOffModeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingMoveByBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingUserTakeOffBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingCircleBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3AnimationsFlipBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3CameraOrientationBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaRecordPictureBehavior;
@@ -516,6 +517,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingAutoTakeOffModeBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingMoveByBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingUserTakeOffBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingCircleBehavior = defaultBehavior;
         retFilter->CmdARDrone3AnimationsFlipBehavior = defaultBehavior;
         retFilter->CmdARDrone3CameraOrientationBehavior = defaultBehavior;
         retFilter->CmdARDrone3MediaRecordPictureBehavior = defaultBehavior;
@@ -1076,6 +1078,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingUserTakeOffBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE:
+                {
+                    retStatus = filter->CmdARDrone3PilotingCircleBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4543,6 +4550,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingAutoTakeOffModeBehavior = behavior;
         filter->CmdARDrone3PilotingMoveByBehavior = behavior;
         filter->CmdARDrone3PilotingUserTakeOffBehavior = behavior;
+        filter->CmdARDrone3PilotingCircleBehavior = behavior;
         filter->CmdARDrone3AnimationsFlipBehavior = behavior;
         filter->CmdARDrone3CameraOrientationBehavior = behavior;
         filter->CmdARDrone3MediaRecordPictureBehavior = behavior;
@@ -4695,6 +4703,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingBehavior (ARCOMMAN
         filter->CmdARDrone3PilotingAutoTakeOffModeBehavior = behavior;
         filter->CmdARDrone3PilotingMoveByBehavior = behavior;
         filter->CmdARDrone3PilotingUserTakeOffBehavior = behavior;
+        filter->CmdARDrone3PilotingCircleBehavior = behavior;
     }
 
     return retError;
@@ -5660,6 +5669,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingUserTakeOffBehavio
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingUserTakeOffBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingCircleBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingCircleBehavior = behavior;
     }
 
     return retError;

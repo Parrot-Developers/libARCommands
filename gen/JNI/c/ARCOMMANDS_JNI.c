@@ -364,6 +364,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingUserTakeOff 
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingCircle (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM");
+    jmethodID j_direction_mid = (*env)->GetMethodID (env, j_direction_class, "getValue", "()I");
+    jint j_direction_enum = (*env)->CallIntMethod (env, direction, j_direction_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingCircle ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_direction_enum);
+    (*env)->DeleteLocalRef (env, j_direction_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3AnimationsFlip (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
 {
     int32_t c_dataSize = 0;
@@ -12145,6 +12176,32 @@ void ARCOMMANDS_JNI_ARDrone3PilotingUserTakeOffnativeCb (uint8_t state, void *cu
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3PilotingCirclenativeCb (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION direction, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingCircleListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingCircleListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingCircleUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_direction_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM");
+        jmethodID j_direction_mid = (*env)->GetStaticMethodID (env, j_direction_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM;");
+        jobject j_direction_enum = (*env)->CallStaticObjectMethod (env, j_direction_class, j_direction_mid, direction);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_direction_enum);
+        (*env)->DeleteLocalRef (env, j_direction_class);
+        (*env)->DeleteLocalRef (env, j_direction_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_ARDrone3AnimationsFlipnativeCb (eARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -21502,6 +21559,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback (ARCOMMANDS_JNI_ARDrone3PilotingMoveBynativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback (ARCOMMANDS_JNI_ARDrone3PilotingUserTakeOffnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PilotingCircleCallback (ARCOMMANDS_JNI_ARDrone3PilotingCirclenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback (ARCOMMANDS_JNI_ARDrone3AnimationsFlipnativeCb, (void *)g_class);
 

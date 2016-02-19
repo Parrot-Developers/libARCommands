@@ -447,6 +447,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingCircle</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the totoDrone<br>
+     * <br>
+     * Command Circle description:<br>
+     * Ask Fixed wings to circle<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _direction The circling direction
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingCircle (ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM _direction) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingCircle (pointer, capacity, _direction);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>AnimationsFlip</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -12508,6 +12537,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3PilotingUserTakeOffListener = _ARCommandARDrone3PilotingUserTakeOffListener_PARAM;
     }
 
+    private static ARCommandARDrone3PilotingCircleListener _ARCommandARDrone3PilotingCircleListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingCircle</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingCircleListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingCircleListener (ARCommandARDrone3PilotingCircleListener _ARCommandARDrone3PilotingCircleListener_PARAM) {
+        _ARCommandARDrone3PilotingCircleListener = _ARCommandARDrone3PilotingCircleListener_PARAM;
+    }
+
     private static ARCommandARDrone3AnimationsFlipListener _ARCommandARDrone3AnimationsFlipListener = null;
 
     /**
@@ -16942,6 +16982,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3PilotingMoveBy (long pdata, int dataTotalLength, float dX, float dY, float dZ, float dPsi);
 
     private native int     nativeSetARDrone3PilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetARDrone3PilotingCircle (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM direction);
 
     private native int     nativeSetARDrone3AnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
 

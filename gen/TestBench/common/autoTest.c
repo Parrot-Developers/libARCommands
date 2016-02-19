@@ -57,6 +57,7 @@ int ARDrone3PilotingNavigateHomeShouldBeCalled = 0;
 int ARDrone3PilotingAutoTakeOffModeShouldBeCalled = 0;
 int ARDrone3PilotingMoveByShouldBeCalled = 0;
 int ARDrone3PilotingUserTakeOffShouldBeCalled = 0;
+int ARDrone3PilotingCircleShouldBeCalled = 0;
 int ARDrone3AnimationsFlipShouldBeCalled = 0;
 int ARDrone3CameraOrientationShouldBeCalled = 0;
 int ARDrone3MediaRecordPictureShouldBeCalled = 0;
@@ -631,6 +632,22 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingUserTakeOffCb (uint8_t state, void *cu
         errcount++ ;
     }
     if (ARDrone3PilotingUserTakeOffShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingCircleCb (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION direction, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.Circle --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "direction value : <%d>", direction);
+    if (direction != (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingCircleShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8452,6 +8469,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingAutoTakeOffModeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingAutoTakeOffModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingAutoTakeOffModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingMoveByCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingMoveByCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingUserTakeOffCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingCircleCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingCircleCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingCircleCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback ((ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t) ARCOMMANDS_Testbench_ARDrone3AnimationsFlipCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3CameraOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraOrientationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordPictureCallback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordPictureCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureCb, (void *)cbCustom++ );
@@ -9248,6 +9266,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         ARDrone3PilotingUserTakeOffShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         ARDrone3PilotingUserTakeOffShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingCircle (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.Circle\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Piloting.Circle succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingCircleBehavior);
+        ARDrone3PilotingCircleShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingCircleShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
