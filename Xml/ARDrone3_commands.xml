@@ -163,6 +163,21 @@
                 - 0 to exit from user take off.
             </arg>
         </cmd>
+        <cmd name="Circle" id="9">
+            Ask Fixed wings to circle
+             <arg name="direction" type="enum">
+                The circling direction
+                <enum name="CW">
+                    Circling ClockWise
+                </enum>
+                <enum name="CCW">
+                    Circling Counter ClockWise
+                </enum>
+                 <enum name="default">
+                    Use drone default Circling direction set by CirclingDirection cmd
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="Animations" id="5">

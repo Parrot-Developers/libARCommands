@@ -184,6 +184,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback (ARCOMMANDS_Decod
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_ARDrone3PilotingCircleCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingCircleCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PilotingCircleCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PilotingCircleCallback (ARCOMMANDS_Decoder_ARDrone3PilotingCircleCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PilotingCircleCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PilotingCircleCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCb = NULL;
 static void *ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCustom = NULL;
 void ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback (ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t callback, void *custom)
@@ -5376,6 +5388,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PilotingCircleCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION _direction;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _direction = (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PilotingCircleCb (_direction, ARCOMMANDS_Decoder_ARDrone3PilotingCircleCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -19586,6 +19624,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Piloting.Circle:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION arg = (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | direction -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_CIRCLE */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Piloting.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

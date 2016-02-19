@@ -180,6 +180,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingMoveBy 
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingUserTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
 
 /**
+ * @brief Ask Fixed wings to circle
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _direction The circling direction
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingCircle (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION _direction);
+
+/**
  * @brief Make a flip
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command

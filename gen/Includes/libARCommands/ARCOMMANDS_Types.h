@@ -44,6 +44,18 @@ typedef enum
 // Feature ARDrone3
 
 /**
+ * @brief The circling direction
+ */
+typedef enum
+{
+    ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_CW = 0,    ///< Circling ClockWise
+    ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_CCW,    ///< Circling Counter ClockWise
+    ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_DEFAULT,    ///< Use drone default Circling direction set by CirclingDirection cmd
+    ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_MAX
+} eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION;
+
+
+/**
  * @brief Direction for the flip
  */
 typedef enum
