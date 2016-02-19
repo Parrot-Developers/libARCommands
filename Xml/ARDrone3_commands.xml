@@ -852,6 +852,18 @@
                 </enum>
             </arg>
          </cmd>
+         <cmd name="LandingMode" id="16">
+            Set fixed wings Landing Mode
+            <arg name="value" type="enum">
+                The Landing mode
+                <enum name="LINEAR">
+                    Linear landing.
+                </enum>
+                <enum name="SPIRALE">
+                    Spirale landing.
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -1008,6 +1020,18 @@
                    Positive pitch values will make the drone raise its nose.
                    Negative pitch values will make the drone lower its nose.
                </enum>
+           </arg>
+        </cmd>
+        <cmd name="LandingModeChanged" id="16">
+           Fixed wings Landing Mode
+           <arg name="value" type="enum">
+                The Landing mode
+                <enum name="LINEAR">
+                    Linear landing.
+                </enum>
+                <enum name="SPIRALE">
+                    Spirale landing.
+                </enum>
            </arg>
         </cmd>
     </class>
