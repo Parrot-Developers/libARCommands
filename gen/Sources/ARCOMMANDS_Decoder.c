@@ -172,6 +172,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback (ARCOMMANDS_Decoder_AR
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback (ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCb = NULL;
 static void *ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCustom = NULL;
 void ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback (ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t callback, void *custom)
@@ -5242,6 +5254,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_MOVEBY */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCb != NULL)
+                    {
+                        uint8_t _state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCb (_state, ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -19187,6 +19225,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_MOVEBY */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Piloting.UserTakeOff:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTING_CMD_USERTAKEOFF */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.Piloting.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

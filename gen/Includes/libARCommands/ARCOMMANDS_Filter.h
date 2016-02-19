@@ -198,6 +198,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingAutoTakeOffModeBeh
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingMoveByBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.UserTakeOff.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
 
 // Command class Animations
 
