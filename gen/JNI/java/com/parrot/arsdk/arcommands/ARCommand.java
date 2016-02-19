@@ -979,11 +979,11 @@ public class ARCommand extends ARNativeData {
      * Piloting Settings commands<br>
      * <br>
      * Command SetAutonomousFlightMaxRotationSpeed description:<br>
-     * [NOT USED] Set the maximum yaw rotation speed used by the autonomous flight<br>
+     * Set the maximum yaw rotation speed used by the autonomous flight<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _value maximum yaw rotation speed [rad/s]
+     * @param _value maximum yaw rotation speed [deg/s]
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeed (float _value) {
@@ -2740,7 +2740,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _value maximum yaw rotation speed [rad/s]
+     * @param _value maximum yaw rotation speed [deg/s]
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeed (float _value) {
