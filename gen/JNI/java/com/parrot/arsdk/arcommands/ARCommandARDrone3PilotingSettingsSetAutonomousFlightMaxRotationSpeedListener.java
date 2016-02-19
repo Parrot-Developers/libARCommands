@@ -38,7 +38,7 @@ public interface ARCommandARDrone3PilotingSettingsSetAutonomousFlightMaxRotation
 
     /**
      * Called when a command <code>PilotingSettingsSetAutonomousFlightMaxRotationSpeed</code> in feature <code>ARDrone3</code> is decoded
-     * @param _value maximum yaw rotation speed [rad/s]
+     * @param _value maximum yaw rotation speed [deg/s]
      */
     void onARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedUpdate (float value);
 }

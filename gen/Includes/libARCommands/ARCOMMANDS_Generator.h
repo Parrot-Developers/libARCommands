@@ -379,12 +379,12 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAcceleration (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
 
 /**
- * @brief [NOT USED] Set the maximum yaw rotation speed used by the autonomous flight
+ * @brief Set the maximum yaw rotation speed used by the autonomous flight
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _value maximum yaw rotation speed [rad/s]
+ * @param _value maximum yaw rotation speed [deg/s]
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
@@ -1079,7 +1079,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _value maximum yaw rotation speed [rad/s]
+ * @param _value maximum yaw rotation speed [deg/s]
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _value);
