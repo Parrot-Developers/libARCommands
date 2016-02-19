@@ -933,6 +933,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetARDrone3PilotingSettingsPitchModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.PitchMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsPitchModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class PilotingSettingsState
     private native int nativeSetARDrone3PilotingSettingsStateBehavior (long cFilter, int behavior);
@@ -1124,6 +1136,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.PitchModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

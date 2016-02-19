@@ -822,6 +822,21 @@
                 The circling altitude in meter
             </arg>
         </cmd>
+        <cmd name="PitchMode" id="15">
+            Set pitch mode
+            <arg name="value" type="enum">
+                The Pitch mode
+                <enum name="NORMAL">
+                    Positive pitch values will make the drone lower its nose.
+                    Negative pitch values will make the drone raise its nose.
+                </enum>
+                <enum name="INVERTED">
+                    Pitch commands are inverted.
+                    Positive pitch values will make the drone raise its nose.
+                    Negative pitch values will make the drone lower its nose.
+                </enum>
+            </arg>
+         </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -965,6 +980,21 @@
                  Range max of circling altitude in meter
             </arg>
          </cmd>
+         <cmd name="PitchModeChanged" id="15">
+           Pitch mode changed
+           <arg name="value" type="enum">
+               The Pitch mode
+               <enum name="NORMAL">
+                   Positive pitch values will make the drone lower its nose.
+                   Negative pitch values will make the drone raise its nose.
+               </enum>
+               <enum name="INVERTED">
+                   Pitch commands are inverted.
+                   Positive pitch values will make the drone raise its nose.
+                   Negative pitch values will make the drone lower its nose.
+               </enum>
+           </arg>
+        </cmd>
     </class>
     <class name="SpeedSettings" id="11">
         Speed Settings commands

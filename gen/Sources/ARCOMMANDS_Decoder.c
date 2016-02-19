@@ -460,6 +460,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingAltitudeCallback (ARC
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsPitchModeCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCb = NULL;
 static void *ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCustom = NULL;
 void ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t callback, void *custom)
@@ -1141,6 +1153,18 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedC
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCb = callback;
         ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStatePitchModeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -6741,6 +6765,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGALTITUDE */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE _value;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCb (_value, ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -7249,6 +7299,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGALTITUDECHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCb != NULL)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE _value;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCb (_value, ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -20751,6 +20827,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGALTITUDE */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettings.PitchMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE arg = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)ARCOMMANDS_ReadWrite_PrintI32 (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -21221,6 +21318,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGALTITUDECHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettingsState.PitchModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE arg = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)ARCOMMANDS_ReadWrite_PrintI32 (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

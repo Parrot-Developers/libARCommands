@@ -84,6 +84,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingDirectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingRadiusBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingAltitudeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsPitchModeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
@@ -141,6 +142,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior;
@@ -537,6 +539,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsPitchModeBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
@@ -594,6 +597,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = defaultBehavior;
@@ -1387,6 +1391,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGALTITUDE */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsPitchModeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_PITCHMODE */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1472,6 +1481,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGALTITUDECHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_PITCHMODECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4552,6 +4566,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsPitchModeBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
@@ -4609,6 +4624,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
@@ -4962,6 +4978,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBehavior (
         filter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsPitchModeBehavior = behavior;
     }
 
     return retError;
@@ -5001,6 +5018,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBehav
         filter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior = behavior;
     }
 
     return retError;
@@ -6148,6 +6166,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingAl
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsPitchModeBehavior = behavior;
     }
 
     return retError;
@@ -7402,6 +7442,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCircl
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsStatePitchModeChangedBehavior = behavior;
     }
 
     return retError;
