@@ -1007,15 +1007,15 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetARDrone3PilotingSettingsStateBankedTurnBehavior (long cFilter, int behavior);
+    private native int nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.BankedTurn.
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.BankedTurnChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBankedTurnBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBankedTurnChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateBankedTurnBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

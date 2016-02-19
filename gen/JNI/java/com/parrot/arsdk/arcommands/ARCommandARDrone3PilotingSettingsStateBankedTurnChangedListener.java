@@ -31,14 +31,14 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PilotingSettingsStateBankedTurn</code> in feature <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsStateBankedTurnChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandARDrone3PilotingSettingsStateBankedTurnListener {
+public interface ARCommandARDrone3PilotingSettingsStateBankedTurnChangedListener {
 
     /**
-     * Called when a command <code>PilotingSettingsStateBankedTurn</code> in feature <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsStateBankedTurnChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _state 1 if enabled, 0 if disabled
      */
-    void onARDrone3PilotingSettingsStateBankedTurnUpdate (byte state);
+    void onARDrone3PilotingSettingsStateBankedTurnChangedUpdate (byte state);
 }

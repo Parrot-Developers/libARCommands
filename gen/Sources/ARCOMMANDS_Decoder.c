@@ -1024,15 +1024,15 @@ void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotat
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCb = NULL;
-static void *ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCustom = NULL;
-void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCb = callback;
-        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCustom = custom;
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCb = callback;
+        ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -6827,10 +6827,10 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_AUTONOMOUSFLIGHTMAXROTATIONSPEED */
-                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN:
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURNCHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCb != NULL)
+                    if (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCb != NULL)
                     {
                         uint8_t _state;
                         if (retVal == ARCOMMANDS_DECODER_OK)
@@ -6843,7 +6843,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCb (_state, ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCustom);
+                            ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCb (_state, ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -6852,7 +6852,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN */
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURNCHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -20543,9 +20543,9 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_AUTONOMOUSFLIGHTMAXROTATIONSPEED */
-                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN:
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURNCHANGED:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettingsState.BankedTurn:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettingsState.BankedTurnChanged:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
@@ -20563,7 +20563,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURN */
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_BANKEDTURNCHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("ARDrone3.PilotingSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

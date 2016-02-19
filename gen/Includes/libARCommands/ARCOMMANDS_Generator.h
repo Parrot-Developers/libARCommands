@@ -1009,7 +1009,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
  * @param _state 1 if enabled, 0 if disabled
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurn (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurnChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
 
 /**
  * @brief Max vertical speed sent by product
