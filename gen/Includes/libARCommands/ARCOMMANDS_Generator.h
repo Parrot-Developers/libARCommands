@@ -383,6 +383,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsBankedTurn (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _value);
 
 /**
+ * @brief Set Min Altitude
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current altitude min in m
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMinAltitude (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
  * @brief Set Max Vertical speed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -1010,6 +1021,19 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurnChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+
+/**
+ * @brief Min Altitude sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current altitude min
+ * @param _min Range min of altitude min
+ * @param _max Range max of altitude min
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateMinAltitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
 
 /**
  * @brief Max vertical speed sent by product
