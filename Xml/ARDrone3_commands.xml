@@ -781,6 +781,12 @@
                 1 to enable, 0 to disable
             </arg>
         </cmd>
+        <cmd name="MinAltitude" id="11">
+            Set Min Altitude
+            <arg name="current" type="float">
+                Current altitude min in m
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -874,6 +880,18 @@
             Banked Turn state.
             <arg name="state" type="u8">
                 1 if enabled, 0 if disabled
+            </arg>
+        </cmd>
+        <cmd name="MinAltitudeChanged" id="11">
+            Min Altitude sent by product
+            <arg name="current" type="float">
+                Current altitude min
+            </arg>
+            <arg name="min" type="float">
+                Range min of altitude min
+            </arg>
+            <arg name="max" type="float">
+                Range max of altitude min
             </arg>
         </cmd>
     </class>

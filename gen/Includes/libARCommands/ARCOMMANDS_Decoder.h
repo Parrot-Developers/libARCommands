@@ -389,6 +389,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsBankedTurnCallback_t) 
 void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsBankedTurnCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsBankedTurnCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command ARDrone3.PilotingSettings.MinAltitude
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMinAltitudeCallback_t) (float current, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PilotingSettings.MinAltitude
+ * @param callback new callback for the command ARDrone3.PilotingSettings.MinAltitude
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMinAltitudeCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMinAltitudeCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command ARDrone3.SpeedSettings.MaxVerticalSpeed
  */
 typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t) (float current, void *custom);
@@ -970,6 +981,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChanged
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateMinAltitudeChangedCallback_t) (float current, float min, float max, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged
+ * @param callback new callback for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateMinAltitudeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateMinAltitudeChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged
