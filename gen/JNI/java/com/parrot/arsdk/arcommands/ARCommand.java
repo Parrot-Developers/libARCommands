@@ -1179,6 +1179,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsLandingMode</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command LandingMode description:<br>
+     * Set fixed wings Landing Mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value The Landing mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsLandingMode (ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE_ENUM _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsLandingMode (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -2906,6 +2935,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetARDrone3PilotingSettingsStatePitchModeChanged (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStateLandingModeChanged</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command LandingModeChanged description:<br>
+     * Fixed wings Landing Mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value The Landing mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsStateLandingModeChanged (ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE_ENUM _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsStateLandingModeChanged (pointer, capacity, _value);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12812,6 +12870,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3PilotingSettingsPitchModeListener = _ARCommandARDrone3PilotingSettingsPitchModeListener_PARAM;
     }
 
+    private static ARCommandARDrone3PilotingSettingsLandingModeListener _ARCommandARDrone3PilotingSettingsLandingModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsLandingMode</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsLandingModeListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsLandingModeListener (ARCommandARDrone3PilotingSettingsLandingModeListener _ARCommandARDrone3PilotingSettingsLandingModeListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsLandingModeListener = _ARCommandARDrone3PilotingSettingsLandingModeListener_PARAM;
+    }
+
     private static ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener _ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener = null;
 
     /**
@@ -13448,6 +13517,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setARDrone3PilotingSettingsStatePitchModeChangedListener (ARCommandARDrone3PilotingSettingsStatePitchModeChangedListener _ARCommandARDrone3PilotingSettingsStatePitchModeChangedListener_PARAM) {
         _ARCommandARDrone3PilotingSettingsStatePitchModeChangedListener = _ARCommandARDrone3PilotingSettingsStatePitchModeChangedListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener _ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateLandingModeChanged</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsStateLandingModeChangedListener (ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener _ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener = _ARCommandARDrone3PilotingSettingsStateLandingModeChangedListener_PARAM;
     }
 
     private static ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener = null;
@@ -17033,6 +17113,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingSettingsPitchMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE_ENUM value);
 
+    private native int     nativeSetARDrone3PilotingSettingsLandingMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE_ENUM value);
+
     private native int     nativeSetARDrone3SpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetARDrone3SpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
@@ -17148,6 +17230,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChanged (long pdata, int dataTotalLength, short current, short min, short max);
 
     private native int     nativeSetARDrone3PilotingSettingsStatePitchModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_ENUM value);
+
+    private native int     nativeSetARDrone3PilotingSettingsStateLandingModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE_ENUM value);
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 

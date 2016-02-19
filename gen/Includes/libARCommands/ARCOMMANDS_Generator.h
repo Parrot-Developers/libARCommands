@@ -462,6 +462,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsPitchMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE _value);
 
 /**
+ * @brief Set fixed wings Landing Mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _value The Landing mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsLandingMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE _value);
+
+/**
  * @brief Set Max Vertical speed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -1150,6 +1161,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSetting
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStatePitchModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE _value);
+
+/**
+ * @brief Fixed wings Landing Mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _value The Landing mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateLandingModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE _value);
 
 /**
  * @brief Max vertical speed sent by product
