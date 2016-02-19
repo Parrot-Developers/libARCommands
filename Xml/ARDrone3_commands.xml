@@ -462,7 +462,7 @@
                     Taking off state
                 </enum>
                 <enum name="hovering">
-                    Hovering state
+                    Hovering / Circling (for fixed wings) state
                 </enum>
                 <enum name="flying">
                     Flying state
@@ -798,6 +798,24 @@
                 Current altitude min in m
             </arg>
         </cmd>
+        <cmd name="CirclingDirection" id="12">
+             Set Fixed wings circling default direction
+             <arg name="value" type="enum">
+                The circling direction
+                <enum name="CW">
+                    Circling ClockWise
+                </enum>
+                <enum name="CCW">
+                    Circling Counter ClockWise
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="CirclingRadius" id="13">
+            Set Fixed wings circling radius
+            <arg name="value" type="u16">
+                The circling radius in meter
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -905,8 +923,31 @@
                 Range max of altitude min
             </arg>
         </cmd>
+        <cmd name="CirclingDirectionChanged" id="12">
+            Fixed wings circling default direction changed
+            <arg name="value" type="enum">
+                The circling direction
+                <enum name="CW">
+                    Circling ClockWise
+                </enum>
+                <enum name="CCW">
+                    Circling Counter ClockWise
+                </enum>
+            </arg>
+        </cmd>
+        <cmd name="CirclingRadiusChanged" id="13">
+            Fixed wings circling radius changed
+            <arg name="current" type="u16">
+                The current circling radius in meter
+            </arg>
+            <arg name="min" type="u16">
+                Range min of circling radius in meter
+            </arg>
+            <arg name="max" type="u16">
+                Range max of circling radius in meter
+            </arg>
+        </cmd>
     </class>
-
     <class name="SpeedSettings" id="11">
         Speed Settings commands
         <cmd name="MaxVerticalSpeed" id="0">

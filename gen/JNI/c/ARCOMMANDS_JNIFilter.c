@@ -576,6 +576,22 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSetti
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingDirectionBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingRadiusBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
@@ -1004,6 +1020,22 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSetti
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (filter, behavior);
     return (jint)err;
 }
 
