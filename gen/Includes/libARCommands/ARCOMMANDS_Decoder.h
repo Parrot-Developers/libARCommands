@@ -433,6 +433,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingRadiusCallback
 void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingRadiusCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingRadiusCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command ARDrone3.PilotingSettings.CirclingAltitude
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingAltitudeCallback_t) (uint16_t value, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PilotingSettings.CirclingAltitude
+ * @param callback new callback for the command ARDrone3.PilotingSettings.CirclingAltitude
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingAltitudeCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingAltitudeCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command ARDrone3.SpeedSettings.MaxVerticalSpeed
  */
 typedef void (*ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t) (float current, void *custom);
@@ -1047,6 +1058,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingRadiusCha
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingRadiusChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingRadiusChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCallback_t) (uint16_t current, uint16_t min, uint16_t max, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged
+ * @param callback new callback for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged

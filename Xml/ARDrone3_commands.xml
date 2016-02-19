@@ -816,6 +816,12 @@
                 The circling radius in meter
             </arg>
         </cmd>
+        <cmd name="CirclingAltitude" id="14">
+            Set Fixed wings circling altitude
+            <arg name="value" type="u16">
+                The circling altitude in meter
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingSettingsState" id="6">
@@ -947,6 +953,18 @@
                 Range max of circling radius in meter
             </arg>
         </cmd>
+        <cmd name="CirclingAltitudeChanged" id="14">
+            Fixed wings circling altitude changed
+            <arg name="current" type="u16">
+                The current circling altitude in meter
+            </arg>
+             <arg name="min" type="u16">
+                 Range min of circling altitude in meter
+             </arg>
+             <arg name="max" type="u16">
+                 Range max of circling altitude in meter
+            </arg>
+         </cmd>
     </class>
     <class name="SpeedSettings" id="11">
         Speed Settings commands

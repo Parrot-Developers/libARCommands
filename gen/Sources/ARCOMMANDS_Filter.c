@@ -83,6 +83,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsMinAltitudeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingDirectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingRadiusBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsCirclingAltitudeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsHullProtectionBehavior;
@@ -139,6 +140,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateMinAltitudeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior;
@@ -534,6 +536,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsMinAltitudeBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsHullProtectionBehavior = defaultBehavior;
@@ -590,6 +593,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PilotingSettingsStateMinAltitudeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = defaultBehavior;
@@ -1378,6 +1382,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGRADIUS */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGALTITUDE:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGS_CMD_CIRCLINGALTITUDE */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1458,6 +1467,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGRADIUSCHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGALTITUDECHANGED:
+                {
+                    retStatus = filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PILOTINGSETTINGSSTATE_CMD_CIRCLINGALTITUDECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4537,6 +4551,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsMinAltitudeBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxVerticalSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsMaxRotationSpeedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsHullProtectionBehavior = behavior;
@@ -4593,6 +4608,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PilotingSettingsStateMinAltitudeChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior = behavior;
         filter->CmdARDrone3SpeedSettingsStateHullProtectionChangedBehavior = behavior;
@@ -4945,6 +4961,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBehavior (
         filter->CmdARDrone3PilotingSettingsMinAltitudeBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingDirectionBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
     }
 
     return retError;
@@ -4983,6 +5000,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBehav
         filter->CmdARDrone3PilotingSettingsStateMinAltitudeChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior = behavior;
         filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = behavior;
+        filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
     }
 
     return retError;
@@ -6108,6 +6126,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingRa
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsCirclingRadiusBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsCirclingAltitudeBehavior = behavior;
     }
 
     return retError;
@@ -7340,6 +7380,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCircl
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior = behavior;
     }
 
     return retError;
