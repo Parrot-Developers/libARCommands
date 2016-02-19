@@ -920,6 +920,64 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsMinA
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsCirclingDirection (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject value)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_value_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM");
+    jmethodID j_value_mid = (*env)->GetMethodID (env, j_value_class, "getValue", "()I");
+    jint j_value_enum = (*env)->CallIntMethod (env, value, j_value_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsCirclingDirection ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_value_enum);
+    (*env)->DeleteLocalRef (env, j_value_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsCirclingRadius (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort value)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsCirclingRadius ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)value);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3SpeedSettingsMaxVerticalSpeed (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jfloat current)
 {
     int32_t c_dataSize = 0;
@@ -2478,6 +2536,64 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStat
     }
 
     err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateMinAltitudeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (float)current, (float)min, (float)max);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject value)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_value_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM");
+    jmethodID j_value_mid = (*env)->GetMethodID (env, j_value_class, "getValue", "()I");
+    jint j_value_enum = (*env)->CallIntMethod (env, value, j_value_mid);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateCirclingDirectionChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_value_enum);
+    (*env)->DeleteLocalRef (env, j_value_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStateCirclingRadiusChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort current, jshort min, jshort max)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateCirclingRadiusChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)current, (uint16_t)min, (uint16_t)max);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -12353,6 +12469,53 @@ void ARCOMMANDS_JNI_ARDrone3PilotingSettingsMinAltitudenativeCb (float current, 
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3PilotingSettingsCirclingDirectionnativeCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE value, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsCirclingDirectionListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsCirclingDirectionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsCirclingDirectionUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_value_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM");
+        jmethodID j_value_mid = (*env)->GetStaticMethodID (env, j_value_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM;");
+        jobject j_value_enum = (*env)->CallStaticObjectMethod (env, j_value_class, j_value_mid, value);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_value_enum);
+        (*env)->DeleteLocalRef (env, j_value_class);
+        (*env)->DeleteLocalRef (env, j_value_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PilotingSettingsCirclingRadiusnativeCb (uint16_t value, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsCirclingRadiusListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsCirclingRadiusListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsCirclingRadiusUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)value);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxVerticalSpeednativeCb (float current, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -13617,6 +13780,53 @@ void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateMinAltitudeChangednativeCb (flo
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, current, min, max);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateCirclingDirectionChangednativeCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE value, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsStateCirclingDirectionChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_value_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM");
+        jmethodID j_value_mid = (*env)->GetStaticMethodID (env, j_value_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM;");
+        jobject j_value_enum = (*env)->CallStaticObjectMethod (env, j_value_class, j_value_mid, value);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_value_enum);
+        (*env)->DeleteLocalRef (env, j_value_class);
+        (*env)->DeleteLocalRef (env, j_value_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateCirclingRadiusChangednativeCb (uint16_t current, uint16_t min, uint16_t max, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsStateCirclingRadiusChangedUpdate", "(SSS)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)current, (jshort)min, (jshort)max);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -21123,6 +21333,10 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMinAltitudeCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsMinAltitudenativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingDirectionCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsCirclingDirectionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingRadiusCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsCirclingRadiusnativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxVerticalSpeednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsMaxRotationSpeednativeCb, (void *)g_class);
@@ -21230,6 +21444,10 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateBankedTurnChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateMinAltitudeChangedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateMinAltitudeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingDirectionChangedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateCirclingDirectionChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingRadiusChangedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateCirclingRadiusChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
 

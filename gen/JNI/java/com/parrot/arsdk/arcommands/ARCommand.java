@@ -1034,6 +1034,64 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsCirclingDirection</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command CirclingDirection description:<br>
+     * Set Fixed wings circling default direction<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value The circling direction
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsCirclingDirection (ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsCirclingDirection (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsCirclingRadius</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command CirclingRadius description:<br>
+     * Set Fixed wings circling radius<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value The circling radius in meter
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsCirclingRadius (short _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsCirclingRadius (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -2641,6 +2699,66 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetARDrone3PilotingSettingsStateMinAltitudeChanged (pointer, capacity, _current, _min, _max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStateCirclingDirectionChanged</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command CirclingDirectionChanged description:<br>
+     * Fixed wings circling default direction changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _value The circling direction
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingDirectionChanged (ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (pointer, capacity, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStateCirclingRadiusChanged</code> in feature <code>ARDrone3</code><br>
+     * <br>
+     * Feature ARDrone3 description:<br>
+     * All ARDrone3-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command CirclingRadiusChanged description:<br>
+     * Fixed wings circling radius changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current The current circling radius in meter
+     * @param _min Range min of circling radius in meter
+     * @param _max Range max of circling radius in meter
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingRadiusChanged (short _current, short _min, short _max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetARDrone3PilotingSettingsStateCirclingRadiusChanged (pointer, capacity, _current, _min, _max);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12492,6 +12610,28 @@ public class ARCommand extends ARNativeData {
         _ARCommandARDrone3PilotingSettingsMinAltitudeListener = _ARCommandARDrone3PilotingSettingsMinAltitudeListener_PARAM;
     }
 
+    private static ARCommandARDrone3PilotingSettingsCirclingDirectionListener _ARCommandARDrone3PilotingSettingsCirclingDirectionListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsCirclingDirection</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsCirclingDirectionListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsCirclingDirectionListener (ARCommandARDrone3PilotingSettingsCirclingDirectionListener _ARCommandARDrone3PilotingSettingsCirclingDirectionListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsCirclingDirectionListener = _ARCommandARDrone3PilotingSettingsCirclingDirectionListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PilotingSettingsCirclingRadiusListener _ARCommandARDrone3PilotingSettingsCirclingRadiusListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsCirclingRadius</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsCirclingRadiusListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsCirclingRadiusListener (ARCommandARDrone3PilotingSettingsCirclingRadiusListener _ARCommandARDrone3PilotingSettingsCirclingRadiusListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsCirclingRadiusListener = _ARCommandARDrone3PilotingSettingsCirclingRadiusListener_PARAM;
+    }
+
     private static ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener _ARCommandARDrone3SpeedSettingsMaxVerticalSpeedListener = null;
 
     /**
@@ -13084,6 +13224,28 @@ public class ARCommand extends ARNativeData {
      */
     public static void setARDrone3PilotingSettingsStateMinAltitudeChangedListener (ARCommandARDrone3PilotingSettingsStateMinAltitudeChangedListener _ARCommandARDrone3PilotingSettingsStateMinAltitudeChangedListener_PARAM) {
         _ARCommandARDrone3PilotingSettingsStateMinAltitudeChangedListener = _ARCommandARDrone3PilotingSettingsStateMinAltitudeChangedListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener _ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateCirclingDirectionChanged</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsStateCirclingDirectionChangedListener (ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener _ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener = _ARCommandARDrone3PilotingSettingsStateCirclingDirectionChangedListener_PARAM;
+    }
+
+    private static ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener _ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateCirclingRadiusChanged</code> in feature <code>ARDrone3</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener_PARAM New listener for the command
+     */
+    public static void setARDrone3PilotingSettingsStateCirclingRadiusChangedListener (ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener _ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener_PARAM) {
+        _ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener = _ARCommandARDrone3PilotingSettingsStateCirclingRadiusChangedListener_PARAM;
     }
 
     private static ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandARDrone3SpeedSettingsStateMaxVerticalSpeedChangedListener = null;
@@ -16659,6 +16821,10 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingSettingsMinAltitude (long pdata, int dataTotalLength, float current);
 
+    private native int     nativeSetARDrone3PilotingSettingsCirclingDirection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM value);
+
+    private native int     nativeSetARDrone3PilotingSettingsCirclingRadius (long pdata, int dataTotalLength, short value);
+
     private native int     nativeSetARDrone3SpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetARDrone3SpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
@@ -16766,6 +16932,10 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetARDrone3PilotingSettingsStateBankedTurnChanged (long pdata, int dataTotalLength, byte state);
 
     private native int     nativeSetARDrone3PilotingSettingsStateMinAltitudeChanged (long pdata, int dataTotalLength, float current, float min, float max);
+
+    private native int     nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM value);
+
+    private native int     nativeSetARDrone3PilotingSettingsStateCirclingRadiusChanged (long pdata, int dataTotalLength, short current, short min, short max);
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 

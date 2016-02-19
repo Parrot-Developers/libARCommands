@@ -897,6 +897,30 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingDirection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingDirectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingRadius.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingRadiusBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class PilotingSettingsState
     private native int nativeSetARDrone3PilotingSettingsStateBehavior (long cFilter, int behavior);
@@ -1052,6 +1076,30 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingDirectionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingRadiusChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
