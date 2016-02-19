@@ -180,6 +180,17 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingMoveByCallback_t) (float dX, f
 void ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback (ARCOMMANDS_Decoder_ARDrone3PilotingMoveByCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command ARDrone3.Piloting.UserTakeOff
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t) (uint8_t state, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.Piloting.UserTakeOff
+ * @param callback new callback for the command ARDrone3.Piloting.UserTakeOff
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback (ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command ARDrone3.Animations.Flip
  */
 typedef void (*ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t) (eARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION direction, void *custom);

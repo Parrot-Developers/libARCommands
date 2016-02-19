@@ -337,6 +337,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingMoveBy (JNIE
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingUserTakeOff (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingUserTakeOff ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3AnimationsFlip (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
 {
     int32_t c_dataSize = 0;
@@ -11865,6 +11892,27 @@ void ARCOMMANDS_JNI_ARDrone3PilotingMoveBynativeCb (float dX, float dY, float dZ
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3PilotingUserTakeOffnativeCb (uint8_t state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingUserTakeOffListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingUserTakeOffListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingUserTakeOffUpdate", "(B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_ARDrone3AnimationsFlipnativeCb (eARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -21032,6 +21080,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3PilotingAutoTakeOffModeCallback (ARCOMMANDS_JNI_ARDrone3PilotingAutoTakeOffModenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback (ARCOMMANDS_JNI_ARDrone3PilotingMoveBynativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback (ARCOMMANDS_JNI_ARDrone3PilotingUserTakeOffnativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback (ARCOMMANDS_JNI_ARDrone3AnimationsFlipnativeCb, (void *)g_class);
 
