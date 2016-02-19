@@ -2378,7 +2378,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStat
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStateBankedTurn (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStateBankedTurnChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte state)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -2396,7 +2396,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PilotingSettingsStat
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurn ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
+    err = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurnChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -13456,19 +13456,19 @@ void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpee
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateBankedTurnnativeCb (uint8_t state, void *custom)
+void ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateBankedTurnChangednativeCb (uint8_t state, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
     JNIEnv *env = NULL;
     res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
     if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsStateBankedTurnListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsStateBankedTurnListener;");
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PilotingSettingsStateBankedTurnChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PilotingSettingsStateBankedTurnChangedListener;");
     jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsStateBankedTurnUpdate", "(B)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PilotingSettingsStateBankedTurnChangedUpdate", "(B)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
@@ -21079,7 +21079,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeednativeCb, (void *)g_class);
 
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateBankedTurnnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback (ARCOMMANDS_JNI_ARDrone3PilotingSettingsStateBankedTurnChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_JNI_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangednativeCb, (void *)g_class);
 

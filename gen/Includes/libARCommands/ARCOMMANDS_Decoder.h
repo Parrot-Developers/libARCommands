@@ -961,15 +961,15 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightM
 void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command ARDrone3.PilotingSettingsState.BankedTurn
+ * @brief callback type for the command ARDrone3.PilotingSettingsState.BankedTurnChanged
  */
-typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCallback_t) (uint8_t state, void *custom);
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t) (uint8_t state, void *custom);
 /**
- * @brief callback setter for the command ARDrone3.PilotingSettingsState.BankedTurn
- * @param callback new callback for the command ARDrone3.PilotingSettingsState.BankedTurn
+ * @brief callback setter for the command ARDrone3.PilotingSettingsState.BankedTurnChanged
+ * @param callback new callback for the command ARDrone3.PilotingSettingsState.BankedTurnChanged
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback (ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged

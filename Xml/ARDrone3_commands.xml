@@ -870,7 +870,7 @@
             </arg>
         </cmd>
 
-        <cmd name="BankedTurn" id="10">
+        <cmd name="BankedTurnChanged" id="10">
             Banked Turn state.
             <arg name="state" type="u8">
                 1 if enabled, 0 if disabled
