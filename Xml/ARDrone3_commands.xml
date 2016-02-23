@@ -381,7 +381,7 @@
     <class name="MediaRecordEvent" id="3">
         Events of media recording
         
-        <cmd name="PictureEventChanged" id="0" notification="TRUE">
+        <cmd name="PictureEventChanged" id="0" content="NOTIFICATION">
             Event of picture recording
             <arg name="event" type="enum">
                 Last event of picture recording
@@ -416,7 +416,7 @@
             </arg>
         </cmd>
         
-        <cmd name="VideoEventChanged" id="1" notification="TRUE">
+        <cmd name="VideoEventChanged" id="1" content="NOTIFICATION">
             Event of video recording
             <arg name="event" type="enum">
                 Event of video recording
@@ -574,7 +574,7 @@
                 Altitude in meters (from GPS)
             </arg>
         </cmd>
-        <cmd name="SpeedChanged" id="5">
+        <cmd name="SpeedChanged" id="5" buffer="NON_ACK">
             Drone speed changed
             <arg name="speedX" type="float">
                 Speed on the x axis (when drone moves forward, speed is > 0) (in m/s)
@@ -586,7 +586,7 @@
                 Speed on the z axis (when drone moves down, speed is > 0) (in m/s)
             </arg>
         </cmd>
-        <cmd name="AttitudeChanged" id="6">
+        <cmd name="AttitudeChanged" id="6" buffer="NON_ACK">
             Drone attitude changed
             <arg name="roll" type="float">
                 roll value (in radian)
@@ -605,7 +605,7 @@
                 State of automatic take off mode (1 if enabled)
             </arg>
         </cmd>
-        <cmd name="AltitudeChanged" id="8">
+        <cmd name="AltitudeChanged" id="8" buffer="NON_ACK">
             Drone altitude changed
             <arg name="altitude" type="double">
                 Altitude in meters
@@ -616,7 +616,7 @@
     <class name="PilotingEvent" id="34">
         Events of Piloting
         
-        <cmd name="moveByEnd" id="0" notification="TRUE">
+        <cmd name="moveByEnd" id="0" content="NOTIFICATION">
             [NOT USED] End of relative displacement of the drone
             The frame is horizontal and relative to the current drone orientation:
             - X is front

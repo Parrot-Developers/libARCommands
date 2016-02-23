@@ -87,7 +87,7 @@
     <class name="NetworkEvent" id="1">
         Network Event from product
         
-        <cmd name="Disconnection" id="0" notification="TRUE">
+        <cmd name="Disconnection" id="0" content="NOTIFICATION">
             Signals the remote that the host will disconnect and close its
             libARNetwork instance (and all threads that use libARNetwork)
             <arg name="cause" type="enum">
@@ -220,7 +220,7 @@
             State sent when all product states has been sent.
         </cmd>
         
-        <cmd name="BatteryStateChanged" id="1">
+        <cmd name="BatteryStateChanged" id="1" buffer="NON_ACK">
             Battery state
             <arg name="percent" type="u8">
                 Battery percentage
@@ -287,7 +287,7 @@
             </arg>
         </cmd>
         
-        <cmd name="WifiSignalChanged" id="7">
+        <cmd name="WifiSignalChanged" id="7" buffer="NON_ACK">
             Wifi Signal between controller and product state
             <arg name="rssi" type="i16">
                 RSSI of the signal between controller and the product (in dbm)
@@ -641,10 +641,10 @@
     
     <class name="FlightPlanEvent" id="19">
         FlightPlan Event commands
-        <cmd name="StartingErrorEvent" id="0" notification="TRUE">
+        <cmd name="StartingErrorEvent" id="0" content="NOTIFICATION">
             Event of flight plan start error
         </cmd>
-        <cmd name="SpeedBridleEvent" id="1" notification="TRUE">
+        <cmd name="SpeedBridleEvent" id="1" content="NOTIFICATION">
             Bridle speed of the drone
         </cmd>
     </class>
