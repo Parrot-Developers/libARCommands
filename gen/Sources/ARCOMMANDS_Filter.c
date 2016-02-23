@@ -932,14 +932,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdWifiRssiChangedBehavior = defaultBehavior;
     } // No else : Processing block
 
-    if (localError != ARCOMMANDS_FILTER_OK)
-    {
-        if (retFilter != NULL)
-        {
-            ARCOMMANDS_Filter_DeleteFilter (&retFilter);
-        } // No else : Nothing to do if the pointer is already NULL
-    } // No else : Only do cleanup if an error occured
-
     if (error != NULL)
     {
         *error = localError;
