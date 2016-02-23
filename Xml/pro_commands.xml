@@ -138,7 +138,7 @@
             </arg>
         </cmd>
     </class>
-    <class name="ProEvent" id="2" notification="TRUE">
+    <class name="ProEvent" id="2" content="NOTIFICATION">
         Pro related events from the product to the controller
         <cmd name="ChallengeEvent" id="0">
             Challenge event sent from the drone

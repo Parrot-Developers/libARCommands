@@ -339,7 +339,7 @@
     <class name="MediaRecordEvent" id="2">
         Events of media recording
         
-        <cmd name="PictureEventChanged" id="0" notification="TRUE">
+        <cmd name="PictureEventChanged" id="0" content="NOTIFICATION">
             Event of picture recording
             <arg name="event" type="enum">
                 Last event of picture recording

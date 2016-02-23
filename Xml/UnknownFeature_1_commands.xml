@@ -138,7 +138,7 @@
         <cmd name="geographic_run" id="2">
             <comment 
                 title="Begin or stop geographic type followMe"
-                desc="Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\
+                desc="Begin or stop geographic type followMe (follow the leader keeping the same vector). \n
                       Sending this command will stop other running followMe."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -169,7 +169,7 @@
         <cmd name="relative_run" id="3">
             <comment 
                 title="Begin or stop relative type followMe"
-                desc="Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\
+                desc="Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n
                       Sending this command will stop other running followMe."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -198,7 +198,7 @@
         <cmd name="look_at_run" id="4">
             <comment 
                 title="Begin or stop look at type followMe"
-                desc="Begin or stop look at type followMe (stare at the leader while hovering).\n\ 
+                desc="Begin or stop look at type followMe (stare at the leader while hovering).\n
                     Sending this command will stop other running followMe."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -216,7 +216,7 @@
         <evt name="geographic_config_changed" id="6">
             <comment 
                 title="Geographic configuration changed"
-                desc="Geographic configuration changed.\n\ 
+                desc="Geographic configuration changed.\n
                     This event is only valid when [Run type](#134-2) is geographic."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="distance_is_default" type="u8">
@@ -242,7 +242,7 @@
         <evt name="relative_config_changed" id="7">
             <comment 
                 title="Relative configuration changed"
-                desc="Relative configuration changed.\n\ 
+                desc="Relative configuration changed.\n
                     This event is only valid when [Run type](#134-2) is relative."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="distance_is_default" type="u8">
@@ -269,7 +269,7 @@
         <cmd name="spiral_anim_run" id="8">
             <comment 
                 title="Begin or stop a spiral animation"
-                desc="Begin or stop a spiral animation.\n\ 
+                desc="Begin or stop a spiral animation.\n
                     The spiral animation allows the drone to revolve around the target while going up, with a fixed radius."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -309,7 +309,7 @@
         <cmd name="swing_anim_run" id="9">
             <comment 
                 title="Begin or stop a swing animation"
-                desc="Begin or stop a swing animation.\n\ 
+                desc="Begin or stop a swing animation.\n
                     The swing animation enables a vertical point of view while the drone passes over the target."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -338,7 +338,7 @@
         <cmd name="boomerang_anim_run" id="10">
             <comment 
                 title="Begin or stop a boomerang animation"
-                desc="Begin or stop a boomerang animation.\n\ 
+                desc="Begin or stop a boomerang animation.\n
                     The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="start" type="u8">
@@ -367,7 +367,7 @@
         <cmd name="candle_anim_run" id="11">
             <comment 
                 title="Begin or stop a candle animation"
-                desc="Begin or stop a candle animation.\n\ 
+                desc="Begin or stop a candle animation.\n
                     The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>            
             <arg name="start" type="u8">
@@ -396,7 +396,7 @@
         <cmd name="dolly_slide_anim_run" id="12">
             <comment 
                 title="Begin or stop a dolly slide animation"
-                desc="Begin or stop a dolly slide animation.\n\ 
+                desc="Begin or stop a dolly slide animation.\n
                     Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path."
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>   
             <arg name="start" type="u8">
@@ -442,7 +442,7 @@
         <evt name="spiral_anim_config_changed" id="14">
             <comment 
                 title="Spiral animation configuration changed"
-                desc="Spiral animation configuration changed.\n\
+                desc="Spiral animation configuration changed.\n
                 This event is only valid when AnimRun type is spiral"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="speed_is_default" type="u8">
@@ -469,7 +469,7 @@
         <evt name="swing_anim_config_changed" id="15">
             <comment 
                 title="Swing animation configuration changed"
-                desc="Swing animation configuration changed.\n\
+                desc="Swing animation configuration changed.\n
                 This event is only valid when AnimRun type is swing"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="speed_is_default" type="u8">
@@ -489,7 +489,7 @@
         <evt name="boomerang_anim_config_changed" id="16">
             <comment 
                 title="Boomerang animation configuration changed"
-                desc="Boomerang animation configuration changed.\n\
+                desc="Boomerang animation configuration changed.\n
                 This event is only valid when AnimRun type is boomerang"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="speed_is_default" type="u8">
@@ -509,7 +509,7 @@
         <evt name="candle_anim_config_changed" id="17">
             <comment 
                 title="Candle animation configuration changed"
-                desc="Candle animation configuration changed.\n\
+                desc="Candle animation configuration changed.\n
                 This event is only valid when AnimRun type is candle"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="speed_is_default" type="u8">
@@ -529,7 +529,7 @@
         <evt name="dolly_slide_anim_config_changed" id="18">
             <comment 
                 title="DollySlide animation configuration changed"
-                desc="DollySlide animation configuration changed.\n\
+                desc="DollySlide animation configuration changed.\n
                 This event is only valid when AnimRun type is dolly_slide"
                 result="Event [WifiScanListChanged](#133-2) is triggered with all networks found."/>
             <arg name="speed_is_default" type="u8">
