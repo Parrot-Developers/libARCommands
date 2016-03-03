@@ -213,6 +213,8 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPCMDBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPostureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingAddCapOffsetBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingUserTakeOffBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingLandBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpStopBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpCancelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpLoadBehavior;
@@ -237,6 +239,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStatePostureChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateAlertStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateSpeedChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateFlyingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior;
@@ -671,6 +674,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoPilotingPCMDBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingPostureBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingAddCapOffsetBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingUserTakeOffBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingLandBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpStopBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpCancelBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpLoadBehavior = defaultBehavior;
@@ -695,6 +700,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoPilotingStatePostureChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = defaultBehavior;
+        retFilter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = defaultBehavior;
@@ -2122,6 +2128,16 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdJumpingSumoPilotingAddCapOffsetBehavior;
                 }
                 break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_ADDCAPOFFSET */
+                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_USERTAKEOFF:
+                {
+                    retStatus = filter->CmdJumpingSumoPilotingUserTakeOffBehavior;
+                }
+                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_USERTAKEOFF */
+                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_LAND:
+                {
+                    retStatus = filter->CmdJumpingSumoPilotingLandBehavior;
+                }
+                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_LAND */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -2147,6 +2163,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_SPEEDCHANGED */
+                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
+                {
+                    retStatus = filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -8959,6 +8980,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Fi
         filter->CmdJumpingSumoPilotingPCMDBehavior = behavior;
         filter->CmdJumpingSumoPilotingPostureBehavior = behavior;
         filter->CmdJumpingSumoPilotingAddCapOffsetBehavior = behavior;
+        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
+        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpStopBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpCancelBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpLoadBehavior = behavior;
@@ -8983,6 +9006,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Fi
         filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
+        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
@@ -9036,6 +9060,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingBehavior (ARCOM
         filter->CmdJumpingSumoPilotingPCMDBehavior = behavior;
         filter->CmdJumpingSumoPilotingPostureBehavior = behavior;
         filter->CmdJumpingSumoPilotingAddCapOffsetBehavior = behavior;
+        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
+        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
     }
 
     return retError;
@@ -9063,6 +9089,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateBehavior (
         filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
+        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
     }
 
     return retError;
@@ -9661,6 +9688,50 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingAddCapOffsetBeh
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingLandBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
+    }
+
+    return retError;
+}
+
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -10184,6 +10255,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChang
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
     }
 
     return retError;

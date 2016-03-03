@@ -1825,6 +1825,28 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t) (fl
 void ARCOMMANDS_Decoder_SetJumpingSumoPilotingAddCapOffsetCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command JumpingSumo.Piloting.UserTakeOff
+ */
+typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingUserTakeOffCallback_t) (uint8_t state, void *custom);
+/**
+ * @brief callback setter for the command JumpingSumo.Piloting.UserTakeOff
+ * @param callback new callback for the command JumpingSumo.Piloting.UserTakeOff
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetJumpingSumoPilotingUserTakeOffCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingUserTakeOffCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command JumpingSumo.Piloting.Land
+ */
+typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingLandCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command JumpingSumo.Piloting.Land
+ * @param callback new callback for the command JumpingSumo.Piloting.Land
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetJumpingSumoPilotingLandCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingLandCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command JumpingSumo.Animations.JumpStop
  */
 typedef void (*ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpStopCallback_t) (void *custom);
@@ -2087,6 +2109,17 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateSpeedChangedCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command JumpingSumo.PilotingState.FlyingStateChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingStateFlyingStateChangedCallback_t) (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom);
+/**
+ * @brief callback setter for the command JumpingSumo.PilotingState.FlyingStateChanged
+ * @param callback new callback for the command JumpingSumo.PilotingState.FlyingStateChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateFlyingStateChangedCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingStateFlyingStateChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command JumpingSumo.AnimationsState.JumpLoadChanged

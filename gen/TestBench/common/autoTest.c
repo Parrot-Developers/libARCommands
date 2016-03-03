@@ -205,6 +205,8 @@ int unknown_feature_1UserFramingPositionChangedShouldBeCalled = 0;
 int JumpingSumoPilotingPCMDShouldBeCalled = 0;
 int JumpingSumoPilotingPostureShouldBeCalled = 0;
 int JumpingSumoPilotingAddCapOffsetShouldBeCalled = 0;
+int JumpingSumoPilotingUserTakeOffShouldBeCalled = 0;
+int JumpingSumoPilotingLandShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpStopShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpCancelShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpLoadShouldBeCalled = 0;
@@ -229,6 +231,7 @@ int JumpingSumoVideoSettingsAutorecordShouldBeCalled = 0;
 int JumpingSumoPilotingStatePostureChangedShouldBeCalled = 0;
 int JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 0;
 int JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
+int JumpingSumoPilotingStateFlyingStateChangedShouldBeCalled = 0;
 int JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 0;
 int JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 0;
 int JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 0;
@@ -3954,6 +3957,32 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingAddCapOffsetCb (float offset, void 
     }
 }
 
+void ARCOMMANDS_Testbench_JumpingSumoPilotingUserTakeOffCb (uint8_t state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Piloting.UserTakeOff --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
+    if (state != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoPilotingUserTakeOffShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoPilotingLandCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Piloting.Land --> Custom PTR = %p", custom);
+    if (JumpingSumoPilotingLandShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpStopCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpStop --> Custom PTR = %p", custom);
@@ -4326,6 +4355,22 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb (int8_t speed, 
         errcount++ ;
     }
     if (JumpingSumoPilotingStateSpeedChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoPilotingStateFlyingStateChangedCb (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.PilotingState.FlyingStateChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoPilotingStateFlyingStateChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8685,6 +8730,8 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingPCMDCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingPCMDCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingPCMDCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingPostureCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingPostureCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingPostureCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingAddCapOffsetCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingAddCapOffsetCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingUserTakeOffCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingUserTakeOffCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingUserTakeOffCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingLandCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingLandCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingLandCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpStopCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpStopCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpStopCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpCancelCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpCancelCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCancelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpLoadCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpLoadCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpLoadCb, (void *)cbCustom++ );
@@ -8709,6 +8756,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingStatePostureChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStatePostureChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStatePostureChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateAlertStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateSpeedChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateFlyingStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateFlyingStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateFlyingStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpLoadChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpLoadChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpLoadChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpTypeChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpTypeChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpTypeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpMotorProblemChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb, (void *)cbCustom++ );
@@ -13937,6 +13985,68 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingUserTakeOff (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Piloting.UserTakeOff\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Piloting.UserTakeOff succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingUserTakeOffBehavior);
+        JumpingSumoPilotingUserTakeOffShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingUserTakeOffShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingLand (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Piloting.Land\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Piloting.Land succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingLandBehavior);
+        JumpingSumoPilotingLandShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingLandShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsJumpStop (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14674,6 +14784,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateFlyingStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.FlyingStateChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.FlyingStateChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStateFlyingStateChangedBehavior);
+        JumpingSumoPilotingStateFlyingStateChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingStateFlyingStateChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

@@ -116,6 +116,18 @@
                 Offset value in radians.
             </arg>
         </cmd>
+        <cmd name="UserTakeOff" id="3">
+            Set drone in user take off state
+            Only used for Unknown_Product_1 product
+            <arg name="state" type="u8">
+                State of user take off mode
+                - 1 to enter in user take off.
+                - 0 to exit from user take off.
+            </arg>
+        </cmd>
+        <cmd name="Land" id="4">
+            Ask the Unknown_Product_1 to land
+        </cmd>
     </class>
 
     <class name="PilotingState" id="1">
@@ -167,6 +179,35 @@
             </arg>
             <arg name="realSpeed" type="i16">
                 Actual real-world speed in cm/s. Value -32768 returned if not available.
+            </arg>
+        </cmd>
+        
+        <cmd name="FlyingStateChanged" id="3">
+            Drone flying state changed
+            Only used for Unknown_Product_1
+            <arg name="state" type="enum">
+                Drone flying state
+                <enum name="landed">
+                    Landed state
+                </enum>
+                <enum name="takingoff">
+                    Taking off state
+                </enum>
+                <enum name="flying">
+                    Flying state
+                </enum>
+                <enum name="landing">
+                    Landing state
+                </enum>
+                <enum name="emergency">
+                    Emergency state
+                </enum>
+                <enum name="usertakeoff">
+                    User take off state. Waiting for user action to take off.
+                </enum>
+                <enum name="init">
+                    Initializing state (user should let the drone steady for a while)
+                </enum>
             </arg>
         </cmd>
     </class>
