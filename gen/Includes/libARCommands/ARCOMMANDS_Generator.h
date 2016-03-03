@@ -65,6 +65,80 @@ typedef enum {
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateGenericDefault (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 
+// Feature pro
+
+
+/**
+ * @brief Bought features on this pro version of the controller (features that have been bought)
+ * This command starts the pro authentification process
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _features Bought features
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProBoughtFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
+
+/**
+ * @brief Response to the challenge string sent by the controller
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+ * @param _signedChallenge the signed challenge
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProResponse (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, const char * _signedChallenge);
+
+/**
+ * @brief Activate some pro features
+ * Pro features activated should be part of the list returned by ProState->FeaturesSupported
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _features Pro features to activate
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProActivateFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
+
+/**
+ * @brief Features supported. This command ends the pro authentification
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _status Status of the supported features
+ * @param _features Supported pro features.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProStateSupportedFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS _status, uint64_t _features);
+
+/**
+ * @brief Pro features that are currently activated
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _features Activated pro features.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProStateFeaturesActivated (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
+
+/**
+ * @brief Challenge event sent from the drone
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _challenge the challenge that the receiver will have to sign
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProEventChallengeEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _challenge);
+
+
 // Feature ARDrone3
 
 
@@ -172,9 +246,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingMoveBy 
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of user take off mode
- * @param _state - 1 to enter in user take off.
- * @param _state - 0 to exit from user take off.
+ * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PilotingUserTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
@@ -207,12 +279,8 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3AnimationsFlip 
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _tilt Tilt camera consign for the drone (in degree)
- * @param _tilt The value is saturated by the drone.
- * @param _tilt Saturation value is sent by thre drone through CameraSettingsChanged command.
- * @param _pan Pan camera consign for the drone (in degree)
- * @param _pan The value is saturated by the drone.
- * @param _pan Saturation value is sent by thre drone through CameraSettingsChanged command.
+ * @param _tilt Tilt camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
+ * @param _pan Pan camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3CameraOrientation (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _tilt, int8_t _pan);
@@ -1623,209 +1691,133 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateARDrone3PROStateFeature
 
 
 /**
- * @brief Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
+ * @brief Begin or stop geographic type followMe (follow the leader keeping the same vector).
+ * Sending this command will stop other running followMe.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start geographic unknown feature_1 process, 0 to stop it
- * @param _start Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
- * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)
- * @param _distance_is_default Not used when arg start is at 0
- * @param _distance_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
- * @param _distance The distance leader-follower in meter
- * @param _distance Not used when arg start is at 0
- * @param _distance Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
+ * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)\nNot used when arg start is at 0
+ * @param _distance The distance leader-follower in meter\nNot used when arg start is at 0
  * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation (in this case elevation value is not used) (not used when arg start is at 0)
- * @param _elevation_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
  * @param _elevation The elevation leader-follower in rad (not used when arg start is at 0)
- * @param _elevation Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
  * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth (in this case azimuth value is not used) (not used when arg start is at 0)
- * @param _azimuth_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
  * @param _azimuth The azimuth north-leader-follower in rad (not used when arg start is at 0)
- * @param _azimuth Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1GeographicRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _distance_is_default, float _distance, uint8_t _elevation_is_default, float _elevation, uint8_t _azimuth_is_default, float _azimuth);
 
 /**
- * @brief Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
+ * @brief Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).
+ * Sending this command will stop other running followMe.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start relative unknown feature_1 process, 0 to stop it
- * @param _start Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used) (not used when arg start is at 0)
- * @param _distance_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _distance The distance leader-follower in meter (not used when arg start is at 0)
- * @param _distance Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation (in this case elevation value is not used) (not used when arg start is at 0)
- * @param _elevation_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _elevation The elevation leader-follower in rad (not used when arg start is at 0)
- * @param _elevation Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth (in this case azimuth value is not used) (not used when arg start is at 0)
- * @param _azimuth_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @param _azimuth The azimuth north-leader-follower in rad (not used when arg start is at 0)
- * @param _azimuth Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1RelativeRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _distance_is_default, float _distance, uint8_t _elevation_is_default, float _elevation, uint8_t _azimuth_is_default, float _azimuth);
 
 /**
- * @brief Begin or stop look at type followMe (stare at the leader while hovering).\n\                      Sending this command will stop other running followMe.
+ * @brief Begin or stop look at type followMe (stare at the leader while hovering).
+ * Sending this command will stop other running followMe.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start look at process, 0 to stop it
- * @param _start Begin or stop look at type followMe (stare at the leader while hovering).\n\                      Sending this command will stop other running followMe.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1LookAtRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start);
 
 /**
- * @brief Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
+ * @brief Begin or stop a spiral animation.
+ * The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start the anim, 0 to stop it
- * @param _start Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
- * @param _speed_is_default Not used when start is 0
- * @param _speed_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _speed The desired speed of the anim in m/s
- * @param _speed Not used when speed_is_default is 1
- * @param _speed Not used when start is 0
- * @param _speed Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used
- * @param _revolution_nb_is_default Not used when start is 0
- * @param _revolution_nb_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _revolution_number The number of revolution (in turn)
- * @param _revolution_number Negative value is infinite
- * @param _revolution_number Example: 1.5 makes an entire turn plus half of a turn
- * @param _revolution_number Not used when revolutionNb_is_default is 1
- * @param _revolution_number Not used when start is 0
- * @param _revolution_number Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
- * @param _vertical_distance_is_default Not used when start is 0
- * @param _vertical_distance_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
- * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m
- * @param _vertical_distance Not used when verticalDistance_is_default is 1
- * @param _vertical_distance Not used when start is 0
- * @param _vertical_distance Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
+ * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+ * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+ * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used\nNot used when start is 0
+ * @param _revolution_number The number of revolution (in turn)\nNegative value is infinite\nExample: 1.5 makes an entire turn plus half of a turn\nNot used when revolutionNb_is_default is 1\nNot used when start is 0
+ * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1SpiralAnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _speed_is_default, float _speed, uint8_t _revolution_nb_is_default, float _revolution_number, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
+ * @brief Begin or stop a swing animation.
+ * The swing animation enables a vertical point of view while the drone passes over the target.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start the anim, 0 to stop it
- * @param _start Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
- * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
- * @param _speed_is_default Not used when start is 0
- * @param _speed_is_default Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
- * @param _speed The desired speed of the anim in m/s
- * @param _speed Not used when speed_is_default is 1
- * @param _speed Not used when start is 0
- * @param _speed Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
- * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
- * @param _vertical_distance_is_default Not used when start is 0
- * @param _vertical_distance_is_default Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
- * @param _vertical_distance Distance that should be made by the product to reach the top of the swing in m
- * @param _vertical_distance Not used when verticalDistance_is_default is 1
- * @param _vertical_distance Not used when start is 0
- * @param _vertical_distance Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
+ * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+ * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+ * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _vertical_distance Distance that should be made by the product to reach the top of the swing in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1SwingAnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _speed_is_default, float _speed, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
+ * @brief Begin or stop a boomerang animation.
+ * The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start the anim, 0 to stop it
- * @param _start Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
- * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
- * @param _speed_is_default Not used when start is 0
- * @param _speed_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
- * @param _speed The desired speed of the anim in m/s
- * @param _speed Not used when speed_is_default is 1
- * @param _speed Not used when start is 0
- * @param _speed Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
- * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used
- * @param _distance_is_default Not used when start is 0
- * @param _distance_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
- * @param _distance Distance that should be made by the product to reach its return point in m
- * @param _distance Not used when distance_is_default is 1
- * @param _distance Not used when start is 0
- * @param _distance Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
+ * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+ * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+ * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _distance Distance that should be made by the product to reach its return point in m\nNot used when distance_is_default is 1\nNot used when start is 0
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1BoomerangAnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _speed_is_default, float _speed, uint8_t _distance_is_default, float _distance);
 
 /**
- * @brief Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
+ * @brief Begin or stop a candle animation.
+ * The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start the anim, 0 to stop it
- * @param _start Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
- * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
- * @param _speed_is_default Not used when start is 0
- * @param _speed_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
- * @param _speed The desired speed of the anim in m/s
- * @param _speed Not used when speed_is_default is 1
- * @param _speed Not used when start is 0
- * @param _speed Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
- * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
- * @param _vertical_distance_is_default Not used when start is 0
- * @param _vertical_distance_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
- * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m
- * @param _vertical_distance Not used when verticalDistance_is_default is 1
- * @param _vertical_distance Not used when start is 0
- * @param _vertical_distance Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
+ * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+ * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+ * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1CandleAnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _speed_is_default, float _speed, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
+ * @brief Begin or stop a dolly slide animation.
+ * Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _start 1 to start the anim, 0 to stop it
- * @param _start Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
- * @param _speed_is_default Not used when start is 0
- * @param _speed_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _speed The desired speed of the anim in m/s
- * @param _speed Not used when speed_is_default is 1
- * @param _speed Not used when start is 0
- * @param _speed Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _angle_is_default 0 if the angle is set by user, 1 if default value should be used
- * @param _angle_is_default Not used when start is 0
- * @param _angle_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _angle Desired angle Product-User-Target in rad
- * @param _angle Not used when angle_is_default is 1
- * @param _angle Not used when start is 0
- * @param _angle Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value should be used
- * @param _horizontal_distance_is_default Not used when start is 0
- * @param _horizontal_distance_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
- * @param _horizontal_distance Distance that should be made by the product to reach its target in m
- * @param _horizontal_distance Not used when horizontalDistance_is_default is 1
- * @param _horizontal_distance Not used when start is 0
- * @param _horizontal_distance Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
+ * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+ * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+ * @param _angle_is_default 0 if the angle is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _angle Desired angle Product-User-Target in rad\nNot used when angle_is_default is 1\nNot used when start is 0
+ * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value should be used\nNot used when start is 0
+ * @param _horizontal_distance Distance that should be made by the product to reach its target in m\nNot used when horizontalDistance_is_default is 1\nNot used when start is 0
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1DollySlideAnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _start, uint8_t _speed_is_default, float _speed, uint8_t _angle_is_default, float _angle, uint8_t _horizontal_distance_is_default, float _horizontal_distance);
@@ -1837,9 +1829,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1DollySl
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _horizontal Horizontal position in the video (in %, from left to right)
- * @param _horizontal User desired framing in the video.
  * @param _vertical Vertical position in the video (in %, from bottom to top)
- * @param _vertical User desired framing in the video.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1UserFramingPosition (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _horizontal, int8_t _vertical);
@@ -1882,17 +1872,11 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1UserBar
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _target_pan Pan angle of detected target in radian
- * @param _target_pan Send vision detection results.
  * @param _target_tilt Tilt angle of detected target in radian
- * @param _target_tilt Send vision detection results.
  * @param _change_of_scale Target's change of scale : new width = (1+ changOfScale) * old width
- * @param _change_of_scale Send vision detection results.
  * @param _confidence_index Confidence index of the Lynx detection (from 0 to 255, the highest is the best)
- * @param _confidence_index Send vision detection results.
  * @param _is_new_selection Boolean. 1 if the selection is new, 0 otherwise
- * @param _is_new_selection Send vision detection results.
  * @param _timestamp Acquisition time of processed picture in millisecond
- * @param _timestamp Send vision detection results.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1LynxDetection (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _target_pan, float _target_tilt, float _change_of_scale, uint8_t _confidence_index, uint8_t _is_new_selection, uint64_t _timestamp);
@@ -1903,7 +1887,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1LynxDet
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type Get the UnknownFeature_1 types you can run.
+ * @param _type Types of UnknownFeature_1 available
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1Availability (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE _type);
@@ -1914,50 +1898,41 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1Availab
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _type Type of UnknownFeature_1
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1Run (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_FOLLOW_ME_TYPE _type);
 
 /**
- * @brief Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
+ * @brief Geographic configuration changed.
+ * This event is only valid when [Run type](#134-2) is geographic.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
- * @param _distance_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
- * @param _distance Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation
- * @param _elevation_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation angle
- * @param _elevation Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
- * @param _azimuth_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @param _azimuth The azimuth north-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
- * @param _azimuth Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1GeographicConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _distance_is_default, float _distance, uint8_t _elevation_is_default, float _elevation, uint8_t _azimuth_is_default, float _azimuth);
 
 /**
- * @brief Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
+ * @brief Relative configuration changed.
+ * This event is only valid when [Run type](#134-2) is relative.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
- * @param _distance_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
- * @param _distance Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @param _elevation_is_default 0 if elevation is set by user, 1 if set set by current elevation
- * @param _elevation_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation
- * @param _elevation Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
- * @param _azimuth_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @param _azimuth The azimuth course-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
- * @param _azimuth Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1RelativeConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _distance_is_default, float _distance, uint8_t _elevation_is_default, float _elevation, uint8_t _azimuth_is_default, float _azimuth);
@@ -1968,106 +1943,86 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1Relativ
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type State of the current UnknownFeature_1 animation.
+ * @param _type Type of the current UnknownFeature_1 animation
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1AnimRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_FOLLOW_ME_ANIM_TYPE _type);
 
 /**
- * @brief Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
+ * @brief Spiral animation configuration changed.
+ * This event is only valid when AnimRun type is spiral
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
- * @param _speed_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
  * @param _speed The speed of the anim in m/s
- * @param _speed Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
  * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb is used
- * @param _revolution_nb_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
- * @param _revolution_nb The number of revolution (in turn)
- * @param _revolution_nb Negative value is infinite
- * @param _revolution_nb Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
+ * @param _revolution_nb The number of revolution (in turn)\nNegative value is infinite
  * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
- * @param _vertical_distance_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
  * @param _vertical_distance Distance that will be made by the product to reach the top of the spiral in m
- * @param _vertical_distance Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1SpiralAnimConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _speed_is_default, float _speed, uint8_t _revolution_nb_is_default, float _revolution_nb, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
+ * @brief Swing animation configuration changed.
+ * This event is only valid when AnimRun type is swing
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
- * @param _speed_is_default Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
  * @param _speed The speed of the anim in m/s
- * @param _speed Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
  * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
- * @param _vertical_distance_is_default Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
  * @param _vertical_distance Distance that will be made by the product to reach the top of the swing in m
- * @param _vertical_distance Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1SwingAnimConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _speed_is_default, float _speed, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
+ * @brief Boomerang animation configuration changed.
+ * This event is only valid when AnimRun type is boomerang
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
- * @param _speed_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
  * @param _speed The speed of the anim in m/s
- * @param _speed Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
  * @param _distance_is_default 0 if the distance is set by user, 1 if default value is used
- * @param _distance_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
  * @param _distance Distance that will be made by the product to reach its return point in m
- * @param _distance Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1BoomerangAnimConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _speed_is_default, float _speed, uint8_t _distance_is_default, float _distance);
 
 /**
- * @brief Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
+ * @brief Candle animation configuration changed.
+ * This event is only valid when AnimRun type is candle
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
- * @param _speed_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
  * @param _speed The speed of the anim in m/s
- * @param _speed Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
  * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
- * @param _vertical_distance_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
  * @param _vertical_distance Distance that will be made by the product to reach the top of the vertical zoom-out in m
- * @param _vertical_distance Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1CandleAnimConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _speed_is_default, float _speed, uint8_t _vertical_distance_is_default, float _vertical_distance);
 
 /**
- * @brief DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
+ * @brief DollySlide animation configuration changed.
+ * This event is only valid when AnimRun type is dolly_slide
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
- * @param _speed_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @param _speed The speed of the anim in m/s
- * @param _speed DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @param _angle_is_default 0 if the angle is set by user, 1 if default value is used
- * @param _angle_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @param _angle Angle Product-User-Target in rad
- * @param _angle DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value is used
- * @param _horizontal_distance_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @param _horizontal_distance Distance that will be made by the product to reach its target in m
- * @param _horizontal_distance DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1DollySlideAnimConfigChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _speed_is_default, float _speed, uint8_t _angle_is_default, float _angle, uint8_t _horizontal_distance_is_default, float _horizontal_distance);
@@ -2083,6 +2038,576 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1DollySl
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateUnknownFeature_1UserFramingPositionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _horizontal, int8_t _vertical);
+
+
+// Feature MiniDrone
+
+
+/**
+ * @brief Do a flat trim
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlatTrim (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Ask the drone to take off
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Ask the drone to move around.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _flag Boolean flag to activate roll/pitch movement
+ * @param _roll Roll consign for the MiniDrone [-100;100]
+ * @param _pitch Pitch consign for the MiniDrone [-100;100]
+ * @param _yaw Yaw consign for the MiniDrone [-100;100]
+ * @param _gaz Gaz consign for the MiniDrone [-100;100]
+ * @param _timestamp Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingPCMD (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _flag, int8_t _roll, int8_t _pitch, int8_t _yaw, int8_t _gaz, uint32_t _timestamp);
+
+/**
+ * @brief Ask the MiniDrone to land
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingLanding (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Put drone in emergency state
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingEmergency (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Set MiniDrone automatic take off mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of automatic take off mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTakeOffMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+
+/**
+ * @brief Set drone FlyingMode. Only supported by UnknownProduct_3
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Drone Flying Mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode);
+
+/**
+ * @brief Make a flip
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _direction Direction for the flip
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION _direction);
+
+/**
+ * @brief Change the product cap
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _offset Change the cap with offset angle [-180;180]
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneAnimationsCap (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int16_t _offset);
+
+/**
+ * @brief @deprecated
+ * Take picture
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mass_storage_id Mass storage id to take picture
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPicture (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _mass_storage_id);
+
+/**
+ * @brief Take picture
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPictureV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Set Max Altitude
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current altitude max in m
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxAltitude (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Set Max Tilt
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current tilt max in degree
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxTilt (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Set Max Vertical speed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max vertical speed in m/s
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Set Max Rotation speed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max rotation speed in degree/s
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxRotationSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Presence of wheels
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _present 1 if present, 0 if not present
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsWheels (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
+
+/**
+ * @brief Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max Horizontal speed in m/s
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Set MiniDrone cut out mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enable Enable cut out mode (1 if is activate, 0 otherwise)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
+
+/**
+ * @brief Set the controller latitude for a run.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _latitude Controller latitude in decimal degrees
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, double _latitude);
+
+/**
+ * @brief Set the controller longitude for a run.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _longitude Controller longitude in decimal degrees
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, double _longitude);
+
+/**
+ * @brief Set the controller type.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _type Controller type like iOS or Android
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _type);
+
+/**
+ * @brief Set the controller name.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _name Controller name like com.parrot.freeflight3
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _name);
+
+/**
+ * @brief MiniDrone send flat trim was correctly processed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Drone flying state changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state Drone flying state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state);
+
+/**
+ * @brief Drone alert state changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state Drone alert state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE _state);
+
+/**
+ * @brief Set MiniDrone automatic take off mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of automatic take off mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+
+/**
+ * @brief FlyingMode changed. Only supported by UnknownProduct_3
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Drone Flying Mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode);
+
+/**
+ * @brief @deprecated
+ * State of picture recording
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state 1 if picture has been taken, 0 otherwise
+ * @param _mass_storage_id Mass storage id to record
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state, uint8_t _mass_storage_id);
+
+/**
+ * @brief State of device picture recording changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of device picture recording
+ * @param _error Error to explain the state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE _state, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR _error);
+
+/**
+ * @brief Event of picture recording
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _event Last event of picture recording
+ * @param _error Error to explain the event
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT _event, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR _error);
+
+/**
+ * @brief Max Altitude sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current altitude max
+ * @param _min Range min of altitude
+ * @param _max Range max of altitude
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief Max tilt sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max tilt
+ * @param _min Range min of tilt
+ * @param _max Range max of tilt
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief Max vertical speed sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max vertical speed in m/s
+ * @param _min Range min of vertical speed
+ * @param _max Range max of vertical speed
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief Max rotation speed sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max rotation speed in degree/s
+ * @param _min Range min of rotation speed
+ * @param _max Range max of rotation speed
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief Presence of wheels sent by product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _present 1 if present, 0 if not present
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
+
+/**
+ * @brief Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max horizontal speed in m/s
+ * @param _min Range min of horizontal speed
+ * @param _max Range max of horizontal speed
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief @deprecated
+ * Product Motors versions
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _motor Product Motor number [1 - 4]
+ * @param _type Product Motor type
+ * @param _software Product Motors software version
+ * @param _hardware Product Motors hardware version
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _motor, const char * _type, const char * _software, const char * _hardware);
+
+/**
+ * @brief @deprecated
+ * Product Inertial versions
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _software Product Inertial software version
+ * @param _hardware Product Inertial hardware version
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductInertialVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _software, const char * _hardware);
+
+/**
+ * @brief MiniDrone cut out mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enable State of cut out mode (1 if is activate, 0 otherwise)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateCutOutModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
+
+/**
+ * @brief @deprecated
+ * Flood control regulation
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _delay Delay (in ms) between two PCMD
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _delay);
+
+
+// Feature commonDebug
+
+
+/**
+ * @brief Send a packet to the drone
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _packet Packet to send to the drone
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
+
+/**
+ * @brief Ask drone to start sending packets
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _frequency Frequency of the packet
+ * @param _packetSize Size of the the packet
+ * @param _date time of day in sec
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _frequency, uint8_t _packetSize, uint32_t _date);
+
+/**
+ * @brief Ask drone to stop sending packets
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Cmd sent by controller to get all settings info (generate "SettingInfo" events).
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Change setting value.
+ * Cmd sent by controller to change a writable setting.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Setting Id.
+ * @param _value New setting value (string encoded).
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsSet (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
+
+/**
+ * @brief Send a packet from drone
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _packet packet from drone
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
+
+/**
+ * @brief Sent by the drone as answer to GetSettingsInfo
+ * Describe a debug setting and give the current value.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+ * @param _id Setting Id.
+ * @param _label Setting displayed label (single line).
+ * @param _type Setting type.
+ * @param _mode Setting mode.
+ * @param _range_min Setting range minimal value for decimal type.
+ * @param _range_max Setting range max value for decimal type.
+ * @param _range_step Setting step value for decimal type
+ * @param _value Current Setting value (string encoded).
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value);
+
+/**
+ * @brief Setting value changed.
+ * Cmd sent by drone when setting changed occurred.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Setting Id.
+ * @param _value New setting value (string encoded).
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
 
 
 // Feature JumpingSumo
@@ -2130,9 +2655,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingAddC
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of user take off mode
- * @param _state - 1 to enter in user take off.
- * @param _state - 0 to exit from user take off.
+ * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingUserTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
@@ -2731,469 +3254,172 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoMediaStreami
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoVideoSettingsStateAutorecordChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enabled);
 
 
-// Feature MiniDrone
+// Feature wifi
 
 
 /**
- * @brief Do a flat trim
+ * @brief Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _band The band : 2.4 Ghz or 5 Ghz
+ * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScan (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _band);
+
+/**
+ * @brief Get all available Wifi channels.
+ * The list of available Wifi channels is related to the country of the drone. You can get this country with the event [WifiCountryChanged](#wifi-CountryChanged).
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlatTrim (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiUpdateAuthorizedChannels (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 /**
- * @brief Ask the drone to take off
+ * @brief Select channel of choosen band to put the drone's access point on this channel.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _type The wifi selection type available
+ * @param _band The band : 2.4 Ghz or 5 Ghz
+ * @param _channel The channel you want to select. Used only when type is manual.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetApChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SELECTION_TYPE _type, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel);
 
 /**
- * @brief Ask the drone to move around.
+ * @brief Set the wifi security.
+ * The security is changed on the next boot.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _flag Boolean flag to activate roll/pitch movement
- * @param _roll Roll consign for the MiniDrone [-100;100]
- * @param _pitch Pitch consign for the MiniDrone [-100;100]
- * @param _yaw Yaw consign for the MiniDrone [-100;100]
- * @param _gaz Gaz consign for the MiniDrone [-100;100]
- * @param _timestamp Timestamp in miliseconds. Not an absolute time. (Typically 0 = time of connexion).
+ * @param _type The type of wifi security (open, wpa2)
+ * @param _key The key to secure the network. Not used if type is open
+ * @param _key_type Type of the key sent
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingPCMD (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _flag, int8_t _roll, int8_t _pitch, int8_t _yaw, int8_t _gaz, uint32_t _timestamp);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetSecurity (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SECURITY_TYPE _type, const char * _key, eARCOMMANDS_WIFI_SECURITY_KEY_TYPE _key_type);
 
 /**
- * @brief Ask the MiniDrone to land
+ * @brief Set the wifi country.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _selection_mode Type of country selection
+ * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingLanding (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
 
 /**
- * @brief Put drone in emergency state
+ * @brief Set indoor or outdoor wifi settings.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _environement Type of environement
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingEmergency (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetEnvironement (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement);
 
 /**
- * @brief Set MiniDrone automatic take off mode
+ * @brief Wifi scan results.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of automatic take off mode
+ * @param _ssid SSID of the AP
+ * @param _rssi RSSI of the AP.
+ * @param _band The band : 2.4 Ghz or 5 Ghz
+ * @param _channel Channel of the AP
+ * @param _list_flags Flags use by maps and lists
+ * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTakeOffMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScannedItem (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _ssid, int16_t _rssi, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _list_flags);
 
 /**
- * @brief Set drone FlyingMode. Only supported by UnknownProduct_3
+ * @brief Available channel results.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _mode Drone Flying Mode
+ * @param _band The band : 2.4 Ghz or 5 Ghz
+ * @param _channel The channel number
+ * @param _environement Type of environement
+ * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
+ * @param _list_flags Flags use by maps and lists
+ * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _environement, uint8_t _list_flags);
 
 /**
- * @brief Make a flip
+ * @brief Wifi selection changed.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _direction Direction for the flip
+ * @param _type The wifi selection type available
+ * @param _band The band : 2.4 Ghz or 5 Ghz
+ * @param _channel The channel of the drone's access point
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION _direction);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiApChannelChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SELECTION_TYPE _type, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel);
 
 /**
- * @brief Change the product cap
+ * @brief Wifi security changed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _offset Change the cap with offset angle [-180;180]
+ * @param _key The key to secure the network. Not used if type is open
+ * @param _key_type The type of wifi security (open, wpa2)
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneAnimationsCap (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int16_t _offset);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSecurityChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _key, eARCOMMANDS_WIFI_SECURITY_TYPE _key_type);
 
 /**
- * @brief @deprecated
- * Take picture
+ * @brief Wifi country changed.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _mass_storage_id Mass storage id to take picture
+ * @param _selection_mode Type of country selection
+ * @param _code Country code with ISO 3166 format, empty string means unknown country.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPicture (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _mass_storage_id);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
 
 /**
- * @brief Take picture
+ * @brief Status of the wifi config : either indoor or outdoor.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise\nType of environement
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPictureV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiEnvironementChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement);
 
 /**
- * @brief Set Max Altitude
+ * @brief Rssi Changed. This is an information about the Wifi link quality.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current altitude max in m
+ * @param _rssi Rssi on the connected wifi network. Rssi values are generally between -30 and -120dBm. The nearest of 0 is the better.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxAltitude (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
-
-/**
- * @brief Set Max Tilt
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current tilt max in degree
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxTilt (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
-
-/**
- * @brief Set Max Vertical speed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max vertical speed in m/s
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
-
-/**
- * @brief Set Max Rotation speed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max rotation speed in degree/s
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxRotationSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
-
-/**
- * @brief Presence of wheels
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _present 1 if present, 0 if not present
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsWheels (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
-
-/**
- * @brief Set Max Horizontal speed (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max Horizontal speed in m/s
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
-
-/**
- * @brief Set MiniDrone cut out mode
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _enable Enable cut out mode (1 if is activate, 0 otherwise)
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
-
-/**
- * @brief Set the controller latitude for a run.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _latitude Controller latitude in decimal degrees
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, double _latitude);
-
-/**
- * @brief Set the controller longitude for a run.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _longitude Controller longitude in decimal degrees
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, double _longitude);
-
-/**
- * @brief Set the controller type.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type Controller type like iOS or Android
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _type);
-
-/**
- * @brief Set the controller name.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _name Controller name like com.parrot.freeflight3
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _name);
-
-/**
- * @brief MiniDrone send flat trim was correctly processed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
- * @brief Drone flying state changed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state Drone flying state
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state);
-
-/**
- * @brief Drone alert state changed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state Drone alert state
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE _state);
-
-/**
- * @brief Set MiniDrone automatic take off mode
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of automatic take off mode
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
-
-/**
- * @brief FlyingMode changed. Only supported by UnknownProduct_3
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _mode Drone Flying Mode
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode);
-
-/**
- * @brief @deprecated
- * State of picture recording
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state 1 if picture has been taken, 0 otherwise
- * @param _mass_storage_id Mass storage id to record
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state, uint8_t _mass_storage_id);
-
-/**
- * @brief State of device picture recording changed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of device picture recording
- * @param _error Error to explain the state
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE _state, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR _error);
-
-/**
- * @brief Event of picture recording
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _event Last event of picture recording
- * @param _error Error to explain the event
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT _event, eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR _error);
-
-/**
- * @brief Max Altitude sent by product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current altitude max
- * @param _min Range min of altitude
- * @param _max Range max of altitude
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
-
-/**
- * @brief Max tilt sent by product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max tilt
- * @param _min Range min of tilt
- * @param _max Range max of tilt
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
-
-/**
- * @brief Max vertical speed sent by product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max vertical speed in m/s
- * @param _min Range min of vertical speed
- * @param _max Range max of vertical speed
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
-
-/**
- * @brief Max rotation speed sent by product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max rotation speed in degree/s
- * @param _min Range min of rotation speed
- * @param _max Range max of rotation speed
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
-
-/**
- * @brief Presence of wheels sent by product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _present 1 if present, 0 if not present
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateWheelsChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _present);
-
-/**
- * @brief Max horizontal speed sent by product (only used in case where PilotingSettings_MaxTilt is not used like in hydrofoil mode)
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _current Current max horizontal speed in m/s
- * @param _min Range min of horizontal speed
- * @param _max Range max of horizontal speed
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
-
-/**
- * @brief @deprecated
- * Product Motors versions
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _motor Product Motor number [1 - 4]
- * @param _type Product Motor type
- * @param _software Product Motors software version
- * @param _hardware Product Motors hardware version
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _motor, const char * _type, const char * _software, const char * _hardware);
-
-/**
- * @brief @deprecated
- * Product Inertial versions
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _software Product Inertial software version
- * @param _hardware Product Inertial hardware version
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductInertialVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _software, const char * _hardware);
-
-/**
- * @brief MiniDrone cut out mode
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _enable State of cut out mode (1 if is activate, 0 otherwise)
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateCutOutModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
-
-/**
- * @brief @deprecated
- * Flood control regulation
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _delay Delay (in ms) between two PCMD
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _delay);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiRssiChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int16_t _rssi);
 
 
 // Feature SkyController
@@ -3483,8 +3709,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerAxisFilter
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _axis_id The axiscode to filter
- * @param _filter_uid_or_builder The mapping preset to associate with the axis
- * @param _filter_uid_or_builder (Or a string to build a new one)
+ * @param _filter_uid_or_builder The mapping preset to associate with the axis\n(Or a string to build a new one)
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersSetAxisFilter (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int32_t _axis_id, const char * _filter_uid_or_builder);
@@ -3518,9 +3743,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCoPiloting
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _enable Flag to enable the feature.
- * @param _enable 1 = enable quality updates
- * @param _enable 0 = disable quality updates
+ * @param _enable Flag to enable the feature.\n1 = enable quality updates\n0 = disable quality updates
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
@@ -3693,8 +3916,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSkyControl
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _latitude SkyController latitude (500. if not available)
  * @param _longitude SkyController longiture (500. if not available)
- * @param _altitude Altitude (in meters) above sea level
- * @param _altitude Only meaningful if latitude and longiture are available
+ * @param _altitude Altitude (in meters) above sea level\nOnly meaningful if latitude and longiture are available
  * @param _heading SkyController heading relative to magnetic north (500.f if not available)
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
@@ -3742,8 +3964,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerAccessPoin
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _type The type (axis/button) of the control
- * @param _id The button or axis id
- * @param _id @note A button and an axis can have the same ID, but their type is different
+ * @param _id The button or axis id\n@note A button and an axis can have the same ID, but their type is different
  * @param _name Display name for the control
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
@@ -3909,12 +4130,9 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCoPiloting
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _status The global status of the calibration
- * @param _X_Quality Calibration quality on X axis.
- * @param _X_Quality 0 is bad, 255 is perfect
- * @param _Y_Quality Calibration quality on Y axis.
- * @param _Y_Quality 0 is bad, 255 is perfect
- * @param _Z_Quality Calibration quality on Z axis.
- * @param _Z_Quality 0 is bad, 255 is perfect
+ * @param _X_Quality Calibration quality on X axis.\n0 is bad, 255 is perfect
+ * @param _Y_Quality Calibration quality on Y axis.\n0 is bad, 255 is perfect
+ * @param _Z_Quality Calibration quality on Z axis.\n0 is bad, 255 is perfect
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS _status, uint8_t _X_Quality, uint8_t _Y_Quality, uint8_t _Z_Quality);
@@ -3925,9 +4143,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibratio
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _enabled Flag (is the feature enabled).
- * @param _enabled 1 = The skycontroller sends updated when quality is updated
- * @param _enabled 0 = The skycontroller only sent updated when state is updated
+ * @param _enabled Flag (is the feature enabled).\n1 = The skycontroller sends updated when quality is updated\n0 = The skycontroller only sent updated when state is updated
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enabled);
@@ -4160,9 +4376,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonGPSControllerPosi
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _ready Bit field for TX and RX ready.
- * @param _ready bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
- * @param _ready bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
+ * @param _ready Bit field for TX and RX ready.\nbit 0 is 1 if controller is ready and wants to receive sound (Drone TX)\nbit 1 is 1 if controller is ready and wants to send sound (Drone RX)
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonAudioControllerReadyForStreaming (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _ready);
@@ -4458,10 +4672,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonCommonStateProduc
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _listFlags List entry attribute Bitfield.
- * @param _listFlags 0x01: First: indicate it's the first element of the list.
- * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
- * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+ * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
  * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
@@ -4669,9 +4880,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonARLibsVersionsSta
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _running Bit field for TX and RX running
- * @param _running bit 0 is 1 if Drone TX is running
- * @param _running bit 1 is 1 if Drone RX is running
+ * @param _running Bit field for TX and RX running\nbit 0 is 1 if Drone TX is running\nbit 1 is 1 if Drone RX is running
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonAudioStateAudioStreamingRunning (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _running);
@@ -4797,367 +5006,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonChargerStateCharg
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _runId);
-
-
-// Feature commonDebug
-
-
-/**
- * @brief Send a packet to the drone
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _packet Packet to send to the drone
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
-
-/**
- * @brief Ask drone to start sending packets
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _frequency Frequency of the packet
- * @param _packetSize Size of the the packet
- * @param _date time of day in sec
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _frequency, uint8_t _packetSize, uint32_t _date);
-
-/**
- * @brief Ask drone to stop sending packets
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
- * @brief Cmd sent by controller to get all settings info (generate "SettingInfo" events).
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
- * @brief Change setting value.
- * Cmd sent by controller to change a writable setting.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _id Setting Id.
- * @param _value New setting value (string encoded).
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsSet (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
-
-/**
- * @brief Send a packet from drone
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _packet packet from drone
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
-
-/**
- * @brief Sent by the drone as answer to GetSettingsInfo
- * Describe a debug setting and give the current value.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _listFlags List entry attribute Bitfield.
- * @param _listFlags 0x01: First: indicate it's the first element of the list.
- * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
- * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
- * @param _id Setting Id.
- * @param _label Setting displayed label (single line).
- * @param _type Setting type.
- * @param _mode Setting mode.
- * @param _range_min Setting range minimal value for decimal type.
- * @param _range_max Setting range max value for decimal type.
- * @param _range_step Setting step value for decimal type
- * @param _value Current Setting value (string encoded).
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value);
-
-/**
- * @brief Setting value changed.
- * Cmd sent by drone when setting changed occurred.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _id Setting Id.
- * @param _value New setting value (string encoded).
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
-
-
-// Feature pro
-
-
-/**
- * @brief Bought features on this pro version of the controller (features that have been bought)
- * This command starts the pro authentification process
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _features Bought features
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProBoughtFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
-
-/**
- * @brief Response to the challenge string sent by the controller
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _listFlags List entry attribute Bitfield.
- * @param _listFlags 0x01: First: indicate it's the first element of the list.
- * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
- * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
- * @param _signedChallenge the signed challenge
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProResponse (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, const char * _signedChallenge);
-
-/**
- * @brief Activate some pro features
- * Pro features activated should be part of the list returned by ProState->FeaturesSupported
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _features Pro features to activate
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProActivateFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
-
-/**
- * @brief Features supported. This command ends the pro authentification
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _status Status of the supported features
- * @param _features Supported pro features.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProStateSupportedFeatures (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS _status, uint64_t _features);
-
-/**
- * @brief Pro features that are currently activated
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _features Activated pro features.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProStateFeaturesActivated (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint64_t _features);
-
-/**
- * @brief Challenge event sent from the drone
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _challenge the challenge that the receiver will have to sign
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateProProEventChallengeEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _challenge);
-
-
-// Feature wifi
-
-
-/**
- * @brief Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _band Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.
- * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScan (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _band);
-
-/**
- * @brief Get all available Wifi channels.\nThe list of available Wifi channels is related to the country of the drone. You can get this country with the event [WifiCountryChanged](#wifi-CountryChanged).
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiUpdateAuthorizedChannels (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
- * @brief Select channel of choosen band to put the drone's access point on this channel.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type Select channel of choosen band to put the drone's access point on this channel.
- * @param _band Select channel of choosen band to put the drone's access point on this channel.
- * @param _channel The channel you want to select. Used only when type is manual.
- * @param _channel Select channel of choosen band to put the drone's access point on this channel.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetApChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SELECTION_TYPE _type, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel);
-
-/**
- * @brief Set the wifi security.\nThe security is changed on the next boot.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type Set the wifi security.\nThe security is changed on the next boot.
- * @param _key The key to secure the network. Not used if type is open
- * @param _key Set the wifi security.\nThe security is changed on the next boot.
- * @param _key_type Set the wifi security.\nThe security is changed on the next boot.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetSecurity (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SECURITY_TYPE _type, const char * _key, eARCOMMANDS_WIFI_SECURITY_KEY_TYPE _key_type);
-
-/**
- * @brief Set the wifi country.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _selection_mode Set the wifi country.
- * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
- * @param _code Set the wifi country.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
-
-/**
- * @brief Set indoor or outdoor wifi settings.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _environement Set indoor or outdoor wifi settings.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetEnvironement (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement);
-
-/**
- * @brief Wifi scan results.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _ssid SSID of the AP
- * @param _ssid Wifi scan results.
- * @param _rssi RSSI of the AP.
- * @param _rssi Wifi scan results.
- * @param _band Wifi scan results.
- * @param _channel Channel of the AP
- * @param _channel Wifi scan results.
- * @param _list_flags Wifi scan results.
- * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScannedItem (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _ssid, int16_t _rssi, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _list_flags);
-
-/**
- * @brief Available channel results.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _band Available channel results.
- * @param _channel The channel number
- * @param _channel Available channel results.
- * @param _environement Available channel results.
- * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
- * @param _list_flags Available channel results.
- * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _environement, uint8_t _list_flags);
-
-/**
- * @brief Wifi selection changed.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _type Wifi selection changed.
- * @param _band Wifi selection changed.
- * @param _channel The channel of the drone's access point
- * @param _channel Wifi selection changed.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiApChannelChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_SELECTION_TYPE _type, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel);
-
-/**
- * @brief Wifi security changed
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _key The key to secure the network. Not used if type is open
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSecurityChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _key, eARCOMMANDS_WIFI_SECURITY_TYPE _key_type);
-
-/**
- * @brief Wifi country changed.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _selection_mode Wifi country changed.
- * @param _code Country code with ISO 3166 format, empty string means unknown country.
- * @param _code Wifi country changed.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode, const char * _code);
-
-/**
- * @brief Status of the wifi config : either indoor or outdoor.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise
- * @param _environement Status of the wifi config : either indoor or outdoor.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiEnvironementChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement);
-
-/**
- * @brief Rssi Changed. This is an information about the Wifi link quality.
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _rssi Rssi on the connected wifi network. Rssi values are generally between -30 and -120dBm. The nearest of 0 is the better.
- * @param _rssi Rssi Changed. This is an information about the Wifi link quality.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiRssiChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int16_t _rssi);
 
 
 

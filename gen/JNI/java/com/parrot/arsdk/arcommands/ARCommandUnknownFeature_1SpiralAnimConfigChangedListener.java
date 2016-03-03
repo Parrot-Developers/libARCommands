@@ -39,18 +39,11 @@ public interface ARCommandUnknownFeature_1SpiralAnimConfigChangedListener {
     /**
      * Called when a command <code>SpiralAnimConfigChanged</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _speed The speed of the anim in m/s
-     * @param _speed Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb is used
-     * @param _revolution_nb_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
-     * @param _revolution_nb The number of revolution (in turn)
-     * @param _revolution_nb Negative value is infinite
-     * @param _revolution_nb Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
+     * @param _revolution_nb The number of revolution (in turn)\nNegative value is infinite
      * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
-     * @param _vertical_distance_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _vertical_distance Distance that will be made by the product to reach the top of the spiral in m
-     * @param _vertical_distance Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      */
     void onUnknownFeature_1SpiralAnimConfigChangedUpdate (byte speed_is_default, float speed, byte revolution_nb_is_default, float revolution_nb, byte vertical_distance_is_default, float vertical_distance);
 }

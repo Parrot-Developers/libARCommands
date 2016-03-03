@@ -39,6 +39,7 @@ public interface ARCommandWifiSecurityChangedListener {
     /**
      * Called when a command <code>SecurityChanged</code> in feature <code>Wifi</code> is decoded
      * @param _key The key to secure the network. Not used if type is open
+     * @param _key_type The type of wifi security (open, wpa2)
      */
     void onWifiSecurityChangedUpdate (String key, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM key_type);
 }

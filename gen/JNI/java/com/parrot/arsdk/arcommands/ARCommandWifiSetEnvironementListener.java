@@ -38,7 +38,7 @@ public interface ARCommandWifiSetEnvironementListener {
 
     /**
      * Called when a command <code>SetEnvironement</code> in feature <code>Wifi</code> is decoded
-     * @param _environement Set indoor or outdoor wifi settings.
+     * @param _environement Type of environement
      */
     void onWifiSetEnvironementUpdate (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
 }

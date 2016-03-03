@@ -38,10 +38,9 @@ public interface ARCommandWifiSetSecurityListener {
 
     /**
      * Called when a command <code>SetSecurity</code> in feature <code>Wifi</code> is decoded
-     * @param _type Set the wifi security.\nThe security is changed on the next boot.
+     * @param _type The type of wifi security (open, wpa2)
      * @param _key The key to secure the network. Not used if type is open
-     * @param _key Set the wifi security.\nThe security is changed on the next boot.
-     * @param _key_type Set the wifi security.\nThe security is changed on the next boot.
+     * @param _key_type Type of the key sent
      */
     void onWifiSetSecurityUpdate (ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM type, String key, ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_ENUM key_type);
 }

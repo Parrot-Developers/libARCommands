@@ -38,9 +38,8 @@ public interface ARCommandWifiCountryChangedListener {
 
     /**
      * Called when a command <code>CountryChanged</code> in feature <code>Wifi</code> is decoded
-     * @param _selection_mode Wifi country changed.
+     * @param _selection_mode Type of country selection
      * @param _code Country code with ISO 3166 format, empty string means unknown country.
-     * @param _code Wifi country changed.
      */
     void onWifiCountryChangedUpdate (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
 }

@@ -39,7 +39,6 @@ public interface ARCommandWifiRssiChangedListener {
     /**
      * Called when a command <code>RssiChanged</code> in feature <code>Wifi</code> is decoded
      * @param _rssi Rssi on the connected wifi network. Rssi values are generally between -30 and -120dBm. The nearest of 0 is the better.
-     * @param _rssi Rssi Changed. This is an information about the Wifi link quality.
      */
     void onWifiRssiChangedUpdate (short rssi);
 }

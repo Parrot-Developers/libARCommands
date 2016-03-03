@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
     Copyright (C) 2014 Parrot SA
 
@@ -31,13 +33,12 @@
 import sys
 import os
 import re
+import arsdkparser
 
-MYDIR=os.path.abspath(os.path.dirname(sys.argv[0]))
-if '' == MYDIR:
-    MYDIR=os.getcwd()
+MYDIR=os.path.abspath(os.path.dirname(__file__))
+LIBARCOMMANDS_DIR=os.path.realpath(os.path.join(MYDIR, ".."))
 
 sys.path.append('%(MYDIR)s/../../ARSDKBuildUtils/Utils/Python' % locals())
-sys.path.append('%(MYDIR)s/../tools' % locals())
 
 from ARFuncs import *
 from arsdkparser import *
@@ -114,13 +115,13 @@ JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 JAVA_ENUM_FILES_NAME=JNIClassName.upper() + '*_ENUM.java'
 
 #Relative path of SOURCE dir
-SRC_DIR=MYDIR + '/../gen/Sources/'
+SRC_DIR=LIBARCOMMANDS_DIR + '/gen/Sources/'
 
 #Relative path of INCLUDES dir
-INC_DIR=MYDIR + '/../gen/Includes/'
+INC_DIR=LIBARCOMMANDS_DIR + '/gen/Includes/'
 
 #Relative path of TESTBENCH dir
-TB__DIR=MYDIR + '/../gen/TestBench/'
+TB__DIR=LIBARCOMMANDS_DIR + '/gen/TestBench/'
 
 #Relative path of unix-like (Linux / os-x) TESTBENCH dir
 LIN_TB_DIR=TB__DIR + 'linux/'
@@ -129,7 +130,7 @@ LIN_TB_DIR=TB__DIR + 'linux/'
 COM_TB_DIR=TB__DIR + 'common/'
 
 #Relative path of JNI dir
-JNI_DIR=MYDIR + "/../gen/JNI/"
+JNI_DIR=LIBARCOMMANDS_DIR + "/gen/JNI/"
 
 #Relative path of JNI/C dir
 JNIC_DIR=JNI_DIR + 'c/'
@@ -462,80 +463,14 @@ LICENCE_HEADER='''/*
 */
 '''
 
-def generateCmds():
-    noGen = False
-    genDebug = False
+def interfaceName (ftr, cmd):
+    return JNIClassName + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener'
+
+def generateCmds(ctx):
+    genDebug = True
     genTreeFilename = None
     projects = [DEFAULTPROJECTNAME]
-    args = sys.argv
-    args.pop (0)
-    while len(args) > 0:
-        a = args.pop (0)
-        #################################
-        # If "-fname" is passed as an   #
-        # argument, just output the     #
-        # name of the generated files   #
-        #################################
-        if a == "-fname":
-            for fil in GENERATED_FILES:
-                ARPrint (fil + ' ', True)
-            ARPrint (JAVA_INTERFACES_FILES + ' ', True)
-            ARPrint (JAVA_ENUM_FILES, True)
-            ARPrint ('')
-            EXIT (0)
-        #################################
-        # If "-dname" is passed as an   #
-        # argument, just output the     #
-        # name of the generated dirs    #
-        #################################
-        elif a == "-dname":
-            ARPrint (SRC_DIR, True)
-            ARPrint (INC_DIR + LIB_NAME, True)
-            ARPrint (INC_DIR, True)
-            ARPrint (LIN_TB_DIR, True)
-            ARPrint (COM_TB_DIR, True)
-            ARPrint (TB__DIR, True)
-            ARPrint (JNIJ_OUT_DIR, True)
-            ARPrint (JNIJ_DIR, True)
-            ARPrint (JNIC_DIR, True)
-            ARPrint (JNI_DIR)
-            EXIT (0)
-        #################################
-        # If "-nogen" is passed as an   #
-        # argument, don't generate any  #
-        # file                          #
-        #################################
-        elif a == "-nogen":
-            noGen=True
-        #################################
-        # If -projectname is specified, #
-        # use its value to set the      #
-        # project name instead of the   #
-        # default one.                  #
-        #################################
-        elif a == "-projects":
-            projectsList = args.pop(0)
-            for project in projectsList.split(','):
-                projects.append (project)
-        #################################
-        # If -debug-cmds is specified   #
-        # and set to 'yes', generate    #
-        # commands for _debug.xml files.#
-        #################################
-        elif a == "-debug-cmds":
-            val = args.pop(0)
-            if val == 'yes':
-                genDebug = True
-        #################################
-        # If -gen-tree is specified,    #
-        # generate a C structs tree     #
-        # dump of Xml tree.             #
-        #################################
-        elif a == "-gen-tree":
-            genTreeFilename = args.pop(0)
-        elif a != "":
-            print("Invalid parameter %s." %(a))
-
+ 
     if not os.path.exists (SRC_DIR):
         os.makedirs (SRC_DIR)
     if not os.path.exists (INC_DIR):
@@ -555,7 +490,6 @@ def generateCmds():
     if not os.path.exists (JNIJ_OUT_DIR):
         os.makedirs (JNIJ_OUT_DIR)
 
-
     #################################
     # 1ST PART :                    #
     #################################
@@ -563,17 +497,6 @@ def generateCmds():
     # of commands / classes         #
     #################################
 
-    # Get xml file
-    listDir = os.listdir(MYDIR)
-    xmlFiles = [f for f in listDir if f.endswith('.xml')]
-    xmlFiles.remove('generic.xml')
-    xmlFiles = sorted(xmlFiles, key=str)
-
-    # Parse all xml files
-    ctx = ArParserCtx()
-    for xml in ['generic.xml'] + xmlFiles:
-        xmlPath = MYDIR+'/'+xml
-        parse_xml(ctx, xmlPath)
     allFeatures = ctx.features
 
     # Check types used
@@ -587,47 +510,6 @@ def generateCmds():
                     hasArgOfType[arg.argType.btfType] = True
                 else:
                     hasArgOfType[arg.argType] = True
-
-    if noGen: # called with "-nogen"
-        ARPrint ('Commands parsed:')
-        for ftr in allFeatures:
-            ARPrint ('Feature ' + get_ftr_old_name(ftr))
-            ARPrint ('/*')
-            ARPrint (' * ' + ftr.doc.replace('\n', '\n * '))
-            ARPrint (' */')
-            for enum in ftr.enums:
-                ARPrint (' --> enum:' + enum.name)
-                ARPrint ('     /* ')
-                ARPrint ('      * ' + enum.doc.replace('\n', '\n      * '))
-                ARPrint ('      */')
-                for eVal in enum.values:
-                    ARPrint ('     --> ' + eVal.name + 'val:' + str(eVal.value))
-                    ARPrint ('     /* ')
-                    ARPrint ('      * ' + eVal.doc.replace('\n', '\n      * '))
-                    ARPrint ('      */ ')
-            for msg in ftr.cmds + ftr.evts:
-                if isinstance (msg, ArCmd):
-                    ARPrint (' --> cmd:' + msg.name)
-                else:
-                    ARPrint (' --> evt:' + msg.name)
-                ARPrint ('     buffer:  ' + ArCmdBufferType.TO_STRING[msg.bufferType])
-                ARPrint ('     timeout: ' + ArCmdTimeoutPolicy.TO_STRING[msg.timeoutPolicy])
-                ARPrint ('     list:    ' + ArCmdListType.TO_STRING[msg.listType])
-                ARPrint ('     content: ' + ArCmdContent.TO_STRING[msg.content])
-                ARPrint ('     /* ')
-                ARPrint ('      * ' + msg.doc.replace('\n', '\n      * '))
-                ARPrint ('      */')
-                for arg in msg.args:
-                    if isinstance (arg.argType, ArEnum):
-                        ARPrint ('     (' + arg.argType.name + ' ' + arg.name + ')')
-                    elif isinstance (arg.argType, ArBitfield):
-                        ARPrint ('     (bitfield:' + ArArgType.TO_STRING[arg.argType.btfType] + ':' + arg.argType.enum.name + ' ' + arg.name + ')')
-                    else:
-                        ARPrint ('     (' + ArArgType.TO_STRING[arg.argType] + ' ' + arg.name + ')')
-                    ARPrint ('     /* ')
-                    ARPrint ('      * ' + arg.doc.replace('\n', '\n      * '))
-                    ARPrint ('      */')
-        EXIT (0)
 
     #################################
     # 2ND PART :                    #
@@ -3007,8 +2889,6 @@ def generateCmds():
     # Generate JNI C/Java code      #
     #################################
 
-    def interfaceName (ftr, cmd):
-        return JNIClassName + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener'
     def interfaceVar (ftr, cmd):
         return '_' + interfaceName (ftr, cmd)
     def javaCbName (ftr, cmd):
@@ -4027,5 +3907,27 @@ def generateCmds():
 
 #===============================================================================
 #===============================================================================
-if __name__ == "__main__":
-    generateCmds()
+def list_files(ctx, outdir):
+    # print c generated files
+    for f in GENERATED_FILES:
+        print os.path.join(outdir, f)
+
+    # print java enum class files
+    for ftr in ctx.features: 
+        for enum in ftr.enums:
+            print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java'
+
+    # print java listener class files
+    for ftr in ctx.features:
+        for cmd in ftr.cmds + ftr.evts:
+            print JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
+
+#===============================================================================
+#===============================================================================
+def generate_files(ctx, outdir):
+    generateCmds(ctx)
+
+#===============================================================================
+#===============================================================================
+#if __name__ == "__main__":
+#    generateCmds()

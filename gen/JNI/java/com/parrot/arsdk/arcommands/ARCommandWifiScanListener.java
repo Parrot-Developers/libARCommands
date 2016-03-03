@@ -38,7 +38,7 @@ public interface ARCommandWifiScanListener {
 
     /**
      * Called when a command <code>Scan</code> in feature <code>Wifi</code> is decoded
-     * @param _band Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.
+     * @param _band The band : 2.4 Ghz or 5 Ghz
      */
     void onWifiScanUpdate (byte band);
 }

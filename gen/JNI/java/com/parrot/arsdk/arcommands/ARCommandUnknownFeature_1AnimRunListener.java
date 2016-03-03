@@ -38,7 +38,7 @@ public interface ARCommandUnknownFeature_1AnimRunListener {
 
     /**
      * Called when a command <code>AnimRun</code> in feature <code>UnknownFeature_1</code> is decoded
-     * @param _type State of the current UnknownFeature_1 animation.
+     * @param _type Type of the current UnknownFeature_1 animation
      */
     void onUnknownFeature_1AnimRunUpdate (ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_ENUM type);
 }

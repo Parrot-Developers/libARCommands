@@ -38,9 +38,7 @@ public interface ARCommandJumpingSumoPilotingUserTakeOffListener {
 
     /**
      * Called when a command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code> is decoded
-     * @param _state State of user take off mode
-     * @param _state - 1 to enter in user take off.
-     * @param _state - 0 to exit from user take off.
+     * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
      */
     void onJumpingSumoPilotingUserTakeOffUpdate (byte state);
 }

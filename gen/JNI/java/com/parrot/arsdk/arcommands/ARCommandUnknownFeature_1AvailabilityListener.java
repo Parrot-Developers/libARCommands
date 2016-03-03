@@ -38,7 +38,7 @@ public interface ARCommandUnknownFeature_1AvailabilityListener {
 
     /**
      * Called when a command <code>Availability</code> in feature <code>UnknownFeature_1</code> is decoded
-     * @param _type Get the UnknownFeature_1 types you can run.
+     * @param _type Types of UnknownFeature_1 available
      */
     void onUnknownFeature_1AvailabilityUpdate (ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_ENUM type);
 }

@@ -39,17 +39,11 @@ public interface ARCommandUnknownFeature_1GeographicConfigChangedListener {
     /**
      * Called when a command <code>GeographicConfigChanged</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
-     * @param _distance_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
-     * @param _distance Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation
-     * @param _elevation_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation angle
-     * @param _elevation Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
-     * @param _azimuth_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _azimuth The azimuth north-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
-     * @param _azimuth Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      */
     void onUnknownFeature_1GeographicConfigChangedUpdate (byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 }

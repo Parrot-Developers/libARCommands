@@ -39,9 +39,7 @@ public interface ARCommandUnknownFeature_1UserFramingPositionListener {
     /**
      * Called when a command <code>UserFramingPosition</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _horizontal Horizontal position in the video (in %, from left to right)
-     * @param _horizontal User desired framing in the video.
      * @param _vertical Vertical position in the video (in %, from bottom to top)
-     * @param _vertical User desired framing in the video.
      */
     void onUnknownFeature_1UserFramingPositionUpdate (byte horizontal, byte vertical);
 }

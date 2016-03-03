@@ -39,8 +39,7 @@ public interface ARCommandSkyControllerAxisFiltersSetAxisFilterListener {
     /**
      * Called when a command <code>AxisFiltersSetAxisFilter</code> in feature <code>SkyController</code> is decoded
      * @param _axis_id The axiscode to filter
-     * @param _filter_uid_or_builder The mapping preset to associate with the axis
-     * @param _filter_uid_or_builder (Or a string to build a new one)
+     * @param _filter_uid_or_builder The mapping preset to associate with the axis\n(Or a string to build a new one)
      */
     void onSkyControllerAxisFiltersSetAxisFilterUpdate (int axis_id, String filter_uid_or_builder);
 }

@@ -38,12 +38,8 @@ public interface ARCommandARDrone3CameraOrientationListener {
 
     /**
      * Called when a command <code>CameraOrientation</code> in feature <code>ARDrone3</code> is decoded
-     * @param _tilt Tilt camera consign for the drone (in degree)
-     * @param _tilt The value is saturated by the drone.
-     * @param _tilt Saturation value is sent by thre drone through CameraSettingsChanged command.
-     * @param _pan Pan camera consign for the drone (in degree)
-     * @param _pan The value is saturated by the drone.
-     * @param _pan Saturation value is sent by thre drone through CameraSettingsChanged command.
+     * @param _tilt Tilt camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
+     * @param _pan Pan camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
      */
     void onARDrone3CameraOrientationUpdate (byte tilt, byte pan);
 }

@@ -38,9 +38,7 @@ public interface ARCommandCommonAudioStateAudioStreamingRunningListener {
 
     /**
      * Called when a command <code>AudioStateAudioStreamingRunning</code> in feature <code>Common</code> is decoded
-     * @param _running Bit field for TX and RX running
-     * @param _running bit 0 is 1 if Drone TX is running
-     * @param _running bit 1 is 1 if Drone RX is running
+     * @param _running Bit field for TX and RX running\nbit 0 is 1 if Drone TX is running\nbit 1 is 1 if Drone RX is running
      */
     void onCommonAudioStateAudioStreamingRunningUpdate (byte running);
 }

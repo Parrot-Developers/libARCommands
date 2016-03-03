@@ -39,12 +39,9 @@ public interface ARCommandSkyControllerCalibrationStateMagnetoCalibrationStateLi
     /**
      * Called when a command <code>CalibrationStateMagnetoCalibrationState</code> in feature <code>SkyController</code> is decoded
      * @param _status The global status of the calibration
-     * @param _X_Quality Calibration quality on X axis.
-     * @param _X_Quality 0 is bad, 255 is perfect
-     * @param _Y_Quality Calibration quality on Y axis.
-     * @param _Y_Quality 0 is bad, 255 is perfect
-     * @param _Z_Quality Calibration quality on Z axis.
-     * @param _Z_Quality 0 is bad, 255 is perfect
+     * @param _X_Quality Calibration quality on X axis.\n0 is bad, 255 is perfect
+     * @param _Y_Quality Calibration quality on Y axis.\n0 is bad, 255 is perfect
+     * @param _Z_Quality Calibration quality on Z axis.\n0 is bad, 255 is perfect
      */
     void onSkyControllerCalibrationStateMagnetoCalibrationStateUpdate (ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality);
 }

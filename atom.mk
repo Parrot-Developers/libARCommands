@@ -34,4 +34,7 @@ LOCAL_INSTALL_HEADERS := \
 	gen/Includes/libARCommands/ARCOMMANDS_Ids.h:usr/include/libARCommands/ \
 	Includes/libARCommands/ARCommands.h:usr/include/libARCommands/
 
+LOCAL_CUSTOM_MACROS := \
+	arsdkgen-macro:$(LOCAL_PATH)/Tools/libARCommandsgen.py,$(LOCAL_PATH)/gen
+
 include $(BUILD_LIBRARY)

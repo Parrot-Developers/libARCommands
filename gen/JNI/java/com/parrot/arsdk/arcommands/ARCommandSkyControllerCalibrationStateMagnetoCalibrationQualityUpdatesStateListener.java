@@ -38,9 +38,7 @@ public interface ARCommandSkyControllerCalibrationStateMagnetoCalibrationQuality
 
     /**
      * Called when a command <code>CalibrationStateMagnetoCalibrationQualityUpdatesState</code> in feature <code>SkyController</code> is decoded
-     * @param _enabled Flag (is the feature enabled).
-     * @param _enabled 1 = The skycontroller sends updated when quality is updated
-     * @param _enabled 0 = The skycontroller only sent updated when state is updated
+     * @param _enabled Flag (is the feature enabled).\n1 = The skycontroller sends updated when quality is updated\n0 = The skycontroller only sent updated when state is updated
      */
     void onSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateUpdate (byte enabled);
 }

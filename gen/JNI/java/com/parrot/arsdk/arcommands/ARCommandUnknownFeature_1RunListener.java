@@ -38,6 +38,7 @@ public interface ARCommandUnknownFeature_1RunListener {
 
     /**
      * Called when a command <code>Run</code> in feature <code>UnknownFeature_1</code> is decoded
+     * @param _type Type of UnknownFeature_1
      */
     void onUnknownFeature_1RunUpdate (ARCOMMANDS_FOLLOW_ME_TYPE_ENUM type);
 }

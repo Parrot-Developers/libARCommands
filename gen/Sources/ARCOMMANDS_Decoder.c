@@ -74,6 +74,81 @@ void ARCOMMANDS_Decoder_SetGenericDefaultCallback (ARCOMMANDS_Decoder_GenericDef
     } // No else --> do nothing if library can not be initialized
 }
 
+// Feature pro
+
+static ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t ARCOMMANDS_Decoder_ProProBoughtFeaturesCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProBoughtFeaturesCb = callback;
+        ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ProProResponseCallback_t ARCOMMANDS_Decoder_ProProResponseCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProResponseCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProResponseCallback (ARCOMMANDS_Decoder_ProProResponseCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProResponseCb = callback;
+        ARCOMMANDS_Decoder_ProProResponseCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t ARCOMMANDS_Decoder_ProProActivateFeaturesCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProActivateFeaturesCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback (ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProActivateFeaturesCb = callback;
+        ARCOMMANDS_Decoder_ProProActivateFeaturesCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCallback_t ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProStateSupportedFeaturesCallback (ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb = callback;
+        ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCallback_t ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProStateFeaturesActivatedCallback (ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb = callback;
+        ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_ProProEventChallengeEventCallback_t ARCOMMANDS_Decoder_ProProEventChallengeEventCb = NULL;
+static void *ARCOMMANDS_Decoder_ProProEventChallengeEventCustom = NULL;
+void ARCOMMANDS_Decoder_SetProProEventChallengeEventCallback (ARCOMMANDS_Decoder_ProProEventChallengeEventCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_ProProEventChallengeEventCb = callback;
+        ARCOMMANDS_Decoder_ProProEventChallengeEventCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+
 // Feature ARDrone3
 
 static ARCOMMANDS_Decoder_ARDrone3PilotingFlatTrimCallback_t ARCOMMANDS_Decoder_ARDrone3PilotingFlatTrimCb = NULL;
@@ -1928,6 +2003,588 @@ void ARCOMMANDS_Decoder_SetUnknownFeature_1UserFramingPositionChangedCallback (A
     } // No else --> do nothing if library can not be initialized
 }
 
+// Feature MiniDrone
+
+static ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback (ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t ARCOMMANDS_Decoder_MiniDronePilotingLandingCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback (ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingLandingCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback (ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback (ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback (ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback (ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+
+// Feature commonDebug
+
+static ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = callback;
+        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+
 // Feature JumpingSumo
 
 static ARCOMMANDS_Decoder_JumpingSumoPilotingPCMDCallback_t ARCOMMANDS_Decoder_JumpingSumoPilotingPCMDCb = NULL;
@@ -2603,485 +3260,161 @@ void ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallbac
     } // No else --> do nothing if library can not be initialized
 }
 
-// Feature MiniDrone
+// Feature wifi
 
-static ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiScanCallback_t ARCOMMANDS_Decoder_WifiScanCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiScanCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiScanCallback (ARCOMMANDS_Decoder_WifiScanCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom = custom;
+        ARCOMMANDS_Decoder_WifiScanCb = callback;
+        ARCOMMANDS_Decoder_WifiScanCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCallback_t ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiUpdateAuthorizedChannelsCallback (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom = custom;
+        ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb = callback;
+        ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback (ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSetApChannelCallback_t ARCOMMANDS_Decoder_WifiSetApChannelCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSetApChannelCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSetApChannelCallback (ARCOMMANDS_Decoder_WifiSetApChannelCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom = custom;
+        ARCOMMANDS_Decoder_WifiSetApChannelCb = callback;
+        ARCOMMANDS_Decoder_WifiSetApChannelCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t ARCOMMANDS_Decoder_MiniDronePilotingLandingCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback (ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSetSecurityCallback_t ARCOMMANDS_Decoder_WifiSetSecurityCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSetSecurityCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSetSecurityCallback (ARCOMMANDS_Decoder_WifiSetSecurityCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingLandingCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom = custom;
+        ARCOMMANDS_Decoder_WifiSetSecurityCb = callback;
+        ARCOMMANDS_Decoder_WifiSetSecurityCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSetCountryCallback_t ARCOMMANDS_Decoder_WifiSetCountryCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSetCountryCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSetCountryCallback (ARCOMMANDS_Decoder_WifiSetCountryCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom = custom;
+        ARCOMMANDS_Decoder_WifiSetCountryCb = callback;
+        ARCOMMANDS_Decoder_WifiSetCountryCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t ARCOMMANDS_Decoder_WifiSetEnvironementCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSetEnvironementCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback (ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom = custom;
+        ARCOMMANDS_Decoder_WifiSetEnvironementCb = callback;
+        ARCOMMANDS_Decoder_WifiSetEnvironementCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiScannedItemCallback_t ARCOMMANDS_Decoder_WifiScannedItemCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiScannedItemCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiScannedItemCallback (ARCOMMANDS_Decoder_WifiScannedItemCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = custom;
+        ARCOMMANDS_Decoder_WifiScannedItemCb = callback;
+        ARCOMMANDS_Decoder_WifiScannedItemCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t ARCOMMANDS_Decoder_WifiAuthorizedChannelCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiAuthorizedChannelCallback (ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom = custom;
+        ARCOMMANDS_Decoder_WifiAuthorizedChannelCb = callback;
+        ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback (ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t ARCOMMANDS_Decoder_WifiApChannelChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiApChannelChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiApChannelChangedCallback (ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom = custom;
+        ARCOMMANDS_Decoder_WifiApChannelChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiApChannelChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t ARCOMMANDS_Decoder_WifiSecurityChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSecurityChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSecurityChangedCallback (ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom = custom;
+        ARCOMMANDS_Decoder_WifiSecurityChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiSecurityChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiCountryChangedCallback_t ARCOMMANDS_Decoder_WifiCountryChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiCountryChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiCountryChangedCallback (ARCOMMANDS_Decoder_WifiCountryChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb = callback;
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom = custom;
+        ARCOMMANDS_Decoder_WifiCountryChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiCountryChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t ARCOMMANDS_Decoder_WifiEnvironementChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback (ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom = custom;
+        ARCOMMANDS_Decoder_WifiEnvironementChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiRssiChangedCallback_t ARCOMMANDS_Decoder_WifiRssiChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiRssiChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiRssiChangedCallback (ARCOMMANDS_Decoder_WifiRssiChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback (ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback (ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback (ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb = callback;
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback (ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback (ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb = callback;
-        ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom = custom;
+        ARCOMMANDS_Decoder_WifiRssiChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiRssiChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -4772,339 +5105,6 @@ void ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_Decode
     } // No else --> do nothing if library can not be initialized
 }
 
-// Feature commonDebug
-
-static ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-
-// Feature pro
-
-static ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t ARCOMMANDS_Decoder_ProProBoughtFeaturesCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProBoughtFeaturesCb = callback;
-        ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_ProProResponseCallback_t ARCOMMANDS_Decoder_ProProResponseCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProResponseCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProResponseCallback (ARCOMMANDS_Decoder_ProProResponseCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProResponseCb = callback;
-        ARCOMMANDS_Decoder_ProProResponseCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t ARCOMMANDS_Decoder_ProProActivateFeaturesCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProActivateFeaturesCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback (ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProActivateFeaturesCb = callback;
-        ARCOMMANDS_Decoder_ProProActivateFeaturesCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCallback_t ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProStateSupportedFeaturesCallback (ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb = callback;
-        ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCallback_t ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProStateFeaturesActivatedCallback (ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb = callback;
-        ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_ProProEventChallengeEventCallback_t ARCOMMANDS_Decoder_ProProEventChallengeEventCb = NULL;
-static void *ARCOMMANDS_Decoder_ProProEventChallengeEventCustom = NULL;
-void ARCOMMANDS_Decoder_SetProProEventChallengeEventCallback (ARCOMMANDS_Decoder_ProProEventChallengeEventCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_ProProEventChallengeEventCb = callback;
-        ARCOMMANDS_Decoder_ProProEventChallengeEventCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-
-// Feature wifi
-
-static ARCOMMANDS_Decoder_WifiScanCallback_t ARCOMMANDS_Decoder_WifiScanCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiScanCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiScanCallback (ARCOMMANDS_Decoder_WifiScanCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiScanCb = callback;
-        ARCOMMANDS_Decoder_WifiScanCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCallback_t ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiUpdateAuthorizedChannelsCallback (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb = callback;
-        ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiSetApChannelCallback_t ARCOMMANDS_Decoder_WifiSetApChannelCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSetApChannelCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSetApChannelCallback (ARCOMMANDS_Decoder_WifiSetApChannelCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSetApChannelCb = callback;
-        ARCOMMANDS_Decoder_WifiSetApChannelCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiSetSecurityCallback_t ARCOMMANDS_Decoder_WifiSetSecurityCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSetSecurityCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSetSecurityCallback (ARCOMMANDS_Decoder_WifiSetSecurityCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSetSecurityCb = callback;
-        ARCOMMANDS_Decoder_WifiSetSecurityCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiSetCountryCallback_t ARCOMMANDS_Decoder_WifiSetCountryCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSetCountryCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSetCountryCallback (ARCOMMANDS_Decoder_WifiSetCountryCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSetCountryCb = callback;
-        ARCOMMANDS_Decoder_WifiSetCountryCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t ARCOMMANDS_Decoder_WifiSetEnvironementCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSetEnvironementCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback (ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSetEnvironementCb = callback;
-        ARCOMMANDS_Decoder_WifiSetEnvironementCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiScannedItemCallback_t ARCOMMANDS_Decoder_WifiScannedItemCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiScannedItemCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiScannedItemCallback (ARCOMMANDS_Decoder_WifiScannedItemCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiScannedItemCb = callback;
-        ARCOMMANDS_Decoder_WifiScannedItemCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t ARCOMMANDS_Decoder_WifiAuthorizedChannelCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiAuthorizedChannelCallback (ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiAuthorizedChannelCb = callback;
-        ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t ARCOMMANDS_Decoder_WifiApChannelChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiApChannelChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiApChannelChangedCallback (ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiApChannelChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiApChannelChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t ARCOMMANDS_Decoder_WifiSecurityChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSecurityChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSecurityChangedCallback (ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSecurityChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiSecurityChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiCountryChangedCallback_t ARCOMMANDS_Decoder_WifiCountryChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiCountryChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiCountryChangedCallback (ARCOMMANDS_Decoder_WifiCountryChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiCountryChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiCountryChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t ARCOMMANDS_Decoder_WifiEnvironementChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback (ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiEnvironementChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_WifiRssiChangedCallback_t ARCOMMANDS_Decoder_WifiRssiChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiRssiChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiRssiChangedCallback (ARCOMMANDS_Decoder_WifiRssiChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiRssiChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiRssiChangedCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-
 // DECODER ENTRY POINT
 eARCOMMANDS_DECODER_ERROR
 ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
@@ -5181,7 +5181,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_GENERIC_PROEVENT_CMD_DEFAULT */
+                break; /* ARCOMMANDS_ID_GENERIC_RUNSTATE_CMD_DEFAULT */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -5194,6 +5194,220 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_GENERIC */
+        case ARCOMMANDS_ID_FEATURE_PRO:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_PRO_CLASS_PRO:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProBoughtFeaturesCb != NULL)
+                    {
+                        uint64_t _features;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProBoughtFeaturesCb (_features, ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProResponseCb != NULL)
+                    {
+                        uint8_t _listFlags;
+                        char * _signedChallenge = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _signedChallenge = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProResponseCb (_listFlags, _signedChallenge, ARCOMMANDS_Decoder_ProProResponseCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProActivateFeaturesCb != NULL)
+                    {
+                        uint64_t _features;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProActivateFeaturesCb (_features, ARCOMMANDS_Decoder_ProProActivateFeaturesCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
+            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb != NULL)
+                    {
+                        eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS _status;
+                        uint64_t _features;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _status = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb (_status, _features, ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb != NULL)
+                    {
+                        uint64_t _features;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb (_features, ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
+            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_ProProEventChallengeEventCb != NULL)
+                    {
+                        char * _challenge = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _challenge = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_ProProEventChallengeEventCb (_challenge, ARCOMMANDS_Decoder_ProProEventChallengeEventCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
+            default:
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_PRO */
         case ARCOMMANDS_ID_FEATURE_ARDRONE3:
         {
             switch (commandClass)
@@ -10937,6 +11151,1698 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_FOLLOW_ME */
+        case ARCOMMANDS_ID_FEATURE_MINIDRONE:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb != NULL)
+                    {
+                        uint8_t _flag;
+                        int8_t _roll;
+                        int8_t _pitch;
+                        int8_t _yaw;
+                        int8_t _gaz;
+                        uint32_t _timestamp;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _flag = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _roll =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _pitch =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _yaw =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _gaz =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _timestamp = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb (_flag, _roll, _pitch, _yaw, _gaz, _timestamp, ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingLandingCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingLandingCb (ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb != NULL)
+                    {
+                        uint8_t _state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE _state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb != NULL)
+                    {
+                        uint8_t _state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION _direction;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _direction = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb (_direction, ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP */
+                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb != NULL)
+                    {
+                        int16_t _offset;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _offset =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb (_offset, ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb != NULL)
+                    {
+                        uint8_t _mass_storage_id;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mass_storage_id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb (_mass_storage_id, ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE */
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2 */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb != NULL)
+                    {
+                        uint8_t _state;
+                        uint8_t _mass_storage_id;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mass_storage_id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb (_state, _mass_storage_id, ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE _state;
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR _error;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _error = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb (_state, _error, ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2 */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT _event;
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR _error;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _event = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _error = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb (_event, _error, ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb (_current, ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb (_current, ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb != NULL)
+                    {
+                        uint8_t _present;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _present = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb (_present, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb != NULL)
+                    {
+                        float _current;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb != NULL)
+                    {
+                        uint8_t _present;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _present = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb (_present, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb != NULL)
+                    {
+                        float _current;
+                        float _min;
+                        float _max;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb != NULL)
+                    {
+                        uint8_t _enable;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _enable = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb (_enable, ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb != NULL)
+                    {
+                        uint8_t _motor;
+                        char * _type = NULL;
+                        char * _software = NULL;
+                        char * _hardware = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _motor = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _type = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _software = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _hardware = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb (_motor, _type, _software, _hardware, ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb != NULL)
+                    {
+                        char * _software = NULL;
+                        char * _hardware = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _software = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _hardware = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb (_software, _hardware, ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb != NULL)
+                    {
+                        uint8_t _enable;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _enable = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb (_enable, ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb != NULL)
+                    {
+                        uint16_t _delay;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _delay = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb (_delay, ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_GPS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb != NULL)
+                    {
+                        double _latitude;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _latitude = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb (_latitude, ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN */
+                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb != NULL)
+                    {
+                        double _longitude;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _longitude = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb (_longitude, ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_GPS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb != NULL)
+                    {
+                        char * _type = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _type = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb (_type, ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE */
+                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb != NULL)
+                    {
+                        char * _name = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _name = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb (_name, ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
+            default:
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb != NULL)
+                    {
+                        char * _packet = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb != NULL)
+                    {
+                        uint8_t _frequency;
+                        uint8_t _packetSize;
+                        uint32_t _date;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _frequency = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _packetSize = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _date = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb (_frequency, _packetSize, _date, ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb != NULL)
+                    {
+                        char * _packet = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb != NULL)
+                    {
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb != NULL)
+                    {
+                        uint16_t _id;
+                        char * _value = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb != NULL)
+                    {
+                        uint8_t _listFlags;
+                        uint16_t _id;
+                        char * _label = NULL;
+                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type;
+                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode;
+                        char * _range_min = NULL;
+                        char * _range_max = NULL;
+                        char * _range_step = NULL;
+                        char * _value = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _label = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _type = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _range_min = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _range_max = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _range_step = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb (_listFlags, _id, _label, _type, _mode, _range_min, _range_max, _range_step, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb != NULL)
+                    {
+                        uint16_t _id;
+                        char * _value = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
+            default:
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
         case ARCOMMANDS_ID_FEATURE_JUMPINGSUMO:
         {
             switch (commandClass)
@@ -12758,22 +14664,29 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
-        case ARCOMMANDS_ID_FEATURE_MINIDRONE:
+        case ARCOMMANDS_ID_FEATURE_WIFI:
         {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING:
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM:
+                case ARCOMMANDS_ID_WIFI_CMD_SCAN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiScanCb != NULL)
                     {
+                        uint8_t _band;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb (ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCustom);
+                            _band = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiScanCb (_band, ARCOMMANDS_Decoder_WifiScanCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12782,15 +14695,15 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF:
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SCAN */
+                case ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb != NULL)
                     {
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCb (ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCustom);
+                            ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12799,21 +14712,18 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD:
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_UPDATE_AUTHORIZED_CHANNELS */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiSetApChannelCb != NULL)
                     {
-                        uint8_t _flag;
-                        int8_t _roll;
-                        int8_t _pitch;
-                        int8_t _yaw;
-                        int8_t _gaz;
-                        uint32_t _timestamp;
+                        eARCOMMANDS_WIFI_SELECTION_TYPE _type;
+                        eARCOMMANDS_WIFI_BAND _band;
+                        uint8_t _channel;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _flag = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _type = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12821,7 +14731,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _roll =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12829,7 +14739,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _pitch =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12837,31 +14747,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _yaw =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _gaz =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _timestamp = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingPCMDCb (_flag, _roll, _pitch, _yaw, _gaz, _timestamp, ARCOMMANDS_Decoder_MiniDronePilotingPCMDCustom);
+                            ARCOMMANDS_Decoder_WifiSetApChannelCb (_type, _band, _channel, ARCOMMANDS_Decoder_WifiSetApChannelCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12870,50 +14756,18 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING:
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SET_AP_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingLandingCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiSetSecurityCb != NULL)
                     {
+                        eARCOMMANDS_WIFI_SECURITY_TYPE _type;
+                        char * _key = NULL;
+                        eARCOMMANDS_WIFI_SECURITY_KEY_TYPE _key_type;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_MiniDronePilotingLandingCb (ARCOMMANDS_Decoder_MiniDronePilotingLandingCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCb (ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb != NULL)
-                    {
-                        uint8_t _state;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _type = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12921,25 +14775,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _mode = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12947,7 +14783,15 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom);
+                            _key_type = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiSetSecurityCb (_type, _key, _key_type, ARCOMMANDS_Decoder_WifiSetSecurityCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12956,1152 +14800,361 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SET_SECURITY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiSetCountryCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
+                        char * _code = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _code = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiSetCountryCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiSetCountryCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SET_COUNTRY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiSetEnvironementCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiSetEnvironementCb (_environement, ARCOMMANDS_Decoder_WifiSetEnvironementCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SET_ENVIRONEMENT */
+                case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiScannedItemCb != NULL)
+                    {
+                        char * _ssid = NULL;
+                        int16_t _rssi;
+                        eARCOMMANDS_WIFI_BAND _band;
+                        uint8_t _channel;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _ssid = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _rssi =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiScannedItemCb (_ssid, _rssi, _band, _channel, _list_flags, ARCOMMANDS_Decoder_WifiScannedItemCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SCANNED_ITEM */
+                case ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiAuthorizedChannelCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_BAND _band;
+                        uint8_t _channel;
+                        uint8_t _environement;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _environement = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiAuthorizedChannelCb (_band, _channel, _environement, _list_flags, ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_AUTHORIZED_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiApChannelChangedCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_SELECTION_TYPE _type;
+                        eARCOMMANDS_WIFI_BAND _band;
+                        uint8_t _channel;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _type = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiApChannelChangedCb (_type, _band, _channel, ARCOMMANDS_Decoder_WifiApChannelChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_AP_CHANNEL_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiSecurityChangedCb != NULL)
+                    {
+                        char * _key = NULL;
+                        eARCOMMANDS_WIFI_SECURITY_TYPE _key_type;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _key_type = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiSecurityChangedCb (_key, _key_type, ARCOMMANDS_Decoder_WifiSecurityChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_SECURITY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiCountryChangedCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
+                        char * _code = NULL;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _code = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiCountryChangedCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiCountryChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_COUNTRY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiEnvironementChangedCb != NULL)
+                    {
+                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiEnvironementChangedCb (_environement, ARCOMMANDS_Decoder_WifiEnvironementChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_ENVIRONEMENT_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_WifiRssiChangedCb != NULL)
+                    {
+                        int16_t _rssi;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _rssi =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_WifiRssiChangedCb (_rssi, ARCOMMANDS_Decoder_WifiRssiChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_WIFI_VIDEOSETTINGSSTATE_CMD_RSSI_CHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE:
+            else
             {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE _state;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb != NULL)
-                    {
-                        uint8_t _state;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb (_state, ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _mode = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION _direction;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _direction = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb (_direction, ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP */
-                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb != NULL)
-                    {
-                        int16_t _offset;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _offset =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneAnimationsCapCb (_offset, ARCOMMANDS_Decoder_MiniDroneAnimationsCapCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb != NULL)
-                    {
-                        uint8_t _mass_storage_id;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _mass_storage_id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCb (_mass_storage_id, ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE */
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Cb (ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Custom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2 */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb != NULL)
-                    {
-                        uint8_t _state;
-                        uint8_t _mass_storage_id;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _mass_storage_id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCb (_state, _mass_storage_id, ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE _state;
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR _error;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _state = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _error = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Cb (_state, _error, ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Custom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2 */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb != NULL)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT _event;
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR _error;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _event = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _error = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCb (_event, _error, ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb != NULL)
-                    {
-                        float _current;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCb (_current, ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb != NULL)
-                    {
-                        float _current;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCb (_current, ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb != NULL)
-                    {
-                        float _current;
-                        float _min;
-                        float _max;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb != NULL)
-                    {
-                        float _current;
-                        float _min;
-                        float _max;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb != NULL)
-                    {
-                        float _current;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb != NULL)
-                    {
-                        float _current;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb != NULL)
-                    {
-                        uint8_t _present;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _present = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCb (_present, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb != NULL)
-                    {
-                        float _current;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (_current, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb != NULL)
-                    {
-                        float _current;
-                        float _min;
-                        float _max;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb != NULL)
-                    {
-                        float _current;
-                        float _min;
-                        float _max;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb != NULL)
-                    {
-                        uint8_t _present;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _present = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCb (_present, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb != NULL)
-                    {
-                        float _current;
-                        float _min;
-                        float _max;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _current = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _min = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _max = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb (_current, _min, _max, ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb != NULL)
-                    {
-                        uint8_t _enable;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _enable = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCb (_enable, ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb != NULL)
-                    {
-                        uint8_t _motor;
-                        char * _type = NULL;
-                        char * _software = NULL;
-                        char * _hardware = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _motor = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _software = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _hardware = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCb (_motor, _type, _software, _hardware, ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb != NULL)
-                    {
-                        char * _software = NULL;
-                        char * _hardware = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _software = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _hardware = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCb (_software, _hardware, ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb != NULL)
-                    {
-                        uint8_t _enable;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _enable = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCb (_enable, ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb != NULL)
-                    {
-                        uint16_t _delay;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _delay = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb (_delay, ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_GPS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb != NULL)
-                    {
-                        double _latitude;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _latitude = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCb (_latitude, ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN */
-                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb != NULL)
-                    {
-                        double _longitude;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _longitude = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCb (_longitude, ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_GPS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb != NULL)
-                    {
-                        char * _type = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCb (_type, ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE */
-                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb != NULL)
-                    {
-                        char * _name = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _name = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCb (_name, ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
-            default:
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        break; /* ARCOMMANDS_ID_FEATURE_WIFI */
         case ARCOMMANDS_ID_FEATURE_SKYCONTROLLER:
         {
             switch (commandClass)
@@ -18484,1059 +19537,6 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_COMMON */
-        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb != NULL)
-                    {
-                        char * _packet = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb != NULL)
-                    {
-                        uint8_t _frequency;
-                        uint8_t _packetSize;
-                        uint32_t _date;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _frequency = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _packetSize = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _date = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb (_frequency, _packetSize, _date, ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb != NULL)
-                    {
-                        char * _packet = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb != NULL)
-                    {
-                        uint16_t _id;
-                        char * _value = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb != NULL)
-                    {
-                        uint8_t _listFlags;
-                        uint16_t _id;
-                        char * _label = NULL;
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type;
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode;
-                        char * _range_min = NULL;
-                        char * _range_max = NULL;
-                        char * _range_step = NULL;
-                        char * _value = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _label = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _mode = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _range_min = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _range_max = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _range_step = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb (_listFlags, _id, _label, _type, _mode, _range_min, _range_max, _range_step, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb != NULL)
-                    {
-                        uint16_t _id;
-                        char * _value = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _id = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _value = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
-        case ARCOMMANDS_ID_FEATURE_PRO:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_PRO_CLASS_PRO:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProBoughtFeaturesCb != NULL)
-                    {
-                        uint64_t _features;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProBoughtFeaturesCb (_features, ARCOMMANDS_Decoder_ProProBoughtFeaturesCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProResponseCb != NULL)
-                    {
-                        uint8_t _listFlags;
-                        char * _signedChallenge = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _listFlags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _signedChallenge = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProResponseCb (_listFlags, _signedChallenge, ARCOMMANDS_Decoder_ProProResponseCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProActivateFeaturesCb != NULL)
-                    {
-                        uint64_t _features;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProActivateFeaturesCb (_features, ARCOMMANDS_Decoder_ProProActivateFeaturesCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
-            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb != NULL)
-                    {
-                        eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS _status;
-                        uint64_t _features;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _status = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCb (_status, _features, ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb != NULL)
-                    {
-                        uint64_t _features;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _features = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCb (_features, ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
-            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_ProProEventChallengeEventCb != NULL)
-                    {
-                        char * _challenge = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _challenge = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_ProProEventChallengeEventCb (_challenge, ARCOMMANDS_Decoder_ProProEventChallengeEventCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
-            default:
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_PRO */
-        case ARCOMMANDS_ID_FEATURE_WIFI:
-        {
-            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_WIFI_CMD_SCAN:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiScanCb != NULL)
-                    {
-                        uint8_t _band;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _band = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiScanCb (_band, ARCOMMANDS_Decoder_WifiScanCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SCAN */
-                case ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCb (ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_UPDATE_AUTHORIZED_CHANNELS */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSetApChannelCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_SELECTION_TYPE _type;
-                        eARCOMMANDS_WIFI_BAND _band;
-                        uint8_t _channel;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiSetApChannelCb (_type, _band, _channel, ARCOMMANDS_Decoder_WifiSetApChannelCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SET_AP_CHANNEL */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSetSecurityCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_SECURITY_TYPE _type;
-                        char * _key = NULL;
-                        eARCOMMANDS_WIFI_SECURITY_KEY_TYPE _key_type;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _key_type = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiSetSecurityCb (_type, _key, _key_type, ARCOMMANDS_Decoder_WifiSetSecurityCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SET_SECURITY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSetCountryCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
-                        char * _code = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _code = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiSetCountryCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiSetCountryCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SET_COUNTRY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSetEnvironementCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiSetEnvironementCb (_environement, ARCOMMANDS_Decoder_WifiSetEnvironementCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SET_ENVIRONEMENT */
-                case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiScannedItemCb != NULL)
-                    {
-                        char * _ssid = NULL;
-                        int16_t _rssi;
-                        eARCOMMANDS_WIFI_BAND _band;
-                        uint8_t _channel;
-                        uint8_t _list_flags;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _ssid = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _rssi =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiScannedItemCb (_ssid, _rssi, _band, _channel, _list_flags, ARCOMMANDS_Decoder_WifiScannedItemCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SCANNED_ITEM */
-                case ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiAuthorizedChannelCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_BAND _band;
-                        uint8_t _channel;
-                        uint8_t _environement;
-                        uint8_t _list_flags;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _environement = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiAuthorizedChannelCb (_band, _channel, _environement, _list_flags, ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_AUTHORIZED_CHANNEL */
-                case ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiApChannelChangedCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_SELECTION_TYPE _type;
-                        eARCOMMANDS_WIFI_BAND _band;
-                        uint8_t _channel;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _type = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _band = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _channel = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiApChannelChangedCb (_type, _band, _channel, ARCOMMANDS_Decoder_WifiApChannelChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_AP_CHANNEL_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSecurityChangedCb != NULL)
-                    {
-                        char * _key = NULL;
-                        eARCOMMANDS_WIFI_SECURITY_TYPE _key_type;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _key = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _key_type = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiSecurityChangedCb (_key, _key_type, ARCOMMANDS_Decoder_WifiSecurityChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_SECURITY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiCountryChangedCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_COUNTRY_SELECTION _selection_mode;
-                        char * _code = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _selection_mode = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _code = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiCountryChangedCb (_selection_mode, _code, ARCOMMANDS_Decoder_WifiCountryChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_COUNTRY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiEnvironementChangedCb != NULL)
-                    {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiEnvironementChangedCb (_environement, ARCOMMANDS_Decoder_WifiEnvironementChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_ENVIRONEMENT_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiRssiChangedCb != NULL)
-                    {
-                        int16_t _rssi;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _rssi =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_WifiRssiChangedCb (_rssi, ARCOMMANDS_Decoder_WifiRssiChangedCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_WIFI_PROEVENT_CMD_RSSI_CHANGED */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            else
-            {
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_WIFI */
         default:
             retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
             break;
@@ -19636,6 +19636,200 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_GENERIC */
+        case ARCOMMANDS_ID_FEATURE_PRO:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_PRO_CLASS_PRO:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.BoughtFeatures:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.Response:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | signedChallenge -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
+                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.ActivateFeatures:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
+            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.SupportedFeatures:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS arg = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_PrintI32 (" | status -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
+                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.FeaturesActivated:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
+            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProEvent.ChallengeEvent:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | challenge -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
+            default:
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_PRO */
         case ARCOMMANDS_ID_FEATURE_ARDRONE3:
         {
             switch (commandClass)
@@ -25116,6 +25310,1557 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_FOLLOW_ME */
+        case ARCOMMANDS_ID_FEATURE_MINIDRONE:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.FlatTrim:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.TakeOff:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.PCMD:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | flag -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | roll -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | pitch -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | yaw -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | gaz -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | timestamp -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.Landing:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.Emergency:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.AutoTakeOffMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.FlyingMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlatTrimChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlyingStateChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.AlertStateChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.AutoTakeOffModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlyingModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.Flip:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION arg = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | direction -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP */
+                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.Cap:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        int16_t arg =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | offset -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.Picture:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | mass_storage_id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE */
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.PictureV2:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2 */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.PictureStateChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | mass_storage_id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.PictureStateChangedV2:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_PrintI32 (" | error -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2 */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordEvent.PictureEventChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_PrintI32 (" | event -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_PrintI32 (" | error -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.MaxAltitude:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.MaxTilt:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.MaxAltitudeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.MaxTiltChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxVerticalSpeed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxRotationSpeed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.Wheels:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | present -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxHorizontalSpeed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxVerticalSpeedChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxRotationSpeedChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.WheelsChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | present -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Settings.CutOutMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | enable -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Settings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.ProductMotorsVersionChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | motor -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | software -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | hardware -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.ProductInertialVersionChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | software -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | hardware -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.CutOutModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | enable -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.FloodControlState.FloodControlChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | delay -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.FloodControlState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_GPS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.ControllerLatitudeForRun:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        double arg = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintDouble (" | latitude -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN */
+                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.ControllerLongitudeForRun:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        double arg = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintDouble (" | longitude -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_GPS */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.ControllerType:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE */
+                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.ControllerName:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | name -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
+            default:
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.SendPacket:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StartSendingPacketFromDrone:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | frequency -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | packetSize -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | date -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
+                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StopSendingPacketFromDrone:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.SendPacket:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.GetAll:", resString, stringLen, strOffset) ;
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.Set:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
+            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.Info:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | label -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_min -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_max -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_step -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
+                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.ListChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
+            default:
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
         case ARCOMMANDS_ID_FEATURE_JUMPINGSUMO:
         {
             switch (commandClass)
@@ -26725,101 +28470,21 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
-        case ARCOMMANDS_ID_FEATURE_MINIDRONE:
+        case ARCOMMANDS_ID_FEATURE_WIFI:
         {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING:
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM:
+                case ARCOMMANDS_ID_WIFI_CMD_SCAN:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.FlatTrim:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLATTRIM */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.TakeOff:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_TAKEOFF */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.PCMD:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.scan:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | flag -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | roll -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | pitch -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | yaw -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | gaz -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | timestamp -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | band -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26831,34 +28496,49 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_PCMD */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SCAN */
+                case ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.Landing:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.update_authorized_channels:", resString, stringLen, strOffset) ;
                     if (strOffset < 0)
                     {
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_LANDING */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.Emergency:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_ap_channel:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
                     {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_EMERGENCY */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.AutoTakeOffMode:", resString, stringLen, strOffset) ;
+                        eARCOMMANDS_WIFI_SELECTION_TYPE arg = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26870,78 +28550,40 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.FlyingMode:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_security:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_SECURITY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlatTrimChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLATTRIMCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlyingStateChanged:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.AlertStateChanged:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_SECURITY_KEY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | key_type -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26953,37 +28595,28 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_ALERTSTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.AutoTakeOffModeChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_country:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlyingModeChanged:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | code -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26995,27 +28628,16 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS:
-            {
-                switch (commandId)
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY */
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
                 {
-                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.Flip:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_environement:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION arg = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | direction -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27027,89 +28649,40 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_FLIP */
-                case ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT */
+                case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.Cap:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.scanned_item:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | ssid -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
                         int16_t arg =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | offset -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | rssi -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_ANIMATIONS_CMD_CAP */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Animations.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_ANIMATIONS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.Picture:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | mass_storage_id -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTURE */
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.PictureV2:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORD_CMD_PICTUREV2 */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecord.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORD */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.PictureStateChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | state -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27121,312 +28694,19 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | mass_storage_id -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.PictureStateChangedV2:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)ARCOMMANDS_ReadWrite_PrintI32 (" | error -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2 */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordEvent.PictureEventChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)ARCOMMANDS_ReadWrite_PrintI32 (" | event -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR arg = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)ARCOMMANDS_ReadWrite_PrintI32 (" | error -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MediaRecordEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MEDIARECORDEVENT */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.MaxAltitude:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXALTITUDE */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.MaxTilt:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGS_CMD_MAXTILT */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.MaxAltitudeChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXALTITUDECHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.MaxTiltChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSETTINGSSTATE_CMD_MAXTILTCHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxVerticalSpeed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXVERTICALSPEED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxRotationSpeed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXROTATIONSPEED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.Wheels:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | present -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27438,215 +28718,52 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_WHEELS */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM */
+                case ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.MaxHorizontalSpeed:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.authorized_channel:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGS_CMD_MAXHORIZONTALSPEED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxVerticalSpeedChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXVERTICALSPEEDCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxRotationSpeedChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXROTATIONSPEEDCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.WheelsChanged:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | present -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
                             retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
                         }
                     } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_WHEELSCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | current -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        float arg = ARCOMMANDS_ReadWrite_ReadFloatFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintFloat (" | max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SPEEDSETTINGSSTATE_CMD_MAXHORIZONTALSPEEDCHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SpeedSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SPEEDSETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Settings.CutOutMode:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | enable -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | environement -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27658,27 +28775,94 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGS_CMD_CUTOUTMODE */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Settings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE:
-            {
-                switch (commandId)
+                break; /* ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL */
+                case ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED:
                 {
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.ProductMotorsVersionChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.ap_channel_changed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_WIFI_SELECTION_TYPE arg = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | motor -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.security_changed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_WIFI_SECURITY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | key_type -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.country_changed:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27690,31 +28874,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | software -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | hardware -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | code -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27726,28 +28886,16 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTMOTORSVERSIONCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.ProductInertialVersionChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.environement_changed:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | software -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | hardware -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27759,16 +28907,16 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_PRODUCTINERTIALVERSIONCHANGED */
-                case ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED:
+                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED */
+                case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.CutOutModeChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.rssi_changed:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        int16_t arg =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | enable -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | rssi -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -27780,159 +28928,20 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_MINIDRONE_SETTINGSSTATE_CMD_CUTOUTMODECHANGED */
+                break; /* ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED */
                 default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.SettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_SETTINGSSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE:
+            else
             {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.FloodControlState.FloodControlChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | delay -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_FLOODCONTROLSTATE_CMD_FLOODCONTROLCHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.FloodControlState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_FLOODCONTROLSTATE */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_GPS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.ControllerLatitudeForRun:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        double arg = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintDouble (" | latitude -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLATITUDEFORRUN */
-                case ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.ControllerLongitudeForRun:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        double arg = ARCOMMANDS_ReadWrite_ReadDoubleFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintDouble (" | longitude -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_GPS_CMD_CONTROLLERLONGITUDEFORRUN */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.GPS.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_GPS */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.ControllerType:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERTYPE */
-                case ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.ControllerName:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | name -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_CONFIGURATION_CMD_CONTROLLERNAME */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Configuration.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
-            default:
-                strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
             }
         }
-        break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        break; /* ARCOMMANDS_ID_FEATURE_WIFI */
         case ARCOMMANDS_ID_FEATURE_SKYCONTROLLER:
         {
             switch (commandClass)
@@ -31727,1015 +32736,6 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_COMMON */
-        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.SendPacket:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StartSendingPacketFromDrone:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | frequency -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | packetSize -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | date -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StopSendingPacketFromDrone:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.SendPacket:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.GetAll:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.Set:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.Info:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | label -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_min -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_max -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | range_step -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.ListChanged:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | id -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | value -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
-                strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
-        case ARCOMMANDS_ID_FEATURE_PRO:
-        {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_PRO_CLASS_PRO:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.BoughtFeatures:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_BOUGHTFEATURES */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.Response:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | listFlags -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | signedChallenge -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_RESPONSE */
-                case ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.ActivateFeatures:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PRO_CMD_ACTIVATEFEATURES */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.Pro.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PRO */
-            case ARCOMMANDS_ID_PRO_CLASS_PROSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.SupportedFeatures:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS arg = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)ARCOMMANDS_ReadWrite_PrintI32 (" | status -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_SUPPORTEDFEATURES */
-                case ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.FeaturesActivated:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint64_t arg = ARCOMMANDS_ReadWrite_Read64FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU64 (" | features -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROSTATE_CMD_FEATURESACTIVATED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROSTATE */
-            case ARCOMMANDS_ID_PRO_CLASS_PROEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProEvent.ChallengeEvent:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | challenge -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_PRO_PROEVENT_CMD_CHALLENGEEVENT */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.ProEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_PRO_CLASS_PROEVENT */
-            default:
-                strOffset = ARCOMMANDS_ReadWrite_WriteString ("pro.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_PRO */
-        case ARCOMMANDS_ID_FEATURE_WIFI:
-        {
-            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_WIFI_CMD_SCAN:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.scan:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | band -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SCAN */
-                case ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.update_authorized_channels:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_UPDATE_AUTHORIZED_CHANNELS */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_ap_channel:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_SELECTION_TYPE arg = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_AP_CHANNEL */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_security:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_SECURITY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_SECURITY_KEY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | key_type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_SECURITY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_country:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | code -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_environement:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT */
-                case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.scanned_item:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | ssid -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        int16_t arg =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | rssi -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM */
-                case ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.authorized_channel:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | environement -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_AUTHORIZED_CHANNEL */
-                case ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.ap_channel_changed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_SELECTION_TYPE arg = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_SELECTION_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_BAND arg = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_BAND)ARCOMMANDS_ReadWrite_PrintI32 (" | band -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | channel -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_AP_CHANNEL_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.security_changed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | key -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_SECURITY_TYPE arg = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_SECURITY_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | key_type -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SECURITY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.country_changed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_COUNTRY_SELECTION arg = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_COUNTRY_SELECTION)ARCOMMANDS_ReadWrite_PrintI32 (" | selection_mode -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | code -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.environement_changed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.rssi_changed:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        int16_t arg =  (int16_t)ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintI16 (" | rssi -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            else
-            {
-                strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-            }
-        }
-        break; /* ARCOMMANDS_ID_FEATURE_WIFI */
         default:
             strOffset = ARCOMMANDS_ReadWrite_WriteString ("UNKNOWN -> Unknown command", resString, stringLen, strOffset);
             retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

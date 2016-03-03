@@ -39,17 +39,11 @@ public interface ARCommandUnknownFeature_1RelativeConfigChangedListener {
     /**
      * Called when a command <code>RelativeConfigChanged</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
-     * @param _distance_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
-     * @param _distance Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set set by current elevation
-     * @param _elevation_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation
-     * @param _elevation Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
-     * @param _azimuth_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _azimuth The azimuth course-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
-     * @param _azimuth Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      */
     void onUnknownFeature_1RelativeConfigChangedUpdate (byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 }

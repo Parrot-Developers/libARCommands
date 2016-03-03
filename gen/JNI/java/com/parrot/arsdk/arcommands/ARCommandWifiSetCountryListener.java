@@ -38,9 +38,8 @@ public interface ARCommandWifiSetCountryListener {
 
     /**
      * Called when a command <code>SetCountry</code> in feature <code>Wifi</code> is decoded
-     * @param _selection_mode Set the wifi country.
+     * @param _selection_mode Type of country selection
      * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
-     * @param _code Set the wifi country.
      */
     void onWifiSetCountryUpdate (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
 }

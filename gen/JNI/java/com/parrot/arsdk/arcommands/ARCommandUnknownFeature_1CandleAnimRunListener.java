@@ -39,21 +39,10 @@ public interface ARCommandUnknownFeature_1CandleAnimRunListener {
     /**
      * Called when a command <code>CandleAnimRun</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
-     * @param _vertical_distance_is_default Not used when start is 0
-     * @param _vertical_distance_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m
-     * @param _vertical_distance Not used when verticalDistance_is_default is 1
-     * @param _vertical_distance Not used when start is 0
-     * @param _vertical_distance Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
      */
     void onUnknownFeature_1CandleAnimRunUpdate (byte start, byte speed_is_default, float speed, byte vertical_distance_is_default, float vertical_distance);
 }

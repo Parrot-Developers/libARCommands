@@ -39,30 +39,12 @@ public interface ARCommandUnknownFeature_1SpiralAnimRunListener {
     /**
      * Called when a command <code>SpiralAnimRun</code> in feature <code>UnknownFeature_1</code> is decoded
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used
-     * @param _revolution_nb_is_default Not used when start is 0
-     * @param _revolution_nb_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _revolution_number The number of revolution (in turn)
-     * @param _revolution_number Negative value is infinite
-     * @param _revolution_number Example: 1.5 makes an entire turn plus half of a turn
-     * @param _revolution_number Not used when revolutionNb_is_default is 1
-     * @param _revolution_number Not used when start is 0
-     * @param _revolution_number Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
-     * @param _vertical_distance_is_default Not used when start is 0
-     * @param _vertical_distance_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m
-     * @param _vertical_distance Not used when verticalDistance_is_default is 1
-     * @param _vertical_distance Not used when start is 0
-     * @param _vertical_distance Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used\nNot used when start is 0
+     * @param _revolution_number The number of revolution (in turn)\nNegative value is infinite\nExample: 1.5 makes an entire turn plus half of a turn\nNot used when revolutionNb_is_default is 1\nNot used when start is 0
+     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
      */
     void onUnknownFeature_1SpiralAnimRunUpdate (byte start, byte speed_is_default, float speed, byte revolution_nb_is_default, float revolution_number, byte vertical_distance_is_default, float vertical_distance);
 }
