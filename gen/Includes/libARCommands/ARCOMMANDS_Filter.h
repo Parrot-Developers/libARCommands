@@ -2422,6 +2422,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingEmergencyBehavior
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingAutoTakeOffModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.Piloting.FlyingMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingFlyingModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
 
 // Command class PilotingState
 
@@ -2464,6 +2472,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateCh
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.PilotingState.FlyingModeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class Animations

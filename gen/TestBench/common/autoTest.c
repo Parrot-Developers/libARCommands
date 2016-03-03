@@ -261,6 +261,7 @@ int MiniDronePilotingPCMDShouldBeCalled = 0;
 int MiniDronePilotingLandingShouldBeCalled = 0;
 int MiniDronePilotingEmergencyShouldBeCalled = 0;
 int MiniDronePilotingAutoTakeOffModeShouldBeCalled = 0;
+int MiniDronePilotingFlyingModeShouldBeCalled = 0;
 int MiniDroneAnimationsFlipShouldBeCalled = 0;
 int MiniDroneAnimationsCapShouldBeCalled = 0;
 int MiniDroneMediaRecordPictureShouldBeCalled = 0;
@@ -280,6 +281,7 @@ int MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
 int MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
 int MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
 int MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
+int MiniDronePilotingStateFlyingModeChangedShouldBeCalled = 0;
 int MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 0;
 int MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
 int MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
@@ -4939,6 +4941,22 @@ void ARCOMMANDS_Testbench_MiniDronePilotingAutoTakeOffModeCb (uint8_t state, voi
     }
 }
 
+void ARCOMMANDS_Testbench_MiniDronePilotingFlyingModeCb (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.FlyingMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)0>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingFlyingModeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_MiniDroneAnimationsFlipCb (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Animations.Flip --> Custom PTR = %p", custom);
@@ -5225,6 +5243,22 @@ void ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb (uint8_
         errcount++ ;
     }
     if (MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingModeChangedCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlyingModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)0>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingStateFlyingModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8707,6 +8741,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback ((ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingLandingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback ((ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingEmergencyCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback ((ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingAutoTakeOffModeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback ((ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingFlyingModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback ((ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t) ARCOMMANDS_Testbench_MiniDroneAnimationsFlipCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback ((ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t) ARCOMMANDS_Testbench_MiniDroneAnimationsCapCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureCb, (void *)cbCustom++ );
@@ -8726,6 +8761,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordEventPictureEventChangedCb, (void *)cbCustom++ );
@@ -15639,6 +15675,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Piloting.FlyingMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Piloting.FlyingMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingFlyingModeBehavior);
+        MiniDronePilotingFlyingModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingFlyingModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16221,6 +16288,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.FlyingModeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.FlyingModeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingModeChangedBehavior);
+        MiniDronePilotingStateFlyingModeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingStateFlyingModeChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

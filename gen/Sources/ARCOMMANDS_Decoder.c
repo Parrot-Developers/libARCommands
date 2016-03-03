@@ -2641,6 +2641,18 @@ void ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCb = NULL;
 static void *ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCustom = NULL;
 void ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t callback, void *custom)
@@ -2866,6 +2878,18 @@ void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback 
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCb = callback;
         ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -12802,6 +12826,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -12907,6 +12957,32 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb != NULL)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCb (_mode, ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -26639,6 +26715,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.FlyingMode:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.Piloting.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
@@ -26722,6 +26819,27 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.FlyingModeChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE arg = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
                 default:
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.PilotingState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
