@@ -4979,6 +4979,66 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command UserTakeOff description:<br>
+     * Set drone in user take off state<br>
+     * Only used for PowerUp product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of user take off mode
+     * @param _state - 1 to enter in user take off.
+     * @param _state - 0 to exit from user take off.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingUserTakeOff (byte _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingUserTakeOff (pointer, capacity, _state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command Land description:<br>
+     * Ask the PowerUp to land<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingLand () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingLand (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>AnimationsJumpStop</code> in feature <code>JumpingSumo</code><br>
      * <br>
      * Feature JumpingSumo description:<br>
@@ -5670,6 +5730,36 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetJumpingSumoPilotingStateSpeedChanged (pointer, capacity, _speed, _realSpeed);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command FlyingStateChanged description:<br>
+     * Drone flying state changed<br>
+     * Only used for PowerUp<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state Drone flying state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateFlyingStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingStateFlyingStateChanged (pointer, capacity, _state);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -14283,6 +14373,28 @@ public class ARCommand extends ARNativeData {
         _ARCommandJumpingSumoPilotingAddCapOffsetListener = _ARCommandJumpingSumoPilotingAddCapOffsetListener_PARAM;
     }
 
+    private static ARCommandJumpingSumoPilotingUserTakeOffListener _ARCommandJumpingSumoPilotingUserTakeOffListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM New listener for the command
+     */
+    public static void setJumpingSumoPilotingUserTakeOffListener (ARCommandJumpingSumoPilotingUserTakeOffListener _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM) {
+        _ARCommandJumpingSumoPilotingUserTakeOffListener = _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM;
+    }
+
+    private static ARCommandJumpingSumoPilotingLandListener _ARCommandJumpingSumoPilotingLandListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandJumpingSumoPilotingLandListener_PARAM New listener for the command
+     */
+    public static void setJumpingSumoPilotingLandListener (ARCommandJumpingSumoPilotingLandListener _ARCommandJumpingSumoPilotingLandListener_PARAM) {
+        _ARCommandJumpingSumoPilotingLandListener = _ARCommandJumpingSumoPilotingLandListener_PARAM;
+    }
+
     private static ARCommandJumpingSumoAnimationsJumpStopListener _ARCommandJumpingSumoAnimationsJumpStopListener = null;
 
     /**
@@ -14545,6 +14657,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setJumpingSumoPilotingStateSpeedChangedListener (ARCommandJumpingSumoPilotingStateSpeedChangedListener _ARCommandJumpingSumoPilotingStateSpeedChangedListener_PARAM) {
         _ARCommandJumpingSumoPilotingStateSpeedChangedListener = _ARCommandJumpingSumoPilotingStateSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandJumpingSumoPilotingStateFlyingStateChangedListener _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM New listener for the command
+     */
+    public static void setJumpingSumoPilotingStateFlyingStateChangedListener (ARCommandJumpingSumoPilotingStateFlyingStateChangedListener _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM) {
+        _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener = _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM;
     }
 
     private static ARCommandJumpingSumoAnimationsStateJumpLoadChangedListener _ARCommandJumpingSumoAnimationsStateJumpLoadChangedListener = null;
@@ -17441,6 +17564,10 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetJumpingSumoPilotingAddCapOffset (long pdata, int dataTotalLength, float offset);
 
+    private native int     nativeSetJumpingSumoPilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetJumpingSumoPilotingLand (long pdata, int dataTotalLength);
+
     private native int     nativeSetJumpingSumoAnimationsJumpStop (long pdata, int dataTotalLength);
 
     private native int     nativeSetJumpingSumoAnimationsJumpCancel (long pdata, int dataTotalLength);
@@ -17488,6 +17615,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetJumpingSumoPilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
 
     private native int     nativeSetJumpingSumoPilotingStateSpeedChanged (long pdata, int dataTotalLength, byte speed, short realSpeed);
+
+    private native int     nativeSetJumpingSumoPilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
 
     private native int     nativeSetJumpingSumoAnimationsStateJumpLoadChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM state);
 
