@@ -39,13 +39,10 @@ public interface ARCommandWifiScannedItemListener {
     /**
      * Called when a command <code>ScannedItem</code> in feature <code>Wifi</code> is decoded
      * @param _ssid SSID of the AP
-     * @param _ssid Wifi scan results.
      * @param _rssi RSSI of the AP.
-     * @param _rssi Wifi scan results.
-     * @param _band Wifi scan results.
+     * @param _band The band : 2.4 Ghz or 5 Ghz
      * @param _channel Channel of the AP
-     * @param _channel Wifi scan results.
-     * @param _list_flags Wifi scan results.
+     * @param _list_flags Flags use by maps and lists
      */
     void onWifiScannedItemUpdate (String ssid, short rssi, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel, byte list_flags);
 }

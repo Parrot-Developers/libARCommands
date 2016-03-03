@@ -38,8 +38,7 @@ public interface ARCommandWifiEnvironementChangedListener {
 
     /**
      * Called when a command <code>EnvironementChanged</code> in feature <code>Wifi</code> is decoded
-     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise
-     * @param _environement Status of the wifi config : either indoor or outdoor.
+     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise\nType of environement
      */
     void onWifiEnvironementChangedUpdate (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
 }

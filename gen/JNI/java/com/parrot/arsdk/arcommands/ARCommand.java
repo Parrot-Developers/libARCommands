@@ -174,6 +174,184 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command BoughtFeatures description:<br>
+     * Bought features on this pro version of the controller (features that have been bought)<br>
+     * This command starts the pro authentification process<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Bought features
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProBoughtFeatures (long _features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProBoughtFeatures (pointer, capacity, _features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProResponse</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command Response description:<br>
+     * Response to the challenge string sent by the controller<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+     * @param _signedChallenge the signed challenge
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (byte _listFlags, String _signedChallenge) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProResponse (pointer, capacity, _listFlags, _signedChallenge);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProActivateFeatures</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class Pro description:<br>
+     * Pro related commands from the controller to the product<br>
+     * <br>
+     * Command ActivateFeatures description:<br>
+     * Activate some pro features<br>
+     * Pro features activated should be part of the list returned by ProState->FeaturesSupported<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Pro features to activate
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProActivateFeatures (long _features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProActivateFeatures (pointer, capacity, _features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProStateSupportedFeatures</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProState description:<br>
+     * Pro related commands from the product to the controller<br>
+     * <br>
+     * Command SupportedFeatures description:<br>
+     * Features supported. This command ends the pro authentification<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _status Status of the supported features
+     * @param _features Supported pro features.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateSupportedFeatures (ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM _status, long _features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProStateSupportedFeatures (pointer, capacity, _status.getValue(), _features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProStateFeaturesActivated</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProState description:<br>
+     * Pro related commands from the product to the controller<br>
+     * <br>
+     * Command FeaturesActivated description:<br>
+     * Pro features that are currently activated<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _features Activated pro features.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateFeaturesActivated (long _features) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProStateFeaturesActivated (pointer, capacity, _features);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ProEventChallengeEvent</code> in feature <code>Pro</code><br>
+     * <br>
+     * Feature Pro description:<br>
+     * Pro Feature<br>
+     * <br>
+     * Class ProEvent description:<br>
+     * Pro related events from the product to the controller<br>
+     * <br>
+     * Command ChallengeEvent description:<br>
+     * Challenge event sent from the drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _challenge the challenge that the receiver will have to sign
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProEventChallengeEvent (String _challenge) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetProProEventChallengeEvent (pointer, capacity, _challenge);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>PilotingFlatTrim</code> in feature <code>ARDrone3</code><br>
      * <br>
      * Feature ARDrone3 description:<br>
@@ -429,9 +607,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _state State of user take off mode
-     * @param _state - 1 to enter in user take off.
-     * @param _state - 0 to exit from user take off.
+     * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3PilotingUserTakeOff (byte _state) {
@@ -468,7 +644,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingCircle (pointer, capacity, _direction);
+        int errInt = nativeSetARDrone3PilotingCircle (pointer, capacity, _direction.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -497,7 +673,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3AnimationsFlip (pointer, capacity, _direction);
+        int errInt = nativeSetARDrone3AnimationsFlip (pointer, capacity, _direction.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -518,12 +694,8 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _tilt Tilt camera consign for the drone (in degree)
-     * @param _tilt The value is saturated by the drone.
-     * @param _tilt Saturation value is sent by thre drone through CameraSettingsChanged command.
-     * @param _pan Pan camera consign for the drone (in degree)
-     * @param _pan The value is saturated by the drone.
-     * @param _pan Saturation value is sent by thre drone through CameraSettingsChanged command.
+     * @param _tilt Tilt camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
+     * @param _pan Pan camera consign for the drone (in degree)\nThe value is saturated by the drone.\nSaturation value is sent by thre drone through CameraSettingsChanged command.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setARDrone3CameraOrientation (byte _tilt, byte _pan) {
@@ -592,7 +764,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordVideo (pointer, capacity, _record, _mass_storage_id);
+        int errInt = nativeSetARDrone3MediaRecordVideo (pointer, capacity, _record.getValue(), _mass_storage_id);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -649,7 +821,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordVideoV2 (pointer, capacity, _record);
+        int errInt = nativeSetARDrone3MediaRecordVideoV2 (pointer, capacity, _record.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -678,7 +850,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkWifiScan (pointer, capacity, _band);
+        int errInt = nativeSetARDrone3NetworkWifiScan (pointer, capacity, _band.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1084,7 +1256,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsCirclingDirection (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsCirclingDirection (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1171,7 +1343,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsPitchMode (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsPitchMode (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1200,7 +1372,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsLandingMode (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsLandingMode (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1377,7 +1549,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkSettingsWifiSelection (pointer, capacity, _type, _band, _channel);
+        int errInt = nativeSetARDrone3NetworkSettingsWifiSelection (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1408,7 +1580,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkSettingsWifiSecurity (pointer, capacity, _type, _key, _keyType);
+        int errInt = nativeSetARDrone3NetworkSettingsWifiSecurity (pointer, capacity, _type.getValue(), _key, _keyType.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1437,7 +1609,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsPictureFormatSelection (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3PictureSettingsPictureFormatSelection (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1466,7 +1638,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelection (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelection (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1613,7 +1785,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsVideoStabilizationMode (pointer, capacity, _mode);
+        int errInt = nativeSetARDrone3PictureSettingsVideoStabilizationMode (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1764,7 +1936,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3GPSSettingsHomeType (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3GPSSettingsHomeType (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1822,7 +1994,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3AntiflickeringElectricFrequency (pointer, capacity, _frequency);
+        int errInt = nativeSetARDrone3AntiflickeringElectricFrequency (pointer, capacity, _frequency.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1851,7 +2023,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3AntiflickeringSetMode (pointer, capacity, _mode);
+        int errInt = nativeSetARDrone3AntiflickeringSetMode (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1913,7 +2085,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordStateVideoStateChanged (pointer, capacity, _state, _mass_storage_id);
+        int errInt = nativeSetARDrone3MediaRecordStateVideoStateChanged (pointer, capacity, _state.getValue(), _mass_storage_id);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1943,7 +2115,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordStatePictureStateChangedV2 (pointer, capacity, _state, _error);
+        int errInt = nativeSetARDrone3MediaRecordStatePictureStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -1973,7 +2145,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordStateVideoStateChangedV2 (pointer, capacity, _state, _error);
+        int errInt = nativeSetARDrone3MediaRecordStateVideoStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2003,7 +2175,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordEventPictureEventChanged (pointer, capacity, _event, _error);
+        int errInt = nativeSetARDrone3MediaRecordEventPictureEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2033,7 +2205,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaRecordEventVideoEventChanged (pointer, capacity, _event, _error);
+        int errInt = nativeSetARDrone3MediaRecordEventVideoEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2090,7 +2262,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingStateFlyingStateChanged (pointer, capacity, _state);
+        int errInt = nativeSetARDrone3PilotingStateFlyingStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2119,7 +2291,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingStateAlertStateChanged (pointer, capacity, _state);
+        int errInt = nativeSetARDrone3PilotingStateAlertStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2149,7 +2321,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingStateNavigateHomeStateChanged (pointer, capacity, _state, _reason);
+        int errInt = nativeSetARDrone3PilotingStateNavigateHomeStateChanged (pointer, capacity, _state.getValue(), _reason.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2338,7 +2510,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingEventMoveByEnd (pointer, capacity, _dX, _dY, _dZ, _dPsi, _error);
+        int errInt = nativeSetARDrone3PilotingEventMoveByEnd (pointer, capacity, _dX, _dY, _dZ, _dPsi, _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2370,7 +2542,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkStateWifiScanListChanged (pointer, capacity, _ssid, _rssi, _band, _channel);
+        int errInt = nativeSetARDrone3NetworkStateWifiScanListChanged (pointer, capacity, _ssid, _rssi, _band.getValue(), _channel);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2429,7 +2601,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkStateWifiAuthChannelListChanged (pointer, capacity, _band, _channel, _in_or_out);
+        int errInt = nativeSetARDrone3NetworkStateWifiAuthChannelListChanged (pointer, capacity, _band.getValue(), _channel, _in_or_out);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2843,7 +3015,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2934,7 +3106,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsStatePitchModeChanged (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsStatePitchModeChanged (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -2963,7 +3135,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PilotingSettingsStateLandingModeChanged (pointer, capacity, _value);
+        int errInt = nativeSetARDrone3PilotingSettingsStateLandingModeChanged (pointer, capacity, _value.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3146,7 +3318,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSelectionChanged (pointer, capacity, _type, _band, _channel);
+        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSelectionChanged (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3176,7 +3348,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3207,7 +3379,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSecurity (pointer, capacity, _type, _key, _keyType);
+        int errInt = nativeSetARDrone3NetworkSettingsStateWifiSecurity (pointer, capacity, _type.getValue(), _key, _keyType.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3300,7 +3472,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3SettingsStateMotorErrorStateChanged (pointer, capacity, _motorIds, _motorError);
+        int errInt = nativeSetARDrone3SettingsStateMotorErrorStateChanged (pointer, capacity, _motorIds, _motorError.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3390,7 +3562,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3SettingsStateMotorErrorLastErrorChanged (pointer, capacity, _motorError);
+        int errInt = nativeSetARDrone3SettingsStateMotorErrorLastErrorChanged (pointer, capacity, _motorError.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3449,7 +3621,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsStatePictureFormatChanged (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3PictureSettingsStatePictureFormatChanged (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3478,7 +3650,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChanged (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChanged (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3631,7 +3803,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (pointer, capacity, _mode);
+        int errInt = nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3660,7 +3832,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3MediaStreamingStateVideoEnableChanged (pointer, capacity, _enabled);
+        int errInt = nativeSetARDrone3MediaStreamingStateVideoEnableChanged (pointer, capacity, _enabled.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3780,7 +3952,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3GPSSettingsStateGPSUpdateStateChanged (pointer, capacity, _state);
+        int errInt = nativeSetARDrone3GPSSettingsStateGPSUpdateStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3809,7 +3981,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3GPSSettingsStateHomeTypeChanged (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3GPSSettingsStateHomeTypeChanged (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3928,7 +4100,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3AntiflickeringStateElectricFrequencyChanged (pointer, capacity, _frequency);
+        int errInt = nativeSetARDrone3AntiflickeringStateElectricFrequencyChanged (pointer, capacity, _frequency.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -3957,7 +4129,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3AntiflickeringStateModeChanged (pointer, capacity, _mode);
+        int errInt = nativeSetARDrone3AntiflickeringStateModeChanged (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4016,7 +4188,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3GPSStateHomeTypeAvailabilityChanged (pointer, capacity, _type, _available);
+        int errInt = nativeSetARDrone3GPSStateHomeTypeAvailabilityChanged (pointer, capacity, _type.getValue(), _available);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4045,7 +4217,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetARDrone3GPSStateHomeTypeChosenChanged (pointer, capacity, _type);
+        int errInt = nativeSetARDrone3GPSStateHomeTypeChosenChanged (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4059,8 +4231,7 @@ public class ARCommand extends ARNativeData {
      * All ARDrone3-only commands<br>
      * <br>
      * Class PROState description:<br>
-     * @deprecated<br>
-     * Pro features enabled on the Bebop<br>
+     * @deprecated\nPro features enabled on the Bebop<br>
      * <br>
      * Command Features description:<br>
      * Features enabled<br>
@@ -4089,26 +4260,18 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command GeographicRun description:<br>
-     * Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.<br>
+     * Begin or stop geographic type followMe (follow the leader keeping the same vector).<br>
+     * Sending this command will stop other running followMe.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start geographic follow me process, 0 to stop it
-     * @param _start Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
-     * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)
-     * @param _distance_is_default Not used when arg start is at 0
-     * @param _distance_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
-     * @param _distance The distance leader-follower in meter
-     * @param _distance Not used when arg start is at 0
-     * @param _distance Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
+     * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)\nNot used when arg start is at 0
+     * @param _distance The distance leader-follower in meter\nNot used when arg start is at 0
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation (in this case elevation value is not used) (not used when arg start is at 0)
-     * @param _elevation_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _elevation The elevation leader-follower in rad (not used when arg start is at 0)
-     * @param _elevation Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth (in this case azimuth value is not used) (not used when arg start is at 0)
-     * @param _azimuth_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _azimuth The azimuth north-leader-follower in rad (not used when arg start is at 0)
-     * @param _azimuth Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeGeographicRun (byte _start, byte _distance_is_default, float _distance, byte _elevation_is_default, float _elevation, byte _azimuth_is_default, float _azimuth) {
@@ -4130,24 +4293,18 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command RelativeRun description:<br>
-     * Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.<br>
+     * Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).<br>
+     * Sending this command will stop other running followMe.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start relative follow me process, 0 to stop it
-     * @param _start Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used) (not used when arg start is at 0)
-     * @param _distance_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _distance The distance leader-follower in meter (not used when arg start is at 0)
-     * @param _distance Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation (in this case elevation value is not used) (not used when arg start is at 0)
-     * @param _elevation_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _elevation The elevation leader-follower in rad (not used when arg start is at 0)
-     * @param _elevation Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth (in this case azimuth value is not used) (not used when arg start is at 0)
-     * @param _azimuth_is_default Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @param _azimuth The azimuth north-leader-follower in rad (not used when arg start is at 0)
-     * @param _azimuth Begin or stop relative type followMe (follow the leader keeping the same orientation to its direction).\n\                       Sending this command will stop other running followMe.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeRelativeRun (byte _start, byte _distance_is_default, float _distance, byte _elevation_is_default, float _elevation, byte _azimuth_is_default, float _azimuth) {
@@ -4169,12 +4326,12 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command LookAtRun description:<br>
-     * Begin or stop look at type followMe (stare at the leader while hovering).\n\                      Sending this command will stop other running followMe.<br>
+     * Begin or stop look at type followMe (stare at the leader while hovering).<br>
+     * Sending this command will stop other running followMe.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start look at process, 0 to stop it
-     * @param _start Begin or stop look at type followMe (stare at the leader while hovering).\n\                      Sending this command will stop other running followMe.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeLookAtRun (byte _start) {
@@ -4196,35 +4353,18 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command SpiralAnimRun description:<br>
-     * Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.<br>
+     * Begin or stop a spiral animation.<br>
+     * The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used
-     * @param _revolution_nb_is_default Not used when start is 0
-     * @param _revolution_nb_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _revolution_number The number of revolution (in turn)
-     * @param _revolution_number Negative value is infinite
-     * @param _revolution_number Example: 1.5 makes an entire turn plus half of a turn
-     * @param _revolution_number Not used when revolutionNb_is_default is 1
-     * @param _revolution_number Not used when start is 0
-     * @param _revolution_number Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
-     * @param _vertical_distance_is_default Not used when start is 0
-     * @param _vertical_distance_is_default Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
-     * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m
-     * @param _vertical_distance Not used when verticalDistance_is_default is 1
-     * @param _vertical_distance Not used when start is 0
-     * @param _vertical_distance Begin or stop a spiral animation.\n\                      The spiral animation allows the drone to revolve around the target while going up, with a fixed radius.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb should be used\nNot used when start is 0
+     * @param _revolution_number The number of revolution (in turn)\nNegative value is infinite\nExample: 1.5 makes an entire turn plus half of a turn\nNot used when revolutionNb_is_default is 1\nNot used when start is 0
+     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _vertical_distance Distance that should be made by the product to reach the top of the spiral in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeSpiralAnimRun (byte _start, byte _speed_is_default, float _speed, byte _revolution_nb_is_default, float _revolution_number, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4246,26 +4386,16 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command SwingAnimRun description:<br>
-     * Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.<br>
+     * Begin or stop a swing animation.<br>
+     * The swing animation enables a vertical point of view while the drone passes over the target.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
-     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
-     * @param _vertical_distance_is_default Not used when start is 0
-     * @param _vertical_distance_is_default Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
-     * @param _vertical_distance Distance that should be made by the product to reach the top of the swing in m
-     * @param _vertical_distance Not used when verticalDistance_is_default is 1
-     * @param _vertical_distance Not used when start is 0
-     * @param _vertical_distance Begin or stop a swing animation.\n\                      The swing animation enables a vertical point of view while the drone passes over the target.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _vertical_distance Distance that should be made by the product to reach the top of the swing in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeSwingAnimRun (byte _start, byte _speed_is_default, float _speed, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4287,26 +4417,16 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command BoomerangAnimRun description:<br>
-     * Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.<br>
+     * Begin or stop a boomerang animation.<br>
+     * The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used
-     * @param _distance_is_default Not used when start is 0
-     * @param _distance_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _distance Distance that should be made by the product to reach its return point in m
-     * @param _distance Not used when distance_is_default is 1
-     * @param _distance Not used when start is 0
-     * @param _distance Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _distance Distance that should be made by the product to reach its return point in m\nNot used when distance_is_default is 1\nNot used when start is 0
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeBoomerangAnimRun (byte _start, byte _speed_is_default, float _speed, byte _distance_is_default, float _distance) {
@@ -4328,26 +4448,16 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command CandleAnimRun description:<br>
-     * Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.<br>
+     * Begin or stop a candle animation.<br>
+     * The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used
-     * @param _vertical_distance_is_default Not used when start is 0
-     * @param _vertical_distance_is_default Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
-     * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m
-     * @param _vertical_distance Not used when verticalDistance_is_default is 1
-     * @param _vertical_distance Not used when start is 0
-     * @param _vertical_distance Begin or stop a candle animation.\n\                      The candle animation enables a zoom-in directly on the target followed by a vertical zoom-out.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _vertical_distance Distance that should be made by the product to reach the top of the vertical zoom-out in m\nNot used when verticalDistance_is_default is 1\nNot used when start is 0
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeCandleAnimRun (byte _start, byte _speed_is_default, float _speed, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4369,33 +4479,18 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command DollySlideAnimRun description:<br>
-     * Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.<br>
+     * Begin or stop a dolly slide animation.<br>
+     * Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _angle_is_default 0 if the angle is set by user, 1 if default value should be used
-     * @param _angle_is_default Not used when start is 0
-     * @param _angle_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _angle Desired angle Product-User-Target in rad
-     * @param _angle Not used when angle_is_default is 1
-     * @param _angle Not used when start is 0
-     * @param _angle Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value should be used
-     * @param _horizontal_distance_is_default Not used when start is 0
-     * @param _horizontal_distance_is_default Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
-     * @param _horizontal_distance Distance that should be made by the product to reach its target in m
-     * @param _horizontal_distance Not used when horizontalDistance_is_default is 1
-     * @param _horizontal_distance Not used when start is 0
-     * @param _horizontal_distance Begin or stop a dolly slide animation.\n\                      Allows the drone to catch up to the target before flying past it, creating a zoom-in/zoom_out effect without a curved path.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _angle_is_default 0 if the angle is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _angle Desired angle Product-User-Target in rad\nNot used when angle_is_default is 1\nNot used when start is 0
+     * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _horizontal_distance Distance that should be made by the product to reach its target in m\nNot used when horizontalDistance_is_default is 1\nNot used when start is 0
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeDollySlideAnimRun (byte _start, byte _speed_is_default, float _speed, byte _angle_is_default, float _angle, byte _horizontal_distance_is_default, float _horizontal_distance) {
@@ -4422,9 +4517,7 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _horizontal Horizontal position in the video (in %, from left to right)
-     * @param _horizontal User desired framing in the video.
      * @param _vertical Vertical position in the video (in %, from bottom to top)
-     * @param _vertical User desired framing in the video.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeUserFramingPosition (byte _horizontal, byte _vertical) {
@@ -4512,17 +4605,11 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _target_pan Pan angle of detected target in radian
-     * @param _target_pan Send vision detection results.
      * @param _target_tilt Tilt angle of detected target in radian
-     * @param _target_tilt Send vision detection results.
      * @param _change_of_scale Target's change of scale : new width = (1+ changOfScale) * old width
-     * @param _change_of_scale Send vision detection results.
      * @param _confidence_index Confidence index of the Lynx detection (from 0 to 255, the highest is the best)
-     * @param _confidence_index Send vision detection results.
      * @param _is_new_selection Boolean. 1 if the selection is new, 0 otherwise
-     * @param _is_new_selection Send vision detection results.
      * @param _timestamp Acquisition time of processed picture in millisecond
-     * @param _timestamp Send vision detection results.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeLynxDetection (float _target_pan, float _target_tilt, float _change_of_scale, byte _confidence_index, byte _is_new_selection, long _timestamp) {
@@ -4548,7 +4635,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _type Get the FollowMe types you can run.
+     * @param _type Types of FollowMe available
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeAvailability (ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_ENUM _type) {
@@ -4556,7 +4643,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetFollowMeAvailability (pointer, capacity, _type);
+        int errInt = nativeSetFollowMeAvailability (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4574,6 +4661,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
+     * @param _type Type of FollowMe
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeRun (ARCOMMANDS_FOLLOW_ME_TYPE_ENUM _type) {
@@ -4581,7 +4669,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetFollowMeRun (pointer, capacity, _type);
+        int errInt = nativeSetFollowMeRun (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4595,22 +4683,17 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command GeographicConfigChanged description:<br>
-     * Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.<br>
+     * Geographic configuration changed.<br>
+     * This event is only valid when [Run type](#134-2) is geographic.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
-     * @param _distance_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
-     * @param _distance Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation
-     * @param _elevation_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation angle
-     * @param _elevation Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
-     * @param _azimuth_is_default Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @param _azimuth The azimuth north-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
-     * @param _azimuth Geographic configuration changed.\n\                      This event is only valid when [Run type](#134-2) is geographic.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeGeographicConfigChanged (byte _distance_is_default, float _distance, byte _elevation_is_default, float _elevation, byte _azimuth_is_default, float _azimuth) {
@@ -4632,22 +4715,17 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command RelativeConfigChanged description:<br>
-     * Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.<br>
+     * Relative configuration changed.<br>
+     * This event is only valid when [Run type](#134-2) is relative.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance
-     * @param _distance_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _distance The distance leader-follower in meter, if distance is default, this value is the current drone distance
-     * @param _distance Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set set by current elevation
-     * @param _elevation_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _elevation The elevation leader-follower in rad, if elevation is default, this value is the current leader to drone elevation
-     * @param _elevation Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth
-     * @param _azimuth_is_default Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @param _azimuth The azimuth course-leader-follower in rad, if azimuth is default, this value is the current leader to drone azimuth
-     * @param _azimuth Relative configuration changed.\n\                      This event is only valid when [Run type](#134-2) is relative.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeRelativeConfigChanged (byte _distance_is_default, float _distance, byte _elevation_is_default, float _elevation, byte _azimuth_is_default, float _azimuth) {
@@ -4673,7 +4751,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _type State of the current FollowMe animation.
+     * @param _type Type of the current FollowMe animation
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeAnimRun (ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_ENUM _type) {
@@ -4681,7 +4759,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetFollowMeAnimRun (pointer, capacity, _type);
+        int errInt = nativeSetFollowMeAnimRun (pointer, capacity, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -4695,23 +4773,17 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command SpiralAnimConfigChanged description:<br>
-     * Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral<br>
+     * Spiral animation configuration changed.<br>
+     * This event is only valid when AnimRun type is spiral<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _speed The speed of the anim in m/s
-     * @param _speed Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _revolution_nb_is_default 0 if the number of revolution is set by user, 1 if default revolution nb is used
-     * @param _revolution_nb_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
-     * @param _revolution_nb The number of revolution (in turn)
-     * @param _revolution_nb Negative value is infinite
-     * @param _revolution_nb Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
+     * @param _revolution_nb The number of revolution (in turn)\nNegative value is infinite
      * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
-     * @param _vertical_distance_is_default Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @param _vertical_distance Distance that will be made by the product to reach the top of the spiral in m
-     * @param _vertical_distance Spiral animation configuration changed.\n\                 This event is only valid when AnimRun type is spiral
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeSpiralAnimConfigChanged (byte _speed_is_default, float _speed, byte _revolution_nb_is_default, float _revolution_nb, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4733,18 +4805,15 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command SwingAnimConfigChanged description:<br>
-     * Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing<br>
+     * Swing animation configuration changed.<br>
+     * This event is only valid when AnimRun type is swing<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
      * @param _speed The speed of the anim in m/s
-     * @param _speed Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
      * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
-     * @param _vertical_distance_is_default Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
      * @param _vertical_distance Distance that will be made by the product to reach the top of the swing in m
-     * @param _vertical_distance Swing animation configuration changed.\n\                 This event is only valid when AnimRun type is swing
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeSwingAnimConfigChanged (byte _speed_is_default, float _speed, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4766,18 +4835,15 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command BoomerangAnimConfigChanged description:<br>
-     * Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang<br>
+     * Boomerang animation configuration changed.<br>
+     * This event is only valid when AnimRun type is boomerang<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _speed The speed of the anim in m/s
-     * @param _speed Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _distance_is_default 0 if the distance is set by user, 1 if default value is used
-     * @param _distance_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _distance Distance that will be made by the product to reach its return point in m
-     * @param _distance Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeBoomerangAnimConfigChanged (byte _speed_is_default, float _speed, byte _distance_is_default, float _distance) {
@@ -4799,18 +4865,15 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command CandleAnimConfigChanged description:<br>
-     * Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle<br>
+     * Candle animation configuration changed.<br>
+     * This event is only valid when AnimRun type is candle<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _speed The speed of the anim in m/s
-     * @param _speed Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
-     * @param _vertical_distance_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _vertical_distance Distance that will be made by the product to reach the top of the vertical zoom-out in m
-     * @param _vertical_distance Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeCandleAnimConfigChanged (byte _speed_is_default, float _speed, byte _vertical_distance_is_default, float _vertical_distance) {
@@ -4832,22 +4895,17 @@ public class ARCommand extends ARNativeData {
      * FollowMe feature<br>
      * <br>
      * Command DollySlideAnimConfigChanged description:<br>
-     * DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide<br>
+     * DollySlide animation configuration changed.<br>
+     * This event is only valid when AnimRun type is dolly_slide<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _speed The speed of the anim in m/s
-     * @param _speed DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _angle_is_default 0 if the angle is set by user, 1 if default value is used
-     * @param _angle_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _angle Angle Product-User-Target in rad
-     * @param _angle DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value is used
-     * @param _horizontal_distance_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _horizontal_distance Distance that will be made by the product to reach its target in m
-     * @param _horizontal_distance DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setFollowMeDollySlideAnimConfigChanged (byte _speed_is_default, float _speed, byte _angle_is_default, float _angle, byte _horizontal_distance_is_default, float _horizontal_distance) {
@@ -4883,1656 +4941,6 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetFollowMeUserFramingPositionChanged (pointer, capacity, _horizontal, _vertical);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingPCMD</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command PCMD description:<br>
-     * Ask the JS speed and turn ratio.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _flag Boolean for "touch screen".
-     * @param _speed Speed value [-100:100].
-     * @param _turn Turn value. [-100:100]
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingPCMD (byte _flag, byte _speed, byte _turn) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingPCMD (pointer, capacity, _flag, _speed, _turn);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingPosture</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command Posture description:<br>
-     * Request a posture<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Type of Posture
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingPosture (ARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE_ENUM _type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingPosture (pointer, capacity, _type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingAddCapOffset</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command AddCapOffset description:<br>
-     * Add the specified offset to the current cap.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _offset Offset value in radians.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingAddCapOffset (float _offset) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingAddCapOffset (pointer, capacity, _offset);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command UserTakeOff description:<br>
-     * Set drone in user take off state<br>
-     * Only used for PowerUp product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of user take off mode
-     * @param _state - 1 to enter in user take off.
-     * @param _state - 0 to exit from user take off.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingUserTakeOff (byte _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingUserTakeOff (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command Land description:<br>
-     * Ask the PowerUp to land<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingLand () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingLand (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsJumpStop</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command JumpStop description:<br>
-     * Stop jump, emergency jump stop, stop jump motor and stay there.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpStop () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsJumpStop (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsJumpCancel</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command JumpCancel description:<br>
-     * Cancel jump and come back to previous state (if possible).<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpCancel () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsJumpCancel (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsJumpLoad</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command JumpLoad description:<br>
-     * Request jump loading<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpLoad () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsJumpLoad (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsJump</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command Jump description:<br>
-     * Request a jump<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Type of jump
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJump (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_ENUM _type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsJump (pointer, capacity, _type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsSimpleAnimation</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Animations description:<br>
-     * Animation commands<br>
-     * <br>
-     * Command SimpleAnimation description:<br>
-     * Play a parameterless animation.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _id Animation ID.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsSimpleAnimation (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID_ENUM _id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsSimpleAnimation (pointer, capacity, _id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordPicture</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command Picture description:<br>
-     * @deprecated<br>
-     * Take picture<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _mass_storage_id Mass storage id to take picture
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordPicture (byte _mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordPicture (pointer, capacity, _mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordVideo</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command Video description:<br>
-     * @deprecated<br>
-     * Video record<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _record Command to record video
-     * @param _mass_storage_id Mass storage id to record
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordVideo (ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD_ENUM _record, byte _mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordVideo (pointer, capacity, _record, _mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordPictureV2</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command PictureV2 description:<br>
-     * Take picture<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordPictureV2 () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordPictureV2 (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordVideoV2</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecord description:<br>
-     * Media recording management<br>
-     * <br>
-     * Command VideoV2 description:<br>
-     * Video record<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _record Command to record video
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordVideoV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD_ENUM _record) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordVideoV2 (pointer, capacity, _record);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkSettingsWifiSelection</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkSettings description:<br>
-     * Network settings commands<br>
-     * <br>
-     * Command WifiSelection description:<br>
-     * Auto-select channel of choosen band<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type The type of wifi selection (auto, manual)
-     * @param _band The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
-     * @param _channel The channel (not used in auto mode)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkSettingsWifiSelection (ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM _type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM _band, byte _channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkSettingsWifiSelection (pointer, capacity, _type, _band, _channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkWifiScan</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Network description:<br>
-     * Network related commands<br>
-     * <br>
-     * Command WifiScan description:<br>
-     * Launches wifi network scan<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _band The band(s) : 2.4 Ghz, 5 Ghz, or both
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkWifiScan (ARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND_ENUM _band) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkWifiScan (pointer, capacity, _band);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkWifiAuthChannel</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Network description:<br>
-     * Network related commands<br>
-     * <br>
-     * Command WifiAuthChannel description:<br>
-     * Controller inquire the list of authorized wifi channels.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkWifiAuthChannel () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkWifiAuthChannel (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AudioSettingsMasterVolume</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AudioSettings description:<br>
-     * Audio settings.<br>
-     * <br>
-     * Command MasterVolume description:<br>
-     * Master volume control.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _volume Master audio volume [0:100].
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsMasterVolume (byte _volume) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAudioSettingsMasterVolume (pointer, capacity, _volume);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AudioSettingsTheme</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AudioSettings description:<br>
-     * Audio settings.<br>
-     * <br>
-     * Command Theme description:<br>
-     * Audio Theme.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _theme The audio theme to set.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsTheme (ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME_ENUM _theme) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAudioSettingsTheme (pointer, capacity, _theme);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanAllScriptsMetadata</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlan description:<br>
-     * RoadPlan commands.<br>
-     * <br>
-     * Command AllScriptsMetadata description:<br>
-     * Command to ask device all metadata scripts.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanAllScriptsMetadata () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanAllScriptsMetadata (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanScriptUploaded</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlan description:<br>
-     * RoadPlan commands.<br>
-     * <br>
-     * Command ScriptUploaded description:<br>
-     * Notify device that a new file has been uploaded.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _uuid UUID of uploaded file.
-     * @param _md5Hash MD5 hash code computed over file.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanScriptUploaded (String _uuid, String _md5Hash) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanScriptUploaded (pointer, capacity, _uuid, _md5Hash);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanScriptDelete</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlan description:<br>
-     * RoadPlan commands.<br>
-     * <br>
-     * Command ScriptDelete description:<br>
-     * Ask the device to delete a script.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _uuid UUID of the file to delete.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanScriptDelete (String _uuid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanScriptDelete (pointer, capacity, _uuid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanPlayScript</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlan description:<br>
-     * RoadPlan commands.<br>
-     * <br>
-     * Command PlayScript description:<br>
-     * Ask the device to play a script.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _uuid UUID of the file to play.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanPlayScript (String _uuid) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanPlayScript (pointer, capacity, _uuid);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SpeedSettingsOutdoor</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class SpeedSettings description:<br>
-     * Speed Settings commands<br>
-     * <br>
-     * Command Outdoor description:<br>
-     * @deprecated<br>
-     * Outdoor property<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _outdoor 1 if outdoor, 0 if indoor
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSpeedSettingsOutdoor (byte _outdoor) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoSpeedSettingsOutdoor (pointer, capacity, _outdoor);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaStreamingVideoEnable</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaStreaming description:<br>
-     * Control media streaming behavior.<br>
-     * <br>
-     * Command VideoEnable description:<br>
-     * Enable/disable video streaming.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enable 1 to enable, 0 to disable.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaStreamingVideoEnable (byte _enable) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaStreamingVideoEnable (pointer, capacity, _enable);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>VideoSettingsAutorecord</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class VideoSettings description:<br>
-     * Video settings.<br>
-     * <br>
-     * Command Autorecord description:<br>
-     * Set video automatic recording state.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enabled 0: Disabled 1: Enabled.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoVideoSettingsAutorecord (byte _enabled) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoVideoSettingsAutorecord (pointer, capacity, _enabled);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingStatePostureChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command PostureChanged description:<br>
-     * State of posture changed.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of posture
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStatePostureChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingStatePostureChanged (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingStateAlertStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command AlertStateChanged description:<br>
-     * JS alert state changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state JS alert state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateAlertStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingStateAlertStateChanged (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingStateSpeedChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command SpeedChanged description:<br>
-     * Notification sent when JS speed changes.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _speed Speed command applied to motors in range [-100;100].
-     * @param _realSpeed Actual real-world speed in cm/s. Value -32768 returned if not available.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateSpeedChanged (byte _speed, short _realSpeed) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingStateSpeedChanged (pointer, capacity, _speed, _realSpeed);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command FlyingStateChanged description:<br>
-     * Drone flying state changed<br>
-     * Only used for PowerUp<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state Drone flying state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateFlyingStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingStateFlyingStateChanged (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsStateJumpLoadChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AnimationsState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command JumpLoadChanged description:<br>
-     * State of jump load changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of jump load
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpLoadChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsStateJumpLoadChanged (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsStateJumpTypeChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AnimationsState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command JumpTypeChanged description:<br>
-     * State of jump type changed.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of jump type.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpTypeChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsStateJumpTypeChanged (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AnimationsStateJumpMotorProblemChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AnimationsState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command JumpMotorProblemChanged description:<br>
-     * State about the jump motor problem<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _error Enum describing the problem of the motor
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpMotorProblemChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR_ENUM _error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAnimationsStateJumpMotorProblemChanged (pointer, capacity, _error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SettingsStateProductGPSVersionChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class SettingsState description:<br>
-     * Settings state from product<br>
-     * <br>
-     * Command ProductGPSVersionChanged description:<br>
-     * @deprecated<br>
-     * Product GPS versions<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _software Product GPS software version
-     * @param _hardware Product GPS hardware version
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSettingsStateProductGPSVersionChanged (String _software, String _hardware) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoSettingsStateProductGPSVersionChanged (pointer, capacity, _software, _hardware);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordStatePictureStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command PictureStateChanged description:<br>
-     * @deprecated<br>
-     * State of picture recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state 1 if picture has been taken, 0 otherwise
-     * @param _mass_storage_id Mass storage id where the picture was recorded
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStatePictureStateChanged (byte _state, byte _mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordStatePictureStateChanged (pointer, capacity, _state, _mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordStateVideoStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command VideoStateChanged description:<br>
-     * @deprecated<br>
-     * State of video recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of video
-     * @param _mass_storage_id Mass storage id where the video was recorded
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStateVideoStateChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_ENUM _state, byte _mass_storage_id) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordStateVideoStateChanged (pointer, capacity, _state, _mass_storage_id);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command PictureStateChangedV2 description:<br>
-     * State of device picture recording changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of device picture recording
-     * @param _error Error to explain the state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStatePictureStateChangedV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM _error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2 (pointer, capacity, _state, _error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordState description:<br>
-     * State of media recording<br>
-     * <br>
-     * Command VideoStateChangedV2 description:<br>
-     * State of device video recording changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of device video recording
-     * @param _error Error to explain the state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStateVideoStateChangedV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_ENUM _error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2 (pointer, capacity, _state, _error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordEvent description:<br>
-     * Events of media recording<br>
-     * <br>
-     * Command PictureEventChanged description:<br>
-     * Event of picture recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _event Last event of picture recording
-     * @param _error Error to explain the event
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordEventPictureEventChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM _error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordEventPictureEventChanged (pointer, capacity, _event, _error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaRecordEventVideoEventChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaRecordEvent description:<br>
-     * Events of media recording<br>
-     * <br>
-     * Command VideoEventChanged description:<br>
-     * Event of video recording<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _event Event of video recording
-     * @param _error Error to explain the event
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordEventVideoEventChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_ENUM _error) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaRecordEventVideoEventChanged (pointer, capacity, _event, _error);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkSettingsState description:<br>
-     * Network settings state from product<br>
-     * <br>
-     * Command WifiSelectionChanged description:<br>
-     * Wifi selection from product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type The type of wifi selection settings
-     * @param _band The actual  wifi band state
-     * @param _channel The channel (depends of the band)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkSettingsStateWifiSelectionChanged (ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM _type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM _band, byte _channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChanged (pointer, capacity, _type, _band, _channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkStateWifiScanListChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkState description:<br>
-     * Network state from Product<br>
-     * <br>
-     * Command WifiScanListChanged description:<br>
-     * One scanning result found<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid SSID of the AP
-     * @param _rssi RSSI of the AP in dbm (negative value)
-     * @param _band The band : 2.4 GHz or 5 GHz
-     * @param _channel Channel of the AP
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateWifiScanListChanged (String _ssid, short _rssi, ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM _band, byte _channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkStateWifiScanListChanged (pointer, capacity, _ssid, _rssi, _band, _channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkStateAllWifiScanChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkState description:<br>
-     * Network state from Product<br>
-     * <br>
-     * Command AllWifiScanChanged description:<br>
-     * State sent when all scanning result sent<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateAllWifiScanChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkStateAllWifiScanChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkState description:<br>
-     * Network state from Product<br>
-     * <br>
-     * Command WifiAuthChannelListChanged description:<br>
-     * Notify of an Authorized Channel.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _band The band of this channel : 2.4 GHz or 5 GHz
-     * @param _channel The authorized channel.
-     * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateWifiAuthChannelListChanged (ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM _band, byte _channel, byte _in_or_out) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkStateWifiAuthChannelListChanged (pointer, capacity, _band, _channel, _in_or_out);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkStateAllWifiAuthChannelChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkState description:<br>
-     * Network state from Product<br>
-     * <br>
-     * Command AllWifiAuthChannelChanged description:<br>
-     * Notify the end of the list of Authorized wifi Channel.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateAllWifiAuthChannelChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>NetworkStateLinkQualityChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class NetworkState description:<br>
-     * Network state from Product<br>
-     * <br>
-     * Command LinkQualityChanged description:<br>
-     * Notification sent by the firmware to give an indication of the WiFi link quality.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _quality The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateLinkQualityChanged (byte _quality) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoNetworkStateLinkQualityChanged (pointer, capacity, _quality);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AudioSettingsStateMasterVolumeChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AudioSettingsState description:<br>
-     * Audio settings state.<br>
-     * <br>
-     * Command MasterVolumeChanged description:<br>
-     * Master volume control.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _volume Master audio volume [0:100].
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsStateMasterVolumeChanged (byte _volume) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAudioSettingsStateMasterVolumeChanged (pointer, capacity, _volume);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AudioSettingsStateThemeChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class AudioSettingsState description:<br>
-     * Audio settings state.<br>
-     * <br>
-     * Command ThemeChanged description:<br>
-     * Command to notify controller of new Audio Theme.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _theme The audio theme to set.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsStateThemeChanged (ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME_ENUM _theme) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoAudioSettingsStateThemeChanged (pointer, capacity, _theme);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanStateScriptMetadataListChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlanState description:<br>
-     * RoadPlan command responses.<br>
-     * <br>
-     * Command ScriptMetadataListChanged description:<br>
-     * Update the controller with metadata.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _uuid Script uuid for which metadata changed.
-     * @param _version Version number for this script.
-     * @param _product Product targeted by script.
-     * @param _name Display name of the script.
-     * @param _lastModified Timestamp relative to the UNIX epoch of the last time the file was modified.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptMetadataListChanged (String _uuid, byte _version, String _product, String _name, long _lastModified) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanStateScriptMetadataListChanged (pointer, capacity, _uuid, _version, _product, _name, _lastModified);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanStateAllScriptsMetadataChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlanState description:<br>
-     * RoadPlan command responses.<br>
-     * <br>
-     * Command AllScriptsMetadataChanged description:<br>
-     * Notify controller that all script metadatas are updated.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateAllScriptsMetadataChanged () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChanged (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanStateScriptUploadChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlanState description:<br>
-     * RoadPlan command responses.<br>
-     * <br>
-     * Command ScriptUploadChanged description:<br>
-     * Device response to ScriptUploaded command.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _resultCode Error code.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptUploadChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE_ENUM _resultCode) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanStateScriptUploadChanged (pointer, capacity, _resultCode);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanStateScriptDeleteChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlanState description:<br>
-     * RoadPlan command responses.<br>
-     * <br>
-     * Command ScriptDeleteChanged description:<br>
-     * Device response to ScriptDelete command.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _resultCode Error code.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptDeleteChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE_ENUM _resultCode) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanStateScriptDeleteChanged (pointer, capacity, _resultCode);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RoadPlanStatePlayScriptChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class RoadPlanState description:<br>
-     * RoadPlan command responses.<br>
-     * <br>
-     * Command PlayScriptChanged description:<br>
-     * Device response to PlayScript command.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _resultCode Error code.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStatePlayScriptChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE_ENUM _resultCode) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoRoadPlanStatePlayScriptChanged (pointer, capacity, _resultCode);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SpeedSettingsStateOutdoorChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class SpeedSettingsState description:<br>
-     * Speed Settings state from product<br>
-     * <br>
-     * Command OutdoorChanged description:<br>
-     * @deprecated<br>
-     * Outdoor property sent by product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _outdoor 1 if outdoor, 0 if indoor
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSpeedSettingsStateOutdoorChanged (byte _outdoor) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoSpeedSettingsStateOutdoorChanged (pointer, capacity, _outdoor);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class MediaStreamingState description:<br>
-     * Media streaming status.<br>
-     * <br>
-     * Command VideoEnableChanged description:<br>
-     * Return video streaming status.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enabled Current video streaming status.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaStreamingStateVideoEnableChanged (ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM _enabled) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoMediaStreamingStateVideoEnableChanged (pointer, capacity, _enabled);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>VideoSettingsStateAutorecordChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class VideoSettingsState description:<br>
-     * Video settings state.<br>
-     * <br>
-     * Command AutorecordChanged description:<br>
-     * Get video automatic recording status.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _enabled 0: Disabled 1: Enabled.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoVideoSettingsStateAutorecordChanged (byte _enabled) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoVideoSettingsStateAutorecordChanged (pointer, capacity, _enabled);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -6736,7 +5144,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDronePilotingFlyingMode (pointer, capacity, _mode);
+        int errInt = nativeSetMiniDronePilotingFlyingMode (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -6765,7 +5173,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDroneAnimationsFlip (pointer, capacity, _direction);
+        int errInt = nativeSetMiniDroneAnimationsFlip (pointer, capacity, _direction.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7228,7 +5636,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDronePilotingStateFlyingStateChanged (pointer, capacity, _state);
+        int errInt = nativeSetMiniDronePilotingStateFlyingStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7257,7 +5665,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDronePilotingStateAlertStateChanged (pointer, capacity, _state);
+        int errInt = nativeSetMiniDronePilotingStateAlertStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7315,7 +5723,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDronePilotingStateFlyingModeChanged (pointer, capacity, _mode);
+        int errInt = nativeSetMiniDronePilotingStateFlyingModeChanged (pointer, capacity, _mode.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7376,7 +5784,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (pointer, capacity, _state, _error);
+        int errInt = nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7406,7 +5814,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetMiniDroneMediaRecordEventPictureEventChanged (pointer, capacity, _event, _error);
+        int errInt = nativeSetMiniDroneMediaRecordEventPictureEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -7714,6 +6122,2258 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneFloodControlStateFloodControlChanged (pointer, capacity, _delay);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command SendPacket description:<br>
+     * Send a packet to the drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _packet Packet to send to the drone
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsSendPacket (String _packet) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsSendPacket (pointer, capacity, _packet);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command StartSendingPacketFromDrone description:<br>
+     * Ask drone to start sending packets<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _frequency Frequency of the packet
+     * @param _packetSize Size of the the packet
+     * @param _date time of day in sec
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDrone (byte _frequency, byte _packetSize, int _date) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsStartSendingPacketFromDrone (pointer, capacity, _frequency, _packetSize, _date);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class Stats description:<br>
+     * Commands to make stats<br>
+     * <br>
+     * Command StopSendingPacketFromDrone description:<br>
+     * Ask drone to stop sending packets<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDrone () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsStopSendingPacketFromDrone (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class DebugSettings description:<br>
+     * Debug custom commands sent to the drone<br>
+     * <br>
+     * Command GetAll description:<br>
+     * Cmd sent by controller to get all settings info (generate "SettingInfo" events).<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsGetAll () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugDebugSettingsGetAll (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class DebugSettings description:<br>
+     * Debug custom commands sent to the drone<br>
+     * <br>
+     * Command Set description:<br>
+     * Change setting value.<br>
+     * Cmd sent by controller to change a writable setting.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Setting Id.
+     * @param _value New setting value (string encoded).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsSet (short _id, String _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugDebugSettingsSet (pointer, capacity, _id, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class StatsEvent description:<br>
+     * Stats Event from drone<br>
+     * <br>
+     * Command SendPacket description:<br>
+     * Send a packet from drone<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _packet packet from drone
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsEventSendPacket (String _packet) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugStatsEventSendPacket (pointer, capacity, _packet);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class DebugSettingsState description:<br>
+     * Debug custom commands sent by the drone<br>
+     * <br>
+     * Command Info description:<br>
+     * Sent by the drone as answer to GetSettingsInfo<br>
+     * Describe a debug setting and give the current value.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+     * @param _id Setting Id.
+     * @param _label Setting displayed label (single line).
+     * @param _type Setting type.
+     * @param _mode Setting mode.
+     * @param _range_min Setting range minimal value for decimal type.
+     * @param _range_max Setting range max value for decimal type.
+     * @param _range_step Setting step value for decimal type
+     * @param _value Current Setting value (string encoded).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateInfo (byte _listFlags, short _id, String _label, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM _type, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_ENUM _mode, String _range_min, String _range_max, String _range_step, String _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugDebugSettingsStateInfo (pointer, capacity, _listFlags, _id, _label, _type.getValue(), _mode.getValue(), _range_min, _range_max, _range_step, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
+     * <br>
+     * Feature CommonDebug description:<br>
+     * All debug commands shared between all projects<br>
+     * <br>
+     * Class DebugSettingsState description:<br>
+     * Debug custom commands sent by the drone<br>
+     * <br>
+     * Command ListChanged description:<br>
+     * Setting value changed.<br>
+     * Cmd sent by drone when setting changed occurred.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Setting Id.
+     * @param _value New setting value (string encoded).
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateListChanged (short _id, String _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonDebugDebugSettingsStateListChanged (pointer, capacity, _id, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingPCMD</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command PCMD description:<br>
+     * Ask the JS speed and turn ratio.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _flag Boolean for "touch screen".
+     * @param _speed Speed value [-100:100].
+     * @param _turn Turn value. [-100:100]
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingPCMD (byte _flag, byte _speed, byte _turn) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingPCMD (pointer, capacity, _flag, _speed, _turn);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingPosture</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command Posture description:<br>
+     * Request a posture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type Type of Posture
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingPosture (ARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE_ENUM _type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingPosture (pointer, capacity, _type.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingAddCapOffset</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command AddCapOffset description:<br>
+     * Add the specified offset to the current cap.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _offset Offset value in radians.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingAddCapOffset (float _offset) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingAddCapOffset (pointer, capacity, _offset);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command UserTakeOff description:<br>
+     * Set drone in user take off state<br>
+     * Only used for PowerUp product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingUserTakeOff (byte _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingUserTakeOff (pointer, capacity, _state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the JumpingSumo<br>
+     * <br>
+     * Command Land description:<br>
+     * Ask the PowerUp to land<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingLand () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingLand (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsJumpStop</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command JumpStop description:<br>
+     * Stop jump, emergency jump stop, stop jump motor and stay there.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpStop () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsJumpStop (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsJumpCancel</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command JumpCancel description:<br>
+     * Cancel jump and come back to previous state (if possible).<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpCancel () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsJumpCancel (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsJumpLoad</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command JumpLoad description:<br>
+     * Request jump loading<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJumpLoad () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsJumpLoad (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsJump</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command Jump description:<br>
+     * Request a jump<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type Type of jump
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsJump (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_ENUM _type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsJump (pointer, capacity, _type.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsSimpleAnimation</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Animations description:<br>
+     * Animation commands<br>
+     * <br>
+     * Command SimpleAnimation description:<br>
+     * Play a parameterless animation.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Animation ID.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsSimpleAnimation (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID_ENUM _id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsSimpleAnimation (pointer, capacity, _id.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordPicture</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command Picture description:<br>
+     * @deprecated<br>
+     * Take picture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mass_storage_id Mass storage id to take picture
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordPicture (byte _mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordPicture (pointer, capacity, _mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordVideo</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command Video description:<br>
+     * @deprecated<br>
+     * Video record<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _record Command to record video
+     * @param _mass_storage_id Mass storage id to record
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordVideo (ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD_ENUM _record, byte _mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordVideo (pointer, capacity, _record.getValue(), _mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordPictureV2</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command PictureV2 description:<br>
+     * Take picture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordPictureV2 () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordPictureV2 (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordVideoV2</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command VideoV2 description:<br>
+     * Video record<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _record Command to record video
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordVideoV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD_ENUM _record) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordVideoV2 (pointer, capacity, _record.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkSettingsWifiSelection</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkSettings description:<br>
+     * Network settings commands<br>
+     * <br>
+     * Command WifiSelection description:<br>
+     * Auto-select channel of choosen band<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection (auto, manual)
+     * @param _band The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+     * @param _channel The channel (not used in auto mode)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkSettingsWifiSelection (ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM _type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkSettingsWifiSelection (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkWifiScan</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command WifiScan description:<br>
+     * Launches wifi network scan<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band(s) : 2.4 Ghz, 5 Ghz, or both
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkWifiScan (ARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND_ENUM _band) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkWifiScan (pointer, capacity, _band.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkWifiAuthChannel</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command WifiAuthChannel description:<br>
+     * Controller inquire the list of authorized wifi channels.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkWifiAuthChannel () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkWifiAuthChannel (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AudioSettingsMasterVolume</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AudioSettings description:<br>
+     * Audio settings.<br>
+     * <br>
+     * Command MasterVolume description:<br>
+     * Master volume control.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _volume Master audio volume [0:100].
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsMasterVolume (byte _volume) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAudioSettingsMasterVolume (pointer, capacity, _volume);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AudioSettingsTheme</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AudioSettings description:<br>
+     * Audio settings.<br>
+     * <br>
+     * Command Theme description:<br>
+     * Audio Theme.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _theme The audio theme to set.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsTheme (ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME_ENUM _theme) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAudioSettingsTheme (pointer, capacity, _theme.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanAllScriptsMetadata</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlan description:<br>
+     * RoadPlan commands.<br>
+     * <br>
+     * Command AllScriptsMetadata description:<br>
+     * Command to ask device all metadata scripts.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanAllScriptsMetadata () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanAllScriptsMetadata (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanScriptUploaded</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlan description:<br>
+     * RoadPlan commands.<br>
+     * <br>
+     * Command ScriptUploaded description:<br>
+     * Notify device that a new file has been uploaded.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uuid UUID of uploaded file.
+     * @param _md5Hash MD5 hash code computed over file.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanScriptUploaded (String _uuid, String _md5Hash) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanScriptUploaded (pointer, capacity, _uuid, _md5Hash);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanScriptDelete</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlan description:<br>
+     * RoadPlan commands.<br>
+     * <br>
+     * Command ScriptDelete description:<br>
+     * Ask the device to delete a script.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uuid UUID of the file to delete.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanScriptDelete (String _uuid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanScriptDelete (pointer, capacity, _uuid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanPlayScript</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlan description:<br>
+     * RoadPlan commands.<br>
+     * <br>
+     * Command PlayScript description:<br>
+     * Ask the device to play a script.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uuid UUID of the file to play.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanPlayScript (String _uuid) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanPlayScript (pointer, capacity, _uuid);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SpeedSettingsOutdoor</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command Outdoor description:<br>
+     * @deprecated<br>
+     * Outdoor property<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _outdoor 1 if outdoor, 0 if indoor
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSpeedSettingsOutdoor (byte _outdoor) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoSpeedSettingsOutdoor (pointer, capacity, _outdoor);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaStreamingVideoEnable</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaStreaming description:<br>
+     * Control media streaming behavior.<br>
+     * <br>
+     * Command VideoEnable description:<br>
+     * Enable/disable video streaming.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable 1 to enable, 0 to disable.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaStreamingVideoEnable (byte _enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaStreamingVideoEnable (pointer, capacity, _enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsAutorecord</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class VideoSettings description:<br>
+     * Video settings.<br>
+     * <br>
+     * Command Autorecord description:<br>
+     * Set video automatic recording state.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoVideoSettingsAutorecord (byte _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoVideoSettingsAutorecord (pointer, capacity, _enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStatePostureChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command PostureChanged description:<br>
+     * State of posture changed.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of posture
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStatePostureChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingStatePostureChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateAlertStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command AlertStateChanged description:<br>
+     * JS alert state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state JS alert state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateAlertStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingStateAlertStateChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateSpeedChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command SpeedChanged description:<br>
+     * Notification sent when JS speed changes.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _speed Speed command applied to motors in range [-100;100].
+     * @param _realSpeed Actual real-world speed in cm/s. Value -32768 returned if not available.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateSpeedChanged (byte _speed, short _realSpeed) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingStateSpeedChanged (pointer, capacity, _speed, _realSpeed);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command FlyingStateChanged description:<br>
+     * Drone flying state changed<br>
+     * Only used for PowerUp<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state Drone flying state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateFlyingStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoPilotingStateFlyingStateChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsStateJumpLoadChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AnimationsState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command JumpLoadChanged description:<br>
+     * State of jump load changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of jump load
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpLoadChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsStateJumpLoadChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsStateJumpTypeChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AnimationsState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command JumpTypeChanged description:<br>
+     * State of jump type changed.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of jump type.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpTypeChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsStateJumpTypeChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AnimationsStateJumpMotorProblemChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AnimationsState description:<br>
+     * Animations state from JS.<br>
+     * <br>
+     * Command JumpMotorProblemChanged description:<br>
+     * State about the jump motor problem<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _error Enum describing the problem of the motor
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAnimationsStateJumpMotorProblemChanged (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAnimationsStateJumpMotorProblemChanged (pointer, capacity, _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SettingsStateProductGPSVersionChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductGPSVersionChanged description:<br>
+     * @deprecated<br>
+     * Product GPS versions<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _software Product GPS software version
+     * @param _hardware Product GPS hardware version
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSettingsStateProductGPSVersionChanged (String _software, String _hardware) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoSettingsStateProductGPSVersionChanged (pointer, capacity, _software, _hardware);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStatePictureStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command PictureStateChanged description:<br>
+     * @deprecated<br>
+     * State of picture recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state 1 if picture has been taken, 0 otherwise
+     * @param _mass_storage_id Mass storage id where the picture was recorded
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStatePictureStateChanged (byte _state, byte _mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordStatePictureStateChanged (pointer, capacity, _state, _mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStateVideoStateChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command VideoStateChanged description:<br>
+     * @deprecated<br>
+     * State of video recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of video
+     * @param _mass_storage_id Mass storage id where the video was recorded
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStateVideoStateChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_ENUM _state, byte _mass_storage_id) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordStateVideoStateChanged (pointer, capacity, _state.getValue(), _mass_storage_id);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command PictureStateChangedV2 description:<br>
+     * State of device picture recording changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of device picture recording
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStatePictureStateChangedV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command VideoStateChangedV2 description:<br>
+     * State of device video recording changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of device video recording
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordStateVideoStateChangedV2 (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordEvent description:<br>
+     * Events of media recording<br>
+     * <br>
+     * Command PictureEventChanged description:<br>
+     * Event of picture recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _event Last event of picture recording
+     * @param _error Error to explain the event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordEventPictureEventChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordEventPictureEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordEventVideoEventChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaRecordEvent description:<br>
+     * Events of media recording<br>
+     * <br>
+     * Command VideoEventChanged description:<br>
+     * Event of video recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _event Event of video recording
+     * @param _error Error to explain the event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaRecordEventVideoEventChanged (ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaRecordEventVideoEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkSettingsState description:<br>
+     * Network settings state from product<br>
+     * <br>
+     * Command WifiSelectionChanged description:<br>
+     * Wifi selection from product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection settings
+     * @param _band The actual  wifi band state
+     * @param _channel The channel (depends of the band)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkSettingsStateWifiSelectionChanged (ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM _type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChanged (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateWifiScanListChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command WifiScanListChanged description:<br>
+     * One scanning result found<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid SSID of the AP
+     * @param _rssi RSSI of the AP in dbm (negative value)
+     * @param _band The band : 2.4 GHz or 5 GHz
+     * @param _channel Channel of the AP
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateWifiScanListChanged (String _ssid, short _rssi, ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkStateWifiScanListChanged (pointer, capacity, _ssid, _rssi, _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateAllWifiScanChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command AllWifiScanChanged description:<br>
+     * State sent when all scanning result sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateAllWifiScanChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkStateAllWifiScanChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command WifiAuthChannelListChanged description:<br>
+     * Notify of an Authorized Channel.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band of this channel : 2.4 GHz or 5 GHz
+     * @param _channel The authorized channel.
+     * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateWifiAuthChannelListChanged (ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM _band, byte _channel, byte _in_or_out) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkStateWifiAuthChannelListChanged (pointer, capacity, _band.getValue(), _channel, _in_or_out);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateAllWifiAuthChannelChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command AllWifiAuthChannelChanged description:<br>
+     * Notify the end of the list of Authorized wifi Channel.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateAllWifiAuthChannelChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateLinkQualityChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command LinkQualityChanged description:<br>
+     * Notification sent by the firmware to give an indication of the WiFi link quality.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _quality The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoNetworkStateLinkQualityChanged (byte _quality) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoNetworkStateLinkQualityChanged (pointer, capacity, _quality);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AudioSettingsStateMasterVolumeChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AudioSettingsState description:<br>
+     * Audio settings state.<br>
+     * <br>
+     * Command MasterVolumeChanged description:<br>
+     * Master volume control.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _volume Master audio volume [0:100].
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsStateMasterVolumeChanged (byte _volume) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAudioSettingsStateMasterVolumeChanged (pointer, capacity, _volume);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AudioSettingsStateThemeChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class AudioSettingsState description:<br>
+     * Audio settings state.<br>
+     * <br>
+     * Command ThemeChanged description:<br>
+     * Command to notify controller of new Audio Theme.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _theme The audio theme to set.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoAudioSettingsStateThemeChanged (ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME_ENUM _theme) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoAudioSettingsStateThemeChanged (pointer, capacity, _theme.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanStateScriptMetadataListChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlanState description:<br>
+     * RoadPlan command responses.<br>
+     * <br>
+     * Command ScriptMetadataListChanged description:<br>
+     * Update the controller with metadata.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uuid Script uuid for which metadata changed.
+     * @param _version Version number for this script.
+     * @param _product Product targeted by script.
+     * @param _name Display name of the script.
+     * @param _lastModified Timestamp relative to the UNIX epoch of the last time the file was modified.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptMetadataListChanged (String _uuid, byte _version, String _product, String _name, long _lastModified) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanStateScriptMetadataListChanged (pointer, capacity, _uuid, _version, _product, _name, _lastModified);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanStateAllScriptsMetadataChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlanState description:<br>
+     * RoadPlan command responses.<br>
+     * <br>
+     * Command AllScriptsMetadataChanged description:<br>
+     * Notify controller that all script metadatas are updated.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateAllScriptsMetadataChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanStateScriptUploadChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlanState description:<br>
+     * RoadPlan command responses.<br>
+     * <br>
+     * Command ScriptUploadChanged description:<br>
+     * Device response to ScriptUploaded command.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _resultCode Error code.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptUploadChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE_ENUM _resultCode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanStateScriptUploadChanged (pointer, capacity, _resultCode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanStateScriptDeleteChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlanState description:<br>
+     * RoadPlan command responses.<br>
+     * <br>
+     * Command ScriptDeleteChanged description:<br>
+     * Device response to ScriptDelete command.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _resultCode Error code.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStateScriptDeleteChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE_ENUM _resultCode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanStateScriptDeleteChanged (pointer, capacity, _resultCode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RoadPlanStatePlayScriptChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class RoadPlanState description:<br>
+     * RoadPlan command responses.<br>
+     * <br>
+     * Command PlayScriptChanged description:<br>
+     * Device response to PlayScript command.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _resultCode Error code.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoRoadPlanStatePlayScriptChanged (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE_ENUM _resultCode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoRoadPlanStatePlayScriptChanged (pointer, capacity, _resultCode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SpeedSettingsStateOutdoorChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command OutdoorChanged description:<br>
+     * @deprecated<br>
+     * Outdoor property sent by product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _outdoor 1 if outdoor, 0 if indoor
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoSpeedSettingsStateOutdoorChanged (byte _outdoor) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoSpeedSettingsStateOutdoorChanged (pointer, capacity, _outdoor);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class MediaStreamingState description:<br>
+     * Media streaming status.<br>
+     * <br>
+     * Command VideoEnableChanged description:<br>
+     * Return video streaming status.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled Current video streaming status.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoMediaStreamingStateVideoEnableChanged (ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoMediaStreamingStateVideoEnableChanged (pointer, capacity, _enabled.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsStateAutorecordChanged</code> in feature <code>JumpingSumo</code><br>
+     * <br>
+     * Feature JumpingSumo description:<br>
+     * All commands specific to the Jumping Sumo.<br>
+     * <br>
+     * Class VideoSettingsState description:<br>
+     * Video settings state.<br>
+     * <br>
+     * Command AutorecordChanged description:<br>
+     * Get video automatic recording status.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoVideoSettingsStateAutorecordChanged (byte _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetJumpingSumoVideoSettingsStateAutorecordChanged (pointer, capacity, _enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Scan</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command Scan description:<br>
+     * Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band : 2.4 Ghz or 5 Ghz
+     * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiScan (byte _band) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiScan (pointer, capacity, _band);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UpdateAuthorizedChannels</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command UpdateAuthorizedChannels description:<br>
+     * Get all available Wifi channels.<br>
+     * The list of available Wifi channels is related to the country of the drone. You can get this country with the event [WifiCountryChanged](#wifi-CountryChanged).<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiUpdateAuthorizedChannels () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiUpdateAuthorizedChannels (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetApChannel</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command SetApChannel description:<br>
+     * Select channel of choosen band to put the drone's access point on this channel.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The wifi selection type available
+     * @param _band The band : 2.4 Ghz or 5 Ghz
+     * @param _channel The channel you want to select. Used only when type is manual.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetApChannel (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM _type, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiSetApChannel (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetSecurity</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command SetSecurity description:<br>
+     * Set the wifi security.<br>
+     * The security is changed on the next boot.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi security (open, wpa2)
+     * @param _key The key to secure the network. Not used if type is open
+     * @param _key_type Type of the key sent
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetSecurity (ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM _type, String _key, ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_ENUM _key_type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiSetSecurity (pointer, capacity, _type.getValue(), _key, _key_type.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetCountry</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command SetCountry description:<br>
+     * Set the wifi country.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _selection_mode Type of country selection
+     * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetCountry (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiSetCountry (pointer, capacity, _selection_mode.getValue(), _code);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command SetEnvironement description:<br>
+     * Set indoor or outdoor wifi settings.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _environement Type of environement
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetEnvironement (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiSetEnvironement (pointer, capacity, _environement.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ScannedItem</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command ScannedItem description:<br>
+     * Wifi scan results.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid SSID of the AP
+     * @param _rssi RSSI of the AP.
+     * @param _band The band : 2.4 Ghz or 5 Ghz
+     * @param _channel Channel of the AP
+     * @param _list_flags Flags use by maps and lists
+     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiScannedItem (String _ssid, short _rssi, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiScannedItem (pointer, capacity, _ssid, _rssi, _band.getValue(), _channel, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AuthorizedChannel</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command AuthorizedChannel description:<br>
+     * Available channel results.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band : 2.4 Ghz or 5 Ghz
+     * @param _channel The channel number
+     * @param _environement Type of environement
+     * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
+     * @param _list_flags Flags use by maps and lists
+     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiAuthorizedChannel (ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _environement, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiAuthorizedChannel (pointer, capacity, _band.getValue(), _channel, _environement, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ApChannelChanged</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command ApChannelChanged description:<br>
+     * Wifi selection changed.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The wifi selection type available
+     * @param _band The band : 2.4 Ghz or 5 Ghz
+     * @param _channel The channel of the drone's access point
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiApChannelChanged (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM _type, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiApChannelChanged (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SecurityChanged</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command SecurityChanged description:<br>
+     * Wifi security changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _key The key to secure the network. Not used if type is open
+     * @param _key_type The type of wifi security (open, wpa2)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSecurityChanged (String _key, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM _key_type) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiSecurityChanged (pointer, capacity, _key, _key_type.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>CountryChanged</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command CountryChanged description:<br>
+     * Wifi country changed.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _selection_mode Type of country selection
+     * @param _code Country code with ISO 3166 format, empty string means unknown country.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiCountryChanged (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiCountryChanged (pointer, capacity, _selection_mode.getValue(), _code);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command EnvironementChanged description:<br>
+     * Status of the wifi config : either indoor or outdoor.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise\nType of environement
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiEnvironementChanged (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiEnvironementChanged (pointer, capacity, _environement.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>RssiChanged</code> in feature <code>Wifi</code><br>
+     * <br>
+     * Feature Wifi description:<br>
+     * All commands/events related to the Wifi<br>
+     * <br>
+     * Command RssiChanged description:<br>
+     * Rssi Changed. This is an information about the Wifi link quality.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _rssi Rssi on the connected wifi network. Rssi values are generally between -30 and -120dBm. The nearest of 0 is the better.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiRssiChanged (short _rssi) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetWifiRssiChanged (pointer, capacity, _rssi);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8115,7 +8775,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerAccessPointSettingsWifiSelection (pointer, capacity, _type, _band, _channel);
+        int errInt = nativeSetSkyControllerAccessPointSettingsWifiSelection (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8480,8 +9140,7 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _axis_id The axiscode to filter
-     * @param _filter_uid_or_builder The mapping preset to associate with the axis
-     * @param _filter_uid_or_builder (Or a string to build a new one)
+     * @param _filter_uid_or_builder The mapping preset to associate with the axis\n(Or a string to build a new one)
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerAxisFiltersSetAxisFilter (int _axis_id, String _filter_uid_or_builder) {
@@ -8546,7 +9205,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerCoPilotingSetPilotingSource (pointer, capacity, _source);
+        int errInt = nativeSetSkyControllerCoPilotingSetPilotingSource (pointer, capacity, _source.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8569,9 +9228,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _enable Flag to enable the feature.
-     * @param _enable 1 = enable quality updates
-     * @param _enable 0 = disable quality updates
+     * @param _enable Flag to enable the feature.\n1 = enable quality updates\n0 = disable quality updates
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (byte _enable) {
@@ -8643,7 +9300,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerWifiStateConnexionChanged (pointer, capacity, _ssid, _status);
+        int errInt = nativeSetSkyControllerWifiStateConnexionChanged (pointer, capacity, _ssid, _status.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8674,7 +9331,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (pointer, capacity, _band, _channel, _in_or_out);
+        int errInt = nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (pointer, capacity, _band.getValue(), _channel, _in_or_out);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8791,7 +9448,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerDeviceStateConnexionChanged (pointer, capacity, _status, _deviceName, _deviceProductID);
+        int errInt = nativeSetSkyControllerDeviceStateConnexionChanged (pointer, capacity, _status.getValue(), _deviceName, _deviceProductID);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -8905,7 +9562,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerSettingsStateProductVariantChanged (pointer, capacity, _variant);
+        int errInt = nativeSetSkyControllerSettingsStateProductVariantChanged (pointer, capacity, _variant.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9014,8 +9671,7 @@ public class ARCommand extends ARNativeData {
      * new command created from the current params
      * @param _latitude SkyController latitude (500. if not available)
      * @param _longitude SkyController longiture (500. if not available)
-     * @param _altitude Altitude (in meters) above sea level
-     * @param _altitude Only meaningful if latitude and longiture are available
+     * @param _altitude Altitude (in meters) above sea level\nOnly meaningful if latitude and longiture are available
      * @param _heading SkyController heading relative to magnetic north (500.f if not available)
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
@@ -9113,7 +9769,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (pointer, capacity, _type, _band, _channel);
+        int errInt = nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9135,8 +9791,7 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _type The type (axis/button) of the control
-     * @param _id The button or axis id
-     * @param _id @note A button and an axis can have the same ID, but their type is different
+     * @param _id The button or axis id\n@note A button and an axis can have the same ID, but their type is different
      * @param _name Display name for the control
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
@@ -9145,7 +9800,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerGamepadInfosStateGamepadControl (pointer, capacity, _type, _id, _name);
+        int errInt = nativeSetSkyControllerGamepadInfosStateGamepadControl (pointer, capacity, _type.getValue(), _id, _name);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9550,7 +10205,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerCoPilotingStatePilotingSource (pointer, capacity, _source);
+        int errInt = nativeSetSkyControllerCoPilotingStatePilotingSource (pointer, capacity, _source.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9572,12 +10227,9 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _status The global status of the calibration
-     * @param _X_Quality Calibration quality on X axis.
-     * @param _X_Quality 0 is bad, 255 is perfect
-     * @param _Y_Quality Calibration quality on Y axis.
-     * @param _Y_Quality 0 is bad, 255 is perfect
-     * @param _Z_Quality Calibration quality on Z axis.
-     * @param _Z_Quality 0 is bad, 255 is perfect
+     * @param _X_Quality Calibration quality on X axis.\n0 is bad, 255 is perfect
+     * @param _Y_Quality Calibration quality on Y axis.\n0 is bad, 255 is perfect
+     * @param _Z_Quality Calibration quality on Z axis.\n0 is bad, 255 is perfect
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationState (ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM _status, byte _X_Quality, byte _Y_Quality, byte _Z_Quality) {
@@ -9585,7 +10237,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (pointer, capacity, _status, _X_Quality, _Y_Quality, _Z_Quality);
+        int errInt = nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (pointer, capacity, _status.getValue(), _X_Quality, _Y_Quality, _Z_Quality);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9606,9 +10258,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _enabled Flag (is the feature enabled).
-     * @param _enabled 1 = The skycontroller sends updated when quality is updated
-     * @param _enabled 0 = The skycontroller only sent updated when state is updated
+     * @param _enabled Flag (is the feature enabled).\n1 = The skycontroller sends updated when quality is updated\n0 = The skycontroller only sent updated when state is updated
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (byte _enabled) {
@@ -9630,8 +10280,7 @@ public class ARCommand extends ARNativeData {
      * All SkyController-only commands<br>
      * <br>
      * Class ButtonEvents description:<br>
-     * Events sent on SkyController button presses.<br>
-     * These events are sent under certain conditions only.<br>
+     * Events sent on SkyController button presses.\nThese events are sent under certain conditions only.<br>
      * <br>
      * Command Settings description:<br>
      * Event sent when the settings button is pressed.<br>
@@ -10080,7 +10729,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonMavlinkStart (pointer, capacity, _filepath, _type);
+        int errInt = nativeSetCommonMavlinkStart (pointer, capacity, _filepath, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10216,9 +10865,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _ready Bit field for TX and RX ready.
-     * @param _ready bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
-     * @param _ready bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
+     * @param _ready Bit field for TX and RX ready.\nbit 0 is 1 if controller is ready and wants to receive sound (Drone TX)\nbit 1 is 1 if controller is ready and wants to send sound (Drone RX)
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioControllerReadyForStreaming (byte _ready) {
@@ -10285,7 +10932,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAnimationsStartAnimation (pointer, capacity, _anim);
+        int errInt = nativeSetCommonAnimationsStartAnimation (pointer, capacity, _anim.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10314,7 +10961,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAnimationsStopAnimation (pointer, capacity, _anim);
+        int errInt = nativeSetCommonAnimationsStopAnimation (pointer, capacity, _anim.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10371,7 +11018,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAccessoryConfig (pointer, capacity, _accessory);
+        int errInt = nativeSetCommonAccessoryConfig (pointer, capacity, _accessory.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10401,7 +11048,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonChargerSetMaxChargeRate (pointer, capacity, _rate);
+        int errInt = nativeSetCommonChargerSetMaxChargeRate (pointer, capacity, _rate.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10431,7 +11078,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonNetworkEventDisconnection (pointer, capacity, _cause);
+        int errInt = nativeSetCommonNetworkEventDisconnection (pointer, capacity, _cause.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10932,7 +11579,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonCommonStateSensorsStatesListChanged (pointer, capacity, _sensorName, _sensorState);
+        int errInt = nativeSetCommonCommonStateSensorsStatesListChanged (pointer, capacity, _sensorName.getValue(), _sensorState);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10961,7 +11608,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonCommonStateProductModel (pointer, capacity, _model);
+        int errInt = nativeSetCommonCommonStateProductModel (pointer, capacity, _model.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10982,10 +11629,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _listFlags List entry attribute Bitfield.
-     * @param _listFlags 0x01: First: indicate it's the first element of the list.
-     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
-     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+     * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _countryCodes Following of country code with ISO 3166 format, separated by ";". Be careful of the command size allowed by the network used. If necessary, split the list in several commands.
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
@@ -11113,7 +11757,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (pointer, capacity, _state, _filepath, _type);
+        int errInt = nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (pointer, capacity, _state.getValue(), _filepath, _type.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11142,7 +11786,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (pointer, capacity, _error);
+        int errInt = nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (pointer, capacity, _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11232,7 +11876,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (pointer, capacity, _axis);
+        int errInt = nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (pointer, capacity, _axis.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11353,7 +11997,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonFlightPlanStateComponentStateListChanged (pointer, capacity, _component, _State);
+        int errInt = nativeSetCommonFlightPlanStateComponentStateListChanged (pointer, capacity, _component.getValue(), _State);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11517,9 +12161,7 @@ public class ARCommand extends ARNativeData {
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _running Bit field for TX and RX running
-     * @param _running bit 0 is 1 if Drone TX is running
-     * @param _running bit 1 is 1 if Drone RX is running
+     * @param _running Bit field for TX and RX running\nbit 0 is 1 if Drone TX is running\nbit 1 is 1 if Drone RX is running
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonAudioStateAudioStreamingRunning (byte _running) {
@@ -11588,7 +12230,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAnimationsStateList (pointer, capacity, _anim, _state, _error);
+        int errInt = nativeSetCommonAnimationsStateList (pointer, capacity, _anim.getValue(), _state.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11617,7 +12259,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (pointer, capacity, _accessory);
+        int errInt = nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (pointer, capacity, _accessory.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11647,7 +12289,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonAccessoryStateAccessoryConfigChanged (pointer, capacity, _newAccessory, _error);
+        int errInt = nativeSetCommonAccessoryStateAccessoryConfigChanged (pointer, capacity, _newAccessory.getValue(), _error.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11706,7 +12348,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonChargerStateMaxChargeRateChanged (pointer, capacity, _rate);
+        int errInt = nativeSetCommonChargerStateMaxChargeRateChanged (pointer, capacity, _rate.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11737,7 +12379,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonChargerStateCurrentChargeStateChanged (pointer, capacity, _status, _phase);
+        int errInt = nativeSetCommonChargerStateCurrentChargeStateChanged (pointer, capacity, _status.getValue(), _phase.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11767,7 +12409,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonChargerStateLastChargeRateChanged (pointer, capacity, _rate);
+        int errInt = nativeSetCommonChargerStateLastChargeRateChanged (pointer, capacity, _rate.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11799,7 +12441,7 @@ public class ARCommand extends ARNativeData {
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonChargerStateChargingInfo (pointer, capacity, _phase, _rate, _intensity, _fullChargingTime);
+        int errInt = nativeSetCommonChargerStateChargingInfo (pointer, capacity, _phase.getValue(), _rate.getValue(), _intensity, _fullChargingTime);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -11836,802 +12478,6 @@ public class ARCommand extends ARNativeData {
         return err;
     }
 
-    /**
-     * Set an ARCommand to hold the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet to the drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _packet Packet to send to the drone
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsSendPacket (String _packet) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsSendPacket (pointer, capacity, _packet);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StartSendingPacketFromDrone description:<br>
-     * Ask drone to start sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _frequency Frequency of the packet
-     * @param _packetSize Size of the the packet
-     * @param _date time of day in sec
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDrone (byte _frequency, byte _packetSize, int _date) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStartSendingPacketFromDrone (pointer, capacity, _frequency, _packetSize, _date);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StopSendingPacketFromDrone description:<br>
-     * Ask drone to stop sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDrone () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStopSendingPacketFromDrone (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettings description:<br>
-     * Debug custom commands sent to the drone<br>
-     * <br>
-     * Command GetAll description:<br>
-     * Cmd sent by controller to get all settings info (generate "SettingInfo" events).<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsGetAll () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugDebugSettingsGetAll (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettings description:<br>
-     * Debug custom commands sent to the drone<br>
-     * <br>
-     * Command Set description:<br>
-     * Change setting value.<br>
-     * Cmd sent by controller to change a writable setting.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _id Setting Id.
-     * @param _value New setting value (string encoded).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsSet (short _id, String _value) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugDebugSettingsSet (pointer, capacity, _id, _value);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class StatsEvent description:<br>
-     * Stats Event from drone<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet from drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _packet packet from drone
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsEventSendPacket (String _packet) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsEventSendPacket (pointer, capacity, _packet);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettingsState description:<br>
-     * Debug custom commands sent by the drone<br>
-     * <br>
-     * Command Info description:<br>
-     * Sent by the drone as answer to GetSettingsInfo<br>
-     * Describe a debug setting and give the current value.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _listFlags List entry attribute Bitfield.
-     * @param _listFlags 0x01: First: indicate it's the first element of the list.
-     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
-     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
-     * @param _id Setting Id.
-     * @param _label Setting displayed label (single line).
-     * @param _type Setting type.
-     * @param _mode Setting mode.
-     * @param _range_min Setting range minimal value for decimal type.
-     * @param _range_max Setting range max value for decimal type.
-     * @param _range_step Setting step value for decimal type
-     * @param _value Current Setting value (string encoded).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateInfo (byte _listFlags, short _id, String _label, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM _type, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_ENUM _mode, String _range_min, String _range_max, String _range_step, String _value) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugDebugSettingsStateInfo (pointer, capacity, _listFlags, _id, _label, _type, _mode, _range_min, _range_max, _range_step, _value);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettingsState description:<br>
-     * Debug custom commands sent by the drone<br>
-     * <br>
-     * Command ListChanged description:<br>
-     * Setting value changed.<br>
-     * Cmd sent by drone when setting changed occurred.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _id Setting Id.
-     * @param _value New setting value (string encoded).
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateListChanged (short _id, String _value) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugDebugSettingsStateListChanged (pointer, capacity, _id, _value);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command BoughtFeatures description:<br>
-     * Bought features on this pro version of the controller (features that have been bought)<br>
-     * This command starts the pro authentification process<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Bought features
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProBoughtFeatures (long _features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProBoughtFeatures (pointer, capacity, _features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProResponse</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command Response description:<br>
-     * Response to the challenge string sent by the controller<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _listFlags List entry attribute Bitfield.
-     * @param _listFlags 0x01: First: indicate it's the first element of the list.
-     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
-     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
-     * @param _signedChallenge the signed challenge
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProResponse (byte _listFlags, String _signedChallenge) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProResponse (pointer, capacity, _listFlags, _signedChallenge);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProActivateFeatures</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class Pro description:<br>
-     * Pro related commands from the controller to the product<br>
-     * <br>
-     * Command ActivateFeatures description:<br>
-     * Activate some pro features<br>
-     * Pro features activated should be part of the list returned by ProState->FeaturesSupported<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Pro features to activate
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProActivateFeatures (long _features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProActivateFeatures (pointer, capacity, _features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProStateSupportedFeatures</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProState description:<br>
-     * Pro related commands from the product to the controller<br>
-     * <br>
-     * Command SupportedFeatures description:<br>
-     * Features supported. This command ends the pro authentification<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _status Status of the supported features
-     * @param _features Supported pro features.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateSupportedFeatures (ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM _status, long _features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProStateSupportedFeatures (pointer, capacity, _status, _features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProStateFeaturesActivated</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProState description:<br>
-     * Pro related commands from the product to the controller<br>
-     * <br>
-     * Command FeaturesActivated description:<br>
-     * Pro features that are currently activated<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _features Activated pro features.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProStateFeaturesActivated (long _features) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProStateFeaturesActivated (pointer, capacity, _features);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ProEventChallengeEvent</code> in feature <code>Pro</code><br>
-     * <br>
-     * Feature Pro description:<br>
-     * Pro Feature<br>
-     * <br>
-     * Class ProEvent description:<br>
-     * Pro related events from the product to the controller<br>
-     * <br>
-     * Command ChallengeEvent description:<br>
-     * Challenge event sent from the drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _challenge the challenge that the receiver will have to sign
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setProProEventChallengeEvent (String _challenge) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetProProEventChallengeEvent (pointer, capacity, _challenge);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>Scan</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command Scan description:<br>
-     * Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _band Launches wifi network scan for a given band to get a list of all wifi networks found by the drone.
-     * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiScan (byte _band) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiScan (pointer, capacity, _band);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>UpdateAuthorizedChannels</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command UpdateAuthorizedChannels description:<br>
-     * Get all available Wifi channels.\nThe list of available Wifi channels is related to the country of the drone. You can get this country with the event [WifiCountryChanged](#wifi-CountryChanged).<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiUpdateAuthorizedChannels () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiUpdateAuthorizedChannels (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetApChannel</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command SetApChannel description:<br>
-     * Select channel of choosen band to put the drone's access point on this channel.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Select channel of choosen band to put the drone's access point on this channel.
-     * @param _band Select channel of choosen band to put the drone's access point on this channel.
-     * @param _channel The channel you want to select. Used only when type is manual.
-     * @param _channel Select channel of choosen band to put the drone's access point on this channel.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetApChannel (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM _type, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiSetApChannel (pointer, capacity, _type, _band, _channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetSecurity</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command SetSecurity description:<br>
-     * Set the wifi security.\nThe security is changed on the next boot.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Set the wifi security.\nThe security is changed on the next boot.
-     * @param _key The key to secure the network. Not used if type is open
-     * @param _key Set the wifi security.\nThe security is changed on the next boot.
-     * @param _key_type Set the wifi security.\nThe security is changed on the next boot.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetSecurity (ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM _type, String _key, ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_ENUM _key_type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiSetSecurity (pointer, capacity, _type, _key, _key_type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetCountry</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command SetCountry description:<br>
-     * Set the wifi country.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _selection_mode Set the wifi country.
-     * @param _code Country code with ISO 3166 format. Not used if automatic is 1.
-     * @param _code Set the wifi country.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetCountry (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiSetCountry (pointer, capacity, _selection_mode, _code);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command SetEnvironement description:<br>
-     * Set indoor or outdoor wifi settings.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _environement Set indoor or outdoor wifi settings.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetEnvironement (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiSetEnvironement (pointer, capacity, _environement);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ScannedItem</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command ScannedItem description:<br>
-     * Wifi scan results.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _ssid SSID of the AP
-     * @param _ssid Wifi scan results.
-     * @param _rssi RSSI of the AP.
-     * @param _rssi Wifi scan results.
-     * @param _band Wifi scan results.
-     * @param _channel Channel of the AP
-     * @param _channel Wifi scan results.
-     * @param _list_flags Wifi scan results.
-     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiScannedItem (String _ssid, short _rssi, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _list_flags) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiScannedItem (pointer, capacity, _ssid, _rssi, _band, _channel, _list_flags);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>AuthorizedChannel</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command AuthorizedChannel description:<br>
-     * Available channel results.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _band Available channel results.
-     * @param _channel The channel number
-     * @param _channel Available channel results.
-     * @param _environement Available channel results.
-     * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
-     * @param _list_flags Available channel results.
-     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiAuthorizedChannel (ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _environement, byte _list_flags) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiAuthorizedChannel (pointer, capacity, _band, _channel, _environement, _list_flags);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>ApChannelChanged</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command ApChannelChanged description:<br>
-     * Wifi selection changed.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _type Wifi selection changed.
-     * @param _band Wifi selection changed.
-     * @param _channel The channel of the drone's access point
-     * @param _channel Wifi selection changed.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiApChannelChanged (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM _type, ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiApChannelChanged (pointer, capacity, _type, _band, _channel);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>SecurityChanged</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command SecurityChanged description:<br>
-     * Wifi security changed<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _key The key to secure the network. Not used if type is open
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSecurityChanged (String _key, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM _key_type) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiSecurityChanged (pointer, capacity, _key, _key_type);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>CountryChanged</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command CountryChanged description:<br>
-     * Wifi country changed.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _selection_mode Wifi country changed.
-     * @param _code Country code with ISO 3166 format, empty string means unknown country.
-     * @param _code Wifi country changed.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiCountryChanged (ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM _selection_mode, String _code) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiCountryChanged (pointer, capacity, _selection_mode, _code);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command EnvironementChanged description:<br>
-     * Status of the wifi config : either indoor or outdoor.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise
-     * @param _environement Status of the wifi config : either indoor or outdoor.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiEnvironementChanged (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiEnvironementChanged (pointer, capacity, _environement);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>RssiChanged</code> in feature <code>Wifi</code><br>
-     * <br>
-     * Feature Wifi description:<br>
-     * All commands/events related to the Wifi<br>
-     * <br>
-     * Command RssiChanged description:<br>
-     * Rssi Changed. This is an information about the Wifi link quality.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _rssi Rssi on the connected wifi network. Rssi values are generally between -30 and -120dBm. The nearest of 0 is the better.
-     * @param _rssi Rssi Changed. This is an information about the Wifi link quality.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiRssiChanged (short _rssi) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetWifiRssiChanged (pointer, capacity, _rssi);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
     private static ARCommandGenericDefaultListener _ARCommandGenericDefaultListener = null;
 
     /**
@@ -12641,6 +12487,73 @@ public class ARCommand extends ARNativeData {
      */
     public static void setGenericDefaultListener (ARCommandGenericDefaultListener _ARCommandGenericDefaultListener_PARAM) {
         _ARCommandGenericDefaultListener = _ARCommandGenericDefaultListener_PARAM;
+    }
+
+
+    private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProBoughtFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProBoughtFeaturesListener (ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener_PARAM) {
+        _ARCommandProProBoughtFeaturesListener = _ARCommandProProBoughtFeaturesListener_PARAM;
+    }
+
+    private static ARCommandProProResponseListener _ARCommandProProResponseListener = null;
+
+    /**
+     * Set the listener for the command <code>ProResponse</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProResponseListener_PARAM New listener for the command
+     */
+    public static void setProProResponseListener (ARCommandProProResponseListener _ARCommandProProResponseListener_PARAM) {
+        _ARCommandProProResponseListener = _ARCommandProProResponseListener_PARAM;
+    }
+
+    private static ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>ProActivateFeatures</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProActivateFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProActivateFeaturesListener (ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener_PARAM) {
+        _ARCommandProProActivateFeaturesListener = _ARCommandProProActivateFeaturesListener_PARAM;
+    }
+
+    private static ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener = null;
+
+    /**
+     * Set the listener for the command <code>ProStateSupportedFeatures</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProStateSupportedFeaturesListener_PARAM New listener for the command
+     */
+    public static void setProProStateSupportedFeaturesListener (ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener_PARAM) {
+        _ARCommandProProStateSupportedFeaturesListener = _ARCommandProProStateSupportedFeaturesListener_PARAM;
+    }
+
+    private static ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener = null;
+
+    /**
+     * Set the listener for the command <code>ProStateFeaturesActivated</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProStateFeaturesActivatedListener_PARAM New listener for the command
+     */
+    public static void setProProStateFeaturesActivatedListener (ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener_PARAM) {
+        _ARCommandProProStateFeaturesActivatedListener = _ARCommandProProStateFeaturesActivatedListener_PARAM;
+    }
+
+    private static ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener = null;
+
+    /**
+     * Set the listener for the command <code>ProEventChallengeEvent</code> in feature <code>Pro</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandProProEventChallengeEventListener_PARAM New listener for the command
+     */
+    public static void setProProEventChallengeEventListener (ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener_PARAM) {
+        _ARCommandProProEventChallengeEventListener = _ARCommandProProEventChallengeEventListener_PARAM;
     }
 
 
@@ -14340,6 +14253,536 @@ public class ARCommand extends ARNativeData {
     }
 
 
+    private static ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingFlatTrim</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingFlatTrimListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingFlatTrimListener (ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener_PARAM) {
+        _ARCommandMiniDronePilotingFlatTrimListener = _ARCommandMiniDronePilotingFlatTrimListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingTakeOff</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingTakeOffListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingTakeOffListener (ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener_PARAM) {
+        _ARCommandMiniDronePilotingTakeOffListener = _ARCommandMiniDronePilotingTakeOffListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingPCMD</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingPCMDListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingPCMDListener (ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener_PARAM) {
+        _ARCommandMiniDronePilotingPCMDListener = _ARCommandMiniDronePilotingPCMDListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingLanding</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingLandingListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingLandingListener (ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener_PARAM) {
+        _ARCommandMiniDronePilotingLandingListener = _ARCommandMiniDronePilotingLandingListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingEmergency</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingEmergencyListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingEmergencyListener (ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener_PARAM) {
+        _ARCommandMiniDronePilotingEmergencyListener = _ARCommandMiniDronePilotingEmergencyListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingAutoTakeOffMode</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingAutoTakeOffModeListener (ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM) {
+        _ARCommandMiniDronePilotingAutoTakeOffModeListener = _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingFlyingMode</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingFlyingModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingFlyingModeListener (ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener_PARAM) {
+        _ARCommandMiniDronePilotingFlyingModeListener = _ARCommandMiniDronePilotingFlyingModeListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener = null;
+
+    /**
+     * Set the listener for the command <code>AnimationsFlip</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneAnimationsFlipListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneAnimationsFlipListener (ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener_PARAM) {
+        _ARCommandMiniDroneAnimationsFlipListener = _ARCommandMiniDroneAnimationsFlipListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener = null;
+
+    /**
+     * Set the listener for the command <code>AnimationsCap</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneAnimationsCapListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneAnimationsCapListener (ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener_PARAM) {
+        _ARCommandMiniDroneAnimationsCapListener = _ARCommandMiniDroneAnimationsCapListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordPicture</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordPictureListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordPictureListener (ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordPictureListener = _ARCommandMiniDroneMediaRecordPictureListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordPictureV2</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordPictureV2Listener (ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM) {
+        _ARCommandMiniDroneMediaRecordPictureV2Listener = _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsMaxAltitude</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsMaxAltitudeListener (ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsMaxTilt</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsMaxTiltListener (ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsMaxTiltListener = _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxVerticalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsMaxRotationSpeed</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxRotationSpeedListener (ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsWheels</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsWheelsListener (ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsWheelsListener = _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsMaxHorizontalSpeed</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxHorizontalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener = null;
+
+    /**
+     * Set the listener for the command <code>SettingsCutOutMode</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsCutOutModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsCutOutModeListener (ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener_PARAM) {
+        _ARCommandMiniDroneSettingsCutOutModeListener = _ARCommandMiniDroneSettingsCutOutModeListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener = null;
+
+    /**
+     * Set the listener for the command <code>GPSControllerLatitudeForRun</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneGPSControllerLatitudeForRunListener (ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM) {
+        _ARCommandMiniDroneGPSControllerLatitudeForRunListener = _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener = null;
+
+    /**
+     * Set the listener for the command <code>GPSControllerLongitudeForRun</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneGPSControllerLongitudeForRunListener (ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM) {
+        _ARCommandMiniDroneGPSControllerLongitudeForRunListener = _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener = null;
+
+    /**
+     * Set the listener for the command <code>ConfigurationControllerType</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneConfigurationControllerTypeListener (ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM) {
+        _ARCommandMiniDroneConfigurationControllerTypeListener = _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener = null;
+
+    /**
+     * Set the listener for the command <code>ConfigurationControllerName</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneConfigurationControllerNameListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneConfigurationControllerNameListener (ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener_PARAM) {
+        _ARCommandMiniDroneConfigurationControllerNameListener = _ARCommandMiniDroneConfigurationControllerNameListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlatTrimChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlatTrimChangedListener (ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlatTrimChangedListener = _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlyingStateChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlyingStateChangedListener (ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlyingStateChangedListener = _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateAlertStateChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateAlertStateChangedListener (ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateAlertStateChangedListener = _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateAutoTakeOffModeChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateAutoTakeOffModeChangedListener (ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlyingModeChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlyingModeChangedListener (ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlyingModeChangedListener = _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordStatePictureStateChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordStatePictureStateChangedListener (ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordStatePictureStateChangedV2Listener (ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM) {
+        _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM;
+    }
+
+    private static ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMediaRecordEventPictureEventChangedListener (ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM) {
+        _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateMaxAltitudeChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsStateMaxAltitudeChangedListener (ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateMaxTiltChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsStateMaxTiltChangedListener (ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsStateMaxVerticalSpeedChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsStateMaxRotationSpeedChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsStateWheelsChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateWheelsChangedListener (ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsStateMaxHorizontalSpeedChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SettingsStateProductMotorsVersionChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateProductMotorsVersionChangedListener (ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SettingsStateProductInertialVersionChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateProductInertialVersionChangedListener (ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SettingsStateCutOutModeChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSettingsStateCutOutModeChangedListener (ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM) {
+        _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>FloodControlStateFloodControlChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneFloodControlStateFloodControlChangedListener (ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM) {
+        _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM;
+    }
+
+
+    private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
+
+    /**
+     * Set the listener for the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsSendPacketListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsSendPacketListener (ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener_PARAM) {
+        _ARCommandCommonDebugStatsSendPacketListener = _ARCommandCommonDebugStatsSendPacketListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = null;
+
+    /**
+     * Set the listener for the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsStartSendingPacketFromDroneListener (ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM) {
+        _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = null;
+
+    /**
+     * Set the listener for the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsStopSendingPacketFromDroneListener (ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM) {
+        _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener = null;
+
+    /**
+     * Set the listener for the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugDebugSettingsGetAllListener (ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM) {
+        _ARCommandCommonDebugDebugSettingsGetAllListener = _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener = null;
+
+    /**
+     * Set the listener for the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugDebugSettingsSetListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugDebugSettingsSetListener (ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener_PARAM) {
+        _ARCommandCommonDebugDebugSettingsSetListener = _ARCommandCommonDebugDebugSettingsSetListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener = null;
+
+    /**
+     * Set the listener for the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugStatsEventSendPacketListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugStatsEventSendPacketListener (ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener_PARAM) {
+        _ARCommandCommonDebugStatsEventSendPacketListener = _ARCommandCommonDebugStatsEventSendPacketListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener = null;
+
+    /**
+     * Set the listener for the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugDebugSettingsStateInfoListener (ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM) {
+        _ARCommandCommonDebugDebugSettingsStateInfoListener = _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM;
+    }
+
+    private static ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonDebugDebugSettingsStateListChangedListener (ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM) {
+        _ARCommandCommonDebugDebugSettingsStateListChangedListener = _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM;
+    }
+
+
     private static ARCommandJumpingSumoPilotingPCMDListener _ARCommandJumpingSumoPilotingPCMDListener = null;
 
     /**
@@ -14957,444 +15400,147 @@ public class ARCommand extends ARNativeData {
     }
 
 
-    private static ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener = null;
+    private static ARCommandWifiScanListener _ARCommandWifiScanListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingFlatTrim</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>Scan</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingFlatTrimListener_PARAM New listener for the command
+     * @param _ARCommandWifiScanListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingFlatTrimListener (ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener_PARAM) {
-        _ARCommandMiniDronePilotingFlatTrimListener = _ARCommandMiniDronePilotingFlatTrimListener_PARAM;
+    public static void setWifiScanListener (ARCommandWifiScanListener _ARCommandWifiScanListener_PARAM) {
+        _ARCommandWifiScanListener = _ARCommandWifiScanListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener = null;
+    private static ARCommandWifiUpdateAuthorizedChannelsListener _ARCommandWifiUpdateAuthorizedChannelsListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingTakeOff</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>UpdateAuthorizedChannels</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingTakeOffListener_PARAM New listener for the command
+     * @param _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingTakeOffListener (ARCommandMiniDronePilotingTakeOffListener _ARCommandMiniDronePilotingTakeOffListener_PARAM) {
-        _ARCommandMiniDronePilotingTakeOffListener = _ARCommandMiniDronePilotingTakeOffListener_PARAM;
+    public static void setWifiUpdateAuthorizedChannelsListener (ARCommandWifiUpdateAuthorizedChannelsListener _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM) {
+        _ARCommandWifiUpdateAuthorizedChannelsListener = _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener = null;
+    private static ARCommandWifiSetApChannelListener _ARCommandWifiSetApChannelListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingPCMD</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>SetApChannel</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingPCMDListener_PARAM New listener for the command
+     * @param _ARCommandWifiSetApChannelListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingPCMDListener (ARCommandMiniDronePilotingPCMDListener _ARCommandMiniDronePilotingPCMDListener_PARAM) {
-        _ARCommandMiniDronePilotingPCMDListener = _ARCommandMiniDronePilotingPCMDListener_PARAM;
+    public static void setWifiSetApChannelListener (ARCommandWifiSetApChannelListener _ARCommandWifiSetApChannelListener_PARAM) {
+        _ARCommandWifiSetApChannelListener = _ARCommandWifiSetApChannelListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener = null;
+    private static ARCommandWifiSetSecurityListener _ARCommandWifiSetSecurityListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingLanding</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>SetSecurity</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingLandingListener_PARAM New listener for the command
+     * @param _ARCommandWifiSetSecurityListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingLandingListener (ARCommandMiniDronePilotingLandingListener _ARCommandMiniDronePilotingLandingListener_PARAM) {
-        _ARCommandMiniDronePilotingLandingListener = _ARCommandMiniDronePilotingLandingListener_PARAM;
+    public static void setWifiSetSecurityListener (ARCommandWifiSetSecurityListener _ARCommandWifiSetSecurityListener_PARAM) {
+        _ARCommandWifiSetSecurityListener = _ARCommandWifiSetSecurityListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener = null;
+    private static ARCommandWifiSetCountryListener _ARCommandWifiSetCountryListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingEmergency</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>SetCountry</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingEmergencyListener_PARAM New listener for the command
+     * @param _ARCommandWifiSetCountryListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingEmergencyListener (ARCommandMiniDronePilotingEmergencyListener _ARCommandMiniDronePilotingEmergencyListener_PARAM) {
-        _ARCommandMiniDronePilotingEmergencyListener = _ARCommandMiniDronePilotingEmergencyListener_PARAM;
+    public static void setWifiSetCountryListener (ARCommandWifiSetCountryListener _ARCommandWifiSetCountryListener_PARAM) {
+        _ARCommandWifiSetCountryListener = _ARCommandWifiSetCountryListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener = null;
+    private static ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingAutoTakeOffMode</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM New listener for the command
+     * @param _ARCommandWifiSetEnvironementListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingAutoTakeOffModeListener (ARCommandMiniDronePilotingAutoTakeOffModeListener _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM) {
-        _ARCommandMiniDronePilotingAutoTakeOffModeListener = _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM;
+    public static void setWifiSetEnvironementListener (ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener_PARAM) {
+        _ARCommandWifiSetEnvironementListener = _ARCommandWifiSetEnvironementListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener = null;
+    private static ARCommandWifiScannedItemListener _ARCommandWifiScannedItemListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingFlyingMode</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>ScannedItem</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingFlyingModeListener_PARAM New listener for the command
+     * @param _ARCommandWifiScannedItemListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingFlyingModeListener (ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener_PARAM) {
-        _ARCommandMiniDronePilotingFlyingModeListener = _ARCommandMiniDronePilotingFlyingModeListener_PARAM;
+    public static void setWifiScannedItemListener (ARCommandWifiScannedItemListener _ARCommandWifiScannedItemListener_PARAM) {
+        _ARCommandWifiScannedItemListener = _ARCommandWifiScannedItemListener_PARAM;
     }
 
-    private static ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener = null;
+    private static ARCommandWifiAuthorizedChannelListener _ARCommandWifiAuthorizedChannelListener = null;
 
     /**
-     * Set the listener for the command <code>AnimationsFlip</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>AuthorizedChannel</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneAnimationsFlipListener_PARAM New listener for the command
+     * @param _ARCommandWifiAuthorizedChannelListener_PARAM New listener for the command
      */
-    public static void setMiniDroneAnimationsFlipListener (ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener_PARAM) {
-        _ARCommandMiniDroneAnimationsFlipListener = _ARCommandMiniDroneAnimationsFlipListener_PARAM;
+    public static void setWifiAuthorizedChannelListener (ARCommandWifiAuthorizedChannelListener _ARCommandWifiAuthorizedChannelListener_PARAM) {
+        _ARCommandWifiAuthorizedChannelListener = _ARCommandWifiAuthorizedChannelListener_PARAM;
     }
 
-    private static ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener = null;
+    private static ARCommandWifiApChannelChangedListener _ARCommandWifiApChannelChangedListener = null;
 
     /**
-     * Set the listener for the command <code>AnimationsCap</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>ApChannelChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneAnimationsCapListener_PARAM New listener for the command
+     * @param _ARCommandWifiApChannelChangedListener_PARAM New listener for the command
      */
-    public static void setMiniDroneAnimationsCapListener (ARCommandMiniDroneAnimationsCapListener _ARCommandMiniDroneAnimationsCapListener_PARAM) {
-        _ARCommandMiniDroneAnimationsCapListener = _ARCommandMiniDroneAnimationsCapListener_PARAM;
+    public static void setWifiApChannelChangedListener (ARCommandWifiApChannelChangedListener _ARCommandWifiApChannelChangedListener_PARAM) {
+        _ARCommandWifiApChannelChangedListener = _ARCommandWifiApChannelChangedListener_PARAM;
     }
 
-    private static ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener = null;
+    private static ARCommandWifiSecurityChangedListener _ARCommandWifiSecurityChangedListener = null;
 
     /**
-     * Set the listener for the command <code>MediaRecordPicture</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>SecurityChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordPictureListener_PARAM New listener for the command
+     * @param _ARCommandWifiSecurityChangedListener_PARAM New listener for the command
      */
-    public static void setMiniDroneMediaRecordPictureListener (ARCommandMiniDroneMediaRecordPictureListener _ARCommandMiniDroneMediaRecordPictureListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordPictureListener = _ARCommandMiniDroneMediaRecordPictureListener_PARAM;
+    public static void setWifiSecurityChangedListener (ARCommandWifiSecurityChangedListener _ARCommandWifiSecurityChangedListener_PARAM) {
+        _ARCommandWifiSecurityChangedListener = _ARCommandWifiSecurityChangedListener_PARAM;
     }
 
-    private static ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener = null;
+    private static ARCommandWifiCountryChangedListener _ARCommandWifiCountryChangedListener = null;
 
     /**
-     * Set the listener for the command <code>MediaRecordPictureV2</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>CountryChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM New listener for the command
+     * @param _ARCommandWifiCountryChangedListener_PARAM New listener for the command
      */
-    public static void setMiniDroneMediaRecordPictureV2Listener (ARCommandMiniDroneMediaRecordPictureV2Listener _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM) {
-        _ARCommandMiniDroneMediaRecordPictureV2Listener = _ARCommandMiniDroneMediaRecordPictureV2Listener_PARAM;
+    public static void setWifiCountryChangedListener (ARCommandWifiCountryChangedListener _ARCommandWifiCountryChangedListener_PARAM) {
+        _ARCommandWifiCountryChangedListener = _ARCommandWifiCountryChangedListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = null;
+    private static ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingSettingsMaxAltitude</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM New listener for the command
+     * @param _ARCommandWifiEnvironementChangedListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingSettingsMaxAltitudeListener (ARCommandMiniDronePilotingSettingsMaxAltitudeListener _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsMaxAltitudeListener = _ARCommandMiniDronePilotingSettingsMaxAltitudeListener_PARAM;
+    public static void setWifiEnvironementChangedListener (ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener_PARAM) {
+        _ARCommandWifiEnvironementChangedListener = _ARCommandWifiEnvironementChangedListener_PARAM;
     }
 
-    private static ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener = null;
+    private static ARCommandWifiRssiChangedListener _ARCommandWifiRssiChangedListener = null;
 
     /**
-     * Set the listener for the command <code>PilotingSettingsMaxTilt</code> in feature <code>MiniDrone</code><br>
+     * Set the listener for the command <code>RssiChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM New listener for the command
+     * @param _ARCommandWifiRssiChangedListener_PARAM New listener for the command
      */
-    public static void setMiniDronePilotingSettingsMaxTiltListener (ARCommandMiniDronePilotingSettingsMaxTiltListener _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsMaxTiltListener = _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsMaxVerticalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsMaxRotationSpeed</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsMaxRotationSpeedListener (ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxRotationSpeedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsWheels</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsWheelsListener (ARCommandMiniDroneSpeedSettingsWheelsListener _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsWheelsListener = _ARCommandMiniDroneSpeedSettingsWheelsListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsMaxHorizontalSpeed</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsMaxHorizontalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener = null;
-
-    /**
-     * Set the listener for the command <code>SettingsCutOutMode</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsCutOutModeListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsCutOutModeListener (ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener_PARAM) {
-        _ARCommandMiniDroneSettingsCutOutModeListener = _ARCommandMiniDroneSettingsCutOutModeListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener = null;
-
-    /**
-     * Set the listener for the command <code>GPSControllerLatitudeForRun</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneGPSControllerLatitudeForRunListener (ARCommandMiniDroneGPSControllerLatitudeForRunListener _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM) {
-        _ARCommandMiniDroneGPSControllerLatitudeForRunListener = _ARCommandMiniDroneGPSControllerLatitudeForRunListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener = null;
-
-    /**
-     * Set the listener for the command <code>GPSControllerLongitudeForRun</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneGPSControllerLongitudeForRunListener (ARCommandMiniDroneGPSControllerLongitudeForRunListener _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM) {
-        _ARCommandMiniDroneGPSControllerLongitudeForRunListener = _ARCommandMiniDroneGPSControllerLongitudeForRunListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener = null;
-
-    /**
-     * Set the listener for the command <code>ConfigurationControllerType</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneConfigurationControllerTypeListener (ARCommandMiniDroneConfigurationControllerTypeListener _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM) {
-        _ARCommandMiniDroneConfigurationControllerTypeListener = _ARCommandMiniDroneConfigurationControllerTypeListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener = null;
-
-    /**
-     * Set the listener for the command <code>ConfigurationControllerName</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneConfigurationControllerNameListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneConfigurationControllerNameListener (ARCommandMiniDroneConfigurationControllerNameListener _ARCommandMiniDroneConfigurationControllerNameListener_PARAM) {
-        _ARCommandMiniDroneConfigurationControllerNameListener = _ARCommandMiniDroneConfigurationControllerNameListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateFlatTrimChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateFlatTrimChangedListener (ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateFlatTrimChangedListener = _ARCommandMiniDronePilotingStateFlatTrimChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateFlyingStateChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateFlyingStateChangedListener (ARCommandMiniDronePilotingStateFlyingStateChangedListener _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateFlyingStateChangedListener = _ARCommandMiniDronePilotingStateFlyingStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateAlertStateChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateAlertStateChangedListener (ARCommandMiniDronePilotingStateAlertStateChangedListener _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateAlertStateChangedListener = _ARCommandMiniDronePilotingStateAlertStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateAutoTakeOffModeChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateAutoTakeOffModeChangedListener (ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateFlyingModeChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingStateFlyingModeChangedListener (ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingStateFlyingModeChangedListener = _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MediaRecordStatePictureStateChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordStatePictureStateChangedListener (ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = null;
-
-    /**
-     * Set the listener for the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordStatePictureStateChangedV2Listener (ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM) {
-        _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener = _ARCommandMiniDroneMediaRecordStatePictureStateChangedV2Listener_PARAM;
-    }
-
-    private static ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMediaRecordEventPictureEventChangedListener (ARCommandMiniDroneMediaRecordEventPictureEventChangedListener _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM) {
-        _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener = _ARCommandMiniDroneMediaRecordEventPictureEventChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingSettingsStateMaxAltitudeChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsStateMaxAltitudeChangedListener (ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxAltitudeChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingSettingsStateMaxTiltChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDronePilotingSettingsStateMaxTiltChangedListener (ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM) {
-        _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsStateMaxVerticalSpeedChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsStateMaxRotationSpeedChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsStateWheelsChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateWheelsChangedListener (ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener = _ARCommandMiniDroneSpeedSettingsStateWheelsChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SpeedSettingsStateMaxHorizontalSpeedChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM) {
-        _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SettingsStateProductMotorsVersionChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateProductMotorsVersionChangedListener (ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SettingsStateProductInertialVersionChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateProductInertialVersionChangedListener (ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener = _ARCommandMiniDroneSettingsStateProductInertialVersionChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SettingsStateCutOutModeChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneSettingsStateCutOutModeChangedListener (ARCommandMiniDroneSettingsStateCutOutModeChangedListener _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM) {
-        _ARCommandMiniDroneSettingsStateCutOutModeChangedListener = _ARCommandMiniDroneSettingsStateCutOutModeChangedListener_PARAM;
-    }
-
-    private static ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>FloodControlStateFloodControlChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneFloodControlStateFloodControlChangedListener (ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM) {
-        _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM;
+    public static void setWifiRssiChangedListener (ARCommandWifiRssiChangedListener _ARCommandWifiRssiChangedListener_PARAM) {
+        _ARCommandWifiRssiChangedListener = _ARCommandWifiRssiChangedListener_PARAM;
     }
 
 
@@ -16940,312 +17086,25 @@ public class ARCommand extends ARNativeData {
     }
 
 
-    private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
-
-    /**
-     * Set the listener for the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsSendPacketListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsSendPacketListener (ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsSendPacketListener = _ARCommandCommonDebugStatsSendPacketListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = null;
-
-    /**
-     * Set the listener for the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsStartSendingPacketFromDroneListener (ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = null;
-
-    /**
-     * Set the listener for the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsStopSendingPacketFromDroneListener (ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsGetAllListener (ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsGetAllListener = _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsSetListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsSetListener (ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsSetListener = _ARCommandCommonDebugDebugSettingsSetListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener = null;
-
-    /**
-     * Set the listener for the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsEventSendPacketListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsEventSendPacketListener (ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsEventSendPacketListener = _ARCommandCommonDebugStatsEventSendPacketListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsStateInfoListener (ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsStateInfoListener = _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsStateListChangedListener (ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsStateListChangedListener = _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM;
-    }
-
-
-    private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProBoughtFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProBoughtFeaturesListener (ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener_PARAM) {
-        _ARCommandProProBoughtFeaturesListener = _ARCommandProProBoughtFeaturesListener_PARAM;
-    }
-
-    private static ARCommandProProResponseListener _ARCommandProProResponseListener = null;
-
-    /**
-     * Set the listener for the command <code>ProResponse</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProResponseListener_PARAM New listener for the command
-     */
-    public static void setProProResponseListener (ARCommandProProResponseListener _ARCommandProProResponseListener_PARAM) {
-        _ARCommandProProResponseListener = _ARCommandProProResponseListener_PARAM;
-    }
-
-    private static ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>ProActivateFeatures</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProActivateFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProActivateFeaturesListener (ARCommandProProActivateFeaturesListener _ARCommandProProActivateFeaturesListener_PARAM) {
-        _ARCommandProProActivateFeaturesListener = _ARCommandProProActivateFeaturesListener_PARAM;
-    }
-
-    private static ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener = null;
-
-    /**
-     * Set the listener for the command <code>ProStateSupportedFeatures</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProStateSupportedFeaturesListener_PARAM New listener for the command
-     */
-    public static void setProProStateSupportedFeaturesListener (ARCommandProProStateSupportedFeaturesListener _ARCommandProProStateSupportedFeaturesListener_PARAM) {
-        _ARCommandProProStateSupportedFeaturesListener = _ARCommandProProStateSupportedFeaturesListener_PARAM;
-    }
-
-    private static ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener = null;
-
-    /**
-     * Set the listener for the command <code>ProStateFeaturesActivated</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProStateFeaturesActivatedListener_PARAM New listener for the command
-     */
-    public static void setProProStateFeaturesActivatedListener (ARCommandProProStateFeaturesActivatedListener _ARCommandProProStateFeaturesActivatedListener_PARAM) {
-        _ARCommandProProStateFeaturesActivatedListener = _ARCommandProProStateFeaturesActivatedListener_PARAM;
-    }
-
-    private static ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener = null;
-
-    /**
-     * Set the listener for the command <code>ProEventChallengeEvent</code> in feature <code>Pro</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandProProEventChallengeEventListener_PARAM New listener for the command
-     */
-    public static void setProProEventChallengeEventListener (ARCommandProProEventChallengeEventListener _ARCommandProProEventChallengeEventListener_PARAM) {
-        _ARCommandProProEventChallengeEventListener = _ARCommandProProEventChallengeEventListener_PARAM;
-    }
-
-
-    private static ARCommandWifiScanListener _ARCommandWifiScanListener = null;
-
-    /**
-     * Set the listener for the command <code>Scan</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiScanListener_PARAM New listener for the command
-     */
-    public static void setWifiScanListener (ARCommandWifiScanListener _ARCommandWifiScanListener_PARAM) {
-        _ARCommandWifiScanListener = _ARCommandWifiScanListener_PARAM;
-    }
-
-    private static ARCommandWifiUpdateAuthorizedChannelsListener _ARCommandWifiUpdateAuthorizedChannelsListener = null;
-
-    /**
-     * Set the listener for the command <code>UpdateAuthorizedChannels</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM New listener for the command
-     */
-    public static void setWifiUpdateAuthorizedChannelsListener (ARCommandWifiUpdateAuthorizedChannelsListener _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM) {
-        _ARCommandWifiUpdateAuthorizedChannelsListener = _ARCommandWifiUpdateAuthorizedChannelsListener_PARAM;
-    }
-
-    private static ARCommandWifiSetApChannelListener _ARCommandWifiSetApChannelListener = null;
-
-    /**
-     * Set the listener for the command <code>SetApChannel</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSetApChannelListener_PARAM New listener for the command
-     */
-    public static void setWifiSetApChannelListener (ARCommandWifiSetApChannelListener _ARCommandWifiSetApChannelListener_PARAM) {
-        _ARCommandWifiSetApChannelListener = _ARCommandWifiSetApChannelListener_PARAM;
-    }
-
-    private static ARCommandWifiSetSecurityListener _ARCommandWifiSetSecurityListener = null;
-
-    /**
-     * Set the listener for the command <code>SetSecurity</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSetSecurityListener_PARAM New listener for the command
-     */
-    public static void setWifiSetSecurityListener (ARCommandWifiSetSecurityListener _ARCommandWifiSetSecurityListener_PARAM) {
-        _ARCommandWifiSetSecurityListener = _ARCommandWifiSetSecurityListener_PARAM;
-    }
-
-    private static ARCommandWifiSetCountryListener _ARCommandWifiSetCountryListener = null;
-
-    /**
-     * Set the listener for the command <code>SetCountry</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSetCountryListener_PARAM New listener for the command
-     */
-    public static void setWifiSetCountryListener (ARCommandWifiSetCountryListener _ARCommandWifiSetCountryListener_PARAM) {
-        _ARCommandWifiSetCountryListener = _ARCommandWifiSetCountryListener_PARAM;
-    }
-
-    private static ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener = null;
-
-    /**
-     * Set the listener for the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSetEnvironementListener_PARAM New listener for the command
-     */
-    public static void setWifiSetEnvironementListener (ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener_PARAM) {
-        _ARCommandWifiSetEnvironementListener = _ARCommandWifiSetEnvironementListener_PARAM;
-    }
-
-    private static ARCommandWifiScannedItemListener _ARCommandWifiScannedItemListener = null;
-
-    /**
-     * Set the listener for the command <code>ScannedItem</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiScannedItemListener_PARAM New listener for the command
-     */
-    public static void setWifiScannedItemListener (ARCommandWifiScannedItemListener _ARCommandWifiScannedItemListener_PARAM) {
-        _ARCommandWifiScannedItemListener = _ARCommandWifiScannedItemListener_PARAM;
-    }
-
-    private static ARCommandWifiAuthorizedChannelListener _ARCommandWifiAuthorizedChannelListener = null;
-
-    /**
-     * Set the listener for the command <code>AuthorizedChannel</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiAuthorizedChannelListener_PARAM New listener for the command
-     */
-    public static void setWifiAuthorizedChannelListener (ARCommandWifiAuthorizedChannelListener _ARCommandWifiAuthorizedChannelListener_PARAM) {
-        _ARCommandWifiAuthorizedChannelListener = _ARCommandWifiAuthorizedChannelListener_PARAM;
-    }
-
-    private static ARCommandWifiApChannelChangedListener _ARCommandWifiApChannelChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>ApChannelChanged</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiApChannelChangedListener_PARAM New listener for the command
-     */
-    public static void setWifiApChannelChangedListener (ARCommandWifiApChannelChangedListener _ARCommandWifiApChannelChangedListener_PARAM) {
-        _ARCommandWifiApChannelChangedListener = _ARCommandWifiApChannelChangedListener_PARAM;
-    }
-
-    private static ARCommandWifiSecurityChangedListener _ARCommandWifiSecurityChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>SecurityChanged</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSecurityChangedListener_PARAM New listener for the command
-     */
-    public static void setWifiSecurityChangedListener (ARCommandWifiSecurityChangedListener _ARCommandWifiSecurityChangedListener_PARAM) {
-        _ARCommandWifiSecurityChangedListener = _ARCommandWifiSecurityChangedListener_PARAM;
-    }
-
-    private static ARCommandWifiCountryChangedListener _ARCommandWifiCountryChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>CountryChanged</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiCountryChangedListener_PARAM New listener for the command
-     */
-    public static void setWifiCountryChangedListener (ARCommandWifiCountryChangedListener _ARCommandWifiCountryChangedListener_PARAM) {
-        _ARCommandWifiCountryChangedListener = _ARCommandWifiCountryChangedListener_PARAM;
-    }
-
-    private static ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiEnvironementChangedListener_PARAM New listener for the command
-     */
-    public static void setWifiEnvironementChangedListener (ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener_PARAM) {
-        _ARCommandWifiEnvironementChangedListener = _ARCommandWifiEnvironementChangedListener_PARAM;
-    }
-
-    private static ARCommandWifiRssiChangedListener _ARCommandWifiRssiChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>RssiChanged</code> in feature <code>Wifi</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiRssiChangedListener_PARAM New listener for the command
-     */
-    public static void setWifiRssiChangedListener (ARCommandWifiRssiChangedListener _ARCommandWifiRssiChangedListener_PARAM) {
-        _ARCommandWifiRssiChangedListener = _ARCommandWifiRssiChangedListener_PARAM;
-    }
-
-
 
     private native String  nativeToString (long jpdata, int jdataSize);
     private static native String  nativeStaticToString (long jpdata, int jdataSize);
     private native int     nativeDecode (long jpdata, int jdataSize);
 
     private native int     nativeSetGenericDefault (long pdata, int dataTotalLength);
+
+
+    private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
+
+    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, byte listFlags, String signedChallenge);
+
+    private native int     nativeSetProProActivateFeatures (long pdata, int dataTotalLength, long features);
+
+    private native int     nativeSetProProStateSupportedFeatures (long pdata, int dataTotalLength, int status, long features);
+
+    private native int     nativeSetProProStateFeaturesActivated (long pdata, int dataTotalLength, long features);
+
+    private native int     nativeSetProProEventChallengeEvent (long pdata, int dataTotalLength, String challenge);
 
 
     private native int     nativeSetARDrone3PilotingFlatTrim (long pdata, int dataTotalLength);
@@ -17266,21 +17125,21 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
 
-    private native int     nativeSetARDrone3PilotingCircle (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION_ENUM direction);
+    private native int     nativeSetARDrone3PilotingCircle (long pdata, int dataTotalLength, int direction);
 
-    private native int     nativeSetARDrone3AnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
+    private native int     nativeSetARDrone3AnimationsFlip (long pdata, int dataTotalLength, int direction);
 
     private native int     nativeSetARDrone3CameraOrientation (long pdata, int dataTotalLength, byte tilt, byte pan);
 
     private native int     nativeSetARDrone3MediaRecordPicture (long pdata, int dataTotalLength, byte mass_storage_id);
 
-    private native int     nativeSetARDrone3MediaRecordVideo (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEO_RECORD_ENUM record, byte mass_storage_id);
+    private native int     nativeSetARDrone3MediaRecordVideo (long pdata, int dataTotalLength, int record, byte mass_storage_id);
 
     private native int     nativeSetARDrone3MediaRecordPictureV2 (long pdata, int dataTotalLength);
 
-    private native int     nativeSetARDrone3MediaRecordVideoV2 (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEOV2_RECORD_ENUM record);
+    private native int     nativeSetARDrone3MediaRecordVideoV2 (long pdata, int dataTotalLength, int record);
 
-    private native int     nativeSetARDrone3NetworkWifiScan (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND_ENUM band);
+    private native int     nativeSetARDrone3NetworkWifiScan (long pdata, int dataTotalLength, int band);
 
     private native int     nativeSetARDrone3NetworkWifiAuthChannel (long pdata, int dataTotalLength);
 
@@ -17308,15 +17167,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingSettingsMinAltitude (long pdata, int dataTotalLength, float current);
 
-    private native int     nativeSetARDrone3PilotingSettingsCirclingDirection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsCirclingDirection (long pdata, int dataTotalLength, int value);
 
     private native int     nativeSetARDrone3PilotingSettingsCirclingRadius (long pdata, int dataTotalLength, short value);
 
     private native int     nativeSetARDrone3PilotingSettingsCirclingAltitude (long pdata, int dataTotalLength, short value);
 
-    private native int     nativeSetARDrone3PilotingSettingsPitchMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsPitchMode (long pdata, int dataTotalLength, int value);
 
-    private native int     nativeSetARDrone3PilotingSettingsLandingMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsLandingMode (long pdata, int dataTotalLength, int value);
 
     private native int     nativeSetARDrone3SpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
 
@@ -17328,13 +17187,13 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeed (long pdata, int dataTotalLength, float current);
 
-    private native int     nativeSetARDrone3NetworkSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
+    private native int     nativeSetARDrone3NetworkSettingsWifiSelection (long pdata, int dataTotalLength, int type, int band, byte channel);
 
-    private native int     nativeSetARDrone3NetworkSettingsWifiSecurity (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE_ENUM keyType);
+    private native int     nativeSetARDrone3NetworkSettingsWifiSecurity (long pdata, int dataTotalLength, int type, String key, int keyType);
 
-    private native int     nativeSetARDrone3PictureSettingsPictureFormatSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE_ENUM type);
+    private native int     nativeSetARDrone3PictureSettingsPictureFormatSelection (long pdata, int dataTotalLength, int type);
 
-    private native int     nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelection (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE_ENUM type);
+    private native int     nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelection (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetARDrone3PictureSettingsExpositionSelection (long pdata, int dataTotalLength, float value);
 
@@ -17344,7 +17203,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PictureSettingsVideoAutorecordSelection (long pdata, int dataTotalLength, byte enabled, byte mass_storage_id);
 
-    private native int     nativeSetARDrone3PictureSettingsVideoStabilizationMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE_ENUM mode);
+    private native int     nativeSetARDrone3PictureSettingsVideoStabilizationMode (long pdata, int dataTotalLength, int mode);
 
     private native int     nativeSetARDrone3MediaStreamingVideoEnable (long pdata, int dataTotalLength, byte enable);
 
@@ -17354,33 +17213,33 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3GPSSettingsSendControllerGPS (long pdata, int dataTotalLength, double latitude, double longitude, double altitude, double horizontalAccuracy, double verticalAccuracy);
 
-    private native int     nativeSetARDrone3GPSSettingsHomeType (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE_ENUM type);
+    private native int     nativeSetARDrone3GPSSettingsHomeType (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetARDrone3GPSSettingsReturnHomeDelay (long pdata, int dataTotalLength, short delay);
 
-    private native int     nativeSetARDrone3AntiflickeringElectricFrequency (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY_ENUM frequency);
+    private native int     nativeSetARDrone3AntiflickeringElectricFrequency (long pdata, int dataTotalLength, int frequency);
 
-    private native int     nativeSetARDrone3AntiflickeringSetMode (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE_ENUM mode);
+    private native int     nativeSetARDrone3AntiflickeringSetMode (long pdata, int dataTotalLength, int mode);
 
     private native int     nativeSetARDrone3MediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
 
-    private native int     nativeSetARDrone3MediaRecordStateVideoStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_ENUM state, byte mass_storage_id);
+    private native int     nativeSetARDrone3MediaRecordStateVideoStateChanged (long pdata, int dataTotalLength, int state, byte mass_storage_id);
 
-    private native int     nativeSetARDrone3MediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error);
+    private native int     nativeSetARDrone3MediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
 
-    private native int     nativeSetARDrone3MediaRecordStateVideoStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_ENUM error);
+    private native int     nativeSetARDrone3MediaRecordStateVideoStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
 
-    private native int     nativeSetARDrone3MediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error);
+    private native int     nativeSetARDrone3MediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, int event, int error);
 
-    private native int     nativeSetARDrone3MediaRecordEventVideoEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_ENUM error);
+    private native int     nativeSetARDrone3MediaRecordEventVideoEventChanged (long pdata, int dataTotalLength, int event, int error);
 
     private native int     nativeSetARDrone3PilotingStateFlatTrimChanged (long pdata, int dataTotalLength);
 
-    private native int     nativeSetARDrone3PilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetARDrone3PilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
 
-    private native int     nativeSetARDrone3PilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetARDrone3PilotingStateAlertStateChanged (long pdata, int dataTotalLength, int state);
 
-    private native int     nativeSetARDrone3PilotingStateNavigateHomeStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_STATE_ENUM state, ARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_REASON_ENUM reason);
+    private native int     nativeSetARDrone3PilotingStateNavigateHomeStateChanged (long pdata, int dataTotalLength, int state, int reason);
 
     private native int     nativeSetARDrone3PilotingStatePositionChanged (long pdata, int dataTotalLength, double latitude, double longitude, double altitude);
 
@@ -17392,13 +17251,13 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingStateAltitudeChanged (long pdata, int dataTotalLength, double altitude);
 
-    private native int     nativeSetARDrone3PilotingEventMoveByEnd (long pdata, int dataTotalLength, float dX, float dY, float dZ, float dPsi, ARCOMMANDS_ARDRONE3_PILOTINGEVENT_MOVEBYEND_ERROR_ENUM error);
+    private native int     nativeSetARDrone3PilotingEventMoveByEnd (long pdata, int dataTotalLength, float dX, float dY, float dZ, float dPsi, int error);
 
-    private native int     nativeSetARDrone3NetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, ARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM band, byte channel);
+    private native int     nativeSetARDrone3NetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, int band, byte channel);
 
     private native int     nativeSetARDrone3NetworkStateAllWifiScanChanged (long pdata, int dataTotalLength);
 
-    private native int     nativeSetARDrone3NetworkStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out);
+    private native int     nativeSetARDrone3NetworkStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, int band, byte channel, byte in_or_out);
 
     private native int     nativeSetARDrone3NetworkStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
 
@@ -17426,15 +17285,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PilotingSettingsStateMinAltitudeChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
-    private native int     nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsStateCirclingDirectionChanged (long pdata, int dataTotalLength, int value);
 
     private native int     nativeSetARDrone3PilotingSettingsStateCirclingRadiusChanged (long pdata, int dataTotalLength, short current, short min, short max);
 
     private native int     nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChanged (long pdata, int dataTotalLength, short current, short min, short max);
 
-    private native int     nativeSetARDrone3PilotingSettingsStatePitchModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsStatePitchModeChanged (long pdata, int dataTotalLength, int value);
 
-    private native int     nativeSetARDrone3PilotingSettingsStateLandingModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE_ENUM value);
+    private native int     nativeSetARDrone3PilotingSettingsStateLandingModeChanged (long pdata, int dataTotalLength, int value);
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
@@ -17446,29 +17305,29 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
-    private native int     nativeSetARDrone3NetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
+    private native int     nativeSetARDrone3NetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
 
-    private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE_ENUM type);
+    private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurityChanged (long pdata, int dataTotalLength, int type);
 
-    private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurity (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE_ENUM type, String key, ARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE_ENUM keyType);
+    private native int     nativeSetARDrone3NetworkSettingsStateWifiSecurity (long pdata, int dataTotalLength, int type, String key, int keyType);
 
     private native int     nativeSetARDrone3SettingsStateProductMotorVersionListChanged (long pdata, int dataTotalLength, byte motor_number, String type, String software, String hardware);
 
     private native int     nativeSetARDrone3SettingsStateProductGPSVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
 
-    private native int     nativeSetARDrone3SettingsStateMotorErrorStateChanged (long pdata, int dataTotalLength, byte motorIds, ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR_ENUM motorError);
+    private native int     nativeSetARDrone3SettingsStateMotorErrorStateChanged (long pdata, int dataTotalLength, byte motorIds, int motorError);
 
     private native int     nativeSetARDrone3SettingsStateMotorSoftwareVersionChanged (long pdata, int dataTotalLength, String version);
 
     private native int     nativeSetARDrone3SettingsStateMotorFlightsStatusChanged (long pdata, int dataTotalLength, short nbFlights, short lastFlightDuration, int totalFlightDuration);
 
-    private native int     nativeSetARDrone3SettingsStateMotorErrorLastErrorChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR_ENUM motorError);
+    private native int     nativeSetARDrone3SettingsStateMotorErrorLastErrorChanged (long pdata, int dataTotalLength, int motorError);
 
     private native int     nativeSetARDrone3SettingsStateP7ID (long pdata, int dataTotalLength, String serialID);
 
-    private native int     nativeSetARDrone3PictureSettingsStatePictureFormatChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_PICTUREFORMATCHANGED_TYPE_ENUM type);
+    private native int     nativeSetARDrone3PictureSettingsStatePictureFormatChanged (long pdata, int dataTotalLength, int type);
 
-    private native int     nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_AUTOWHITEBALANCECHANGED_TYPE_ENUM type);
+    private native int     nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChanged (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetARDrone3PictureSettingsStateExpositionChanged (long pdata, int dataTotalLength, float value, float min, float max);
 
@@ -17478,9 +17337,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3PictureSettingsStateVideoAutorecordChanged (long pdata, int dataTotalLength, byte enabled, byte mass_storage_id);
 
-    private native int     nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM mode);
+    private native int     nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChanged (long pdata, int dataTotalLength, int mode);
 
-    private native int     nativeSetARDrone3MediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM enabled);
+    private native int     nativeSetARDrone3MediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, int enabled);
 
     private native int     nativeSetARDrone3GPSSettingsStateHomeChanged (long pdata, int dataTotalLength, double latitude, double longitude, double altitude);
 
@@ -17488,9 +17347,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3GPSSettingsStateGPSFixStateChanged (long pdata, int dataTotalLength, byte fixed);
 
-    private native int     nativeSetARDrone3GPSSettingsStateGPSUpdateStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_GPSUPDATESTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetARDrone3GPSSettingsStateGPSUpdateStateChanged (long pdata, int dataTotalLength, int state);
 
-    private native int     nativeSetARDrone3GPSSettingsStateHomeTypeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_HOMETYPECHANGED_TYPE_ENUM type);
+    private native int     nativeSetARDrone3GPSSettingsStateHomeTypeChanged (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetARDrone3GPSSettingsStateReturnHomeDelayChanged (long pdata, int dataTotalLength, short delay);
 
@@ -17498,15 +17357,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetARDrone3CameraStateDefaultCameraOrientation (long pdata, int dataTotalLength, byte tilt, byte pan);
 
-    private native int     nativeSetARDrone3AntiflickeringStateElectricFrequencyChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY_ENUM frequency);
+    private native int     nativeSetARDrone3AntiflickeringStateElectricFrequencyChanged (long pdata, int dataTotalLength, int frequency);
 
-    private native int     nativeSetARDrone3AntiflickeringStateModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_MODECHANGED_MODE_ENUM mode);
+    private native int     nativeSetARDrone3AntiflickeringStateModeChanged (long pdata, int dataTotalLength, int mode);
 
     private native int     nativeSetARDrone3GPSStateNumberOfSatelliteChanged (long pdata, int dataTotalLength, byte numberOfSatellite);
 
-    private native int     nativeSetARDrone3GPSStateHomeTypeAvailabilityChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPEAVAILABILITYCHANGED_TYPE_ENUM type, byte available);
+    private native int     nativeSetARDrone3GPSStateHomeTypeAvailabilityChanged (long pdata, int dataTotalLength, int type, byte available);
 
-    private native int     nativeSetARDrone3GPSStateHomeTypeChosenChanged (long pdata, int dataTotalLength, ARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPECHOSENCHANGED_TYPE_ENUM type);
+    private native int     nativeSetARDrone3GPSStateHomeTypeChosenChanged (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetARDrone3PROStateFeatures (long pdata, int dataTotalLength, long features);
 
@@ -17535,15 +17394,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetFollowMeLynxDetection (long pdata, int dataTotalLength, float target_pan, float target_tilt, float change_of_scale, byte confidence_index, byte is_new_selection, long timestamp);
 
-    private native int     nativeSetFollowMeAvailability (long pdata, int dataTotalLength, ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_ENUM type);
+    private native int     nativeSetFollowMeAvailability (long pdata, int dataTotalLength, int type);
 
-    private native int     nativeSetFollowMeRun (long pdata, int dataTotalLength, ARCOMMANDS_FOLLOW_ME_TYPE_ENUM type);
+    private native int     nativeSetFollowMeRun (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetFollowMeGeographicConfigChanged (long pdata, int dataTotalLength, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 
     private native int     nativeSetFollowMeRelativeConfigChanged (long pdata, int dataTotalLength, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 
-    private native int     nativeSetFollowMeAnimRun (long pdata, int dataTotalLength, ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_ENUM type);
+    private native int     nativeSetFollowMeAnimRun (long pdata, int dataTotalLength, int type);
 
     private native int     nativeSetFollowMeSpiralAnimConfigChanged (long pdata, int dataTotalLength, byte speed_is_default, float speed, byte revolution_nb_is_default, float revolution_nb, byte vertical_distance_is_default, float vertical_distance);
 
@@ -17558,119 +17417,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetFollowMeUserFramingPositionChanged (long pdata, int dataTotalLength, byte horizontal, byte vertical);
 
 
-    private native int     nativeSetJumpingSumoPilotingPCMD (long pdata, int dataTotalLength, byte flag, byte speed, byte turn);
-
-    private native int     nativeSetJumpingSumoPilotingPosture (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE_ENUM type);
-
-    private native int     nativeSetJumpingSumoPilotingAddCapOffset (long pdata, int dataTotalLength, float offset);
-
-    private native int     nativeSetJumpingSumoPilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
-
-    private native int     nativeSetJumpingSumoPilotingLand (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoAnimationsJumpStop (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoAnimationsJumpCancel (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoAnimationsJumpLoad (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoAnimationsJump (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE_ENUM type);
-
-    private native int     nativeSetJumpingSumoAnimationsSimpleAnimation (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID_ENUM id);
-
-    private native int     nativeSetJumpingSumoMediaRecordPicture (long pdata, int dataTotalLength, byte mass_storage_id);
-
-    private native int     nativeSetJumpingSumoMediaRecordVideo (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD_ENUM record, byte mass_storage_id);
-
-    private native int     nativeSetJumpingSumoMediaRecordPictureV2 (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoMediaRecordVideoV2 (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD_ENUM record);
-
-    private native int     nativeSetJumpingSumoNetworkSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetJumpingSumoNetworkWifiScan (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND_ENUM band);
-
-    private native int     nativeSetJumpingSumoNetworkWifiAuthChannel (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoAudioSettingsMasterVolume (long pdata, int dataTotalLength, byte volume);
-
-    private native int     nativeSetJumpingSumoAudioSettingsTheme (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME_ENUM theme);
-
-    private native int     nativeSetJumpingSumoRoadPlanAllScriptsMetadata (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoRoadPlanScriptUploaded (long pdata, int dataTotalLength, String uuid, String md5Hash);
-
-    private native int     nativeSetJumpingSumoRoadPlanScriptDelete (long pdata, int dataTotalLength, String uuid);
-
-    private native int     nativeSetJumpingSumoRoadPlanPlayScript (long pdata, int dataTotalLength, String uuid);
-
-    private native int     nativeSetJumpingSumoSpeedSettingsOutdoor (long pdata, int dataTotalLength, byte outdoor);
-
-    private native int     nativeSetJumpingSumoMediaStreamingVideoEnable (long pdata, int dataTotalLength, byte enable);
-
-    private native int     nativeSetJumpingSumoVideoSettingsAutorecord (long pdata, int dataTotalLength, byte enabled);
-
-    private native int     nativeSetJumpingSumoPilotingStatePostureChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE_ENUM state);
-
-    private native int     nativeSetJumpingSumoPilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
-
-    private native int     nativeSetJumpingSumoPilotingStateSpeedChanged (long pdata, int dataTotalLength, byte speed, short realSpeed);
-
-    private native int     nativeSetJumpingSumoPilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
-
-    private native int     nativeSetJumpingSumoAnimationsStateJumpLoadChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM state);
-
-    private native int     nativeSetJumpingSumoAnimationsStateJumpTypeChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE_ENUM state);
-
-    private native int     nativeSetJumpingSumoAnimationsStateJumpMotorProblemChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR_ENUM error);
-
-    private native int     nativeSetJumpingSumoSettingsStateProductGPSVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
-
-    private native int     nativeSetJumpingSumoMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
-
-    private native int     nativeSetJumpingSumoMediaRecordStateVideoStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE_ENUM state, byte mass_storage_id);
-
-    private native int     nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error);
-
-    private native int     nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_ENUM error);
-
-    private native int     nativeSetJumpingSumoMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error);
-
-    private native int     nativeSetJumpingSumoMediaRecordEventVideoEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_ENUM error);
-
-    private native int     nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetJumpingSumoNetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetJumpingSumoNetworkStateAllWifiScanChanged (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoNetworkStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out);
-
-    private native int     nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoNetworkStateLinkQualityChanged (long pdata, int dataTotalLength, byte quality);
-
-    private native int     nativeSetJumpingSumoAudioSettingsStateMasterVolumeChanged (long pdata, int dataTotalLength, byte volume);
-
-    private native int     nativeSetJumpingSumoAudioSettingsStateThemeChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME_ENUM theme);
-
-    private native int     nativeSetJumpingSumoRoadPlanStateScriptMetadataListChanged (long pdata, int dataTotalLength, String uuid, byte version, String product, String name, long lastModified);
-
-    private native int     nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChanged (long pdata, int dataTotalLength);
-
-    private native int     nativeSetJumpingSumoRoadPlanStateScriptUploadChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE_ENUM resultCode);
-
-    private native int     nativeSetJumpingSumoRoadPlanStateScriptDeleteChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE_ENUM resultCode);
-
-    private native int     nativeSetJumpingSumoRoadPlanStatePlayScriptChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE_ENUM resultCode);
-
-    private native int     nativeSetJumpingSumoSpeedSettingsStateOutdoorChanged (long pdata, int dataTotalLength, byte outdoor);
-
-    private native int     nativeSetJumpingSumoMediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM enabled);
-
-    private native int     nativeSetJumpingSumoVideoSettingsStateAutorecordChanged (long pdata, int dataTotalLength, byte enabled);
-
-
     private native int     nativeSetMiniDronePilotingFlatTrim (long pdata, int dataTotalLength);
 
     private native int     nativeSetMiniDronePilotingTakeOff (long pdata, int dataTotalLength);
@@ -17683,9 +17429,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDronePilotingAutoTakeOffMode (long pdata, int dataTotalLength, byte state);
 
-    private native int     nativeSetMiniDronePilotingFlyingMode (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM mode);
+    private native int     nativeSetMiniDronePilotingFlyingMode (long pdata, int dataTotalLength, int mode);
 
-    private native int     nativeSetMiniDroneAnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
+    private native int     nativeSetMiniDroneAnimationsFlip (long pdata, int dataTotalLength, int direction);
 
     private native int     nativeSetMiniDroneAnimationsCap (long pdata, int dataTotalLength, short offset);
 
@@ -17717,19 +17463,19 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDronePilotingStateFlatTrimChanged (long pdata, int dataTotalLength);
 
-    private native int     nativeSetMiniDronePilotingStateFlyingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetMiniDronePilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
 
-    private native int     nativeSetMiniDronePilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
+    private native int     nativeSetMiniDronePilotingStateAlertStateChanged (long pdata, int dataTotalLength, int state);
 
     private native int     nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (long pdata, int dataTotalLength, byte state);
 
-    private native int     nativeSetMiniDronePilotingStateFlyingModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM mode);
+    private native int     nativeSetMiniDronePilotingStateFlyingModeChanged (long pdata, int dataTotalLength, int mode);
 
     private native int     nativeSetMiniDroneMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
 
-    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM state, ARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM error);
+    private native int     nativeSetMiniDroneMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
 
-    private native int     nativeSetMiniDroneMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM event, ARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM error);
+    private native int     nativeSetMiniDroneMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, int event, int error);
 
     private native int     nativeSetMiniDronePilotingSettingsStateMaxAltitudeChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
@@ -17750,6 +17496,163 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneSettingsStateCutOutModeChanged (long pdata, int dataTotalLength, byte enable);
 
     private native int     nativeSetMiniDroneFloodControlStateFloodControlChanged (long pdata, int dataTotalLength, short delay);
+
+
+    private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
+
+    private native int     nativeSetCommonDebugStatsStartSendingPacketFromDrone (long pdata, int dataTotalLength, byte frequency, byte packetSize, int date);
+
+    private native int     nativeSetCommonDebugStatsStopSendingPacketFromDrone (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonDebugDebugSettingsGetAll (long pdata, int dataTotalLength);
+
+    private native int     nativeSetCommonDebugDebugSettingsSet (long pdata, int dataTotalLength, short id, String value);
+
+    private native int     nativeSetCommonDebugStatsEventSendPacket (long pdata, int dataTotalLength, String packet);
+
+    private native int     nativeSetCommonDebugDebugSettingsStateInfo (long pdata, int dataTotalLength, byte listFlags, short id, String label, int type, int mode, String range_min, String range_max, String range_step, String value);
+
+    private native int     nativeSetCommonDebugDebugSettingsStateListChanged (long pdata, int dataTotalLength, short id, String value);
+
+
+    private native int     nativeSetJumpingSumoPilotingPCMD (long pdata, int dataTotalLength, byte flag, byte speed, byte turn);
+
+    private native int     nativeSetJumpingSumoPilotingPosture (long pdata, int dataTotalLength, int type);
+
+    private native int     nativeSetJumpingSumoPilotingAddCapOffset (long pdata, int dataTotalLength, float offset);
+
+    private native int     nativeSetJumpingSumoPilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetJumpingSumoPilotingLand (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoAnimationsJumpStop (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoAnimationsJumpCancel (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoAnimationsJumpLoad (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoAnimationsJump (long pdata, int dataTotalLength, int type);
+
+    private native int     nativeSetJumpingSumoAnimationsSimpleAnimation (long pdata, int dataTotalLength, int id);
+
+    private native int     nativeSetJumpingSumoMediaRecordPicture (long pdata, int dataTotalLength, byte mass_storage_id);
+
+    private native int     nativeSetJumpingSumoMediaRecordVideo (long pdata, int dataTotalLength, int record, byte mass_storage_id);
+
+    private native int     nativeSetJumpingSumoMediaRecordPictureV2 (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoMediaRecordVideoV2 (long pdata, int dataTotalLength, int record);
+
+    private native int     nativeSetJumpingSumoNetworkSettingsWifiSelection (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetJumpingSumoNetworkWifiScan (long pdata, int dataTotalLength, int band);
+
+    private native int     nativeSetJumpingSumoNetworkWifiAuthChannel (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoAudioSettingsMasterVolume (long pdata, int dataTotalLength, byte volume);
+
+    private native int     nativeSetJumpingSumoAudioSettingsTheme (long pdata, int dataTotalLength, int theme);
+
+    private native int     nativeSetJumpingSumoRoadPlanAllScriptsMetadata (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoRoadPlanScriptUploaded (long pdata, int dataTotalLength, String uuid, String md5Hash);
+
+    private native int     nativeSetJumpingSumoRoadPlanScriptDelete (long pdata, int dataTotalLength, String uuid);
+
+    private native int     nativeSetJumpingSumoRoadPlanPlayScript (long pdata, int dataTotalLength, String uuid);
+
+    private native int     nativeSetJumpingSumoSpeedSettingsOutdoor (long pdata, int dataTotalLength, byte outdoor);
+
+    private native int     nativeSetJumpingSumoMediaStreamingVideoEnable (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetJumpingSumoVideoSettingsAutorecord (long pdata, int dataTotalLength, byte enabled);
+
+    private native int     nativeSetJumpingSumoPilotingStatePostureChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetJumpingSumoPilotingStateAlertStateChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetJumpingSumoPilotingStateSpeedChanged (long pdata, int dataTotalLength, byte speed, short realSpeed);
+
+    private native int     nativeSetJumpingSumoPilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetJumpingSumoAnimationsStateJumpLoadChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetJumpingSumoAnimationsStateJumpTypeChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetJumpingSumoAnimationsStateJumpMotorProblemChanged (long pdata, int dataTotalLength, int error);
+
+    private native int     nativeSetJumpingSumoSettingsStateProductGPSVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
+
+    private native int     nativeSetJumpingSumoMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
+
+    private native int     nativeSetJumpingSumoMediaRecordStateVideoStateChanged (long pdata, int dataTotalLength, int state, byte mass_storage_id);
+
+    private native int     nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
+
+    private native int     nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
+
+    private native int     nativeSetJumpingSumoMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, int event, int error);
+
+    private native int     nativeSetJumpingSumoMediaRecordEventVideoEventChanged (long pdata, int dataTotalLength, int event, int error);
+
+    private native int     nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetJumpingSumoNetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, int band, byte channel);
+
+    private native int     nativeSetJumpingSumoNetworkStateAllWifiScanChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoNetworkStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, int band, byte channel, byte in_or_out);
+
+    private native int     nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoNetworkStateLinkQualityChanged (long pdata, int dataTotalLength, byte quality);
+
+    private native int     nativeSetJumpingSumoAudioSettingsStateMasterVolumeChanged (long pdata, int dataTotalLength, byte volume);
+
+    private native int     nativeSetJumpingSumoAudioSettingsStateThemeChanged (long pdata, int dataTotalLength, int theme);
+
+    private native int     nativeSetJumpingSumoRoadPlanStateScriptMetadataListChanged (long pdata, int dataTotalLength, String uuid, byte version, String product, String name, long lastModified);
+
+    private native int     nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetJumpingSumoRoadPlanStateScriptUploadChanged (long pdata, int dataTotalLength, int resultCode);
+
+    private native int     nativeSetJumpingSumoRoadPlanStateScriptDeleteChanged (long pdata, int dataTotalLength, int resultCode);
+
+    private native int     nativeSetJumpingSumoRoadPlanStatePlayScriptChanged (long pdata, int dataTotalLength, int resultCode);
+
+    private native int     nativeSetJumpingSumoSpeedSettingsStateOutdoorChanged (long pdata, int dataTotalLength, byte outdoor);
+
+    private native int     nativeSetJumpingSumoMediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, int enabled);
+
+    private native int     nativeSetJumpingSumoVideoSettingsStateAutorecordChanged (long pdata, int dataTotalLength, byte enabled);
+
+
+    private native int     nativeSetWifiScan (long pdata, int dataTotalLength, byte band);
+
+    private native int     nativeSetWifiUpdateAuthorizedChannels (long pdata, int dataTotalLength);
+
+    private native int     nativeSetWifiSetApChannel (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetWifiSetSecurity (long pdata, int dataTotalLength, int type, String key, int key_type);
+
+    private native int     nativeSetWifiSetCountry (long pdata, int dataTotalLength, int selection_mode, String code);
+
+    private native int     nativeSetWifiSetEnvironement (long pdata, int dataTotalLength, int environement);
+
+    private native int     nativeSetWifiScannedItem (long pdata, int dataTotalLength, String ssid, short rssi, int band, byte channel, byte list_flags);
+
+    private native int     nativeSetWifiAuthorizedChannel (long pdata, int dataTotalLength, int band, byte channel, byte environement, byte list_flags);
+
+    private native int     nativeSetWifiApChannelChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetWifiSecurityChanged (long pdata, int dataTotalLength, String key, int key_type);
+
+    private native int     nativeSetWifiCountryChanged (long pdata, int dataTotalLength, int selection_mode, String code);
+
+    private native int     nativeSetWifiEnvironementChanged (long pdata, int dataTotalLength, int environement);
+
+    private native int     nativeSetWifiRssiChanged (long pdata, int dataTotalLength, short rssi);
 
 
     private native int     nativeSetSkyControllerWifiRequestWifiList (long pdata, int dataTotalLength);
@@ -17778,7 +17681,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerAccessPointSettingsAccessPointChannel (long pdata, int dataTotalLength, byte channel);
 
-    private native int     nativeSetSkyControllerAccessPointSettingsWifiSelection (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND_ENUM band, byte channel);
+    private native int     nativeSetSkyControllerAccessPointSettingsWifiSelection (long pdata, int dataTotalLength, int type, int band, byte channel);
 
     private native int     nativeSetSkyControllerCameraResetOrientation (long pdata, int dataTotalLength);
 
@@ -17808,15 +17711,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerAxisFiltersDefaultAxisFilters (long pdata, int dataTotalLength);
 
-    private native int     nativeSetSkyControllerCoPilotingSetPilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE_ENUM source);
+    private native int     nativeSetSkyControllerCoPilotingSetPilotingSource (long pdata, int dataTotalLength, int source);
 
     private native int     nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (long pdata, int dataTotalLength, byte enable);
 
     private native int     nativeSetSkyControllerWifiStateWifiList (long pdata, int dataTotalLength, String bssid, String ssid, byte secured, byte saved, int rssi, int frequency);
 
-    private native int     nativeSetSkyControllerWifiStateConnexionChanged (long pdata, int dataTotalLength, String ssid, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS_ENUM status);
+    private native int     nativeSetSkyControllerWifiStateConnexionChanged (long pdata, int dataTotalLength, String ssid, int status);
 
-    private native int     nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM band, byte channel, byte in_or_out);
+    private native int     nativeSetSkyControllerWifiStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, int band, byte channel, byte in_or_out);
 
     private native int     nativeSetSkyControllerWifiStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
 
@@ -17824,7 +17727,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerDeviceStateDeviceList (long pdata, int dataTotalLength, String name);
 
-    private native int     nativeSetSkyControllerDeviceStateConnexionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS_ENUM status, String deviceName, short deviceProductID);
+    private native int     nativeSetSkyControllerDeviceStateConnexionChanged (long pdata, int dataTotalLength, int status, String deviceName, short deviceProductID);
 
     private native int     nativeSetSkyControllerSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
 
@@ -17832,7 +17735,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerSettingsStateProductSerialChanged (long pdata, int dataTotalLength, String serialNumber);
 
-    private native int     nativeSetSkyControllerSettingsStateProductVariantChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_ENUM variant);
+    private native int     nativeSetSkyControllerSettingsStateProductVariantChanged (long pdata, int dataTotalLength, int variant);
 
     private native int     nativeSetSkyControllerCommonStateAllStatesChanged (long pdata, int dataTotalLength);
 
@@ -17846,9 +17749,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChanged (long pdata, int dataTotalLength, byte channel);
 
-    private native int     nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM type, ARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM band, byte channel);
+    private native int     nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
 
-    private native int     nativeSetSkyControllerGamepadInfosStateGamepadControl (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name);
+    private native int     nativeSetSkyControllerGamepadInfosStateGamepadControl (long pdata, int dataTotalLength, int type, int id, String name);
 
     private native int     nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSent (long pdata, int dataTotalLength);
 
@@ -17876,9 +17779,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSent (long pdata, int dataTotalLength);
 
-    private native int     nativeSetSkyControllerCoPilotingStatePilotingSource (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM source);
+    private native int     nativeSetSkyControllerCoPilotingStatePilotingSource (long pdata, int dataTotalLength, int source);
 
-    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (long pdata, int dataTotalLength, ARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS_ENUM status, byte X_Quality, byte Y_Quality, byte Z_Quality);
+    private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationState (long pdata, int dataTotalLength, int status, byte X_Quality, byte Y_Quality, byte Z_Quality);
 
     private native int     nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesState (long pdata, int dataTotalLength, byte enabled);
 
@@ -17913,7 +17816,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonWifiSettingsOutdoorSetting (long pdata, int dataTotalLength, byte outdoor);
 
-    private native int     nativeSetCommonMavlinkStart (long pdata, int dataTotalLength, String filepath, ARCOMMANDS_COMMON_MAVLINK_START_TYPE_ENUM type);
+    private native int     nativeSetCommonMavlinkStart (long pdata, int dataTotalLength, String filepath, int type);
 
     private native int     nativeSetCommonMavlinkPause (long pdata, int dataTotalLength);
 
@@ -17927,17 +17830,17 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonHeadlightsIntensity (long pdata, int dataTotalLength, byte left, byte right);
 
-    private native int     nativeSetCommonAnimationsStartAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim);
+    private native int     nativeSetCommonAnimationsStartAnimation (long pdata, int dataTotalLength, int anim);
 
-    private native int     nativeSetCommonAnimationsStopAnimation (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim);
+    private native int     nativeSetCommonAnimationsStopAnimation (long pdata, int dataTotalLength, int anim);
 
     private native int     nativeSetCommonAnimationsStopAllAnimations (long pdata, int dataTotalLength);
 
-    private native int     nativeSetCommonAccessoryConfig (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY_ENUM accessory);
+    private native int     nativeSetCommonAccessoryConfig (long pdata, int dataTotalLength, int accessory);
 
-    private native int     nativeSetCommonChargerSetMaxChargeRate (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate);
+    private native int     nativeSetCommonChargerSetMaxChargeRate (long pdata, int dataTotalLength, int rate);
 
-    private native int     nativeSetCommonNetworkEventDisconnection (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause);
+    private native int     nativeSetCommonNetworkEventDisconnection (long pdata, int dataTotalLength, int cause);
 
     private native int     nativeSetCommonSettingsStateAllSettingsChanged (long pdata, int dataTotalLength);
 
@@ -17971,9 +17874,9 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonCommonStateWifiSignalChanged (long pdata, int dataTotalLength, short rssi);
 
-    private native int     nativeSetCommonCommonStateSensorsStatesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME_ENUM sensorName, byte sensorState);
+    private native int     nativeSetCommonCommonStateSensorsStatesListChanged (long pdata, int dataTotalLength, int sensorName, byte sensorState);
 
-    private native int     nativeSetCommonCommonStateProductModel (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL_ENUM model);
+    private native int     nativeSetCommonCommonStateProductModel (long pdata, int dataTotalLength, int model);
 
     private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, byte listFlags, String countryCodes);
 
@@ -17983,15 +17886,15 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonWifiSettingsStateOutdoorSettingsChanged (long pdata, int dataTotalLength, byte outdoor);
 
-    private native int     nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE_ENUM state, String filepath, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE_ENUM type);
+    private native int     nativeSetCommonMavlinkStateMavlinkFilePlayingStateChanged (long pdata, int dataTotalLength, int state, String filepath, int type);
 
-    private native int     nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR_ENUM error);
+    private native int     nativeSetCommonMavlinkStateMavlinkPlayErrorStateChanged (long pdata, int dataTotalLength, int error);
 
     private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStateChanged (long pdata, int dataTotalLength, byte xAxisCalibration, byte yAxisCalibration, byte zAxisCalibration, byte calibrationFailed);
 
     private native int     nativeSetCommonCalibrationStateMagnetoCalibrationRequiredState (long pdata, int dataTotalLength, byte required);
 
-    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS_ENUM axis);
+    private native int     nativeSetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChanged (long pdata, int dataTotalLength, int axis);
 
     private native int     nativeSetCommonCalibrationStateMagnetoCalibrationStartedChanged (long pdata, int dataTotalLength, byte started);
 
@@ -17999,7 +17902,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonFlightPlanStateAvailabilityStateChanged (long pdata, int dataTotalLength, byte AvailabilityState);
 
-    private native int     nativeSetCommonFlightPlanStateComponentStateListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT_ENUM component, byte State);
+    private native int     nativeSetCommonFlightPlanStateComponentStateListChanged (long pdata, int dataTotalLength, int component, byte State);
 
     private native int     nativeSetCommonFlightPlanEventStartingErrorEvent (long pdata, int dataTotalLength);
 
@@ -18015,80 +17918,23 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonHeadlightsStateIntensityChanged (long pdata, int dataTotalLength, byte left, byte right);
 
-    private native int     nativeSetCommonAnimationsStateList (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM anim, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE_ENUM state, ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR_ENUM error);
+    private native int     nativeSetCommonAnimationsStateList (long pdata, int dataTotalLength, int anim, int state, int error);
 
-    private native int     nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory);
+    private native int     nativeSetCommonAccessoryStateSupportedAccessoriesListChanged (long pdata, int dataTotalLength, int accessory);
 
-    private native int     nativeSetCommonAccessoryStateAccessoryConfigChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM newAccessory, ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR_ENUM error);
+    private native int     nativeSetCommonAccessoryStateAccessoryConfigChanged (long pdata, int dataTotalLength, int newAccessory, int error);
 
     private native int     nativeSetCommonAccessoryStateAccessoryConfigModificationEnabled (long pdata, int dataTotalLength, byte enabled);
 
-    private native int     nativeSetCommonChargerStateMaxChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE_ENUM rate);
+    private native int     nativeSetCommonChargerStateMaxChargeRateChanged (long pdata, int dataTotalLength, int rate);
 
-    private native int     nativeSetCommonChargerStateCurrentChargeStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS_ENUM status, ARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE_ENUM phase);
+    private native int     nativeSetCommonChargerStateCurrentChargeStateChanged (long pdata, int dataTotalLength, int status, int phase);
 
-    private native int     nativeSetCommonChargerStateLastChargeRateChanged (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE_ENUM rate);
+    private native int     nativeSetCommonChargerStateLastChargeRateChanged (long pdata, int dataTotalLength, int rate);
 
-    private native int     nativeSetCommonChargerStateChargingInfo (long pdata, int dataTotalLength, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE_ENUM phase, ARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE_ENUM rate, byte intensity, byte fullChargingTime);
+    private native int     nativeSetCommonChargerStateChargingInfo (long pdata, int dataTotalLength, int phase, int rate, byte intensity, byte fullChargingTime);
 
     private native int     nativeSetCommonRunStateRunIdChanged (long pdata, int dataTotalLength, String runId);
-
-
-    private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
-
-    private native int     nativeSetCommonDebugStatsStartSendingPacketFromDrone (long pdata, int dataTotalLength, byte frequency, byte packetSize, int date);
-
-    private native int     nativeSetCommonDebugStatsStopSendingPacketFromDrone (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonDebugDebugSettingsGetAll (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonDebugDebugSettingsSet (long pdata, int dataTotalLength, short id, String value);
-
-    private native int     nativeSetCommonDebugStatsEventSendPacket (long pdata, int dataTotalLength, String packet);
-
-    private native int     nativeSetCommonDebugDebugSettingsStateInfo (long pdata, int dataTotalLength, byte listFlags, short id, String label, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM type, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_ENUM mode, String range_min, String range_max, String range_step, String value);
-
-    private native int     nativeSetCommonDebugDebugSettingsStateListChanged (long pdata, int dataTotalLength, short id, String value);
-
-
-    private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
-
-    private native int     nativeSetProProResponse (long pdata, int dataTotalLength, byte listFlags, String signedChallenge);
-
-    private native int     nativeSetProProActivateFeatures (long pdata, int dataTotalLength, long features);
-
-    private native int     nativeSetProProStateSupportedFeatures (long pdata, int dataTotalLength, ARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS_ENUM status, long features);
-
-    private native int     nativeSetProProStateFeaturesActivated (long pdata, int dataTotalLength, long features);
-
-    private native int     nativeSetProProEventChallengeEvent (long pdata, int dataTotalLength, String challenge);
-
-
-    private native int     nativeSetWifiScan (long pdata, int dataTotalLength, byte band);
-
-    private native int     nativeSetWifiUpdateAuthorizedChannels (long pdata, int dataTotalLength);
-
-    private native int     nativeSetWifiSetApChannel (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM type, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetWifiSetSecurity (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM type, String key, ARCOMMANDS_WIFI_SECURITY_KEY_TYPE_ENUM key_type);
-
-    private native int     nativeSetWifiSetCountry (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
-
-    private native int     nativeSetWifiSetEnvironement (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
-
-    private native int     nativeSetWifiScannedItem (long pdata, int dataTotalLength, String ssid, short rssi, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel, byte list_flags);
-
-    private native int     nativeSetWifiAuthorizedChannel (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel, byte environement, byte list_flags);
-
-    private native int     nativeSetWifiApChannelChanged (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM type, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel);
-
-    private native int     nativeSetWifiSecurityChanged (long pdata, int dataTotalLength, String key, ARCOMMANDS_WIFI_SECURITY_TYPE_ENUM key_type);
-
-    private native int     nativeSetWifiCountryChanged (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_COUNTRY_SELECTION_ENUM selection_mode, String code);
-
-    private native int     nativeSetWifiEnvironementChanged (long pdata, int dataTotalLength, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
-
-    private native int     nativeSetWifiRssiChanged (long pdata, int dataTotalLength, short rssi);
 
 
 }

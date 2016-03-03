@@ -42,7 +42,7 @@ public enum ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_ENUM 
     /** Use the SkyController joysticks */
     ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_SKYCONTROLLER (0, "Use the SkyController joysticks"),
     /** Use the Tablet (or smartphone, or whatever) controls Disables the SkyController joysticks */
-    ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_CONTROLLER (1, "Use the Tablet (or smartphone, or whatever) controlsDisables the SkyController joysticks"),
+    ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_CONTROLLER (1, "Use the Tablet (or smartphone, or whatever) controls Disables the SkyController joysticks"),
     ARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE_MAX (2);
 
 

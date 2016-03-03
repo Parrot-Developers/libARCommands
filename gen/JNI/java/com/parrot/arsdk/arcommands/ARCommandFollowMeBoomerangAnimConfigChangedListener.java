@@ -39,13 +39,9 @@ public interface ARCommandFollowMeBoomerangAnimConfigChangedListener {
     /**
      * Called when a command <code>BoomerangAnimConfigChanged</code> in feature <code>FollowMe</code> is decoded
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _speed The speed of the anim in m/s
-     * @param _speed Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _distance_is_default 0 if the distance is set by user, 1 if default value is used
-     * @param _distance_is_default Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      * @param _distance Distance that will be made by the product to reach its return point in m
-     * @param _distance Boomerang animation configuration changed.\n\                 This event is only valid when AnimRun type is boomerang
      */
     void onFollowMeBoomerangAnimConfigChangedUpdate (byte speed_is_default, float speed, byte distance_is_default, float distance);
 }

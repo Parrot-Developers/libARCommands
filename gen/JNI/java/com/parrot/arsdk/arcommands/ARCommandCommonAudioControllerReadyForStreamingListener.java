@@ -38,9 +38,7 @@ public interface ARCommandCommonAudioControllerReadyForStreamingListener {
 
     /**
      * Called when a command <code>AudioControllerReadyForStreaming</code> in feature <code>Common</code> is decoded
-     * @param _ready Bit field for TX and RX ready.
-     * @param _ready bit 0 is 1 if controller is ready and wants to receive sound (Drone TX)
-     * @param _ready bit 1 is 1 if controller is ready and wants to send sound (Drone RX)
+     * @param _ready Bit field for TX and RX ready.\nbit 0 is 1 if controller is ready and wants to receive sound (Drone TX)\nbit 1 is 1 if controller is ready and wants to send sound (Drone RX)
      */
     void onCommonAudioControllerReadyForStreamingUpdate (byte ready);
 }

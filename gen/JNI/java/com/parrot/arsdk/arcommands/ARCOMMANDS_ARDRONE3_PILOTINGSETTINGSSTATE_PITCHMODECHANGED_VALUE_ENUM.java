@@ -40,9 +40,9 @@ public enum ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_ENU
     /** Dummy value for all unknown cases */
     eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
     /** Positive pitch values will make the drone lower its nose. Negative pitch values will make the drone raise its nose. */
-    ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_NORMAL (0, "Positive pitch values will make the drone lower its nose.Negative pitch values will make the drone raise its nose."),
+    ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_NORMAL (0, "Positive pitch values will make the drone lower its nose. Negative pitch values will make the drone raise its nose."),
     /** Pitch commands are inverted. Positive pitch values will make the drone raise its nose. Negative pitch values will make the drone lower its nose. */
-    ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_INVERTED (1, "Pitch commands are inverted.Positive pitch values will make the drone raise its nose.Negative pitch values will make the drone lower its nose."),
+    ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_INVERTED (1, "Pitch commands are inverted. Positive pitch values will make the drone raise its nose. Negative pitch values will make the drone lower its nose."),
     ARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE_MAX (2);
 
 

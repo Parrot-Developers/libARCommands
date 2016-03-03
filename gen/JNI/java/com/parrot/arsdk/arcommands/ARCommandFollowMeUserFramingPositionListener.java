@@ -39,9 +39,7 @@ public interface ARCommandFollowMeUserFramingPositionListener {
     /**
      * Called when a command <code>UserFramingPosition</code> in feature <code>FollowMe</code> is decoded
      * @param _horizontal Horizontal position in the video (in %, from left to right)
-     * @param _horizontal User desired framing in the video.
      * @param _vertical Vertical position in the video (in %, from bottom to top)
-     * @param _vertical User desired framing in the video.
      */
     void onFollowMeUserFramingPositionUpdate (byte horizontal, byte vertical);
 }

@@ -39,21 +39,10 @@ public interface ARCommandFollowMeBoomerangAnimRunListener {
     /**
      * Called when a command <code>BoomerangAnimRun</code> in feature <code>FollowMe</code> is decoded
      * @param _start 1 to start the anim, 0 to stop it
-     * @param _start Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used
-     * @param _speed_is_default Not used when start is 0
-     * @param _speed_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _speed The desired speed of the anim in m/s
-     * @param _speed Not used when speed_is_default is 1
-     * @param _speed Not used when start is 0
-     * @param _speed Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used
-     * @param _distance_is_default Not used when start is 0
-     * @param _distance_is_default Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
-     * @param _distance Distance that should be made by the product to reach its return point in m
-     * @param _distance Not used when distance_is_default is 1
-     * @param _distance Not used when start is 0
-     * @param _distance Begin or stop a boomerang animation.\n\                      The boomerang animation enables a zoom-out/zoom-in trajectory while preserving the framing chosen by the user.
+     * @param _speed_is_default 0 if speed is set by user, 1 if default speed should be used\nNot used when start is 0
+     * @param _speed The desired speed of the anim in m/s\nNot used when speed_is_default is 1\nNot used when start is 0
+     * @param _distance_is_default 0 if the distance is set by user, 1 if default value should be used\nNot used when start is 0
+     * @param _distance Distance that should be made by the product to reach its return point in m\nNot used when distance_is_default is 1\nNot used when start is 0
      */
     void onFollowMeBoomerangAnimRunUpdate (byte start, byte speed_is_default, float speed, byte distance_is_default, float distance);
 }

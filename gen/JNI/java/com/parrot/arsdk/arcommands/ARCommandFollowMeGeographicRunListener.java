@@ -39,21 +39,12 @@ public interface ARCommandFollowMeGeographicRunListener {
     /**
      * Called when a command <code>GeographicRun</code> in feature <code>FollowMe</code> is decoded
      * @param _start 1 to start geographic follow me process, 0 to stop it
-     * @param _start Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
-     * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)
-     * @param _distance_is_default Not used when arg start is at 0
-     * @param _distance_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
-     * @param _distance The distance leader-follower in meter
-     * @param _distance Not used when arg start is at 0
-     * @param _distance Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
+     * @param _distance_is_default 0 if distance is set by user, 1 if set by current distance (in this case distance value is not used)\nNot used when arg start is at 0
+     * @param _distance The distance leader-follower in meter\nNot used when arg start is at 0
      * @param _elevation_is_default 0 if elevation is set by user, 1 if set by current elevation (in this case elevation value is not used) (not used when arg start is at 0)
-     * @param _elevation_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _elevation The elevation leader-follower in rad (not used when arg start is at 0)
-     * @param _elevation Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _azimuth_is_default 0 if azimuth is set by user, 1 if set by current azimuth (in this case azimuth value is not used) (not used when arg start is at 0)
-     * @param _azimuth_is_default Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      * @param _azimuth The azimuth north-leader-follower in rad (not used when arg start is at 0)
-     * @param _azimuth Begin or stop geographic type followMe (follow the leader keeping the same vector). \n\                       Sending this command will stop other running followMe.
      */
     void onFollowMeGeographicRunUpdate (byte start, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 }

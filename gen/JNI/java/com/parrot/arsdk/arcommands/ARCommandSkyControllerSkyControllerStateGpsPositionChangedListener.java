@@ -40,8 +40,7 @@ public interface ARCommandSkyControllerSkyControllerStateGpsPositionChangedListe
      * Called when a command <code>SkyControllerStateGpsPositionChanged</code> in feature <code>SkyController</code> is decoded
      * @param _latitude SkyController latitude (500. if not available)
      * @param _longitude SkyController longiture (500. if not available)
-     * @param _altitude Altitude (in meters) above sea level
-     * @param _altitude Only meaningful if latitude and longiture are available
+     * @param _altitude Altitude (in meters) above sea level\nOnly meaningful if latitude and longiture are available
      * @param _heading SkyController heading relative to magnetic north (500.f if not available)
      */
     void onSkyControllerSkyControllerStateGpsPositionChangedUpdate (double latitude, double longitude, double altitude, float heading);

@@ -38,10 +38,7 @@ public interface ARCommandCommonDebugDebugSettingsStateInfoListener {
 
     /**
      * Called when a command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code> is decoded
-     * @param _listFlags List entry attribute Bitfield.
-     * @param _listFlags 0x01: First: indicate it's the first element of the list.
-     * @param _listFlags 0x02: Last:  indicate it's the last element of the list.
-     * @param _listFlags 0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+     * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _id Setting Id.
      * @param _label Setting displayed label (single line).
      * @param _type Setting type.

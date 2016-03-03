@@ -38,10 +38,9 @@ public interface ARCommandWifiApChannelChangedListener {
 
     /**
      * Called when a command <code>ApChannelChanged</code> in feature <code>Wifi</code> is decoded
-     * @param _type Wifi selection changed.
-     * @param _band Wifi selection changed.
+     * @param _type The wifi selection type available
+     * @param _band The band : 2.4 Ghz or 5 Ghz
      * @param _channel The channel of the drone's access point
-     * @param _channel Wifi selection changed.
      */
     void onWifiApChannelChangedUpdate (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM type, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel);
 }

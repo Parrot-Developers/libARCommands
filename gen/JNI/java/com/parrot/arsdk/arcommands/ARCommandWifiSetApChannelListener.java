@@ -38,10 +38,9 @@ public interface ARCommandWifiSetApChannelListener {
 
     /**
      * Called when a command <code>SetApChannel</code> in feature <code>Wifi</code> is decoded
-     * @param _type Select channel of choosen band to put the drone's access point on this channel.
-     * @param _band Select channel of choosen band to put the drone's access point on this channel.
+     * @param _type The wifi selection type available
+     * @param _band The band : 2.4 Ghz or 5 Ghz
      * @param _channel The channel you want to select. Used only when type is manual.
-     * @param _channel Select channel of choosen band to put the drone's access point on this channel.
      */
     void onWifiSetApChannelUpdate (ARCOMMANDS_WIFI_SELECTION_TYPE_ENUM type, ARCOMMANDS_WIFI_BAND_ENUM band, byte channel);
 }

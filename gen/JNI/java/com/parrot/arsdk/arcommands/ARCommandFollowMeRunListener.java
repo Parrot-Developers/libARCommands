@@ -38,6 +38,7 @@ public interface ARCommandFollowMeRunListener {
 
     /**
      * Called when a command <code>Run</code> in feature <code>FollowMe</code> is decoded
+     * @param _type Type of FollowMe
      */
     void onFollowMeRunUpdate (ARCOMMANDS_FOLLOW_ME_TYPE_ENUM type);
 }

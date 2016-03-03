@@ -39,13 +39,9 @@ public interface ARCommandFollowMeCandleAnimConfigChangedListener {
     /**
      * Called when a command <code>CandleAnimConfigChanged</code> in feature <code>FollowMe</code> is decoded
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _speed The speed of the anim in m/s
-     * @param _speed Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _vertical_distance_is_default 0 if the vertical distance is set by user, 1 if default value is used
-     * @param _vertical_distance_is_default Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      * @param _vertical_distance Distance that will be made by the product to reach the top of the vertical zoom-out in m
-     * @param _vertical_distance Candle animation configuration changed.\n\                 This event is only valid when AnimRun type is candle
      */
     void onFollowMeCandleAnimConfigChangedUpdate (byte speed_is_default, float speed, byte vertical_distance_is_default, float vertical_distance);
 }

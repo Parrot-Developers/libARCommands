@@ -39,17 +39,11 @@ public interface ARCommandFollowMeDollySlideAnimConfigChangedListener {
     /**
      * Called when a command <code>DollySlideAnimConfigChanged</code> in feature <code>FollowMe</code> is decoded
      * @param _speed_is_default 0 if speed is set by user, 1 if default speed is used
-     * @param _speed_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _speed The speed of the anim in m/s
-     * @param _speed DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _angle_is_default 0 if the angle is set by user, 1 if default value is used
-     * @param _angle_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _angle Angle Product-User-Target in rad
-     * @param _angle DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _horizontal_distance_is_default 0 if the horizontal distance is set by user, 1 if default value is used
-     * @param _horizontal_distance_is_default DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      * @param _horizontal_distance Distance that will be made by the product to reach its target in m
-     * @param _horizontal_distance DollySlide animation configuration changed.\n\                 This event is only valid when AnimRun type is dolly_slide
      */
     void onFollowMeDollySlideAnimConfigChangedUpdate (byte speed_is_default, float speed, byte angle_is_default, float angle, byte horizontal_distance_is_default, float horizontal_distance);
 }

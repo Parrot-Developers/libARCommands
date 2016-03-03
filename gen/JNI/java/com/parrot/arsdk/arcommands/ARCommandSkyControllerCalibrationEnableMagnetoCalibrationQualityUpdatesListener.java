@@ -38,9 +38,7 @@ public interface ARCommandSkyControllerCalibrationEnableMagnetoCalibrationQualit
 
     /**
      * Called when a command <code>CalibrationEnableMagnetoCalibrationQualityUpdates</code> in feature <code>SkyController</code> is decoded
-     * @param _enable Flag to enable the feature.
-     * @param _enable 1 = enable quality updates
-     * @param _enable 0 = disable quality updates
+     * @param _enable Flag to enable the feature.\n1 = enable quality updates\n0 = disable quality updates
      */
     void onSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesUpdate (byte enable);
 }

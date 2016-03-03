@@ -38,7 +38,7 @@ public interface ARCommandFollowMeAnimRunListener {
 
     /**
      * Called when a command <code>AnimRun</code> in feature <code>FollowMe</code> is decoded
-     * @param _type State of the current FollowMe animation.
+     * @param _type Type of the current FollowMe animation
      */
     void onFollowMeAnimRunUpdate (ARCOMMANDS_FOLLOW_ME_ANIM_TYPE_ENUM type);
 }

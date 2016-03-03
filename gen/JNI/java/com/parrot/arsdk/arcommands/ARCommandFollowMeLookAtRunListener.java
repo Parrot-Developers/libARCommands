@@ -39,7 +39,6 @@ public interface ARCommandFollowMeLookAtRunListener {
     /**
      * Called when a command <code>LookAtRun</code> in feature <code>FollowMe</code> is decoded
      * @param _start 1 to start look at process, 0 to stop it
-     * @param _start Begin or stop look at type followMe (stare at the leader while hovering).\n\                      Sending this command will stop other running followMe.
      */
     void onFollowMeLookAtRunUpdate (byte start);
 }

@@ -39,8 +39,7 @@ public interface ARCommandSkyControllerGamepadInfosStateGamepadControlListener {
     /**
      * Called when a command <code>GamepadInfosStateGamepadControl</code> in feature <code>SkyController</code> is decoded
      * @param _type The type (axis/button) of the control
-     * @param _id The button or axis id
-     * @param _id @note A button and an axis can have the same ID, but their type is different
+     * @param _id The button or axis id\n@note A button and an axis can have the same ID, but their type is different
      * @param _name Display name for the control
      */
     void onSkyControllerGamepadInfosStateGamepadControlUpdate (ARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE_ENUM type, int id, String name);

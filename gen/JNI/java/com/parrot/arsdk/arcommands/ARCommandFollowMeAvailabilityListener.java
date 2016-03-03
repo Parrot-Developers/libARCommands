@@ -38,7 +38,7 @@ public interface ARCommandFollowMeAvailabilityListener {
 
     /**
      * Called when a command <code>Availability</code> in feature <code>FollowMe</code> is decoded
-     * @param _type Get the FollowMe types you can run.
+     * @param _type Types of FollowMe available
      */
     void onFollowMeAvailabilityUpdate (ARCOMMANDS_FOLLOW_ME_TYPES_AVAILABLE_ENUM type);
 }

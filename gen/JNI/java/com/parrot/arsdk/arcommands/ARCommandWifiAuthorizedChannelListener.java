@@ -38,11 +38,10 @@ public interface ARCommandWifiAuthorizedChannelListener {
 
     /**
      * Called when a command <code>AuthorizedChannel</code> in feature <code>Wifi</code> is decoded
-     * @param _band Available channel results.
+     * @param _band The band : 2.4 Ghz or 5 Ghz
      * @param _channel The channel number
-     * @param _channel Available channel results.
-     * @param _environement Available channel results.
-     * @param _list_flags Available channel results.
+     * @param _environement Type of environement
+     * @param _list_flags Flags use by maps and lists
      */
     void onWifiAuthorizedChannelUpdate (ARCOMMANDS_WIFI_BAND_ENUM band, byte channel, byte environement, byte list_flags);
 }

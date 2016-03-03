@@ -39,17 +39,11 @@ public interface ARCommandFollowMeLynxDetectionListener {
     /**
      * Called when a command <code>LynxDetection</code> in feature <code>FollowMe</code> is decoded
      * @param _target_pan Pan angle of detected target in radian
-     * @param _target_pan Send vision detection results.
      * @param _target_tilt Tilt angle of detected target in radian
-     * @param _target_tilt Send vision detection results.
      * @param _change_of_scale Target's change of scale : new width = (1+ changOfScale) * old width
-     * @param _change_of_scale Send vision detection results.
      * @param _confidence_index Confidence index of the Lynx detection (from 0 to 255, the highest is the best)
-     * @param _confidence_index Send vision detection results.
      * @param _is_new_selection Boolean. 1 if the selection is new, 0 otherwise
-     * @param _is_new_selection Send vision detection results.
      * @param _timestamp Acquisition time of processed picture in millisecond
-     * @param _timestamp Send vision detection results.
      */
     void onFollowMeLynxDetectionUpdate (float target_pan, float target_tilt, float change_of_scale, byte confidence_index, byte is_new_selection, long timestamp);
 }

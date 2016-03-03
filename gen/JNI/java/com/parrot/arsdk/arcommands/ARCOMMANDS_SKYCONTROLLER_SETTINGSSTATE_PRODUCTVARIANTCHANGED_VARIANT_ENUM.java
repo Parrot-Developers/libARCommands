@@ -40,9 +40,9 @@ public enum ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT
     /** Dummy value for all unknown cases */
     eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
     /** SkyController of the bebop generation. (Bebop battery, and original key layout) */
-    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP (0, "SkyController of the bebop generation.(Bebop battery, and original key layout)"),
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP (0, "SkyController of the bebop generation. (Bebop battery, and original key layout)"),
     /** SkyController of the bebop2 generation. (Bebop2 battery, and updated key layout) */
-    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP2 (1, "SkyController of the bebop2 generation.(Bebop2 battery, and updated key layout)"),
+    ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_BEBOP2 (1, "SkyController of the bebop2 generation. (Bebop2 battery, and updated key layout)"),
     ARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT_MAX (2);
 
 
