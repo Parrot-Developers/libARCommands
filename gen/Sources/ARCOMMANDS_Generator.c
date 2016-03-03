@@ -12858,6 +12858,58 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTa
     return retVal;
 }
 
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write feature header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_MINIDRONE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTING, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _mode
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _mode, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION _direction)
 {
     int32_t currIndexInBuffer = 0;
@@ -13830,6 +13882,58 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateA
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
         currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _state, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        *cmdLen = currIndexInBuffer;
+    } // No else --> Do not set cmdLen if an error occured
+    return retVal;
+}
+
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode)
+{
+    int32_t currIndexInBuffer = 0;
+    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
+    if ((buffer == NULL) ||
+        (cmdLen == NULL))
+    {
+        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
+    } // No else --> Args Check
+    // Write feature header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_MINIDRONE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write class header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_MINIDRONE_CLASS_PILOTINGSTATE, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write id header
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED, currIndexInBuffer, buffLen);
+        if (currIndexInBuffer == -1)
+        {
+            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
+        } // No else --> Do not modify retVal if no issue was found
+    } // No else --> Processing block
+    // Write arg _mode
+    if (retVal == ARCOMMANDS_GENERATOR_OK)
+    {
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _mode, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;

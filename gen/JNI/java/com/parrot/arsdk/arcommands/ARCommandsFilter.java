@@ -3467,6 +3467,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetMiniDronePilotingFlyingModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.Piloting.FlyingMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingFlyingModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDronePilotingFlyingModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class PilotingState
     private native int nativeSetMiniDronePilotingStateBehavior (long cFilter, int behavior);
@@ -3526,6 +3538,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDronePilotingStateFlyingModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.PilotingState.FlyingModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingStateFlyingModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDronePilotingStateFlyingModeChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

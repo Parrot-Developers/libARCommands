@@ -2444,6 +2444,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t) (u
 void ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command MiniDrone.Piloting.FlyingMode
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t) (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.Piloting.FlyingMode
+ * @param callback new callback for the command MiniDrone.Piloting.FlyingMode
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback (ARCOMMANDS_Decoder_MiniDronePilotingFlyingModeCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command MiniDrone.Animations.Flip
  */
 typedef void (*ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t) (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION direction, void *custom);
@@ -2651,6 +2662,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCa
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.PilotingState.FlyingModeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t) (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.PilotingState.FlyingModeChanged
+ * @param callback new callback for the command MiniDrone.PilotingState.FlyingModeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingModeChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command MiniDrone.MediaRecordState.PictureStateChanged

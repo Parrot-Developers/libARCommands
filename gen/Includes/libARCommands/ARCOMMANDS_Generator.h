@@ -2766,6 +2766,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingEmerge
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingAutoTakeOffMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
 
 /**
+ * @brief Set drone FlyingMode. Only supported by UnknownProduct_3
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Drone Flying Mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE _mode);
+
+/**
  * @brief Make a flip
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -2972,6 +2983,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateA
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+
+/**
+ * @brief FlyingMode changed. Only supported by UnknownProduct_3
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Drone Flying Mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE _mode);
 
 /**
  * @brief @deprecated

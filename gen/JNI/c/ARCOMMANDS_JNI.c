@@ -6271,6 +6271,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingAutoTakeOff
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingFlyingMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM");
+    jmethodID j_mode_mid = (*env)->GetMethodID (env, j_mode_class, "getValue", "()I");
+    jint j_mode_enum = (*env)->CallIntMethod (env, mode, j_mode_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingFlyingMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_mode_enum);
+    (*env)->DeleteLocalRef (env, j_mode_class);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneAnimationsFlip (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject direction)
 {
     int32_t c_dataSize = 0;
@@ -6792,6 +6823,37 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateAutoTa
     }
 
     err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)state);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlyingModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jobject mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM");
+    jmethodID j_mode_mid = (*env)->GetMethodID (env, j_mode_class, "getValue", "()I");
+    jint j_mode_enum = (*env)->CallIntMethod (env, mode, j_mode_mid);
+    err = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, j_mode_enum);
+    (*env)->DeleteLocalRef (env, j_mode_class);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -17010,6 +17072,32 @@ void ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb (uint8_t state, voi
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_MiniDronePilotingFlyingModenativeCb (eARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingFlyingModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingFlyingModeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingFlyingModeUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+        (*env)->DeleteLocalRef (env, j_mode_class);
+        (*env)->DeleteLocalRef (env, j_mode_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION direction, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -17424,6 +17512,32 @@ void ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb (uint8_
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)state);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDronePilotingStateFlyingModeChangednativeCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDronePilotingStateFlyingModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDronePilotingStateFlyingModeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDronePilotingStateFlyingModeChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+        (*env)->DeleteLocalRef (env, j_mode_class);
+        (*env)->DeleteLocalRef (env, j_mode_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -22085,6 +22199,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback (ARCOMMANDS_JNI_MiniDronePilotingAutoTakeOffModenativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetMiniDronePilotingFlyingModeCallback (ARCOMMANDS_JNI_MiniDronePilotingFlyingModenativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback (ARCOMMANDS_JNI_MiniDroneAnimationsFlipnativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback (ARCOMMANDS_JNI_MiniDroneAnimationsCapnativeCb, (void *)g_class);
@@ -22122,6 +22238,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAlertStateChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateAutoTakeOffModeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingModeChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlyingModeChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback (ARCOMMANDS_JNI_MiniDroneMediaRecordStatePictureStateChangednativeCb, (void *)g_class);
 

@@ -271,6 +271,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingLandingBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingEmergencyBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingAutoTakeOffModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingFlyingModeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneAnimationsFlipBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneAnimationsCapBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordPictureBehavior;
@@ -290,6 +291,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlyingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAlertStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlyingModeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneMediaRecordEventPictureEventChangedBehavior;
@@ -726,6 +728,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDronePilotingLandingBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingEmergencyBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingAutoTakeOffModeBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingFlyingModeBehavior = defaultBehavior;
         retFilter->CmdMiniDroneAnimationsFlipBehavior = defaultBehavior;
         retFilter->CmdMiniDroneAnimationsCapBehavior = defaultBehavior;
         retFilter->CmdMiniDroneMediaRecordPictureBehavior = defaultBehavior;
@@ -745,6 +748,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingStateAlertStateChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDronePilotingStateFlyingModeChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
         retFilter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = defaultBehavior;
@@ -2628,6 +2632,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdMiniDronePilotingAutoTakeOffModeBehavior;
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_AUTOTAKEOFFMODE */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE:
+                {
+                    retStatus = filter->CmdMiniDronePilotingFlyingModeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTING_CMD_FLYINGMODE */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -2658,6 +2667,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_AUTOTAKEOFFMODECHANGED */
+                case ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED:
+                {
+                    retStatus = filter->CmdMiniDronePilotingStateFlyingModeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_PILOTINGSTATE_CMD_FLYINGMODECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -10773,6 +10787,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDronePilotingLandingBehavior = behavior;
         filter->CmdMiniDronePilotingEmergencyBehavior = behavior;
         filter->CmdMiniDronePilotingAutoTakeOffModeBehavior = behavior;
+        filter->CmdMiniDronePilotingFlyingModeBehavior = behavior;
         filter->CmdMiniDroneAnimationsFlipBehavior = behavior;
         filter->CmdMiniDroneAnimationsCapBehavior = behavior;
         filter->CmdMiniDroneMediaRecordPictureBehavior = behavior;
@@ -10792,6 +10807,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingStateFlyingModeChangedBehavior = behavior;
         filter->CmdMiniDroneMediaRecordStatePictureStateChangedBehavior = behavior;
         filter->CmdMiniDroneMediaRecordStatePictureStateChangedV2Behavior = behavior;
         filter->CmdMiniDroneMediaRecordEventPictureEventChangedBehavior = behavior;
@@ -10835,6 +10851,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingBehavior (ARCOMMA
         filter->CmdMiniDronePilotingLandingBehavior = behavior;
         filter->CmdMiniDronePilotingEmergencyBehavior = behavior;
         filter->CmdMiniDronePilotingAutoTakeOffModeBehavior = behavior;
+        filter->CmdMiniDronePilotingFlyingModeBehavior = behavior;
     }
 
     return retError;
@@ -10863,6 +10880,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateBehavior (AR
         filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
+        filter->CmdMiniDronePilotingStateFlyingModeChangedBehavior = behavior;
     }
 
     return retError;
@@ -11340,6 +11358,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingAutoTakeOffModeBe
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingFlyingModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingFlyingModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneAnimationsFlipBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -11753,6 +11793,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffM
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdMiniDronePilotingStateAutoTakeOffModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDronePilotingStateFlyingModeChangedBehavior = behavior;
     }
 
     return retError;

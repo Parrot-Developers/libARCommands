@@ -139,6 +139,22 @@
                 State of automatic take off mode
             </arg>
         </cmd>
+
+        <cmd name="FlyingMode" id="6">
+            Set drone FlyingMode. Only supported by UnknownProduct_3
+            <arg name="mode" type="u8">
+                Drone Flying Mode
+                <enum name="quadricopter">
+                    Fly as a quadrictopter
+                </enum>
+                <enum name="plane_forward">
+                    Fly as a plane in forward mode
+                </enum>
+                <enum name="plane_backward">
+                    Fly as a plane in backward mode
+                </enum>
+            </arg>
+        </cmd>
     </class>
     
     <class name="PilotingState" id="3">
@@ -205,6 +221,22 @@
             Set MiniDrone automatic take off mode
             <arg name="state" type="u8">
                 State of automatic take off mode
+            </arg>
+        </cmd>
+
+        <cmd name="FlyingModeChanged" id="4">
+            FlyingMode changed. Only supported by UnknownProduct_3
+            <arg name="mode" type="u8">
+                Drone Flying Mode
+                <enum name="quadricopter">
+                    Fly as a quadrictopter
+                </enum>
+                <enum name="plane_forward">
+                    Fly as a plane in forward mode
+                </enum>
+                <enum name="plane_backward">
+                    Fly as a plane in backward mode
+                </enum>
             </arg>
         </cmd>
     </class>

@@ -6625,6 +6625,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingFlyingMode</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the MiniDrone<br>
+     * <br>
+     * Command FlyingMode description:<br>
+     * Set drone FlyingMode. Only supported by UnknownProduct_3<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Drone Flying Mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingFlyingMode (ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingFlyingMode (pointer, capacity, _mode);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>AnimationsFlip</code> in feature <code>MiniDrone</code><br>
      * <br>
      * Feature MiniDrone description:<br>
@@ -7168,6 +7197,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (pointer, capacity, _state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateFlyingModeChanged</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Occasional information<br>
+     * <br>
+     * Command FlyingModeChanged description:<br>
+     * FlyingMode changed. Only supported by UnknownProduct_3<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Drone Flying Mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingStateFlyingModeChanged (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingStateFlyingModeChanged (pointer, capacity, _mode);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -14842,6 +14900,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDronePilotingAutoTakeOffModeListener = _ARCommandMiniDronePilotingAutoTakeOffModeListener_PARAM;
     }
 
+    private static ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingFlyingMode</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingFlyingModeListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingFlyingModeListener (ARCommandMiniDronePilotingFlyingModeListener _ARCommandMiniDronePilotingFlyingModeListener_PARAM) {
+        _ARCommandMiniDronePilotingFlyingModeListener = _ARCommandMiniDronePilotingFlyingModeListener_PARAM;
+    }
+
     private static ARCommandMiniDroneAnimationsFlipListener _ARCommandMiniDroneAnimationsFlipListener = null;
 
     /**
@@ -15049,6 +15118,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDronePilotingStateAutoTakeOffModeChangedListener (ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM) {
         _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener = _ARCommandMiniDronePilotingStateAutoTakeOffModeChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlyingModeChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingStateFlyingModeChangedListener (ARCommandMiniDronePilotingStateFlyingModeChangedListener _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingStateFlyingModeChangedListener = _ARCommandMiniDronePilotingStateFlyingModeChangedListener_PARAM;
     }
 
     private static ARCommandMiniDroneMediaRecordStatePictureStateChangedListener _ARCommandMiniDroneMediaRecordStatePictureStateChangedListener = null;
@@ -17474,6 +17554,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDronePilotingAutoTakeOffMode (long pdata, int dataTotalLength, byte state);
 
+    private native int     nativeSetMiniDronePilotingFlyingMode (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTING_FLYINGMODE_MODE_ENUM mode);
+
     private native int     nativeSetMiniDroneAnimationsFlip (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION_ENUM direction);
 
     private native int     nativeSetMiniDroneAnimationsCap (long pdata, int dataTotalLength, short offset);
@@ -17511,6 +17593,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDronePilotingStateAlertStateChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);
 
     private native int     nativeSetMiniDronePilotingStateAutoTakeOffModeChanged (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetMiniDronePilotingStateFlyingModeChanged (long pdata, int dataTotalLength, ARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGMODECHANGED_MODE_ENUM mode);
 
     private native int     nativeSetMiniDroneMediaRecordStatePictureStateChanged (long pdata, int dataTotalLength, byte state, byte mass_storage_id);
 
