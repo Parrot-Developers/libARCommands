@@ -37,6 +37,7 @@ import arsdkparser
 
 MYDIR=os.path.abspath(os.path.dirname(__file__))
 LIBARCOMMANDS_DIR=os.path.realpath(os.path.join(MYDIR, ".."))
+PACKAGES_DIR=os.path.realpath(os.path.join(MYDIR, "../.."))
 
 sys.path.append('%(MYDIR)s/../../ARSDKBuildUtils/Utils/Python' % locals())
 
@@ -3921,11 +3922,23 @@ def list_files(ctx, outdir):
     for ftr in ctx.features:
         for cmd in ftr.cmds + ftr.evts:
             print JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
+    
+    # print java enum files generated from enums C
+    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, 'ERROR') + '.java'
+    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'ERROR') + '.java'
+    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'STATUS') + '.java'
+    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, 'ERROR') + '.java'
 
 #===============================================================================
 #===============================================================================
 def generate_files(ctx, outdir):
+    # Remove old generation
+    os.system('rm -rf '+LIBARCOMMANDS_DIR+'/gen/*')
+    
+    # Generation
     generateCmds(ctx)
+    PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
+    os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR)
 
 #===============================================================================
 #===============================================================================
