@@ -82,91 +82,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetGenericDefaultBehavio
 }
 
 
-    // Feature pro
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Pro
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class ProState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class ProEvent
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProEventBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProBoughtFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProResponseBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProResponseBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProActivateFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateSupportedFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateFeaturesActivatedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProEventChallengeEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
     // Feature ARDrone3
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
@@ -1477,2308 +1392,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetARDrone3PROStateFeatu
 }
 
 
-    // Feature follow_me
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeGeographicRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeGeographicRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRelativeRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRelativeRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeLookAtRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeLookAtRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSpiralAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSpiralAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSwingAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSwingAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBoomerangAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBoomerangAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeCandleAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeCandleAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeDollySlideAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeDollySlideAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserFramingPositionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserFramingPositionBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserGPSDataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserGPSDataBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserBaroDataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserBaroDataBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeLynxDetectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeLynxDetectionBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeAvailabilityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeAvailabilityBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeGeographicConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeGeographicConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRelativeConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRelativeConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeAnimRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSpiralAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSpiralAnimConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSwingAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSwingAnimConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBoomerangAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBoomerangAnimConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeCandleAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeCandleAnimConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeDollySlideAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeDollySlideAnimConfigChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserFramingPositionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserFramingPositionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // Feature MiniDrone
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Piloting
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class PilotingState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Animations
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecord
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecordState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecordEvent
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class PilotingSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class PilotingSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SpeedSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SpeedSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Settings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class FloodControlState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneFloodControlStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneFloodControlStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class GPS
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Configuration
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingFlatTrimBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingFlatTrimBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingTakeOffBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingTakeOffBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingPCMDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingPCMDBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingLandingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingLandingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingEmergencyBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingEmergencyBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingAutoTakeOffModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingAutoTakeOffModeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingFlyingModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingFlyingModeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsFlipBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsFlipBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsCapBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsCapBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordPictureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordPictureV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsMaxAltitudeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxAltitudeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsMaxTiltBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxTiltBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxVerticalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxVerticalSpeedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxRotationSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxRotationSpeedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsWheelsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsWheelsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsCutOutModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSControllerLatitudeForRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSControllerLongitudeForRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationControllerTypeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationControllerNameBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlatTrimChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlyingStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateAlertStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlyingModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingModeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStatePictureStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordEventPictureEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateWheelsChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateWheelsChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateProductMotorsVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateProductMotorsVersionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateProductInertialVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateProductInertialVersionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateCutOutModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateCutOutModeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneFloodControlStateFloodControlChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneFloodControlStateFloodControlChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // Feature commonDebug
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Stats
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class StatsEvent
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class DebugSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class DebugSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsSendPacketBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsGetAllBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsSetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsEventSendPacketBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateInfoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // Feature JumpingSumo
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Piloting
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class PilotingState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Animations
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AnimationsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecord
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecordState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaRecordEvent
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class NetworkSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class NetworkSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Network
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class NetworkState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AudioSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AudioSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class RoadPlan
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class RoadPlanState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SpeedSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SpeedSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaStreaming
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class MediaStreamingState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class VideoSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class VideoSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingPCMDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingPCMDBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingPostureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingPostureBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingAddCapOffsetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingAddCapOffsetBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingUserTakeOffBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingUserTakeOffBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingLandBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingLandBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpStopBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpStopBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpCancelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpCancelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpLoadBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpLoadBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsSimpleAnimationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsSimpleAnimationBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordPictureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordPictureBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordVideoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordVideoBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordPictureV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordPictureV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordVideoV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordVideoV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsWifiSelectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkWifiScanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkWifiAuthChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsMasterVolumeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsThemeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanAllScriptsMetadataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanScriptUploadedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanScriptDeleteBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanPlayScriptBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsOutdoorBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingVideoEnableBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsAutorecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStatePostureChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateAlertStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateFlyingStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateFlyingStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpLoadChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpTypeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStatePictureStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStatePictureStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateVideoStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateVideoStateChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStatePictureStateChangedV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateVideoStateChangedV2Behavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventPictureEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventPictureEventChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventVideoEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventVideoEventChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateWifiScanListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateWifiScanListChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateAllWifiScanChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateAllWifiScanChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateLinkQualityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateLinkQualityChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateThemeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateThemeChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptUploadChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptUploadChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptDeleteChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptDeleteChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStatePlayScriptChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStatePlayScriptChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsStateOutdoorChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateOutdoorChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingStateVideoEnableChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateVideoEnableChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsStateAutorecordChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutorecordChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // Feature wifi
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiScanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiScanBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiUpdateAuthorizedChannelsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetApChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetApChannelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetSecurityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetCountryBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetCountryBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetEnvironementBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiScannedItemBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiScannedItemBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiAuthorizedChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiApChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSecurityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiCountryChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiEnvironementChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiRssiChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiRssiChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
-    // Feature SkyController
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class WifiState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Wifi
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Device
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class DeviceState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Settings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Common
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class CommonState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class SkyControllerState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AccessPointSettings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AccessPointSettingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Camera
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCameraBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCameraBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class GamepadInfos
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class GamepadInfosState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class ButtonMappings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class ButtonMappingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AxisMappings
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AxisMappingsState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AxisFilters
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class AxisFiltersState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class CoPiloting
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class CoPilotingState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class Calibration
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class CalibrationState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-    // - Class ButtonEvents
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiRequestWifiListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiRequestWifiListBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiRequestCurrentWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiRequestCurrentWifiBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiConnectToWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiConnectToWifiBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiForgetWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiForgetWifiBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiWifiAuthChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiWifiAuthChannelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceRequestDeviceListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceRequestDeviceListBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceRequestCurrentDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceRequestCurrentDeviceBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceConnectToDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceConnectToDeviceBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsAllSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsAllSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsResetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsResetBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonAllStatesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsAccessPointChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsWifiSelectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCameraResetOrientationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosGetGamepadControlsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsSetButtonMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsDefaultButtonMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsSetAxisMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsDefaultAxisMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersSetAxisFilterBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingSetPilotingSourceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateConnexionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateConnexionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiAuthChannelListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiAuthChannelListChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiSignalChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiSignalChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateDeviceListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateDeviceListBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateConnexionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateConnexionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateAllSettingsChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateAllSettingsChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateResetChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateResetChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateProductSerialChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductSerialChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateProductVariantChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonStateAllStatesChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonStateAllStatesChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateBatteryChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateBatteryChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateGpsFixChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateGpsFixChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateGpsPositionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateGpsPositionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateGamepadControlBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateGamepadControlBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStatePresetAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStatePresetAxisFiltersBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingStatePilotingSourceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingStatePilotingSourceBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateMagnetoCalibrationStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (filter, behavior);
-    return (jint)err;
-}
-
-
     // Feature common
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
@@ -4656,6 +2269,2393 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonRunStateRunIdCh
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature commonDebug
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Stats
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class StatsEvent
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class DebugSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class DebugSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsSendPacketBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsGetAllBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsSetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugStatsEventSendPacketBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateInfoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonDebugDebugSettingsStateListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature follow_me
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeGeographicRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeGeographicRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRelativeRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRelativeRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeLookAtRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeLookAtRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSpiralAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSpiralAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSwingAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSwingAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBoomerangAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBoomerangAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeCandleAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeCandleAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeDollySlideAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeDollySlideAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserFramingPositionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserFramingPositionBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserGPSDataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserGPSDataBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserBaroDataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserBaroDataBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeLynxDetectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeLynxDetectionBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeAvailabilityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeAvailabilityBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeGeographicConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeGeographicConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeRelativeConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeRelativeConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeAnimRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeAnimRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSpiralAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSpiralAnimConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeSwingAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeSwingAnimConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeBoomerangAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeBoomerangAnimConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeCandleAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeCandleAnimConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeDollySlideAnimConfigChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeDollySlideAnimConfigChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetFollowMeUserFramingPositionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetFollowMeUserFramingPositionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature JumpingSumo
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Piloting
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class PilotingState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Animations
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AnimationsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecord
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecordState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecordEvent
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class NetworkSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class NetworkSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Network
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class NetworkState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AudioSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AudioSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class RoadPlan
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class RoadPlanState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SpeedSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SpeedSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaStreaming
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaStreamingState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class VideoSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class VideoSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingPCMDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingPCMDBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingPostureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingPostureBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingAddCapOffsetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingAddCapOffsetBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingUserTakeOffBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingUserTakeOffBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingLandBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingLandBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpStopBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpStopBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpCancelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpCancelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpLoadBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpLoadBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsJumpBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsSimpleAnimationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsSimpleAnimationBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordPictureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordPictureBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordVideoBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordVideoBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordPictureV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordPictureV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordVideoV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordVideoV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsWifiSelectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkWifiScanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkWifiAuthChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsMasterVolumeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsThemeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanAllScriptsMetadataBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanScriptUploadedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanScriptDeleteBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanPlayScriptBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsOutdoorBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingVideoEnableBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsAutorecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStatePostureChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateAlertStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoPilotingStateFlyingStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoPilotingStateFlyingStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpLoadChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpTypeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStatePictureStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStatePictureStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateVideoStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateVideoStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStatePictureStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStatePictureStateChangedV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordStateVideoStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordStateVideoStateChangedV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventPictureEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventPictureEventChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaRecordEventVideoEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaRecordEventVideoEventChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsStateWifiSelectionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateWifiScanListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateWifiScanListChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateAllWifiScanChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateAllWifiScanChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateWifiAuthChannelListChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateAllWifiAuthChannelChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoNetworkStateLinkQualityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoNetworkStateLinkQualityChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateMasterVolumeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoAudioSettingsStateThemeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsStateThemeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptMetadataListChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateAllScriptsMetadataChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptUploadChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptUploadChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStateScriptDeleteChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStateScriptDeleteChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoRoadPlanStatePlayScriptChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoRoadPlanStatePlayScriptChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoSpeedSettingsStateOutdoorChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsStateOutdoorChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoMediaStreamingStateVideoEnableChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingStateVideoEnableChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetJumpingSumoVideoSettingsStateAutorecordChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutorecordChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature MiniDrone
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Piloting
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class PilotingState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Animations
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecord
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecordState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class MediaRecordEvent
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class PilotingSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class PilotingSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SpeedSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SpeedSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Settings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class FloodControlState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneFloodControlStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneFloodControlStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class GPS
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Configuration
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingFlatTrimBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingFlatTrimBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingTakeOffBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingTakeOffBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingPCMDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingPCMDBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingLandingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingLandingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingEmergencyBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingEmergencyBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingAutoTakeOffModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingAutoTakeOffModeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingFlyingModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingFlyingModeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsFlipBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsFlipBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneAnimationsCapBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneAnimationsCapBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordPictureBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordPictureV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordPictureV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsMaxAltitudeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxAltitudeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsMaxTiltBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxTiltBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxVerticalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxVerticalSpeedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxRotationSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxRotationSpeedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsWheelsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsWheelsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsCutOutModeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSControllerLatitudeForRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneGPSControllerLongitudeForRunBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationControllerTypeBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneConfigurationControllerNameBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlatTrimChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlyingStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateAlertStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingStateFlyingModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingModeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStatePictureStateChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMediaRecordEventPictureEventChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateWheelsChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateWheelsChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateProductMotorsVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateProductMotorsVersionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateProductInertialVersionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateProductInertialVersionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneSettingsStateCutOutModeChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneSettingsStateCutOutModeChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneFloodControlStateFloodControlChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneFloodControlStateFloodControlChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature pro
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Pro
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class ProState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class ProEvent
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProEventBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProBoughtFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProResponseBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProResponseBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProActivateFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateSupportedFeaturesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProStateFeaturesActivatedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetProProEventChallengeEventBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature SkyController
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class WifiState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Wifi
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Device
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class DeviceState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Settings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Common
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class CommonState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class SkyControllerState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AccessPointSettings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AccessPointSettingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Camera
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCameraBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCameraBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class GamepadInfos
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class GamepadInfosState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class ButtonMappings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class ButtonMappingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AxisMappings
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AxisMappingsState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AxisFilters
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class AxisFiltersState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class CoPiloting
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class CoPilotingState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class Calibration
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class CalibrationState
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+    // - Class ButtonEvents
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiRequestWifiListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiRequestWifiListBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiRequestCurrentWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiRequestCurrentWifiBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiConnectToWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiConnectToWifiBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiForgetWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiForgetWifiBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiWifiAuthChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiWifiAuthChannelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceRequestDeviceListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceRequestDeviceListBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceRequestCurrentDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceRequestCurrentDeviceBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceConnectToDeviceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceConnectToDeviceBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsAllSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsAllSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsResetBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsResetBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonAllStatesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsAccessPointChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsWifiSelectionBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCameraResetOrientationBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosGetGamepadControlsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsSetButtonMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsDefaultButtonMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsSetAxisMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsDefaultAxisMappingBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersSetAxisFilterBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingSetPilotingSourceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateConnexionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateConnexionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiAuthChannelListChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiAuthChannelListChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerWifiStateWifiSignalChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiSignalChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateDeviceListBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateDeviceListBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerDeviceStateConnexionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerDeviceStateConnexionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateAllSettingsChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateAllSettingsChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateResetChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateResetChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateProductSerialChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductSerialChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSettingsStateProductVariantChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVariantChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCommonStateAllStatesChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCommonStateAllStatesChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateBatteryChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateBatteryChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateGpsFixChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateGpsFixChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerSkyControllerStateGpsPositionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerSkyControllerStateGpsPositionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateGamepadControlBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateGamepadControlBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerGamepadInfosStateAllGamepadControlsSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateCurrentButtonMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAvailableButtonMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateCurrentAxisMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAvailableAxisMappingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateCurrentAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateAllCurrentFiltersSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStatePresetAxisFiltersBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStatePresetAxisFiltersBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerAxisFiltersStateAllPresetFiltersSentBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCoPilotingStatePilotingSourceBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCoPilotingStatePilotingSourceBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateMagnetoCalibrationStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetSkyControllerButtonEventsSettingsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetSkyControllerButtonEventsSettingsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+
+    // Feature wifi
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiScanBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiScanBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiUpdateAuthorizedChannelsBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetApChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetApChannelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetSecurityBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetCountryBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetCountryBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSetEnvironementBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiScannedItemBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiScannedItemBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiAuthorizedChannelBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiApChannelChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiSecurityChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiCountryChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiEnvironementChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetWifiRssiChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetWifiRssiChangedBehavior (filter, behavior);
     return (jint)err;
 }
 
