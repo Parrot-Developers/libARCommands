@@ -7,3 +7,5 @@
 /Build/INSTALL
 /Build/libtool
 libARCommands.iml
+**.pyc
+/build/*
