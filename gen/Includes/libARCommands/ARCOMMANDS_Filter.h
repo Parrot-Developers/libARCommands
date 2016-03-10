@@ -114,6 +114,1661 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetGenericDefaultBehavior (ARCOMMANDS
 
 
 
+// Feature pro
+
+/**
+ * @brief Sets the filter behavior for all commands pro.XXX.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+// Command class Pro
+
+/**
+ * @brief Sets the filter behavior for all commands pro.Pro.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.Pro.BoughtFeatures.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.Pro.Response.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProResponseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.Pro.ActivateFeatures.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class ProState
+
+/**
+ * @brief Sets the filter behavior for all commands pro.ProState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.ProState.SupportedFeatures.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.ProState.FeaturesActivated.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class ProEvent
+
+/**
+ * @brief Sets the filter behavior for all commands pro.ProEvent.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command pro.ProEvent.ChallengeEvent.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+
+// Feature ARDrone3
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.XXX.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+// Command class Piloting
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.Piloting.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.FlatTrim.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingFlatTrimBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.TakeOff.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.PCMD.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingPCMDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.Landing.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingLandingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.Emergency.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEmergencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.NavigateHome.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingNavigateHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.AutoTakeOffMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingAutoTakeOffModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.moveBy.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingMoveByBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.UserTakeOff.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Piloting.Circle.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingCircleBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class Animations
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.Animations.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Animations.Flip.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsFlipBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class Camera
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.Camera.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Camera.Orientation.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class MediaRecord
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.MediaRecord.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.Picture.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordPictureBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.Video.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordVideoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.PictureV2.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordPictureV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.VideoV2.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordVideoV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class MediaRecordState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.MediaRecordState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.PictureStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.VideoStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.PictureStateChangedV2.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.VideoStateChangedV2.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class MediaRecordEvent
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.MediaRecordEvent.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordEvent.PictureEventChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaRecordEvent.VideoEventChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PilotingState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PilotingState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.FlatTrimChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.FlyingStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AlertStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.NavigateHomeStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.PositionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.SpeedChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AttitudeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AutoTakeOffModeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AltitudeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PilotingEvent
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PilotingEvent.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingEvent.moveByEnd.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class Network
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.Network.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Network.WifiScan.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Network.WifiAuthChannel.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class NetworkState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.NetworkState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkState.WifiScanListChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkState.AllWifiScanChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkState.WifiAuthChannelListChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkState.AllWifiAuthChannelChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PilotingSettings
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PilotingSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxAltitude.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxTilt.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxTiltBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.AbsolutControl.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsAbsolutControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxDistance.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxDistanceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.NoFlyOverMaxDistance.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.BankedTurn.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBankedTurnBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MinAltitude.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMinAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingDirection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingDirectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingRadius.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingRadiusBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingAltitude.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.PitchMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.LandingMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsLandingModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PilotingSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PilotingSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxAltitudeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxTiltChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AbsolutControlChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxDistanceChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.BankedTurnChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingDirectionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingRadiusChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.PitchModeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.LandingModeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateLandingModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class SpeedSettings
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.SpeedSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxVerticalSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxRotationSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.HullProtection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.Outdoor.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class SpeedSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.SpeedSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxRotationSpeedChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.HullProtectionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.OutdoorChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class NetworkSettings
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.NetworkSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkSettings.WifiSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkSettings.wifiSecurity.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class NetworkSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.NetworkSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.WifiSelectionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.wifiSecurityChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.wifiSecurity.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class SettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.SettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.ProductMotorVersionListChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.ProductGPSVersionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorErrorStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorErrorStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorSoftwareVersionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorFlightsStatusChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorErrorLastErrorChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.SettingsState.P7ID.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PictureSettings
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PictureSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.PictureFormatSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.AutoWhiteBalanceSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.ExpositionSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.SaturationSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.TimelapseSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.VideoAutorecordSelection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.VideoStabilizationMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabilizationModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PictureSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PictureSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.PictureFormatChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStatePictureFormatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.AutoWhiteBalanceChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.ExpositionChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateExpositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.SaturationChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateSaturationChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.TimelapseChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateTimelapseChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.VideoAutorecordChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class MediaStreaming
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.MediaStreaming.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaStreaming.VideoEnable.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class MediaStreamingState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.MediaStreamingState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.MediaStreamingState.VideoEnableChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class GPSSettings
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.GPSSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.SetHome.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.ResetHome.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.SendControllerGPS.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.HomeType.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.ReturnHomeDelay.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class GPSSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.GPSSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.HomeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateHomeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.ResetHomeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateResetHomeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.GPSFixStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.GPSUpdateStateChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.HomeTypeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateHomeTypeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.ReturnHomeDelayChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class CameraState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.CameraState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.CameraState.Orientation.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.CameraState.defaultCameraOrientation.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateDefaultCameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class Antiflickering
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.Antiflickering.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Antiflickering.electricFrequency.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.Antiflickering.setMode.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class AntiflickeringState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.AntiflickeringState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.AntiflickeringState.electricFrequencyChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.AntiflickeringState.modeChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class GPSState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.GPSState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSState.NumberOfSatelliteChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateNumberOfSatelliteChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSState.HomeTypeAvailabilityChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.GPSState.HomeTypeChosenChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateHomeTypeChosenChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class PROState
+
+/**
+ * @brief Sets the filter behavior for all commands ARDrone3.PROState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command ARDrone3.PROState.Features.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+
+// Feature unknown_feature_1
+
+/**
+ * @brief Sets the filter behavior for all commands unknown_feature_1.XXX.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.geographic_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.relative_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.look_at_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.spiral_anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.swing_anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.boomerang_anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.candle_anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.dolly_slide_anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.user_framing_position.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.user_GPS_data.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.user_baro_data.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.lynx_detection.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.availability.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.geographic_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.relative_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.anim_run.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.spiral_anim_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.swing_anim_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.boomerang_anim_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.candle_anim_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.dolly_slide_anim_config_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command unknown_feature_1.user_framing_position_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+
 // Feature MiniDrone
 
 /**
@@ -607,6 +2262,125 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTy
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+
+// Feature commonDebug
+
+/**
+ * @brief Sets the filter behavior for all commands commonDebug.XXX.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+// Command class Stats
+
+/**
+ * @brief Sets the filter behavior for all commands commonDebug.Stats.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.Stats.SendPacket.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.Stats.StartSendingPacketFromDrone.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.Stats.StopSendingPacketFromDrone.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class StatsEvent
+
+/**
+ * @brief Sets the filter behavior for all commands commonDebug.StatsEvent.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.StatsEvent.SendPacket.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class DebugSettings
+
+/**
+ * @brief Sets the filter behavior for all commands commonDebug.DebugSettings.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.DebugSettings.GetAll.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.DebugSettings.Set.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
+// Command class DebugSettingsState
+
+/**
+ * @brief Sets the filter behavior for all commands commonDebug.DebugSettingsState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.DebugSettingsState.Info.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command commonDebug.DebugSettingsState.ListChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 
@@ -1311,122 +3085,119 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutor
 
 
 
-// Feature commonDebug
+// Feature wifi
 
 /**
- * @brief Sets the filter behavior for all commands commonDebug.XXX.XXX.
+ * @brief Sets the filter behavior for all commands wifi.XXX.XXX.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-// Command class Stats
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for all commands commonDebug.Stats.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command commonDebug.Stats.SendPacket.
+ * @brief Sets the filter behavior for the command wifi.scan.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command commonDebug.Stats.StartSendingPacketFromDrone.
+ * @brief Sets the filter behavior for the command wifi.update_authorized_channels.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command commonDebug.Stats.StopSendingPacketFromDrone.
+ * @brief Sets the filter behavior for the command wifi.set_ap_channel.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class StatsEvent
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetApChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for all commands commonDebug.StatsEvent.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command commonDebug.StatsEvent.SendPacket.
+ * @brief Sets the filter behavior for the command wifi.set_security.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class DebugSettings
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for all commands commonDebug.DebugSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command commonDebug.DebugSettings.GetAll.
+ * @brief Sets the filter behavior for the command wifi.set_country.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command commonDebug.DebugSettings.Set.
+ * @brief Sets the filter behavior for the command wifi.set_environement.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class DebugSettingsState
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for all commands commonDebug.DebugSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command commonDebug.DebugSettingsState.Info.
+ * @brief Sets the filter behavior for the command wifi.scanned_item.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScannedItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command commonDebug.DebugSettingsState.ListChanged.
+ * @brief Sets the filter behavior for the command wifi.authorized_channel.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command wifi.ap_channel_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command wifi.security_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command wifi.country_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command wifi.environement_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command wifi.rssi_changed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiRssiChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 
@@ -3185,1777 +4956,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateBehavior (ARCOMMANDS
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-
-// Feature pro
-
-/**
- * @brief Sets the filter behavior for all commands pro.XXX.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-// Command class Pro
-
-/**
- * @brief Sets the filter behavior for all commands pro.Pro.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.Pro.BoughtFeatures.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProBoughtFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.Pro.Response.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProResponseBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.Pro.ActivateFeatures.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProActivateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class ProState
-
-/**
- * @brief Sets the filter behavior for all commands pro.ProState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.ProState.SupportedFeatures.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateSupportedFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.ProState.FeaturesActivated.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProStateFeaturesActivatedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class ProEvent
-
-/**
- * @brief Sets the filter behavior for all commands pro.ProEvent.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command pro.ProEvent.ChallengeEvent.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetProProEventChallengeEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-
-// Feature ARDrone3
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.XXX.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-// Command class Piloting
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Piloting.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.FlatTrim.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingFlatTrimBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.TakeOff.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.PCMD.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingPCMDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.Landing.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingLandingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.Emergency.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEmergencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.NavigateHome.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingNavigateHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.AutoTakeOffMode.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingAutoTakeOffModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.moveBy.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingMoveByBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.UserTakeOff.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Piloting.Circle.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingCircleBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class Animations
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Animations.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Animations.Flip.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AnimationsFlipBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class Camera
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Camera.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Camera.Orientation.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class MediaRecord
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.MediaRecord.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.Picture.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordPictureBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.Video.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordVideoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.PictureV2.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordPictureV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecord.VideoV2.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordVideoV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class MediaRecordState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.MediaRecordState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.PictureStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.VideoStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.PictureStateChangedV2.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordState.VideoStateChangedV2.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class MediaRecordEvent
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.MediaRecordEvent.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordEvent.PictureEventChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaRecordEvent.VideoEventChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PilotingState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PilotingState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.FlatTrimChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.FlyingStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AlertStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.NavigateHomeStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.PositionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.SpeedChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AttitudeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AutoTakeOffModeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingState.AltitudeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PilotingEvent
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PilotingEvent.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingEvent.moveByEnd.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class Network
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Network.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Network.WifiScan.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Network.WifiAuthChannel.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class NetworkState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.NetworkState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkState.WifiScanListChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkState.AllWifiScanChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkState.WifiAuthChannelListChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkState.AllWifiAuthChannelChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PilotingSettings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PilotingSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxAltitude.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxTilt.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxTiltBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.AbsolutControl.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsAbsolutControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MaxDistance.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxDistanceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.NoFlyOverMaxDistance.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.BankedTurn.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBankedTurnBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.MinAltitude.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMinAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingDirection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingDirectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingRadius.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingRadiusBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.CirclingAltitude.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingAltitudeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.PitchMode.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettings.LandingMode.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsLandingModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PilotingSettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PilotingSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxAltitudeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxTiltChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AbsolutControlChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MaxDistanceChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.BankedTurnChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingDirectionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingRadiusChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.PitchModeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PilotingSettingsState.LandingModeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateLandingModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class SpeedSettings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.SpeedSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxVerticalSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxRotationSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.HullProtection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.Outdoor.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class SpeedSettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.SpeedSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxRotationSpeedChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.HullProtectionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.OutdoorChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class NetworkSettings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.NetworkSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkSettings.WifiSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkSettings.wifiSecurity.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class NetworkSettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.NetworkSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.WifiSelectionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.wifiSecurityChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.NetworkSettingsState.wifiSecurity.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class SettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.SettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.ProductMotorVersionListChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.ProductGPSVersionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorErrorStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorErrorStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorSoftwareVersionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorFlightsStatusChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.MotorErrorLastErrorChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.SettingsState.P7ID.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PictureSettings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PictureSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.PictureFormatSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.AutoWhiteBalanceSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.ExpositionSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.SaturationSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.TimelapseSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.VideoAutorecordSelection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettings.VideoStabilizationMode.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabilizationModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PictureSettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PictureSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.PictureFormatChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStatePictureFormatChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.AutoWhiteBalanceChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.ExpositionChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateExpositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.SaturationChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateSaturationChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.TimelapseChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateTimelapseChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.VideoAutorecordChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class MediaStreaming
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.MediaStreaming.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaStreaming.VideoEnable.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class MediaStreamingState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.MediaStreamingState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.MediaStreamingState.VideoEnableChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3MediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class GPSSettings
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.GPSSettings.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.SetHome.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.ResetHome.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.SendControllerGPS.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.HomeType.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettings.ReturnHomeDelay.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class GPSSettingsState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.GPSSettingsState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.HomeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateHomeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.ResetHomeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateResetHomeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.GPSFixStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.GPSUpdateStateChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.HomeTypeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateHomeTypeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSSettingsState.ReturnHomeDelayChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class CameraState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.CameraState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.CameraState.Orientation.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.CameraState.defaultCameraOrientation.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3CameraStateDefaultCameraOrientationBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class Antiflickering
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.Antiflickering.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Antiflickering.electricFrequency.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.Antiflickering.setMode.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class AntiflickeringState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.AntiflickeringState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.AntiflickeringState.electricFrequencyChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.AntiflickeringState.modeChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3AntiflickeringStateModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class GPSState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.GPSState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSState.NumberOfSatelliteChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateNumberOfSatelliteChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSState.HomeTypeAvailabilityChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.GPSState.HomeTypeChosenChanged.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3GPSStateHomeTypeChosenChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-// Command class PROState
-
-/**
- * @brief Sets the filter behavior for all commands ARDrone3.PROState.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command ARDrone3.PROState.Features.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PROStateFeaturesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-
-// Feature unknown_feature_1
-
-/**
- * @brief Sets the filter behavior for all commands unknown_feature_1.XXX.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.geographic_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.relative_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.look_at_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.spiral_anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.swing_anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.boomerang_anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.candle_anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.dolly_slide_anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.user_framing_position.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.user_GPS_data.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.user_baro_data.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.lynx_detection.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.availability.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.geographic_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.relative_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.anim_run.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1AnimRunBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.spiral_anim_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.swing_anim_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.boomerang_anim_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.candle_anim_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.dolly_slide_anim_config_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command unknown_feature_1.user_framing_position_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-
-
-// Feature wifi
-
-/**
- * @brief Sets the filter behavior for all commands wifi.XXX.XXX.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.scan.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.update_authorized_channels.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.set_ap_channel.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetApChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.set_security.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.set_country.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.set_environement.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.scanned_item.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiScannedItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.authorized_channel.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.ap_channel_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.security_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.country_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.environement_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
-
-/**
- * @brief Sets the filter behavior for the command wifi.rssi_changed.
- * @param filter The filter to be modified.
- * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
- * @return An eARCOMMANDS_FILTER_ERROR enum.
- */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiRssiChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 

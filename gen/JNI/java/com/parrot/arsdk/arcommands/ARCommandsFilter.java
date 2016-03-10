@@ -143,6 +143,2402 @@ public class ARCommandsFilter
     }
 
 
+    // Feature pro
+    private native int nativeSetProBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Pro.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    // - Class Pro
+    private native int nativeSetProProBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Pro.Pro.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProBoughtFeaturesBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.Pro.BoughtFeatures.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProBoughtFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProBoughtFeaturesBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProResponseBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.Pro.Response.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProResponseBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProResponseBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProActivateFeaturesBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.Pro.ActivateFeatures.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProActivateFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProActivateFeaturesBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class ProState
+    private native int nativeSetProProStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Pro.ProState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProStateSupportedFeaturesBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.ProState.SupportedFeatures.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateSupportedFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProStateSupportedFeaturesBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProStateFeaturesActivatedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.ProState.FeaturesActivated.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateFeaturesActivatedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProStateFeaturesActivatedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class ProEvent
+    private native int nativeSetProProEventBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands Pro.ProEvent.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProEventBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetProProEventChallengeEventBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Pro.ProEvent.ChallengeEvent.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setProProEventChallengeEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetProProEventChallengeEventBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+
+    // Feature ARDrone3
+    private native int nativeSetARDrone3Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    // - Class Piloting
+    private native int nativeSetARDrone3PilotingBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.Piloting.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingFlatTrimBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.FlatTrim.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingFlatTrimBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingFlatTrimBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingTakeOffBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.TakeOff.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingTakeOffBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingTakeOffBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingPCMDBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.PCMD.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingPCMDBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingPCMDBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingLandingBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.Landing.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingLandingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingLandingBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingEmergencyBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.Emergency.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEmergencyBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingEmergencyBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingNavigateHomeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.NavigateHome.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingNavigateHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingNavigateHomeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingAutoTakeOffModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.AutoTakeOffMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingAutoTakeOffModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingAutoTakeOffModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingMoveByBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.MoveBy.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingMoveByBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingMoveByBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingUserTakeOffBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.UserTakeOff.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingUserTakeOffBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingUserTakeOffBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingCircleBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Piloting.Circle.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingCircleBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingCircleBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class Animations
+    private native int nativeSetARDrone3AnimationsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.Animations.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AnimationsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AnimationsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3AnimationsFlipBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Animations.Flip.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AnimationsFlipBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AnimationsFlipBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class Camera
+    private native int nativeSetARDrone3CameraBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.Camera.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3CameraBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3CameraOrientationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Camera.Orientation.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3CameraOrientationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class MediaRecord
+    private native int nativeSetARDrone3MediaRecordBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.MediaRecord.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordPictureBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecord.Picture.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordPictureBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordPictureBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordVideoBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecord.Video.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordVideoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordVideoBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordPictureV2Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecord.PictureV2.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordPictureV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordPictureV2Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordVideoV2Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecord.VideoV2.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordVideoV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordVideoV2Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class MediaRecordState
+    private native int nativeSetARDrone3MediaRecordStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.MediaRecordState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordStatePictureStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordState.PictureStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordStatePictureStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordStateVideoStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordState.VideoStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordStateVideoStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordStatePictureStateChangedV2Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordState.PictureStateChangedV2.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordStatePictureStateChangedV2Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordStateVideoStateChangedV2Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordState.VideoStateChangedV2.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordStateVideoStateChangedV2Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class MediaRecordEvent
+    private native int nativeSetARDrone3MediaRecordEventBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.MediaRecordEvent.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordEventBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordEventPictureEventChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordEvent.PictureEventChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordEventPictureEventChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaRecordEventVideoEventChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaRecordEvent.VideoEventChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaRecordEventVideoEventChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PilotingState
+    private native int nativeSetARDrone3PilotingStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PilotingState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateFlatTrimChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.FlatTrimChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateFlatTrimChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateFlyingStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.FlyingStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateFlyingStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateAlertStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.AlertStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateAlertStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateNavigateHomeStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.NavigateHomeStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateNavigateHomeStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStatePositionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.PositionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStatePositionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.SpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateSpeedChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateAttitudeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.AttitudeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateAttitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.AutoTakeOffModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingStateAltitudeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingState.AltitudeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingStateAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PilotingEvent
+    private native int nativeSetARDrone3PilotingEventBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PilotingEvent.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingEventBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingEventMoveByEndBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingEvent.MoveByEnd.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingEventMoveByEndBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class Network
+    private native int nativeSetARDrone3NetworkBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.Network.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkWifiScanBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Network.WifiScan.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkWifiScanBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkWifiScanBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkWifiAuthChannelBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Network.WifiAuthChannel.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkWifiAuthChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkWifiAuthChannelBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class NetworkState
+    private native int nativeSetARDrone3NetworkStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.NetworkState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkStateWifiScanListChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkState.WifiScanListChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkStateWifiScanListChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkStateAllWifiScanChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkState.AllWifiScanChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkStateAllWifiScanChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkState.WifiAuthChannelListChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkState.AllWifiAuthChannelChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PilotingSettings
+    private native int nativeSetARDrone3PilotingSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PilotingSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsMaxAltitudeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxAltitude.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsMaxAltitudeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsMaxTiltBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxTilt.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxTiltBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsMaxTiltBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsAbsolutControlBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.AbsolutControl.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsAbsolutControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsAbsolutControlBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsMaxDistanceBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxDistance.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxDistanceBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsMaxDistanceBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.NoFlyOverMaxDistance.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalAcceleration.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalAcceleration.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxRotationSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsBankedTurnBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.BankedTurn.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsBankedTurnBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsBankedTurnBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsMinAltitudeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.MinAltitude.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMinAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsMinAltitudeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingDirection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingDirectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingRadius.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingRadiusBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsCirclingAltitudeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingAltitude.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsCirclingAltitudeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsPitchModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.PitchMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsPitchModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsLandingModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettings.LandingMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsLandingModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsLandingModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PilotingSettingsState
+    private native int nativeSetARDrone3PilotingSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PilotingSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxAltitudeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxTiltChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AbsolutControlChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxDistanceChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.BankedTurnChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBankedTurnChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingDirectionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingRadiusChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.PitchModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PilotingSettingsStateLandingModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PilotingSettingsState.LandingModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateLandingModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PilotingSettingsStateLandingModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class SpeedSettings
+    private native int nativeSetARDrone3SpeedSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.SpeedSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxVerticalSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsMaxRotationSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxRotationSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsHullProtectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettings.HullProtection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsHullProtectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsOutdoorBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettings.Outdoor.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsOutdoorBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class SpeedSettingsState
+    private native int nativeSetARDrone3SpeedSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.SpeedSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxRotationSpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettingsState.HullProtectionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateHullProtectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsStateOutdoorChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettingsState.OutdoorChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateOutdoorChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class NetworkSettings
+    private native int nativeSetARDrone3NetworkSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.NetworkSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsWifiSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsWifiSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSecurity.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class NetworkSettingsState
+    private native int nativeSetARDrone3NetworkSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.NetworkSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSelectionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSecurityChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3NetworkSettingsStateWifiSecurityBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSecurity.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSecurityBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class SettingsState
+    private native int nativeSetARDrone3SettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.SettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateProductMotorVersionListChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.ProductMotorVersionListChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateProductMotorVersionListChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateProductGPSVersionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.ProductGPSVersionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateProductGPSVersionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateMotorErrorStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.MotorErrorStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorErrorStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateMotorErrorStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.MotorSoftwareVersionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.MotorFlightsStatusChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorFlightsStatusChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.MotorErrorLastErrorChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3SettingsStateP7IDBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.SettingsState.P7ID.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3SettingsStateP7IDBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PictureSettings
+    private native int nativeSetARDrone3PictureSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PictureSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsPictureFormatSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.PictureFormatSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsPictureFormatSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.AutoWhiteBalanceSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsExpositionSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.ExpositionSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsExpositionSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsSaturationSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.SaturationSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsSaturationSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsTimelapseSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.TimelapseSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsTimelapseSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.VideoAutorecordSelection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsVideoStabilizationModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettings.VideoStabilizationMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsVideoStabilizationModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsVideoStabilizationModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PictureSettingsState
+    private native int nativeSetARDrone3PictureSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PictureSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStatePictureFormatChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.PictureFormatChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStatePictureFormatChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStatePictureFormatChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.AutoWhiteBalanceChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateExpositionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.ExpositionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateExpositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateExpositionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateSaturationChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.SaturationChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateSaturationChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateSaturationChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateTimelapseChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.TimelapseChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateTimelapseChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateTimelapseChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.VideoAutorecordChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class MediaStreaming
+    private native int nativeSetARDrone3MediaStreamingBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.MediaStreaming.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaStreamingBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaStreamingVideoEnableBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaStreaming.VideoEnable.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaStreamingVideoEnableBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class MediaStreamingState
+    private native int nativeSetARDrone3MediaStreamingStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.MediaStreamingState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaStreamingStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3MediaStreamingStateVideoEnableChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.MediaStreamingState.VideoEnableChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3MediaStreamingStateVideoEnableChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class GPSSettings
+    private native int nativeSetARDrone3GPSSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.GPSSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsSetHomeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettings.SetHome.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsSetHomeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsResetHomeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettings.ResetHome.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsResetHomeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsSendControllerGPSBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettings.SendControllerGPS.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsSendControllerGPSBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsHomeTypeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettings.HomeType.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsHomeTypeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsReturnHomeDelayBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettings.ReturnHomeDelay.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsReturnHomeDelayBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class GPSSettingsState
+    private native int nativeSetARDrone3GPSSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.GPSSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateHomeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.HomeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateHomeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateHomeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateResetHomeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.ResetHomeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateResetHomeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateResetHomeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.GPSFixStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateGPSFixStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.GPSUpdateStateChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateHomeTypeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.HomeTypeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateHomeTypeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateHomeTypeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSSettingsState.ReturnHomeDelayChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class CameraState
+    private native int nativeSetARDrone3CameraStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.CameraState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3CameraStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3CameraStateOrientationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.CameraState.Orientation.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3CameraStateOrientationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3CameraStateDefaultCameraOrientationBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.CameraState.DefaultCameraOrientation.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateDefaultCameraOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3CameraStateDefaultCameraOrientationBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class Antiflickering
+    private native int nativeSetARDrone3AntiflickeringBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.Antiflickering.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3AntiflickeringElectricFrequencyBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Antiflickering.ElectricFrequency.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringElectricFrequencyBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3AntiflickeringSetModeBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.Antiflickering.SetMode.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringSetModeBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class AntiflickeringState
+    private native int nativeSetARDrone3AntiflickeringStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.AntiflickeringState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.AntiflickeringState.ElectricFrequencyChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3AntiflickeringStateModeChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.AntiflickeringState.ModeChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3AntiflickeringStateModeChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class GPSState
+    private native int nativeSetARDrone3GPSStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.GPSState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSStateNumberOfSatelliteChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSState.NumberOfSatelliteChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateNumberOfSatelliteChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSStateNumberOfSatelliteChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSState.HomeTypeAvailabilityChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3GPSStateHomeTypeChosenChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.GPSState.HomeTypeChosenChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateHomeTypeChosenChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3GPSStateHomeTypeChosenChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class PROState
+    private native int nativeSetARDrone3PROStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands ARDrone3.PROState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PROStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PROStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetARDrone3PROStateFeaturesBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command ARDrone3.PROState.Features.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PROStateFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetARDrone3PROStateFeaturesBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+
+    // Feature unknown_feature_1
+    private native int nativeSetUnknownFeature_1Behavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands UnknownFeature_1.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1Behavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1GeographicRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.GeographicRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1GeographicRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RelativeRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.RelativeRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RelativeRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1LookAtRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.LookAtRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1LookAtRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SpiralAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SpiralAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SpiralAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SwingAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SwingAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SwingAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1BoomerangAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1BoomerangAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1CandleAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.CandleAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1CandleAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1DollySlideAnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1DollySlideAnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserFramingPositionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserFramingPosition.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserFramingPositionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserGPSDataBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserGPSData.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserGPSDataBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserBaroDataBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserBaroData.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserBaroDataBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1LynxDetectionBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.LynxDetection.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1LynxDetectionBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1AvailabilityBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.Availability.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1AvailabilityBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.Run.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1GeographicConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.GeographicConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1GeographicConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1RelativeConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.RelativeConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1RelativeConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1AnimRunBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.AnimRun.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1AnimRunBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SpiralAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.SwingAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.CandleAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimConfigChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command UnknownFeature_1.UserFramingPositionChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
     // Feature MiniDrone
     private native int nativeSetMiniDroneBehavior (long cFilter, int behavior);
     /**
@@ -842,6 +3238,172 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneConfigurationControllerNameBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDroneConfigurationControllerNameBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+
+    // Feature commonDebug
+    private native int nativeSetCommonDebugBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands CommonDebug.XXX.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    // - Class Stats
+    private native int nativeSetCommonDebugStatsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands CommonDebug.Stats.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugStatsSendPacketBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.Stats.SendPacket.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsSendPacketBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.Stats.StartSendingPacketFromDrone.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.Stats.StopSendingPacketFromDrone.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class StatsEvent
+    private native int nativeSetCommonDebugStatsEventBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands CommonDebug.StatsEvent.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsEventBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugStatsEventSendPacketBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.StatsEvent.SendPacket.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugStatsEventSendPacketBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class DebugSettings
+    private native int nativeSetCommonDebugDebugSettingsBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands CommonDebug.DebugSettings.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugDebugSettingsGetAllBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.DebugSettings.GetAll.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsGetAllBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugDebugSettingsSetBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.DebugSettings.Set.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsSetBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class DebugSettingsState
+    private native int nativeSetCommonDebugDebugSettingsStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands CommonDebug.DebugSettingsState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugDebugSettingsStateInfoBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.DebugSettingsState.Info.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsStateInfoBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetCommonDebugDebugSettingsStateListChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command CommonDebug.DebugSettingsState.ListChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonDebugDebugSettingsStateListChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
@@ -1841,170 +4403,174 @@ public class ARCommandsFilter
 
 
 
-    // Feature commonDebug
-    private native int nativeSetCommonDebugBehavior (long cFilter, int behavior);
+    // Feature wifi
+    private native int nativeSetWifiBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.XXX.XXX.
+     * Sets the behavior for all commands Wifi.XXX.XXX.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    // - Class Stats
-    private native int nativeSetCommonDebugStatsBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiScanBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.Stats.XXX.
+     * Sets the behavior for the command Wifi.Scan.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScanBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiScanBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsSendPacketBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiUpdateAuthorizedChannelsBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.SendPacket.
+     * Sets the behavior for the command Wifi.UpdateAuthorizedChannels.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsSendPacketBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiUpdateAuthorizedChannelsBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSetApChannelBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.StartSendingPacketFromDrone.
+     * Sets the behavior for the command Wifi.SetApChannel.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetApChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSetApChannelBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSetSecurityBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.StopSendingPacketFromDrone.
+     * Sets the behavior for the command Wifi.SetSecurity.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSetSecurityBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-
-    // - Class StatsEvent
-    private native int nativeSetCommonDebugStatsEventBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSetCountryBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.StatsEvent.XXX.
+     * Sets the behavior for the command Wifi.SetCountry.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetCountryBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsEventBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSetCountryBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsEventSendPacketBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSetEnvironementBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.StatsEvent.SendPacket.
+     * Sets the behavior for the command Wifi.SetEnvironement.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetEnvironementBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsEventSendPacketBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSetEnvironementBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-
-    // - Class DebugSettings
-    private native int nativeSetCommonDebugDebugSettingsBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiScannedItemBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.DebugSettings.XXX.
+     * Sets the behavior for the command Wifi.ScannedItem.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScannedItemBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiScannedItemBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugDebugSettingsGetAllBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiAuthorizedChannelBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.DebugSettings.GetAll.
+     * Sets the behavior for the command Wifi.AuthorizedChannel.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiAuthorizedChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsGetAllBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiAuthorizedChannelBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugDebugSettingsSetBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiApChannelChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.DebugSettings.Set.
+     * Sets the behavior for the command Wifi.ApChannelChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiApChannelChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsSetBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiApChannelChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-
-    // - Class DebugSettingsState
-    private native int nativeSetCommonDebugDebugSettingsStateBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSecurityChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.DebugSettingsState.XXX.
+     * Sets the behavior for the command Wifi.SecurityChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugDebugSettingsStateInfoBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiCountryChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.DebugSettingsState.Info.
+     * Sets the behavior for the command Wifi.CountryChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiCountryChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateInfoBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiCountryChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugDebugSettingsStateListChangedBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiEnvironementChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.DebugSettingsState.ListChanged.
+     * Sets the behavior for the command Wifi.EnvironementChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiEnvironementChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateListChangedBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiEnvironementChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetWifiRssiChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Wifi.RssiChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiRssiChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetWifiRssiChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
 
 
     // Feature SkyController
@@ -4497,2572 +7063,6 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-
-
-    // Feature pro
-    private native int nativeSetProBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands Pro.XXX.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    // - Class Pro
-    private native int nativeSetProProBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands Pro.Pro.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProBoughtFeaturesBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.Pro.BoughtFeatures.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProBoughtFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProBoughtFeaturesBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProResponseBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.Pro.Response.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProResponseBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProResponseBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProActivateFeaturesBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.Pro.ActivateFeatures.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProActivateFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProActivateFeaturesBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class ProState
-    private native int nativeSetProProStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands Pro.ProState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProStateSupportedFeaturesBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.ProState.SupportedFeatures.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateSupportedFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProStateSupportedFeaturesBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProStateFeaturesActivatedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.ProState.FeaturesActivated.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProStateFeaturesActivatedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProStateFeaturesActivatedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class ProEvent
-    private native int nativeSetProProEventBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands Pro.ProEvent.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProEventBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetProProEventChallengeEventBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Pro.ProEvent.ChallengeEvent.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setProProEventChallengeEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetProProEventChallengeEventBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-
-    // Feature ARDrone3
-    private native int nativeSetARDrone3Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.XXX.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    // - Class Piloting
-    private native int nativeSetARDrone3PilotingBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Piloting.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingFlatTrimBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.FlatTrim.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingFlatTrimBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingFlatTrimBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingTakeOffBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.TakeOff.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingTakeOffBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingTakeOffBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingPCMDBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.PCMD.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingPCMDBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingPCMDBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingLandingBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.Landing.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingLandingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingLandingBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingEmergencyBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.Emergency.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEmergencyBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingEmergencyBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingNavigateHomeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.NavigateHome.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingNavigateHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingNavigateHomeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingAutoTakeOffModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.AutoTakeOffMode.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingAutoTakeOffModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingAutoTakeOffModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingMoveByBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.MoveBy.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingMoveByBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingMoveByBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingUserTakeOffBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.UserTakeOff.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingUserTakeOffBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingUserTakeOffBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingCircleBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Piloting.Circle.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingCircleBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingCircleBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class Animations
-    private native int nativeSetARDrone3AnimationsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Animations.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AnimationsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AnimationsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3AnimationsFlipBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Animations.Flip.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AnimationsFlipBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AnimationsFlipBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class Camera
-    private native int nativeSetARDrone3CameraBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Camera.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3CameraBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3CameraOrientationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Camera.Orientation.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3CameraOrientationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MediaRecord
-    private native int nativeSetARDrone3MediaRecordBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.MediaRecord.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordPictureBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecord.Picture.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordPictureBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordPictureBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordVideoBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecord.Video.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordVideoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordVideoBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordPictureV2Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecord.PictureV2.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordPictureV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordPictureV2Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordVideoV2Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecord.VideoV2.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordVideoV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordVideoV2Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MediaRecordState
-    private native int nativeSetARDrone3MediaRecordStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.MediaRecordState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordStatePictureStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordState.PictureStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStatePictureStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordStatePictureStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordStateVideoStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordState.VideoStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateVideoStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordStateVideoStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordStatePictureStateChangedV2Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordState.PictureStateChangedV2.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordStatePictureStateChangedV2Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordStateVideoStateChangedV2Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordState.VideoStateChangedV2.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordStateVideoStateChangedV2Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MediaRecordEvent
-    private native int nativeSetARDrone3MediaRecordEventBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.MediaRecordEvent.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordEventBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordEventPictureEventChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordEvent.PictureEventChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordEventPictureEventChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaRecordEventVideoEventChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaRecordEvent.VideoEventChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaRecordEventVideoEventChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PilotingState
-    private native int nativeSetARDrone3PilotingStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PilotingState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateFlatTrimChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.FlatTrimChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateFlatTrimChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateFlatTrimChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateFlyingStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.FlyingStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateFlyingStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateFlyingStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateAlertStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.AlertStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAlertStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateAlertStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateNavigateHomeStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.NavigateHomeStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateNavigateHomeStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateNavigateHomeStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStatePositionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.PositionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStatePositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStatePositionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateSpeedChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.SpeedChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateSpeedChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateAttitudeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.AttitudeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAttitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateAttitudeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.AutoTakeOffModeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAutoTakeOffModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateAutoTakeOffModeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingStateAltitudeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingState.AltitudeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingStateAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingStateAltitudeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PilotingEvent
-    private native int nativeSetARDrone3PilotingEventBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PilotingEvent.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingEventBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingEventMoveByEndBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingEvent.MoveByEnd.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingEventMoveByEndBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingEventMoveByEndBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class Network
-    private native int nativeSetARDrone3NetworkBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Network.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkWifiScanBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Network.WifiScan.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkWifiScanBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkWifiScanBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkWifiAuthChannelBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Network.WifiAuthChannel.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkWifiAuthChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkWifiAuthChannelBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class NetworkState
-    private native int nativeSetARDrone3NetworkStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.NetworkState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkStateWifiScanListChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkState.WifiScanListChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateWifiScanListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkStateWifiScanListChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkStateAllWifiScanChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkState.AllWifiScanChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkStateAllWifiScanChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkState.WifiAuthChannelListChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkStateWifiAuthChannelListChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkState.AllWifiAuthChannelChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkStateAllWifiAuthChannelChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PilotingSettings
-    private native int nativeSetARDrone3PilotingSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PilotingSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsMaxAltitudeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxAltitude.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsMaxAltitudeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsMaxTiltBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxTilt.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxTiltBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsMaxTiltBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsAbsolutControlBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.AbsolutControl.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsAbsolutControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsAbsolutControlBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsMaxDistanceBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.MaxDistance.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMaxDistanceBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsMaxDistanceBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.NoFlyOverMaxDistance.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalAcceleration.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalAcceleration.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.SetAutonomousFlightMaxRotationSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsBankedTurnBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.BankedTurn.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsBankedTurnBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsBankedTurnBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsMinAltitudeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.MinAltitude.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsMinAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsMinAltitudeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingDirection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingDirectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsCirclingDirectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingRadius.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingRadiusBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsCirclingRadiusBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsCirclingAltitudeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.CirclingAltitude.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsCirclingAltitudeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsCirclingAltitudeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsPitchModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.PitchMode.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsPitchModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsPitchModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsLandingModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettings.LandingMode.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsLandingModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsLandingModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PilotingSettingsState
-    private native int nativeSetARDrone3PilotingSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PilotingSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxAltitudeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateMaxAltitudeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxTiltChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateMaxTiltChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AbsolutControlChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAbsolutControlChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MaxDistanceChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateMaxDistanceChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.BankedTurnChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateBankedTurnChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateBankedTurnChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.MinAltitudeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingDirectionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingRadiusChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.PitchModeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStatePitchModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStatePitchModeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PilotingSettingsStateLandingModeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PilotingSettingsState.LandingModeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PilotingSettingsStateLandingModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PilotingSettingsStateLandingModeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class SpeedSettings
-    private native int nativeSetARDrone3SpeedSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.SpeedSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxVerticalSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxVerticalSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsMaxVerticalSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsMaxRotationSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxRotationSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsMaxRotationSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsHullProtectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettings.HullProtection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsHullProtectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsHullProtectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsOutdoorBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettings.Outdoor.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsOutdoorBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsOutdoorBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class SpeedSettingsState
-    private native int nativeSetARDrone3SpeedSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.SpeedSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxVerticalSpeedChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxRotationSpeedChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateMaxRotationSpeedChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettingsState.HullProtectionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateHullProtectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateHullProtectionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsStateOutdoorChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettingsState.OutdoorChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateOutdoorChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateOutdoorChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class NetworkSettings
-    private native int nativeSetARDrone3NetworkSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.NetworkSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkSettingsWifiSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsWifiSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkSettings.WifiSecurity.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsWifiSecurityBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class NetworkSettingsState
-    private native int nativeSetARDrone3NetworkSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.NetworkSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSelectionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSelectionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSecurityChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3NetworkSettingsStateWifiSecurityBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.NetworkSettingsState.WifiSecurity.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3NetworkSettingsStateWifiSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3NetworkSettingsStateWifiSecurityBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class SettingsState
-    private native int nativeSetARDrone3SettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.SettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateProductMotorVersionListChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.ProductMotorVersionListChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateProductMotorVersionListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateProductMotorVersionListChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateProductGPSVersionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.ProductGPSVersionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateProductGPSVersionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateProductGPSVersionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateMotorErrorStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.MotorErrorStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorErrorStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateMotorErrorStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.MotorSoftwareVersionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateMotorSoftwareVersionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.MotorFlightsStatusChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorFlightsStatusChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateMotorFlightsStatusChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.MotorErrorLastErrorChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateMotorErrorLastErrorChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3SettingsStateP7IDBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.SettingsState.P7ID.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3SettingsStateP7IDBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3SettingsStateP7IDBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PictureSettings
-    private native int nativeSetARDrone3PictureSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PictureSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsPictureFormatSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.PictureFormatSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsPictureFormatSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsPictureFormatSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.AutoWhiteBalanceSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsExpositionSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.ExpositionSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsExpositionSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsExpositionSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsSaturationSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.SaturationSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsSaturationSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsSaturationSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsTimelapseSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.TimelapseSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsTimelapseSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsTimelapseSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.VideoAutorecordSelection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsVideoAutorecordSelectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsVideoAutorecordSelectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsVideoStabilizationModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettings.VideoStabilizationMode.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsVideoStabilizationModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsVideoStabilizationModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PictureSettingsState
-    private native int nativeSetARDrone3PictureSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PictureSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStatePictureFormatChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.PictureFormatChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStatePictureFormatChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStatePictureFormatChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.AutoWhiteBalanceChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateAutoWhiteBalanceChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateExpositionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.ExpositionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateExpositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateExpositionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateSaturationChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.SaturationChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateSaturationChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateSaturationChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateTimelapseChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.TimelapseChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateTimelapseChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateTimelapseChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.VideoAutorecordChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateVideoAutorecordChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MediaStreaming
-    private native int nativeSetARDrone3MediaStreamingBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.MediaStreaming.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaStreamingBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaStreamingVideoEnableBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaStreaming.VideoEnable.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingVideoEnableBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaStreamingVideoEnableBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MediaStreamingState
-    private native int nativeSetARDrone3MediaStreamingStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.MediaStreamingState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaStreamingStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3MediaStreamingStateVideoEnableChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.MediaStreamingState.VideoEnableChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3MediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3MediaStreamingStateVideoEnableChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class GPSSettings
-    private native int nativeSetARDrone3GPSSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.GPSSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsSetHomeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettings.SetHome.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsSetHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsSetHomeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsResetHomeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettings.ResetHome.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsResetHomeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsResetHomeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsSendControllerGPSBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettings.SendControllerGPS.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsSendControllerGPSBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsSendControllerGPSBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsHomeTypeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettings.HomeType.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsHomeTypeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsHomeTypeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsReturnHomeDelayBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettings.ReturnHomeDelay.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsReturnHomeDelayBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsReturnHomeDelayBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class GPSSettingsState
-    private native int nativeSetARDrone3GPSSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.GPSSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateHomeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.HomeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateHomeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateHomeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateResetHomeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.ResetHomeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateResetHomeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateResetHomeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.GPSFixStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateGPSFixStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateGPSFixStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.GPSUpdateStateChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateGPSUpdateStateChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateHomeTypeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.HomeTypeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateHomeTypeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateHomeTypeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSSettingsState.ReturnHomeDelayChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSSettingsStateReturnHomeDelayChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class CameraState
-    private native int nativeSetARDrone3CameraStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.CameraState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3CameraStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3CameraStateOrientationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.CameraState.Orientation.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3CameraStateOrientationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3CameraStateDefaultCameraOrientationBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.CameraState.DefaultCameraOrientation.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3CameraStateDefaultCameraOrientationBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3CameraStateDefaultCameraOrientationBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class Antiflickering
-    private native int nativeSetARDrone3AntiflickeringBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.Antiflickering.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3AntiflickeringElectricFrequencyBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Antiflickering.ElectricFrequency.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringElectricFrequencyBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringElectricFrequencyBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3AntiflickeringSetModeBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.Antiflickering.SetMode.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringSetModeBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringSetModeBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class AntiflickeringState
-    private native int nativeSetARDrone3AntiflickeringStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.AntiflickeringState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.AntiflickeringState.ElectricFrequencyChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringStateElectricFrequencyChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3AntiflickeringStateModeChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.AntiflickeringState.ModeChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3AntiflickeringStateModeChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3AntiflickeringStateModeChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class GPSState
-    private native int nativeSetARDrone3GPSStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.GPSState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSStateNumberOfSatelliteChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSState.NumberOfSatelliteChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateNumberOfSatelliteChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSStateNumberOfSatelliteChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSState.HomeTypeAvailabilityChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSStateHomeTypeAvailabilityChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3GPSStateHomeTypeChosenChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.GPSState.HomeTypeChosenChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3GPSStateHomeTypeChosenChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3GPSStateHomeTypeChosenChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class PROState
-    private native int nativeSetARDrone3PROStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands ARDrone3.PROState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PROStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PROStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetARDrone3PROStateFeaturesBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command ARDrone3.PROState.Features.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setARDrone3PROStateFeaturesBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetARDrone3PROStateFeaturesBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-
-    // Feature unknown_feature_1
-    private native int nativeSetUnknownFeature_1Behavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands UnknownFeature_1.XXX.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1Behavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1Behavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1GeographicRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.GeographicRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1GeographicRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1RelativeRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.RelativeRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1RelativeRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1LookAtRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.LookAtRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LookAtRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1LookAtRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1SpiralAnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.SpiralAnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1SpiralAnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1SwingAnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.SwingAnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1SwingAnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1BoomerangAnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1BoomerangAnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1CandleAnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.CandleAnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1CandleAnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1DollySlideAnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1DollySlideAnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1UserFramingPositionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.UserFramingPosition.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1UserFramingPositionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1UserGPSDataBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.UserGPSData.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserGPSDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1UserGPSDataBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1UserBaroDataBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.UserBaroData.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserBaroDataBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1UserBaroDataBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1LynxDetectionBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.LynxDetection.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1LynxDetectionBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1LynxDetectionBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1AvailabilityBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.Availability.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AvailabilityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1AvailabilityBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1RunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.Run.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1RunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1GeographicConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.GeographicConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1GeographicConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1GeographicConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1RelativeConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.RelativeConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1RelativeConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1RelativeConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1AnimRunBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.AnimRun.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1AnimRunBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1AnimRunBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.SpiralAnimConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SpiralAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1SpiralAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.SwingAnimConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1SwingAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1SwingAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.BoomerangAnimConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1BoomerangAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1BoomerangAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.CandleAnimConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1CandleAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1CandleAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.DollySlideAnimConfigChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1DollySlideAnimConfigChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1DollySlideAnimConfigChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command UnknownFeature_1.UserFramingPositionChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setUnknownFeature_1UserFramingPositionChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetUnknownFeature_1UserFramingPositionChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // Feature wifi
-    private native int nativeSetWifiBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands Wifi.XXX.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiScanBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.Scan.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScanBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiScanBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiUpdateAuthorizedChannelsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.UpdateAuthorizedChannels.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiUpdateAuthorizedChannelsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiUpdateAuthorizedChannelsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiSetApChannelBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.SetApChannel.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetApChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSetApChannelBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiSetSecurityBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.SetSecurity.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetSecurityBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSetSecurityBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiSetCountryBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.SetCountry.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetCountryBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSetCountryBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiSetEnvironementBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.SetEnvironement.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetEnvironementBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSetEnvironementBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiScannedItemBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.ScannedItem.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiScannedItemBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiScannedItemBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiAuthorizedChannelBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.AuthorizedChannel.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiAuthorizedChannelBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiAuthorizedChannelBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiApChannelChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.ApChannelChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiApChannelChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiApChannelChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiSecurityChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.SecurityChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSecurityChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSecurityChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiCountryChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.CountryChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiCountryChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiCountryChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiEnvironementChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.EnvironementChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiEnvironementChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiEnvironementChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetWifiRssiChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command Wifi.RssiChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiRssiChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiRssiChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
 
 
 }
