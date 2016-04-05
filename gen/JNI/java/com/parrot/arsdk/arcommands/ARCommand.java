@@ -9477,6 +9477,97 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryLightControl</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessory description:<br>
+     * USB Accessories control commands.<br>
+     * <br>
+     * Command LightControl description:<br>
+     * USB Light control cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id
+     * @param _mode Usb Light mode.
+     * @param _intensity Light intensity from 0 (OFF) to 100 (Max intensity).\nOnly used in FIXED mode.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryLightControl (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE_ENUM _mode, byte _intensity) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryLightControl (pointer, capacity, _id, _mode.getValue(), _intensity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryClawControl</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessory description:<br>
+     * USB Accessories control commands.<br>
+     * <br>
+     * Command ClawControl description:<br>
+     * USB Claw control cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id.
+     * @param _action USB Claw action.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryClawControl (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION_ENUM _action) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryClawControl (pointer, capacity, _id, _action.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryGunControl</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessory description:<br>
+     * USB Accessories control commands.<br>
+     * <br>
+     * Command GunControl description:<br>
+     * USB Gun control cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id
+     * @param _action USB Gun action.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryGunControl (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION_ENUM _action) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryGunControl (pointer, capacity, _id, _action.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>PilotingStateFlatTrimChanged</code> in feature <code>MiniDrone</code><br>
      * <br>
      * Feature MiniDrone description:<br>
@@ -10012,6 +10103,100 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneFloodControlStateFloodControlChanged (pointer, capacity, _delay);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryStateLightState</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessoryState description:<br>
+     * USB Accessories state commands.<br>
+     * <br>
+     * Command LightState description:<br>
+     * USB Light accessory state cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id
+     * @param _state Usb Light state.
+     * @param _intensity Light intensity from 0 (OFF) to 100 (Max intensity).\nOnly used in FIXED state.
+     * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryStateLightState (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE_ENUM _state, byte _intensity, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryStateLightState (pointer, capacity, _id, _state.getValue(), _intensity, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryStateClawState</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessoryState description:<br>
+     * USB Accessories state commands.<br>
+     * <br>
+     * Command ClawState description:<br>
+     * USB Claw accessory state cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id
+     * @param _state Usb Claw state.
+     * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryStateClawState (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE_ENUM _state, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryStateClawState (pointer, capacity, _id, _state.getValue(), _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>UsbAccessoryStateGunState</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class UsbAccessoryState description:<br>
+     * USB Accessories state commands.<br>
+     * <br>
+     * Command GunState description:<br>
+     * USB Gun accessory state cmd.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _id Usb accessory id.
+     * @param _state USB Claw state.
+     * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneUsbAccessoryStateGunState (byte _id, ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE_ENUM _state, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneUsbAccessoryStateGunState (pointer, capacity, _id, _state.getValue(), _list_flags);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15949,6 +16134,39 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDroneConfigurationControllerNameListener = _ARCommandMiniDroneConfigurationControllerNameListener_PARAM;
     }
 
+    private static ARCommandMiniDroneUsbAccessoryLightControlListener _ARCommandMiniDroneUsbAccessoryLightControlListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryLightControl</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryLightControlListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryLightControlListener (ARCommandMiniDroneUsbAccessoryLightControlListener _ARCommandMiniDroneUsbAccessoryLightControlListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryLightControlListener = _ARCommandMiniDroneUsbAccessoryLightControlListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneUsbAccessoryClawControlListener _ARCommandMiniDroneUsbAccessoryClawControlListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryClawControl</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryClawControlListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryClawControlListener (ARCommandMiniDroneUsbAccessoryClawControlListener _ARCommandMiniDroneUsbAccessoryClawControlListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryClawControlListener = _ARCommandMiniDroneUsbAccessoryClawControlListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneUsbAccessoryGunControlListener _ARCommandMiniDroneUsbAccessoryGunControlListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryGunControl</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryGunControlListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryGunControlListener (ARCommandMiniDroneUsbAccessoryGunControlListener _ARCommandMiniDroneUsbAccessoryGunControlListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryGunControlListener = _ARCommandMiniDroneUsbAccessoryGunControlListener_PARAM;
+    }
+
     private static ARCommandMiniDronePilotingStateFlatTrimChangedListener _ARCommandMiniDronePilotingStateFlatTrimChangedListener = null;
 
     /**
@@ -16145,6 +16363,39 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDroneFloodControlStateFloodControlChangedListener (ARCommandMiniDroneFloodControlStateFloodControlChangedListener _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM) {
         _ARCommandMiniDroneFloodControlStateFloodControlChangedListener = _ARCommandMiniDroneFloodControlStateFloodControlChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneUsbAccessoryStateLightStateListener _ARCommandMiniDroneUsbAccessoryStateLightStateListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryStateLightState</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryStateLightStateListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryStateLightStateListener (ARCommandMiniDroneUsbAccessoryStateLightStateListener _ARCommandMiniDroneUsbAccessoryStateLightStateListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryStateLightStateListener = _ARCommandMiniDroneUsbAccessoryStateLightStateListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneUsbAccessoryStateClawStateListener _ARCommandMiniDroneUsbAccessoryStateClawStateListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryStateClawState</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryStateClawStateListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryStateClawStateListener (ARCommandMiniDroneUsbAccessoryStateClawStateListener _ARCommandMiniDroneUsbAccessoryStateClawStateListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryStateClawStateListener = _ARCommandMiniDroneUsbAccessoryStateClawStateListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneUsbAccessoryStateGunStateListener _ARCommandMiniDroneUsbAccessoryStateGunStateListener = null;
+
+    /**
+     * Set the listener for the command <code>UsbAccessoryStateGunState</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneUsbAccessoryStateGunStateListener (ARCommandMiniDroneUsbAccessoryStateGunStateListener _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM) {
+        _ARCommandMiniDroneUsbAccessoryStateGunStateListener = _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM;
     }
 
 
@@ -17727,6 +17978,12 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDroneConfigurationControllerName (long pdata, int dataTotalLength, String name);
 
+    private native int     nativeSetMiniDroneUsbAccessoryLightControl (long pdata, int dataTotalLength, byte id, int mode, byte intensity);
+
+    private native int     nativeSetMiniDroneUsbAccessoryClawControl (long pdata, int dataTotalLength, byte id, int action);
+
+    private native int     nativeSetMiniDroneUsbAccessoryGunControl (long pdata, int dataTotalLength, byte id, int action);
+
     private native int     nativeSetMiniDronePilotingStateFlatTrimChanged (long pdata, int dataTotalLength);
 
     private native int     nativeSetMiniDronePilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
@@ -17762,6 +18019,12 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneSettingsStateCutOutModeChanged (long pdata, int dataTotalLength, byte enable);
 
     private native int     nativeSetMiniDroneFloodControlStateFloodControlChanged (long pdata, int dataTotalLength, short delay);
+
+    private native int     nativeSetMiniDroneUsbAccessoryStateLightState (long pdata, int dataTotalLength, byte id, int state, byte intensity, byte list_flags);
+
+    private native int     nativeSetMiniDroneUsbAccessoryStateClawState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
+
+    private native int     nativeSetMiniDroneUsbAccessoryStateGunState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
 
 
     private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);

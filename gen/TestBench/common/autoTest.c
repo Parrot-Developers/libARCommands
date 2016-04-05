@@ -362,6 +362,9 @@ int MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 0;
 int MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 0;
 int MiniDroneConfigurationControllerTypeShouldBeCalled = 0;
 int MiniDroneConfigurationControllerNameShouldBeCalled = 0;
+int MiniDroneUsbAccessoryLightControlShouldBeCalled = 0;
+int MiniDroneUsbAccessoryClawControlShouldBeCalled = 0;
+int MiniDroneUsbAccessoryGunControlShouldBeCalled = 0;
 int MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
 int MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
 int MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
@@ -380,6 +383,9 @@ int MiniDroneSettingsStateProductMotorsVersionChangedShouldBeCalled = 0;
 int MiniDroneSettingsStateProductInertialVersionChangedShouldBeCalled = 0;
 int MiniDroneSettingsStateCutOutModeChangedShouldBeCalled = 0;
 int MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 0;
+int MiniDroneUsbAccessoryStateLightStateShouldBeCalled = 0;
+int MiniDroneUsbAccessoryStateClawStateShouldBeCalled = 0;
+int MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 0;
 int proProBoughtFeaturesShouldBeCalled = 0;
 int proProResponseShouldBeCalled = 0;
 int proProActivateFeaturesShouldBeCalled = 0;
@@ -6706,6 +6712,78 @@ void ARCOMMANDS_Testbench_MiniDroneConfigurationControllerNameCb (char * name, v
     }
 }
 
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryLightControlCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE mode, uint8_t intensity, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessory.LightControl --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "intensity value : <%u>", intensity);
+    if (intensity != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryLightControlShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryClawControlCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION action, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessory.ClawControl --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)0>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryClawControlShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryGunControlCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION action, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessory.GunControl --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)0>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryGunControlShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlatTrimChanged --> Custom PTR = %p", custom);
@@ -7084,6 +7162,96 @@ void ARCOMMANDS_Testbench_MiniDroneFloodControlStateFloodControlChangedCb (uint1
         errcount++ ;
     }
     if (MiniDroneFloodControlStateFloodControlChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateLightStateCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE state, uint8_t intensity, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessoryState.LightState --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "intensity value : <%u>", intensity);
+    if (intensity != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryStateLightStateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateClawStateCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE state, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessoryState.ClawState --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryStateClawStateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateGunStateCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE state, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.UsbAccessoryState.GunState --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
+    if (id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneUsbAccessoryStateGunStateShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8887,6 +9055,9 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback ((ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t) ARCOMMANDS_Testbench_MiniDroneGPSControllerLongitudeForRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback ((ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t) ARCOMMANDS_Testbench_MiniDroneConfigurationControllerTypeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback ((ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t) ARCOMMANDS_Testbench_MiniDroneConfigurationControllerNameCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryLightControlCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryLightControlCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryClawControlCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryClawControlCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryGunControlCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryGunControlCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb, (void *)cbCustom++ );
@@ -8905,6 +9076,9 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateCutOutModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback ((ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneFloodControlStateFloodControlChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateLightStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateLightStateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateClawStateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateGunStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback ((ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t) ARCOMMANDS_Testbench_ProProBoughtFeaturesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProResponseCallback ((ARCOMMANDS_Decoder_ProProResponseCallback_t) ARCOMMANDS_Testbench_ProProResponseCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback ((ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t) ARCOMMANDS_Testbench_ProProActivateFeaturesCb, (void *)cbCustom++ );
@@ -18858,6 +19032,99 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryLightControl (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessory.LightControl\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessory.LightControl succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryLightControlBehavior);
+        MiniDroneUsbAccessoryLightControlShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryLightControlShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryClawControl (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessory.ClawControl\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessory.ClawControl succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryClawControlBehavior);
+        MiniDroneUsbAccessoryClawControlShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryClawControlShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryGunControl (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessory.GunControl\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessory.GunControl succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryGunControlBehavior);
+        MiniDroneUsbAccessoryGunControlShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryGunControlShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19409,6 +19676,99 @@ int ARCOMMANDS_Testbench_AutoTest ()
         MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateLightState (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)0, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessoryState.LightState\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessoryState.LightState succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateLightStateBehavior);
+        MiniDroneUsbAccessoryStateLightStateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryStateLightStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateClawState (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessoryState.ClawState\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessoryState.ClawState succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateClawStateBehavior);
+        MiniDroneUsbAccessoryStateClawStateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryStateClawStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState (buffer, buffSize, &resSize, 42, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.UsbAccessoryState.GunState\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.UsbAccessoryState.GunState succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateGunStateBehavior);
+        MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

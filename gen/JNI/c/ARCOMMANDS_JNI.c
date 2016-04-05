@@ -8706,6 +8706,87 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneConfigurationContro
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryLightControl (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint mode, jbyte intensity)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryLightControl ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)mode, (uint8_t)intensity);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryClawControl (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint action)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryClawControl ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)action);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryGunControl (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint action)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryGunControl ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)action);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingStateFlatTrimChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
     int32_t c_dataSize = 0;
@@ -9194,6 +9275,87 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneFloodControlStateFl
     }
 
     err = ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)delay);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryStateLightState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint state, jbyte intensity, jbyte list_flags)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateLightState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)state, (uint8_t)intensity, (uint8_t)list_flags);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryStateClawState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint state, jbyte list_flags)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateClawState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)state, (uint8_t)list_flags);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryStateGunState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte id, jint state, jbyte list_flags)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)state, (uint8_t)list_flags);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -18646,6 +18808,78 @@ void ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb (char * name, v
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryLightControlnativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE mode, uint8_t intensity, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryLightControlListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryLightControlListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryLightControlUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_mode_enum, (jbyte)intensity);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryClawControlnativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION action, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryClawControlListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryClawControlListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryClawControlUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_action_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryGunControlnativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION action, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryGunControlListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryGunControlListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryGunControlUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_action_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb (void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -19051,6 +19285,78 @@ void ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb (uint1
     if (d_methodid != NULL)
     {
         (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)delay);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateLightStatenativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE state, uint8_t intensity, uint8_t list_flags, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryStateLightStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryStateLightStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryStateLightStateUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE_ENUM;BB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_state_enum, (jbyte)intensity, (jbyte)list_flags);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateClawStatenativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE state, uint8_t list_flags, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryStateClawStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryStateClawStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryStateClawStateUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_state_enum, (jbyte)list_flags);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE state, uint8_t list_flags, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneUsbAccessoryStateGunStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneUsbAccessoryStateGunStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneUsbAccessoryStateGunStateUpdate", "(BLcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_state_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE_ENUM");
+        jmethodID j_state_mid = (*env)->GetStaticMethodID (env, j_state_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE_ENUM;");
+        jobject j_state_enum = (*env)->CallStaticObjectMethod (env, j_state_class, j_state_mid, state);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)id, j_state_enum, (jbyte)list_flags);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -21644,6 +21950,12 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_JNI_MiniDroneConfigurationControllerNamenativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryLightControlCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryLightControlnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryClawControlCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryClawControlnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryGunControlCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryGunControlnativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlatTrimChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback (ARCOMMANDS_JNI_MiniDronePilotingStateFlyingStateChangednativeCb, (void *)g_class);
@@ -21679,6 +21991,12 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback (ARCOMMANDS_JNI_MiniDroneSettingsStateCutOutModeChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_JNI_MiniDroneFloodControlStateFloodControlChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateLightStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateLightStatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateClawStatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb, (void *)g_class);
