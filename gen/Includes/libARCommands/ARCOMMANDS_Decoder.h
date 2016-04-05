@@ -3561,6 +3561,39 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t
 void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command MiniDrone.UsbAccessory.LightControl
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE mode, uint8_t intensity, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessory.LightControl
+ * @param callback new callback for the command MiniDrone.UsbAccessory.LightControl
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryLightControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.UsbAccessory.ClawControl
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION action, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessory.ClawControl
+ * @param callback new callback for the command MiniDrone.UsbAccessory.ClawControl
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryClawControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.UsbAccessory.GunControl
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION action, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessory.GunControl
+ * @param callback new callback for the command MiniDrone.UsbAccessory.GunControl
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryGunControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command MiniDrone.PilotingState.FlatTrimChanged
  */
 typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t) (void *custom);
@@ -3757,6 +3790,39 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedC
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback (ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.UsbAccessoryState.LightState
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE state, uint8_t intensity, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessoryState.LightState
+ * @param callback new callback for the command MiniDrone.UsbAccessoryState.LightState
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateLightStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.UsbAccessoryState.ClawState
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE state, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessoryState.ClawState
+ * @param callback new callback for the command MiniDrone.UsbAccessoryState.ClawState
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.UsbAccessoryState.GunState
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) (uint8_t id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE state, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.UsbAccessoryState.GunState
+ * @param callback new callback for the command MiniDrone.UsbAccessoryState.GunState
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t callback, void *custom);
 
 // Feature pro
 

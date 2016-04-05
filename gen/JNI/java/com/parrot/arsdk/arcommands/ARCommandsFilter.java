@@ -5610,6 +5610,106 @@ public class ARCommandsFilter
     }
 
 
+    // - Class UsbAccessoryState
+    private native int nativeSetMiniDroneUsbAccessoryStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands MiniDrone.UsbAccessoryState.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryStateLightStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessoryState.LightState.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryStateLightStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryStateLightStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryStateClawStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessoryState.ClawState.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryStateClawStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryStateClawStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryStateGunStateBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessoryState.GunState.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryStateGunStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryStateGunStateBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
+    // - Class UsbAccessory
+    private native int nativeSetMiniDroneUsbAccessoryBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for all commands MiniDrone.UsbAccessory.XXX.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryLightControlBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessory.LightControl.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryLightControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryLightControlBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryClawControlBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessory.ClawControl.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryClawControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryClawControlBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneUsbAccessoryGunControlBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.UsbAccessory.GunControl.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryGunControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneUsbAccessoryGunControlBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+
 
     // Feature pro
     private native int nativeSetProBehavior (long cFilter, int behavior);

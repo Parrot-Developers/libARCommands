@@ -376,6 +376,9 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneGPSControllerLongitudeForRunBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerTypeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneConfigurationControllerNameBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryLightControlBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryClawControlBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryGunControlBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlatTrimChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateFlyingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingStateAlertStateChangedBehavior;
@@ -394,6 +397,9 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneSettingsStateCutOutModeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneFloodControlStateFloodControlChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateLightStateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateClawStateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateGunStateBehavior;
 
     // Feature pro
     eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
@@ -834,6 +840,9 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = defaultBehavior;
         retFilter->CmdMiniDroneConfigurationControllerTypeBehavior = defaultBehavior;
         retFilter->CmdMiniDroneConfigurationControllerNameBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryLightControlBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryClawControlBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryGunControlBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingStateAlertStateChangedBehavior = defaultBehavior;
@@ -852,6 +861,9 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneSettingsStateCutOutModeChangedBehavior = defaultBehavior;
         retFilter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = defaultBehavior;
+        retFilter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = defaultBehavior;
         // Feature pro
         retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
         retFilter->CmdProProResponseBehavior = defaultBehavior;
@@ -3749,6 +3761,56 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryStateLightStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryStateClawStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryLightControlBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryClawControlBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL:
+                {
+                    retStatus = filter->CmdMiniDroneUsbAccessoryGunControlBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -13754,6 +13816,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDroneGPSControllerLongitudeForRunBehavior = behavior;
         filter->CmdMiniDroneConfigurationControllerTypeBehavior = behavior;
         filter->CmdMiniDroneConfigurationControllerNameBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryLightControlBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryClawControlBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryGunControlBehavior = behavior;
         filter->CmdMiniDronePilotingStateFlatTrimChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateFlyingStateChangedBehavior = behavior;
         filter->CmdMiniDronePilotingStateAlertStateChangedBehavior = behavior;
@@ -13772,6 +13837,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDroneSettingsStateProductInertialVersionChangedBehavior = behavior;
         filter->CmdMiniDroneSettingsStateCutOutModeChangedBehavior = behavior;
         filter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
     }
 
     return retError;
@@ -14172,6 +14240,60 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationBehavior (AR
     {
         filter->CmdMiniDroneConfigurationControllerTypeBehavior = behavior;
         filter->CmdMiniDroneConfigurationControllerNameBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class UsbAccessoryState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class UsbAccessory
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryLightControlBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryClawControlBehavior = behavior;
+        filter->CmdMiniDroneUsbAccessoryGunControlBehavior = behavior;
     }
 
     return retError;
@@ -14661,6 +14783,72 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNa
     return retError;
 }
 
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryLightControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryLightControlBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryClawControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryClawControlBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryGunControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryGunControlBehavior = behavior;
+    }
+
+    return retError;
+}
+
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -15052,6 +15240,72 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneFloodControlStateFloodCon
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdMiniDroneFloodControlStateFloodControlChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateLightStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateClawStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateGunStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
     }
 
     return retError;

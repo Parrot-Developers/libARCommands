@@ -3859,6 +3859,42 @@ void ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback (ARCOMMA
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryLightControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryClawControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryGunControlCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 static ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCb = NULL;
 static void *ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCustom = NULL;
 void ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t callback, void *custom)
@@ -4072,6 +4108,42 @@ void ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
         ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCb = callback;
         ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateLightStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -16832,6 +16904,281 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE _state;
+                        uint8_t _intensity;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _intensity = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCb (_id, _state, _intensity, _list_flags, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE _state;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCb (_id, _state, _list_flags, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE _state;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _state = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCb (_id, _state, _list_flags, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE _mode;
+                        uint8_t _intensity;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _mode = (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _intensity = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCb (_id, _mode, _intensity, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryLightControlCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION _action;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCb (_id, _action, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryClawControlCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCb != NULL)
+                    {
+                        uint8_t _id;
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION _action;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _id = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCb (_id, _action, ARCOMMANDS_Decoder_MiniDroneUsbAccessoryGunControlCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
             default:
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                 break;
@@ -30367,6 +30714,286 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_CONFIGURATION */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessoryState.LightState:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE arg = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | intensity -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_LIGHTSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessoryState.ClawState:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE arg = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_CLAWSTATE */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessoryState.GunState:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE arg = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)ARCOMMANDS_ReadWrite_PrintI32 (" | state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORYSTATE_CMD_GUNSTATE */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessoryState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORYSTATE */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessory.LightControl:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE arg = (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | intensity -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_LIGHTCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessory.ClawControl:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION arg = (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_CLAWCONTROL */
+                case ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessory.GunControl:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | id -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION arg = (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_USBACCESSORY_CMD_GUNCONTROL */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UsbAccessory.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
             default:
                 strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

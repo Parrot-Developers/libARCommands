@@ -3809,6 +3809,43 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationC
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _name);
 
 /**
+ * @brief USB Light control cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id
+ * @param _mode Usb Light mode.
+ * @param _intensity Light intensity from 0 (OFF) to 100 (Max intensity).\nOnly used in FIXED mode.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryLightControl (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORY_LIGHTCONTROL_MODE _mode, uint8_t _intensity);
+
+/**
+ * @brief USB Claw control cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id.
+ * @param _action USB Claw action.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryClawControl (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORY_CLAWCONTROL_ACTION _action);
+
+/**
+ * @brief USB Gun control cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id
+ * @param _action USB Gun action.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryGunControl (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORY_GUNCONTROL_ACTION _action);
+
+/**
  * @brief MiniDrone send flat trim was correctly processed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -4025,6 +4062,46 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateC
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _delay);
+
+/**
+ * @brief USB Light accessory state cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id
+ * @param _state Usb Light state.
+ * @param _intensity Light intensity from 0 (OFF) to 100 (Max intensity).\nOnly used in FIXED state.
+ * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateLightState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_LIGHTSTATE_STATE _state, uint8_t _intensity, uint8_t _list_flags);
+
+/**
+ * @brief USB Claw accessory state cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id
+ * @param _state Usb Claw state.
+ * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateClawState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_CLAWSTATE_STATE _state, uint8_t _list_flags);
+
+/**
+ * @brief USB Gun accessory state cmd.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _id Usb accessory id.
+ * @param _state USB Claw state.
+ * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE _state, uint8_t _list_flags);
 
 
 // Feature pro
