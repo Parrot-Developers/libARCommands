@@ -4006,6 +4006,25 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryClawControlBe
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryGunControlBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
+// Command class MassStorageMediaState
+
+/**
+ * @brief Sets the filter behavior for all commands MiniDrone.MassStorageMediaState.XXX.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the commands (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.MassStorageMediaState.NbPhotosChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+
 
 // Feature pro
 

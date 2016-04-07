@@ -386,6 +386,7 @@ int MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 0;
 int MiniDroneUsbAccessoryStateLightStateShouldBeCalled = 0;
 int MiniDroneUsbAccessoryStateClawStateShouldBeCalled = 0;
 int MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 0;
+int MiniDroneMassStorageMediaStateNbPhotosChangedShouldBeCalled = 0;
 int proProBoughtFeaturesShouldBeCalled = 0;
 int proProResponseShouldBeCalled = 0;
 int proProActivateFeaturesShouldBeCalled = 0;
@@ -7258,6 +7259,22 @@ void ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateGunStateCb (uint8_t id, eARC
     }
 }
 
+void ARCOMMANDS_Testbench_MiniDroneMassStorageMediaStateNbPhotosChangedCb (uint16_t nb_photos, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.MassStorageMediaState.NbPhotosChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "nb_photos value : <%u>", nb_photos);
+    if (nb_photos != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (MiniDroneMassStorageMediaStateNbPhotosChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 
 void ARCOMMANDS_Testbench_ProProBoughtFeaturesCb (uint64_t features, void *custom)
 {
@@ -9079,6 +9096,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateLightStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateLightStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateLightStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateClawStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateClawStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback ((ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) ARCOMMANDS_Testbench_MiniDroneUsbAccessoryStateGunStateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMassStorageMediaStateNbPhotosChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback ((ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t) ARCOMMANDS_Testbench_ProProBoughtFeaturesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProResponseCallback ((ARCOMMANDS_Decoder_ProProResponseCallback_t) ARCOMMANDS_Testbench_ProProResponseCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProActivateFeaturesCallback ((ARCOMMANDS_Decoder_ProProActivateFeaturesCallback_t) ARCOMMANDS_Testbench_ProProActivateFeaturesCb, (void *)cbCustom++ );
@@ -19769,6 +19787,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         MiniDroneUsbAccessoryStateGunStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneMassStorageMediaStateNbPhotosChanged (buffer, buffSize, &resSize, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MassStorageMediaState.NbPhotosChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MassStorageMediaState.NbPhotosChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior);
+        MiniDroneMassStorageMediaStateNbPhotosChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneMassStorageMediaStateNbPhotosChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

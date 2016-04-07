@@ -4147,6 +4147,18 @@ void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMAND
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
+static ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback (ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCb = callback;
+        ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
 
 // Feature pro
 
@@ -17179,6 +17191,42 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCb != NULL)
+                    {
+                        uint16_t _nb_photos;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _nb_photos = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCb (_nb_photos, ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE */
             default:
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                 break;
@@ -30994,6 +31042,38 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
+            case ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MassStorageMediaState.NbPhotosChanged:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | nb_photos -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.MassStorageMediaState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE */
             default:
                 strOffset = ARCOMMANDS_ReadWrite_WriteString ("MiniDrone.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;

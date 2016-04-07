@@ -10204,6 +10204,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class MassStorageMediaState description:<br>
+     * Mass storage media related commands.<br>
+     * <br>
+     * Command NbPhotosChanged description:<br>
+     * Mass storage number of photos.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _nb_photos Number of photos
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMassStorageMediaStateNbPhotosChanged (short _nb_photos) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (pointer, capacity, _nb_photos);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
      * <br>
      * Feature Pro description:<br>
@@ -16398,6 +16427,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDroneUsbAccessoryStateGunStateListener = _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM;
     }
 
+    private static ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneMassStorageMediaStateNbPhotosChangedListener (ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM) {
+        _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener = _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM;
+    }
+
 
     private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
 
@@ -18025,6 +18065,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneUsbAccessoryStateClawState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
 
     private native int     nativeSetMiniDroneUsbAccessoryStateGunState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
+
+    private native int     nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (long pdata, int dataTotalLength, short nb_photos);
 
 
     private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
