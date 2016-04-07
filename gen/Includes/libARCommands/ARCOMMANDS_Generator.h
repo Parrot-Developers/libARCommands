@@ -4938,7 +4938,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerButtonEven
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @param _band The band : 2.4 Ghz or 5 Ghz
- * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
+ * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4_GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5_GHZ
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScan (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _band);

@@ -40,9 +40,9 @@ public enum ARCOMMANDS_WIFI_BAND_ENUM {
     /** Dummy value for all unknown cases */
     UNKNOWN (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
     /** 2.4 GHz band */
-    BAND_2_4GHZ (0, "2.4 GHz band"),
+    BAND_2_4_GHZ (0, "2.4 GHz band"),
     /** 5 GHz band */
-    BAND_5GHZ (1, "5 GHz band");
+    BAND_5_GHZ (1, "5 GHz band");
 
 
     private final int value;
