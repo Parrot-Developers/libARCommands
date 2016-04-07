@@ -11506,7 +11506,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetCountry (JNIEnv *env,
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetEnvironement (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint environement)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetEnvironment (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint environment)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -11524,7 +11524,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiSetEnvironement (JNIEnv 
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateWifiSetEnvironement ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)environement);
+    err = ARCOMMANDS_Generator_GenerateWifiSetEnvironment ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_ENVIRONMENT)environment);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -11562,7 +11562,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiScannedItem (JNIEnv *env
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiAuthorizedChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint band, jbyte channel, jbyte environement, jbyte list_flags)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiAuthorizedChannel (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint band, jbyte channel, jbyte environment, jbyte list_flags)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -11580,7 +11580,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiAuthorizedChannel (JNIEn
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_BAND)band, (uint8_t)channel, (uint8_t)environement, (uint8_t)list_flags);
+    err = ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_BAND)band, (uint8_t)channel, (uint8_t)environment, (uint8_t)list_flags);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -11674,7 +11674,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiCountryChanged (JNIEnv *
 }
 
 JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiEnvironementChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint environement)
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiEnvironmentChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint environment)
 {
     int32_t c_dataSize = 0;
     eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
@@ -11692,7 +11692,7 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetWifiEnvironementChanged (JNI
         }
     }
 
-    err = ARCOMMANDS_Generator_GenerateWifiEnvironementChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)environement);
+    err = ARCOMMANDS_Generator_GenerateWifiEnvironmentChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_WIFI_ENVIRONMENT)environment);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -21095,26 +21095,26 @@ void ARCOMMANDS_JNI_WifiSetCountrynativeCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION s
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_WifiSetEnvironementnativeCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+void ARCOMMANDS_JNI_WifiSetEnvironmentnativeCb (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
     JNIEnv *env = NULL;
     res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
     if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandWifiSetEnvironementListener", "Lcom/parrot/arsdk/arcommands/ARCommandWifiSetEnvironementListener;");
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandWifiSetEnvironmentListener", "Lcom/parrot/arsdk/arcommands/ARCommandWifiSetEnvironmentListener;");
     jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiSetEnvironementUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiSetEnvironmentUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
-        jclass j_environement_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM");
-        jmethodID j_environement_mid = (*env)->GetStaticMethodID (env, j_environement_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM;");
-        jobject j_environement_enum = (*env)->CallStaticObjectMethod (env, j_environement_class, j_environement_mid, environement);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_environement_enum);
+        jclass j_environment_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM");
+        jmethodID j_environment_mid = (*env)->GetStaticMethodID (env, j_environment_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM;");
+        jobject j_environment_enum = (*env)->CallStaticObjectMethod (env, j_environment_class, j_environment_mid, environment);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_environment_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -21145,7 +21145,7 @@ void ARCOMMANDS_JNI_WifiScannedItemnativeCb (char * ssid, int16_t rssi, eARCOMMA
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_WifiAuthorizedChannelnativeCb (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environement, uint8_t list_flags, void *custom)
+void ARCOMMANDS_JNI_WifiAuthorizedChannelnativeCb (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environment, uint8_t list_flags, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
@@ -21164,7 +21164,7 @@ void ARCOMMANDS_JNI_WifiAuthorizedChannelnativeCb (eARCOMMANDS_WIFI_BAND band, u
         jclass j_band_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_BAND_ENUM");
         jmethodID j_band_mid = (*env)->GetStaticMethodID (env, j_band_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_BAND_ENUM;");
         jobject j_band_enum = (*env)->CallStaticObjectMethod (env, j_band_class, j_band_mid, band);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_band_enum, (jbyte)channel, (jbyte)environement, (jbyte)list_flags);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_band_enum, (jbyte)channel, (jbyte)environment, (jbyte)list_flags);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -21248,26 +21248,26 @@ void ARCOMMANDS_JNI_WifiCountryChangednativeCb (eARCOMMANDS_WIFI_COUNTRY_SELECTI
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_WifiEnvironementChangednativeCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+void ARCOMMANDS_JNI_WifiEnvironmentChangednativeCb (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom)
 {
     jclass clazz = (jclass)custom;
     jint res;
     JNIEnv *env = NULL;
     res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
     if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandWifiEnvironementChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandWifiEnvironementChangedListener;");
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandWifiEnvironmentChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandWifiEnvironmentChangedListener;");
     jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
     if (delegate == NULL) { return; }
 
     jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiEnvironementChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM;)V");
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onWifiEnvironmentChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM;)V");
     (*env)->DeleteLocalRef (env, d_clazz);
     if (d_methodid != NULL)
     {
-        jclass j_environement_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM");
-        jmethodID j_environement_mid = (*env)->GetStaticMethodID (env, j_environement_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM;");
-        jobject j_environement_enum = (*env)->CallStaticObjectMethod (env, j_environement_class, j_environement_mid, environement);
-        (*env)->CallVoidMethod (env, delegate, d_methodid, j_environement_enum);
+        jclass j_environment_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM");
+        jmethodID j_environment_mid = (*env)->GetStaticMethodID (env, j_environment_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_WIFI_ENVIRONMENT_ENUM;");
+        jobject j_environment_enum = (*env)->CallStaticObjectMethod (env, j_environment_class, j_environment_mid, environment);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_environment_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -22155,7 +22155,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetWifiSetCountryCallback (ARCOMMANDS_JNI_WifiSetCountrynativeCb, (void *)g_class);
 
-    ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback (ARCOMMANDS_JNI_WifiSetEnvironementnativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetWifiSetEnvironmentCallback (ARCOMMANDS_JNI_WifiSetEnvironmentnativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetWifiScannedItemCallback (ARCOMMANDS_JNI_WifiScannedItemnativeCb, (void *)g_class);
 
@@ -22167,7 +22167,7 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetWifiCountryChangedCallback (ARCOMMANDS_JNI_WifiCountryChangednativeCb, (void *)g_class);
 
-    ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback (ARCOMMANDS_JNI_WifiEnvironementChangednativeCb, (void *)g_class);
+    ARCOMMANDS_Decoder_SetWifiEnvironmentChangedCallback (ARCOMMANDS_JNI_WifiEnvironmentChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetWifiRssiChangedCallback (ARCOMMANDS_JNI_WifiRssiChangednativeCb, (void *)g_class);
 

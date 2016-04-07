@@ -31,14 +31,14 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>EnvironementChanged</code> in feature <code>Wifi</code> listener
+ * Interface for the command <code>EnvironmentChanged</code> in feature <code>Wifi</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandWifiEnvironementChangedListener {
+public interface ARCommandWifiEnvironmentChangedListener {
 
     /**
-     * Called when a command <code>EnvironementChanged</code> in feature <code>Wifi</code> is decoded
-     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise\nType of environement
+     * Called when a command <code>EnvironmentChanged</code> in feature <code>Wifi</code> is decoded
+     * @param _environment 1 if it uses outdoor wifi settings, 0 otherwise\nType of environment
      */
-    void onWifiEnvironementChangedUpdate (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
+    void onWifiEnvironmentChangedUpdate (ARCOMMANDS_WIFI_ENVIRONMENT_ENUM environment);
 }

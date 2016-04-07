@@ -483,13 +483,13 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdWifiSetApChannelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiSetSecurityBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiSetCountryBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdWifiSetEnvironementBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiSetEnvironmentBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiScannedItemBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiAuthorizedChannelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiApChannelChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiSecurityChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiCountryChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdWifiEnvironementChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdWifiEnvironmentChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdWifiRssiChangedBehavior;
 
 };
@@ -944,13 +944,13 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdWifiSetApChannelBehavior = defaultBehavior;
         retFilter->CmdWifiSetSecurityBehavior = defaultBehavior;
         retFilter->CmdWifiSetCountryBehavior = defaultBehavior;
-        retFilter->CmdWifiSetEnvironementBehavior = defaultBehavior;
+        retFilter->CmdWifiSetEnvironmentBehavior = defaultBehavior;
         retFilter->CmdWifiScannedItemBehavior = defaultBehavior;
         retFilter->CmdWifiAuthorizedChannelBehavior = defaultBehavior;
         retFilter->CmdWifiApChannelChangedBehavior = defaultBehavior;
         retFilter->CmdWifiSecurityChangedBehavior = defaultBehavior;
         retFilter->CmdWifiCountryChangedBehavior = defaultBehavior;
-        retFilter->CmdWifiEnvironementChangedBehavior = defaultBehavior;
+        retFilter->CmdWifiEnvironmentChangedBehavior = defaultBehavior;
         retFilter->CmdWifiRssiChangedBehavior = defaultBehavior;
     } // No else : Processing block
 
@@ -4508,11 +4508,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdWifiSetCountryBehavior;
                 }
                 break; /* ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT:
                 {
-                    retStatus = filter->CmdWifiSetEnvironementBehavior;
+                    retStatus = filter->CmdWifiSetEnvironmentBehavior;
                 }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT */
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT */
                 case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
                 {
                     retStatus = filter->CmdWifiScannedItemBehavior;
@@ -4538,11 +4538,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdWifiCountryChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED:
                 {
-                    retStatus = filter->CmdWifiEnvironementChangedBehavior;
+                    retStatus = filter->CmdWifiEnvironmentChangedBehavior;
                 }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED */
+                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED */
                 case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
                 {
                     retStatus = filter->CmdWifiRssiChangedBehavior;
@@ -17786,13 +17786,13 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiBehavior (ARCOMMANDS_Filter_t 
         filter->CmdWifiSetApChannelBehavior = behavior;
         filter->CmdWifiSetSecurityBehavior = behavior;
         filter->CmdWifiSetCountryBehavior = behavior;
-        filter->CmdWifiSetEnvironementBehavior = behavior;
+        filter->CmdWifiSetEnvironmentBehavior = behavior;
         filter->CmdWifiScannedItemBehavior = behavior;
         filter->CmdWifiAuthorizedChannelBehavior = behavior;
         filter->CmdWifiApChannelChangedBehavior = behavior;
         filter->CmdWifiSecurityChangedBehavior = behavior;
         filter->CmdWifiCountryChangedBehavior = behavior;
-        filter->CmdWifiEnvironementChangedBehavior = behavior;
+        filter->CmdWifiEnvironmentChangedBehavior = behavior;
         filter->CmdWifiRssiChangedBehavior = behavior;
     }
 
@@ -17909,7 +17909,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetCountryBehavior (ARCOMMANDS
     return retError;
 }
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironmentBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
     if (filter == NULL)
@@ -17925,7 +17925,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOM
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdWifiSetEnvironementBehavior = behavior;
+        filter->CmdWifiSetEnvironmentBehavior = behavior;
     }
 
     return retError;
@@ -18041,7 +18041,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (ARCOMM
     return retError;
 }
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironmentChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
     if (filter == NULL)
@@ -18057,7 +18057,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (A
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdWifiEnvironementChangedBehavior = behavior;
+        filter->CmdWifiEnvironmentChangedBehavior = behavior;
     }
 
     return retError;

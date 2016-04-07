@@ -31,14 +31,14 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SetEnvironement</code> in feature <code>Wifi</code> listener
+ * Interface for the command <code>SetEnvironment</code> in feature <code>Wifi</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandWifiSetEnvironementListener {
+public interface ARCommandWifiSetEnvironmentListener {
 
     /**
-     * Called when a command <code>SetEnvironement</code> in feature <code>Wifi</code> is decoded
-     * @param _environement Type of environement
+     * Called when a command <code>SetEnvironment</code> in feature <code>Wifi</code> is decoded
+     * @param _environment Type of environment
      */
-    void onWifiSetEnvironementUpdate (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM environement);
+    void onWifiSetEnvironmentUpdate (ARCOMMANDS_WIFI_ENVIRONMENT_ENUM environment);
 }

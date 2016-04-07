@@ -463,13 +463,13 @@ int wifiUpdateAuthorizedChannelsShouldBeCalled = 0;
 int wifiSetApChannelShouldBeCalled = 0;
 int wifiSetSecurityShouldBeCalled = 0;
 int wifiSetCountryShouldBeCalled = 0;
-int wifiSetEnvironementShouldBeCalled = 0;
+int wifiSetEnvironmentShouldBeCalled = 0;
 int wifiScannedItemShouldBeCalled = 0;
 int wifiAuthorizedChannelShouldBeCalled = 0;
 int wifiApChannelChangedShouldBeCalled = 0;
 int wifiSecurityChangedShouldBeCalled = 0;
 int wifiCountryChangedShouldBeCalled = 0;
-int wifiEnvironementChangedShouldBeCalled = 0;
+int wifiEnvironmentChangedShouldBeCalled = 0;
 int wifiRssiChangedShouldBeCalled = 0;
 
 void ARCOMMANDS_Testbench_GenericDefaultCb (void *custom)
@@ -8541,16 +8541,16 @@ void ARCOMMANDS_Testbench_WifiSetCountryCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION s
     }
 }
 
-void ARCOMMANDS_Testbench_WifiSetEnvironementCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+void ARCOMMANDS_Testbench_WifiSetEnvironmentCb (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_environement --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%d>", environement);
-    if (environement != (eARCOMMANDS_WIFI_ENVIRONEMENT)0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_environment --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environment value : <%d>", environment);
+    if (environment != (eARCOMMANDS_WIFI_ENVIRONMENT)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONEMENT)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONMENT)0>");
         errcount++ ;
     }
-    if (wifiSetEnvironementShouldBeCalled == 0)
+    if (wifiSetEnvironmentShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -8597,7 +8597,7 @@ void ARCOMMANDS_Testbench_WifiScannedItemCb (char * ssid, int16_t rssi, eARCOMMA
     }
 }
 
-void ARCOMMANDS_Testbench_WifiAuthorizedChannelCb (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environement, uint8_t list_flags, void *custom)
+void ARCOMMANDS_Testbench_WifiAuthorizedChannelCb (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environment, uint8_t list_flags, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.authorized_channel --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
@@ -8612,8 +8612,8 @@ void ARCOMMANDS_Testbench_WifiAuthorizedChannelCb (eARCOMMANDS_WIFI_BAND band, u
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
         errcount++ ;
     }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%u>", environement);
-    if (environement != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environment value : <%u>", environment);
+    if (environment != 42)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
         errcount++ ;
@@ -8703,16 +8703,16 @@ void ARCOMMANDS_Testbench_WifiCountryChangedCb (eARCOMMANDS_WIFI_COUNTRY_SELECTI
     }
 }
 
-void ARCOMMANDS_Testbench_WifiEnvironementChangedCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+void ARCOMMANDS_Testbench_WifiEnvironmentChangedCb (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.environement_changed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%d>", environement);
-    if (environement != (eARCOMMANDS_WIFI_ENVIRONEMENT)0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.environment_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environment value : <%d>", environment);
+    if (environment != (eARCOMMANDS_WIFI_ENVIRONMENT)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONEMENT)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONMENT)0>");
         errcount++ ;
     }
-    if (wifiEnvironementChangedShouldBeCalled == 0)
+    if (wifiEnvironmentChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -9156,13 +9156,13 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetWifiSetApChannelCallback ((ARCOMMANDS_Decoder_WifiSetApChannelCallback_t) ARCOMMANDS_Testbench_WifiSetApChannelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiSetSecurityCallback ((ARCOMMANDS_Decoder_WifiSetSecurityCallback_t) ARCOMMANDS_Testbench_WifiSetSecurityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiSetCountryCallback ((ARCOMMANDS_Decoder_WifiSetCountryCallback_t) ARCOMMANDS_Testbench_WifiSetCountryCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback ((ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t) ARCOMMANDS_Testbench_WifiSetEnvironementCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSetEnvironmentCallback ((ARCOMMANDS_Decoder_WifiSetEnvironmentCallback_t) ARCOMMANDS_Testbench_WifiSetEnvironmentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiScannedItemCallback ((ARCOMMANDS_Decoder_WifiScannedItemCallback_t) ARCOMMANDS_Testbench_WifiScannedItemCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiAuthorizedChannelCallback ((ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t) ARCOMMANDS_Testbench_WifiAuthorizedChannelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiApChannelChangedCallback ((ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t) ARCOMMANDS_Testbench_WifiApChannelChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiSecurityChangedCallback ((ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t) ARCOMMANDS_Testbench_WifiSecurityChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiCountryChangedCallback ((ARCOMMANDS_Decoder_WifiCountryChangedCallback_t) ARCOMMANDS_Testbench_WifiCountryChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback ((ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t) ARCOMMANDS_Testbench_WifiEnvironementChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiEnvironmentChangedCallback ((ARCOMMANDS_Decoder_WifiEnvironmentChangedCallback_t) ARCOMMANDS_Testbench_WifiEnvironmentChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetWifiRssiChangedCallback ((ARCOMMANDS_Decoder_WifiRssiChangedCallback_t) ARCOMMANDS_Testbench_WifiRssiChangedCb, (void *)cbCustom++ );
 }
 
@@ -22169,15 +22169,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateWifiSetEnvironement (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)0);
+    res = ARCOMMANDS_Generator_GenerateWifiSetEnvironment (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONMENT)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_environement\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_environment\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_environement succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_environment succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -22189,10 +22189,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior);
-        wifiSetEnvironementShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetEnvironmentBehavior);
+        wifiSetEnvironmentShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        wifiSetEnvironementShouldBeCalled = 0;
+        wifiSetEnvironmentShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -22355,15 +22355,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateWifiEnvironementChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)0);
+    res = ARCOMMANDS_Generator_GenerateWifiEnvironmentChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONMENT)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.environement_changed\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.environment_changed\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.environement_changed succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.environment_changed succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -22375,10 +22375,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior);
-        wifiEnvironementChangedShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiEnvironmentChangedBehavior);
+        wifiEnvironmentChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        wifiEnvironementChangedShouldBeCalled = 0;
+        wifiEnvironmentChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

@@ -1960,17 +1960,17 @@ typedef enum
 
 
 /**
- * @brief Type of environement
+ * @brief Type of environment
  */
 typedef enum
 {
-    ARCOMMANDS_WIFI_ENVIRONEMENT_INDOOR = 0,    ///< indoor environement
-    ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR = 1,    ///< outdoor environement
-    ARCOMMANDS_WIFI_ENVIRONEMENT_MAX
-} eARCOMMANDS_WIFI_ENVIRONEMENT;
+    ARCOMMANDS_WIFI_ENVIRONMENT_INDOOR = 0,    ///< indoor environment
+    ARCOMMANDS_WIFI_ENVIRONMENT_OUTDOOR = 1,    ///< outdoor environment
+    ARCOMMANDS_WIFI_ENVIRONMENT_MAX
+} eARCOMMANDS_WIFI_ENVIRONMENT;
 
-#define ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_INDOOR)    ///< indoor environement
-#define ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_OUTDOOR)    ///< outdoor environement
+#define ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_INDOOR (1 << ARCOMMANDS_WIFI_ENVIRONMENT_INDOOR)    ///< indoor environment
+#define ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_OUTDOOR (1 << ARCOMMANDS_WIFI_ENVIRONMENT_OUTDOOR)    ///< outdoor environment
 
 
 /**

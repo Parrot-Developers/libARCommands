@@ -7068,15 +7068,15 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetWifiSetEnvironementBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiSetEnvironmentBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command Wifi.SetEnvironement.
+     * Sets the behavior for the command Wifi.SetEnvironment.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetEnvironementBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiSetEnvironmentBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiSetEnvironementBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiSetEnvironmentBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
@@ -7140,15 +7140,15 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetWifiEnvironementChangedBehavior (long cFilter, int behavior);
+    private native int nativeSetWifiEnvironmentChangedBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command Wifi.EnvironementChanged.
+     * Sets the behavior for the command Wifi.EnvironmentChanged.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiEnvironementChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setWifiEnvironmentChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetWifiEnvironementChangedBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetWifiEnvironmentChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

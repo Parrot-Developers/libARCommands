@@ -4681,15 +4681,15 @@ typedef void (*ARCOMMANDS_Decoder_WifiSetCountryCallback_t) (eARCOMMANDS_WIFI_CO
 void ARCOMMANDS_Decoder_SetWifiSetCountryCallback (ARCOMMANDS_Decoder_WifiSetCountryCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command wifi.set_environement
+ * @brief callback type for the command wifi.set_environment
  */
-typedef void (*ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t) (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom);
+typedef void (*ARCOMMANDS_Decoder_WifiSetEnvironmentCallback_t) (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom);
 /**
- * @brief callback setter for the command wifi.set_environement
- * @param callback new callback for the command wifi.set_environement
+ * @brief callback setter for the command wifi.set_environment
+ * @param callback new callback for the command wifi.set_environment
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback (ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetWifiSetEnvironmentCallback (ARCOMMANDS_Decoder_WifiSetEnvironmentCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command wifi.scanned_item
@@ -4705,7 +4705,7 @@ void ARCOMMANDS_Decoder_SetWifiScannedItemCallback (ARCOMMANDS_Decoder_WifiScann
 /**
  * @brief callback type for the command wifi.authorized_channel
  */
-typedef void (*ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t) (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environement, uint8_t list_flags, void *custom);
+typedef void (*ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t) (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environment, uint8_t list_flags, void *custom);
 /**
  * @brief callback setter for the command wifi.authorized_channel
  * @param callback new callback for the command wifi.authorized_channel
@@ -4747,15 +4747,15 @@ typedef void (*ARCOMMANDS_Decoder_WifiCountryChangedCallback_t) (eARCOMMANDS_WIF
 void ARCOMMANDS_Decoder_SetWifiCountryChangedCallback (ARCOMMANDS_Decoder_WifiCountryChangedCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command wifi.environement_changed
+ * @brief callback type for the command wifi.environment_changed
  */
-typedef void (*ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t) (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom);
+typedef void (*ARCOMMANDS_Decoder_WifiEnvironmentChangedCallback_t) (eARCOMMANDS_WIFI_ENVIRONMENT environment, void *custom);
 /**
- * @brief callback setter for the command wifi.environement_changed
- * @param callback new callback for the command wifi.environement_changed
+ * @brief callback setter for the command wifi.environment_changed
+ * @param callback new callback for the command wifi.environment_changed
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback (ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetWifiEnvironmentChangedCallback (ARCOMMANDS_Decoder_WifiEnvironmentChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command wifi.rssi_changed

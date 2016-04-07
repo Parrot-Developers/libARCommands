@@ -34,27 +34,27 @@ package com.parrot.arsdk.arcommands;
 import java.util.HashMap;
 
 /**
- * Java copy of the eARCOMMANDS_WIFI_ENVIRONEMENT enum
+ * Java copy of the eARCOMMANDS_WIFI_ENVIRONMENT enum
  */
-public enum ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM {
+public enum ARCOMMANDS_WIFI_ENVIRONMENT_ENUM {
     /** Dummy value for all unknown cases */
     UNKNOWN (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-    /** indoor environement */
-    INDOOR (0, "indoor environement"),
-    /** outdoor environement */
-    OUTDOOR (1, "outdoor environement");
+    /** indoor environment */
+    INDOOR (0, "indoor environment"),
+    /** outdoor environment */
+    OUTDOOR (1, "outdoor environment");
 
 
     private final int value;
     private final String comment;
-    static HashMap<Integer, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM> valuesList;
+    static HashMap<Integer, ARCOMMANDS_WIFI_ENVIRONMENT_ENUM> valuesList;
 
-    ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM (int value) {
+    ARCOMMANDS_WIFI_ENVIRONMENT_ENUM (int value) {
         this.value = value;
         this.comment = null;
     }
 
-    ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM (int value, String comment) {
+    ARCOMMANDS_WIFI_ENVIRONMENT_ENUM (int value, String comment) {
         this.value = value;
         this.comment = comment;
     }
@@ -68,19 +68,19 @@ public enum ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM {
     }
 
     /**
-     * Gets the ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM instance from a C enum value
+     * Gets the ARCOMMANDS_WIFI_ENVIRONMENT_ENUM instance from a C enum value
      * @param value C value of the enum
-     * @return The ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM instance, or null if the C enum value was not valid
+     * @return The ARCOMMANDS_WIFI_ENVIRONMENT_ENUM instance, or null if the C enum value was not valid
      */
-    public static ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM getFromValue (int value) {
+    public static ARCOMMANDS_WIFI_ENVIRONMENT_ENUM getFromValue (int value) {
         if (null == valuesList) {
-            ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM [] valuesArray = ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.values ();
-            valuesList = new HashMap<Integer, ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM> (valuesArray.length);
-            for (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM entry : valuesArray) {
+            ARCOMMANDS_WIFI_ENVIRONMENT_ENUM [] valuesArray = ARCOMMANDS_WIFI_ENVIRONMENT_ENUM.values ();
+            valuesList = new HashMap<Integer, ARCOMMANDS_WIFI_ENVIRONMENT_ENUM> (valuesArray.length);
+            for (ARCOMMANDS_WIFI_ENVIRONMENT_ENUM entry : valuesArray) {
                 valuesList.put (entry.getValue (), entry);
             }
         }
-        ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM retVal = valuesList.get (value);
+        ARCOMMANDS_WIFI_ENVIRONMENT_ENUM retVal = valuesList.get (value);
         if (retVal == null) {
             retVal = UNKNOWN;
         }
