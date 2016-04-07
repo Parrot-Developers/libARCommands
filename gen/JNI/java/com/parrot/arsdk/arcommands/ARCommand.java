@@ -49,8 +49,8 @@ public class ARCommand extends ARNativeData {
     public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.EMPTY.getValue());    ///< indicate the list is empty (implies First/Last). All other arguments should be ignored.
     public static final int ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE = (1 << ARCOMMANDS_GENERIC_LIST_FLAGS_ENUM.REMOVE.getValue());    ///< This value should be removed from the existing list.
 
-    public static final int ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_2_4GHZ.getValue());    ///< 2.4 GHz band
-    public static final int ARCOMMANDS_FLAG_WIFI_BAND_5GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_5GHZ.getValue());    ///< 5 GHz band
+    public static final int ARCOMMANDS_FLAG_WIFI_BAND_2_4_GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_2_4_GHZ.getValue());    ///< 2.4 GHz band
+    public static final int ARCOMMANDS_FLAG_WIFI_BAND_5_GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_5_GHZ.getValue());    ///< 5 GHz band
 
     public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_INDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONMENT_ENUM.INDOOR.getValue());    ///< indoor environment
     public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_OUTDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONMENT_ENUM.OUTDOOR.getValue());    ///< outdoor environment
@@ -12345,7 +12345,7 @@ public class ARCommand extends ARNativeData {
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
      * @param _band The band : 2.4 Ghz or 5 Ghz
-     * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5GHZ
+     * @param _band a combination of ; ARCOMMANDS_FLAG_WIFI_BAND_2_4_GHZ ; ARCOMMANDS_FLAG_WIFI_BAND_5_GHZ
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
     public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiScan (byte _band) {
