@@ -5080,15 +5080,15 @@ void ARCOMMANDS_Decoder_SetWifiSetCountryCallback (ARCOMMANDS_Decoder_WifiSetCou
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t ARCOMMANDS_Decoder_WifiSetEnvironementCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiSetEnvironementCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback (ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiSetEnvironmentCallback_t ARCOMMANDS_Decoder_WifiSetEnvironmentCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiSetEnvironmentCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiSetEnvironmentCallback (ARCOMMANDS_Decoder_WifiSetEnvironmentCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiSetEnvironementCb = callback;
-        ARCOMMANDS_Decoder_WifiSetEnvironementCustom = custom;
+        ARCOMMANDS_Decoder_WifiSetEnvironmentCb = callback;
+        ARCOMMANDS_Decoder_WifiSetEnvironmentCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -5152,15 +5152,15 @@ void ARCOMMANDS_Decoder_SetWifiCountryChangedCallback (ARCOMMANDS_Decoder_WifiCo
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t ARCOMMANDS_Decoder_WifiEnvironementChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback (ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_WifiEnvironmentChangedCallback_t ARCOMMANDS_Decoder_WifiEnvironmentChangedCb = NULL;
+static void *ARCOMMANDS_Decoder_WifiEnvironmentChangedCustom = NULL;
+void ARCOMMANDS_Decoder_SetWifiEnvironmentChangedCallback (ARCOMMANDS_Decoder_WifiEnvironmentChangedCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_WifiEnvironementChangedCb = callback;
-        ARCOMMANDS_Decoder_WifiEnvironementChangedCustom = custom;
+        ARCOMMANDS_Decoder_WifiEnvironmentChangedCb = callback;
+        ARCOMMANDS_Decoder_WifiEnvironmentChangedCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -19565,15 +19565,15 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_SET_COUNTRY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiSetEnvironementCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiSetEnvironmentCb != NULL)
                     {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
+                        eARCOMMANDS_WIFI_ENVIRONMENT _environment;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _environment = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -19581,7 +19581,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_WifiSetEnvironementCb (_environement, ARCOMMANDS_Decoder_WifiSetEnvironementCustom);
+                            ARCOMMANDS_Decoder_WifiSetEnvironmentCb (_environment, ARCOMMANDS_Decoder_WifiSetEnvironmentCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -19590,7 +19590,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_SET_ENVIRONEMENT */
+                break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_SET_ENVIRONMENT */
                 case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -19660,7 +19660,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     {
                         eARCOMMANDS_WIFI_BAND _band;
                         uint8_t _channel;
-                        uint8_t _environement;
+                        uint8_t _environment;
                         uint8_t _list_flags;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
@@ -19680,7 +19680,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _environement = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            _environment = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -19696,7 +19696,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_WifiAuthorizedChannelCb (_band, _channel, _environement, _list_flags, ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom);
+                            ARCOMMANDS_Decoder_WifiAuthorizedChannelCb (_band, _channel, _environment, _list_flags, ARCOMMANDS_Decoder_WifiAuthorizedChannelCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -19820,15 +19820,15 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
                 break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_COUNTRY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_WifiEnvironementChangedCb != NULL)
+                    if (ARCOMMANDS_Decoder_WifiEnvironmentChangedCb != NULL)
                     {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT _environement;
+                        eARCOMMANDS_WIFI_ENVIRONMENT _environment;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _environement = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _environment = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -19836,7 +19836,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_WifiEnvironementChangedCb (_environement, ARCOMMANDS_Decoder_WifiEnvironementChangedCustom);
+                            ARCOMMANDS_Decoder_WifiEnvironmentChangedCb (_environment, ARCOMMANDS_Decoder_WifiEnvironmentChangedCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -19845,7 +19845,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_ENVIRONEMENT_CHANGED */
+                break; /* ARCOMMANDS_ID_WIFI_BUTTONEVENTS_CMD_ENVIRONMENT_CHANGED */
                 case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -33050,15 +33050,15 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_WIFI_CMD_SET_COUNTRY */
-                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT:
+                case ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_environement:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.set_environment:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_ENVIRONMENT arg = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environment -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -33070,7 +33070,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT */
+                break; /* ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT */
                 case ARCOMMANDS_ID_WIFI_CMD_SCANNED_ITEM:
                 {
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.scanned_item:", resString, stringLen, strOffset) ;
@@ -33172,7 +33172,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | environement -> ", arg, resString, stringLen, strOffset);
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | environment -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -33308,15 +33308,15 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> Do not modify retVal if no error occured
                 }
                 break; /* ARCOMMANDS_ID_WIFI_CMD_COUNTRY_CHANGED */
-                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED:
+                case ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.environement_changed:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.environment_changed:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_WIFI_ENVIRONEMENT arg = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_WIFI_ENVIRONMENT arg = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_WIFI_ENVIRONEMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environement -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_WIFI_ENVIRONMENT)ARCOMMANDS_ReadWrite_PrintI32 (" | environment -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -33328,7 +33328,7 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED */
+                break; /* ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED */
                 case ARCOMMANDS_ID_WIFI_CMD_RSSI_CHANGED:
                 {
                     strOffset = ARCOMMANDS_ReadWrite_WriteString ("wifi.rssi_changed:", resString, stringLen, strOffset) ;

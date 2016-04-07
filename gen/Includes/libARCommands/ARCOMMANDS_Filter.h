@@ -4964,12 +4964,12 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetSecurityBehavior (ARCOMMAND
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetCountryBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command wifi.set_environement.
+ * @brief Sets the filter behavior for the command wifi.set_environment.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSetEnvironmentBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
  * @brief Sets the filter behavior for the command wifi.scanned_item.
@@ -5012,12 +5012,12 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior (ARCOM
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiCountryChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
- * @brief Sets the filter behavior for the command wifi.environement_changed.
+ * @brief Sets the filter behavior for the command wifi.environment_changed.
  * @param filter The filter to be modified.
  * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetWifiEnvironmentChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 /**
  * @brief Sets the filter behavior for the command wifi.rssi_changed.

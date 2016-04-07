@@ -52,8 +52,8 @@ public class ARCommand extends ARNativeData {
     public static final int ARCOMMANDS_FLAG_WIFI_BAND_2_4GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_2_4GHZ.getValue());    ///< 2.4 GHz band
     public static final int ARCOMMANDS_FLAG_WIFI_BAND_5GHZ = (1 << ARCOMMANDS_WIFI_BAND_ENUM.BAND_5GHZ.getValue());    ///< 5 GHz band
 
-    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.INDOOR.getValue());    ///< indoor environement
-    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM.OUTDOOR.getValue());    ///< outdoor environement
+    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_INDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONMENT_ENUM.INDOOR.getValue());    ///< indoor environment
+    public static final int ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_OUTDOOR = (1 << ARCOMMANDS_WIFI_ENVIRONMENT_ENUM.OUTDOOR.getValue());    ///< outdoor environment
 
     /**
      * Creates a new, empty ARCommand with the default size.<br>
@@ -12442,25 +12442,25 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
+     * Set an ARCommand to hold the command <code>SetEnvironment</code> in feature <code>Wifi</code><br>
      * <br>
      * Feature Wifi description:<br>
      * All commands/events related to the Wifi<br>
      * <br>
-     * Command SetEnvironement description:<br>
+     * Command SetEnvironment description:<br>
      * Set indoor or outdoor wifi settings.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _environement Type of environement
+     * @param _environment Type of environment
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetEnvironement (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiSetEnvironment (ARCOMMANDS_WIFI_ENVIRONMENT_ENUM _environment) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetWifiSetEnvironement (pointer, capacity, _environement.getValue());
+        int errInt = nativeSetWifiSetEnvironment (pointer, capacity, _environment.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12511,18 +12511,18 @@ public class ARCommand extends ARNativeData {
      * new command created from the current params
      * @param _band The band : 2.4 Ghz or 5 Ghz
      * @param _channel The channel number
-     * @param _environement Type of environement
-     * @param _environement a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONEMENT_OUTDOOR
+     * @param _environment Type of environment
+     * @param _environment a combination of ; ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_INDOOR ; ARCOMMANDS_FLAG_WIFI_ENVIRONMENT_OUTDOOR
      * @param _list_flags Flags use by maps and lists
      * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiAuthorizedChannel (ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _environement, byte _list_flags) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiAuthorizedChannel (ARCOMMANDS_WIFI_BAND_ENUM _band, byte _channel, byte _environment, byte _list_flags) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetWifiAuthorizedChannel (pointer, capacity, _band.getValue(), _channel, _environement, _list_flags);
+        int errInt = nativeSetWifiAuthorizedChannel (pointer, capacity, _band.getValue(), _channel, _environment, _list_flags);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -12612,25 +12612,25 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
+     * Set an ARCommand to hold the command <code>EnvironmentChanged</code> in feature <code>Wifi</code><br>
      * <br>
      * Feature Wifi description:<br>
      * All commands/events related to the Wifi<br>
      * <br>
-     * Command EnvironementChanged description:<br>
+     * Command EnvironmentChanged description:<br>
      * Status of the wifi config : either indoor or outdoor.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _environement 1 if it uses outdoor wifi settings, 0 otherwise\nType of environement
+     * @param _environment 1 if it uses outdoor wifi settings, 0 otherwise\nType of environment
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiEnvironementChanged (ARCOMMANDS_WIFI_ENVIRONEMENT_ENUM _environement) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setWifiEnvironmentChanged (ARCOMMANDS_WIFI_ENVIRONMENT_ENUM _environment) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetWifiEnvironementChanged (pointer, capacity, _environement.getValue());
+        int errInt = nativeSetWifiEnvironmentChanged (pointer, capacity, _environment.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -17248,15 +17248,15 @@ public class ARCommand extends ARNativeData {
         _ARCommandWifiSetCountryListener = _ARCommandWifiSetCountryListener_PARAM;
     }
 
-    private static ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener = null;
+    private static ARCommandWifiSetEnvironmentListener _ARCommandWifiSetEnvironmentListener = null;
 
     /**
-     * Set the listener for the command <code>SetEnvironement</code> in feature <code>Wifi</code><br>
+     * Set the listener for the command <code>SetEnvironment</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiSetEnvironementListener_PARAM New listener for the command
+     * @param _ARCommandWifiSetEnvironmentListener_PARAM New listener for the command
      */
-    public static void setWifiSetEnvironementListener (ARCommandWifiSetEnvironementListener _ARCommandWifiSetEnvironementListener_PARAM) {
-        _ARCommandWifiSetEnvironementListener = _ARCommandWifiSetEnvironementListener_PARAM;
+    public static void setWifiSetEnvironmentListener (ARCommandWifiSetEnvironmentListener _ARCommandWifiSetEnvironmentListener_PARAM) {
+        _ARCommandWifiSetEnvironmentListener = _ARCommandWifiSetEnvironmentListener_PARAM;
     }
 
     private static ARCommandWifiScannedItemListener _ARCommandWifiScannedItemListener = null;
@@ -17314,15 +17314,15 @@ public class ARCommand extends ARNativeData {
         _ARCommandWifiCountryChangedListener = _ARCommandWifiCountryChangedListener_PARAM;
     }
 
-    private static ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener = null;
+    private static ARCommandWifiEnvironmentChangedListener _ARCommandWifiEnvironmentChangedListener = null;
 
     /**
-     * Set the listener for the command <code>EnvironementChanged</code> in feature <code>Wifi</code><br>
+     * Set the listener for the command <code>EnvironmentChanged</code> in feature <code>Wifi</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandWifiEnvironementChangedListener_PARAM New listener for the command
+     * @param _ARCommandWifiEnvironmentChangedListener_PARAM New listener for the command
      */
-    public static void setWifiEnvironementChangedListener (ARCommandWifiEnvironementChangedListener _ARCommandWifiEnvironementChangedListener_PARAM) {
-        _ARCommandWifiEnvironementChangedListener = _ARCommandWifiEnvironementChangedListener_PARAM;
+    public static void setWifiEnvironmentChangedListener (ARCommandWifiEnvironmentChangedListener _ARCommandWifiEnvironmentChangedListener_PARAM) {
+        _ARCommandWifiEnvironmentChangedListener = _ARCommandWifiEnvironmentChangedListener_PARAM;
     }
 
     private static ARCommandWifiRssiChangedListener _ARCommandWifiRssiChangedListener = null;
@@ -18183,11 +18183,11 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetWifiSetCountry (long pdata, int dataTotalLength, int selection_mode, String code);
 
-    private native int     nativeSetWifiSetEnvironement (long pdata, int dataTotalLength, int environement);
+    private native int     nativeSetWifiSetEnvironment (long pdata, int dataTotalLength, int environment);
 
     private native int     nativeSetWifiScannedItem (long pdata, int dataTotalLength, String ssid, short rssi, int band, byte channel, byte list_flags);
 
-    private native int     nativeSetWifiAuthorizedChannel (long pdata, int dataTotalLength, int band, byte channel, byte environement, byte list_flags);
+    private native int     nativeSetWifiAuthorizedChannel (long pdata, int dataTotalLength, int band, byte channel, byte environment, byte list_flags);
 
     private native int     nativeSetWifiApChannelChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
 
@@ -18195,7 +18195,7 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetWifiCountryChanged (long pdata, int dataTotalLength, int selection_mode, String code);
 
-    private native int     nativeSetWifiEnvironementChanged (long pdata, int dataTotalLength, int environement);
+    private native int     nativeSetWifiEnvironmentChanged (long pdata, int dataTotalLength, int environment);
 
     private native int     nativeSetWifiRssiChanged (long pdata, int dataTotalLength, short rssi);
 

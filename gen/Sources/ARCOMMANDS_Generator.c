@@ -24286,7 +24286,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetCountry (uint8_t
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetEnvironement (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetEnvironment (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONMENT _environment)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -24316,16 +24316,16 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiSetEnvironement (ui
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONEMENT, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_WIFI_CMD_SET_ENVIRONMENT, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
         } // No else --> Do not modify retVal if no issue was found
     } // No else --> Processing block
-    // Write arg _environement
+    // Write arg _environment
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _environement, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _environment, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -24433,7 +24433,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiScannedItem (uint8_
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _environement, uint8_t _list_flags)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_BAND _band, uint8_t _channel, uint8_t _environment, uint8_t _list_flags)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -24487,10 +24487,10 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
         } // No else --> Do not modify retVal if no issue was found
     } // No else --> Processing block
-    // Write arg _environement
+    // Write arg _environment
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _environement, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _environment, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -24718,7 +24718,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiCountryChanged (uin
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiEnvironementChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONEMENT _environement)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiEnvironmentChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_WIFI_ENVIRONMENT _environment)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -24748,16 +24748,16 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateWifiEnvironementChanged
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_WIFI_CMD_ENVIRONEMENT_CHANGED, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_WIFI_CMD_ENVIRONMENT_CHANGED, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
         } // No else --> Do not modify retVal if no issue was found
     } // No else --> Processing block
-    // Write arg _environement
+    // Write arg _environment
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _environement, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _environment, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
