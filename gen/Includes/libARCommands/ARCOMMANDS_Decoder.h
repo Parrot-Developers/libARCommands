@@ -3824,6 +3824,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) 
  */
 void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t callback, void *custom);
 
+/**
+ * @brief callback type for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t) (uint16_t nb_photos, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
+ * @param callback new callback for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback (ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t callback, void *custom);
+
 // Feature pro
 
 

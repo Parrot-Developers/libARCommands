@@ -9363,6 +9363,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryStateGu
     return err;
 }
 
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort nb_photos)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMiniDroneMassStorageMediaStateNbPhotosChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)nb_photos);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
 
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetProProBoughtFeatures (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jlong features)
@@ -19361,6 +19388,27 @@ void ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb (uint8_t id, eARC
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_MiniDroneMassStorageMediaStateNbPhotosChangednativeCb (uint16_t nb_photos, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMassStorageMediaStateNbPhotosChangedUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)nb_photos);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 
 void ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb (uint64_t features, void *custom)
 {
@@ -21997,6 +22045,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateClawStatenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback (ARCOMMANDS_JNI_MiniDroneMassStorageMediaStateNbPhotosChangednativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb, (void *)g_class);

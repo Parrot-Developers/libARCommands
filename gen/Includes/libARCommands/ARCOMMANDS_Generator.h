@@ -4103,6 +4103,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessorySt
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE _state, uint8_t _list_flags);
 
+/**
+ * @brief Mass storage number of photos.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _nb_photos Number of photos
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneMassStorageMediaStateNbPhotosChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _nb_photos);
+
 
 // Feature pro
 
