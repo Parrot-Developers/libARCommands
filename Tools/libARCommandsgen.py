@@ -115,71 +115,73 @@ JNIFilterClassName, _ = os.path.splitext (JNI_FILTER_JFILE_NAME)
 JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 JAVA_ENUM_FILES_NAME=JNIClassName.upper() + '*_ENUM.java'
 
-#Relative path of SOURCE dir
-SRC_DIR=LIBARCOMMANDS_DIR + '/gen/Sources/'
+class Paths:
+    def __init__(self, outdir):
+        #Relative path of SOURCE dir
+        self.SRC_DIR=outdir+'/Sources/'
 
-#Relative path of INCLUDES dir
-INC_DIR=LIBARCOMMANDS_DIR + '/gen/Includes/'
+        #Relative path of INCLUDES dir
+        self.INC_DIR=outdir+'/Includes/'
 
-#Relative path of TESTBENCH dir
-TB__DIR=LIBARCOMMANDS_DIR + '/gen/TestBench/'
+        #Relative path of TESTBENCH dir
+        self.TB__DIR=outdir+'/TestBench/'
 
-#Relative path of unix-like (Linux / os-x) TESTBENCH dir
-LIN_TB_DIR=TB__DIR + 'linux/'
+        #Relative path of unix-like (Linux / os-x) TESTBENCH dir
+        self.LIN_TB_DIR=self.TB__DIR + 'linux/'
 
-#Relative path of multiplatform code for testbenches
-COM_TB_DIR=TB__DIR + 'common/'
+        #Relative path of multiplatform code for testbenches
+        self.COM_TB_DIR=self.TB__DIR + 'common/'
 
-#Relative path of JNI dir
-JNI_DIR=LIBARCOMMANDS_DIR + "/gen/JNI/"
+        #Relative path of JNI dir
+        self.JNI_DIR=outdir+'/JNI/'
 
-#Relative path of JNI/C dir
-JNIC_DIR=JNI_DIR + 'c/'
+        #Relative path of JNI/C dir
+        self.JNIC_DIR=self.JNI_DIR + 'c/'
 
-#Relative path of JNI/Java dir
-JNIJ_DIR=JNI_DIR + 'java/'
-JNIJ_OUT_DIR=JNIJ_DIR + JNI_PACKAGE_DIR + '/'
+        #Relative path of JNI/Java dir
+        self.JNIJ_DIR=self.JNI_DIR + 'java/'
+        self.JNIJ_OUT_DIR=self.JNIJ_DIR + JNI_PACKAGE_DIR + '/'
+
+        # Create array of generated files (so we can cleanup only our files)
+        self.GENERATED_FILES = []
+        self.COMMANDSID_HFILE=self.INC_DIR + COMMANDSID_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSID_HFILE)
+        self.COMMANDSGEN_HFILE=self.INC_DIR + COMMANDSGEN_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSGEN_HFILE)
+        self.COMMANDSTYPES_HFILE=self.INC_DIR + COMMANDSTYPES_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSTYPES_HFILE)
+        self.COMMANDSGEN_CFILE=self.SRC_DIR + COMMANDSGEN_CFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSGEN_CFILE)
+        self.COMMANDSDEC_HFILE=self.INC_DIR + COMMANDSDEC_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSDEC_HFILE)
+        self.COMMANDSDEC_CFILE=self.SRC_DIR + COMMANDSDEC_CFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSDEC_CFILE)
+        self.COMMANDSFIL_HFILE=self.INC_DIR + COMMANDSFIL_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSFIL_HFILE)
+        self.COMMANDSFIL_CFILE=self.SRC_DIR + COMMANDSFIL_CFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSFIL_CFILE)
+        self.COMMANDSRW_HFILE=self.SRC_DIR + COMMANDSRW_HFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSRW_HFILE)
+        self.COMMANDSRW_CFILE=self.SRC_DIR + COMMANDSRW_CFILE_NAME
+        self.GENERATED_FILES.append (self.COMMANDSRW_CFILE)
+        self.TB_CFILE=self.COM_TB_DIR + TB_CFILE_NAME
+        self.GENERATED_FILES.append (self.TB_CFILE)
+        self.TB_HFILE=self.COM_TB_DIR + TB_HFILE_NAME
+        self.GENERATED_FILES.append (self.TB_HFILE)
+        self.TB_LIN_CFILE=self.LIN_TB_DIR + TB_LIN_CFILE_NAME
+        self.GENERATED_FILES.append (self.TB_LIN_CFILE)
+        self.JNI_CFILE=self.JNIC_DIR + JNI_CFILE_NAME
+        self.GENERATED_FILES.append (self.JNI_CFILE)
+        self.JNI_FILTER_CFILE=self.JNIC_DIR + JNI_FILTER_CFILE_NAME
+        self.GENERATED_FILES.append (self.JNI_FILTER_CFILE)
+        self.JNI_JFILE=self.JNIJ_OUT_DIR + JNI_JFILE_NAME
+        self.GENERATED_FILES.append (self.JNI_JFILE)
+        self.JNI_FILTER_JFILE=self.JNIJ_OUT_DIR + JNI_FILTER_JFILE_NAME
+        self.GENERATED_FILES.append (self.JNI_FILTER_JFILE)
+        self.JAVA_INTERFACES_FILES=self.JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
+        self.JAVA_ENUM_FILES=self.JNIJ_OUT_DIR + JAVA_ENUM_FILES_NAME
 
 ##### END OF CONFIG #####
-
-# Create array of generated files (so we can cleanup only our files)
-GENERATED_FILES = []
-COMMANDSID_HFILE=INC_DIR + COMMANDSID_HFILE_NAME
-GENERATED_FILES.append (COMMANDSID_HFILE)
-COMMANDSGEN_HFILE=INC_DIR + COMMANDSGEN_HFILE_NAME
-GENERATED_FILES.append (COMMANDSGEN_HFILE)
-COMMANDSTYPES_HFILE=INC_DIR + COMMANDSTYPES_HFILE_NAME
-GENERATED_FILES.append (COMMANDSTYPES_HFILE)
-COMMANDSGEN_CFILE=SRC_DIR + COMMANDSGEN_CFILE_NAME
-GENERATED_FILES.append (COMMANDSGEN_CFILE)
-COMMANDSDEC_HFILE=INC_DIR + COMMANDSDEC_HFILE_NAME
-GENERATED_FILES.append (COMMANDSDEC_HFILE)
-COMMANDSDEC_CFILE=SRC_DIR + COMMANDSDEC_CFILE_NAME
-GENERATED_FILES.append (COMMANDSDEC_CFILE)
-COMMANDSFIL_HFILE=INC_DIR + COMMANDSFIL_HFILE_NAME
-GENERATED_FILES.append (COMMANDSFIL_HFILE)
-COMMANDSFIL_CFILE=SRC_DIR + COMMANDSFIL_CFILE_NAME
-GENERATED_FILES.append (COMMANDSFIL_CFILE)
-COMMANDSRW_HFILE=SRC_DIR + COMMANDSRW_HFILE_NAME
-GENERATED_FILES.append (COMMANDSRW_HFILE)
-COMMANDSRW_CFILE=SRC_DIR + COMMANDSRW_CFILE_NAME
-GENERATED_FILES.append (COMMANDSRW_CFILE)
-TB_CFILE=COM_TB_DIR + TB_CFILE_NAME
-GENERATED_FILES.append (TB_CFILE)
-TB_HFILE=COM_TB_DIR + TB_HFILE_NAME
-GENERATED_FILES.append (TB_HFILE)
-TB_LIN_CFILE=LIN_TB_DIR + TB_LIN_CFILE_NAME
-GENERATED_FILES.append (TB_LIN_CFILE)
-JNI_CFILE=JNIC_DIR + JNI_CFILE_NAME
-GENERATED_FILES.append (JNI_CFILE)
-JNI_FILTER_CFILE=JNIC_DIR + JNI_FILTER_CFILE_NAME
-GENERATED_FILES.append (JNI_FILTER_CFILE)
-JNI_JFILE=JNIJ_OUT_DIR + JNI_JFILE_NAME
-GENERATED_FILES.append (JNI_JFILE)
-JNI_FILTER_JFILE=JNIJ_OUT_DIR + JNI_FILTER_JFILE_NAME
-GENERATED_FILES.append (JNI_FILTER_JFILE)
-JAVA_INTERFACES_FILES=JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
-JAVA_ENUM_FILES=JNIJ_OUT_DIR + JAVA_ENUM_FILES_NAME
 
 # Create names for #ifndef _XXX_ statements in .h files
 COMMANDSID_DEFINE='_' + COMMANDSID_HFILE_NAME.upper ().replace ('/', '_').replace ('.', '_') + '_'
@@ -467,29 +469,29 @@ LICENCE_HEADER='''/*
 def interfaceName (ftr, cmd):
     return JNIClassName + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener'
 
-def generateCmds(ctx):
+def generateCmds(ctx, paths):
     genDebug = True
     genTreeFilename = None
     projects = [DEFAULTPROJECTNAME]
- 
-    if not os.path.exists (SRC_DIR):
-        os.makedirs (SRC_DIR)
-    if not os.path.exists (INC_DIR):
-        os.makedirs (INC_DIR)
-    if not os.path.exists (INC_DIR + LIB_NAME):
-        os.makedirs (INC_DIR + LIB_NAME)
-    if not os.path.exists (TB__DIR):
-        os.makedirs (TB__DIR)
-    if not os.path.exists (LIN_TB_DIR):
-        os.makedirs (LIN_TB_DIR)
-    if not os.path.exists (COM_TB_DIR):
-        os.makedirs (COM_TB_DIR)
-    if not os.path.exists (JNI_DIR):
-        os.makedirs (JNI_DIR)
-    if not os.path.exists (JNIC_DIR):
-        os.makedirs (JNIC_DIR)
-    if not os.path.exists (JNIJ_OUT_DIR):
-        os.makedirs (JNIJ_OUT_DIR)
+
+    if not os.path.exists (paths.SRC_DIR):
+        os.makedirs (paths.SRC_DIR)
+    if not os.path.exists (paths.INC_DIR):
+        os.makedirs (paths.INC_DIR)
+    if not os.path.exists (paths.INC_DIR + LIB_NAME):
+        os.makedirs (paths.INC_DIR + LIB_NAME)
+    if not os.path.exists (paths.TB__DIR):
+        os.makedirs (paths.TB__DIR)
+    if not os.path.exists (paths.LIN_TB_DIR):
+        os.makedirs (paths.LIN_TB_DIR)
+    if not os.path.exists (paths.COM_TB_DIR):
+        os.makedirs (paths.COM_TB_DIR)
+    if not os.path.exists (paths.JNI_DIR):
+        os.makedirs (paths.JNI_DIR)
+    if not os.path.exists (paths.JNIC_DIR):
+        os.makedirs (paths.JNIC_DIR)
+    if not os.path.exists (paths.JNIJ_OUT_DIR):
+        os.makedirs (paths.JNIJ_OUT_DIR)
 
     #################################
     # 1ST PART :                    #
@@ -518,7 +520,7 @@ def generateCmds(ctx):
     # Write private H files         #
     #################################
 
-    hfile = open (COMMANDSID_HFILE, 'w')
+    hfile = open (paths.COMMANDSID_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
     hfile.write ('/********************************************\n')
@@ -582,7 +584,7 @@ def generateCmds(ctx):
 
     hfile.close ()
 
-    hfile = open(COMMANDSRW_HFILE, 'w')
+    hfile = open(paths.COMMANDSRW_HFILE, 'w')
 
     hfile.write ('/********************************************\n')
     hfile.write (' *            AUTOGENERATED FILE            *\n')
@@ -770,7 +772,7 @@ def generateCmds(ctx):
     # file                          #
     #################################
 
-    cfile = open (COMMANDSRW_CFILE, 'w')
+    cfile = open (paths.COMMANDSRW_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -1427,7 +1429,7 @@ def generateCmds(ctx):
     # Generate public Types H file  #
     #################################
 
-    hfile = open (COMMANDSTYPES_HFILE, 'w')
+    hfile = open (paths.COMMANDSTYPES_HFILE, 'w')
 
     hfile.write ('// ARSDK_NO_ENUM_PREPROCESS //')
     hfile.write ('\n')
@@ -1499,7 +1501,7 @@ def generateCmds(ctx):
     # Generate public coder H file  #
     #################################
 
-    hfile = open (COMMANDSGEN_HFILE, 'w')
+    hfile = open (paths.COMMANDSGEN_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
     hfile.write ('/**\n')
@@ -1574,7 +1576,7 @@ def generateCmds(ctx):
     # Generate coder C part         #
     #################################
 
-    cfile = open (COMMANDSGEN_CFILE, 'w')
+    cfile = open (paths.COMMANDSGEN_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -1689,7 +1691,7 @@ def generateCmds(ctx):
     # Generate public decoder H file#
     #################################
 
-    hfile = open (COMMANDSDEC_HFILE, 'w')
+    hfile = open (paths.COMMANDSDEC_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
     hfile.write ('/**\n')
@@ -1773,7 +1775,7 @@ def generateCmds(ctx):
     # Generate decoder C part       #
     #################################
 
-    cfile = open (COMMANDSDEC_CFILE, 'w')
+    cfile = open (paths.COMMANDSDEC_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -2192,7 +2194,7 @@ def generateCmds(ctx):
     FIL_STATUS_ENAME='STATUS'
     FIL_ERROR_ENAME='ERROR'
 
-    hfile = open (COMMANDSFIL_HFILE, 'w')
+    hfile = open (paths.COMMANDSFIL_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
     hfile.write ('/**\n')
@@ -2323,7 +2325,7 @@ def generateCmds(ctx):
     # Generate filter c file        #
     #################################
 
-    cfile = open (COMMANDSFIL_CFILE, 'w')
+    cfile = open (paths.COMMANDSFIL_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -2623,7 +2625,7 @@ def generateCmds(ctx):
     def TB_CREATE_VARNAME (ftr, cmd):
         return 'int ' + TB_CALL_VARNAME (ftr, cmd) + ' = 0;'
 
-    cfile = open (TB_CFILE, 'w')
+    cfile = open (paths.TB_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -2842,7 +2844,7 @@ def generateCmds(ctx):
 
     cfile.close ()
 
-    hfile = open (TB_HFILE, 'w')
+    hfile = open (paths.TB_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
     hfile.write ('/********************************************\n')
@@ -2863,7 +2865,7 @@ def generateCmds(ctx):
 
     hfile.close ()
 
-    cfile = open (TB_LIN_CFILE, 'w')
+    cfile = open (paths.TB_LIN_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -2896,8 +2898,8 @@ def generateCmds(ctx):
         return 'on' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Update'
 
     for ftr in allFeatures:
-        for cmd in ftr.cmds + ftr.evts:        
-            jfile = open (JNIJ_OUT_DIR + interfaceName (ftr, cmd) + '.java', 'w')
+        for cmd in ftr.cmds + ftr.evts:
+            jfile = open (paths.JNIJ_OUT_DIR + interfaceName (ftr, cmd) + '.java', 'w')
             jfile.write (LICENCE_HEADER)
             jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
             jfile.write ('\n')
@@ -2924,7 +2926,7 @@ def generateCmds(ctx):
             jfile.write ('}\n')
             jfile.close ()
 
-    jfile = open (JNI_JFILE, 'w')
+    jfile = open (paths.JNI_JFILE, 'w')
 
     jfile.write (LICENCE_HEADER)
     jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
@@ -3150,7 +3152,7 @@ def generateCmds(ctx):
 
     jfile.close ()
 
-    jfile = open (JNI_FILTER_JFILE, 'w')
+    jfile = open (paths.JNI_FILTER_JFILE, 'w')
 
     jfile.write (LICENCE_HEADER)
     jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
@@ -3307,15 +3309,15 @@ def generateCmds(ctx):
     jfile.close ()
 
     # Generate java enums type
-    for ftr in allFeatures: 
+    for ftr in allFeatures:
         for enum in ftr.enums:
-            
+
             oldEnumValFrm = False if ftr.classes == None else True
             CLASS_NAME = ARJavaEnumType (LIB_MODULE, get_ftr_old_name(ftr), enum.name)
-            JFILE_NAME = JNIJ_OUT_DIR + CLASS_NAME + '.java'
+            JFILE_NAME = paths.JNIJ_OUT_DIR + CLASS_NAME + '.java'
             UNKNOWN_VALUE = ARJavaEnumValDef(LIB_MODULE, get_ftr_old_name(ftr), enum.name, 'UNKNOWN') if ftr.classes == None else 'e'+AREnumValue(LIB_MODULE, get_ftr_old_name(ftr), enum.name,'UNKNOWN_ENUM_VALUE')
-            
-            jfile      = open(JFILE_NAME, 'w')
+
+            jfile = open(JFILE_NAME, 'w')
 
             jfile.write(LICENCE_HEADER)
             jfile.write('\n')
@@ -3412,7 +3414,7 @@ def generateCmds(ctx):
             jfile.write('}\n')
             jfile.close()
 
-    cfile = open (JNI_CFILE, 'w')
+    cfile = open (paths.JNI_CFILE, 'w')
 
     JNI_FUNC_PREFIX='Java_' + JNI_PACKAGE_NAME.replace ('.', '_') + '_'
     JNI_FIRST_ARGS='JNIEnv *env, jobject thizz'
@@ -3613,7 +3615,7 @@ def generateCmds(ctx):
 
     cfile.close ()
 
-    cfile = open (JNI_FILTER_CFILE, 'w')
+    cfile = open (paths.JNI_FILTER_CFILE, 'w')
 
     cfile.write (LICENCE_HEADER)
     cfile.write ('/********************************************\n')
@@ -3909,34 +3911,35 @@ def generateCmds(ctx):
 #===============================================================================
 #===============================================================================
 def list_files(ctx, outdir):
+    paths = Paths(outdir)
+
     # print c generated files
-    for f in GENERATED_FILES:
+    for f in paths.GENERATED_FILES:
         print os.path.join(outdir, f)
 
     # print java enum class files
-    for ftr in ctx.features: 
+    for ftr in ctx.features:
         for enum in ftr.enums:
-            print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java'
+            print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java'
 
     # print java listener class files
     for ftr in ctx.features:
         for cmd in ftr.cmds + ftr.evts:
-            print JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
-    
+            print paths.JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
+
     # print java enum files generated from enums C
-    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, 'ERROR') + '.java'
-    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'ERROR') + '.java'
-    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'STATUS') + '.java'
-    print JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, 'ERROR') + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, 'ERROR') + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'ERROR') + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'STATUS') + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, 'ERROR') + '.java'
 
 #===============================================================================
 #===============================================================================
 def generate_files(ctx, outdir):
-    # Remove old generation
-    os.system('rm -rf '+LIBARCOMMANDS_DIR+'/gen/*')
-    
+    paths = Paths(outdir)
+
     # Generation
-    generateCmds(ctx)
+    generateCmds(ctx, paths)
     PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
     os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR)
 
