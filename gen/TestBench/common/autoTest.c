@@ -353,10 +353,12 @@ int MiniDroneMediaRecordPictureShouldBeCalled = 0;
 int MiniDroneMediaRecordPictureV2ShouldBeCalled = 0;
 int MiniDronePilotingSettingsMaxAltitudeShouldBeCalled = 0;
 int MiniDronePilotingSettingsMaxTiltShouldBeCalled = 0;
+int MiniDronePilotingSettingsPlaneModePitchShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsWheelsShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedShouldBeCalled = 0;
 int MiniDroneSettingsCutOutModeShouldBeCalled = 0;
 int MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 0;
 int MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 0;
@@ -375,10 +377,12 @@ int MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
 int MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
 int MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
 int MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
+int MiniDronePilotingSettingsStatePlaneModePitchChangedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsStateWheelsChangedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedShouldBeCalled = 0;
 int MiniDroneSettingsStateProductMotorsVersionChangedShouldBeCalled = 0;
 int MiniDroneSettingsStateProductInertialVersionChangedShouldBeCalled = 0;
 int MiniDroneSettingsStateCutOutModeChangedShouldBeCalled = 0;
@@ -6569,6 +6573,22 @@ void ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxTiltCb (float current, voi
     }
 }
 
+void ARCOMMANDS_Testbench_MiniDronePilotingSettingsPlaneModePitchCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettings.PlaneModePitch --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingSettingsPlaneModePitchShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxVerticalSpeedCb (float current, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxVerticalSpeed --> Custom PTR = %p", custom);
@@ -6627,6 +6647,22 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (float curr
         errcount++ ;
     }
     if (MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6981,6 +7017,34 @@ void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb (float 
     }
 }
 
+void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStatePlaneModePitchChangedCb (float current, float min, float max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettingsState.PlaneModePitchChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingSettingsStatePlaneModePitchChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettingsState.MaxVerticalSpeedChanged --> Custom PTR = %p", custom);
@@ -7075,6 +7139,34 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb
         errcount++ ;
     }
     if (MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCb (float current, float min, float max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -9063,10 +9155,12 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxAltitudeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxTiltCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsPlaneModePitchCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsPlaneModePitchCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsPlaneModePitchCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxVerticalSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsWheelsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxHorizontalSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsCutOutModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback ((ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t) ARCOMMANDS_Testbench_MiniDroneGPSControllerLatitudeForRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback ((ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t) ARCOMMANDS_Testbench_MiniDroneGPSControllerLongitudeForRunCb, (void *)cbCustom++ );
@@ -9085,10 +9179,12 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordEventPictureEventChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxAltitudeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStatePlaneModePitchChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStatePlaneModePitchChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStatePlaneModePitchChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateWheelsChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductMotorsVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateCutOutModeChangedCb, (void *)cbCustom++ );
@@ -18771,6 +18867,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsPlaneModePitch (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettings.PlaneModePitch\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettings.PlaneModePitch succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsPlaneModePitchBehavior);
+        MiniDronePilotingSettingsPlaneModePitchShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingSettingsPlaneModePitchShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18888,6 +19015,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxPlaneModeRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedBehavior);
+        MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -19453,6 +19611,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStatePlaneModePitchChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettingsState.PlaneModePitchChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettingsState.PlaneModePitchChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStatePlaneModePitchChangedBehavior);
+        MiniDronePilotingSettingsStatePlaneModePitchChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingSettingsStatePlaneModePitchChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19570,6 +19759,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedBehavior);
+        MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

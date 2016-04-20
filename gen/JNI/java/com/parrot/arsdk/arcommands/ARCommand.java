@@ -9216,6 +9216,35 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsPlaneModePitch</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting Settings commands<br>
+     * <br>
+     * Command PlaneModePitch description:<br>
+     * Set plane mode pitch (only available for wing x)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current plane mode pitch in degree
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsPlaneModePitch (float _current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsPlaneModePitch (pointer, capacity, _current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SpeedSettingsMaxVerticalSpeed</code> in feature <code>MiniDrone</code><br>
      * <br>
      * Feature MiniDrone description:<br>
@@ -9325,6 +9354,35 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeed (pointer, capacity, _current);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SpeedSettingsMaxPlaneModeRotationSpeed</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettings description:<br>
+     * Speed Settings commands<br>
+     * <br>
+     * Command MaxPlaneModeRotationSpeed description:<br>
+     * Set max plane mode rotation speed (only available for wing x)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max plane mode rotation speed in degree/s
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsMaxPlaneModeRotationSpeed (float _current) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeed (pointer, capacity, _current);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -9865,6 +9923,37 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStatePlaneModePitchChanged</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting Settings state from product<br>
+     * <br>
+     * Command PlaneModePitchChanged description:<br>
+     * Plane mode pitch sent by product (only available for wing x)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current plane mode pitch in degree
+     * @param _min Range min of plane mode pitch in degree
+     * @param _max Range max of plane mode pitch in degree
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDronePilotingSettingsStatePlaneModePitchChanged (float _current, float _min, float _max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDronePilotingSettingsStatePlaneModePitchChanged (pointer, capacity, _current, _min, _max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>SpeedSettingsStateMaxVerticalSpeedChanged</code> in feature <code>MiniDrone</code><br>
      * <br>
      * Feature MiniDrone description:<br>
@@ -9980,6 +10069,37 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (pointer, capacity, _current, _min, _max);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SpeedSettingsStateMaxPlaneModeRotationSpeedChanged</code> in feature <code>MiniDrone</code><br>
+     * <br>
+     * Feature MiniDrone description:<br>
+     * All MiniDrone-only commands<br>
+     * <br>
+     * Class SpeedSettingsState description:<br>
+     * Speed Settings state from product<br>
+     * <br>
+     * Command MaxPlaneModeRotationSpeedChanged description:<br>
+     * Max plane rotation speed sent by product (only available for wing x)<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _current Current max plane mode rotation speed in degree/s
+     * @param _min Range min of plane mode rotation speed
+     * @param _max Range max of plane mode rotation speed
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChanged (float _current, float _min, float _max) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChanged (pointer, capacity, _current, _min, _max);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -16064,6 +16184,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDronePilotingSettingsMaxTiltListener = _ARCommandMiniDronePilotingSettingsMaxTiltListener_PARAM;
     }
 
+    private static ARCommandMiniDronePilotingSettingsPlaneModePitchListener _ARCommandMiniDronePilotingSettingsPlaneModePitchListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsPlaneModePitch</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsPlaneModePitchListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsPlaneModePitchListener (ARCommandMiniDronePilotingSettingsPlaneModePitchListener _ARCommandMiniDronePilotingSettingsPlaneModePitchListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsPlaneModePitchListener = _ARCommandMiniDronePilotingSettingsPlaneModePitchListener_PARAM;
+    }
+
     private static ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxVerticalSpeedListener = null;
 
     /**
@@ -16106,6 +16237,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDroneSpeedSettingsMaxHorizontalSpeedListener (ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM) {
         _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxHorizontalSpeedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsMaxPlaneModeRotationSpeed</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener (ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener _ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener = _ARCommandMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedListener_PARAM;
     }
 
     private static ARCommandMiniDroneSettingsCutOutModeListener _ARCommandMiniDroneSettingsCutOutModeListener = null;
@@ -16306,6 +16448,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener = _ARCommandMiniDronePilotingSettingsStateMaxTiltChangedListener_PARAM;
     }
 
+    private static ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener _ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStatePlaneModePitchChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDronePilotingSettingsStatePlaneModePitchChangedListener (ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener _ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener_PARAM) {
+        _ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener = _ARCommandMiniDronePilotingSettingsStatePlaneModePitchChangedListener_PARAM;
+    }
+
     private static ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedListener = null;
 
     /**
@@ -16348,6 +16501,17 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM) {
         _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedListener_PARAM;
+    }
+
+    private static ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SpeedSettingsStateMaxPlaneModeRotationSpeedChanged</code> in feature <code>MiniDrone</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener_PARAM New listener for the command
+     */
+    public static void setMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener (ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener _ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener_PARAM) {
+        _ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener = _ARCommandMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedListener_PARAM;
     }
 
     private static ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener _ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener = null;
@@ -18000,6 +18164,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDronePilotingSettingsMaxTilt (long pdata, int dataTotalLength, float current);
 
+    private native int     nativeSetMiniDronePilotingSettingsPlaneModePitch (long pdata, int dataTotalLength, float current);
+
     private native int     nativeSetMiniDroneSpeedSettingsMaxVerticalSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetMiniDroneSpeedSettingsMaxRotationSpeed (long pdata, int dataTotalLength, float current);
@@ -18007,6 +18173,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneSpeedSettingsWheels (long pdata, int dataTotalLength, byte present);
 
     private native int     nativeSetMiniDroneSpeedSettingsMaxHorizontalSpeed (long pdata, int dataTotalLength, float current);
+
+    private native int     nativeSetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeed (long pdata, int dataTotalLength, float current);
 
     private native int     nativeSetMiniDroneSettingsCutOutMode (long pdata, int dataTotalLength, byte enable);
 
@@ -18044,6 +18212,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetMiniDronePilotingSettingsStateMaxTiltChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
+    private native int     nativeSetMiniDronePilotingSettingsStatePlaneModePitchChanged (long pdata, int dataTotalLength, float current, float min, float max);
+
     private native int     nativeSetMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
     private native int     nativeSetMiniDroneSpeedSettingsStateMaxRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
@@ -18051,6 +18221,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneSpeedSettingsStateWheelsChanged (long pdata, int dataTotalLength, byte present);
 
     private native int     nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
+
+    private native int     nativeSetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChanged (long pdata, int dataTotalLength, float current, float min, float max);
 
     private native int     nativeSetMiniDroneSettingsStateProductMotorsVersionChanged (long pdata, int dataTotalLength, byte motor, String type, String software, String hardware);
 

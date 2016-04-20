@@ -3695,6 +3695,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxAltitu
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsMaxTiltBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.PilotingSettings.PlaneModePitch.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsPlaneModePitchBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
 
 // Command class PilotingSettingsState
 
@@ -3721,6 +3729,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxA
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.PilotingSettingsState.PlaneModePitchChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStatePlaneModePitchChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class SpeedSettings
@@ -3765,6 +3781,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsWheelsBehavi
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxHorizontalSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
 
 // Command class SpeedSettingsState
 
@@ -3807,6 +3831,14 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateWheelsC
  * @return An eARCOMMANDS_FILTER_ERROR enum.
  */
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
+
+/**
+ * @brief Sets the filter behavior for the command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged.
+ * @param filter The filter to be modified.
+ * @param behavior The behavior to use for the command (must be either ARCOMMANDS_FILTER_STATUS_BLOCKED or ARCOMMANDS_FILTER_STATUS_ALLOWED).
+ * @return An eARCOMMANDS_FILTER_ERROR enum.
+ */
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior);
 
 
 // Command class Settings

@@ -3462,6 +3462,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t) (f
 void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command MiniDrone.PilotingSettings.PlaneModePitch
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingSettingsPlaneModePitchCallback_t) (float current, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.PilotingSettings.PlaneModePitch
+ * @param callback new callback for the command MiniDrone.PilotingSettings.PlaneModePitch
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsPlaneModePitchCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsPlaneModePitchCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command MiniDrone.SpeedSettings.MaxVerticalSpeed
  */
 typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t) (float current, void *custom);
@@ -3504,6 +3515,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallba
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCallback_t) (float current, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed
+ * @param callback new callback for the command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxPlaneModeRotationSpeedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command MiniDrone.Settings.CutOutMode
@@ -3704,6 +3726,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCa
 void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command MiniDrone.PilotingSettingsState.PlaneModePitchChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDronePilotingSettingsStatePlaneModePitchChangedCallback_t) (float current, float min, float max, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.PilotingSettingsState.PlaneModePitchChanged
+ * @param callback new callback for the command MiniDrone.PilotingSettingsState.PlaneModePitchChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStatePlaneModePitchChangedCallback (ARCOMMANDS_Decoder_MiniDronePilotingSettingsStatePlaneModePitchChangedCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command MiniDrone.SpeedSettingsState.MaxVerticalSpeedChanged
  */
 typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t) (float current, float min, float max, void *custom);
@@ -3746,6 +3779,17 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedC
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCallback_t) (float current, float min, float max, void *custom);
+/**
+ * @brief callback setter for the command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged
+ * @param callback new callback for the command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCallback (ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command MiniDrone.SettingsState.ProductMotorsVersionChanged
