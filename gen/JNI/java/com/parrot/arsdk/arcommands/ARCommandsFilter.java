@@ -5269,6 +5269,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetMiniDronePilotingSettingsPlaneModePitchBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.PilotingSettings.PlaneModePitch.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingSettingsPlaneModePitchBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDronePilotingSettingsPlaneModePitchBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class PilotingSettingsState
     private native int nativeSetMiniDronePilotingSettingsStateBehavior (long cFilter, int behavior);
@@ -5304,6 +5316,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingSettingsStateMaxTiltChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDronePilotingSettingsStateMaxTiltChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDronePilotingSettingsStatePlaneModePitchChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.PilotingSettingsState.PlaneModePitchChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDronePilotingSettingsStatePlaneModePitchChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDronePilotingSettingsStatePlaneModePitchChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
@@ -5369,6 +5393,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.SpeedSettings.MaxPlaneModeRotationSpeed.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneSpeedSettingsMaxPlaneModeRotationSpeedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class SpeedSettingsState
     private native int nativeSetMiniDroneSpeedSettingsStateBehavior (long cFilter, int behavior);
@@ -5428,6 +5464,18 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
+    private native int nativeSetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command MiniDrone.SpeedSettingsState.MaxPlaneModeRotationSpeedChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

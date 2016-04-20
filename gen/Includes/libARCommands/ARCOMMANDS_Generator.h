@@ -3710,6 +3710,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettin
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxTilt (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
 
 /**
+ * @brief Set plane mode pitch (only available for wing x)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current plane mode pitch in degree
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsPlaneModePitch (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
  * @brief Set Max Vertical speed
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -3752,6 +3763,17 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsW
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxHorizontalSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
+
+/**
+ * @brief Set max plane mode rotation speed (only available for wing x)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max plane mode rotation speed in degree/s
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxPlaneModeRotationSpeed (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current);
 
 /**
  * @brief Set MiniDrone cut out mode
@@ -3963,6 +3985,19 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettin
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
 
 /**
+ * @brief Plane mode pitch sent by product (only available for wing x)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current plane mode pitch in degree
+ * @param _min Range min of plane mode pitch in degree
+ * @param _max Range max of plane mode pitch in degree
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStatePlaneModePitchChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
  * @brief Max vertical speed sent by product
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -4011,6 +4046,19 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsS
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxHorizontalSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
+
+/**
+ * @brief Max plane rotation speed sent by product (only available for wing x)
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _current Current max plane mode rotation speed in degree/s
+ * @param _min Range min of plane mode rotation speed
+ * @param _max Range max of plane mode rotation speed
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxPlaneModeRotationSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _current, float _min, float _max);
 
 /**
  * @brief @deprecated
