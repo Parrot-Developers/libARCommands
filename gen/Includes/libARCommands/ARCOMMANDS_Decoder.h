@@ -631,6 +631,28 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeC
 void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command ARDrone3.PictureSettings.VideoRecordingMode
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoRecordingModeCallback_t) (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PictureSettings.VideoRecordingMode
+ * @param callback new callback for the command ARDrone3.PictureSettings.VideoRecordingMode
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoRecordingModeCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoRecordingModeCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.PictureSettings.VideoFramerate
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoFramerateCallback_t) (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE framerate, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PictureSettings.VideoFramerate
+ * @param callback new callback for the command ARDrone3.PictureSettings.VideoFramerate
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoFramerateCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoFramerateCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command ARDrone3.MediaStreaming.VideoEnable
  */
 typedef void (*ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t) (uint8_t enable, void *custom);
@@ -1366,6 +1388,28 @@ typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilization
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.PictureSettingsState.VideoRecordingModeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoRecordingModeChangedCallback_t) (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PictureSettingsState.VideoRecordingModeChanged
+ * @param callback new callback for the command ARDrone3.PictureSettingsState.VideoRecordingModeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoRecordingModeChangedCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoRecordingModeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command ARDrone3.PictureSettingsState.VideoFramerateChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoFramerateChangedCallback_t) (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE framerate, void *custom);
+/**
+ * @brief callback setter for the command ARDrone3.PictureSettingsState.VideoFramerateChanged
+ * @param callback new callback for the command ARDrone3.PictureSettingsState.VideoFramerateChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoFramerateChangedCallback (ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoFramerateChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command ARDrone3.MediaStreamingState.VideoEnableChanged
