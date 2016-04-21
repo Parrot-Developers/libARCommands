@@ -101,6 +101,8 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsTimelapseSelectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoStabilizationModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoRecordingModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsVideoFramerateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaStreamingVideoEnableBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsSetHomeBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsResetHomeBehavior;
@@ -168,6 +170,8 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateTimelapseChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateHomeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdARDrone3GPSSettingsStateResetHomeChangedBehavior;
@@ -571,6 +575,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsVideoStabilizationModeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsVideoRecordingModeBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsVideoFramerateBehavior = defaultBehavior;
         retFilter->CmdARDrone3MediaStreamingVideoEnableBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsSetHomeBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsResetHomeBehavior = defaultBehavior;
@@ -638,6 +644,8 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdARDrone3PictureSettingsStateTimelapseChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior = defaultBehavior;
+        retFilter->CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateHomeChangedBehavior = defaultBehavior;
         retFilter->CmdARDrone3GPSSettingsStateResetHomeChangedBehavior = defaultBehavior;
@@ -1728,6 +1736,16 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PictureSettingsVideoStabilizationModeBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOSTABILIZATIONMODE */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEORECORDINGMODE:
+                {
+                    retStatus = filter->CmdARDrone3PictureSettingsVideoRecordingModeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEORECORDINGMODE */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOFRAMERATE:
+                {
+                    retStatus = filter->CmdARDrone3PictureSettingsVideoFramerateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGS_CMD_VIDEOFRAMERATE */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -1773,6 +1791,16 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOSTABILIZATIONMODECHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEORECORDINGMODECHANGED:
+                {
+                    retStatus = filter->CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEORECORDINGMODECHANGED */
+                case ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOFRAMERATECHANGED:
+                {
+                    retStatus = filter->CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_ARDRONE3_PICTURESETTINGSSTATE_CMD_VIDEOFRAMERATECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -4674,6 +4702,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
         filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
         filter->CmdARDrone3PictureSettingsVideoStabilizationModeBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsVideoRecordingModeBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsVideoFramerateBehavior = behavior;
         filter->CmdARDrone3MediaStreamingVideoEnableBehavior = behavior;
         filter->CmdARDrone3GPSSettingsSetHomeBehavior = behavior;
         filter->CmdARDrone3GPSSettingsResetHomeBehavior = behavior;
@@ -4741,6 +4771,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3Behavior (ARCOMMANDS_Filte
         filter->CmdARDrone3PictureSettingsStateTimelapseChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior = behavior;
         filter->CmdARDrone3MediaStreamingStateVideoEnableChangedBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateHomeChangedBehavior = behavior;
         filter->CmdARDrone3GPSSettingsStateResetHomeChangedBehavior = behavior;
@@ -5289,6 +5321,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsBehavior (A
         filter->CmdARDrone3PictureSettingsTimelapseSelectionBehavior = behavior;
         filter->CmdARDrone3PictureSettingsVideoAutorecordSelectionBehavior = behavior;
         filter->CmdARDrone3PictureSettingsVideoStabilizationModeBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsVideoRecordingModeBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsVideoFramerateBehavior = behavior;
     }
 
     return retError;
@@ -5320,6 +5354,8 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateBehavi
         filter->CmdARDrone3PictureSettingsStateTimelapseChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateVideoAutorecordChangedBehavior = behavior;
         filter->CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior = behavior;
+        filter->CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior = behavior;
     }
 
     return retError;
@@ -6637,6 +6673,50 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabil
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PictureSettingsVideoStabilizationModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoRecordingModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsVideoRecordingModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoFramerateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsVideoFramerateBehavior = behavior;
     }
 
     return retError;
@@ -8111,6 +8191,50 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoS
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsStateVideoRecordingModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoFramerateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdARDrone3PictureSettingsStateVideoFramerateChangedBehavior = behavior;
     }
 
     return retError;

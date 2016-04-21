@@ -1446,6 +1446,60 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsVideo
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsVideoRecordingMode (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoRecordingMode ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE)mode);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsVideoFramerate (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint framerate)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoFramerate ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE)framerate);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3MediaStreamingVideoEnable (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte enable)
 {
     int32_t c_dataSize = 0;
@@ -3265,6 +3319,60 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsState
     }
 
     err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoStabilizationModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)mode);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsStateVideoRecordingModeChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint mode)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoRecordingModeChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE)mode);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetARDrone3PictureSettingsStateVideoFramerateChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint framerate)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoFramerateChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE)framerate);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -12849,6 +12957,54 @@ void ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoStabilizationModenativeCb (eARCO
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoRecordingModenativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsVideoRecordingModeListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsVideoRecordingModeListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsVideoRecordingModeUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEORECORDINGMODE_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoFrameratenativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE framerate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsVideoFramerateListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsVideoFramerateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsVideoFramerateUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_framerate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE_ENUM");
+        jmethodID j_framerate_mid = (*env)->GetStaticMethodID (env, j_framerate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOFRAMERATE_FRAMERATE_ENUM;");
+        jobject j_framerate_enum = (*env)->CallStaticObjectMethod (env, j_framerate_class, j_framerate_mid, framerate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_framerate_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_ARDrone3MediaStreamingVideoEnablenativeCb (uint8_t enable, void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -14366,6 +14522,54 @@ void ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoStabilizationModeChangednat
         jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE_ENUM;");
         jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
         (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoRecordingModeChangednativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE mode, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsStateVideoRecordingModeChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsStateVideoRecordingModeChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsStateVideoRecordingModeChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_mode_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE_ENUM");
+        jmethodID j_mode_mid = (*env)->GetStaticMethodID (env, j_mode_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEORECORDINGMODECHANGED_MODE_ENUM;");
+        jobject j_mode_enum = (*env)->CallStaticObjectMethod (env, j_mode_class, j_mode_mid, mode);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_mode_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoFramerateChangednativeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE framerate, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandARDrone3PictureSettingsStateVideoFramerateChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandARDrone3PictureSettingsStateVideoFramerateChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onARDrone3PictureSettingsStateVideoFramerateChangedUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_framerate_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE_ENUM");
+        jmethodID j_framerate_mid = (*env)->GetStaticMethodID (env, j_framerate_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOFRAMERATECHANGED_FRAMERATE_ENUM;");
+        jobject j_framerate_enum = (*env)->CallStaticObjectMethod (env, j_framerate_class, j_framerate_mid, framerate);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_framerate_enum);
     }
     (*env)->DeleteLocalRef (env, delegate);
 }
@@ -21455,6 +21659,10 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoStabilizationModenativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoRecordingModeCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoRecordingModenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoFramerateCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsVideoFrameratenativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback (ARCOMMANDS_JNI_ARDrone3MediaStreamingVideoEnablenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSetHomeCallback (ARCOMMANDS_JNI_ARDrone3GPSSettingsSetHomenativeCb, (void *)g_class);
@@ -21588,6 +21796,10 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoAutorecordChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoAutorecordChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoStabilizationModeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoRecordingModeChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoRecordingModeChangednativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoFramerateChangedCallback (ARCOMMANDS_JNI_ARDrone3PictureSettingsStateVideoFramerateChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingStateVideoEnableChangedCallback (ARCOMMANDS_JNI_ARDrone3MediaStreamingStateVideoEnableChangednativeCb, (void *)g_class);
 
