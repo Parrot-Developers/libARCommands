@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonStateMassStorageInfoStateListChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonStateMassStorageInfoStateListChangedListener {
 
     /**
-     * Called when a command <code>MassStorageInfoStateListChanged</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonStateMassStorageInfoStateListChanged</code> in feature <code>Common</code> is decoded
      * @param _mass_storage_id Mass storage state id (unique)
      * @param _size Mass storage size in MBytes
      * @param _used_size Mass storage used size in MBytes

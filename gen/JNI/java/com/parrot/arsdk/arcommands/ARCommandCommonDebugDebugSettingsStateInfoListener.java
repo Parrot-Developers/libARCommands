@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Info</code> of class <code>DebugSettingsState</code> in project <code>CommonDebug</code> listener
+ * Interface for the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonDebugDebugSettingsStateInfoListener {
 
     /**
-     * Called when a command <code>Info</code> of class <code>DebugSettingsState</code> in project <code>CommonDebug</code> is decoded
+     * Called when a command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code> is decoded
      * @param _listFlags List entry attribute Bitfield.
      * @param _listFlags 0x01: First: indicate it's the first element of the list.
      * @param _listFlags 0x02: Last:  indicate it's the last element of the list.

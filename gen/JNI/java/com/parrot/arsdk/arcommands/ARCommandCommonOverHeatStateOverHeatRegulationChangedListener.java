@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code> listener
+ * Interface for the command <code>OverHeatStateOverHeatRegulationChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonOverHeatStateOverHeatRegulationChangedListener {
 
     /**
-     * Called when a command <code>OverHeatRegulationChanged</code> of class <code>OverHeatState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>OverHeatStateOverHeatRegulationChanged</code> in feature <code>Common</code> is decoded
      * @param _regulationType Type of overheat regulation : 0 for ventilation, 1 for switch off
      */
     void onCommonOverHeatStateOverHeatRegulationChangedUpdate (byte regulationType);

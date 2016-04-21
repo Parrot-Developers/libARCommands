@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CalibrationStateMagnetoCalibrationRequiredState</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCalibrationStateMagnetoCalibrationRequiredStateListener {
 
     /**
-     * Called when a command <code>MagnetoCalibrationRequiredState</code> of class <code>CalibrationState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CalibrationStateMagnetoCalibrationRequiredState</code> in feature <code>Common</code> is decoded
      * @param _required 1 if calibration is required, 0 if current calibration is still valid
      */
     void onCommonCalibrationStateMagnetoCalibrationRequiredStateUpdate (byte required);

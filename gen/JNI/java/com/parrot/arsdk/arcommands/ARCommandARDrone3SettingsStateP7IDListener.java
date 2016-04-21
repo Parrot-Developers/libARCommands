@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>P7ID</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>SettingsStateP7ID</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3SettingsStateP7IDListener {
 
     /**
-     * Called when a command <code>P7ID</code> of class <code>SettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>SettingsStateP7ID</code> in feature <code>ARDrone3</code> is decoded
      * @param _serialID Product P7ID
      */
     void onARDrone3SettingsStateP7IDUpdate (String serialID);

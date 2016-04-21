@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ScriptDeleteChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanStateScriptDeleteChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanStateScriptDeleteChangedListener {
 
     /**
-     * Called when a command <code>ScriptDeleteChanged</code> of class <code>RoadPlanState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanStateScriptDeleteChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _resultCode Error code.
      */
     void onJumpingSumoRoadPlanStateScriptDeleteChangedUpdate (ARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE_ENUM resultCode);

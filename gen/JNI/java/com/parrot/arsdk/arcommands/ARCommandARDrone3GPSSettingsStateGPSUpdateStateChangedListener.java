@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GPSUpdateStateChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsStateGPSUpdateStateChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsStateGPSUpdateStateChangedListener {
 
     /**
-     * Called when a command <code>GPSUpdateStateChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsStateGPSUpdateStateChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _state The state of the gps update
      */
     void onARDrone3GPSSettingsStateGPSUpdateStateChangedUpdate (ARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_GPSUPDATESTATECHANGED_STATE_ENUM state);

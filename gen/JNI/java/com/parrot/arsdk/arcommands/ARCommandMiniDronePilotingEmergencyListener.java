@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingEmergency</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingEmergencyListener {
 
     /**
-     * Called when a command <code>Emergency</code> of class <code>Piloting</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingEmergency</code> in feature <code>MiniDrone</code> is decoded
      */
     void onMiniDronePilotingEmergencyUpdate ();
 }

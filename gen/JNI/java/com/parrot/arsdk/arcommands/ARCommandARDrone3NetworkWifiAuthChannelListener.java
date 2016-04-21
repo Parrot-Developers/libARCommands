@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiAuthChannel</code> of class <code>Network</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkWifiAuthChannel</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkWifiAuthChannelListener {
 
     /**
-     * Called when a command <code>WifiAuthChannel</code> of class <code>Network</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkWifiAuthChannel</code> in feature <code>ARDrone3</code> is decoded
      */
     void onARDrone3NetworkWifiAuthChannelUpdate ();
 }

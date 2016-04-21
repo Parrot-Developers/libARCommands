@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code> listener
+ * Interface for the command <code>ChargerSetMaxChargeRate</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonChargerSetMaxChargeRateListener {
 
     /**
-     * Called when a command <code>SetMaxChargeRate</code> of class <code>Charger</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ChargerSetMaxChargeRate</code> in feature <code>Common</code> is decoded
      * @param _rate The new maximum charge rate.
      */
     void onCommonChargerSetMaxChargeRateUpdate (ARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE_ENUM rate);

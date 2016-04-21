@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonStateBatteryStateChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonStateBatteryStateChangedListener {
 
     /**
-     * Called when a command <code>BatteryStateChanged</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonStateBatteryStateChanged</code> in feature <code>Common</code> is decoded
      * @param _percent Battery percentage
      */
     void onCommonCommonStateBatteryStateChangedUpdate (byte percent);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>TimelapseChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsStateTimelapseChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsStateTimelapseChangedListener {
 
     /**
-     * Called when a command <code>TimelapseChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsStateTimelapseChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _enabled 1 if timelapse is enabled, 0 otherwise
      * @param _interval interval in seconds for taking pictures
      * @param _minInterval Minimal interval for taking pictures

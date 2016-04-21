@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code> listener
+ * Interface for the command <code>NetworkEventDisconnection</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonNetworkEventDisconnectionListener {
 
     /**
-     * Called when a command <code>Disconnection</code> of class <code>NetworkEvent</code> in project <code>Common</code> is decoded
+     * Called when a command <code>NetworkEventDisconnection</code> in feature <code>Common</code> is decoded
      * @param _cause Cause of the disconnection of the product
      */
     void onCommonNetworkEventDisconnectionUpdate (ARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE_ENUM cause);

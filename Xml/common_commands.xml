@@ -71,13 +71,13 @@
  -->
 
 
-<project id="0">
+<project name="common" id="0">
     All common commands shared between all projects
 
     <class name="Network" id="0">
         Network related commands
         
-        <cmd name="Disconnect">
+        <cmd name="Disconnect" id="0">
             @deprecated
             Signals the remote that the host will disconnect and close its
             libARNetwork instance (and all threads that use libARNetwork)
@@ -87,7 +87,7 @@
     <class name="NetworkEvent" id="1">
         Network Event from product
         
-        <cmd name="Disconnection">
+        <cmd name="Disconnection" id="0" notification="TRUE">
             Signals the remote that the host will disconnect and close its
             libARNetwork instance (and all threads that use libARNetwork)
             <arg name="cause" type="enum">
@@ -105,27 +105,27 @@
     
     <class name="Settings" id="2">
         Settings commands
-        <cmd name="AllSettings" timeout="RETRY">
+        <cmd name="AllSettings" id="0" timeout="RETRY">
             Get all product settings, the product must send all settings
         </cmd>
-        <cmd name="Reset">
+        <cmd name="Reset" id="1">
             Reset all settings
         </cmd>
-        <cmd name="ProductName">
+        <cmd name="ProductName" id="2">
             Set Product name
             <arg name="name" type="string">
                 Product name
             </arg>
         </cmd>
 
-        <cmd name="Country">
+        <cmd name="Country" id="3">
             Set current Country of controller
             <arg name="code" type="string">
                 Country code with ISO 3166 format
             </arg>
         </cmd>
         
-        <cmd name="AutoCountry">
+        <cmd name="AutoCountry" id="4">
             Set Auto Country Settings
             <arg name="automatic" type="u8">
                 Boolean : 0 : Manual / 1 : Auto
@@ -135,22 +135,22 @@
     
     <class name="SettingsState" id="3">
         Settings state from product
-        <cmd name="AllSettingsChanged">
+        <cmd name="AllSettingsChanged" id="0">
             State sent when all settings has been sent.
         </cmd>
         
-        <cmd name="ResetChanged">
+        <cmd name="ResetChanged" id="1">
             State sent when all settings has been resetting.
         </cmd>
 
-        <cmd name="ProductNameChanged">
+        <cmd name="ProductNameChanged" id="2">
             Product name 
             <arg name="name" type="string">
                 Product name
             </arg>
         </cmd>
         
-        <cmd name="ProductVersionChanged">
+        <cmd name="ProductVersionChanged" id="3">
             Product versions
             <arg name="software" type="string">
                 Product software version
@@ -160,28 +160,28 @@
             </arg>
         </cmd>
         
-        <cmd name="ProductSerialHighChanged">
+        <cmd name="ProductSerialHighChanged" id="4">
             Product serial number
             <arg name="high" type="string">
                 Serial high number (hexadecimal value)
             </arg>
         </cmd>
         
-        <cmd name="ProductSerialLowChanged">
+        <cmd name="ProductSerialLowChanged" id="5">
             Product serial number
             <arg name="low" type="string">
                 Serial low number (hexadecimal value)
             </arg>
         </cmd>
 
-        <cmd name="CountryChanged">
+        <cmd name="CountryChanged" id="6">
             Inform current Country set in product. (Answer to 'Country' command)
             <arg name="code" type="string">
                 Country code with ISO 3166 format, empty string means unknown country.
             </arg>
         </cmd>
         
-        <cmd name="AutoCountryChanged">
+        <cmd name="AutoCountryChanged" id="7">
             Inform Auto Country Settings
             <arg name="automatic" type="u8">
                 Boolean : 0 : Manual / 1 : Auto
@@ -191,43 +191,43 @@
     
     <class name="Common" id="4">
         Common commands
-        <cmd name="AllStates" timeout="RETRY">
+        <cmd name="AllStates" id="0" timeout="RETRY">
             Get all product states.
         </cmd>
         
-        <cmd name="CurrentDate">
+        <cmd name="CurrentDate" id="1">
             Set current date of controller
             <arg name="date" type="string">
                 Date with ISO-8601 format
             </arg>
         </cmd>
         
-        <cmd name="CurrentTime">
+        <cmd name="CurrentTime" id="2">
             Set current time of controller
             <arg name="time" type="string">
                 Time with ISO-8601 format
             </arg>
         </cmd>
         
-        <cmd name="Reboot">
+        <cmd name="Reboot" id="3">
             Command to ask reboot to product
         </cmd>
     </class>
 
     <class name="CommonState" id="5">
         Common state from product
-        <cmd name="AllStatesChanged">
+        <cmd name="AllStatesChanged" id="0">
             State sent when all product states has been sent.
         </cmd>
         
-        <cmd name="BatteryStateChanged">
+        <cmd name="BatteryStateChanged" id="1">
             Battery state
             <arg name="percent" type="u8">
                 Battery percentage
             </arg>
         </cmd>
         
-        <cmd name="MassStorageStateListChanged" listtype="MAP">
+        <cmd name="MassStorageStateListChanged" id="2" type="MAP_ITEM">
             Mass storage state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage id (unique)
@@ -237,7 +237,7 @@
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoStateListChanged" listtype="MAP">
+        <cmd name="MassStorageInfoStateListChanged" id="3" type="MAP_ITEM">
             Mass storage info state list
             <arg name="mass_storage_id" type="u8">
                 Mass storage state id (unique)
@@ -259,21 +259,21 @@
             </arg>
         </cmd>
         
-        <cmd name="CurrentDateChanged">
+        <cmd name="CurrentDateChanged" id="4">
             Current date state
             <arg name="date" type="string">
                 Date with ISO-8601 format
             </arg>
         </cmd>
         
-        <cmd name="CurrentTimeChanged">
+        <cmd name="CurrentTimeChanged" id="5">
             Current time state
             <arg name="time" type="string">
                 Time with ISO-8601 format
             </arg>
         </cmd>
         
-        <cmd name="MassStorageInfoRemainingListChanged" listtype="LIST">
+        <cmd name="MassStorageInfoRemainingListChanged" id="6" type="LIST_ITEM">
             @deprecated
             Mass storage info remaining list
             <arg name="free_space" type="u32">
@@ -287,14 +287,14 @@
             </arg>
         </cmd>
         
-        <cmd name="WifiSignalChanged">
+        <cmd name="WifiSignalChanged" id="7">
             Wifi Signal between controller and product state
             <arg name="rssi" type="i16">
                 RSSI of the signal between controller and the product (in dbm)
             </arg>
         </cmd>
         
-        <cmd name="SensorsStatesListChanged" listtype="MAP">
+        <cmd name="SensorsStatesListChanged" id="8" type="MAP_ITEM">
             Sensors states list
             <arg name="sensorName" type="enum">
                 Sensor name
@@ -322,7 +322,7 @@
             </arg>
         </cmd>
         
-        <cmd name="ProductModel">
+        <cmd name="ProductModel" id="9">
             Inform of the product model. This is used to customize the UI depending on the connected product.
             <arg name="model" type="enum">
                 The Model of the product.
@@ -368,7 +368,7 @@
             </arg>
         </cmd>
         
-        <cmd name="CountryListKnown" listtype="LIST">
+        <cmd name="CountryListKnown" id="10" type="LIST_ITEM">
             List of the countries known by the device
             <arg name="listFlags" type="u8">
                 List entry attribute Bitfield.
@@ -385,12 +385,12 @@
     <class name="OverHeat" id="6">
         Over heat commands
         
-        <cmd name="SwitchOff">
+        <cmd name="SwitchOff" id="0">
             @deprecated
             Switch off the drone when a overheat appeared
         </cmd>
         
-        <cmd name="Ventilate">
+        <cmd name="Ventilate" id="1">
             @deprecated
             Ventilate the drone when a overheat appeared
         </cmd>
@@ -399,12 +399,12 @@
     <class name="OverHeatState" id="7">
         Overheat state from product
         
-        <cmd name="OverHeatChanged">
+        <cmd name="OverHeatChanged" id="0">
             @deprecated
             Overheat temperature reached
         </cmd>
         
-        <cmd name="OverHeatRegulationChanged">
+        <cmd name="OverHeatRegulationChanged" id="1">
             @deprecated
             Overheat regulation state changed
             <arg name="regulationType" type="u8">
@@ -415,7 +415,7 @@
 
     <class name="Controller" id="8">
         Notify the device about the state of the controller application.
-        <cmd name="isPiloting">
+        <cmd name="isPiloting" id="0">
             Tell the device when the controller application enters/leaves the piloting HUD.
             <arg name="piloting" type="u8">
                 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
@@ -425,7 +425,7 @@
 
     <class name="WifiSettings" id="9">
         Wifi settings commands
-        <cmd name="OutdoorSetting">
+        <cmd name="OutdoorSetting" id="0">
             Send to product if it should use its outdoor wifi config, or indoor
             <arg name="outdoor" type="u8">
                 1 if it should use outdoor wifi settings, 0 otherwise
@@ -435,7 +435,7 @@
 
     <class name="WifiSettingsState" id="10">
         Wifi settings state from product
-        <cmd name="outdoorSettingsChanged" type="u8">
+        <cmd name="outdoorSettingsChanged" id="0">
             Status of the wifi config : either indoor or outdoor
             <arg name="outdoor" type="u8">
                 1 if it should use outdoor wifi settings, 0 otherwise
@@ -445,7 +445,7 @@
 
     <class name="Mavlink" id="11">
          Mavlink flight plans commands
-         <cmd name="Start">
+         <cmd name="Start" id="0">
              Start the flight plan
              <arg name="filepath" type="string">
                  flight plan file path from the mavlink ftp root
@@ -460,16 +460,16 @@
                 </enum>
              </arg>
          </cmd>
-         <cmd name="Pause">
+         <cmd name="Pause" id="1">
              Pause the flightplan (can be restarted with a start)
          </cmd>
-         <cmd name="Stop">
+         <cmd name="Stop" id="2">
              Stop the flightplan
          </cmd>
      </class>
      <class name="MavlinkState" id="12">
          Mavlink flight plans states commands
-         <cmd name="MavlinkFilePlayingStateChanged">
+         <cmd name="MavlinkFilePlayingStateChanged" id="0">
              Playing state of a mavlink flight plan
              <arg name="state" type="enum">
                 State of the mavlink 
@@ -496,7 +496,7 @@
                 </enum>
              </arg>
          </cmd>
-         <cmd name="MavlinkPlayErrorStateChanged">
+         <cmd name="MavlinkPlayErrorStateChanged" id="1">
              FlightPlan play state error
              <arg name="error" type="enum">
                  State of play error
@@ -517,7 +517,7 @@
      </class>
     <class name="Calibration" id="13">
         Calibration commands
-        <cmd name="MagnetoCalibration">
+        <cmd name="MagnetoCalibration" id="0">
             Sent when a calibration of the magnetometer is asked or is aborted
             <arg name="calibrate" type="u8">
                 1 if the calibration should be started, 0 if it should be aborted
@@ -526,7 +526,7 @@
     </class>
     <class name="CalibrationState" id="14">
         Status of the calibration
-        <cmd name="MagnetoCalibrationStateChanged">
+        <cmd name="MagnetoCalibrationStateChanged" id="0">
             Sent when the state of the magneto calibration has changed
             <arg name="xAxisCalibration" type="u8">
                 State of the x axis (roll) calibration : 1 if calibration is done, 0 otherwise
@@ -541,13 +541,13 @@
                 1 if calibration has failed, 0 otherwise. If this arg is 1, consider all previous arg as 0
             </arg>
         </cmd>
-        <cmd name="MagnetoCalibrationRequiredState">
+        <cmd name="MagnetoCalibrationRequiredState" id="1">
             Status of the calibration requirement
             <arg name="required" type="u8">
                 1 if calibration is required, 0 if current calibration is still valid
             </arg>
         </cmd>
-        <cmd name="MagnetoCalibrationAxisToCalibrateChanged">
+        <cmd name="MagnetoCalibrationAxisToCalibrateChanged" id="2">
             Event sent by a product to inform about the axis to calibrate
             <arg name="axis" type="enum">
                 The axis to calibrate
@@ -565,7 +565,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="MagnetoCalibrationStartedChanged">
+        <cmd name="MagnetoCalibrationStartedChanged" id="3">
             Status of the calibration process
             <arg name="started" type="u8">
                 1 if calibration has started, 0 otherwise
@@ -574,7 +574,7 @@
     </class>
     <class name="CameraSettingsState" id="15">
          Status of the camera settings
-         <cmd name="CameraSettingsChanged">
+         <cmd name="CameraSettingsChanged" id="0">
              Status of the camera settings
              <arg name="fov" type="float">
                 Value of the camera horizontal fov (in degree)
@@ -596,7 +596,7 @@
 
      <class name="GPS" id="16">
         GPS related commands
-        <cmd name="ControllerPositionForRun">
+        <cmd name="ControllerPositionForRun" id="0">
             Set the controller position for a run. This command is used by all non gps products. Watch out, this command cannot be used with BLE products
             <arg name="latitude" type="double">
                 Controller latitude in decimal degrees
@@ -609,14 +609,14 @@
     
     <class name="FlightPlanState" id="17">
         FlightPlan state commands
-        <cmd name="AvailabilityStateChanged">
+        <cmd name="AvailabilityStateChanged" id="0">
             State of availability to run a flight plan file
             <arg name="AvailabilityState" type="u8">
                 Running a flightPlan file is available (1 running a flightPlan file is available, otherwise 0)
             </arg>
         </cmd>
 
-        <cmd name="ComponentStateListChanged" listtype="MAP">
+        <cmd name="ComponentStateListChanged" id="1" type="MAP_ITEM">
             List of state of drone flightPlan components
             <arg name="component" type="enum">
                 Drone FlightPlan component id (unique)
@@ -641,29 +641,29 @@
     
     <class name="FlightPlanEvent" id="19">
         FlightPlan Event commands
-        <cmd name="StartingErrorEvent">
+        <cmd name="StartingErrorEvent" id="0" notification="TRUE">
             Event of flight plan start error
         </cmd>
-        <cmd name="SpeedBridleEvent">
+        <cmd name="SpeedBridleEvent" id="1" notification="TRUE">
             Bridle speed of the drone
         </cmd>
     </class>
     
     <class name="ARLibsVersionsState" id="18">
         ARlibs Versions Commands
-        <cmd name="ControllerLibARCommandsVersion">
+        <cmd name="ControllerLibARCommandsVersion" id="0">
             Controller libARCommands version
             <arg name="version" type="string">
                 version of libARCommands ("1.2.3.4" format)
             </arg>
         </cmd>
-        <cmd name="SkyControllerLibARCommandsVersion">
+        <cmd name="SkyControllerLibARCommandsVersion" id="1">
             SkyController libARCommands version
             <arg name="version" type="string">
                 version of libARCommands ("1.2.3.4" format)
             </arg>
         </cmd>
-        <cmd name="DeviceLibARCommandsVersion">
+        <cmd name="DeviceLibARCommandsVersion" id="2">
             Device libARCommands version
             <arg name="version" type="string">
                 version of libARCommands ("1.2.3.4" format)
@@ -673,7 +673,7 @@
 
     <class name="Audio" id="20">
         Audio-related commands.
-        <cmd name="ControllerReadyForStreaming">
+        <cmd name="ControllerReadyForStreaming" id="0">
             Tell the firmware whether the controller is ready to start audio streaming.
             <arg name="ready" type="u8">
                 Bit field for TX and RX ready.
@@ -685,7 +685,7 @@
 
     <class name="AudioState" id="21">
         Audio-related state updates.
-        <cmd name="AudioStreamingRunning">
+        <cmd name="AudioStreamingRunning" id="0">
             Notify the controller whether the audio streaming is running.
             <arg name="running" type="u8">
                 Bit field for TX and RX running
@@ -697,7 +697,7 @@
 
     <class name="Headlights" id="22">
         Controls the headlight LEDs of the Evo variants.
-        <cmd name="intensity">
+        <cmd name="intensity" id="0">
             Set instensity of lighting LEDs.
             <arg name="left" type="u8">
                 Set the left LED intensity value (0 through 255).
@@ -710,7 +710,7 @@
 
     <class name="HeadlightsState" id="23">
         Get information about the state of the Evo variants' LEDs.
-        <cmd name="intensityChanged">
+        <cmd name="intensityChanged" id="0">
             Notify the instensity values for headlight LEDs.
             <arg name="left" type="u8">
                 The intensity value for the left LED (0 through 255).
@@ -724,7 +724,7 @@
     <class name="Animations" id="24">
         Animations-related commands.
 
-        <cmd name="StartAnimation">
+        <cmd name="StartAnimation" id="0">
             Start a paramaterless animation.
             <arg name="anim" type="enum">
                 Animation to start.
@@ -770,7 +770,7 @@
             </arg>
         </cmd>
 
-        <cmd name="StopAnimation">
+        <cmd name="StopAnimation" id="1">
             Stop a running animation.
             <arg name="anim" type="enum">
                 Animation to stop.
@@ -816,7 +816,7 @@
             </arg>
         </cmd>
 
-        <cmd name="StopAllAnimations">
+        <cmd name="StopAllAnimations" id="2">
             Stop all running animations.
         </cmd>
     </class>
@@ -824,7 +824,7 @@
     <class name="AnimationsState" id="25">
         Animations-related notification/feedback commands.
 
-        <cmd name="List" listtype="MAP">
+        <cmd name="List" type="MAP_ITEM" id="0">
             List of animations state.
             <arg name="anim" type="enum">
                 Animation type.
@@ -896,7 +896,7 @@
 
     <class name="Accessory" id="26">
         Accessories-related commands.
-        <cmd name="Config">
+        <cmd name="Config" id="0">
             Set the current accessory configuration.
             <arg name="accessory" type="enum">
                 Accessory configuration to set.
@@ -921,7 +921,7 @@
 
     <class name="AccessoryState" id="27">
         Accessories-related commands.
-        <cmd name="SupportedAccessoriesListChanged" listtype="MAP">
+        <cmd name="SupportedAccessoriesListChanged" id="0" type="MAP_ITEM">
             List of supported accessories
             <arg name="accessory" type="enum">
                 Accessory configurations supported by the product.
@@ -943,7 +943,7 @@
             </arg>
         </cmd>
 
-        <cmd name="AccessoryConfigChanged">
+        <cmd name="AccessoryConfigChanged" id="1">
             Accessory config response.
             <arg name="newAccessory" type="enum">
                 Accessory configuration reported by firmware.
@@ -980,7 +980,7 @@
             </arg>
         </cmd>
         
-        <cmd name="AccessoryConfigModificationEnabled">
+        <cmd name="AccessoryConfigModificationEnabled" id="2">
             Possibility to modify the accessory configuration.
             <arg name="enabled" type="u8">
                 1 if the modification of the accessory Config is enabled, 0 otherwise
@@ -991,7 +991,7 @@
     <class name="Charger" id="28">
         Commands sent by the controller to set charger parameters.
 
-        <cmd name="SetMaxChargeRate">
+        <cmd name="SetMaxChargeRate" id="0">
             @deprecated
             Set the maximum charge rate allowed to charge a battery.
             <arg name="rate" type="enum">
@@ -1012,7 +1012,7 @@
     <class name="ChargerState" id="29">
         Commands sent by the firmware to advertise the charger status.
 
-        <cmd name="MaxChargeRateChanged">
+        <cmd name="MaxChargeRateChanged" id="0">
             @deprecated
             The maximum charge rate reported by the firmware.
             <arg name="rate" type="enum">
@@ -1028,7 +1028,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="CurrentChargeStateChanged">
+        <cmd name="CurrentChargeStateChanged" id="1">
             @deprecated
             The charge status of the battery changed.
             <arg name="status" type="enum">
@@ -1068,7 +1068,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="LastChargeRateChanged">
+        <cmd name="LastChargeRateChanged" id="2">
             @deprecated
             The charge rate of the last charge sent by the firmware.
             <arg name="rate" type="enum">
@@ -1087,7 +1087,7 @@
                 </enum>
             </arg>
         </cmd>
-        <cmd name="ChargingInfo">
+        <cmd name="ChargingInfo" id="3">
             Information of the charge.
             <arg name="phase" type="enum">
                 The current charging phase.
@@ -1135,7 +1135,7 @@
     </class>
     <class name="RunState" id="30">
         Commands sent by the drone to inform about the run or flight state
-        <cmd name="RunIdChanged">
+        <cmd name="RunIdChanged" id="0">
             Sent when a run id has changed
             Run ids are uniquely identifying a run or a flight
             <arg name="runId" type="string">

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SkyControllerStateBatteryChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSkyControllerStateBatteryChangedListener {
 
     /**
-     * Called when a command <code>BatteryChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SkyControllerStateBatteryChanged</code> in feature <code>SkyController</code> is decoded
      * @param _percent SkyController battery
      */
     void onSkyControllerSkyControllerStateBatteryChangedUpdate (byte percent);

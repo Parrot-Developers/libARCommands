@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>NoFlyOverMaxDistance</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsNoFlyOverMaxDistance</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingSettingsNoFlyOverMaxDistanceListener {
 
     /**
-     * Called when a command <code>NoFlyOverMaxDistance</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsNoFlyOverMaxDistance</code> in feature <code>ARDrone3</code> is decoded
      * @param _shouldNotFlyOver 1 if the drone can't fly further than max distance, 0 if no limitation on the drone should be done
      */
     void onARDrone3PilotingSettingsNoFlyOverMaxDistanceUpdate (byte shouldNotFlyOver);

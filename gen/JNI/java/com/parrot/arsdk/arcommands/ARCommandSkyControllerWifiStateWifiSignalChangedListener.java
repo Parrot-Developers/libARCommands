@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>WifiStateWifiSignalChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerWifiStateWifiSignalChangedListener {
 
     /**
-     * Called when a command <code>WifiSignalChanged</code> of class <code>WifiState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>WifiStateWifiSignalChanged</code> in feature <code>SkyController</code> is decoded
      * @param _level Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.
      */
     void onSkyControllerWifiStateWifiSignalChangedUpdate (byte level);

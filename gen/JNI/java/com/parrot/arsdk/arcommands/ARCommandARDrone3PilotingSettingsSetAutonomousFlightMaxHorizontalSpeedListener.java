@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SetAutonomousFlightMaxHorizontalSpeed</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsSetAutonomousFlightMaxHorizontalSpeed</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedListener {
 
     /**
-     * Called when a command <code>SetAutonomousFlightMaxHorizontalSpeed</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsSetAutonomousFlightMaxHorizontalSpeed</code> in feature <code>ARDrone3</code> is decoded
      * @param _value maximum horizontal speed [m/s]
      */
     void onARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedUpdate (float value);

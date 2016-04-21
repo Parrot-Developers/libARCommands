@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code> listener
+ * Interface for the command <code>AnimationsStartAnimation</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAnimationsStartAnimationListener {
 
     /**
-     * Called when a command <code>StartAnimation</code> of class <code>Animations</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AnimationsStartAnimation</code> in feature <code>Common</code> is decoded
      * @param _anim Animation to start.
      */
     void onCommonAnimationsStartAnimationUpdate (ARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM_ENUM anim);

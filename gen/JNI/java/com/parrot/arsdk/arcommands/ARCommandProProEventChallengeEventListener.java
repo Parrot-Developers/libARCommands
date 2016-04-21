@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code> listener
+ * Interface for the command <code>ProEventChallengeEvent</code> in feature <code>Pro</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandProProEventChallengeEventListener {
 
     /**
-     * Called when a command <code>ChallengeEvent</code> of class <code>ProEvent</code> in project <code>Pro</code> is decoded
+     * Called when a command <code>ProEventChallengeEvent</code> in feature <code>Pro</code> is decoded
      * @param _challenge the challenge that the receiver will have to sign
      */
     void onProProEventChallengeEventUpdate (String challenge);

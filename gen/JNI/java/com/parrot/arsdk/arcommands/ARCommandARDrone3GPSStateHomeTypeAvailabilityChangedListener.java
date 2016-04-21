@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>HomeTypeAvailabilityChanged</code> of class <code>GPSState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSStateHomeTypeAvailabilityChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSStateHomeTypeAvailabilityChangedListener {
 
     /**
-     * Called when a command <code>HomeTypeAvailabilityChanged</code> of class <code>GPSState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSStateHomeTypeAvailabilityChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of the return home
      * @param _available 1 if this type is available, 0 otherwise
      */

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code> listener
+ * Interface for the command <code>SettingsStateProductVersionChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonSettingsStateProductVersionChangedListener {
 
     /**
-     * Called when a command <code>ProductVersionChanged</code> of class <code>SettingsState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>SettingsStateProductVersionChanged</code> in feature <code>Common</code> is decoded
      * @param _software Product software version
      * @param _hardware Product hardware version
      */

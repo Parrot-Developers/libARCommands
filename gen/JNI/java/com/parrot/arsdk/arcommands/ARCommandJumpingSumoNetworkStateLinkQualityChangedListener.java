@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>LinkQualityChanged</code> of class <code>NetworkState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>NetworkStateLinkQualityChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoNetworkStateLinkQualityChangedListener {
 
     /**
-     * Called when a command <code>LinkQualityChanged</code> of class <code>NetworkState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>NetworkStateLinkQualityChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _quality The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
      */
     void onJumpingSumoNetworkStateLinkQualityChangedUpdate (byte quality);

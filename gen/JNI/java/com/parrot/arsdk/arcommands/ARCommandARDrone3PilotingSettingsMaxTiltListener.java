@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsMaxTilt</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingSettingsMaxTiltListener {
 
     /**
-     * Called when a command <code>MaxTilt</code> of class <code>PilotingSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsMaxTilt</code> in feature <code>ARDrone3</code> is decoded
      * @param _current Current tilt max in degree
      */
     void onARDrone3PilotingSettingsMaxTiltUpdate (float current);

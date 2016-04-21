@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AutonomousFlightMaxRotationSpeed</code> of class <code>PilotingSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingSettingsStateAutonomousFlightMaxRotationSpeed</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedListener {
 
     /**
-     * Called when a command <code>AutonomousFlightMaxRotationSpeed</code> of class <code>PilotingSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingSettingsStateAutonomousFlightMaxRotationSpeed</code> in feature <code>ARDrone3</code> is decoded
      * @param _value maximum yaw rotation speed [rad/s]
      */
     void onARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedUpdate (float value);

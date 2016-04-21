@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>GamepadInfosStateGamepadControl</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerGamepadInfosStateGamepadControlListener {
 
     /**
-     * Called when a command <code>GamepadControl</code> of class <code>GamepadInfosState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>GamepadInfosStateGamepadControl</code> in feature <code>SkyController</code> is decoded
      * @param _type The type (axis/button) of the control
      * @param _id The button or axis id
      * @param _id @note A button and an axis can have the same ID, but their type is different

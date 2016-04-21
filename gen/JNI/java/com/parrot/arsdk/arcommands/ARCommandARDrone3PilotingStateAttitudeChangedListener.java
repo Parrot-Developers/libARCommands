@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AttitudeChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingStateAttitudeChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingStateAttitudeChangedListener {
 
     /**
-     * Called when a command <code>AttitudeChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingStateAttitudeChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _roll roll value (in radian)
      * @param _pitch Pitch value (in radian)
      * @param _yaw Yaw value (in radian)

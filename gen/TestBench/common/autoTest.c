@@ -47,6 +47,7 @@
 int errcount;
 char describeBuffer [1024] = {0};
 
+int genericDefaultShouldBeCalled = 0;
 int ARDrone3PilotingFlatTrimShouldBeCalled = 0;
 int ARDrone3PilotingTakeOffShouldBeCalled = 0;
 int ARDrone3PilotingPCMDShouldBeCalled = 0;
@@ -55,12 +56,55 @@ int ARDrone3PilotingEmergencyShouldBeCalled = 0;
 int ARDrone3PilotingNavigateHomeShouldBeCalled = 0;
 int ARDrone3PilotingAutoTakeOffModeShouldBeCalled = 0;
 int ARDrone3PilotingMoveByShouldBeCalled = 0;
+int ARDrone3PilotingUserTakeOffShouldBeCalled = 0;
+int ARDrone3PilotingCircleShouldBeCalled = 0;
 int ARDrone3AnimationsFlipShouldBeCalled = 0;
 int ARDrone3CameraOrientationShouldBeCalled = 0;
 int ARDrone3MediaRecordPictureShouldBeCalled = 0;
 int ARDrone3MediaRecordVideoShouldBeCalled = 0;
 int ARDrone3MediaRecordPictureV2ShouldBeCalled = 0;
 int ARDrone3MediaRecordVideoV2ShouldBeCalled = 0;
+int ARDrone3NetworkWifiScanShouldBeCalled = 0;
+int ARDrone3NetworkWifiAuthChannelShouldBeCalled = 0;
+int ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 0;
+int ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 0;
+int ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 0;
+int ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 0;
+int ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 0;
+int ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
+int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
+int ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 0;
+int ARDrone3PilotingSettingsMinAltitudeShouldBeCalled = 0;
+int ARDrone3PilotingSettingsCirclingDirectionShouldBeCalled = 0;
+int ARDrone3PilotingSettingsCirclingRadiusShouldBeCalled = 0;
+int ARDrone3PilotingSettingsCirclingAltitudeShouldBeCalled = 0;
+int ARDrone3PilotingSettingsPitchModeShouldBeCalled = 0;
+int ARDrone3PilotingSettingsLandingModeShouldBeCalled = 0;
+int ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
+int ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
+int ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
+int ARDrone3SpeedSettingsOutdoorShouldBeCalled = 0;
+int ARDrone3SpeedSettingsMaxPitchRollRotationSpeedShouldBeCalled = 0;
+int ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
+int ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
+int ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
+int ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 0;
+int ARDrone3MediaStreamingVideoEnableShouldBeCalled = 0;
+int ARDrone3GPSSettingsSetHomeShouldBeCalled = 0;
+int ARDrone3GPSSettingsResetHomeShouldBeCalled = 0;
+int ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 0;
+int ARDrone3GPSSettingsHomeTypeShouldBeCalled = 0;
+int ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 0;
+int ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 0;
+int ARDrone3AntiflickeringSetModeShouldBeCalled = 0;
 int ARDrone3MediaRecordStatePictureStateChangedShouldBeCalled = 0;
 int ARDrone3MediaRecordStateVideoStateChangedShouldBeCalled = 0;
 int ARDrone3MediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
@@ -77,22 +121,10 @@ int ARDrone3PilotingStateAttitudeChangedShouldBeCalled = 0;
 int ARDrone3PilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
 int ARDrone3PilotingStateAltitudeChangedShouldBeCalled = 0;
 int ARDrone3PilotingEventMoveByEndShouldBeCalled = 0;
-int ARDrone3NetworkWifiScanShouldBeCalled = 0;
-int ARDrone3NetworkWifiAuthChannelShouldBeCalled = 0;
 int ARDrone3NetworkStateWifiScanListChangedShouldBeCalled = 0;
 int ARDrone3NetworkStateAllWifiScanChangedShouldBeCalled = 0;
 int ARDrone3NetworkStateWifiAuthChannelListChangedShouldBeCalled = 0;
 int ARDrone3NetworkStateAllWifiAuthChannelChangedShouldBeCalled = 0;
-int ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 0;
-int ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 0;
-int ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 0;
-int ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 0;
-int ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 0;
-int ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 0;
-int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 0;
-int ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
-int ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
-int ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateAbsolutControlChangedShouldBeCalled = 0;
@@ -103,18 +135,21 @@ int ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedShouldBeCalled 
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
 int ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
-int ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
-int ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
-int ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
-int ARDrone3SpeedSettingsOutdoorShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateBankedTurnChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateMinAltitudeChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateCirclingDirectionChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateCirclingRadiusChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateCirclingAltitudeChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStatePitchModeChangedShouldBeCalled = 0;
+int ARDrone3PilotingSettingsStateLandingModeChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateHullProtectionChangedShouldBeCalled = 0;
 int ARDrone3SpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
-int ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
-int ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
+int ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedShouldBeCalled = 0;
 int ARDrone3NetworkSettingsStateWifiSelectionChangedShouldBeCalled = 0;
 int ARDrone3NetworkSettingsStateWifiSecurityChangedShouldBeCalled = 0;
+int ARDrone3NetworkSettingsStateWifiSecurityShouldBeCalled = 0;
 int ARDrone3SettingsStateProductMotorVersionListChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateProductGPSVersionChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateMotorErrorStateChangedShouldBeCalled = 0;
@@ -122,25 +157,14 @@ int ARDrone3SettingsStateMotorSoftwareVersionChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateMotorFlightsStatusChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateMotorErrorLastErrorChangedShouldBeCalled = 0;
 int ARDrone3SettingsStateP7IDShouldBeCalled = 0;
-int ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 0;
-int ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 0;
-int ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 0;
-int ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 0;
-int ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 0;
-int ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
 int ARDrone3PictureSettingsStatePictureFormatChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateAutoWhiteBalanceChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateExpositionChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateSaturationChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateTimelapseChangedShouldBeCalled = 0;
 int ARDrone3PictureSettingsStateVideoAutorecordChangedShouldBeCalled = 0;
-int ARDrone3MediaStreamingVideoEnableShouldBeCalled = 0;
+int ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 0;
 int ARDrone3MediaStreamingStateVideoEnableChangedShouldBeCalled = 0;
-int ARDrone3GPSSettingsSetHomeShouldBeCalled = 0;
-int ARDrone3GPSSettingsResetHomeShouldBeCalled = 0;
-int ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 0;
-int ARDrone3GPSSettingsHomeTypeShouldBeCalled = 0;
-int ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateHomeChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateResetHomeChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateGPSFixStateChangedShouldBeCalled = 0;
@@ -149,127 +173,103 @@ int ARDrone3GPSSettingsStateHomeTypeChangedShouldBeCalled = 0;
 int ARDrone3GPSSettingsStateReturnHomeDelayChangedShouldBeCalled = 0;
 int ARDrone3CameraStateOrientationShouldBeCalled = 0;
 int ARDrone3CameraStateDefaultCameraOrientationShouldBeCalled = 0;
-int ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 0;
-int ARDrone3AntiflickeringSetModeShouldBeCalled = 0;
 int ARDrone3AntiflickeringStateElectricFrequencyChangedShouldBeCalled = 0;
 int ARDrone3AntiflickeringStateModeChangedShouldBeCalled = 0;
 int ARDrone3GPSStateNumberOfSatelliteChangedShouldBeCalled = 0;
 int ARDrone3GPSStateHomeTypeAvailabilityChangedShouldBeCalled = 0;
 int ARDrone3GPSStateHomeTypeChosenChangedShouldBeCalled = 0;
 int ARDrone3PROStateFeaturesShouldBeCalled = 0;
-int ARDrone3DebugVideoEnableWobbleCancellationShouldBeCalled = 0;
-int ARDrone3DebugVideoSyncAnglesGyrosShouldBeCalled = 0;
-int ARDrone3DebugVideoManualWhiteBalanceShouldBeCalled = 0;
-int ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryShouldBeCalled = 0;
-int ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedShouldBeCalled = 0;
-int ARDrone3DebugGPSDebugStateNbSatelliteChangedShouldBeCalled = 0;
 int JumpingSumoPilotingPCMDShouldBeCalled = 0;
 int JumpingSumoPilotingPostureShouldBeCalled = 0;
 int JumpingSumoPilotingAddCapOffsetShouldBeCalled = 0;
-int JumpingSumoPilotingStatePostureChangedShouldBeCalled = 0;
-int JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 0;
-int JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpStopShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpCancelShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpLoadShouldBeCalled = 0;
 int JumpingSumoAnimationsJumpShouldBeCalled = 0;
 int JumpingSumoAnimationsSimpleAnimationShouldBeCalled = 0;
-int JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 0;
-int JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 0;
-int JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 0;
-int JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 0;
 int JumpingSumoMediaRecordPictureShouldBeCalled = 0;
 int JumpingSumoMediaRecordVideoShouldBeCalled = 0;
 int JumpingSumoMediaRecordPictureV2ShouldBeCalled = 0;
 int JumpingSumoMediaRecordVideoV2ShouldBeCalled = 0;
+int JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 0;
+int JumpingSumoNetworkWifiScanShouldBeCalled = 0;
+int JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 0;
+int JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 0;
+int JumpingSumoAudioSettingsThemeShouldBeCalled = 0;
+int JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 0;
+int JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 0;
+int JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 0;
+int JumpingSumoRoadPlanPlayScriptShouldBeCalled = 0;
+int JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 0;
+int JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 0;
+int JumpingSumoVideoSettingsAutorecordShouldBeCalled = 0;
+int JumpingSumoPilotingStatePostureChangedShouldBeCalled = 0;
+int JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 0;
+int JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
+int JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 0;
+int JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 0;
+int JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 0;
+int JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 0;
 int JumpingSumoMediaRecordStatePictureStateChangedShouldBeCalled = 0;
 int JumpingSumoMediaRecordStateVideoStateChangedShouldBeCalled = 0;
 int JumpingSumoMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
 int JumpingSumoMediaRecordStateVideoStateChangedV2ShouldBeCalled = 0;
 int JumpingSumoMediaRecordEventPictureEventChangedShouldBeCalled = 0;
 int JumpingSumoMediaRecordEventVideoEventChangedShouldBeCalled = 0;
-int JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 0;
 int JumpingSumoNetworkSettingsStateWifiSelectionChangedShouldBeCalled = 0;
-int JumpingSumoNetworkWifiScanShouldBeCalled = 0;
-int JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 0;
 int JumpingSumoNetworkStateWifiScanListChangedShouldBeCalled = 0;
 int JumpingSumoNetworkStateAllWifiScanChangedShouldBeCalled = 0;
 int JumpingSumoNetworkStateWifiAuthChannelListChangedShouldBeCalled = 0;
 int JumpingSumoNetworkStateAllWifiAuthChannelChangedShouldBeCalled = 0;
 int JumpingSumoNetworkStateLinkQualityChangedShouldBeCalled = 0;
-int JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 0;
-int JumpingSumoAudioSettingsThemeShouldBeCalled = 0;
 int JumpingSumoAudioSettingsStateMasterVolumeChangedShouldBeCalled = 0;
 int JumpingSumoAudioSettingsStateThemeChangedShouldBeCalled = 0;
-int JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 0;
-int JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 0;
-int JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 0;
-int JumpingSumoRoadPlanPlayScriptShouldBeCalled = 0;
 int JumpingSumoRoadPlanStateScriptMetadataListChangedShouldBeCalled = 0;
 int JumpingSumoRoadPlanStateAllScriptsMetadataChangedShouldBeCalled = 0;
 int JumpingSumoRoadPlanStateScriptUploadChangedShouldBeCalled = 0;
 int JumpingSumoRoadPlanStateScriptDeleteChangedShouldBeCalled = 0;
 int JumpingSumoRoadPlanStatePlayScriptChangedShouldBeCalled = 0;
-int JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 0;
 int JumpingSumoSpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
-int JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 0;
 int JumpingSumoMediaStreamingStateVideoEnableChangedShouldBeCalled = 0;
-int JumpingSumoVideoSettingsAutorecordShouldBeCalled = 0;
 int JumpingSumoVideoSettingsStateAutorecordChangedShouldBeCalled = 0;
-int JumpingSumoDebugJumpSetJumpMotorShouldBeCalled = 0;
-int JumpingSumoDebugJumpSetCameraOrientationShouldBeCalled = 0;
-int JumpingSumoDebugAudioPlaySoundWithNameShouldBeCalled = 0;
-int JumpingSumoDebugMiscDebugEventShouldBeCalled = 0;
-int JumpingSumoDebugAnimationPlayAnimationShouldBeCalled = 0;
-int JumpingSumoDebugAnimationAddCapOffsetShouldBeCalled = 0;
-int JumpingSumoDebugUserScriptUserScriptUploadedShouldBeCalled = 0;
-int JumpingSumoDebugUserScriptStateUserScriptParsedShouldBeCalled = 0;
 int MiniDronePilotingFlatTrimShouldBeCalled = 0;
 int MiniDronePilotingTakeOffShouldBeCalled = 0;
 int MiniDronePilotingPCMDShouldBeCalled = 0;
 int MiniDronePilotingLandingShouldBeCalled = 0;
 int MiniDronePilotingEmergencyShouldBeCalled = 0;
 int MiniDronePilotingAutoTakeOffModeShouldBeCalled = 0;
-int MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
-int MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
-int MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
-int MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
 int MiniDroneAnimationsFlipShouldBeCalled = 0;
 int MiniDroneAnimationsCapShouldBeCalled = 0;
 int MiniDroneMediaRecordPictureShouldBeCalled = 0;
 int MiniDroneMediaRecordPictureV2ShouldBeCalled = 0;
-int MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 0;
-int MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
-int MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
 int MiniDronePilotingSettingsMaxAltitudeShouldBeCalled = 0;
 int MiniDronePilotingSettingsMaxTiltShouldBeCalled = 0;
-int MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
-int MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
 int MiniDroneSpeedSettingsWheelsShouldBeCalled = 0;
 int MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled = 0;
-int MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
-int MiniDroneSpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
-int MiniDroneSpeedSettingsStateWheelsChangedShouldBeCalled = 0;
-int MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled = 0;
 int MiniDroneSettingsCutOutModeShouldBeCalled = 0;
-int MiniDroneSettingsStateProductMotorsVersionChangedShouldBeCalled = 0;
-int MiniDroneSettingsStateProductInertialVersionChangedShouldBeCalled = 0;
-int MiniDroneSettingsStateCutOutModeChangedShouldBeCalled = 0;
-int MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 0;
 int MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 0;
 int MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 0;
 int MiniDroneConfigurationControllerTypeShouldBeCalled = 0;
 int MiniDroneConfigurationControllerNameShouldBeCalled = 0;
-int MiniDroneDebugDebugTest1ShouldBeCalled = 0;
-int MiniDroneDebugDebugTest2ShouldBeCalled = 0;
-int MiniDroneDebugDebugTest3ShouldBeCalled = 0;
-int SkyControllerWifiStateWifiListShouldBeCalled = 0;
-int SkyControllerWifiStateConnexionChangedShouldBeCalled = 0;
-int SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 0;
-int SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 0;
-int SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 0;
+int MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
+int MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
+int MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
+int MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
+int MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 0;
+int MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
+int MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
+int MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
+int MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsStateMaxRotationSpeedChangedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsStateWheelsChangedShouldBeCalled = 0;
+int MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled = 0;
+int MiniDroneSettingsStateProductMotorsVersionChangedShouldBeCalled = 0;
+int MiniDroneSettingsStateProductInertialVersionChangedShouldBeCalled = 0;
+int MiniDroneSettingsStateCutOutModeChangedShouldBeCalled = 0;
+int MiniDroneFloodControlStateFloodControlChangedShouldBeCalled = 0;
 int SkyControllerWifiRequestWifiListShouldBeCalled = 0;
 int SkyControllerWifiRequestCurrentWifiShouldBeCalled = 0;
 int SkyControllerWifiConnectToWifiShouldBeCalled = 0;
@@ -278,67 +278,114 @@ int SkyControllerWifiWifiAuthChannelShouldBeCalled = 0;
 int SkyControllerDeviceRequestDeviceListShouldBeCalled = 0;
 int SkyControllerDeviceRequestCurrentDeviceShouldBeCalled = 0;
 int SkyControllerDeviceConnectToDeviceShouldBeCalled = 0;
-int SkyControllerDeviceStateDeviceListShouldBeCalled = 0;
-int SkyControllerDeviceStateConnexionChangedShouldBeCalled = 0;
 int SkyControllerSettingsAllSettingsShouldBeCalled = 0;
 int SkyControllerSettingsResetShouldBeCalled = 0;
-int SkyControllerSettingsStateAllSettingsChangedShouldBeCalled = 0;
-int SkyControllerSettingsStateResetChangedShouldBeCalled = 0;
-int SkyControllerSettingsStateProductSerialChangedShouldBeCalled = 0;
-int SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
 int SkyControllerCommonAllStatesShouldBeCalled = 0;
-int SkyControllerCommonStateAllStatesChangedShouldBeCalled = 0;
-int SkyControllerSkyControllerStateBatteryChangedShouldBeCalled = 0;
-int SkyControllerSkyControllerStateGpsFixChangedShouldBeCalled = 0;
-int SkyControllerSkyControllerStateGpsPositionChangedShouldBeCalled = 0;
 int SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled = 0;
 int SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled = 0;
 int SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled = 0;
-int SkyControllerAccessPointSettingsStateAccessPointSSIDChangedShouldBeCalled = 0;
-int SkyControllerAccessPointSettingsStateAccessPointChannelChangedShouldBeCalled = 0;
-int SkyControllerAccessPointSettingsStateWifiSelectionChangedShouldBeCalled = 0;
 int SkyControllerCameraResetOrientationShouldBeCalled = 0;
 int SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled = 0;
-int SkyControllerGamepadInfosStateGamepadControlShouldBeCalled = 0;
-int SkyControllerGamepadInfosStateAllGamepadControlsSentShouldBeCalled = 0;
 int SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled = 0;
 int SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled = 0;
 int SkyControllerButtonMappingsSetButtonMappingShouldBeCalled = 0;
 int SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled = 0;
-int SkyControllerButtonMappingsStateCurrentButtonMappingsShouldBeCalled = 0;
-int SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentShouldBeCalled = 0;
-int SkyControllerButtonMappingsStateAvailableButtonMappingsShouldBeCalled = 0;
-int SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentShouldBeCalled = 0;
 int SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled = 0;
 int SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled = 0;
 int SkyControllerAxisMappingsSetAxisMappingShouldBeCalled = 0;
 int SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled = 0;
-int SkyControllerAxisMappingsStateCurrentAxisMappingsShouldBeCalled = 0;
-int SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentShouldBeCalled = 0;
-int SkyControllerAxisMappingsStateAvailableAxisMappingsShouldBeCalled = 0;
-int SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentShouldBeCalled = 0;
 int SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled = 0;
 int SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled = 0;
 int SkyControllerAxisFiltersSetAxisFilterShouldBeCalled = 0;
 int SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled = 0;
+int SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 0;
+int SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 0;
+int SkyControllerWifiStateWifiListShouldBeCalled = 0;
+int SkyControllerWifiStateConnexionChangedShouldBeCalled = 0;
+int SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 0;
+int SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 0;
+int SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 0;
+int SkyControllerDeviceStateDeviceListShouldBeCalled = 0;
+int SkyControllerDeviceStateConnexionChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateAllSettingsChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateResetChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateProductSerialChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
+int SkyControllerCommonStateAllStatesChangedShouldBeCalled = 0;
+int SkyControllerSkyControllerStateBatteryChangedShouldBeCalled = 0;
+int SkyControllerSkyControllerStateGpsFixChangedShouldBeCalled = 0;
+int SkyControllerSkyControllerStateGpsPositionChangedShouldBeCalled = 0;
+int SkyControllerAccessPointSettingsStateAccessPointSSIDChangedShouldBeCalled = 0;
+int SkyControllerAccessPointSettingsStateAccessPointChannelChangedShouldBeCalled = 0;
+int SkyControllerAccessPointSettingsStateWifiSelectionChangedShouldBeCalled = 0;
+int SkyControllerGamepadInfosStateGamepadControlShouldBeCalled = 0;
+int SkyControllerGamepadInfosStateAllGamepadControlsSentShouldBeCalled = 0;
+int SkyControllerButtonMappingsStateCurrentButtonMappingsShouldBeCalled = 0;
+int SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentShouldBeCalled = 0;
+int SkyControllerButtonMappingsStateAvailableButtonMappingsShouldBeCalled = 0;
+int SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentShouldBeCalled = 0;
+int SkyControllerAxisMappingsStateCurrentAxisMappingsShouldBeCalled = 0;
+int SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentShouldBeCalled = 0;
+int SkyControllerAxisMappingsStateAvailableAxisMappingsShouldBeCalled = 0;
+int SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentShouldBeCalled = 0;
 int SkyControllerAxisFiltersStateCurrentAxisFiltersShouldBeCalled = 0;
 int SkyControllerAxisFiltersStateAllCurrentFiltersSentShouldBeCalled = 0;
 int SkyControllerAxisFiltersStatePresetAxisFiltersShouldBeCalled = 0;
 int SkyControllerAxisFiltersStateAllPresetFiltersSentShouldBeCalled = 0;
-int SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 0;
 int SkyControllerCoPilotingStatePilotingSourceShouldBeCalled = 0;
-int SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 0;
 int SkyControllerCalibrationStateMagnetoCalibrationStateShouldBeCalled = 0;
 int SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateShouldBeCalled = 0;
 int SkyControllerButtonEventsSettingsShouldBeCalled = 0;
-int SkyControllerDebugDebugTest1ShouldBeCalled = 0;
+int unknown_feature_1GeographicRunShouldBeCalled = 0;
+int unknown_feature_1RelativeRunShouldBeCalled = 0;
+int unknown_feature_1LookAtRunShouldBeCalled = 0;
+int unknown_feature_1SpiralAnimRunShouldBeCalled = 0;
+int unknown_feature_1SwingAnimRunShouldBeCalled = 0;
+int unknown_feature_1BoomerangAnimRunShouldBeCalled = 0;
+int unknown_feature_1CandleAnimRunShouldBeCalled = 0;
+int unknown_feature_1DollySlideAnimRunShouldBeCalled = 0;
+int unknown_feature_1UserFramingPositionShouldBeCalled = 0;
+int unknown_feature_1UserGPSDataShouldBeCalled = 0;
+int unknown_feature_1UserBaroDataShouldBeCalled = 0;
+int unknown_feature_1LynxDetectionShouldBeCalled = 0;
+int unknown_feature_1AvailabilityShouldBeCalled = 0;
+int unknown_feature_1RunShouldBeCalled = 0;
+int unknown_feature_1GeographicConfigChangedShouldBeCalled = 0;
+int unknown_feature_1RelativeConfigChangedShouldBeCalled = 0;
+int unknown_feature_1AnimRunShouldBeCalled = 0;
+int unknown_feature_1SpiralAnimConfigChangedShouldBeCalled = 0;
+int unknown_feature_1SwingAnimConfigChangedShouldBeCalled = 0;
+int unknown_feature_1BoomerangAnimConfigChangedShouldBeCalled = 0;
+int unknown_feature_1CandleAnimConfigChangedShouldBeCalled = 0;
+int unknown_feature_1DollySlideAnimConfigChangedShouldBeCalled = 0;
+int unknown_feature_1UserFramingPositionChangedShouldBeCalled = 0;
 int commonNetworkDisconnectShouldBeCalled = 0;
-int commonNetworkEventDisconnectionShouldBeCalled = 0;
 int commonSettingsAllSettingsShouldBeCalled = 0;
 int commonSettingsResetShouldBeCalled = 0;
 int commonSettingsProductNameShouldBeCalled = 0;
 int commonSettingsCountryShouldBeCalled = 0;
 int commonSettingsAutoCountryShouldBeCalled = 0;
+int commonCommonAllStatesShouldBeCalled = 0;
+int commonCommonCurrentDateShouldBeCalled = 0;
+int commonCommonCurrentTimeShouldBeCalled = 0;
+int commonCommonRebootShouldBeCalled = 0;
+int commonOverHeatSwitchOffShouldBeCalled = 0;
+int commonOverHeatVentilateShouldBeCalled = 0;
+int commonControllerIsPilotingShouldBeCalled = 0;
+int commonWifiSettingsOutdoorSettingShouldBeCalled = 0;
+int commonMavlinkStartShouldBeCalled = 0;
+int commonMavlinkPauseShouldBeCalled = 0;
+int commonMavlinkStopShouldBeCalled = 0;
+int commonCalibrationMagnetoCalibrationShouldBeCalled = 0;
+int commonGPSControllerPositionForRunShouldBeCalled = 0;
+int commonAudioControllerReadyForStreamingShouldBeCalled = 0;
+int commonHeadlightsIntensityShouldBeCalled = 0;
+int commonAnimationsStartAnimationShouldBeCalled = 0;
+int commonAnimationsStopAnimationShouldBeCalled = 0;
+int commonAnimationsStopAllAnimationsShouldBeCalled = 0;
+int commonAccessoryConfigShouldBeCalled = 0;
+int commonChargerSetMaxChargeRateShouldBeCalled = 0;
+int commonNetworkEventDisconnectionShouldBeCalled = 0;
 int commonSettingsStateAllSettingsChangedShouldBeCalled = 0;
 int commonSettingsStateResetChangedShouldBeCalled = 0;
 int commonSettingsStateProductNameChangedShouldBeCalled = 0;
@@ -347,10 +394,6 @@ int commonSettingsStateProductSerialHighChangedShouldBeCalled = 0;
 int commonSettingsStateProductSerialLowChangedShouldBeCalled = 0;
 int commonSettingsStateCountryChangedShouldBeCalled = 0;
 int commonSettingsStateAutoCountryChangedShouldBeCalled = 0;
-int commonCommonAllStatesShouldBeCalled = 0;
-int commonCommonCurrentDateShouldBeCalled = 0;
-int commonCommonCurrentTimeShouldBeCalled = 0;
-int commonCommonRebootShouldBeCalled = 0;
 int commonCommonStateAllStatesChangedShouldBeCalled = 0;
 int commonCommonStateBatteryStateChangedShouldBeCalled = 0;
 int commonCommonStateMassStorageStateListChangedShouldBeCalled = 0;
@@ -362,25 +405,16 @@ int commonCommonStateWifiSignalChangedShouldBeCalled = 0;
 int commonCommonStateSensorsStatesListChangedShouldBeCalled = 0;
 int commonCommonStateProductModelShouldBeCalled = 0;
 int commonCommonStateCountryListKnownShouldBeCalled = 0;
-int commonOverHeatSwitchOffShouldBeCalled = 0;
-int commonOverHeatVentilateShouldBeCalled = 0;
 int commonOverHeatStateOverHeatChangedShouldBeCalled = 0;
 int commonOverHeatStateOverHeatRegulationChangedShouldBeCalled = 0;
-int commonControllerIsPilotingShouldBeCalled = 0;
-int commonWifiSettingsOutdoorSettingShouldBeCalled = 0;
 int commonWifiSettingsStateOutdoorSettingsChangedShouldBeCalled = 0;
-int commonMavlinkStartShouldBeCalled = 0;
-int commonMavlinkPauseShouldBeCalled = 0;
-int commonMavlinkStopShouldBeCalled = 0;
 int commonMavlinkStateMavlinkFilePlayingStateChangedShouldBeCalled = 0;
 int commonMavlinkStateMavlinkPlayErrorStateChangedShouldBeCalled = 0;
-int commonCalibrationMagnetoCalibrationShouldBeCalled = 0;
 int commonCalibrationStateMagnetoCalibrationStateChangedShouldBeCalled = 0;
 int commonCalibrationStateMagnetoCalibrationRequiredStateShouldBeCalled = 0;
 int commonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedShouldBeCalled = 0;
 int commonCalibrationStateMagnetoCalibrationStartedChangedShouldBeCalled = 0;
 int commonCameraSettingsStateCameraSettingsChangedShouldBeCalled = 0;
-int commonGPSControllerPositionForRunShouldBeCalled = 0;
 int commonFlightPlanStateAvailabilityStateChangedShouldBeCalled = 0;
 int commonFlightPlanStateComponentStateListChangedShouldBeCalled = 0;
 int commonFlightPlanEventStartingErrorEventShouldBeCalled = 0;
@@ -388,19 +422,12 @@ int commonFlightPlanEventSpeedBridleEventShouldBeCalled = 0;
 int commonARLibsVersionsStateControllerLibARCommandsVersionShouldBeCalled = 0;
 int commonARLibsVersionsStateSkyControllerLibARCommandsVersionShouldBeCalled = 0;
 int commonARLibsVersionsStateDeviceLibARCommandsVersionShouldBeCalled = 0;
-int commonAudioControllerReadyForStreamingShouldBeCalled = 0;
 int commonAudioStateAudioStreamingRunningShouldBeCalled = 0;
-int commonHeadlightsIntensityShouldBeCalled = 0;
 int commonHeadlightsStateIntensityChangedShouldBeCalled = 0;
-int commonAnimationsStartAnimationShouldBeCalled = 0;
-int commonAnimationsStopAnimationShouldBeCalled = 0;
-int commonAnimationsStopAllAnimationsShouldBeCalled = 0;
 int commonAnimationsStateListShouldBeCalled = 0;
-int commonAccessoryConfigShouldBeCalled = 0;
 int commonAccessoryStateSupportedAccessoriesListChangedShouldBeCalled = 0;
 int commonAccessoryStateAccessoryConfigChangedShouldBeCalled = 0;
 int commonAccessoryStateAccessoryConfigModificationEnabledShouldBeCalled = 0;
-int commonChargerSetMaxChargeRateShouldBeCalled = 0;
 int commonChargerStateMaxChargeRateChangedShouldBeCalled = 0;
 int commonChargerStateCurrentChargeStateChangedShouldBeCalled = 0;
 int commonChargerStateLastChargeRateChangedShouldBeCalled = 0;
@@ -409,9 +436,9 @@ int commonRunStateRunIdChangedShouldBeCalled = 0;
 int commonDebugStatsSendPacketShouldBeCalled = 0;
 int commonDebugStatsStartSendingPacketFromDroneShouldBeCalled = 0;
 int commonDebugStatsStopSendingPacketFromDroneShouldBeCalled = 0;
-int commonDebugStatsEventSendPacketShouldBeCalled = 0;
 int commonDebugDebugSettingsGetAllShouldBeCalled = 0;
 int commonDebugDebugSettingsSetShouldBeCalled = 0;
+int commonDebugStatsEventSendPacketShouldBeCalled = 0;
 int commonDebugDebugSettingsStateInfoShouldBeCalled = 0;
 int commonDebugDebugSettingsStateListChangedShouldBeCalled = 0;
 int proProBoughtFeaturesShouldBeCalled = 0;
@@ -420,6 +447,30 @@ int proProActivateFeaturesShouldBeCalled = 0;
 int proProStateSupportedFeaturesShouldBeCalled = 0;
 int proProStateFeaturesActivatedShouldBeCalled = 0;
 int proProEventChallengeEventShouldBeCalled = 0;
+int wifiScanShouldBeCalled = 0;
+int wifiUpdateAuthorizedChannelsShouldBeCalled = 0;
+int wifiSetApChannelShouldBeCalled = 0;
+int wifiSetSecurityShouldBeCalled = 0;
+int wifiSetCountryShouldBeCalled = 0;
+int wifiSetEnvironementShouldBeCalled = 0;
+int wifiScannedItemShouldBeCalled = 0;
+int wifiAuthorizedChannelShouldBeCalled = 0;
+int wifiApChannelChangedShouldBeCalled = 0;
+int wifiSecurityChangedShouldBeCalled = 0;
+int wifiCountryChangedShouldBeCalled = 0;
+int wifiEnvironementChangedShouldBeCalled = 0;
+int wifiRssiChangedShouldBeCalled = 0;
+
+void ARCOMMANDS_Testbench_GenericDefaultCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command generic.default --> Custom PTR = %p", custom);
+    if (genericDefaultShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 
 void ARCOMMANDS_Testbench_ARDrone3PilotingFlatTrimCb (void *custom)
 {
@@ -430,6 +481,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingFlatTrimCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingTakeOffCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.TakeOff --> Custom PTR = %p", custom);
@@ -439,6 +491,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingTakeOffCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestampAndSeqNum, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.PCMD --> Custom PTR = %p", custom);
@@ -484,6 +537,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb (uint8_t flag, int8_t roll, int
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingLandingCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.Landing --> Custom PTR = %p", custom);
@@ -493,6 +547,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingLandingCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingEmergencyCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.Emergency --> Custom PTR = %p", custom);
@@ -502,6 +557,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingEmergencyCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingNavigateHomeCb (uint8_t start, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.NavigateHome --> Custom PTR = %p", custom);
@@ -517,6 +573,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingNavigateHomeCb (uint8_t start, void *c
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingAutoTakeOffModeCb (uint8_t state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.AutoTakeOffMode --> Custom PTR = %p", custom);
@@ -532,6 +589,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingAutoTakeOffModeCb (uint8_t state, void
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingMoveByCb (float dX, float dY, float dZ, float dPsi, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.moveBy --> Custom PTR = %p", custom);
@@ -560,6 +618,38 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingMoveByCb (float dX, float dY, float dZ
         errcount++ ;
     }
     if (ARDrone3PilotingMoveByShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingUserTakeOffCb (uint8_t state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.UserTakeOff --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
+    if (state != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingUserTakeOffShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingCircleCb (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION direction, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Piloting.Circle --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "direction value : <%d>", direction);
+    if (direction != (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingCircleShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -619,6 +709,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureCb (uint8_t mass_storage_id,
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoCb (eARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEO_RECORD record, uint8_t mass_storage_id, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecord.Video --> Custom PTR = %p", custom);
@@ -640,6 +731,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoCb (eARCOMMANDS_ARDRONE3_MEDIA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureV2Cb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecord.PictureV2 --> Custom PTR = %p", custom);
@@ -649,6 +741,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureV2Cb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoV2Cb (eARCOMMANDS_ARDRONE3_MEDIARECORD_VIDEOV2_RECORD record, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecord.VideoV2 --> Custom PTR = %p", custom);
@@ -659,6 +752,722 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoV2Cb (eARCOMMANDS_ARDRONE3_MED
         errcount++ ;
     }
     if (ARDrone3MediaRecordVideoV2ShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3NetworkWifiScanCb (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND band, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Network.WifiScan --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkWifiScanShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Network.WifiAuthChannel --> Custom PTR = %p", custom);
+    if (ARDrone3NetworkWifiAuthChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxAltitudeCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxAltitude --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxTiltCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxTilt --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsMaxTiltShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsAbsolutControlCb (uint8_t on, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.AbsolutControl --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "on value : <%u>", on);
+    if (on != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsAbsolutControlShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxDistanceCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxDistance --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsMaxDistanceShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCb (uint8_t shouldNotFlyOver, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.NoFlyOverMaxDistance --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "shouldNotFlyOver value : <%u>", shouldNotFlyOver);
+    if (shouldNotFlyOver != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsBankedTurnCb (uint8_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.BankedTurn --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%u>", value);
+    if (value != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsBankedTurnShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMinAltitudeCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MinAltitude --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsMinAltitudeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingDirectionCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.CirclingDirection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsCirclingDirectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingRadiusCb (uint16_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.CirclingRadius --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%u>", value);
+    if (value != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsCirclingRadiusShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingAltitudeCb (uint16_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.CirclingAltitude --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%u>", value);
+    if (value != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsCirclingAltitudeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsPitchModeCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.PitchMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsPitchModeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsLandingModeCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.LandingMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsLandingModeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxVerticalSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxVerticalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb (uint8_t present, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.HullProtection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "present value : <%u>", present);
+    if (present != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsHullProtectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb (uint8_t outdoor, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.Outdoor --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
+    if (outdoor != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsOutdoorShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxPitchRollRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3SpeedSettingsMaxPitchRollRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.WifiSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkSettingsWifiSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE keyType, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.wifiSecurity --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "keyType value : <%d>", keyType);
+    if (keyType != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkSettingsWifiSecurityShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsPictureFormatSelectionCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.PictureFormatSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.AutoWhiteBalanceSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsExpositionSelectionCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.ExpositionSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsExpositionSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsSaturationSelectionCb (float value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.SaturationSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
+    if (value != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsSaturationSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsTimelapseSelectionCb (uint8_t enabled, float interval, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.TimelapseSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
+    if (enabled != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "interval value : <%f>", interval);
+    if (interval != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb (uint8_t enabled, uint8_t mass_storage_id, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.VideoAutorecordSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
+    if (enabled != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
+    if (mass_storage_id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoStabilizationModeCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.VideoStabilizationMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3MediaStreamingVideoEnableCb (uint8_t enable, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaStreaming.VideoEnable --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
+    if (enable != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3MediaStreamingVideoEnableShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3GPSSettingsSetHomeCb (double latitude, double longitude, double altitude, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.SetHome --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
+    if (latitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
+    if (longitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "altitude value : <%f>", altitude);
+    if (altitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (ARDrone3GPSSettingsSetHomeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3GPSSettingsResetHomeCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.ResetHome --> Custom PTR = %p", custom);
+    if (ARDrone3GPSSettingsResetHomeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3GPSSettingsSendControllerGPSCb (double latitude, double longitude, double altitude, double horizontalAccuracy, double verticalAccuracy, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.SendControllerGPS --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
+    if (latitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
+    if (longitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "altitude value : <%f>", altitude);
+    if (altitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontalAccuracy value : <%f>", horizontalAccuracy);
+    if (horizontalAccuracy != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "verticalAccuracy value : <%f>", verticalAccuracy);
+    if (verticalAccuracy != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (ARDrone3GPSSettingsSendControllerGPSShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3GPSSettingsHomeTypeCb (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.HomeType --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3GPSSettingsHomeTypeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3GPSSettingsReturnHomeDelayCb (uint16_t delay, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.ReturnHomeDelay --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "delay value : <%u>", delay);
+    if (delay != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3AntiflickeringElectricFrequencyCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY frequency, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Antiflickering.electricFrequency --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "frequency value : <%d>", frequency);
+    if (frequency != (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0>");
+        errcount++ ;
+    }
+    if (ARDrone3AntiflickeringElectricFrequencyShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3AntiflickeringSetModeCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE mode, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Antiflickering.setMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3AntiflickeringSetModeShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -686,6 +1495,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordStatePictureStateChangedCb (uint8_t
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordStateVideoStateChangedCb (eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE state, uint8_t mass_storage_id, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecordState.VideoStateChanged --> Custom PTR = %p", custom);
@@ -707,6 +1517,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordStateVideoStateChangedCb (eARCOMMAN
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordStatePictureStateChangedV2Cb (eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecordState.PictureStateChangedV2 --> Custom PTR = %p", custom);
@@ -728,6 +1539,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordStatePictureStateChangedV2Cb (eARCO
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordStateVideoStateChangedV2Cb (eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE state, eARCOMMANDS_ARDRONE3_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecordState.VideoStateChangedV2 --> Custom PTR = %p", custom);
@@ -771,6 +1583,7 @@ void ARCOMMANDS_Testbench_ARDrone3MediaRecordEventPictureEventChangedCb (eARCOMM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3MediaRecordEventVideoEventChangedCb (eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT event, eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaRecordEvent.VideoEventChanged --> Custom PTR = %p", custom);
@@ -802,6 +1615,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateFlatTrimChangedCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateFlyingStateChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.FlyingStateChanged --> Custom PTR = %p", custom);
@@ -817,6 +1631,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateFlyingStateChangedCb (eARCOMMANDS
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateAlertStateChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.AlertStateChanged --> Custom PTR = %p", custom);
@@ -832,6 +1647,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateAlertStateChangedCb (eARCOMMANDS_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateNavigateHomeStateChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_STATE state, eARCOMMANDS_ARDRONE3_PILOTINGSTATE_NAVIGATEHOMESTATECHANGED_REASON reason, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.NavigateHomeStateChanged --> Custom PTR = %p", custom);
@@ -853,6 +1669,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateNavigateHomeStateChangedCb (eARCO
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStatePositionChangedCb (double latitude, double longitude, double altitude, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.PositionChanged --> Custom PTR = %p", custom);
@@ -880,6 +1697,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStatePositionChangedCb (double latitud
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateSpeedChangedCb (float speedX, float speedY, float speedZ, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.SpeedChanged --> Custom PTR = %p", custom);
@@ -907,6 +1725,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateSpeedChangedCb (float speedX, flo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateAttitudeChangedCb (float roll, float pitch, float yaw, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.AttitudeChanged --> Custom PTR = %p", custom);
@@ -934,6 +1753,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateAttitudeChangedCb (float roll, fl
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateAutoTakeOffModeChangedCb (uint8_t state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.AutoTakeOffModeChanged --> Custom PTR = %p", custom);
@@ -949,6 +1769,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingStateAutoTakeOffModeChangedCb (uint8_t
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingStateAltitudeChangedCb (double altitude, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingState.AltitudeChanged --> Custom PTR = %p", custom);
@@ -1005,31 +1826,6 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingEventMoveByEndCb (float dX, float dY, 
     }
 }
 
-void ARCOMMANDS_Testbench_ARDrone3NetworkWifiScanCb (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND band, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Network.WifiScan --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
-    if (band != (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0>");
-        errcount++ ;
-    }
-    if (ARDrone3NetworkWifiScanShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Network.WifiAuthChannel --> Custom PTR = %p", custom);
-    if (ARDrone3NetworkWifiAuthChannelShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiScanListChangedCb (char * ssid, int16_t rssi, eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND band, uint8_t channel, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkState.WifiScanListChanged --> Custom PTR = %p", custom);
@@ -1063,6 +1859,7 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiScanListChangedCb (char * ssid
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiScanChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkState.AllWifiScanChanged --> Custom PTR = %p", custom);
@@ -1072,6 +1869,7 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiScanChangedCb (void *custom
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiAuthChannelListChangedCb (eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkState.WifiAuthChannelListChanged --> Custom PTR = %p", custom);
@@ -1099,161 +1897,11 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiAuthChannelListChangedCb (eARC
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiAuthChannelChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkState.AllWifiAuthChannelChanged --> Custom PTR = %p", custom);
     if (ARDrone3NetworkStateAllWifiAuthChannelChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxAltitudeCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxAltitude --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxTiltCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxTilt --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsMaxTiltShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsAbsolutControlCb (uint8_t on, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.AbsolutControl --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "on value : <%u>", on);
-    if (on != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsAbsolutControlShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxDistanceCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.MaxDistance --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsMaxDistanceShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCb (uint8_t shouldNotFlyOver, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.NoFlyOverMaxDistance --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "shouldNotFlyOver value : <%u>", shouldNotFlyOver);
-    if (shouldNotFlyOver != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1287,6 +1935,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxAltitudeChangedCb (flo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxTiltChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.MaxTiltChanged --> Custom PTR = %p", custom);
@@ -1314,6 +1963,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxTiltChangedCb (float c
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAbsolutControlChangedCb (uint8_t on, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AbsolutControlChanged --> Custom PTR = %p", custom);
@@ -1329,6 +1979,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAbsolutControlChangedCb (
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxDistanceChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.MaxDistanceChanged --> Custom PTR = %p", custom);
@@ -1356,6 +2007,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxDistanceChangedCb (flo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChangedCb (uint8_t shouldNotFlyOver, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.NoFlyOverMaxDistanceChanged --> Custom PTR = %p", custom);
@@ -1371,6 +2023,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateNoFlyOverMaxDistanceChang
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalSpeedCb (float value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalSpeed --> Custom PTR = %p", custom);
@@ -1386,6 +2039,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalSpeedCb (float value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalSpeed --> Custom PTR = %p", custom);
@@ -1401,6 +2055,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVertic
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCb (float value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AutonomousFlightMaxHorizontalAcceleration --> Custom PTR = %p", custom);
@@ -1416,6 +2071,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCb (float value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AutonomousFlightMaxVerticalAcceleration --> Custom PTR = %p", custom);
@@ -1431,6 +2087,7 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVertic
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCb (float value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.AutonomousFlightMaxRotationSpeed --> Custom PTR = %p", custom);
@@ -1447,61 +2104,148 @@ void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotati
     }
 }
 
-void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxVerticalSpeedCb (float current, void *custom)
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateBankedTurnChangedCb (uint8_t state, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxVerticalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.BankedTurnChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
+    if (state != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateBankedTurnChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMinAltitudeChangedCb (float current, float min, float max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.MinAltitudeChanged --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
     if (current != 42.125)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
         errcount++ ;
     }
-    if (ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.MaxRotationSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
         errcount++ ;
     }
-    if (ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateMinAltitudeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb (uint8_t present, void *custom)
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingDirectionChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE value, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.HullProtection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "present value : <%u>", present);
-    if (present != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.CirclingDirectionChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE)0>");
         errcount++ ;
     }
-    if (ARDrone3SpeedSettingsHullProtectionShouldBeCalled == 0)
+    if (ARDrone3PilotingSettingsStateCirclingDirectionChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
-void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb (uint8_t outdoor, void *custom)
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingRadiusChangedCb (uint16_t current, uint16_t min, uint16_t max, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettings.Outdoor --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
-    if (outdoor != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.CirclingRadiusChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%u>", current);
+    if (current != 4200)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
         errcount++ ;
     }
-    if (ARDrone3SpeedSettingsOutdoorShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%u>", min);
+    if (min != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%u>", max);
+    if (max != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateCirclingRadiusChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCb (uint16_t current, uint16_t min, uint16_t max, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%u>", current);
+    if (current != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%u>", min);
+    if (min != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%u>", max);
+    if (max != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateCirclingAltitudeChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStatePitchModeChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.PitchModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStatePitchModeChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateLandingModeChangedCb (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PilotingSettingsState.LandingModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3PilotingSettingsStateLandingModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1535,6 +2279,7 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCb (f
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.MaxRotationSpeedChanged --> Custom PTR = %p", custom);
@@ -1562,6 +2307,7 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCb (f
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb (uint8_t present, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.HullProtectionChanged --> Custom PTR = %p", custom);
@@ -1577,6 +2323,7 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb (uin
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb (uint8_t outdoor, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.OutdoorChanged --> Custom PTR = %p", custom);
@@ -1593,55 +2340,28 @@ void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb (uint8_t ou
     }
 }
 
-void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+void ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCb (float current, float min, float max, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.WifiSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
         errcount++ ;
     }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
-    if (band != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "min value : <%f>", min);
+    if (min != 42.125)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
         errcount++ ;
     }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
-    if (channel != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "max value : <%f>", max);
+    if (max != 42.125)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
         errcount++ ;
     }
-    if (ARDrone3NetworkSettingsWifiSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE keyType, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettings.wifiSecurity --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
-    if (strcmp ("Test string with spaces", key) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "keyType value : <%d>", keyType);
-    if (keyType != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3NetworkSettingsWifiSecurityShouldBeCalled == 0)
+    if (ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1675,6 +2395,7 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSelectionChangedCb (eA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityChangedCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE type, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettingsState.wifiSecurityChanged --> Custom PTR = %p", custom);
@@ -1691,6 +2412,33 @@ void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityChangedCb (eAR
     }
 }
 
+void ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityCb (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE type, char * key, eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE keyType, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.NetworkSettingsState.wifiSecurity --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "keyType value : <%d>", keyType);
+    if (keyType != (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE)0>");
+        errcount++ ;
+    }
+    if (ARDrone3NetworkSettingsStateWifiSecurityShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
 
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateProductMotorVersionListChangedCb (uint8_t motor_number, char * type, char * software, char * hardware, void *custom)
 {
@@ -1725,6 +2473,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateProductMotorVersionListChangedCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateProductGPSVersionChangedCb (char * software, char * hardware, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.ProductGPSVersionChanged --> Custom PTR = %p", custom);
@@ -1746,6 +2495,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateProductGPSVersionChangedCb (char 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorStateChangedCb (uint8_t motorIds, eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORSTATECHANGED_MOTORERROR motorError, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.MotorErrorStateChanged --> Custom PTR = %p", custom);
@@ -1767,6 +2517,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorStateChangedCb (uint8_t
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorSoftwareVersionChangedCb (char * version, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.MotorSoftwareVersionChanged --> Custom PTR = %p", custom);
@@ -1782,6 +2533,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorSoftwareVersionChangedCb (ch
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorFlightsStatusChangedCb (uint16_t nbFlights, uint16_t lastFlightDuration, uint32_t totalFlightDuration, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.MotorFlightsStatusChanged --> Custom PTR = %p", custom);
@@ -1809,6 +2561,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorFlightsStatusChangedCb (uint
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorLastErrorChangedCb (eARCOMMANDS_ARDRONE3_SETTINGSSTATE_MOTORERRORLASTERRORCHANGED_MOTORERROR motorError, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.MotorErrorLastErrorChanged --> Custom PTR = %p", custom);
@@ -1824,6 +2577,7 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorLastErrorChangedCb (eAR
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3SettingsStateP7IDCb (char * serialID, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.SettingsState.P7ID --> Custom PTR = %p", custom);
@@ -1834,111 +2588,6 @@ void ARCOMMANDS_Testbench_ARDrone3SettingsStateP7IDCb (char * serialID, void *cu
         errcount++ ;
     }
     if (ARDrone3SettingsStateP7IDShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-
-
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsPictureFormatSelectionCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE type, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.PictureFormatSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE type, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.AutoWhiteBalanceSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsExpositionSelectionCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.ExpositionSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsExpositionSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsSaturationSelectionCb (float value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.SaturationSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%f>", value);
-    if (value != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsSaturationSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsTimelapseSelectionCb (uint8_t enabled, float interval, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.TimelapseSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
-    if (enabled != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "interval value : <%f>", interval);
-    if (interval != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb (uint8_t enabled, uint8_t mass_storage_id, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettings.VideoAutorecordSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
-    if (enabled != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
-    if (mass_storage_id != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -1960,6 +2609,7 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStatePictureFormatChangedCb (eA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateAutoWhiteBalanceChangedCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_AUTOWHITEBALANCECHANGED_TYPE type, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.AutoWhiteBalanceChanged --> Custom PTR = %p", custom);
@@ -1975,6 +2625,7 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateAutoWhiteBalanceChangedCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateExpositionChangedCb (float value, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.ExpositionChanged --> Custom PTR = %p", custom);
@@ -2002,6 +2653,7 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateExpositionChangedCb (float
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateSaturationChangedCb (float value, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.SaturationChanged --> Custom PTR = %p", custom);
@@ -2029,6 +2681,7 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateSaturationChangedCb (float
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateTimelapseChangedCb (uint8_t enabled, float interval, float minInterval, float maxInterval, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.TimelapseChanged --> Custom PTR = %p", custom);
@@ -2062,6 +2715,7 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateTimelapseChangedCb (uint8_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoAutorecordChangedCb (uint8_t enabled, uint8_t mass_storage_id, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.VideoAutorecordChanged --> Custom PTR = %p", custom);
@@ -2084,16 +2738,16 @@ void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoAutorecordChangedCb (
     }
 }
 
-void ARCOMMANDS_Testbench_ARDrone3MediaStreamingVideoEnableCb (uint8_t enable, void *custom)
+void ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE mode, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.MediaStreaming.VideoEnable --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
-    if (enable != 42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
+    if (mode != (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0>");
         errcount++ ;
     }
-    if (ARDrone3MediaStreamingVideoEnableShouldBeCalled == 0)
+    if (ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2110,112 +2764,6 @@ void ARCOMMANDS_Testbench_ARDrone3MediaStreamingStateVideoEnableChangedCb (eARCO
         errcount++ ;
     }
     if (ARDrone3MediaStreamingStateVideoEnableChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_ARDrone3GPSSettingsSetHomeCb (double latitude, double longitude, double altitude, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.SetHome --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
-    if (latitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
-    if (longitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "altitude value : <%f>", altitude);
-    if (altitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    if (ARDrone3GPSSettingsSetHomeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3GPSSettingsResetHomeCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.ResetHome --> Custom PTR = %p", custom);
-    if (ARDrone3GPSSettingsResetHomeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3GPSSettingsSendControllerGPSCb (double latitude, double longitude, double altitude, double horizontalAccuracy, double verticalAccuracy, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.SendControllerGPS --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
-    if (latitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
-    if (longitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "altitude value : <%f>", altitude);
-    if (altitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontalAccuracy value : <%f>", horizontalAccuracy);
-    if (horizontalAccuracy != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "verticalAccuracy value : <%f>", verticalAccuracy);
-    if (verticalAccuracy != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    if (ARDrone3GPSSettingsSendControllerGPSShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3GPSSettingsHomeTypeCb (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE type, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.HomeType --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3GPSSettingsHomeTypeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3GPSSettingsReturnHomeDelayCb (uint16_t delay, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettings.ReturnHomeDelay --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "delay value : <%u>", delay);
-    if (delay != 4200)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
-        errcount++ ;
-    }
-    if (ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2249,6 +2797,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeChangedCb (double latitude
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateResetHomeChangedCb (double latitude, double longitude, double altitude, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettingsState.ResetHomeChanged --> Custom PTR = %p", custom);
@@ -2276,6 +2825,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateResetHomeChangedCb (double lat
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateGPSFixStateChangedCb (uint8_t fixed, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettingsState.GPSFixStateChanged --> Custom PTR = %p", custom);
@@ -2291,6 +2841,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateGPSFixStateChangedCb (uint8_t 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateGPSUpdateStateChangedCb (eARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_GPSUPDATESTATECHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettingsState.GPSUpdateStateChanged --> Custom PTR = %p", custom);
@@ -2306,6 +2857,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateGPSUpdateStateChangedCb (eARCO
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeTypeChangedCb (eARCOMMANDS_ARDRONE3_GPSSETTINGSSTATE_HOMETYPECHANGED_TYPE type, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettingsState.HomeTypeChanged --> Custom PTR = %p", custom);
@@ -2321,6 +2873,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeTypeChangedCb (eARCOMMANDS
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateReturnHomeDelayChangedCb (uint16_t delay, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSSettingsState.ReturnHomeDelayChanged --> Custom PTR = %p", custom);
@@ -2358,6 +2911,7 @@ void ARCOMMANDS_Testbench_ARDrone3CameraStateOrientationCb (int8_t tilt, int8_t 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3CameraStateDefaultCameraOrientationCb (int8_t tilt, int8_t pan, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.CameraState.defaultCameraOrientation --> Custom PTR = %p", custom);
@@ -2380,37 +2934,6 @@ void ARCOMMANDS_Testbench_ARDrone3CameraStateDefaultCameraOrientationCb (int8_t 
     }
 }
 
-void ARCOMMANDS_Testbench_ARDrone3AntiflickeringElectricFrequencyCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY frequency, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Antiflickering.electricFrequency --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "frequency value : <%d>", frequency);
-    if (frequency != (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0>");
-        errcount++ ;
-    }
-    if (ARDrone3AntiflickeringElectricFrequencyShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3AntiflickeringSetModeCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE mode, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.Antiflickering.setMode --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
-    if (mode != (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0>");
-        errcount++ ;
-    }
-    if (ARDrone3AntiflickeringSetModeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateElectricFrequencyChangedCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY frequency, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.AntiflickeringState.electricFrequencyChanged --> Custom PTR = %p", custom);
@@ -2426,6 +2949,7 @@ void ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateElectricFrequencyChangedCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateModeChangedCb (eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_MODECHANGED_MODE mode, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.AntiflickeringState.modeChanged --> Custom PTR = %p", custom);
@@ -2457,6 +2981,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSStateNumberOfSatelliteChangedCb (uint8_t nu
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSStateHomeTypeAvailabilityChangedCb (eARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPEAVAILABILITYCHANGED_TYPE type, uint8_t available, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSState.HomeTypeAvailabilityChanged --> Custom PTR = %p", custom);
@@ -2478,6 +3003,7 @@ void ARCOMMANDS_Testbench_ARDrone3GPSStateHomeTypeAvailabilityChangedCb (eARCOMM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ARDrone3GPSStateHomeTypeChosenChangedCb (eARCOMMANDS_ARDRONE3_GPSSTATE_HOMETYPECHOSENCHANGED_TYPE type, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3.GPSState.HomeTypeChosenChanged --> Custom PTR = %p", custom);
@@ -2504,101 +3030,6 @@ void ARCOMMANDS_Testbench_ARDrone3PROStateFeaturesCb (uint64_t features, void *c
         errcount++ ;
     }
     if (ARDrone3PROStateFeaturesShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-
-void ARCOMMANDS_Testbench_ARDrone3DebugVideoEnableWobbleCancellationCb (uint8_t enable, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.Video.EnableWobbleCancellation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
-    if (enable != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3DebugVideoEnableWobbleCancellationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3DebugVideoSyncAnglesGyrosCb (float anglesDelay_s, float gyrosDelay_s, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.Video.SyncAnglesGyros --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "anglesDelay_s value : <%f>", anglesDelay_s);
-    if (anglesDelay_s != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "gyrosDelay_s value : <%f>", gyrosDelay_s);
-    if (gyrosDelay_s != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (ARDrone3DebugVideoSyncAnglesGyrosShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_ARDrone3DebugVideoManualWhiteBalanceCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.Video.ManualWhiteBalance --> Custom PTR = %p", custom);
-    if (ARDrone3DebugVideoManualWhiteBalanceShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryCb (uint8_t drone2BatteryUsed, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.BatteryDebugSettings.UseDrone2Battery --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "drone2BatteryUsed value : <%u>", drone2BatteryUsed);
-    if (drone2BatteryUsed != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedCb (uint8_t drone2BatteryUsed, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.BatteryDebugSettingsState.UseDrone2BatteryChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "drone2BatteryUsed value : <%u>", drone2BatteryUsed);
-    if (drone2BatteryUsed != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_ARDrone3DebugGPSDebugStateNbSatelliteChangedCb (uint8_t nbSatellite, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command ARDrone3Debug.GPSDebugState.nbSatelliteChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "nbSatellite value : <%u>", nbSatellite);
-    if (nbSatellite != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (ARDrone3DebugGPSDebugStateNbSatelliteChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2633,6 +3064,7 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingPCMDCb (uint8_t flag, int8_t speed,
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoPilotingPostureCb (eARCOMMANDS_JUMPINGSUMO_PILOTING_POSTURE_TYPE type, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Piloting.Posture --> Custom PTR = %p", custom);
@@ -2648,6 +3080,7 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingPostureCb (eARCOMMANDS_JUMPINGSUMO_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoPilotingAddCapOffsetCb (float offset, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Piloting.addCapOffset --> Custom PTR = %p", custom);
@@ -2658,6 +3091,330 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingAddCapOffsetCb (float offset, void 
         errcount++ ;
     }
     if (JumpingSumoPilotingAddCapOffsetShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpStopCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpStop --> Custom PTR = %p", custom);
+    if (JumpingSumoAnimationsJumpStopShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCancelCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpCancel --> Custom PTR = %p", custom);
+    if (JumpingSumoAnimationsJumpCancelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpLoadCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpLoad --> Custom PTR = %p", custom);
+    if (JumpingSumoAnimationsJumpLoadShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.Jump --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoAnimationsJumpShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAnimationsSimpleAnimationCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID id, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.SimpleAnimation --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%d>", id);
+    if (id != (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoAnimationsSimpleAnimationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureCb (uint8_t mass_storage_id, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.Picture --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
+    if (mass_storage_id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoMediaRecordPictureShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoCb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD record, uint8_t mass_storage_id, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.Video --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "record value : <%d>", record);
+    if (record != (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
+    if (mass_storage_id != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoMediaRecordVideoShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureV2Cb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.PictureV2 --> Custom PTR = %p", custom);
+    if (JumpingSumoMediaRecordPictureV2ShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoV2Cb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD record, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.VideoV2 --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "record value : <%d>", record);
+    if (record != (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoMediaRecordVideoV2ShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsWifiSelectionCb (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkSettings.WifiSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoNetworkWifiScanCb (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND band, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Network.WifiScan --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoNetworkWifiScanShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoNetworkWifiAuthChannelCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Network.WifiAuthChannel --> Custom PTR = %p", custom);
+    if (JumpingSumoNetworkWifiAuthChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsMasterVolumeCb (uint8_t volume, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AudioSettings.MasterVolume --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "volume value : <%u>", volume);
+    if (volume != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoAudioSettingsMasterVolumeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsThemeCb (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME theme, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AudioSettings.Theme --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "theme value : <%d>", theme);
+    if (theme != (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0>");
+        errcount++ ;
+    }
+    if (JumpingSumoAudioSettingsThemeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoRoadPlanAllScriptsMetadataCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.AllScriptsMetadata --> Custom PTR = %p", custom);
+    if (JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptUploadedCb (char * uuid, char * md5Hash, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.ScriptUploaded --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
+    if (strcmp ("Test string with spaces", uuid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "md5Hash value : <%s>", md5Hash);
+    if (strcmp ("Test string with spaces", md5Hash) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (JumpingSumoRoadPlanScriptUploadedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptDeleteCb (char * uuid, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.ScriptDelete --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
+    if (strcmp ("Test string with spaces", uuid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (JumpingSumoRoadPlanScriptDeleteShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoRoadPlanPlayScriptCb (char * uuid, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.PlayScript --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
+    if (strcmp ("Test string with spaces", uuid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (JumpingSumoRoadPlanPlayScriptShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsOutdoorCb (uint8_t outdoor, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.SpeedSettings.Outdoor --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
+    if (outdoor != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoSpeedSettingsOutdoorShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoMediaStreamingVideoEnableCb (uint8_t enable, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaStreaming.VideoEnable --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
+    if (enable != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoMediaStreamingVideoEnableShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_JumpingSumoVideoSettingsAutorecordCb (uint8_t enabled, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.VideoSettings.Autorecord --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
+    if (enabled != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (JumpingSumoVideoSettingsAutorecordShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2679,6 +3436,7 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingStatePostureChangedCb (eARCOMMANDS_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoPilotingStateAlertStateChangedCb (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.PilotingState.AlertStateChanged --> Custom PTR = %p", custom);
@@ -2694,6 +3452,7 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingStateAlertStateChangedCb (eARCOMMAN
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb (int8_t speed, int16_t realSpeed, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.PilotingState.SpeedChanged --> Custom PTR = %p", custom);
@@ -2716,64 +3475,6 @@ void ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb (int8_t speed, 
     }
 }
 
-void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpStopCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpStop --> Custom PTR = %p", custom);
-    if (JumpingSumoAnimationsJumpStopShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCancelCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpCancel --> Custom PTR = %p", custom);
-    if (JumpingSumoAnimationsJumpCancelShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpLoadCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.JumpLoad --> Custom PTR = %p", custom);
-    if (JumpingSumoAnimationsJumpLoadShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE type, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.Jump --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_JUMP_TYPE)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoAnimationsJumpShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoAnimationsSimpleAnimationCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID id, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Animations.SimpleAnimation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%d>", id);
-    if (id != (eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoAnimationsSimpleAnimationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpLoadChangedCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AnimationsState.JumpLoadChanged --> Custom PTR = %p", custom);
@@ -2789,6 +3490,7 @@ void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpLoadChangedCb (eARCOMMAN
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpTypeChangedCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AnimationsState.JumpTypeChanged --> Custom PTR = %p", custom);
@@ -2804,6 +3506,7 @@ void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpTypeChangedCb (eARCOMMAN
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AnimationsState.JumpMotorProblemChanged --> Custom PTR = %p", custom);
@@ -2819,7 +3522,6 @@ void ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb (e
         errcount++ ;
     }
 }
-
 
 void ARCOMMANDS_Testbench_JumpingSumoSettingsStateProductGPSVersionChangedCb (char * software, char * hardware, void *custom)
 {
@@ -2837,67 +3539,6 @@ void ARCOMMANDS_Testbench_JumpingSumoSettingsStateProductGPSVersionChangedCb (ch
         errcount++ ;
     }
     if (JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureCb (uint8_t mass_storage_id, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.Picture --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
-    if (mass_storage_id != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoMediaRecordPictureShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoCb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD record, uint8_t mass_storage_id, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.Video --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "record value : <%d>", record);
-    if (record != (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEO_RECORD)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mass_storage_id value : <%u>", mass_storage_id);
-    if (mass_storage_id != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoMediaRecordVideoShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureV2Cb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.PictureV2 --> Custom PTR = %p", custom);
-    if (JumpingSumoMediaRecordPictureV2ShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoV2Cb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD record, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecord.VideoV2 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "record value : <%d>", record);
-    if (record != (eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_MEDIARECORD_VIDEOV2_RECORD)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoMediaRecordVideoV2ShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -2925,6 +3566,7 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStatePictureStateChangedCb (uint
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStateVideoStateChangedCb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGED_STATE state, uint8_t mass_storage_id, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecordState.VideoStateChanged --> Custom PTR = %p", custom);
@@ -2946,6 +3588,7 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStateVideoStateChangedCb (eARCOM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStatePictureStateChangedV2Cb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecordState.PictureStateChangedV2 --> Custom PTR = %p", custom);
@@ -2967,6 +3610,7 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStatePictureStateChangedV2Cb (eA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoMediaRecordStateVideoStateChangedV2Cb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE state, eARCOMMANDS_JUMPINGSUMO_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecordState.VideoStateChangedV2 --> Custom PTR = %p", custom);
@@ -3010,6 +3654,7 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaRecordEventPictureEventChangedCb (eARC
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoMediaRecordEventVideoEventChangedCb (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT event, eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaRecordEvent.VideoEventChanged --> Custom PTR = %p", custom);
@@ -3026,34 +3671,6 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaRecordEventVideoEventChangedCb (eARCOM
         errcount++ ;
     }
     if (JumpingSumoMediaRecordEventVideoEventChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsWifiSelectionCb (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkSettings.WifiSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
-    if (band != (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
-    if (channel != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3082,31 +3699,6 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsStateWifiSelectionChangedCb 
         errcount++ ;
     }
     if (JumpingSumoNetworkSettingsStateWifiSelectionChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoNetworkWifiScanCb (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND band, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Network.WifiScan --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
-    if (band != (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoNetworkWifiScanShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoNetworkWifiAuthChannelCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.Network.WifiAuthChannel --> Custom PTR = %p", custom);
-    if (JumpingSumoNetworkWifiAuthChannelShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3146,6 +3738,7 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkStateWifiScanListChangedCb (char * s
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiScanChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkState.AllWifiScanChanged --> Custom PTR = %p", custom);
@@ -3155,6 +3748,7 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiScanChangedCb (void *cus
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoNetworkStateWifiAuthChannelListChangedCb (eARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkState.WifiAuthChannelListChanged --> Custom PTR = %p", custom);
@@ -3182,6 +3776,7 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkStateWifiAuthChannelListChangedCb (e
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiAuthChannelChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkState.AllWifiAuthChannelChanged --> Custom PTR = %p", custom);
@@ -3191,6 +3786,7 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiAuthChannelChangedCb (vo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoNetworkStateLinkQualityChangedCb (uint8_t quality, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.NetworkState.LinkQualityChanged --> Custom PTR = %p", custom);
@@ -3201,37 +3797,6 @@ void ARCOMMANDS_Testbench_JumpingSumoNetworkStateLinkQualityChangedCb (uint8_t q
         errcount++ ;
     }
     if (JumpingSumoNetworkStateLinkQualityChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsMasterVolumeCb (uint8_t volume, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AudioSettings.MasterVolume --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "volume value : <%u>", volume);
-    if (volume != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoAudioSettingsMasterVolumeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsThemeCb (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME theme, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AudioSettings.Theme --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "theme value : <%d>", theme);
-    if (theme != (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoAudioSettingsThemeShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3253,6 +3818,7 @@ void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsStateMasterVolumeChangedCb (ui
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsStateThemeChangedCb (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGSSTATE_THEMECHANGED_THEME theme, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.AudioSettingsState.ThemeChanged --> Custom PTR = %p", custom);
@@ -3263,67 +3829,6 @@ void ARCOMMANDS_Testbench_JumpingSumoAudioSettingsStateThemeChangedCb (eARCOMMAN
         errcount++ ;
     }
     if (JumpingSumoAudioSettingsStateThemeChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoRoadPlanAllScriptsMetadataCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.AllScriptsMetadata --> Custom PTR = %p", custom);
-    if (JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptUploadedCb (char * uuid, char * md5Hash, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.ScriptUploaded --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
-    if (strcmp ("Test string with spaces", uuid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "md5Hash value : <%s>", md5Hash);
-    if (strcmp ("Test string with spaces", md5Hash) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (JumpingSumoRoadPlanScriptUploadedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptDeleteCb (char * uuid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.ScriptDelete --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
-    if (strcmp ("Test string with spaces", uuid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (JumpingSumoRoadPlanScriptDeleteShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoRoadPlanPlayScriptCb (char * uuid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlan.PlayScript --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uuid value : <%s>", uuid);
-    if (strcmp ("Test string with spaces", uuid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (JumpingSumoRoadPlanPlayScriptShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3369,6 +3874,7 @@ void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptMetadataListChangedCb (c
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateAllScriptsMetadataChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlanState.AllScriptsMetadataChanged --> Custom PTR = %p", custom);
@@ -3378,6 +3884,7 @@ void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateAllScriptsMetadataChangedCb (v
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptUploadChangedCb (eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTUPLOADCHANGED_RESULTCODE resultCode, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlanState.ScriptUploadChanged --> Custom PTR = %p", custom);
@@ -3393,6 +3900,7 @@ void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptUploadChangedCb (eARCOMM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptDeleteChangedCb (eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_SCRIPTDELETECHANGED_RESULTCODE resultCode, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlanState.ScriptDeleteChanged --> Custom PTR = %p", custom);
@@ -3408,6 +3916,7 @@ void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptDeleteChangedCb (eARCOMM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStatePlayScriptChangedCb (eARCOMMANDS_JUMPINGSUMO_ROADPLANSTATE_PLAYSCRIPTCHANGED_RESULTCODE resultCode, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.RoadPlanState.PlayScriptChanged --> Custom PTR = %p", custom);
@@ -3418,22 +3927,6 @@ void ARCOMMANDS_Testbench_JumpingSumoRoadPlanStatePlayScriptChangedCb (eARCOMMAN
         errcount++ ;
     }
     if (JumpingSumoRoadPlanStatePlayScriptChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsOutdoorCb (uint8_t outdoor, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.SpeedSettings.Outdoor --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
-    if (outdoor != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoSpeedSettingsOutdoorShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3456,22 +3949,6 @@ void ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsStateOutdoorChangedCb (uint8_t
     }
 }
 
-void ARCOMMANDS_Testbench_JumpingSumoMediaStreamingVideoEnableCb (uint8_t enable, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaStreaming.VideoEnable --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
-    if (enable != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoMediaStreamingVideoEnableShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_JumpingSumoMediaStreamingStateVideoEnableChangedCb (eARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED enabled, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.MediaStreamingState.VideoEnableChanged --> Custom PTR = %p", custom);
@@ -3482,22 +3959,6 @@ void ARCOMMANDS_Testbench_JumpingSumoMediaStreamingStateVideoEnableChangedCb (eA
         errcount++ ;
     }
     if (JumpingSumoMediaStreamingStateVideoEnableChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoVideoSettingsAutorecordCb (uint8_t enabled, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumo.VideoSettings.Autorecord --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enabled value : <%u>", enabled);
-    if (enabled != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (JumpingSumoVideoSettingsAutorecordShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3521,127 +3982,6 @@ void ARCOMMANDS_Testbench_JumpingSumoVideoSettingsStateAutorecordChangedCb (uint
 }
 
 
-void ARCOMMANDS_Testbench_JumpingSumoDebugJumpSetJumpMotorCb (int8_t speed, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Jump.setJumpMotor --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%d>", speed);
-    if (speed != -42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugJumpSetJumpMotorShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoDebugJumpSetCameraOrientationCb (int8_t speedIncrement, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Jump.setCameraOrientation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speedIncrement value : <%d>", speedIncrement);
-    if (speedIncrement != -42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugJumpSetCameraOrientationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoDebugAudioPlaySoundWithNameCb (char * filename, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Audio.playSoundWithName --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "filename value : <%s>", filename);
-    if (strcmp ("Test string with spaces", filename) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugAudioPlaySoundWithNameShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoDebugMiscDebugEventCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Misc.debugEvent --> Custom PTR = %p", custom);
-    if (JumpingSumoDebugMiscDebugEventShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoDebugAnimationPlayAnimationCb (eARCOMMANDS_JUMPINGSUMODEBUG_ANIMATION_PLAYANIMATION_ID id, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Animation.playAnimation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%d>", id);
-    if (id != (eARCOMMANDS_JUMPINGSUMODEBUG_ANIMATION_PLAYANIMATION_ID)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_JUMPINGSUMODEBUG_ANIMATION_PLAYANIMATION_ID)0>");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugAnimationPlayAnimationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_JumpingSumoDebugAnimationAddCapOffsetCb (float offset, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.Animation.addCapOffset --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "offset value : <%f>", offset);
-    if (offset != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugAnimationAddCapOffsetShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoDebugUserScriptUserScriptUploadedCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.UserScript.userScriptUploaded --> Custom PTR = %p", custom);
-    if (JumpingSumoDebugUserScriptUserScriptUploadedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_JumpingSumoDebugUserScriptStateUserScriptParsedCb (uint8_t success, char * message, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command JumpingSumoDebug.UserScriptState.userScriptParsed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "success value : <%u>", success);
-    if (success != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "message value : <%s>", message);
-    if (strcmp ("Test string with spaces", message) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (JumpingSumoDebugUserScriptStateUserScriptParsedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-
 void ARCOMMANDS_Testbench_MiniDronePilotingFlatTrimCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.FlatTrim --> Custom PTR = %p", custom);
@@ -3651,6 +3991,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingFlatTrimCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingTakeOffCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.TakeOff --> Custom PTR = %p", custom);
@@ -3660,6 +4001,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingTakeOffCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingPCMDCb (uint8_t flag, int8_t roll, int8_t pitch, int8_t yaw, int8_t gaz, uint32_t timestamp, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.PCMD --> Custom PTR = %p", custom);
@@ -3705,6 +4047,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingPCMDCb (uint8_t flag, int8_t roll, in
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingLandingCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.Landing --> Custom PTR = %p", custom);
@@ -3714,6 +4057,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingLandingCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingEmergencyCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.Emergency --> Custom PTR = %p", custom);
@@ -3723,6 +4067,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingEmergencyCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingAutoTakeOffModeCb (uint8_t state, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.AutoTakeOffMode --> Custom PTR = %p", custom);
@@ -3733,61 +4078,6 @@ void ARCOMMANDS_Testbench_MiniDronePilotingAutoTakeOffModeCb (uint8_t state, voi
         errcount++ ;
     }
     if (MiniDronePilotingAutoTakeOffModeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlatTrimChanged --> Custom PTR = %p", custom);
-    if (MiniDronePilotingStateFlatTrimChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlyingStateChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
-    if (state != (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0>");
-        errcount++ ;
-    }
-    if (MiniDronePilotingStateFlyingStateChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.AlertStateChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
-    if (state != (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0>");
-        errcount++ ;
-    }
-    if (MiniDronePilotingStateAlertStateChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb (uint8_t state, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.AutoTakeOffModeChanged --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
-    if (state != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3809,6 +4099,7 @@ void ARCOMMANDS_Testbench_MiniDroneAnimationsFlipCb (eARCOMMANDS_MINIDRONE_ANIMA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneAnimationsCapCb (int16_t offset, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Animations.Cap --> Custom PTR = %p", custom);
@@ -3840,10 +4131,245 @@ void ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureCb (uint8_t mass_storage_id
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureV2Cb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.MediaRecord.PictureV2 --> Custom PTR = %p", custom);
     if (MiniDroneMediaRecordPictureV2ShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxAltitudeCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettings.MaxAltitude --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingSettingsMaxAltitudeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxTiltCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettings.MaxTilt --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingSettingsMaxTiltShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxVerticalSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxVerticalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsMaxVerticalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxRotationSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxRotationSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsMaxRotationSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsWheelsCb (uint8_t present, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.Wheels --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "present value : <%u>", present);
+    if (present != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsWheelsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (float current, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxHorizontalSpeed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
+    if (current != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneSettingsCutOutModeCb (uint8_t enable, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Settings.CutOutMode --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
+    if (enable != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDroneSettingsCutOutModeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneGPSControllerLatitudeForRunCb (double latitude, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.GPS.ControllerLatitudeForRun --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
+    if (latitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (MiniDroneGPSControllerLatitudeForRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneGPSControllerLongitudeForRunCb (double longitude, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.GPS.ControllerLongitudeForRun --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
+    if (longitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (MiniDroneGPSControllerLongitudeForRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneConfigurationControllerTypeCb (char * type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Configuration.ControllerType --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%s>", type);
+    if (strcmp ("Test string with spaces", type) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (MiniDroneConfigurationControllerTypeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDroneConfigurationControllerNameCb (char * name, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Configuration.ControllerName --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
+    if (strcmp ("Test string with spaces", name) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (MiniDroneConfigurationControllerNameShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlatTrimChanged --> Custom PTR = %p", custom);
+    if (MiniDronePilotingStateFlatTrimChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.FlyingStateChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingStateFlyingStateChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.AlertStateChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingStateAlertStateChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb (uint8_t state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingState.AutoTakeOffModeChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%u>", state);
+    if (state != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -3871,6 +4397,7 @@ void ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedCb (uint8_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedV2Cb (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.MediaRecordState.PictureStateChangedV2 --> Custom PTR = %p", custom);
@@ -3915,37 +4442,6 @@ void ARCOMMANDS_Testbench_MiniDroneMediaRecordEventPictureEventChangedCb (eARCOM
     }
 }
 
-void ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxAltitudeCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettings.MaxAltitude --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (MiniDronePilotingSettingsMaxAltitudeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxTiltCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettings.MaxTilt --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (MiniDronePilotingSettingsMaxTiltShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxAltitudeChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettingsState.MaxAltitudeChanged --> Custom PTR = %p", custom);
@@ -3973,6 +4469,7 @@ void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxAltitudeChangedCb (fl
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.PilotingSettingsState.MaxTiltChanged --> Custom PTR = %p", custom);
@@ -3995,67 +4492,6 @@ void ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb (float 
         errcount++ ;
     }
     if (MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxVerticalSpeedCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxVerticalSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (MiniDroneSpeedSettingsMaxVerticalSpeedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxRotationSpeedCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxRotationSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (MiniDroneSpeedSettingsMaxRotationSpeedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsWheelsCb (uint8_t present, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.Wheels --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "present value : <%u>", present);
-    if (present != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (MiniDroneSpeedSettingsWheelsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxHorizontalSpeedCb (float current, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettings.MaxHorizontalSpeed --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "current value : <%f>", current);
-    if (current != 42.125)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
-        errcount++ ;
-    }
-    if (MiniDroneSpeedSettingsMaxHorizontalSpeedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -4089,6 +4525,7 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb (
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettingsState.MaxRotationSpeedChanged --> Custom PTR = %p", custom);
@@ -4116,6 +4553,7 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb (
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateWheelsChangedCb (uint8_t present, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettingsState.WheelsChanged --> Custom PTR = %p", custom);
@@ -4131,6 +4569,7 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateWheelsChangedCb (uint8_t pr
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb (float current, float min, float max, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SpeedSettingsState.MaxHorizontalSpeedChanged --> Custom PTR = %p", custom);
@@ -4153,22 +4592,6 @@ void ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb
         errcount++ ;
     }
     if (MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_MiniDroneSettingsCutOutModeCb (uint8_t enable, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Settings.CutOutMode --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
-    if (enable != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (MiniDroneSettingsCutOutModeShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -4208,6 +4631,7 @@ void ARCOMMANDS_Testbench_MiniDroneSettingsStateProductMotorsVersionChangedCb (u
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb (char * software, char * hardware, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SettingsState.ProductInertialVersionChanged --> Custom PTR = %p", custom);
@@ -4229,6 +4653,7 @@ void ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_MiniDroneSettingsStateCutOutModeChangedCb (uint8_t enable, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.SettingsState.CutOutModeChanged --> Custom PTR = %p", custom);
@@ -4261,115 +4686,414 @@ void ARCOMMANDS_Testbench_MiniDroneFloodControlStateFloodControlChangedCb (uint1
     }
 }
 
-void ARCOMMANDS_Testbench_MiniDroneGPSControllerLatitudeForRunCb (double latitude, void *custom)
+
+void ARCOMMANDS_Testbench_SkyControllerWifiRequestWifiListCb (void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.GPS.ControllerLatitudeForRun --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
-    if (latitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    if (MiniDroneGPSControllerLatitudeForRunShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneGPSControllerLongitudeForRunCb (double longitude, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.GPS.ControllerLongitudeForRun --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
-    if (longitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    if (MiniDroneGPSControllerLongitudeForRunShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.RequestWifiList --> Custom PTR = %p", custom);
+    if (SkyControllerWifiRequestWifiListShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
-void ARCOMMANDS_Testbench_MiniDroneConfigurationControllerTypeCb (char * type, void *custom)
+void ARCOMMANDS_Testbench_SkyControllerWifiRequestCurrentWifiCb (void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Configuration.ControllerType --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%s>", type);
-    if (strcmp ("Test string with spaces", type) != 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.RequestCurrentWifi --> Custom PTR = %p", custom);
+    if (SkyControllerWifiRequestCurrentWifiShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerWifiConnectToWifiCb (char * bssid, char * ssid, char * passphrase, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.ConnectToWifi --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "bssid value : <%s>", bssid);
+    if (strcmp ("Test string with spaces", bssid) != 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (MiniDroneConfigurationControllerTypeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneConfigurationControllerNameCb (char * name, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Configuration.ControllerName --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
-    if (strcmp ("Test string with spaces", name) != 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
+    if (strcmp ("Test string with spaces", ssid) != 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (MiniDroneConfigurationControllerNameShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "passphrase value : <%s>", passphrase);
+    if (strcmp ("Test string with spaces", passphrase) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerWifiConnectToWifiShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
-
-void ARCOMMANDS_Testbench_MiniDroneDebugDebugTest1Cb (int8_t t1Args, void *custom)
+void ARCOMMANDS_Testbench_SkyControllerWifiForgetWifiCb (char * ssid, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDroneDebug.Debug.Test1 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "t1Args value : <%d>", t1Args);
-    if (t1Args != -42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.ForgetWifi --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
+    if (strcmp ("Test string with spaces", ssid) != 0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (MiniDroneDebugDebugTest1ShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneDebugDebugTest2Cb (int8_t t2Args, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDroneDebug.Debug.Test2 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "t2Args value : <%d>", t2Args);
-    if (t2Args != -42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
-        errcount++ ;
-    }
-    if (MiniDroneDebugDebugTest2ShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_MiniDroneDebugDebugTest3Cb (int8_t t3Args, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDroneDebug.Debug.Test3 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "t3Args value : <%d>", t3Args);
-    if (t3Args != -42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
-        errcount++ ;
-    }
-    if (MiniDroneDebugDebugTest3ShouldBeCalled == 0)
+    if (SkyControllerWifiForgetWifiShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
+void ARCOMMANDS_Testbench_SkyControllerWifiWifiAuthChannelCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.WifiAuthChannel --> Custom PTR = %p", custom);
+    if (SkyControllerWifiWifiAuthChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerDeviceRequestDeviceListCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.RequestDeviceList --> Custom PTR = %p", custom);
+    if (SkyControllerDeviceRequestDeviceListShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerDeviceRequestCurrentDeviceCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.RequestCurrentDevice --> Custom PTR = %p", custom);
+    if (SkyControllerDeviceRequestCurrentDeviceShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerDeviceConnectToDeviceCb (char * deviceName, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.ConnectToDevice --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "deviceName value : <%s>", deviceName);
+    if (strcmp ("Test string with spaces", deviceName) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerDeviceConnectToDeviceShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerSettingsAllSettingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Settings.AllSettings --> Custom PTR = %p", custom);
+    if (SkyControllerSettingsAllSettingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerSettingsResetCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Settings.Reset --> Custom PTR = %p", custom);
+    if (SkyControllerSettingsResetShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerCommonAllStatesCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Common.AllStates --> Custom PTR = %p", custom);
+    if (SkyControllerCommonAllStatesShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointSSIDCb (char * ssid, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.AccessPointSSID --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
+    if (strcmp ("Test string with spaces", ssid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointChannelCb (uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.AccessPointChannel --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsWifiSelectionCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.WifiSelection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerCameraResetOrientationCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Camera.ResetOrientation --> Custom PTR = %p", custom);
+    if (SkyControllerCameraResetOrientationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerGamepadInfosGetGamepadControlsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.GamepadInfos.getGamepadControls --> Custom PTR = %p", custom);
+    if (SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetCurrentButtonMappingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.getCurrentButtonMappings --> Custom PTR = %p", custom);
+    if (SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetAvailableButtonMappingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.getAvailableButtonMappings --> Custom PTR = %p", custom);
+    if (SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerButtonMappingsSetButtonMappingCb (int32_t key_id, char * mapping_uid, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.setButtonMapping --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key_id value : <%d>", key_id);
+    if (key_id != -420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mapping_uid value : <%s>", mapping_uid);
+    if (strcmp ("Test string with spaces", mapping_uid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerButtonMappingsSetButtonMappingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerButtonMappingsDefaultButtonMappingCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.defaultButtonMapping --> Custom PTR = %p", custom);
+    if (SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetCurrentAxisMappingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.getCurrentAxisMappings --> Custom PTR = %p", custom);
+    if (SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetAvailableAxisMappingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.getAvailableAxisMappings --> Custom PTR = %p", custom);
+    if (SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisMappingsSetAxisMappingCb (int32_t axis_id, char * mapping_uid, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.setAxisMapping --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis_id value : <%d>", axis_id);
+    if (axis_id != -420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mapping_uid value : <%s>", mapping_uid);
+    if (strcmp ("Test string with spaces", mapping_uid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerAxisMappingsSetAxisMappingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisMappingsDefaultAxisMappingCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.defaultAxisMapping --> Custom PTR = %p", custom);
+    if (SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetCurrentAxisFiltersCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.getCurrentAxisFilters --> Custom PTR = %p", custom);
+    if (SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetPresetAxisFiltersCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.getPresetAxisFilters --> Custom PTR = %p", custom);
+    if (SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisFiltersSetAxisFilterCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.setAxisFilter --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis_id value : <%d>", axis_id);
+    if (axis_id != -420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "filter_uid_or_builder value : <%s>", filter_uid_or_builder);
+    if (strcmp ("Test string with spaces", filter_uid_or_builder) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerAxisFiltersSetAxisFilterShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerAxisFiltersDefaultAxisFiltersCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.defaultAxisFilters --> Custom PTR = %p", custom);
+    if (SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerCoPilotingSetPilotingSourceCb (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE source, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.CoPiloting.setPilotingSource --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "source value : <%d>", source);
+    if (source != (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0>");
+        errcount++ ;
+    }
+    if (SkyControllerCoPilotingSetPilotingSourceShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCb (uint8_t enable, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Calibration.enableMagnetoCalibrationQualityUpdates --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
+    if (enable != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
 
 void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiListCb (char * bssid, char * ssid, uint8_t secured, uint8_t saved, int32_t rssi, int32_t frequency, void *custom)
 {
@@ -4416,6 +5140,7 @@ void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiListCb (char * bssid, char *
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerWifiStateConnexionChangedCb (char * ssid, eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS status, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.WifiState.ConnexionChanged --> Custom PTR = %p", custom);
@@ -4437,6 +5162,7 @@ void ARCOMMANDS_Testbench_SkyControllerWifiStateConnexionChangedCb (char * ssid,
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiAuthChannelListChangedCb (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.WifiState.WifiAuthChannelListChanged --> Custom PTR = %p", custom);
@@ -4464,6 +5190,7 @@ void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiAuthChannelListChangedCb (eA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerWifiStateAllWifiAuthChannelChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.WifiState.AllWifiAuthChannelChanged --> Custom PTR = %p", custom);
@@ -4473,6 +5200,7 @@ void ARCOMMANDS_Testbench_SkyControllerWifiStateAllWifiAuthChannelChangedCb (voi
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiSignalChangedCb (uint8_t level, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.WifiState.WifiSignalChanged --> Custom PTR = %p", custom);
@@ -4483,110 +5211,6 @@ void ARCOMMANDS_Testbench_SkyControllerWifiStateWifiSignalChangedCb (uint8_t lev
         errcount++ ;
     }
     if (SkyControllerWifiStateWifiSignalChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerWifiRequestWifiListCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.RequestWifiList --> Custom PTR = %p", custom);
-    if (SkyControllerWifiRequestWifiListShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerWifiRequestCurrentWifiCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.RequestCurrentWifi --> Custom PTR = %p", custom);
-    if (SkyControllerWifiRequestCurrentWifiShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerWifiConnectToWifiCb (char * bssid, char * ssid, char * passphrase, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.ConnectToWifi --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "bssid value : <%s>", bssid);
-    if (strcmp ("Test string with spaces", bssid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
-    if (strcmp ("Test string with spaces", ssid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "passphrase value : <%s>", passphrase);
-    if (strcmp ("Test string with spaces", passphrase) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerWifiConnectToWifiShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerWifiForgetWifiCb (char * ssid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.ForgetWifi --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
-    if (strcmp ("Test string with spaces", ssid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerWifiForgetWifiShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerWifiWifiAuthChannelCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Wifi.WifiAuthChannel --> Custom PTR = %p", custom);
-    if (SkyControllerWifiWifiAuthChannelShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerDeviceRequestDeviceListCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.RequestDeviceList --> Custom PTR = %p", custom);
-    if (SkyControllerDeviceRequestDeviceListShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerDeviceRequestCurrentDeviceCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.RequestCurrentDevice --> Custom PTR = %p", custom);
-    if (SkyControllerDeviceRequestCurrentDeviceShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerDeviceConnectToDeviceCb (char * deviceName, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Device.ConnectToDevice --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "deviceName value : <%s>", deviceName);
-    if (strcmp ("Test string with spaces", deviceName) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerDeviceConnectToDeviceShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -4608,6 +5232,7 @@ void ARCOMMANDS_Testbench_SkyControllerDeviceStateDeviceListCb (char * name, voi
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerDeviceStateConnexionChangedCb (eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS status, char * deviceName, uint16_t deviceProductID, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.DeviceState.ConnexionChanged --> Custom PTR = %p", custom);
@@ -4636,25 +5261,6 @@ void ARCOMMANDS_Testbench_SkyControllerDeviceStateConnexionChangedCb (eARCOMMAND
     }
 }
 
-void ARCOMMANDS_Testbench_SkyControllerSettingsAllSettingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Settings.AllSettings --> Custom PTR = %p", custom);
-    if (SkyControllerSettingsAllSettingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerSettingsResetCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Settings.Reset --> Custom PTR = %p", custom);
-    if (SkyControllerSettingsResetShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_SkyControllerSettingsStateAllSettingsChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.AllSettingsChanged --> Custom PTR = %p", custom);
@@ -4664,6 +5270,7 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateAllSettingsChangedCb (void *
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.ResetChanged --> Custom PTR = %p", custom);
@@ -4673,6 +5280,7 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb (void *custom
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb (char * serialNumber, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.ProductSerialChanged --> Custom PTR = %p", custom);
@@ -4688,6 +5296,7 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb (char
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb (eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT variant, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.ProductVariantChanged --> Custom PTR = %p", custom);
@@ -4698,16 +5307,6 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb (eAR
         errcount++ ;
     }
     if (SkyControllerSettingsStateProductVariantChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerCommonAllStatesCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Common.AllStates --> Custom PTR = %p", custom);
-    if (SkyControllerCommonAllStatesShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -4739,6 +5338,7 @@ void ARCOMMANDS_Testbench_SkyControllerSkyControllerStateBatteryChangedCb (uint8
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsFixChangedCb (uint8_t fixed, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SkyControllerState.GpsFixChanged --> Custom PTR = %p", custom);
@@ -4754,6 +5354,7 @@ void ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsFixChangedCb (uint8_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsPositionChangedCb (double latitude, double longitude, double altitude, float heading, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SkyControllerState.GpsPositionChanged --> Custom PTR = %p", custom);
@@ -4788,64 +5389,6 @@ void ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsPositionChangedCb (d
     }
 }
 
-void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointSSIDCb (char * ssid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.AccessPointSSID --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
-    if (strcmp ("Test string with spaces", ssid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointChannelCb (uint8_t channel, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.AccessPointChannel --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
-    if (channel != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsWifiSelectionCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettings.WifiSelection --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
-    if (band != (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
-    if (channel != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointSSIDChangedCb (char * ssid, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettingsState.AccessPointSSIDChanged --> Custom PTR = %p", custom);
@@ -4861,6 +5404,7 @@ void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointSSIDCh
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointChannelChangedCb (uint8_t channel, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettingsState.AccessPointChannelChanged --> Custom PTR = %p", custom);
@@ -4876,6 +5420,7 @@ void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointChanne
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateWifiSelectionChangedCb (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE type, eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGSSTATE_WIFISELECTIONCHANGED_BAND band, uint8_t channel, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AccessPointSettingsState.WifiSelectionChanged --> Custom PTR = %p", custom);
@@ -4898,26 +5443,6 @@ void ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateWifiSelectionChan
         errcount++ ;
     }
     if (SkyControllerAccessPointSettingsStateWifiSelectionChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerCameraResetOrientationCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Camera.ResetOrientation --> Custom PTR = %p", custom);
-    if (SkyControllerCameraResetOrientationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerGamepadInfosGetGamepadControlsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.GamepadInfos.getGamepadControls --> Custom PTR = %p", custom);
-    if (SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -4951,59 +5476,11 @@ void ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateGamepadControlCb (eARCOM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateAllGamepadControlsSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.GamepadInfosState.allGamepadControlsSent --> Custom PTR = %p", custom);
     if (SkyControllerGamepadInfosStateAllGamepadControlsSentShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetCurrentButtonMappingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.getCurrentButtonMappings --> Custom PTR = %p", custom);
-    if (SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetAvailableButtonMappingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.getAvailableButtonMappings --> Custom PTR = %p", custom);
-    if (SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerButtonMappingsSetButtonMappingCb (int32_t key_id, char * mapping_uid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.setButtonMapping --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key_id value : <%d>", key_id);
-    if (key_id != -420000)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mapping_uid value : <%s>", mapping_uid);
-    if (strcmp ("Test string with spaces", mapping_uid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerButtonMappingsSetButtonMappingShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerButtonMappingsDefaultButtonMappingCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappings.defaultButtonMapping --> Custom PTR = %p", custom);
-    if (SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5031,6 +5508,7 @@ void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateCurrentButtonMappingsC
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappingsState.allCurrentButtonMappingsSent --> Custom PTR = %p", custom);
@@ -5040,6 +5518,7 @@ void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllCurrentButtonMappin
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAvailableButtonMappingsCb (char * mapping_uid, char * name, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappingsState.availableButtonMappings --> Custom PTR = %p", custom);
@@ -5061,59 +5540,11 @@ void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAvailableButtonMapping
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.ButtonMappingsState.allAvailableButtonsMappingsSent --> Custom PTR = %p", custom);
     if (SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetCurrentAxisMappingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.getCurrentAxisMappings --> Custom PTR = %p", custom);
-    if (SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetAvailableAxisMappingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.getAvailableAxisMappings --> Custom PTR = %p", custom);
-    if (SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisMappingsSetAxisMappingCb (int32_t axis_id, char * mapping_uid, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.setAxisMapping --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis_id value : <%d>", axis_id);
-    if (axis_id != -420000)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mapping_uid value : <%s>", mapping_uid);
-    if (strcmp ("Test string with spaces", mapping_uid) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerAxisMappingsSetAxisMappingShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisMappingsDefaultAxisMappingCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappings.defaultAxisMapping --> Custom PTR = %p", custom);
-    if (SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5141,6 +5572,7 @@ void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateCurrentAxisMappingsCb (i
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappingsState.allCurrentAxisMappingsSent --> Custom PTR = %p", custom);
@@ -5150,6 +5582,7 @@ void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSe
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAvailableAxisMappingsCb (char * mapping_uid, char * name, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappingsState.availableAxisMappings --> Custom PTR = %p", custom);
@@ -5171,59 +5604,11 @@ void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAvailableAxisMappingsCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisMappingsState.allAvailableAxisMappingsSent --> Custom PTR = %p", custom);
     if (SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetCurrentAxisFiltersCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.getCurrentAxisFilters --> Custom PTR = %p", custom);
-    if (SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetPresetAxisFiltersCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.getPresetAxisFilters --> Custom PTR = %p", custom);
-    if (SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisFiltersSetAxisFilterCb (int32_t axis_id, char * filter_uid_or_builder, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.setAxisFilter --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis_id value : <%d>", axis_id);
-    if (axis_id != -420000)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "filter_uid_or_builder value : <%s>", filter_uid_or_builder);
-    if (strcmp ("Test string with spaces", filter_uid_or_builder) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (SkyControllerAxisFiltersSetAxisFilterShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_SkyControllerAxisFiltersDefaultAxisFiltersCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFilters.defaultAxisFilters --> Custom PTR = %p", custom);
-    if (SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5251,6 +5636,7 @@ void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateCurrentAxisFiltersCb (int
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateAllCurrentFiltersSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFiltersState.allCurrentFiltersSent --> Custom PTR = %p", custom);
@@ -5260,6 +5646,7 @@ void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateAllCurrentFiltersSentCb (
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStatePresetAxisFiltersCb (char * filter_uid, char * name, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFiltersState.presetAxisFilters --> Custom PTR = %p", custom);
@@ -5281,26 +5668,11 @@ void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStatePresetAxisFiltersCb (char
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateAllPresetFiltersSentCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.AxisFiltersState.allPresetFiltersSent --> Custom PTR = %p", custom);
     if (SkyControllerAxisFiltersStateAllPresetFiltersSentShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerCoPilotingSetPilotingSourceCb (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE source, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.CoPiloting.setPilotingSource --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "source value : <%d>", source);
-    if (source != (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0>");
-        errcount++ ;
-    }
-    if (SkyControllerCoPilotingSetPilotingSourceShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5317,22 +5689,6 @@ void ARCOMMANDS_Testbench_SkyControllerCoPilotingStatePilotingSourceCb (eARCOMMA
         errcount++ ;
     }
     if (SkyControllerCoPilotingStatePilotingSourceShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCb (uint8_t enable, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.Calibration.enableMagnetoCalibrationQualityUpdates --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "enable value : <%u>", enable);
-    if (enable != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5372,6 +5728,7 @@ void ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationStateCb
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCb (uint8_t enabled, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.CalibrationState.MagnetoCalibrationQualityUpdatesState --> Custom PTR = %p", custom);
@@ -5399,16 +5756,854 @@ void ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb (void *custom)
 }
 
 
-void ARCOMMANDS_Testbench_SkyControllerDebugDebugTest1Cb (int8_t t1Args, void *custom)
+void ARCOMMANDS_Testbench_UnknownFeature1GeographicRunCb (uint8_t start, uint8_t distance_is_default, float distance, uint8_t elevation_is_default, float elevation, uint8_t azimuth_is_default, float azimuth, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyControllerDebug.Debug.Test1 --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "t1Args value : <%d>", t1Args);
-    if (t1Args != -42)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.geographic_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation_is_default value : <%u>", elevation_is_default);
+    if (elevation_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation value : <%f>", elevation);
+    if (elevation != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth_is_default value : <%u>", azimuth_is_default);
+    if (azimuth_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth value : <%f>", azimuth);
+    if (azimuth != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1GeographicRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1RelativeRunCb (uint8_t start, uint8_t distance_is_default, float distance, uint8_t elevation_is_default, float elevation, uint8_t azimuth_is_default, float azimuth, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.relative_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation_is_default value : <%u>", elevation_is_default);
+    if (elevation_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation value : <%f>", elevation);
+    if (elevation != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth_is_default value : <%u>", azimuth_is_default);
+    if (azimuth_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth value : <%f>", azimuth);
+    if (azimuth != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1RelativeRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1LookAtRunCb (uint8_t start, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.look_at_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (unknown_feature_1LookAtRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1SpiralAnimRunCb (uint8_t start, uint8_t speed_is_default, float speed, uint8_t revolution_nb_is_default, float revolution_number, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.spiral_anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "revolution_nb_is_default value : <%u>", revolution_nb_is_default);
+    if (revolution_nb_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "revolution_number value : <%f>", revolution_number);
+    if (revolution_number != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1SpiralAnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1SwingAnimRunCb (uint8_t start, uint8_t speed_is_default, float speed, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.swing_anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1SwingAnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1BoomerangAnimRunCb (uint8_t start, uint8_t speed_is_default, float speed, uint8_t distance_is_default, float distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.boomerang_anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1BoomerangAnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1CandleAnimRunCb (uint8_t start, uint8_t speed_is_default, float speed, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.candle_anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1CandleAnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1DollySlideAnimRunCb (uint8_t start, uint8_t speed_is_default, float speed, uint8_t angle_is_default, float angle, uint8_t horizontal_distance_is_default, float horizontal_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.dolly_slide_anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "start value : <%u>", start);
+    if (start != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "angle_is_default value : <%u>", angle_is_default);
+    if (angle_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "angle value : <%f>", angle);
+    if (angle != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal_distance_is_default value : <%u>", horizontal_distance_is_default);
+    if (horizontal_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal_distance value : <%f>", horizontal_distance);
+    if (horizontal_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1DollySlideAnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1UserFramingPositionCb (int8_t horizontal, int8_t vertical, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.user_framing_position --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal value : <%d>", horizontal);
+    if (horizontal != -42)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
         errcount++ ;
     }
-    if (SkyControllerDebugDebugTest1ShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical value : <%d>", vertical);
+    if (vertical != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    if (unknown_feature_1UserFramingPositionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1UserGPSDataCb (double latitude, double longitude, float altitude, float horizontal_accuracy, float vertical_accuracy, float north_speed, float east_speed, float down_speed, double timestamp, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.user_GPS_data --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
+    if (latitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
+    if (longitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "altitude value : <%f>", altitude);
+    if (altitude != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal_accuracy value : <%f>", horizontal_accuracy);
+    if (horizontal_accuracy != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_accuracy value : <%f>", vertical_accuracy);
+    if (vertical_accuracy != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "north_speed value : <%f>", north_speed);
+    if (north_speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "east_speed value : <%f>", east_speed);
+    if (east_speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "down_speed value : <%f>", down_speed);
+    if (down_speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "timestamp value : <%f>", timestamp);
+    if (timestamp != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (unknown_feature_1UserGPSDataShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1UserBaroDataCb (float pressure, double timestamp, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.user_baro_data --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "pressure value : <%f>", pressure);
+    if (pressure != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "timestamp value : <%f>", timestamp);
+    if (timestamp != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (unknown_feature_1UserBaroDataShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1LynxDetectionCb (float target_pan, float target_tilt, float change_of_scale, uint8_t confidence_index, uint8_t is_new_selection, uint64_t timestamp, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.lynx_detection --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "target_pan value : <%f>", target_pan);
+    if (target_pan != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "target_tilt value : <%f>", target_tilt);
+    if (target_tilt != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "change_of_scale value : <%f>", change_of_scale);
+    if (change_of_scale != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "confidence_index value : <%u>", confidence_index);
+    if (confidence_index != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "is_new_selection value : <%u>", is_new_selection);
+    if (is_new_selection != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "timestamp value : <%llu>", timestamp);
+    if (timestamp != 420102030405ULL)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420102030405ULL>");
+        errcount++ ;
+    }
+    if (unknown_feature_1LynxDetectionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1AvailabilityCb (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPES_AVAILABLE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.availability --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPES_AVAILABLE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_UNKNOWN_FEATURE_1_TYPES_AVAILABLE)0>");
+        errcount++ ;
+    }
+    if (unknown_feature_1AvailabilityShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1RunCb (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_UNKNOWN_FEATURE_1_TYPE)0>");
+        errcount++ ;
+    }
+    if (unknown_feature_1RunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1GeographicConfigChangedCb (uint8_t distance_is_default, float distance, uint8_t elevation_is_default, float elevation, uint8_t azimuth_is_default, float azimuth, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.geographic_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation_is_default value : <%u>", elevation_is_default);
+    if (elevation_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation value : <%f>", elevation);
+    if (elevation != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth_is_default value : <%u>", azimuth_is_default);
+    if (azimuth_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth value : <%f>", azimuth);
+    if (azimuth != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1GeographicConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1RelativeConfigChangedCb (uint8_t distance_is_default, float distance, uint8_t elevation_is_default, float elevation, uint8_t azimuth_is_default, float azimuth, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.relative_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation_is_default value : <%u>", elevation_is_default);
+    if (elevation_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "elevation value : <%f>", elevation);
+    if (elevation != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth_is_default value : <%u>", azimuth_is_default);
+    if (azimuth_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "azimuth value : <%f>", azimuth);
+    if (azimuth != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1RelativeConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1AnimRunCb (eARCOMMANDS_UNKNOWN_FEATURE_1_ANIM_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.anim_run --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_UNKNOWN_FEATURE_1_ANIM_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_UNKNOWN_FEATURE_1_ANIM_TYPE)0>");
+        errcount++ ;
+    }
+    if (unknown_feature_1AnimRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1SpiralAnimConfigChangedCb (uint8_t speed_is_default, float speed, uint8_t revolution_nb_is_default, float revolution_nb, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.spiral_anim_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "revolution_nb_is_default value : <%u>", revolution_nb_is_default);
+    if (revolution_nb_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "revolution_nb value : <%f>", revolution_nb);
+    if (revolution_nb != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1SpiralAnimConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1SwingAnimConfigChangedCb (uint8_t speed_is_default, float speed, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.swing_anim_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1SwingAnimConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1BoomerangAnimConfigChangedCb (uint8_t speed_is_default, float speed, uint8_t distance_is_default, float distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.boomerang_anim_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance_is_default value : <%u>", distance_is_default);
+    if (distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "distance value : <%f>", distance);
+    if (distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1BoomerangAnimConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1CandleAnimConfigChangedCb (uint8_t speed_is_default, float speed, uint8_t vertical_distance_is_default, float vertical_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.candle_anim_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance_is_default value : <%u>", vertical_distance_is_default);
+    if (vertical_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical_distance value : <%f>", vertical_distance);
+    if (vertical_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1CandleAnimConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1DollySlideAnimConfigChangedCb (uint8_t speed_is_default, float speed, uint8_t angle_is_default, float angle, uint8_t horizontal_distance_is_default, float horizontal_distance, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.dolly_slide_anim_config_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed_is_default value : <%u>", speed_is_default);
+    if (speed_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "speed value : <%f>", speed);
+    if (speed != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "angle_is_default value : <%u>", angle_is_default);
+    if (angle_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "angle value : <%f>", angle);
+    if (angle != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal_distance_is_default value : <%u>", horizontal_distance_is_default);
+    if (horizontal_distance_is_default != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal_distance value : <%f>", horizontal_distance);
+    if (horizontal_distance != 42.125)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42.125>");
+        errcount++ ;
+    }
+    if (unknown_feature_1DollySlideAnimConfigChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_UnknownFeature1UserFramingPositionChangedCb (int8_t horizontal, int8_t vertical, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command unknown_feature_1.user_framing_position_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "horizontal value : <%d>", horizontal);
+    if (horizontal != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "vertical value : <%d>", vertical);
+    if (vertical != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    if (unknown_feature_1UserFramingPositionChangedShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5420,6 +6615,370 @@ void ARCOMMANDS_Testbench_CommonNetworkDisconnectCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Network.Disconnect --> Custom PTR = %p", custom);
     if (commonNetworkDisconnectShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonSettingsAllSettingsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.AllSettings --> Custom PTR = %p", custom);
+    if (commonSettingsAllSettingsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonSettingsResetCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.Reset --> Custom PTR = %p", custom);
+    if (commonSettingsResetShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonSettingsProductNameCb (char * name, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.ProductName --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
+    if (strcmp ("Test string with spaces", name) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonSettingsProductNameShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonSettingsCountryCb (char * code, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.Country --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
+    if (strcmp ("Test string with spaces", code) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonSettingsCountryShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonSettingsAutoCountryCb (uint8_t automatic, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.AutoCountry --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "automatic value : <%u>", automatic);
+    if (automatic != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonSettingsAutoCountryShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonCommonAllStatesCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.AllStates --> Custom PTR = %p", custom);
+    if (commonCommonAllStatesShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonCommonCurrentDateCb (char * date, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.CurrentDate --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "date value : <%s>", date);
+    if (strcmp ("Test string with spaces", date) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonCommonCurrentDateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonCommonCurrentTimeCb (char * time, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.CurrentTime --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "time value : <%s>", time);
+    if (strcmp ("Test string with spaces", time) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonCommonCurrentTimeShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonCommonRebootCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.Reboot --> Custom PTR = %p", custom);
+    if (commonCommonRebootShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonOverHeatSwitchOffCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeat.SwitchOff --> Custom PTR = %p", custom);
+    if (commonOverHeatSwitchOffShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonOverHeatVentilateCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeat.Ventilate --> Custom PTR = %p", custom);
+    if (commonOverHeatVentilateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonControllerIsPilotingCb (uint8_t piloting, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Controller.isPiloting --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "piloting value : <%u>", piloting);
+    if (piloting != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonControllerIsPilotingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb (uint8_t outdoor, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.WifiSettings.OutdoorSetting --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
+    if (outdoor != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonWifiSettingsOutdoorSettingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonMavlinkStartCb (char * filepath, eARCOMMANDS_COMMON_MAVLINK_START_TYPE type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Start --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "filepath value : <%s>", filepath);
+    if (strcmp ("Test string with spaces", filepath) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0>");
+        errcount++ ;
+    }
+    if (commonMavlinkStartShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonMavlinkPauseCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Pause --> Custom PTR = %p", custom);
+    if (commonMavlinkPauseShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonMavlinkStopCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Stop --> Custom PTR = %p", custom);
+    if (commonMavlinkStopShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonCalibrationMagnetoCalibrationCb (uint8_t calibrate, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Calibration.MagnetoCalibration --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "calibrate value : <%u>", calibrate);
+    if (calibrate != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonCalibrationMagnetoCalibrationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonGPSControllerPositionForRunCb (double latitude, double longitude, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.GPS.ControllerPositionForRun --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
+    if (latitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
+    if (longitude != -42.000001)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
+        errcount++ ;
+    }
+    if (commonGPSControllerPositionForRunShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonAudioControllerReadyForStreamingCb (uint8_t ready, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Audio.ControllerReadyForStreaming --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ready value : <%u>", ready);
+    if (ready != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonAudioControllerReadyForStreamingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonHeadlightsIntensityCb (uint8_t left, uint8_t right, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Headlights.intensity --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "left value : <%u>", left);
+    if (left != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "right value : <%u>", right);
+    if (right != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (commonHeadlightsIntensityShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonAnimationsStartAnimationCb (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM anim, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StartAnimation --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "anim value : <%d>", anim);
+    if (anim != (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0>");
+        errcount++ ;
+    }
+    if (commonAnimationsStartAnimationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonAnimationsStopAnimationCb (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM anim, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StopAnimation --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "anim value : <%d>", anim);
+    if (anim != (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0>");
+        errcount++ ;
+    }
+    if (commonAnimationsStopAnimationShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonAnimationsStopAllAnimationsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StopAllAnimations --> Custom PTR = %p", custom);
+    if (commonAnimationsStopAllAnimationsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonAccessoryConfigCb (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY accessory, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Accessory.Config --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "accessory value : <%d>", accessory);
+    if (accessory != (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0>");
+        errcount++ ;
+    }
+    if (commonAccessoryConfigShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonChargerSetMaxChargeRateCb (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE rate, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Charger.SetMaxChargeRate --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "rate value : <%d>", rate);
+    if (rate != (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0>");
+        errcount++ ;
+    }
+    if (commonChargerSetMaxChargeRateShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -5442,70 +7001,6 @@ void ARCOMMANDS_Testbench_CommonNetworkEventDisconnectionCb (eARCOMMANDS_COMMON_
     }
 }
 
-void ARCOMMANDS_Testbench_CommonSettingsAllSettingsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.AllSettings --> Custom PTR = %p", custom);
-    if (commonSettingsAllSettingsShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonSettingsResetCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.Reset --> Custom PTR = %p", custom);
-    if (commonSettingsResetShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonSettingsProductNameCb (char * name, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.ProductName --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
-    if (strcmp ("Test string with spaces", name) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonSettingsProductNameShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonSettingsCountryCb (char * code, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.Country --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
-    if (strcmp ("Test string with spaces", code) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonSettingsCountryShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonSettingsAutoCountryCb (uint8_t automatic, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Settings.AutoCountry --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "automatic value : <%u>", automatic);
-    if (automatic != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonSettingsAutoCountryShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonSettingsStateAllSettingsChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.AllSettingsChanged --> Custom PTR = %p", custom);
@@ -5515,6 +7010,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateAllSettingsChangedCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateResetChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.ResetChanged --> Custom PTR = %p", custom);
@@ -5524,6 +7020,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateResetChangedCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateProductNameChangedCb (char * name, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.ProductNameChanged --> Custom PTR = %p", custom);
@@ -5539,6 +7036,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateProductNameChangedCb (char * name, 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateProductVersionChangedCb (char * software, char * hardware, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.ProductVersionChanged --> Custom PTR = %p", custom);
@@ -5560,6 +7058,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateProductVersionChangedCb (char * sof
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateProductSerialHighChangedCb (char * high, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.ProductSerialHighChanged --> Custom PTR = %p", custom);
@@ -5575,6 +7074,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateProductSerialHighChangedCb (char * 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateProductSerialLowChangedCb (char * low, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.ProductSerialLowChanged --> Custom PTR = %p", custom);
@@ -5590,6 +7090,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateProductSerialLowChangedCb (char * l
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateCountryChangedCb (char * code, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.CountryChanged --> Custom PTR = %p", custom);
@@ -5605,6 +7106,7 @@ void ARCOMMANDS_Testbench_CommonSettingsStateCountryChangedCb (char * code, void
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonSettingsStateAutoCountryChangedCb (uint8_t automatic, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.SettingsState.AutoCountryChanged --> Custom PTR = %p", custom);
@@ -5621,55 +7123,6 @@ void ARCOMMANDS_Testbench_CommonSettingsStateAutoCountryChangedCb (uint8_t autom
     }
 }
 
-void ARCOMMANDS_Testbench_CommonCommonAllStatesCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.AllStates --> Custom PTR = %p", custom);
-    if (commonCommonAllStatesShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonCommonCurrentDateCb (char * date, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.CurrentDate --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "date value : <%s>", date);
-    if (strcmp ("Test string with spaces", date) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonCommonCurrentDateShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonCommonCurrentTimeCb (char * time, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.CurrentTime --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "time value : <%s>", time);
-    if (strcmp ("Test string with spaces", time) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonCommonCurrentTimeShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonCommonRebootCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Common.Reboot --> Custom PTR = %p", custom);
-    if (commonCommonRebootShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonCommonStateAllStatesChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.AllStatesChanged --> Custom PTR = %p", custom);
@@ -5679,6 +7132,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateAllStatesChangedCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateBatteryStateChangedCb (uint8_t percent, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.BatteryStateChanged --> Custom PTR = %p", custom);
@@ -5694,6 +7148,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateBatteryStateChangedCb (uint8_t percen
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateMassStorageStateListChangedCb (uint8_t mass_storage_id, char * name, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.MassStorageStateListChanged --> Custom PTR = %p", custom);
@@ -5715,6 +7170,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateMassStorageStateListChangedCb (uint8_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateMassStorageInfoStateListChangedCb (uint8_t mass_storage_id, uint32_t size, uint32_t used_size, uint8_t plugged, uint8_t full, uint8_t internal, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.MassStorageInfoStateListChanged --> Custom PTR = %p", custom);
@@ -5760,6 +7216,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateMassStorageInfoStateListChangedCb (ui
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateCurrentDateChangedCb (char * date, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.CurrentDateChanged --> Custom PTR = %p", custom);
@@ -5775,6 +7232,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateCurrentDateChangedCb (char * date, vo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateCurrentTimeChangedCb (char * time, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.CurrentTimeChanged --> Custom PTR = %p", custom);
@@ -5790,6 +7248,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateCurrentTimeChangedCb (char * time, vo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateMassStorageInfoRemainingListChangedCb (uint32_t free_space, uint16_t rec_time, uint32_t photo_remaining, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.MassStorageInfoRemainingListChanged --> Custom PTR = %p", custom);
@@ -5817,6 +7276,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateMassStorageInfoRemainingListChangedCb
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateWifiSignalChangedCb (int16_t rssi, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.WifiSignalChanged --> Custom PTR = %p", custom);
@@ -5832,6 +7292,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateWifiSignalChangedCb (int16_t rssi, vo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateSensorsStatesListChangedCb (eARCOMMANDS_COMMON_COMMONSTATE_SENSORSSTATESLISTCHANGED_SENSORNAME sensorName, uint8_t sensorState, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.SensorsStatesListChanged --> Custom PTR = %p", custom);
@@ -5853,6 +7314,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateSensorsStatesListChangedCb (eARCOMMAN
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateProductModelCb (eARCOMMANDS_COMMON_COMMONSTATE_PRODUCTMODEL_MODEL model, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.ProductModel --> Custom PTR = %p", custom);
@@ -5868,6 +7330,7 @@ void ARCOMMANDS_Testbench_CommonCommonStateProductModelCb (eARCOMMANDS_COMMON_CO
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb (uint8_t listFlags, char * countryCodes, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CommonState.CountryListKnown --> Custom PTR = %p", custom);
@@ -5890,25 +7353,6 @@ void ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb (uint8_t listFlags
     }
 }
 
-void ARCOMMANDS_Testbench_CommonOverHeatSwitchOffCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeat.SwitchOff --> Custom PTR = %p", custom);
-    if (commonOverHeatSwitchOffShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonOverHeatVentilateCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeat.Ventilate --> Custom PTR = %p", custom);
-    if (commonOverHeatVentilateShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeatState.OverHeatChanged --> Custom PTR = %p", custom);
@@ -5918,6 +7362,7 @@ void ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatChangedCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatRegulationChangedCb (uint8_t regulationType, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.OverHeatState.OverHeatRegulationChanged --> Custom PTR = %p", custom);
@@ -5934,38 +7379,6 @@ void ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatRegulationChangedCb (uint8_
     }
 }
 
-void ARCOMMANDS_Testbench_CommonControllerIsPilotingCb (uint8_t piloting, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Controller.isPiloting --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "piloting value : <%u>", piloting);
-    if (piloting != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonControllerIsPilotingShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb (uint8_t outdoor, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.WifiSettings.OutdoorSetting --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "outdoor value : <%u>", outdoor);
-    if (outdoor != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonWifiSettingsOutdoorSettingShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonWifiSettingsStateOutdoorSettingsChangedCb (uint8_t outdoor, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.WifiSettingsState.outdoorSettingsChanged --> Custom PTR = %p", custom);
@@ -5976,46 +7389,6 @@ void ARCOMMANDS_Testbench_CommonWifiSettingsStateOutdoorSettingsChangedCb (uint8
         errcount++ ;
     }
     if (commonWifiSettingsStateOutdoorSettingsChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonMavlinkStartCb (char * filepath, eARCOMMANDS_COMMON_MAVLINK_START_TYPE type, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Start --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "filepath value : <%s>", filepath);
-    if (strcmp ("Test string with spaces", filepath) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0>");
-        errcount++ ;
-    }
-    if (commonMavlinkStartShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonMavlinkPauseCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Pause --> Custom PTR = %p", custom);
-    if (commonMavlinkPauseShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonMavlinkStopCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Mavlink.Stop --> Custom PTR = %p", custom);
-    if (commonMavlinkStopShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6049,6 +7422,7 @@ void ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkFilePlayingStateChangedCb (eA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkPlayErrorStateChangedCb (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKPLAYERRORSTATECHANGED_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.MavlinkState.MavlinkPlayErrorStateChanged --> Custom PTR = %p", custom);
@@ -6059,22 +7433,6 @@ void ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkPlayErrorStateChangedCb (eARC
         errcount++ ;
     }
     if (commonMavlinkStateMavlinkPlayErrorStateChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonCalibrationMagnetoCalibrationCb (uint8_t calibrate, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Calibration.MagnetoCalibration --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "calibrate value : <%u>", calibrate);
-    if (calibrate != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonCalibrationMagnetoCalibrationShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6114,6 +7472,7 @@ void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationStateChangedCb
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationRequiredStateCb (uint8_t required, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CalibrationState.MagnetoCalibrationRequiredState --> Custom PTR = %p", custom);
@@ -6129,6 +7488,7 @@ void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationRequiredStateC
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCb (eARCOMMANDS_COMMON_CALIBRATIONSTATE_MAGNETOCALIBRATIONAXISTOCALIBRATECHANGED_AXIS axis, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CalibrationState.MagnetoCalibrationAxisToCalibrateChanged --> Custom PTR = %p", custom);
@@ -6144,6 +7504,7 @@ void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationAxisToCalibrat
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationStartedChangedCb (uint8_t started, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.CalibrationState.MagnetoCalibrationStartedChanged --> Custom PTR = %p", custom);
@@ -6200,28 +7561,6 @@ void ARCOMMANDS_Testbench_CommonCameraSettingsStateCameraSettingsChangedCb (floa
     }
 }
 
-void ARCOMMANDS_Testbench_CommonGPSControllerPositionForRunCb (double latitude, double longitude, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.GPS.ControllerPositionForRun --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "latitude value : <%f>", latitude);
-    if (latitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "longitude value : <%f>", longitude);
-    if (longitude != -42.000001)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42.000001>");
-        errcount++ ;
-    }
-    if (commonGPSControllerPositionForRunShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonFlightPlanStateAvailabilityStateChangedCb (uint8_t AvailabilityState, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.FlightPlanState.AvailabilityStateChanged --> Custom PTR = %p", custom);
@@ -6237,6 +7576,7 @@ void ARCOMMANDS_Testbench_CommonFlightPlanStateAvailabilityStateChangedCb (uint8
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonFlightPlanStateComponentStateListChangedCb (eARCOMMANDS_COMMON_FLIGHTPLANSTATE_COMPONENTSTATELISTCHANGED_COMPONENT component, uint8_t State, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.FlightPlanState.ComponentStateListChanged --> Custom PTR = %p", custom);
@@ -6268,6 +7608,7 @@ void ARCOMMANDS_Testbench_CommonFlightPlanEventStartingErrorEventCb (void *custo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonFlightPlanEventSpeedBridleEventCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.FlightPlanEvent.SpeedBridleEvent --> Custom PTR = %p", custom);
@@ -6293,6 +7634,7 @@ void ARCOMMANDS_Testbench_CommonARLibsVersionsStateControllerLibARCommandsVersio
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionCb (char * version, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ARLibsVersionsState.SkyControllerLibARCommandsVersion --> Custom PTR = %p", custom);
@@ -6308,6 +7650,7 @@ void ARCOMMANDS_Testbench_CommonARLibsVersionsStateSkyControllerLibARCommandsVer
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonARLibsVersionsStateDeviceLibARCommandsVersionCb (char * version, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ARLibsVersionsState.DeviceLibARCommandsVersion --> Custom PTR = %p", custom);
@@ -6318,22 +7661,6 @@ void ARCOMMANDS_Testbench_CommonARLibsVersionsStateDeviceLibARCommandsVersionCb 
         errcount++ ;
     }
     if (commonARLibsVersionsStateDeviceLibARCommandsVersionShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonAudioControllerReadyForStreamingCb (uint8_t ready, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Audio.ControllerReadyForStreaming --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ready value : <%u>", ready);
-    if (ready != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonAudioControllerReadyForStreamingShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6356,28 +7683,6 @@ void ARCOMMANDS_Testbench_CommonAudioStateAudioStreamingRunningCb (uint8_t runni
     }
 }
 
-void ARCOMMANDS_Testbench_CommonHeadlightsIntensityCb (uint8_t left, uint8_t right, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Headlights.intensity --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "left value : <%u>", left);
-    if (left != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "right value : <%u>", right);
-    if (right != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    if (commonHeadlightsIntensityShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonHeadlightsStateIntensityChangedCb (uint8_t left, uint8_t right, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.HeadlightsState.intensityChanged --> Custom PTR = %p", custom);
@@ -6394,46 +7699,6 @@ void ARCOMMANDS_Testbench_CommonHeadlightsStateIntensityChangedCb (uint8_t left,
         errcount++ ;
     }
     if (commonHeadlightsStateIntensityChangedShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonAnimationsStartAnimationCb (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM anim, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StartAnimation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "anim value : <%d>", anim);
-    if (anim != (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0>");
-        errcount++ ;
-    }
-    if (commonAnimationsStartAnimationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonAnimationsStopAnimationCb (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM anim, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StopAnimation --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "anim value : <%d>", anim);
-    if (anim != (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0>");
-        errcount++ ;
-    }
-    if (commonAnimationsStopAnimationShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-void ARCOMMANDS_Testbench_CommonAnimationsStopAllAnimationsCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Animations.StopAllAnimations --> Custom PTR = %p", custom);
-    if (commonAnimationsStopAllAnimationsShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6468,22 +7733,6 @@ void ARCOMMANDS_Testbench_CommonAnimationsStateListCb (eARCOMMANDS_COMMON_ANIMAT
     }
 }
 
-void ARCOMMANDS_Testbench_CommonAccessoryConfigCb (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY accessory, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Accessory.Config --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "accessory value : <%d>", accessory);
-    if (accessory != (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0>");
-        errcount++ ;
-    }
-    if (commonAccessoryConfigShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
 void ARCOMMANDS_Testbench_CommonAccessoryStateSupportedAccessoriesListChangedCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY accessory, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.AccessoryState.SupportedAccessoriesListChanged --> Custom PTR = %p", custom);
@@ -6499,6 +7748,7 @@ void ARCOMMANDS_Testbench_CommonAccessoryStateSupportedAccessoriesListChangedCb 
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigChangedCb (eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY newAccessory, eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_ERROR error, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.AccessoryState.AccessoryConfigChanged --> Custom PTR = %p", custom);
@@ -6520,6 +7770,7 @@ void ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigChangedCb (eARCOMMA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigModificationEnabledCb (uint8_t enabled, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.AccessoryState.AccessoryConfigModificationEnabled --> Custom PTR = %p", custom);
@@ -6530,22 +7781,6 @@ void ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigModificationEnabled
         errcount++ ;
     }
     if (commonAccessoryStateAccessoryConfigModificationEnabledShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonChargerSetMaxChargeRateCb (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE rate, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.Charger.SetMaxChargeRate --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "rate value : <%d>", rate);
-    if (rate != (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0>");
-        errcount++ ;
-    }
-    if (commonChargerSetMaxChargeRateShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6567,6 +7802,7 @@ void ARCOMMANDS_Testbench_CommonChargerStateMaxChargeRateChangedCb (eARCOMMANDS_
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonChargerStateCurrentChargeStateChangedCb (eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_STATUS status, eARCOMMANDS_COMMON_CHARGERSTATE_CURRENTCHARGESTATECHANGED_PHASE phase, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ChargerState.CurrentChargeStateChanged --> Custom PTR = %p", custom);
@@ -6588,6 +7824,7 @@ void ARCOMMANDS_Testbench_CommonChargerStateCurrentChargeStateChangedCb (eARCOMM
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonChargerStateLastChargeRateChangedCb (eARCOMMANDS_COMMON_CHARGERSTATE_LASTCHARGERATECHANGED_RATE rate, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ChargerState.LastChargeRateChanged --> Custom PTR = %p", custom);
@@ -6603,6 +7840,7 @@ void ARCOMMANDS_Testbench_CommonChargerStateLastChargeRateChangedCb (eARCOMMANDS
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonChargerStateChargingInfoCb (eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_PHASE phase, eARCOMMANDS_COMMON_CHARGERSTATE_CHARGINGINFO_RATE rate, uint8_t intensity, uint8_t fullChargingTime, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command common.ChargerState.ChargingInfo --> Custom PTR = %p", custom);
@@ -6669,6 +7907,7 @@ void ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb (char * packet, void *cus
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb (uint8_t frequency, uint8_t packetSize, uint32_t date, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.Stats.StartSendingPacketFromDrone --> Custom PTR = %p", custom);
@@ -6696,26 +7935,11 @@ void ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb (uint8_t
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonDebugStatsStopSendingPacketFromDroneCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.Stats.StopSendingPacketFromDrone --> Custom PTR = %p", custom);
     if (commonDebugStatsStopSendingPacketFromDroneShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb (char * packet, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.StatsEvent.SendPacket --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "packet value : <%s>", packet);
-    if (strcmp ("Test string with spaces", packet) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonDebugStatsEventSendPacketShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6731,6 +7955,7 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsGetAllCb (void *custom)
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb (uint16_t id, char * value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettings.Set --> Custom PTR = %p", custom);
@@ -6747,6 +7972,22 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb (uint16_t id, char * val
         errcount++ ;
     }
     if (commonDebugDebugSettingsSetShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb (char * packet, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.StatsEvent.SendPacket --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "packet value : <%s>", packet);
+    if (strcmp ("Test string with spaces", packet) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (commonDebugStatsEventSendPacketShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -6816,6 +8057,7 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb (uint8_t listFlags
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateListChangedCb (uint16_t id, char * value, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettingsState.ListChanged --> Custom PTR = %p", custom);
@@ -6854,6 +8096,7 @@ void ARCOMMANDS_Testbench_ProProBoughtFeaturesCb (uint64_t features, void *custo
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ProProResponseCb (uint8_t listFlags, char * signedChallenge, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command pro.Pro.Response --> Custom PTR = %p", custom);
@@ -6875,6 +8118,7 @@ void ARCOMMANDS_Testbench_ProProResponseCb (uint8_t listFlags, char * signedChal
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ProProActivateFeaturesCb (uint64_t features, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command pro.Pro.ActivateFeatures --> Custom PTR = %p", custom);
@@ -6912,6 +8156,7 @@ void ARCOMMANDS_Testbench_ProProStateSupportedFeaturesCb (eARCOMMANDS_PRO_PROSTA
         errcount++ ;
     }
 }
+
 void ARCOMMANDS_Testbench_ProProStateFeaturesActivatedCb (uint64_t features, void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command pro.ProState.FeaturesActivated --> Custom PTR = %p", custom);
@@ -6945,10 +8190,310 @@ void ARCOMMANDS_Testbench_ProProEventChallengeEventCb (char * challenge, void *c
 }
 
 
+void ARCOMMANDS_Testbench_WifiScanCb (uint8_t band, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.scan --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%u>", band);
+    if (band != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (wifiScanShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiUpdateAuthorizedChannelsCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.update_authorized_channels --> Custom PTR = %p", custom);
+    if (wifiUpdateAuthorizedChannelsShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiSetApChannelCb (eARCOMMANDS_WIFI_SELECTION_TYPE type, eARCOMMANDS_WIFI_BAND band, uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_ap_channel --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_WIFI_SELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_SELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_WIFI_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (wifiSetApChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiSetSecurityCb (eARCOMMANDS_WIFI_SECURITY_TYPE type, char * key, eARCOMMANDS_WIFI_SECURITY_KEY_TYPE key_type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_security --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_WIFI_SECURITY_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_SECURITY_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key_type value : <%d>", key_type);
+    if (key_type != (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)0>");
+        errcount++ ;
+    }
+    if (wifiSetSecurityShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiSetCountryCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_country --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "selection_mode value : <%d>", selection_mode);
+    if (selection_mode != (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_COUNTRY_SELECTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
+    if (strcmp ("Test string with spaces", code) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (wifiSetCountryShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiSetEnvironementCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.set_environement --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%d>", environement);
+    if (environement != (eARCOMMANDS_WIFI_ENVIRONEMENT)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONEMENT)0>");
+        errcount++ ;
+    }
+    if (wifiSetEnvironementShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiScannedItemCb (char * ssid, int16_t rssi, eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.scanned_item --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "ssid value : <%s>", ssid);
+    if (strcmp ("Test string with spaces", ssid) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "rssi value : <%d>", rssi);
+    if (rssi != -4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_WIFI_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (wifiScannedItemShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiAuthorizedChannelCb (eARCOMMANDS_WIFI_BAND band, uint8_t channel, uint8_t environement, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.authorized_channel --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_WIFI_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%u>", environement);
+    if (environement != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (wifiAuthorizedChannelShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiApChannelChangedCb (eARCOMMANDS_WIFI_SELECTION_TYPE type, eARCOMMANDS_WIFI_BAND band, uint8_t channel, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.ap_channel_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
+    if (type != (eARCOMMANDS_WIFI_SELECTION_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_SELECTION_TYPE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "band value : <%d>", band);
+    if (band != (eARCOMMANDS_WIFI_BAND)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_BAND)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "channel value : <%u>", channel);
+    if (channel != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (wifiApChannelChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiSecurityChangedCb (char * key, eARCOMMANDS_WIFI_SECURITY_TYPE key_type, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.security_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key_type value : <%d>", key_type);
+    if (key_type != (eARCOMMANDS_WIFI_SECURITY_TYPE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_SECURITY_TYPE)0>");
+        errcount++ ;
+    }
+    if (wifiSecurityChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiCountryChangedCb (eARCOMMANDS_WIFI_COUNTRY_SELECTION selection_mode, char * code, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.country_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "selection_mode value : <%d>", selection_mode);
+    if (selection_mode != (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_COUNTRY_SELECTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "code value : <%s>", code);
+    if (strcmp ("Test string with spaces", code) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (wifiCountryChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiEnvironementChangedCb (eARCOMMANDS_WIFI_ENVIRONEMENT environement, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.environement_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "environement value : <%d>", environement);
+    if (environement != (eARCOMMANDS_WIFI_ENVIRONEMENT)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_WIFI_ENVIRONEMENT)0>");
+        errcount++ ;
+    }
+    if (wifiEnvironementChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_WifiRssiChangedCb (int16_t rssi, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command wifi.rssi_changed --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "rssi value : <%d>", rssi);
+    if (rssi != -4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-4200>");
+        errcount++ ;
+    }
+    if (wifiRssiChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+
 
 void ARCOMMANDS_Testbench_InitCb (void)
 {
     intptr_t cbCustom = 0;
+    ARCOMMANDS_Decoder_SetGenericDefaultCallback ((ARCOMMANDS_Decoder_GenericDefaultCallback_t) ARCOMMANDS_Testbench_GenericDefaultCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingFlatTrimCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingFlatTrimCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingFlatTrimCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingTakeOffCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingTakeOffCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingTakeOffCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingPCMDCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingPCMDCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingPCMDCb, (void *)cbCustom++ );
@@ -6957,12 +8502,55 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingNavigateHomeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingNavigateHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingNavigateHomeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingAutoTakeOffModeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingAutoTakeOffModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingAutoTakeOffModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingMoveByCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingMoveByCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingMoveByCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingUserTakeOffCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingUserTakeOffCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingUserTakeOffCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingCircleCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingCircleCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingCircleCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AnimationsFlipCallback ((ARCOMMANDS_Decoder_ARDrone3AnimationsFlipCallback_t) ARCOMMANDS_Testbench_ARDrone3AnimationsFlipCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3CameraOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraOrientationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordPictureCallback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordPictureCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordVideoCallback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordVideoCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordPictureV2Callback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordPictureV2Callback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordPictureV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordVideoV2Callback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordVideoV2Callback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordVideoV2Cb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiScanCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiScanCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiScanCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiAuthChannelCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxAltitudeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxAltitudeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxAltitudeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxTiltCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxTiltCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxTiltCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsAbsolutControlCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsAbsolutControlCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsAbsolutControlCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxDistanceCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxDistanceCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxDistanceCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsBankedTurnCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsBankedTurnCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsBankedTurnCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMinAltitudeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMinAltitudeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMinAltitudeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingDirectionCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingDirectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingDirectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingRadiusCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingRadiusCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingRadiusCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsCirclingAltitudeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsCirclingAltitudeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsCirclingAltitudeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsPitchModeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsPitchModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsPitchModeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsLandingModeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsLandingModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsLandingModeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxVerticalSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsHullProtectionCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsHullProtectionCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsOutdoorCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsOutdoorCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxPitchRollRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxPitchRollRotationSpeedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsPictureFormatSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsPictureFormatSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsPictureFormatSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsExpositionSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsExpositionSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsExpositionSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsSaturationSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsSaturationSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsSaturationSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsTimelapseSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsTimelapseSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsTimelapseSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoAutorecordSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoAutorecordSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoStabilizationModeCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoStabilizationModeCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoStabilizationModeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback ((ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaStreamingVideoEnableCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsSetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsSetHomeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsResetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsResetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsResetHomeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSendControllerGPSCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsSendControllerGPSCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsSendControllerGPSCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsHomeTypeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsHomeTypeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsHomeTypeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsReturnHomeDelayCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsReturnHomeDelayCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsReturnHomeDelayCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3AntiflickeringElectricFrequencyCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringElectricFrequencyCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringElectricFrequencyCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3AntiflickeringSetModeCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringSetModeCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringSetModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordStatePictureStateChangedCallback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordStatePictureStateChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordStatePictureStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordStateVideoStateChangedCallback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordStateVideoStateChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordStateVideoStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaRecordStatePictureStateChangedV2Callback ((ARCOMMANDS_Decoder_ARDrone3MediaRecordStatePictureStateChangedV2Callback_t) ARCOMMANDS_Testbench_ARDrone3MediaRecordStatePictureStateChangedV2Cb, (void *)cbCustom++ );
@@ -6979,22 +8567,10 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingStateAutoTakeOffModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingStateAutoTakeOffModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingStateAutoTakeOffModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingStateAltitudeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingStateAltitudeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingStateAltitudeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingEventMoveByEndCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingEventMoveByEndCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingEventMoveByEndCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiScanCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiScanCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiScanCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkWifiAuthChannelCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkWifiAuthChannelCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkWifiAuthChannelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateWifiScanListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiScanListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiScanListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateAllWifiScanChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateAllWifiScanChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiScanChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateWifiAuthChannelListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateWifiAuthChannelListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateWifiAuthChannelListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkStateAllWifiAuthChannelChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkStateAllWifiAuthChannelChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkStateAllWifiAuthChannelChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxAltitudeCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxAltitudeCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxAltitudeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxTiltCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxTiltCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxTiltCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsAbsolutControlCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsAbsolutControlCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsAbsolutControlCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsMaxDistanceCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsMaxDistanceCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsMaxDistanceCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsNoFlyOverMaxDistanceCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateMaxAltitudeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateMaxAltitudeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxAltitudeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateMaxTiltChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateMaxTiltChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMaxTiltChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAbsolutControlChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAbsolutControlChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAbsolutControlChangedCb, (void *)cbCustom++ );
@@ -7005,18 +8581,21 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxHorizontalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxVerticalAccelerationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateAutonomousFlightMaxRotationSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxVerticalSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsHullProtectionCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsHullProtectionCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsHullProtectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsOutdoorCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsOutdoorCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsOutdoorCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateBankedTurnChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateBankedTurnChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateBankedTurnChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateMinAltitudeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateMinAltitudeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateMinAltitudeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingDirectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingDirectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingDirectionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingRadiusChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingRadiusChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingRadiusChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateCirclingAltitudeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStatePitchModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStatePitchModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStatePitchModeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PilotingSettingsStateLandingModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PilotingSettingsStateLandingModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PilotingSettingsStateLandingModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateHullProtectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateHullProtectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateHullProtectionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateOutdoorChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateOutdoorChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateOutdoorChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsWifiSecurityCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityChangedCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3NetworkSettingsStateWifiSecurityCallback ((ARCOMMANDS_Decoder_ARDrone3NetworkSettingsStateWifiSecurityCallback_t) ARCOMMANDS_Testbench_ARDrone3NetworkSettingsStateWifiSecurityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductMotorVersionListChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateProductMotorVersionListChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateProductMotorVersionListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateProductGPSVersionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateProductGPSVersionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateProductGPSVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorErrorStateChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateMotorErrorStateChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorStateChangedCb, (void *)cbCustom++ );
@@ -7024,25 +8603,14 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorFlightsStatusChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateMotorFlightsStatusChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorFlightsStatusChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateMotorErrorLastErrorChangedCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateMotorErrorLastErrorChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateMotorErrorLastErrorChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3SettingsStateP7IDCallback ((ARCOMMANDS_Decoder_ARDrone3SettingsStateP7IDCallback_t) ARCOMMANDS_Testbench_ARDrone3SettingsStateP7IDCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsPictureFormatSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsPictureFormatSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsPictureFormatSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsAutoWhiteBalanceSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsExpositionSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsExpositionSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsExpositionSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsSaturationSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsSaturationSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsSaturationSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsTimelapseSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsTimelapseSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsTimelapseSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsVideoAutorecordSelectionCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsVideoAutorecordSelectionCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsVideoAutorecordSelectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStatePictureFormatChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStatePictureFormatChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStatePictureFormatChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateAutoWhiteBalanceChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateAutoWhiteBalanceChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateAutoWhiteBalanceChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateExpositionChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateExpositionChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateExpositionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateSaturationChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateSaturationChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateSaturationChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateTimelapseChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateTimelapseChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateTimelapseChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoAutorecordChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoAutorecordChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoAutorecordChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3MediaStreamingVideoEnableCallback ((ARCOMMANDS_Decoder_ARDrone3MediaStreamingVideoEnableCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaStreamingVideoEnableCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3PictureSettingsStateVideoStabilizationModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3MediaStreamingStateVideoEnableChangedCallback ((ARCOMMANDS_Decoder_ARDrone3MediaStreamingStateVideoEnableChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3MediaStreamingStateVideoEnableChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsSetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsSetHomeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsResetHomeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsResetHomeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsResetHomeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsSendControllerGPSCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsSendControllerGPSCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsSendControllerGPSCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsHomeTypeCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsHomeTypeCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsHomeTypeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3GPSSettingsReturnHomeDelayCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsReturnHomeDelayCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsReturnHomeDelayCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateHomeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateHomeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateHomeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateResetHomeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateResetHomeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateResetHomeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateGPSFixStateChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateGPSFixStateChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateGPSFixStateChangedCb, (void *)cbCustom++ );
@@ -7051,127 +8619,103 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetARDrone3GPSSettingsStateReturnHomeDelayChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSSettingsStateReturnHomeDelayChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSSettingsStateReturnHomeDelayChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3CameraStateOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraStateOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraStateOrientationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3CameraStateDefaultCameraOrientationCallback ((ARCOMMANDS_Decoder_ARDrone3CameraStateDefaultCameraOrientationCallback_t) ARCOMMANDS_Testbench_ARDrone3CameraStateDefaultCameraOrientationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3AntiflickeringElectricFrequencyCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringElectricFrequencyCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringElectricFrequencyCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3AntiflickeringSetModeCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringSetModeCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringSetModeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringStateElectricFrequencyChangedCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringStateElectricFrequencyChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateElectricFrequencyChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3AntiflickeringStateModeChangedCallback ((ARCOMMANDS_Decoder_ARDrone3AntiflickeringStateModeChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3AntiflickeringStateModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSStateNumberOfSatelliteChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSStateNumberOfSatelliteChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSStateNumberOfSatelliteChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSStateHomeTypeAvailabilityChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSStateHomeTypeAvailabilityChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSStateHomeTypeAvailabilityChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3GPSStateHomeTypeChosenChangedCallback ((ARCOMMANDS_Decoder_ARDrone3GPSStateHomeTypeChosenChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3GPSStateHomeTypeChosenChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetARDrone3PROStateFeaturesCallback ((ARCOMMANDS_Decoder_ARDrone3PROStateFeaturesCallback_t) ARCOMMANDS_Testbench_ARDrone3PROStateFeaturesCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugVideoEnableWobbleCancellationCallback ((ARCOMMANDS_Decoder_ARDrone3DebugVideoEnableWobbleCancellationCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugVideoEnableWobbleCancellationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugVideoSyncAnglesGyrosCallback ((ARCOMMANDS_Decoder_ARDrone3DebugVideoSyncAnglesGyrosCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugVideoSyncAnglesGyrosCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugVideoManualWhiteBalanceCallback ((ARCOMMANDS_Decoder_ARDrone3DebugVideoManualWhiteBalanceCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugVideoManualWhiteBalanceCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugBatteryDebugSettingsUseDrone2BatteryCallback ((ARCOMMANDS_Decoder_ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedCallback ((ARCOMMANDS_Decoder_ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetARDrone3DebugGPSDebugStateNbSatelliteChangedCallback ((ARCOMMANDS_Decoder_ARDrone3DebugGPSDebugStateNbSatelliteChangedCallback_t) ARCOMMANDS_Testbench_ARDrone3DebugGPSDebugStateNbSatelliteChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingPCMDCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingPCMDCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingPCMDCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingPostureCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingPostureCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingPostureCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoPilotingAddCapOffsetCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingAddCapOffsetCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStatePostureChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStatePostureChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStatePostureChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateAlertStateChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateSpeedChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpStopCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpStopCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpStopCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpCancelCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpCancelCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCancelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpLoadCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpLoadCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpLoadCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsJumpCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsJumpCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAnimationsSimpleAnimationCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsSimpleAnimationCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsSimpleAnimationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpLoadChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpLoadChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpLoadChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpTypeChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpTypeChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpTypeChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpMotorProblemChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoSettingsStateProductGPSVersionChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoSettingsStateProductGPSVersionChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoSettingsStateProductGPSVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordPictureCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordPictureCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordVideoCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordVideoCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordPictureV2Callback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordPictureV2Callback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordPictureV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordVideoV2Callback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordVideoV2Callback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordVideoV2Cb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoNetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoNetworkWifiScanCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkWifiScanCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkWifiScanCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoNetworkWifiAuthChannelCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkWifiAuthChannelCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkWifiAuthChannelCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsMasterVolumeCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsMasterVolumeCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsMasterVolumeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsThemeCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsThemeCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsThemeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanAllScriptsMetadataCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanAllScriptsMetadataCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanAllScriptsMetadataCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanScriptUploadedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanScriptUploadedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptUploadedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanScriptDeleteCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanScriptDeleteCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptDeleteCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanPlayScriptCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanPlayScriptCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanPlayScriptCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoSpeedSettingsOutdoorCallback ((ARCOMMANDS_Decoder_JumpingSumoSpeedSettingsOutdoorCallback_t) ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsOutdoorCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoMediaStreamingVideoEnableCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaStreamingVideoEnableCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaStreamingVideoEnableCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsAutorecordCallback ((ARCOMMANDS_Decoder_JumpingSumoVideoSettingsAutorecordCallback_t) ARCOMMANDS_Testbench_JumpingSumoVideoSettingsAutorecordCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStatePostureChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStatePostureChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStatePostureChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateAlertStateChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateSpeedChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoPilotingStateSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpLoadChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpLoadChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpLoadChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpTypeChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpTypeChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpTypeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoAnimationsStateJumpMotorProblemChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAnimationsStateJumpMotorProblemChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAnimationsStateJumpMotorProblemChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetJumpingSumoSettingsStateProductGPSVersionChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoSettingsStateProductGPSVersionChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoSettingsStateProductGPSVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordStatePictureStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordStatePictureStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordStatePictureStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordStateVideoStateChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordStateVideoStateChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordStateVideoStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordStatePictureStateChangedV2Callback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordStatePictureStateChangedV2Callback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordStatePictureStateChangedV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordStateVideoStateChangedV2Callback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordStateVideoStateChangedV2Callback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordStateVideoStateChangedV2Cb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordEventPictureEventChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordEventPictureEventChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordEventPictureEventChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaRecordEventVideoEventChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaRecordEventVideoEventChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaRecordEventVideoEventChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoNetworkSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsWifiSelectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoNetworkWifiScanCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkWifiScanCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkWifiScanCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoNetworkWifiAuthChannelCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkWifiAuthChannelCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkWifiAuthChannelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkStateWifiScanListChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkStateWifiScanListChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkStateWifiScanListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkStateAllWifiScanChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkStateAllWifiScanChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiScanChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkStateWifiAuthChannelListChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkStateWifiAuthChannelListChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkStateWifiAuthChannelListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkStateAllWifiAuthChannelChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkStateAllWifiAuthChannelChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkStateAllWifiAuthChannelChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoNetworkStateLinkQualityChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoNetworkStateLinkQualityChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoNetworkStateLinkQualityChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsMasterVolumeCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsMasterVolumeCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsMasterVolumeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsThemeCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsThemeCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsThemeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsStateMasterVolumeChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsStateMasterVolumeChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsStateMasterVolumeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoAudioSettingsStateThemeChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoAudioSettingsStateThemeChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoAudioSettingsStateThemeChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanAllScriptsMetadataCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanAllScriptsMetadataCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanAllScriptsMetadataCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanScriptUploadedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanScriptUploadedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptUploadedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanScriptDeleteCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanScriptDeleteCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanScriptDeleteCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanPlayScriptCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanPlayScriptCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanPlayScriptCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanStateScriptMetadataListChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanStateScriptMetadataListChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptMetadataListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanStateAllScriptsMetadataChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanStateAllScriptsMetadataChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateAllScriptsMetadataChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanStateScriptUploadChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanStateScriptUploadChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptUploadChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanStateScriptDeleteChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanStateScriptDeleteChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanStateScriptDeleteChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoRoadPlanStatePlayScriptChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoRoadPlanStatePlayScriptChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoRoadPlanStatePlayScriptChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoSpeedSettingsOutdoorCallback ((ARCOMMANDS_Decoder_JumpingSumoSpeedSettingsOutdoorCallback_t) ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsOutdoorCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoSpeedSettingsStateOutdoorChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoSpeedSettingsStateOutdoorChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsStateOutdoorChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoMediaStreamingVideoEnableCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaStreamingVideoEnableCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaStreamingVideoEnableCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaStreamingStateVideoEnableChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaStreamingStateVideoEnableChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaStreamingStateVideoEnableChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsAutorecordCallback ((ARCOMMANDS_Decoder_JumpingSumoVideoSettingsAutorecordCallback_t) ARCOMMANDS_Testbench_JumpingSumoVideoSettingsAutorecordCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoVideoSettingsStateAutorecordChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoVideoSettingsStateAutorecordChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugJumpSetJumpMotorCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugJumpSetJumpMotorCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugJumpSetJumpMotorCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugJumpSetCameraOrientationCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugJumpSetCameraOrientationCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugJumpSetCameraOrientationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugAudioPlaySoundWithNameCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugAudioPlaySoundWithNameCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugAudioPlaySoundWithNameCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugMiscDebugEventCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugMiscDebugEventCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugMiscDebugEventCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugAnimationPlayAnimationCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugAnimationPlayAnimationCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugAnimationPlayAnimationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugAnimationAddCapOffsetCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugAnimationAddCapOffsetCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugAnimationAddCapOffsetCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugUserScriptUserScriptUploadedCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugUserScriptUserScriptUploadedCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugUserScriptUserScriptUploadedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetJumpingSumoDebugUserScriptStateUserScriptParsedCallback ((ARCOMMANDS_Decoder_JumpingSumoDebugUserScriptStateUserScriptParsedCallback_t) ARCOMMANDS_Testbench_JumpingSumoDebugUserScriptStateUserScriptParsedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback ((ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingFlatTrimCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback ((ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingTakeOffCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback ((ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingPCMDCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingLandingCallback ((ARCOMMANDS_Decoder_MiniDronePilotingLandingCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingLandingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingEmergencyCallback ((ARCOMMANDS_Decoder_MiniDronePilotingEmergencyCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingEmergencyCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingAutoTakeOffModeCallback ((ARCOMMANDS_Decoder_MiniDronePilotingAutoTakeOffModeCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingAutoTakeOffModeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsFlipCallback ((ARCOMMANDS_Decoder_MiniDroneAnimationsFlipCallback_t) ARCOMMANDS_Testbench_MiniDroneAnimationsFlipCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneAnimationsCapCallback ((ARCOMMANDS_Decoder_MiniDroneAnimationsCapCallback_t) ARCOMMANDS_Testbench_MiniDroneAnimationsCapCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneMediaRecordPictureV2Callback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordPictureV2Callback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordPictureV2Cb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedV2Cb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordEventPictureEventChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxAltitudeCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxAltitudeCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxAltitudeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsMaxTiltCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsMaxTiltCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsMaxTiltCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxAltitudeChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxVerticalSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxVerticalSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxVerticalSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxRotationSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxRotationSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxRotationSpeedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsWheelsCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsWheelsCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsWheelsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsMaxHorizontalSpeedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsMaxHorizontalSpeedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsMaxHorizontalSpeedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateWheelsChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneSettingsCutOutModeCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsCutOutModeCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsCutOutModeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductMotorsVersionChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateCutOutModeChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback ((ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneFloodControlStateFloodControlChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLatitudeForRunCallback ((ARCOMMANDS_Decoder_MiniDroneGPSControllerLatitudeForRunCallback_t) ARCOMMANDS_Testbench_MiniDroneGPSControllerLatitudeForRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneGPSControllerLongitudeForRunCallback ((ARCOMMANDS_Decoder_MiniDroneGPSControllerLongitudeForRunCallback_t) ARCOMMANDS_Testbench_MiniDroneGPSControllerLongitudeForRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerTypeCallback ((ARCOMMANDS_Decoder_MiniDroneConfigurationControllerTypeCallback_t) ARCOMMANDS_Testbench_MiniDroneConfigurationControllerTypeCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDroneConfigurationControllerNameCallback ((ARCOMMANDS_Decoder_MiniDroneConfigurationControllerNameCallback_t) ARCOMMANDS_Testbench_MiniDroneConfigurationControllerNameCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest1Callback ((ARCOMMANDS_Decoder_MiniDroneDebugDebugTest1Callback_t) ARCOMMANDS_Testbench_MiniDroneDebugDebugTest1Cb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest2Callback ((ARCOMMANDS_Decoder_MiniDroneDebugDebugTest2Callback_t) ARCOMMANDS_Testbench_MiniDroneDebugDebugTest2Cb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetMiniDroneDebugDebugTest3Callback ((ARCOMMANDS_Decoder_MiniDroneDebugDebugTest3Callback_t) ARCOMMANDS_Testbench_MiniDroneDebugDebugTest3Cb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiListCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiListCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiListCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateConnexionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateConnexionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateConnexionChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiAuthChannelListChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiAuthChannelListChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiAuthChannelListChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateAllWifiAuthChannelChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateAllWifiAuthChannelChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateAllWifiAuthChannelChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiSignalChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiSignalChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiSignalChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlatTrimChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlatTrimChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlatTrimChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateFlyingStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateFlyingStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateFlyingStateChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAlertStateChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAlertStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAlertStateChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingStateAutoTakeOffModeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingStateAutoTakeOffModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingStateAutoTakeOffModeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordStatePictureStateChangedV2Callback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordStatePictureStateChangedV2Callback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordStatePictureStateChangedV2Cb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneMediaRecordEventPictureEventChangedCallback ((ARCOMMANDS_Decoder_MiniDroneMediaRecordEventPictureEventChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneMediaRecordEventPictureEventChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxAltitudeChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxAltitudeChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxAltitudeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDronePilotingSettingsStateMaxTiltChangedCallback ((ARCOMMANDS_Decoder_MiniDronePilotingSettingsStateMaxTiltChangedCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingSettingsStateMaxTiltChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxVerticalSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxRotationSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateWheelsChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateWheelsChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateWheelsChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSpeedSettingsStateMaxHorizontalSpeedChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductMotorsVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductMotorsVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductMotorsVersionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateProductInertialVersionChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateProductInertialVersionChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateProductInertialVersionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneSettingsStateCutOutModeChangedCallback ((ARCOMMANDS_Decoder_MiniDroneSettingsStateCutOutModeChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneSettingsStateCutOutModeChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMiniDroneFloodControlStateFloodControlChangedCallback ((ARCOMMANDS_Decoder_MiniDroneFloodControlStateFloodControlChangedCallback_t) ARCOMMANDS_Testbench_MiniDroneFloodControlStateFloodControlChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerWifiRequestWifiListCallback ((ARCOMMANDS_Decoder_SkyControllerWifiRequestWifiListCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiRequestWifiListCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerWifiRequestCurrentWifiCallback ((ARCOMMANDS_Decoder_SkyControllerWifiRequestCurrentWifiCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiRequestCurrentWifiCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerWifiConnectToWifiCallback ((ARCOMMANDS_Decoder_SkyControllerWifiConnectToWifiCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiConnectToWifiCb, (void *)cbCustom++ );
@@ -7180,67 +8724,114 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestDeviceListCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceRequestDeviceListCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceRequestDeviceListCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerDeviceRequestCurrentDeviceCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceRequestCurrentDeviceCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceRequestCurrentDeviceCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerDeviceConnectToDeviceCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceConnectToDeviceCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceConnectToDeviceCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateDeviceListCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceStateDeviceListCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceStateDeviceListCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateConnexionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceStateConnexionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceStateConnexionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsAllSettingsCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsAllSettingsCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsAllSettingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsResetCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsResetCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsResetCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateAllSettingsChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateAllSettingsChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateResetChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCommonAllStatesCallback ((ARCOMMANDS_Decoder_SkyControllerCommonAllStatesCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonAllStatesCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback ((ARCOMMANDS_Decoder_SkyControllerCommonStateAllStatesChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonStateAllStatesChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateBatteryChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateBatteryChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsFixChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateGpsFixChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsFixChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsPositionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateGpsPositionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsPositionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointSSIDCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsAccessPointSSIDCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointSSIDCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsAccessPointChannelCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsAccessPointChannelCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsAccessPointChannelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsWifiSelectionCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsWifiSelectionCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsWifiSelectionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointSSIDChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointChannelChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCameraResetOrientationCallback ((ARCOMMANDS_Decoder_SkyControllerCameraResetOrientationCallback_t) ARCOMMANDS_Testbench_SkyControllerCameraResetOrientationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosGetGamepadControlsCallback ((ARCOMMANDS_Decoder_SkyControllerGamepadInfosGetGamepadControlsCallback_t) ARCOMMANDS_Testbench_SkyControllerGamepadInfosGetGamepadControlsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateGamepadControlCallback ((ARCOMMANDS_Decoder_SkyControllerGamepadInfosStateGamepadControlCallback_t) ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateGamepadControlCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateAllGamepadControlsSentCallback ((ARCOMMANDS_Decoder_SkyControllerGamepadInfosStateAllGamepadControlsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateAllGamepadControlsSentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetCurrentButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsGetCurrentButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetCurrentButtonMappingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsGetAvailableButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsGetAvailableButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsGetAvailableButtonMappingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsSetButtonMappingCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsSetButtonMappingCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsSetButtonMappingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsDefaultButtonMappingCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsDefaultButtonMappingCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsDefaultButtonMappingCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateCurrentButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateCurrentButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateCurrentButtonMappingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAvailableButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAvailableButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAvailableButtonMappingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetCurrentAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsGetCurrentAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetCurrentAxisMappingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsGetAvailableAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsGetAvailableAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsGetAvailableAxisMappingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsSetAxisMappingCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsSetAxisMappingCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsSetAxisMappingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsDefaultAxisMappingCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsDefaultAxisMappingCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsDefaultAxisMappingCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateCurrentAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateCurrentAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateCurrentAxisMappingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAvailableAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAvailableAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAvailableAxisMappingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetCurrentAxisFiltersCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersGetCurrentAxisFiltersCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetCurrentAxisFiltersCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersGetPresetAxisFiltersCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersGetPresetAxisFiltersCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersGetPresetAxisFiltersCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersSetAxisFilterCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersSetAxisFilterCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersSetAxisFilterCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersDefaultAxisFiltersCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersDefaultAxisFiltersCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersDefaultAxisFiltersCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingSetPilotingSourceCallback ((ARCOMMANDS_Decoder_SkyControllerCoPilotingSetPilotingSourceCallback_t) ARCOMMANDS_Testbench_SkyControllerCoPilotingSetPilotingSourceCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiListCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiListCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiListCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateConnexionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateConnexionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateConnexionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiAuthChannelListChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiAuthChannelListChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiAuthChannelListChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateAllWifiAuthChannelChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateAllWifiAuthChannelChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateAllWifiAuthChannelChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerWifiStateWifiSignalChangedCallback ((ARCOMMANDS_Decoder_SkyControllerWifiStateWifiSignalChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerWifiStateWifiSignalChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateDeviceListCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceStateDeviceListCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceStateDeviceListCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerDeviceStateConnexionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerDeviceStateConnexionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerDeviceStateConnexionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateAllSettingsChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateAllSettingsChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateAllSettingsChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateResetChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback ((ARCOMMANDS_Decoder_SkyControllerCommonStateAllStatesChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonStateAllStatesChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateBatteryChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateBatteryChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsFixChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateGpsFixChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsFixChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsPositionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateGpsPositionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsPositionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateAccessPointSSIDChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointSSIDChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateAccessPointChannelChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateAccessPointChannelChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAccessPointSettingsStateWifiSelectionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerAccessPointSettingsStateWifiSelectionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerAccessPointSettingsStateWifiSelectionChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateGamepadControlCallback ((ARCOMMANDS_Decoder_SkyControllerGamepadInfosStateGamepadControlCallback_t) ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateGamepadControlCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerGamepadInfosStateAllGamepadControlsSentCallback ((ARCOMMANDS_Decoder_SkyControllerGamepadInfosStateAllGamepadControlsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerGamepadInfosStateAllGamepadControlsSentCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateCurrentButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateCurrentButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateCurrentButtonMappingsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllCurrentButtonMappingsSentCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAvailableButtonMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAvailableButtonMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAvailableButtonMappingsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonMappingsStateAllAvailableButtonsMappingsSentCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateCurrentAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateCurrentAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateCurrentAxisMappingsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllCurrentAxisMappingsSentCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAvailableAxisMappingsCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAvailableAxisMappingsCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAvailableAxisMappingsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisMappingsStateAllAvailableAxisMappingsSentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateCurrentAxisFiltersCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersStateCurrentAxisFiltersCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateCurrentAxisFiltersCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllCurrentFiltersSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersStateAllCurrentFiltersSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateAllCurrentFiltersSentCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStatePresetAxisFiltersCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersStatePresetAxisFiltersCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersStatePresetAxisFiltersCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerAxisFiltersStateAllPresetFiltersSentCallback ((ARCOMMANDS_Decoder_SkyControllerAxisFiltersStateAllPresetFiltersSentCallback_t) ARCOMMANDS_Testbench_SkyControllerAxisFiltersStateAllPresetFiltersSentCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerCoPilotingSetPilotingSourceCallback ((ARCOMMANDS_Decoder_SkyControllerCoPilotingSetPilotingSourceCallback_t) ARCOMMANDS_Testbench_SkyControllerCoPilotingSetPilotingSourceCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCoPilotingStatePilotingSourceCallback ((ARCOMMANDS_Decoder_SkyControllerCoPilotingStatePilotingSourceCallback_t) ARCOMMANDS_Testbench_SkyControllerCoPilotingStatePilotingSourceCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback ((ARCOMMANDS_Decoder_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCallback_t) ARCOMMANDS_Testbench_SkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerButtonEventsSettingsCallback ((ARCOMMANDS_Decoder_SkyControllerButtonEventsSettingsCallback_t) ARCOMMANDS_Testbench_SkyControllerButtonEventsSettingsCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetSkyControllerDebugDebugTest1Callback ((ARCOMMANDS_Decoder_SkyControllerDebugDebugTest1Callback_t) ARCOMMANDS_Testbench_SkyControllerDebugDebugTest1Cb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1GeographicRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1GeographicRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1GeographicRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1RelativeRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1RelativeRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1RelativeRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1LookAtRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1LookAtRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1LookAtRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1SpiralAnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1SpiralAnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1SpiralAnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1SwingAnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1SwingAnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1SwingAnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1BoomerangAnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1BoomerangAnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1BoomerangAnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1CandleAnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1CandleAnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1CandleAnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1DollySlideAnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1DollySlideAnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1DollySlideAnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1UserFramingPositionCallback ((ARCOMMANDS_Decoder_UnknownFeature1UserFramingPositionCallback_t) ARCOMMANDS_Testbench_UnknownFeature1UserFramingPositionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1UserGPSDataCallback ((ARCOMMANDS_Decoder_UnknownFeature1UserGPSDataCallback_t) ARCOMMANDS_Testbench_UnknownFeature1UserGPSDataCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1UserBaroDataCallback ((ARCOMMANDS_Decoder_UnknownFeature1UserBaroDataCallback_t) ARCOMMANDS_Testbench_UnknownFeature1UserBaroDataCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1LynxDetectionCallback ((ARCOMMANDS_Decoder_UnknownFeature1LynxDetectionCallback_t) ARCOMMANDS_Testbench_UnknownFeature1LynxDetectionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1AvailabilityCallback ((ARCOMMANDS_Decoder_UnknownFeature1AvailabilityCallback_t) ARCOMMANDS_Testbench_UnknownFeature1AvailabilityCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1RunCallback ((ARCOMMANDS_Decoder_UnknownFeature1RunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1RunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1GeographicConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1GeographicConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1GeographicConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1RelativeConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1RelativeConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1RelativeConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1AnimRunCallback ((ARCOMMANDS_Decoder_UnknownFeature1AnimRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature1AnimRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1SpiralAnimConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1SpiralAnimConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1SpiralAnimConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1SwingAnimConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1SwingAnimConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1SwingAnimConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1BoomerangAnimConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1BoomerangAnimConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1BoomerangAnimConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1CandleAnimConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1CandleAnimConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1CandleAnimConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1DollySlideAnimConfigChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1DollySlideAnimConfigChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1DollySlideAnimConfigChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetUnknownFeature1UserFramingPositionChangedCallback ((ARCOMMANDS_Decoder_UnknownFeature1UserFramingPositionChangedCallback_t) ARCOMMANDS_Testbench_UnknownFeature1UserFramingPositionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonNetworkDisconnectCallback ((ARCOMMANDS_Decoder_CommonNetworkDisconnectCallback_t) ARCOMMANDS_Testbench_CommonNetworkDisconnectCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback ((ARCOMMANDS_Decoder_CommonNetworkEventDisconnectionCallback_t) ARCOMMANDS_Testbench_CommonNetworkEventDisconnectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsAllSettingsCallback ((ARCOMMANDS_Decoder_CommonSettingsAllSettingsCallback_t) ARCOMMANDS_Testbench_CommonSettingsAllSettingsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsResetCallback ((ARCOMMANDS_Decoder_CommonSettingsResetCallback_t) ARCOMMANDS_Testbench_CommonSettingsResetCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsProductNameCallback ((ARCOMMANDS_Decoder_CommonSettingsProductNameCallback_t) ARCOMMANDS_Testbench_CommonSettingsProductNameCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsCountryCallback ((ARCOMMANDS_Decoder_CommonSettingsCountryCallback_t) ARCOMMANDS_Testbench_CommonSettingsCountryCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsAutoCountryCallback ((ARCOMMANDS_Decoder_CommonSettingsAutoCountryCallback_t) ARCOMMANDS_Testbench_CommonSettingsAutoCountryCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonCommonAllStatesCallback ((ARCOMMANDS_Decoder_CommonCommonAllStatesCallback_t) ARCOMMANDS_Testbench_CommonCommonAllStatesCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonCommonCurrentDateCallback ((ARCOMMANDS_Decoder_CommonCommonCurrentDateCallback_t) ARCOMMANDS_Testbench_CommonCommonCurrentDateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonCommonCurrentTimeCallback ((ARCOMMANDS_Decoder_CommonCommonCurrentTimeCallback_t) ARCOMMANDS_Testbench_CommonCommonCurrentTimeCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonCommonRebootCallback ((ARCOMMANDS_Decoder_CommonCommonRebootCallback_t) ARCOMMANDS_Testbench_CommonCommonRebootCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonOverHeatSwitchOffCallback ((ARCOMMANDS_Decoder_CommonOverHeatSwitchOffCallback_t) ARCOMMANDS_Testbench_CommonOverHeatSwitchOffCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback ((ARCOMMANDS_Decoder_CommonOverHeatVentilateCallback_t) ARCOMMANDS_Testbench_CommonOverHeatVentilateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback ((ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t) ARCOMMANDS_Testbench_CommonControllerIsPilotingCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback ((ARCOMMANDS_Decoder_CommonWifiSettingsOutdoorSettingCallback_t) ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonMavlinkStartCallback ((ARCOMMANDS_Decoder_CommonMavlinkStartCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStartCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonMavlinkPauseCallback ((ARCOMMANDS_Decoder_CommonMavlinkPauseCallback_t) ARCOMMANDS_Testbench_CommonMavlinkPauseCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonMavlinkStopCallback ((ARCOMMANDS_Decoder_CommonMavlinkStopCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStopCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonCalibrationMagnetoCalibrationCallback ((ARCOMMANDS_Decoder_CommonCalibrationMagnetoCalibrationCallback_t) ARCOMMANDS_Testbench_CommonCalibrationMagnetoCalibrationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonGPSControllerPositionForRunCallback ((ARCOMMANDS_Decoder_CommonGPSControllerPositionForRunCallback_t) ARCOMMANDS_Testbench_CommonGPSControllerPositionForRunCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonAudioControllerReadyForStreamingCallback ((ARCOMMANDS_Decoder_CommonAudioControllerReadyForStreamingCallback_t) ARCOMMANDS_Testbench_CommonAudioControllerReadyForStreamingCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonHeadlightsIntensityCallback ((ARCOMMANDS_Decoder_CommonHeadlightsIntensityCallback_t) ARCOMMANDS_Testbench_CommonHeadlightsIntensityCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonAnimationsStartAnimationCallback ((ARCOMMANDS_Decoder_CommonAnimationsStartAnimationCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStartAnimationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonAnimationsStopAnimationCallback ((ARCOMMANDS_Decoder_CommonAnimationsStopAnimationCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStopAnimationCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonAnimationsStopAllAnimationsCallback ((ARCOMMANDS_Decoder_CommonAnimationsStopAllAnimationsCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStopAllAnimationsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonAccessoryConfigCallback ((ARCOMMANDS_Decoder_CommonAccessoryConfigCallback_t) ARCOMMANDS_Testbench_CommonAccessoryConfigCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonChargerSetMaxChargeRateCallback ((ARCOMMANDS_Decoder_CommonChargerSetMaxChargeRateCallback_t) ARCOMMANDS_Testbench_CommonChargerSetMaxChargeRateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonNetworkEventDisconnectionCallback ((ARCOMMANDS_Decoder_CommonNetworkEventDisconnectionCallback_t) ARCOMMANDS_Testbench_CommonNetworkEventDisconnectionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsStateAllSettingsChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateAllSettingsChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateAllSettingsChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsStateResetChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateResetChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateResetChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsStateProductNameChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateProductNameChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateProductNameChangedCb, (void *)cbCustom++ );
@@ -7249,10 +8840,6 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonSettingsStateProductSerialLowChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateProductSerialLowChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateProductSerialLowChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsStateCountryChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateCountryChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateCountryChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonSettingsStateAutoCountryChangedCallback ((ARCOMMANDS_Decoder_CommonSettingsStateAutoCountryChangedCallback_t) ARCOMMANDS_Testbench_CommonSettingsStateAutoCountryChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonCommonAllStatesCallback ((ARCOMMANDS_Decoder_CommonCommonAllStatesCallback_t) ARCOMMANDS_Testbench_CommonCommonAllStatesCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonCommonCurrentDateCallback ((ARCOMMANDS_Decoder_CommonCommonCurrentDateCallback_t) ARCOMMANDS_Testbench_CommonCommonCurrentDateCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonCommonCurrentTimeCallback ((ARCOMMANDS_Decoder_CommonCommonCurrentTimeCallback_t) ARCOMMANDS_Testbench_CommonCommonCurrentTimeCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonCommonRebootCallback ((ARCOMMANDS_Decoder_CommonCommonRebootCallback_t) ARCOMMANDS_Testbench_CommonCommonRebootCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCommonStateAllStatesChangedCallback ((ARCOMMANDS_Decoder_CommonCommonStateAllStatesChangedCallback_t) ARCOMMANDS_Testbench_CommonCommonStateAllStatesChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCommonStateBatteryStateChangedCallback ((ARCOMMANDS_Decoder_CommonCommonStateBatteryStateChangedCallback_t) ARCOMMANDS_Testbench_CommonCommonStateBatteryStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageStateListChangedCallback ((ARCOMMANDS_Decoder_CommonCommonStateMassStorageStateListChangedCallback_t) ARCOMMANDS_Testbench_CommonCommonStateMassStorageStateListChangedCb, (void *)cbCustom++ );
@@ -7264,25 +8851,16 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonCommonStateSensorsStatesListChangedCallback ((ARCOMMANDS_Decoder_CommonCommonStateSensorsStatesListChangedCallback_t) ARCOMMANDS_Testbench_CommonCommonStateSensorsStatesListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCommonStateProductModelCallback ((ARCOMMANDS_Decoder_CommonCommonStateProductModelCallback_t) ARCOMMANDS_Testbench_CommonCommonStateProductModelCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback ((ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t) ARCOMMANDS_Testbench_CommonCommonStateCountryListKnownCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonOverHeatSwitchOffCallback ((ARCOMMANDS_Decoder_CommonOverHeatSwitchOffCallback_t) ARCOMMANDS_Testbench_CommonOverHeatSwitchOffCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonOverHeatVentilateCallback ((ARCOMMANDS_Decoder_CommonOverHeatVentilateCallback_t) ARCOMMANDS_Testbench_CommonOverHeatVentilateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback ((ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatChangedCallback_t) ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback ((ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatRegulationChangedCallback_t) ARCOMMANDS_Testbench_CommonOverHeatStateOverHeatRegulationChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonControllerIsPilotingCallback ((ARCOMMANDS_Decoder_CommonControllerIsPilotingCallback_t) ARCOMMANDS_Testbench_CommonControllerIsPilotingCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonWifiSettingsOutdoorSettingCallback ((ARCOMMANDS_Decoder_CommonWifiSettingsOutdoorSettingCallback_t) ARCOMMANDS_Testbench_CommonWifiSettingsOutdoorSettingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonWifiSettingsStateOutdoorSettingsChangedCallback ((ARCOMMANDS_Decoder_CommonWifiSettingsStateOutdoorSettingsChangedCallback_t) ARCOMMANDS_Testbench_CommonWifiSettingsStateOutdoorSettingsChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonMavlinkStartCallback ((ARCOMMANDS_Decoder_CommonMavlinkStartCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStartCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonMavlinkPauseCallback ((ARCOMMANDS_Decoder_CommonMavlinkPauseCallback_t) ARCOMMANDS_Testbench_CommonMavlinkPauseCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonMavlinkStopCallback ((ARCOMMANDS_Decoder_CommonMavlinkStopCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStopCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkFilePlayingStateChangedCallback ((ARCOMMANDS_Decoder_CommonMavlinkStateMavlinkFilePlayingStateChangedCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkFilePlayingStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonMavlinkStateMavlinkPlayErrorStateChangedCallback ((ARCOMMANDS_Decoder_CommonMavlinkStateMavlinkPlayErrorStateChangedCallback_t) ARCOMMANDS_Testbench_CommonMavlinkStateMavlinkPlayErrorStateChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonCalibrationMagnetoCalibrationCallback ((ARCOMMANDS_Decoder_CommonCalibrationMagnetoCalibrationCallback_t) ARCOMMANDS_Testbench_CommonCalibrationMagnetoCalibrationCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStateChangedCallback ((ARCOMMANDS_Decoder_CommonCalibrationStateMagnetoCalibrationStateChangedCallback_t) ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationRequiredStateCallback ((ARCOMMANDS_Decoder_CommonCalibrationStateMagnetoCalibrationRequiredStateCallback_t) ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationRequiredStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCallback ((ARCOMMANDS_Decoder_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCallback_t) ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationAxisToCalibrateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCalibrationStateMagnetoCalibrationStartedChangedCallback ((ARCOMMANDS_Decoder_CommonCalibrationStateMagnetoCalibrationStartedChangedCallback_t) ARCOMMANDS_Testbench_CommonCalibrationStateMagnetoCalibrationStartedChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonCameraSettingsStateCameraSettingsChangedCallback ((ARCOMMANDS_Decoder_CommonCameraSettingsStateCameraSettingsChangedCallback_t) ARCOMMANDS_Testbench_CommonCameraSettingsStateCameraSettingsChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonGPSControllerPositionForRunCallback ((ARCOMMANDS_Decoder_CommonGPSControllerPositionForRunCallback_t) ARCOMMANDS_Testbench_CommonGPSControllerPositionForRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonFlightPlanStateAvailabilityStateChangedCallback ((ARCOMMANDS_Decoder_CommonFlightPlanStateAvailabilityStateChangedCallback_t) ARCOMMANDS_Testbench_CommonFlightPlanStateAvailabilityStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonFlightPlanStateComponentStateListChangedCallback ((ARCOMMANDS_Decoder_CommonFlightPlanStateComponentStateListChangedCallback_t) ARCOMMANDS_Testbench_CommonFlightPlanStateComponentStateListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonFlightPlanEventStartingErrorEventCallback ((ARCOMMANDS_Decoder_CommonFlightPlanEventStartingErrorEventCallback_t) ARCOMMANDS_Testbench_CommonFlightPlanEventStartingErrorEventCb, (void *)cbCustom++ );
@@ -7290,19 +8868,12 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateControllerLibARCommandsVersionCallback ((ARCOMMANDS_Decoder_CommonARLibsVersionsStateControllerLibARCommandsVersionCallback_t) ARCOMMANDS_Testbench_CommonARLibsVersionsStateControllerLibARCommandsVersionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateSkyControllerLibARCommandsVersionCallback ((ARCOMMANDS_Decoder_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionCallback_t) ARCOMMANDS_Testbench_CommonARLibsVersionsStateSkyControllerLibARCommandsVersionCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonARLibsVersionsStateDeviceLibARCommandsVersionCallback ((ARCOMMANDS_Decoder_CommonARLibsVersionsStateDeviceLibARCommandsVersionCallback_t) ARCOMMANDS_Testbench_CommonARLibsVersionsStateDeviceLibARCommandsVersionCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonAudioControllerReadyForStreamingCallback ((ARCOMMANDS_Decoder_CommonAudioControllerReadyForStreamingCallback_t) ARCOMMANDS_Testbench_CommonAudioControllerReadyForStreamingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonAudioStateAudioStreamingRunningCallback ((ARCOMMANDS_Decoder_CommonAudioStateAudioStreamingRunningCallback_t) ARCOMMANDS_Testbench_CommonAudioStateAudioStreamingRunningCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonHeadlightsIntensityCallback ((ARCOMMANDS_Decoder_CommonHeadlightsIntensityCallback_t) ARCOMMANDS_Testbench_CommonHeadlightsIntensityCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonHeadlightsStateIntensityChangedCallback ((ARCOMMANDS_Decoder_CommonHeadlightsStateIntensityChangedCallback_t) ARCOMMANDS_Testbench_CommonHeadlightsStateIntensityChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonAnimationsStartAnimationCallback ((ARCOMMANDS_Decoder_CommonAnimationsStartAnimationCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStartAnimationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonAnimationsStopAnimationCallback ((ARCOMMANDS_Decoder_CommonAnimationsStopAnimationCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStopAnimationCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonAnimationsStopAllAnimationsCallback ((ARCOMMANDS_Decoder_CommonAnimationsStopAllAnimationsCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStopAllAnimationsCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonAnimationsStateListCallback ((ARCOMMANDS_Decoder_CommonAnimationsStateListCallback_t) ARCOMMANDS_Testbench_CommonAnimationsStateListCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonAccessoryConfigCallback ((ARCOMMANDS_Decoder_CommonAccessoryConfigCallback_t) ARCOMMANDS_Testbench_CommonAccessoryConfigCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonAccessoryStateSupportedAccessoriesListChangedCallback ((ARCOMMANDS_Decoder_CommonAccessoryStateSupportedAccessoriesListChangedCallback_t) ARCOMMANDS_Testbench_CommonAccessoryStateSupportedAccessoriesListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigChangedCallback ((ARCOMMANDS_Decoder_CommonAccessoryStateAccessoryConfigChangedCallback_t) ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonAccessoryStateAccessoryConfigModificationEnabledCallback ((ARCOMMANDS_Decoder_CommonAccessoryStateAccessoryConfigModificationEnabledCallback_t) ARCOMMANDS_Testbench_CommonAccessoryStateAccessoryConfigModificationEnabledCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonChargerSetMaxChargeRateCallback ((ARCOMMANDS_Decoder_CommonChargerSetMaxChargeRateCallback_t) ARCOMMANDS_Testbench_CommonChargerSetMaxChargeRateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateMaxChargeRateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateMaxChargeRateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateMaxChargeRateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateCurrentChargeStateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateCurrentChargeStateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateCurrentChargeStateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateLastChargeRateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateLastChargeRateChangedCb, (void *)cbCustom++ );
@@ -7311,9 +8882,9 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStopSendingPacketFromDroneCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsGetAllCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateListChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback ((ARCOMMANDS_Decoder_ProProBoughtFeaturesCallback_t) ARCOMMANDS_Testbench_ProProBoughtFeaturesCb, (void *)cbCustom++ );
@@ -7322,6 +8893,19 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetProProStateSupportedFeaturesCallback ((ARCOMMANDS_Decoder_ProProStateSupportedFeaturesCallback_t) ARCOMMANDS_Testbench_ProProStateSupportedFeaturesCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProStateFeaturesActivatedCallback ((ARCOMMANDS_Decoder_ProProStateFeaturesActivatedCallback_t) ARCOMMANDS_Testbench_ProProStateFeaturesActivatedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetProProEventChallengeEventCallback ((ARCOMMANDS_Decoder_ProProEventChallengeEventCallback_t) ARCOMMANDS_Testbench_ProProEventChallengeEventCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiScanCallback ((ARCOMMANDS_Decoder_WifiScanCallback_t) ARCOMMANDS_Testbench_WifiScanCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiUpdateAuthorizedChannelsCallback ((ARCOMMANDS_Decoder_WifiUpdateAuthorizedChannelsCallback_t) ARCOMMANDS_Testbench_WifiUpdateAuthorizedChannelsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSetApChannelCallback ((ARCOMMANDS_Decoder_WifiSetApChannelCallback_t) ARCOMMANDS_Testbench_WifiSetApChannelCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSetSecurityCallback ((ARCOMMANDS_Decoder_WifiSetSecurityCallback_t) ARCOMMANDS_Testbench_WifiSetSecurityCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSetCountryCallback ((ARCOMMANDS_Decoder_WifiSetCountryCallback_t) ARCOMMANDS_Testbench_WifiSetCountryCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSetEnvironementCallback ((ARCOMMANDS_Decoder_WifiSetEnvironementCallback_t) ARCOMMANDS_Testbench_WifiSetEnvironementCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiScannedItemCallback ((ARCOMMANDS_Decoder_WifiScannedItemCallback_t) ARCOMMANDS_Testbench_WifiScannedItemCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiAuthorizedChannelCallback ((ARCOMMANDS_Decoder_WifiAuthorizedChannelCallback_t) ARCOMMANDS_Testbench_WifiAuthorizedChannelCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiApChannelChangedCallback ((ARCOMMANDS_Decoder_WifiApChannelChangedCallback_t) ARCOMMANDS_Testbench_WifiApChannelChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiSecurityChangedCallback ((ARCOMMANDS_Decoder_WifiSecurityChangedCallback_t) ARCOMMANDS_Testbench_WifiSecurityChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiCountryChangedCallback ((ARCOMMANDS_Decoder_WifiCountryChangedCallback_t) ARCOMMANDS_Testbench_WifiCountryChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiEnvironementChangedCallback ((ARCOMMANDS_Decoder_WifiEnvironementChangedCallback_t) ARCOMMANDS_Testbench_WifiEnvironementChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetWifiRssiChangedCallback ((ARCOMMANDS_Decoder_WifiRssiChangedCallback_t) ARCOMMANDS_Testbench_WifiRssiChangedCb, (void *)cbCustom++ );
 }
 
 
@@ -7412,8 +8996,40 @@ int ARCOMMANDS_Testbench_AutoTest ()
     int32_t resSize = 0;
     errcount = 0;
     ARCOMMANDS_Testbench_InitCb ();
-    // Project ARDrone3
-    // Command class Piloting
+    // Feature generic
+    res = ARCOMMANDS_Generator_GenerateGenericDefault (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Generic.default\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Generic.default succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetGenericDefaultBehavior);
+        genericDefaultShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        genericDefaultShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+
+    // Feature ARDrone3
     res = ARCOMMANDS_Generator_GenerateARDrone3PilotingFlatTrim (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -7634,12 +9250,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateARDrone3PilotingMoveBy (buffer, buffSize, &resSize, 42.125, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.MoveBy\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.moveBy\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Piloting.MoveBy succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Piloting.moveBy succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -7662,8 +9278,68 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingUserTakeOff (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.UserTakeOff\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Piloting.UserTakeOff succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingUserTakeOffBehavior);
+        ARDrone3PilotingUserTakeOffShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingUserTakeOffShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class Animations
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingCircle (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTING_CIRCLE_DIRECTION)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Piloting.Circle\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Piloting.Circle succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingCircleBehavior);
+        ARDrone3PilotingCircleShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingCircleShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateARDrone3AnimationsFlip (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANIMATIONS_FLIP_DIRECTION)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -7695,8 +9371,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Camera
     res = ARCOMMANDS_Generator_GenerateARDrone3CameraOrientation (buffer, buffSize, &resSize, -42, -42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -7728,8 +9402,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaRecord
     res = ARCOMMANDS_Generator_GenerateARDrone3MediaRecordPicture (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -7854,8 +9526,1277 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiScan (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Network.WifiScan\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Network.WifiScan succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkWifiScanBehavior);
+        ARDrone3NetworkWifiScanShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkWifiScanShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class MediaRecordState
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiAuthChannel (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Network.WifiAuthChannel\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Network.WifiAuthChannel succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBehavior);
+        ARDrone3NetworkWifiAuthChannelShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkWifiAuthChannelShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxAltitude (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxAltitude\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxAltitude succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxAltitudeBehavior);
+        ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxTilt (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxTilt\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxTilt succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxTiltBehavior);
+        ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsAbsolutControl (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.AbsolutControl\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.AbsolutControl succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsAbsolutControlBehavior);
+        ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxDistance (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxDistance\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxDistance succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxDistanceBehavior);
+        ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsNoFlyOverMaxDistance (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.NoFlyOverMaxDistance\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.NoFlyOverMaxDistance succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior);
+        ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAcceleration (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxHorizontalAcceleration succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAcceleration (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxVerticalAcceleration succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.setAutonomousFlightMaxRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsBankedTurn (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.BankedTurn\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.BankedTurn succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsBankedTurnBehavior);
+        ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsBankedTurnShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMinAltitude (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MinAltitude\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MinAltitude succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMinAltitudeBehavior);
+        ARDrone3PilotingSettingsMinAltitudeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsMinAltitudeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsCirclingDirection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_CIRCLINGDIRECTION_VALUE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.CirclingDirection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.CirclingDirection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingDirectionBehavior);
+        ARDrone3PilotingSettingsCirclingDirectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsCirclingDirectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsCirclingRadius (buffer, buffSize, &resSize, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.CirclingRadius\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.CirclingRadius succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingRadiusBehavior);
+        ARDrone3PilotingSettingsCirclingRadiusShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsCirclingRadiusShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsCirclingAltitude (buffer, buffSize, &resSize, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.CirclingAltitude\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.CirclingAltitude succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsCirclingAltitudeBehavior);
+        ARDrone3PilotingSettingsCirclingAltitudeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsCirclingAltitudeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsPitchMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_PITCHMODE_VALUE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.PitchMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.PitchMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsPitchModeBehavior);
+        ARDrone3PilotingSettingsPitchModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsPitchModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsLandingMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGS_LANDINGMODE_VALUE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.LandingMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.LandingMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsLandingModeBehavior);
+        ARDrone3PilotingSettingsLandingModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsLandingModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxVerticalSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxVerticalSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior);
+        ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior);
+        ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsHullProtection (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.HullProtection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.HullProtection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior);
+        ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsOutdoor (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.Outdoor\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.Outdoor succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior);
+        ARDrone3SpeedSettingsOutdoorShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsOutdoorShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxPitchRollRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxPitchRollRotationSpeed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxPitchRollRotationSpeedBehavior);
+        ARDrone3SpeedSettingsMaxPitchRollRotationSpeedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3SpeedSettingsMaxPitchRollRotationSpeedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.WifiSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.WifiSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior);
+        ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.wifiSecurity\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.wifiSecurity succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior);
+        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsPictureFormatSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.PictureFormatSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.PictureFormatSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior);
+        ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsAutoWhiteBalanceSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.AutoWhiteBalanceSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.AutoWhiteBalanceSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior);
+        ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsExpositionSelection (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.ExpositionSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.ExpositionSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior);
+        ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsSaturationSelection (buffer, buffSize, &resSize, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.SaturationSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.SaturationSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior);
+        ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsTimelapseSelection (buffer, buffSize, &resSize, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.TimelapseSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.TimelapseSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior);
+        ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoAutorecordSelection (buffer, buffSize, &resSize, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.VideoAutorecordSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.VideoAutorecordSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior);
+        ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoStabilizationMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_VIDEOSTABILIZATIONMODE_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.VideoStabilizationMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.VideoStabilizationMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoStabilizationModeBehavior);
+        ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PictureSettingsVideoStabilizationModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3MediaStreamingVideoEnable (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.MediaStreaming.VideoEnable\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.MediaStreaming.VideoEnable succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior);
+        ARDrone3MediaStreamingVideoEnableShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3MediaStreamingVideoEnableShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsSetHome (buffer, buffSize, &resSize, -42.000001, -42.000001, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.SetHome\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.SetHome succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior);
+        ARDrone3GPSSettingsSetHomeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3GPSSettingsSetHomeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsResetHome (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.ResetHome\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.ResetHome succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior);
+        ARDrone3GPSSettingsResetHomeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3GPSSettingsResetHomeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsSendControllerGPS (buffer, buffSize, &resSize, -42.000001, -42.000001, -42.000001, -42.000001, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.SendControllerGPS\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.SendControllerGPS succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior);
+        ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsHomeType (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.HomeType\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.HomeType succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior);
+        ARDrone3GPSSettingsHomeTypeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3GPSSettingsHomeTypeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsReturnHomeDelay (buffer, buffSize, &resSize, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.ReturnHomeDelay\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.ReturnHomeDelay succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior);
+        ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringElectricFrequency (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Antiflickering.electricFrequency\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Antiflickering.electricFrequency succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior);
+        ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringSetMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Antiflickering.setMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Antiflickering.setMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior);
+        ARDrone3AntiflickeringSetModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3AntiflickeringSetModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateARDrone3MediaRecordStatePictureStateChanged (buffer, buffSize, &resSize, 42, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -7980,8 +10921,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaRecordEvent
     res = ARCOMMANDS_Generator_GenerateARDrone3MediaRecordEventPictureEventChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)0, (eARCOMMANDS_ARDRONE3_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -8044,8 +10983,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingState
     res = ARCOMMANDS_Generator_GenerateARDrone3PilotingStateFlatTrimChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -8325,17 +11262,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingEvent
     res = ARCOMMANDS_Generator_GenerateARDrone3PilotingEventMoveByEnd (buffer, buffSize, &resSize, 42.125, 42.125, 42.125, 42.125, (eARCOMMANDS_ARDRONE3_PILOTINGEVENT_MOVEBYEND_ERROR)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingEvent.MoveByEnd\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingEvent.moveByEnd\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingEvent.MoveByEnd succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingEvent.moveByEnd succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -8358,72 +11293,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Network
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiScan (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Network.WifiScan\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Network.WifiScan succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkWifiScanBehavior);
-        ARDrone3NetworkWifiScanShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkWifiScanShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkWifiAuthChannel (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Network.WifiAuthChannel\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Network.WifiAuthChannel succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkWifiAuthChannelBehavior);
-        ARDrone3NetworkWifiAuthChannelShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkWifiAuthChannelShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class NetworkState
     res = ARCOMMANDS_Generator_GenerateARDrone3NetworkStateWifiScanListChanged (buffer, buffSize, &resSize, "Test string with spaces", -4200, (eARCOMMANDS_ARDRONE3_NETWORKSTATE_WIFISCANLISTCHANGED_BAND)0, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -8548,320 +11417,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxAltitude (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxAltitude\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxAltitude succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxAltitudeBehavior);
-        ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsMaxAltitudeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxTilt (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxTilt\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxTilt succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxTiltBehavior);
-        ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsMaxTiltShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsAbsolutControl (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.AbsolutControl\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.AbsolutControl succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsAbsolutControlBehavior);
-        ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsAbsolutControlShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsMaxDistance (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.MaxDistance\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.MaxDistance succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsMaxDistanceBehavior);
-        ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsMaxDistanceShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsNoFlyOverMaxDistance (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.NoFlyOverMaxDistance\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.NoFlyOverMaxDistance succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsNoFlyOverMaxDistanceBehavior);
-        ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsNoFlyOverMaxDistanceShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeed (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalSpeed\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalSpeed succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedBehavior);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalSpeedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalSpeed\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalSpeed succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedBehavior);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalSpeedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAcceleration (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalAcceleration\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxHorizontalAcceleration succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationBehavior);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxHorizontalAccelerationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAcceleration (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalAcceleration\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxVerticalAcceleration succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationBehavior);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxVerticalAccelerationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeed (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxRotationSpeed\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettings.SetAutonomousFlightMaxRotationSpeed succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedBehavior);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PilotingSettingsSetAutonomousFlightMaxRotationSpeedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class PilotingSettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateMaxAltitudeChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -9172,17 +11727,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class SpeedSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateBankedTurnChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxVerticalSpeed\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.BankedTurnChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxVerticalSpeed succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.BankedTurnChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9194,10 +11747,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxVerticalSpeedBehavior);
-        ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateBankedTurnChangedBehavior);
+        ARDrone3PilotingSettingsStateBankedTurnChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3SpeedSettingsMaxVerticalSpeedShouldBeCalled = 0;
+        ARDrone3PilotingSettingsStateBankedTurnChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9205,15 +11758,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsMaxRotationSpeed (buffer, buffSize, &resSize, 42.125);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateMinAltitudeChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.MaxRotationSpeed\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.MinAltitudeChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.MaxRotationSpeed succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.MinAltitudeChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9225,10 +11778,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsMaxRotationSpeedBehavior);
-        ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateMinAltitudeChangedBehavior);
+        ARDrone3PilotingSettingsStateMinAltitudeChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3SpeedSettingsMaxRotationSpeedShouldBeCalled = 0;
+        ARDrone3PilotingSettingsStateMinAltitudeChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9236,15 +11789,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsHullProtection (buffer, buffSize, &resSize, 42);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateCirclingDirectionChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_CIRCLINGDIRECTIONCHANGED_VALUE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.HullProtection\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.CirclingDirectionChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.HullProtection succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.CirclingDirectionChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9256,10 +11809,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsHullProtectionBehavior);
-        ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingDirectionChangedBehavior);
+        ARDrone3PilotingSettingsStateCirclingDirectionChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3SpeedSettingsHullProtectionShouldBeCalled = 0;
+        ARDrone3PilotingSettingsStateCirclingDirectionChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9267,15 +11820,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsOutdoor (buffer, buffSize, &resSize, 42);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateCirclingRadiusChanged (buffer, buffSize, &resSize, 4200, 4200, 4200);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettings.Outdoor\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.CirclingRadiusChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettings.Outdoor succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.CirclingRadiusChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9287,10 +11840,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsOutdoorBehavior);
-        ARDrone3SpeedSettingsOutdoorShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingRadiusChangedBehavior);
+        ARDrone3PilotingSettingsStateCirclingRadiusChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3SpeedSettingsOutdoorShouldBeCalled = 0;
+        ARDrone3PilotingSettingsStateCirclingRadiusChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9298,8 +11851,99 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateCirclingAltitudeChanged (buffer, buffSize, &resSize, 4200, 4200, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.CirclingAltitudeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateCirclingAltitudeChangedBehavior);
+        ARDrone3PilotingSettingsStateCirclingAltitudeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsStateCirclingAltitudeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class SpeedSettingsState
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStatePitchModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_PITCHMODECHANGED_VALUE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.PitchModeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.PitchModeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStatePitchModeChangedBehavior);
+        ARDrone3PilotingSettingsStatePitchModeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsStatePitchModeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateARDrone3PilotingSettingsStateLandingModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PILOTINGSETTINGSSTATE_LANDINGMODECHANGED_VALUE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PilotingSettingsState.LandingModeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PilotingSettingsState.LandingModeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PilotingSettingsStateLandingModeChangedBehavior);
+        ARDrone3PilotingSettingsStateLandingModeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3PilotingSettingsStateLandingModeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxVerticalSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -9424,17 +12068,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class NetworkSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISELECTION_BAND)0, 42);
+    res = ARCOMMANDS_Generator_GenerateARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.WifiSelection\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.WifiSelection succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.SpeedSettingsState.MaxPitchRollRotationSpeedChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9446,10 +12088,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSelectionBehavior);
-        ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedBehavior);
+        ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkSettingsWifiSelectionShouldBeCalled = 0;
+        ARDrone3SpeedSettingsStateMaxPitchRollRotationSpeedChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -9457,39 +12099,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsWifiSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_ARDRONE3_NETWORKSETTINGS_WIFISECURITY_KEYTYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettings.WifiSecurity\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettings.WifiSecurity succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsWifiSecurityBehavior);
-        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3NetworkSettingsWifiSecurityShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class NetworkSettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSelectionChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE)0, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND)0, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -9524,12 +12133,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSecurityChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITYCHANGED_TYPE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettingsState.WifiSecurityChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettingsState.wifiSecurityChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettingsState.WifiSecurityChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettingsState.wifiSecurityChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -9552,10 +12161,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateARDrone3NetworkSettingsStateWifiSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_ARDRONE3_NETWORKSETTINGSSTATE_WIFISECURITY_KEYTYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.NetworkSettingsState.wifiSecurity\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.NetworkSettingsState.wifiSecurity succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3NetworkSettingsStateWifiSecurityBehavior);
+        ARDrone3NetworkSettingsStateWifiSecurityShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        ARDrone3NetworkSettingsStateWifiSecurityShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class Settings
-
-    // Command class SettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3SettingsStateProductMotorVersionListChanged (buffer, buffSize, &resSize, 42, "Test string with spaces", "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -9773,200 +12409,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class DirectorMode
-
-    // Command class DirectorModeState
-
-    // Command class PictureSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsPictureFormatSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.PictureFormatSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.PictureFormatSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsPictureFormatSelectionBehavior);
-        ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsPictureFormatSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsAutoWhiteBalanceSelection (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGS_AUTOWHITEBALANCESELECTION_TYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.AutoWhiteBalanceSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.AutoWhiteBalanceSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsAutoWhiteBalanceSelectionBehavior);
-        ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsAutoWhiteBalanceSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsExpositionSelection (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.ExpositionSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.ExpositionSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsExpositionSelectionBehavior);
-        ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsExpositionSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsSaturationSelection (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.SaturationSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.SaturationSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsSaturationSelectionBehavior);
-        ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsSaturationSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsTimelapseSelection (buffer, buffSize, &resSize, 42, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.TimelapseSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.TimelapseSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsTimelapseSelectionBehavior);
-        ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsTimelapseSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsVideoAutorecordSelection (buffer, buffSize, &resSize, 42, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettings.VideoAutorecordSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettings.VideoAutorecordSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsVideoAutorecordSelectionBehavior);
-        ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3PictureSettingsVideoAutorecordSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class PictureSettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStatePictureFormatChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_PICTUREFORMATCHANGED_TYPE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10153,17 +12595,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaStreaming
-    res = ARCOMMANDS_Generator_GenerateARDrone3MediaStreamingVideoEnable (buffer, buffSize, &resSize, 42);
+    res = ARCOMMANDS_Generator_GenerateARDrone3PictureSettingsStateVideoStabilizationModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_VIDEOSTABILIZATIONMODECHANGED_MODE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.MediaStreaming.VideoEnable\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.MediaStreaming.VideoEnable succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.PictureSettingsState.VideoStabilizationModeChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -10175,10 +12615,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3MediaStreamingVideoEnableBehavior);
-        ARDrone3MediaStreamingVideoEnableShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3PictureSettingsStateVideoStabilizationModeChangedBehavior);
+        ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3MediaStreamingVideoEnableShouldBeCalled = 0;
+        ARDrone3PictureSettingsStateVideoStabilizationModeChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -10186,8 +12626,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaStreamingState
     res = ARCOMMANDS_Generator_GenerateARDrone3MediaStreamingStateVideoEnableChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10219,165 +12657,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class GPSSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsSetHome (buffer, buffSize, &resSize, -42.000001, -42.000001, -42.000001);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.SetHome\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.SetHome succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsSetHomeBehavior);
-        ARDrone3GPSSettingsSetHomeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3GPSSettingsSetHomeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsResetHome (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.ResetHome\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.ResetHome succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsResetHomeBehavior);
-        ARDrone3GPSSettingsResetHomeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3GPSSettingsResetHomeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsSendControllerGPS (buffer, buffSize, &resSize, -42.000001, -42.000001, -42.000001, -42.000001, -42.000001);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.SendControllerGPS\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.SendControllerGPS succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsSendControllerGPSBehavior);
-        ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3GPSSettingsSendControllerGPSShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsHomeType (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_GPSSETTINGS_HOMETYPE_TYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.HomeType\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.HomeType succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsHomeTypeBehavior);
-        ARDrone3GPSSettingsHomeTypeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3GPSSettingsHomeTypeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsReturnHomeDelay (buffer, buffSize, &resSize, 4200);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.GPSSettings.ReturnHomeDelay\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.GPSSettings.ReturnHomeDelay succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3GPSSettingsReturnHomeDelayBehavior);
-        ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3GPSSettingsReturnHomeDelayShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class GPSSettingsState
     res = ARCOMMANDS_Generator_GenerateARDrone3GPSSettingsStateHomeChanged (buffer, buffSize, &resSize, -42.000001, -42.000001, -42.000001);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10564,8 +12843,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class CameraState
     res = ARCOMMANDS_Generator_GenerateARDrone3CameraStateOrientation (buffer, buffSize, &resSize, -42, -42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10600,12 +12877,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateARDrone3CameraStateDefaultCameraOrientation (buffer, buffSize, &resSize, -42, -42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.CameraState.DefaultCameraOrientation\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.CameraState.defaultCameraOrientation\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.CameraState.DefaultCameraOrientation succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.CameraState.defaultCameraOrientation succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -10628,81 +12905,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Antiflickering
-    res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringElectricFrequency (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_ELECTRICFREQUENCY_FREQUENCY)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Antiflickering.ElectricFrequency\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Antiflickering.ElectricFrequency succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3AntiflickeringElectricFrequencyBehavior);
-        ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3AntiflickeringElectricFrequencyShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringSetMode (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERING_SETMODE_MODE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.Antiflickering.SetMode\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.Antiflickering.SetMode succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3AntiflickeringSetModeBehavior);
-        ARDrone3AntiflickeringSetModeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3AntiflickeringSetModeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AntiflickeringState
     res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringStateElectricFrequencyChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.AntiflickeringState.ElectricFrequencyChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.AntiflickeringState.electricFrequencyChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.AntiflickeringState.ElectricFrequencyChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.AntiflickeringState.electricFrequencyChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -10728,12 +12939,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateARDrone3AntiflickeringStateModeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_MODECHANGED_MODE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.AntiflickeringState.ModeChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3.AntiflickeringState.modeChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.AntiflickeringState.ModeChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3.AntiflickeringState.modeChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -10756,8 +12967,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class GPSState
     res = ARCOMMANDS_Generator_GenerateARDrone3GPSStateNumberOfSatelliteChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10851,8 +13060,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PROState
     res = ARCOMMANDS_Generator_GenerateARDrone3PROStateFeatures (buffer, buffSize, &resSize, 420102030405ULL);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -10885,205 +13092,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project ARDrone3Debug
-    // Command class Video
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugVideoEnableWobbleCancellation (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.Video.EnableWobbleCancellation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.Video.EnableWobbleCancellation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugVideoEnableWobbleCancellationBehavior);
-        ARDrone3DebugVideoEnableWobbleCancellationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugVideoEnableWobbleCancellationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugVideoSyncAnglesGyros (buffer, buffSize, &resSize, 42.125, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.Video.SyncAnglesGyros\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.Video.SyncAnglesGyros succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugVideoSyncAnglesGyrosBehavior);
-        ARDrone3DebugVideoSyncAnglesGyrosShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugVideoSyncAnglesGyrosShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugVideoManualWhiteBalance (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.Video.ManualWhiteBalance\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.Video.ManualWhiteBalance succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugVideoManualWhiteBalanceBehavior);
-        ARDrone3DebugVideoManualWhiteBalanceShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugVideoManualWhiteBalanceShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class BatteryDebugSettings
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugBatteryDebugSettingsUseDrone2Battery (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.BatteryDebugSettings.UseDrone2Battery\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.BatteryDebugSettings.UseDrone2Battery succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugBatteryDebugSettingsUseDrone2BatteryBehavior);
-        ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugBatteryDebugSettingsUseDrone2BatteryShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class BatteryDebugSettingsState
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChanged (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.BatteryDebugSettingsState.UseDrone2BatteryChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.BatteryDebugSettingsState.UseDrone2BatteryChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedBehavior);
-        ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugBatteryDebugSettingsStateUseDrone2BatteryChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class GPSDebugState
-    res = ARCOMMANDS_Generator_GenerateARDrone3DebugGPSDebugStateNbSatelliteChanged (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command ARDrone3Debug.GPSDebugState.NbSatelliteChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command ARDrone3Debug.GPSDebugState.NbSatelliteChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetARDrone3DebugGPSDebugStateNbSatelliteChangedBehavior);
-        ARDrone3DebugGPSDebugStateNbSatelliteChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        ARDrone3DebugGPSDebugStateNbSatelliteChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-
-    // Project JumpingSumo
-    // Command class Piloting
+    // Feature JumpingSumo
     res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingPCMD (buffer, buffSize, &resSize, 42, -42, -42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11149,12 +13158,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingAddCapOffset (buffer, buffSize, &resSize, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Piloting.AddCapOffset\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Piloting.addCapOffset\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Piloting.AddCapOffset succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Piloting.addCapOffset succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -11177,103 +13186,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingState
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStatePostureChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.PostureChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.PostureChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior);
-        JumpingSumoPilotingStatePostureChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoPilotingStatePostureChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateAlertStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.AlertStateChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.AlertStateChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior);
-        JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateSpeedChanged (buffer, buffSize, &resSize, -42, -4200);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.SpeedChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.SpeedChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior);
-        JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Animations
     res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsJumpStop (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11429,138 +13341,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class AnimationsState
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpLoadChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpLoadChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpLoadChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior);
-        JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpTypeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpTypeChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpTypeChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior);
-        JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpMotorProblemChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpMotorProblemChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpMotorProblemChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior);
-        JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Settings
-
-    // Command class SettingsState
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoSettingsStateProductGPSVersionChanged (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.SettingsState.ProductGPSVersionChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.SettingsState.ProductGPSVersionChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior);
-        JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class MediaRecord
     res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaRecordPicture (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11685,8 +13465,595 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.NetworkSettings.WifiSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.NetworkSettings.WifiSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior);
+        JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class MediaRecordState
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkWifiScan (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Network.WifiScan\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Network.WifiScan succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior);
+        JumpingSumoNetworkWifiScanShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoNetworkWifiScanShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkWifiAuthChannel (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Network.WifiAuthChannel\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Network.WifiAuthChannel succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior);
+        JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoAudioSettingsMasterVolume (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AudioSettings.MasterVolume\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AudioSettings.MasterVolume succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior);
+        JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoAudioSettingsTheme (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AudioSettings.Theme\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AudioSettings.Theme succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior);
+        JumpingSumoAudioSettingsThemeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoAudioSettingsThemeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanAllScriptsMetadata (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.AllScriptsMetadata\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.AllScriptsMetadata succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior);
+        JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanScriptUploaded (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.ScriptUploaded\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.ScriptUploaded succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior);
+        JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanScriptDelete (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.ScriptDelete\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.ScriptDelete succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior);
+        JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanPlayScript (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.PlayScript\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.PlayScript succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior);
+        JumpingSumoRoadPlanPlayScriptShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoRoadPlanPlayScriptShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoSpeedSettingsOutdoor (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.SpeedSettings.Outdoor\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.SpeedSettings.Outdoor succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior);
+        JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaStreamingVideoEnable (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.MediaStreaming.VideoEnable\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.MediaStreaming.VideoEnable succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior);
+        JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoVideoSettingsAutorecord (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.VideoSettings.Autorecord\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.VideoSettings.Autorecord succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior);
+        JumpingSumoVideoSettingsAutorecordShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoVideoSettingsAutorecordShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStatePostureChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_POSTURECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.PostureChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.PostureChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStatePostureChangedBehavior);
+        JumpingSumoPilotingStatePostureChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingStatePostureChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateAlertStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.AlertStateChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.AlertStateChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStateAlertStateChangedBehavior);
+        JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingStateAlertStateChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateSpeedChanged (buffer, buffSize, &resSize, -42, -4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.PilotingState.SpeedChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.PilotingState.SpeedChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChangedBehavior);
+        JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoPilotingStateSpeedChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpLoadChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpLoadChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpLoadChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpLoadChangedBehavior);
+        JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoAnimationsStateJumpLoadChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpTypeChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPTYPECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpTypeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpTypeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpTypeChangedBehavior);
+        JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoAnimationsStateJumpTypeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoAnimationsStateJumpMotorProblemChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPMOTORPROBLEMCHANGED_ERROR)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AnimationsState.JumpMotorProblemChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AnimationsState.JumpMotorProblemChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior);
+        JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoAnimationsStateJumpMotorProblemChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateJumpingSumoSettingsStateProductGPSVersionChanged (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.SettingsState.ProductGPSVersionChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.SettingsState.ProductGPSVersionChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoSettingsStateProductGPSVersionChangedBehavior);
+        JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        JumpingSumoSettingsStateProductGPSVersionChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaRecordStatePictureStateChanged (buffer, buffSize, &resSize, 42, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11811,8 +14178,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaRecordEvent
     res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaRecordEventPictureEventChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)0, (eARCOMMANDS_JUMPINGSUMO_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11875,41 +14240,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class NetworkSettings
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGS_WIFISELECTION_BAND)0, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.NetworkSettings.WifiSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.NetworkSettings.WifiSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkSettingsWifiSelectionBehavior);
-        JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoNetworkSettingsWifiSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class NetworkSettingsState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkSettingsStateWifiSelectionChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE)0, (eARCOMMANDS_JUMPINGSUMO_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND)0, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -11941,72 +14271,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Network
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkWifiScan (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_NETWORK_WIFISCAN_BAND)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Network.WifiScan\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Network.WifiScan succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiScanBehavior);
-        JumpingSumoNetworkWifiScanShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoNetworkWifiScanShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkWifiAuthChannel (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.Network.WifiAuthChannel\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.Network.WifiAuthChannel succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoNetworkWifiAuthChannelBehavior);
-        JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoNetworkWifiAuthChannelShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class NetworkState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoNetworkStateWifiScanListChanged (buffer, buffSize, &resSize, "Test string with spaces", -4200, (eARCOMMANDS_JUMPINGSUMO_NETWORKSTATE_WIFISCANLISTCHANGED_BAND)0, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12162,72 +14426,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class AudioSettings
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoAudioSettingsMasterVolume (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AudioSettings.MasterVolume\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AudioSettings.MasterVolume succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsMasterVolumeBehavior);
-        JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoAudioSettingsMasterVolumeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoAudioSettingsTheme (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.AudioSettings.Theme\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.AudioSettings.Theme succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoAudioSettingsThemeBehavior);
-        JumpingSumoAudioSettingsThemeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoAudioSettingsThemeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AudioSettingsState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoAudioSettingsStateMasterVolumeChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12290,134 +14488,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class RoadPlan
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanAllScriptsMetadata (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.AllScriptsMetadata\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.AllScriptsMetadata succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanAllScriptsMetadataBehavior);
-        JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoRoadPlanAllScriptsMetadataShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanScriptUploaded (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.ScriptUploaded\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.ScriptUploaded succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptUploadedBehavior);
-        JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoRoadPlanScriptUploadedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanScriptDelete (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.ScriptDelete\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.ScriptDelete succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanScriptDeleteBehavior);
-        JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoRoadPlanScriptDeleteShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanPlayScript (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.RoadPlan.PlayScript\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.RoadPlan.PlayScript succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoRoadPlanPlayScriptBehavior);
-        JumpingSumoRoadPlanPlayScriptShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoRoadPlanPlayScriptShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class RoadPlanState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoRoadPlanStateScriptMetadataListChanged (buffer, buffSize, &resSize, "Test string with spaces", 42, "Test string with spaces", "Test string with spaces", 420102030405ULL);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12573,41 +14643,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class SpeedSettings
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoSpeedSettingsOutdoor (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.SpeedSettings.Outdoor\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.SpeedSettings.Outdoor succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoSpeedSettingsOutdoorBehavior);
-        JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoSpeedSettingsOutdoorShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class SpeedSettingsState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoSpeedSettingsStateOutdoorChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12639,41 +14674,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaStreaming
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaStreamingVideoEnable (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.MediaStreaming.VideoEnable\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.MediaStreaming.VideoEnable succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoMediaStreamingVideoEnableBehavior);
-        JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoMediaStreamingVideoEnableShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class MediaStreamingState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoMediaStreamingStateVideoEnableChanged (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12705,41 +14705,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class VideoSettings
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoVideoSettingsAutorecord (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumo.VideoSettings.Autorecord\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumo.VideoSettings.Autorecord succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsAutorecordBehavior);
-        JumpingSumoVideoSettingsAutorecordShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoVideoSettingsAutorecordShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class VideoSettingsState
     res = ARCOMMANDS_Generator_GenerateJumpingSumoVideoSettingsStateAutorecordChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -12772,271 +14737,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project JumpingSumoDebug
-    // Command class Jump
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugJumpSetJumpMotor (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Jump.SetJumpMotor\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Jump.SetJumpMotor succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugJumpSetJumpMotorBehavior);
-        JumpingSumoDebugJumpSetJumpMotorShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugJumpSetJumpMotorShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugJumpSetCameraOrientation (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Jump.SetCameraOrientation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Jump.SetCameraOrientation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugJumpSetCameraOrientationBehavior);
-        JumpingSumoDebugJumpSetCameraOrientationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugJumpSetCameraOrientationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Audio
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugAudioPlaySoundWithName (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Audio.PlaySoundWithName\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Audio.PlaySoundWithName succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugAudioPlaySoundWithNameBehavior);
-        JumpingSumoDebugAudioPlaySoundWithNameShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugAudioPlaySoundWithNameShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Misc
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugMiscDebugEvent (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Misc.DebugEvent\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Misc.DebugEvent succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugMiscDebugEventBehavior);
-        JumpingSumoDebugMiscDebugEventShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugMiscDebugEventShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Animation
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugAnimationPlayAnimation (buffer, buffSize, &resSize, (eARCOMMANDS_JUMPINGSUMODEBUG_ANIMATION_PLAYANIMATION_ID)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Animation.PlayAnimation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Animation.PlayAnimation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugAnimationPlayAnimationBehavior);
-        JumpingSumoDebugAnimationPlayAnimationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugAnimationPlayAnimationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugAnimationAddCapOffset (buffer, buffSize, &resSize, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.Animation.AddCapOffset\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.Animation.AddCapOffset succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugAnimationAddCapOffsetBehavior);
-        JumpingSumoDebugAnimationAddCapOffsetShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugAnimationAddCapOffsetShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class UserScript
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugUserScriptUserScriptUploaded (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.UserScript.UserScriptUploaded\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.UserScript.UserScriptUploaded succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugUserScriptUserScriptUploadedBehavior);
-        JumpingSumoDebugUserScriptUserScriptUploadedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugUserScriptUserScriptUploadedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class UserScriptState
-    res = ARCOMMANDS_Generator_GenerateJumpingSumoDebugUserScriptStateUserScriptParsed (buffer, buffSize, &resSize, 42, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command JumpingSumoDebug.UserScriptState.UserScriptParsed\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command JumpingSumoDebug.UserScriptState.UserScriptParsed succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetJumpingSumoDebugUserScriptStateUserScriptParsedBehavior);
-        JumpingSumoDebugUserScriptStateUserScriptParsedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        JumpingSumoDebugUserScriptStateUserScriptParsedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-
-    // Project MiniDrone
-    // Command class Piloting
+    // Feature MiniDrone
     res = ARCOMMANDS_Generator_GenerateMiniDronePilotingFlatTrim (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13223,134 +14924,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingState
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.FlatTrimChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.FlatTrimChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior);
-        MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.FlyingStateChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.FlyingStateChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior);
-        MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.AlertStateChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.AlertStateChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior);
-        MiniDronePilotingStateAlertStateChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.AutoTakeOffModeChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.AutoTakeOffModeChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior);
-        MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Animations
     res = ARCOMMANDS_Generator_GenerateMiniDroneAnimationsFlip (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_ANIMATIONS_FLIP_DIRECTION)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13413,8 +14986,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaRecord
     res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordPicture (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13477,105 +15048,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class MediaRecordState
-    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged (buffer, buffSize, &resSize, 42, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordState.PictureStateChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordState.PictureStateChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior);
-        MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)0, (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordState.PictureStateChangedV2\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordState.PictureStateChangedV2 succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior);
-        MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class MediaRecordEvent
-    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)0, (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordEvent.PictureEventChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordEvent.PictureEventChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior);
-        MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class PilotingSettings
     res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsMaxAltitude (buffer, buffSize, &resSize, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13638,72 +15110,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class PilotingSettingsState
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettingsState.MaxAltitudeChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettingsState.MaxAltitudeChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior);
-        MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettingsState.MaxTiltChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettingsState.MaxTiltChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior);
-        MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class SpeedSettings
     res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsMaxVerticalSpeed (buffer, buffSize, &resSize, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13828,8 +15234,440 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Settings.CutOutMode\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Settings.CutOutMode succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior);
+        MiniDroneSettingsCutOutModeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneSettingsCutOutModeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class SpeedSettingsState
+    res = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun (buffer, buffSize, &resSize, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.GPS.ControllerLatitudeForRun\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.GPS.ControllerLatitudeForRun succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior);
+        MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun (buffer, buffSize, &resSize, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.GPS.ControllerLongitudeForRun\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.GPS.ControllerLongitudeForRun succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior);
+        MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Configuration.ControllerType\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Configuration.ControllerType succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior);
+        MiniDroneConfigurationControllerTypeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneConfigurationControllerTypeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Configuration.ControllerName\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Configuration.ControllerName succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior);
+        MiniDroneConfigurationControllerNameShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneConfigurationControllerNameShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlatTrimChanged (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.FlatTrimChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.FlatTrimChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateFlatTrimChangedBehavior);
+        MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingStateFlatTrimChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateFlyingStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_FLYINGSTATECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.FlyingStateChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.FlyingStateChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateFlyingStateChangedBehavior);
+        MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingStateFlyingStateChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAlertStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.AlertStateChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.AlertStateChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateAlertStateChangedBehavior);
+        MiniDronePilotingStateAlertStateChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingStateAlertStateChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingStateAutoTakeOffModeChanged (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingState.AutoTakeOffModeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingState.AutoTakeOffModeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingStateAutoTakeOffModeChangedBehavior);
+        MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingStateAutoTakeOffModeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChanged (buffer, buffSize, &resSize, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordState.PictureStateChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordState.PictureStateChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedBehavior);
+        MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneMediaRecordStatePictureStateChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordStatePictureStateChangedV2 (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE)0, (eARCOMMANDS_MINIDRONE_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordState.PictureStateChangedV2\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordState.PictureStateChangedV2 succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordStatePictureStateChangedV2Behavior);
+        MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneMediaRecordStatePictureStateChangedV2ShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDroneMediaRecordEventPictureEventChanged (buffer, buffSize, &resSize, (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT)0, (eARCOMMANDS_MINIDRONE_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.MediaRecordEvent.PictureEventChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.MediaRecordEvent.PictureEventChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneMediaRecordEventPictureEventChangedBehavior);
+        MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDroneMediaRecordEventPictureEventChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxAltitudeChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettingsState.MaxAltitudeChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettingsState.MaxAltitudeChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxAltitudeChangedBehavior);
+        MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingSettingsStateMaxAltitudeChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMiniDronePilotingSettingsStateMaxTiltChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.PilotingSettingsState.MaxTiltChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.PilotingSettingsState.MaxTiltChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDronePilotingSettingsStateMaxTiltChangedBehavior);
+        MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        MiniDronePilotingSettingsStateMaxTiltChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateMiniDroneSpeedSettingsStateMaxVerticalSpeedChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -13954,41 +15792,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Settings
-    res = ARCOMMANDS_Generator_GenerateMiniDroneSettingsCutOutMode (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Settings.CutOutMode\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Settings.CutOutMode succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneSettingsCutOutModeBehavior);
-        MiniDroneSettingsCutOutModeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneSettingsCutOutModeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class SettingsState
     res = ARCOMMANDS_Generator_GenerateMiniDroneSettingsStateProductMotorsVersionChanged (buffer, buffSize, &resSize, 42, "Test string with spaces", "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14082,8 +15885,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class FloodControlState
     res = ARCOMMANDS_Generator_GenerateMiniDroneFloodControlStateFloodControlChanged (buffer, buffSize, &resSize, 4200);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14116,391 +15917,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-    // Command class GPS
-    res = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLatitudeForRun (buffer, buffSize, &resSize, -42.000001);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.GPS.ControllerLatitudeForRun\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.GPS.ControllerLatitudeForRun succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneGPSControllerLatitudeForRunBehavior);
-        MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneGPSControllerLatitudeForRunShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDroneGPSControllerLongitudeForRun (buffer, buffSize, &resSize, -42.000001);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.GPS.ControllerLongitudeForRun\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.GPS.ControllerLongitudeForRun succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneGPSControllerLongitudeForRunBehavior);
-        MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneGPSControllerLongitudeForRunShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Configuration
-    res = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerType (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Configuration.ControllerType\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Configuration.ControllerType succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerTypeBehavior);
-        MiniDroneConfigurationControllerTypeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneConfigurationControllerTypeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDroneConfigurationControllerName (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDrone.Configuration.ControllerName\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDrone.Configuration.ControllerName succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneConfigurationControllerNameBehavior);
-        MiniDroneConfigurationControllerNameShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneConfigurationControllerNameShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-
-    // Project MiniDroneDebug
-    // Command class Debug
-    res = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest1 (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDroneDebug.Debug.Test1\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDroneDebug.Debug.Test1 succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneDebugDebugTest1Behavior);
-        MiniDroneDebugDebugTest1ShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneDebugDebugTest1ShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest2 (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDroneDebug.Debug.Test2\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDroneDebug.Debug.Test2 succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneDebugDebugTest2Behavior);
-        MiniDroneDebugDebugTest2ShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneDebugDebugTest2ShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateMiniDroneDebugDebugTest3 (buffer, buffSize, &resSize, -42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command MiniDroneDebug.Debug.Test3\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command MiniDroneDebug.Debug.Test3 succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMiniDroneDebugDebugTest3Behavior);
-        MiniDroneDebugDebugTest3ShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        MiniDroneDebugDebugTest3ShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-
-    // Project SkyController
-    // Command class WifiState
-    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiList (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces", 42, 42, -420000, -420000);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiList\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiList succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior);
-        SkyControllerWifiStateWifiListShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerWifiStateWifiListShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateConnexionChanged (buffer, buffSize, &resSize, "Test string with spaces", (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.ConnexionChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.ConnexionChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateConnexionChangedBehavior);
-        SkyControllerWifiStateConnexionChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerWifiStateConnexionChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiAuthChannelListChanged (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND)0, 42, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiAuthChannelListChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiAuthChannelListChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiAuthChannelListChangedBehavior);
-        SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateAllWifiAuthChannelChanged (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.AllWifiAuthChannelChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.AllWifiAuthChannelChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior);
-        SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiSignalChanged (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiSignalChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiSignalChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiSignalChangedBehavior);
-        SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Wifi
+    // Feature SkyController
     res = ARCOMMANDS_Generator_GenerateSkyControllerWifiRequestWifiList (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14656,8 +16073,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Device
     res = ARCOMMANDS_Generator_GenerateSkyControllerDeviceRequestDeviceList (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14751,72 +16166,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class DeviceState
-    res = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateDeviceList (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.DeviceState.DeviceList\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.DeviceState.DeviceList succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDeviceStateDeviceListBehavior);
-        SkyControllerDeviceStateDeviceListShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerDeviceStateDeviceListShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateConnexionChanged (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS)0, "Test string with spaces", 4200);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.DeviceState.ConnexionChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.DeviceState.ConnexionChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDeviceStateConnexionChangedBehavior);
-        SkyControllerDeviceStateConnexionChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerDeviceStateConnexionChangedShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Settings
     res = ARCOMMANDS_Generator_GenerateSkyControllerSettingsAllSettings (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -14879,8 +16228,843 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Common.AllStates\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Common.AllStates succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior);
+        SkyControllerCommonAllStatesShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerCommonAllStatesShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class SettingsState
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointSSID (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.AccessPointSSID\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.AccessPointSSID succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior);
+        SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointChannel (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.AccessPointChannel\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.AccessPointChannel succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior);
+        SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.WifiSelection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.WifiSelection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior);
+        SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerCameraResetOrientation (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Camera.ResetOrientation\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Camera.ResetOrientation succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior);
+        SkyControllerCameraResetOrientationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerCameraResetOrientationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosGetGamepadControls (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfos.getGamepadControls\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfos.getGamepadControls succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior);
+        SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetCurrentButtonMappings (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.getCurrentButtonMappings\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.getCurrentButtonMappings succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior);
+        SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetAvailableButtonMappings (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.getAvailableButtonMappings\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.getAvailableButtonMappings succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior);
+        SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsSetButtonMapping (buffer, buffSize, &resSize, -420000, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.setButtonMapping\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.setButtonMapping succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior);
+        SkyControllerButtonMappingsSetButtonMappingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerButtonMappingsSetButtonMappingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsDefaultButtonMapping (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.defaultButtonMapping\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.defaultButtonMapping succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior);
+        SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetCurrentAxisMappings (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.getCurrentAxisMappings\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.getCurrentAxisMappings succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior);
+        SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetAvailableAxisMappings (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.getAvailableAxisMappings\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.getAvailableAxisMappings succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior);
+        SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsSetAxisMapping (buffer, buffSize, &resSize, -420000, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.setAxisMapping\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.setAxisMapping succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior);
+        SkyControllerAxisMappingsSetAxisMappingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisMappingsSetAxisMappingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsDefaultAxisMapping (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.defaultAxisMapping\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.defaultAxisMapping succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior);
+        SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetCurrentAxisFilters (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.getCurrentAxisFilters\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.getCurrentAxisFilters succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior);
+        SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetPresetAxisFilters (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.getPresetAxisFilters\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.getPresetAxisFilters succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior);
+        SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersSetAxisFilter (buffer, buffSize, &resSize, -420000, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.setAxisFilter\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.setAxisFilter succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior);
+        SkyControllerAxisFiltersSetAxisFilterShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisFiltersSetAxisFilterShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersDefaultAxisFilters (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.defaultAxisFilters\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.defaultAxisFilters succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior);
+        SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingSetPilotingSource (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.CoPiloting.setPilotingSource\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.CoPiloting.setPilotingSource succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior);
+        SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Calibration.enableMagnetoCalibrationQualityUpdates\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Calibration.enableMagnetoCalibrationQualityUpdates succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior);
+        SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiList (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces", 42, 42, -420000, -420000);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiList\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiList succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiListBehavior);
+        SkyControllerWifiStateWifiListShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerWifiStateWifiListShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateConnexionChanged (buffer, buffSize, &resSize, "Test string with spaces", (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_CONNEXIONCHANGED_STATUS)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.ConnexionChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.ConnexionChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateConnexionChangedBehavior);
+        SkyControllerWifiStateConnexionChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerWifiStateConnexionChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiAuthChannelListChanged (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_WIFISTATE_WIFIAUTHCHANNELLISTCHANGED_BAND)0, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiAuthChannelListChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiAuthChannelListChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiAuthChannelListChangedBehavior);
+        SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerWifiStateWifiAuthChannelListChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateAllWifiAuthChannelChanged (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.AllWifiAuthChannelChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.AllWifiAuthChannelChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateAllWifiAuthChannelChangedBehavior);
+        SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerWifiStateAllWifiAuthChannelChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerWifiStateWifiSignalChanged (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.WifiState.WifiSignalChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.WifiState.WifiSignalChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerWifiStateWifiSignalChangedBehavior);
+        SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerWifiStateWifiSignalChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateDeviceList (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.DeviceState.DeviceList\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.DeviceState.DeviceList succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDeviceStateDeviceListBehavior);
+        SkyControllerDeviceStateDeviceListShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerDeviceStateDeviceListShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerDeviceStateConnexionChanged (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_DEVICESTATE_CONNEXIONCHANGED_STATUS)0, "Test string with spaces", 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.DeviceState.ConnexionChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.DeviceState.ConnexionChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDeviceStateConnexionChangedBehavior);
+        SkyControllerDeviceStateConnexionChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerDeviceStateConnexionChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateAllSettingsChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -15005,41 +17189,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Common
-    res = ARCOMMANDS_Generator_GenerateSkyControllerCommonAllStates (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Common.AllStates\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Common.AllStates succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCommonAllStatesBehavior);
-        SkyControllerCommonAllStatesShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerCommonAllStatesShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class CommonState
     res = ARCOMMANDS_Generator_GenerateSkyControllerCommonStateAllStatesChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -15071,8 +17220,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class SkyControllerState
     res = ARCOMMANDS_Generator_GenerateSkyControllerSkyControllerStateBatteryChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -15166,103 +17313,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class AccessPointSettings
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointSSID (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.AccessPointSSID\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.AccessPointSSID succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointSSIDBehavior);
-        SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAccessPointSettingsAccessPointSSIDShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsAccessPointChannel (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.AccessPointChannel\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.AccessPointChannel succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsAccessPointChannelBehavior);
-        SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAccessPointSettingsAccessPointChannelShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsWifiSelection (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_TYPE)0, (eARCOMMANDS_SKYCONTROLLER_ACCESSPOINTSETTINGS_WIFISELECTION_BAND)0, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AccessPointSettings.WifiSelection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AccessPointSettings.WifiSelection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAccessPointSettingsWifiSelectionBehavior);
-        SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAccessPointSettingsWifiSelectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AccessPointSettingsState
     res = ARCOMMANDS_Generator_GenerateSkyControllerAccessPointSettingsStateAccessPointSSIDChanged (buffer, buffSize, &resSize, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -15356,83 +17406,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Camera
-    res = ARCOMMANDS_Generator_GenerateSkyControllerCameraResetOrientation (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Camera.ResetOrientation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Camera.ResetOrientation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCameraResetOrientationBehavior);
-        SkyControllerCameraResetOrientationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerCameraResetOrientationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class GamepadInfos
-    res = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosGetGamepadControls (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfos.GetGamepadControls\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfos.GetGamepadControls succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerGamepadInfosGetGamepadControlsBehavior);
-        SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerGamepadInfosGetGamepadControlsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class GamepadInfosState
     res = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateGamepadControl (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_GAMEPADINFOSSTATE_GAMEPADCONTROL_TYPE)0, -420000, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfosState.GamepadControl\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfosState.gamepadControl\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfosState.GamepadControl succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfosState.gamepadControl succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15458,12 +17440,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerGamepadInfosStateAllGamepadControlsSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfosState.AllGamepadControlsSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.GamepadInfosState.allGamepadControlsSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfosState.AllGamepadControlsSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.GamepadInfosState.allGamepadControlsSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15486,143 +17468,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class ButtonMappings
-    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetCurrentButtonMappings (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.GetCurrentButtonMappings\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.GetCurrentButtonMappings succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetCurrentButtonMappingsBehavior);
-        SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerButtonMappingsGetCurrentButtonMappingsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsGetAvailableButtonMappings (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.GetAvailableButtonMappings\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.GetAvailableButtonMappings succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsGetAvailableButtonMappingsBehavior);
-        SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerButtonMappingsGetAvailableButtonMappingsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsSetButtonMapping (buffer, buffSize, &resSize, -420000, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.SetButtonMapping\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.SetButtonMapping succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsSetButtonMappingBehavior);
-        SkyControllerButtonMappingsSetButtonMappingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerButtonMappingsSetButtonMappingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsDefaultButtonMapping (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappings.DefaultButtonMapping\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappings.DefaultButtonMapping succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerButtonMappingsDefaultButtonMappingBehavior);
-        SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerButtonMappingsDefaultButtonMappingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class ButtonMappingsState
     res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateCurrentButtonMappings (buffer, buffSize, &resSize, -420000, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.CurrentButtonMappings\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.currentButtonMappings\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.CurrentButtonMappings succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.currentButtonMappings succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15648,12 +17502,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllCurrentButtonMappingsSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.AllCurrentButtonMappingsSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.allCurrentButtonMappingsSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.AllCurrentButtonMappingsSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.allCurrentButtonMappingsSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15679,12 +17533,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAvailableButtonMappings (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.AvailableButtonMappings\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.availableButtonMappings\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.AvailableButtonMappings succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.availableButtonMappings succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15710,12 +17564,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerButtonMappingsStateAllAvailableButtonsMappingsSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.AllAvailableButtonsMappingsSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.ButtonMappingsState.allAvailableButtonsMappingsSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.AllAvailableButtonsMappingsSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.ButtonMappingsState.allAvailableButtonsMappingsSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15738,143 +17592,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class AxisMappings
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetCurrentAxisMappings (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.GetCurrentAxisMappings\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.GetCurrentAxisMappings succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetCurrentAxisMappingsBehavior);
-        SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisMappingsGetCurrentAxisMappingsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsGetAvailableAxisMappings (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.GetAvailableAxisMappings\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.GetAvailableAxisMappings succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsGetAvailableAxisMappingsBehavior);
-        SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisMappingsGetAvailableAxisMappingsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsSetAxisMapping (buffer, buffSize, &resSize, -420000, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.SetAxisMapping\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.SetAxisMapping succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsSetAxisMappingBehavior);
-        SkyControllerAxisMappingsSetAxisMappingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisMappingsSetAxisMappingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsDefaultAxisMapping (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappings.DefaultAxisMapping\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappings.DefaultAxisMapping succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisMappingsDefaultAxisMappingBehavior);
-        SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisMappingsDefaultAxisMappingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AxisMappingsState
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateCurrentAxisMappings (buffer, buffSize, &resSize, -420000, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.CurrentAxisMappings\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.currentAxisMappings\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.CurrentAxisMappings succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.currentAxisMappings succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15900,12 +17626,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllCurrentAxisMappingsSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.AllCurrentAxisMappingsSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.allCurrentAxisMappingsSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.AllCurrentAxisMappingsSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.allCurrentAxisMappingsSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15931,12 +17657,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAvailableAxisMappings (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.AvailableAxisMappings\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.availableAxisMappings\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.AvailableAxisMappings succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.availableAxisMappings succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15962,12 +17688,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisMappingsStateAllAvailableAxisMappingsSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.AllAvailableAxisMappingsSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisMappingsState.allAvailableAxisMappingsSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.AllAvailableAxisMappingsSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisMappingsState.allAvailableAxisMappingsSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15990,143 +17716,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class AxisFilters
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetCurrentAxisFilters (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.GetCurrentAxisFilters\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.GetCurrentAxisFilters succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetCurrentAxisFiltersBehavior);
-        SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisFiltersGetCurrentAxisFiltersShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersGetPresetAxisFilters (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.GetPresetAxisFilters\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.GetPresetAxisFilters succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersGetPresetAxisFiltersBehavior);
-        SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisFiltersGetPresetAxisFiltersShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersSetAxisFilter (buffer, buffSize, &resSize, -420000, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.SetAxisFilter\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.SetAxisFilter succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersSetAxisFilterBehavior);
-        SkyControllerAxisFiltersSetAxisFilterShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisFiltersSetAxisFilterShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersDefaultAxisFilters (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFilters.DefaultAxisFilters\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFilters.DefaultAxisFilters succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerAxisFiltersDefaultAxisFiltersBehavior);
-        SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerAxisFiltersDefaultAxisFiltersShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AxisFiltersState
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateCurrentAxisFilters (buffer, buffSize, &resSize, -420000, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.CurrentAxisFilters\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.currentAxisFilters\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.CurrentAxisFilters succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.currentAxisFilters succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16152,12 +17750,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllCurrentFiltersSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.AllCurrentFiltersSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.allCurrentFiltersSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.AllCurrentFiltersSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.allCurrentFiltersSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16183,12 +17781,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStatePresetAxisFilters (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.PresetAxisFilters\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.presetAxisFilters\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.PresetAxisFilters succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.presetAxisFilters succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16214,12 +17812,12 @@ int ARCOMMANDS_Testbench_AutoTest ()
     res = ARCOMMANDS_Generator_GenerateSkyControllerAxisFiltersStateAllPresetFiltersSent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.AllPresetFiltersSent\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.AxisFiltersState.allPresetFiltersSent\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.AllPresetFiltersSent succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.AxisFiltersState.allPresetFiltersSent succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16242,50 +17840,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class CoPiloting
-    res = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingSetPilotingSource (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_COPILOTING_SETPILOTINGSOURCE_SOURCE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.CoPiloting.SetPilotingSource\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.CoPiloting.SetPilotingSource succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCoPilotingSetPilotingSourceBehavior);
-        SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerCoPilotingSetPilotingSourceShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class CoPilotingState
     res = ARCOMMANDS_Generator_GenerateSkyControllerCoPilotingStatePilotingSource (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_COPILOTINGSTATE_PILOTINGSOURCE_SOURCE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.CoPilotingState.PilotingSource\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.CoPilotingState.pilotingSource\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.CoPilotingState.PilotingSource succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.CoPilotingState.pilotingSource succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16308,41 +17871,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Calibration
-    res = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdates (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.Calibration.EnableMagnetoCalibrationQualityUpdates\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.Calibration.EnableMagnetoCalibrationQualityUpdates succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesBehavior);
-        SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerCalibrationEnableMagnetoCalibrationQualityUpdatesShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class CalibrationState
     res = ARCOMMANDS_Generator_GenerateSkyControllerCalibrationStateMagnetoCalibrationState (buffer, buffSize, &resSize, (eARCOMMANDS_SKYCONTROLLER_CALIBRATIONSTATE_MAGNETOCALIBRATIONSTATE_STATUS)0, 42, 42, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16405,8 +17933,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class ButtonEvents
     res = ARCOMMANDS_Generator_GenerateSkyControllerButtonEventsSettings (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16439,18 +17965,16 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project SkyControllerDebug
-    // Command class Debug
-    res = ARCOMMANDS_Generator_GenerateSkyControllerDebugDebugTest1 (buffer, buffSize, &resSize, -42);
+    // Feature unknown_feature_1
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1GeographicRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125, 42, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyControllerDebug.Debug.Test1\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.geographic_run\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyControllerDebug.Debug.Test1 succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.geographic_run succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -16462,10 +17986,692 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerDebugDebugTest1Behavior);
-        SkyControllerDebugDebugTest1ShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1GeographicRunBehavior);
+        unknown_feature_1GeographicRunShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        SkyControllerDebugDebugTest1ShouldBeCalled = 0;
+        unknown_feature_1GeographicRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1RelativeRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.relative_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.relative_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1RelativeRunBehavior);
+        unknown_feature_1RelativeRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1RelativeRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1LookAtRun (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.look_at_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.look_at_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1LookAtRunBehavior);
+        unknown_feature_1LookAtRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1LookAtRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1SpiralAnimRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.spiral_anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.spiral_anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1SpiralAnimRunBehavior);
+        unknown_feature_1SpiralAnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1SpiralAnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1SwingAnimRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.swing_anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.swing_anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1SwingAnimRunBehavior);
+        unknown_feature_1SwingAnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1SwingAnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1BoomerangAnimRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.boomerang_anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.boomerang_anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1BoomerangAnimRunBehavior);
+        unknown_feature_1BoomerangAnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1BoomerangAnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1CandleAnimRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.candle_anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.candle_anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1CandleAnimRunBehavior);
+        unknown_feature_1CandleAnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1CandleAnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1DollySlideAnimRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.dolly_slide_anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.dolly_slide_anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1DollySlideAnimRunBehavior);
+        unknown_feature_1DollySlideAnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1DollySlideAnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1UserFramingPosition (buffer, buffSize, &resSize, -42, -42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.user_framing_position\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.user_framing_position succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1UserFramingPositionBehavior);
+        unknown_feature_1UserFramingPositionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1UserFramingPositionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1UserGPSData (buffer, buffSize, &resSize, -42.000001, -42.000001, 42.125, 42.125, 42.125, 42.125, 42.125, 42.125, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.user_GPS_data\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.user_GPS_data succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1UserGPSDataBehavior);
+        unknown_feature_1UserGPSDataShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1UserGPSDataShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1UserBaroData (buffer, buffSize, &resSize, 42.125, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.user_baro_data\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.user_baro_data succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1UserBaroDataBehavior);
+        unknown_feature_1UserBaroDataShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1UserBaroDataShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1LynxDetection (buffer, buffSize, &resSize, 42.125, 42.125, 42.125, 42, 42, 420102030405ULL);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.lynx_detection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.lynx_detection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1LynxDetectionBehavior);
+        unknown_feature_1LynxDetectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1LynxDetectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1Availability (buffer, buffSize, &resSize, (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPES_AVAILABLE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.availability\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.availability succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1AvailabilityBehavior);
+        unknown_feature_1AvailabilityShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1AvailabilityShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1Run (buffer, buffSize, &resSize, (eARCOMMANDS_UNKNOWN_FEATURE_1_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1RunBehavior);
+        unknown_feature_1RunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1RunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1GeographicConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.geographic_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.geographic_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1GeographicConfigChangedBehavior);
+        unknown_feature_1GeographicConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1GeographicConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1RelativeConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.relative_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.relative_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1RelativeConfigChangedBehavior);
+        unknown_feature_1RelativeConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1RelativeConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1AnimRun (buffer, buffSize, &resSize, (eARCOMMANDS_UNKNOWN_FEATURE_1_ANIM_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.anim_run\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.anim_run succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1AnimRunBehavior);
+        unknown_feature_1AnimRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1AnimRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1SpiralAnimConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.spiral_anim_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.spiral_anim_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1SpiralAnimConfigChangedBehavior);
+        unknown_feature_1SpiralAnimConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1SpiralAnimConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1SwingAnimConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.swing_anim_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.swing_anim_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1SwingAnimConfigChangedBehavior);
+        unknown_feature_1SwingAnimConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1SwingAnimConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1BoomerangAnimConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.boomerang_anim_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.boomerang_anim_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1BoomerangAnimConfigChangedBehavior);
+        unknown_feature_1BoomerangAnimConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1BoomerangAnimConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1CandleAnimConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.candle_anim_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.candle_anim_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1CandleAnimConfigChangedBehavior);
+        unknown_feature_1CandleAnimConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1CandleAnimConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1DollySlideAnimConfigChanged (buffer, buffSize, &resSize, 42, 42.125, 42, 42.125, 42, 42.125);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.dolly_slide_anim_config_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.dolly_slide_anim_config_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1DollySlideAnimConfigChangedBehavior);
+        unknown_feature_1DollySlideAnimConfigChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1DollySlideAnimConfigChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateUnknownFeature1UserFramingPositionChanged (buffer, buffSize, &resSize, -42, -42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command UnknownFeature1.user_framing_position_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command UnknownFeature1.user_framing_position_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetUnknownFeature1UserFramingPositionChangedBehavior);
+        unknown_feature_1UserFramingPositionChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        unknown_feature_1UserFramingPositionChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -16474,9 +18680,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project common
-    // Command class Network
+    // Feature common
     res = ARCOMMANDS_Generator_GenerateCommonNetworkDisconnect (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16508,41 +18712,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class NetworkEvent
-    res = ARCOMMANDS_Generator_GenerateCommonNetworkEventDisconnection (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.NetworkEvent.Disconnection\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.NetworkEvent.Disconnection succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior);
-        commonNetworkEventDisconnectionShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonNetworkEventDisconnectionShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class Settings
     res = ARCOMMANDS_Generator_GenerateCommonSettingsAllSettings (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16698,8 +18867,657 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateCommonCommonAllStates (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.AllStates\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.AllStates succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior);
+        commonCommonAllStatesShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonCommonAllStatesShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class SettingsState
+    res = ARCOMMANDS_Generator_GenerateCommonCommonCurrentDate (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.CurrentDate\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.CurrentDate succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior);
+        commonCommonCurrentDateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonCommonCurrentDateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonCommonCurrentTime (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.CurrentTime\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.CurrentTime succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior);
+        commonCommonCurrentTimeShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonCommonCurrentTimeShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonCommonReboot (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.Reboot\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.Reboot succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonRebootBehavior);
+        commonCommonRebootShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonCommonRebootShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonOverHeatSwitchOff (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.OverHeat.SwitchOff\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.OverHeat.SwitchOff succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior);
+        commonOverHeatSwitchOffShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonOverHeatSwitchOffShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.OverHeat.Ventilate\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.OverHeat.Ventilate succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior);
+        commonOverHeatVentilateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonOverHeatVentilateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Controller.isPiloting\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Controller.isPiloting succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior);
+        commonControllerIsPilotingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonControllerIsPilotingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonWifiSettingsOutdoorSetting (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.WifiSettings.OutdoorSetting\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.WifiSettings.OutdoorSetting succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior);
+        commonWifiSettingsOutdoorSettingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonWifiSettingsOutdoorSettingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonMavlinkStart (buffer, buffSize, &resSize, "Test string with spaces", (eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Start\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Start succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior);
+        commonMavlinkStartShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonMavlinkStartShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonMavlinkPause (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Pause\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Pause succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior);
+        commonMavlinkPauseShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonMavlinkPauseShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonMavlinkStop (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Stop\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Stop succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior);
+        commonMavlinkStopShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonMavlinkStopShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonCalibrationMagnetoCalibration (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Calibration.MagnetoCalibration\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Calibration.MagnetoCalibration succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior);
+        commonCalibrationMagnetoCalibrationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonCalibrationMagnetoCalibrationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonGPSControllerPositionForRun (buffer, buffSize, &resSize, -42.000001, -42.000001);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.GPS.ControllerPositionForRun\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.GPS.ControllerPositionForRun succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior);
+        commonGPSControllerPositionForRunShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonGPSControllerPositionForRunShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonAudioControllerReadyForStreaming (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Audio.ControllerReadyForStreaming\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Audio.ControllerReadyForStreaming succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior);
+        commonAudioControllerReadyForStreamingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonAudioControllerReadyForStreamingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonHeadlightsIntensity (buffer, buffSize, &resSize, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Headlights.intensity\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Headlights.intensity succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior);
+        commonHeadlightsIntensityShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonHeadlightsIntensityShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStartAnimation (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StartAnimation\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StartAnimation succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior);
+        commonAnimationsStartAnimationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonAnimationsStartAnimationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAnimation (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StopAnimation\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StopAnimation succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior);
+        commonAnimationsStopAnimationShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonAnimationsStopAnimationShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAllAnimations (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StopAllAnimations\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StopAllAnimations succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior);
+        commonAnimationsStopAllAnimationsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonAnimationsStopAllAnimationsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonAccessoryConfig (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Accessory.Config\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Accessory.Config succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior);
+        commonAccessoryConfigShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonAccessoryConfigShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonChargerSetMaxChargeRate (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Charger.SetMaxChargeRate\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Charger.SetMaxChargeRate succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior);
+        commonChargerSetMaxChargeRateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonChargerSetMaxChargeRateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateCommonNetworkEventDisconnection (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_NETWORKEVENT_DISCONNECTION_CAUSE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.NetworkEvent.Disconnection\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.NetworkEvent.Disconnection succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonNetworkEventDisconnectionBehavior);
+        commonNetworkEventDisconnectionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonNetworkEventDisconnectionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
     res = ARCOMMANDS_Generator_GenerateCommonSettingsStateAllSettingsChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -16948,134 +19766,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Common
-    res = ARCOMMANDS_Generator_GenerateCommonCommonAllStates (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.AllStates\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.AllStates succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonAllStatesBehavior);
-        commonCommonAllStatesShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonCommonAllStatesShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonCommonCurrentDate (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.CurrentDate\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.CurrentDate succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonCurrentDateBehavior);
-        commonCommonCurrentDateShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonCommonCurrentDateShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonCommonCurrentTime (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.CurrentTime\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.CurrentTime succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonCurrentTimeBehavior);
-        commonCommonCurrentTimeShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonCommonCurrentTimeShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonCommonReboot (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Common.Reboot\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Common.Reboot succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCommonRebootBehavior);
-        commonCommonRebootShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonCommonRebootShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class CommonState
     res = ARCOMMANDS_Generator_GenerateCommonCommonStateAllStatesChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -17417,72 +20107,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class OverHeat
-    res = ARCOMMANDS_Generator_GenerateCommonOverHeatSwitchOff (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.OverHeat.SwitchOff\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.OverHeat.SwitchOff succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonOverHeatSwitchOffBehavior);
-        commonOverHeatSwitchOffShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonOverHeatSwitchOffShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonOverHeatVentilate (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.OverHeat.Ventilate\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.OverHeat.Ventilate succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonOverHeatVentilateBehavior);
-        commonOverHeatVentilateShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonOverHeatVentilateShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class OverHeatState
     res = ARCOMMANDS_Generator_GenerateCommonOverHeatStateOverHeatChanged (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -17545,83 +20169,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Controller
-    res = ARCOMMANDS_Generator_GenerateCommonControllerIsPiloting (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Controller.IsPiloting\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Controller.IsPiloting succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonControllerIsPilotingBehavior);
-        commonControllerIsPilotingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonControllerIsPilotingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class WifiSettings
-    res = ARCOMMANDS_Generator_GenerateCommonWifiSettingsOutdoorSetting (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.WifiSettings.OutdoorSetting\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.WifiSettings.OutdoorSetting succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonWifiSettingsOutdoorSettingBehavior);
-        commonWifiSettingsOutdoorSettingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonWifiSettingsOutdoorSettingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class WifiSettingsState
     res = ARCOMMANDS_Generator_GenerateCommonWifiSettingsStateOutdoorSettingsChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.WifiSettingsState.OutdoorSettingsChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.WifiSettingsState.outdoorSettingsChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.WifiSettingsState.OutdoorSettingsChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.WifiSettingsState.outdoorSettingsChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -17644,103 +20200,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Mavlink
-    res = ARCOMMANDS_Generator_GenerateCommonMavlinkStart (buffer, buffSize, &resSize, "Test string with spaces", (eARCOMMANDS_COMMON_MAVLINK_START_TYPE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Start\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Start succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkStartBehavior);
-        commonMavlinkStartShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonMavlinkStartShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonMavlinkPause (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Pause\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Pause succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkPauseBehavior);
-        commonMavlinkPauseShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonMavlinkPauseShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonMavlinkStop (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Mavlink.Stop\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Mavlink.Stop succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonMavlinkStopBehavior);
-        commonMavlinkStopShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonMavlinkStopShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class MavlinkState
     res = ARCOMMANDS_Generator_GenerateCommonMavlinkStateMavlinkFilePlayingStateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_STATE)0, "Test string with spaces", (eARCOMMANDS_COMMON_MAVLINKSTATE_MAVLINKFILEPLAYINGSTATECHANGED_TYPE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -17803,41 +20262,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Calibration
-    res = ARCOMMANDS_Generator_GenerateCommonCalibrationMagnetoCalibration (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Calibration.MagnetoCalibration\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Calibration.MagnetoCalibration succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonCalibrationMagnetoCalibrationBehavior);
-        commonCalibrationMagnetoCalibrationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonCalibrationMagnetoCalibrationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class CalibrationState
     res = ARCOMMANDS_Generator_GenerateCommonCalibrationStateMagnetoCalibrationStateChanged (buffer, buffSize, &resSize, 42, 42, 42, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -17962,8 +20386,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class CameraSettingsState
     res = ARCOMMANDS_Generator_GenerateCommonCameraSettingsStateCameraSettingsChanged (buffer, buffSize, &resSize, 42.125, 42.125, 42.125, 42.125, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -17995,41 +20417,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class GPS
-    res = ARCOMMANDS_Generator_GenerateCommonGPSControllerPositionForRun (buffer, buffSize, &resSize, -42.000001, -42.000001);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.GPS.ControllerPositionForRun\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.GPS.ControllerPositionForRun succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonGPSControllerPositionForRunBehavior);
-        commonGPSControllerPositionForRunShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonGPSControllerPositionForRunShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class FlightPlanState
     res = ARCOMMANDS_Generator_GenerateCommonFlightPlanStateAvailabilityStateChanged (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18092,8 +20479,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class FlightPlanEvent
     res = ARCOMMANDS_Generator_GenerateCommonFlightPlanEventStartingErrorEvent (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18156,8 +20541,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class ARLibsVersionsState
     res = ARCOMMANDS_Generator_GenerateCommonARLibsVersionsStateControllerLibARCommandsVersion (buffer, buffSize, &resSize, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18251,41 +20634,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Audio
-    res = ARCOMMANDS_Generator_GenerateCommonAudioControllerReadyForStreaming (buffer, buffSize, &resSize, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Audio.ControllerReadyForStreaming\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Audio.ControllerReadyForStreaming succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAudioControllerReadyForStreamingBehavior);
-        commonAudioControllerReadyForStreamingShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonAudioControllerReadyForStreamingShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AudioState
     res = ARCOMMANDS_Generator_GenerateCommonAudioStateAudioStreamingRunning (buffer, buffSize, &resSize, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18317,50 +20665,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Headlights
-    res = ARCOMMANDS_Generator_GenerateCommonHeadlightsIntensity (buffer, buffSize, &resSize, 42, 42);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Headlights.Intensity\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Headlights.Intensity succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonHeadlightsIntensityBehavior);
-        commonHeadlightsIntensityShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonHeadlightsIntensityShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class HeadlightsState
     res = ARCOMMANDS_Generator_GenerateCommonHeadlightsStateIntensityChanged (buffer, buffSize, &resSize, 42, 42);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.HeadlightsState.IntensityChanged\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.HeadlightsState.intensityChanged\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.HeadlightsState.IntensityChanged succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.HeadlightsState.intensityChanged succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -18383,103 +20696,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Animations
-    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStartAnimation (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ANIMATIONS_STARTANIMATION_ANIM)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StartAnimation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StartAnimation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStartAnimationBehavior);
-        commonAnimationsStartAnimationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonAnimationsStartAnimationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAnimation (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StopAnimation\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StopAnimation succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStopAnimationBehavior);
-        commonAnimationsStopAnimationShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonAnimationsStopAnimationShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonAnimationsStopAllAnimations (buffer, buffSize, &resSize);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Animations.StopAllAnimations\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Animations.StopAllAnimations succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAnimationsStopAllAnimationsBehavior);
-        commonAnimationsStopAllAnimationsShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonAnimationsStopAllAnimationsShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AnimationsState
     res = ARCOMMANDS_Generator_GenerateCommonAnimationsStateList (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM)0, (eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_STATE)0, (eARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ERROR)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18511,41 +20727,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Accessory
-    res = ARCOMMANDS_Generator_GenerateCommonAccessoryConfig (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ACCESSORY_CONFIG_ACCESSORY)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Accessory.Config\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Accessory.Config succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonAccessoryConfigBehavior);
-        commonAccessoryConfigShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonAccessoryConfigShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class AccessoryState
     res = ARCOMMANDS_Generator_GenerateCommonAccessoryStateSupportedAccessoriesListChanged (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18639,41 +20820,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class Charger
-    res = ARCOMMANDS_Generator_GenerateCommonChargerSetMaxChargeRate (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_CHARGER_SETMAXCHARGERATE_RATE)0);
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Common.Charger.SetMaxChargeRate\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Common.Charger.SetMaxChargeRate succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonChargerSetMaxChargeRateBehavior);
-        commonChargerSetMaxChargeRateShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonChargerSetMaxChargeRateShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class ChargerState
     res = ARCOMMANDS_Generator_GenerateCommonChargerStateMaxChargeRateChanged (buffer, buffSize, &resSize, (eARCOMMANDS_COMMON_CHARGERSTATE_MAXCHARGERATECHANGED_RATE)0);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18798,8 +20944,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class RunState
     res = ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged (buffer, buffSize, &resSize, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18832,9 +20976,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project commonDebug
-    // Command class Stats
+    // Feature commonDebug
     res = ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (buffer, buffSize, &resSize, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -18928,41 +21070,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class StatsEvent
-    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.StatsEvent.SendPacket\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.StatsEvent.SendPacket succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior);
-        commonDebugStatsEventSendPacketShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugStatsEventSendPacketShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-
-    // Command class DebugSettings
     res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19025,8 +21132,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.StatsEvent.SendPacket\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.StatsEvent.SendPacket succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior);
+        commonDebugStatsEventSendPacketShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        commonDebugStatsEventSendPacketShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
-    // Command class DebugSettingsState
     res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (buffer, buffSize, &resSize, 42, 4200, "Test string with spaces", (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)0, (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)0, "Test string with spaces", "Test string with spaces", "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19090,9 +21226,7 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-
-    // Project pro
-    // Command class Pro
+    // Feature pro
     res = ARCOMMANDS_Generator_GenerateProProBoughtFeatures (buffer, buffSize, &resSize, 420102030405ULL);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19186,8 +21320,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class ProState
     res = ARCOMMANDS_Generator_GenerateProProStateSupportedFeatures (buffer, buffSize, &resSize, (eARCOMMANDS_PRO_PROSTATE_SUPPORTEDFEATURES_STATUS)0, 420102030405ULL);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19250,8 +21382,6 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-
-    // Command class ProEvent
     res = ARCOMMANDS_Generator_GenerateProProEventChallengeEvent (buffer, buffSize, &resSize, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
@@ -19283,6 +21413,410 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
+
+    // Feature wifi
+    res = ARCOMMANDS_Generator_GenerateWifiScan (buffer, buffSize, &resSize, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.scan\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.scan succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiScanBehavior);
+        wifiScanShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiScanShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiUpdateAuthorizedChannels (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.update_authorized_channels\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.update_authorized_channels succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiUpdateAuthorizedChannelsBehavior);
+        wifiUpdateAuthorizedChannelsShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiUpdateAuthorizedChannelsShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiSetApChannel (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_SELECTION_TYPE)0, (eARCOMMANDS_WIFI_BAND)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_ap_channel\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_ap_channel succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetApChannelBehavior);
+        wifiSetApChannelShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiSetApChannelShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiSetSecurity (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_SECURITY_TYPE)0, "Test string with spaces", (eARCOMMANDS_WIFI_SECURITY_KEY_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_security\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_security succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetSecurityBehavior);
+        wifiSetSecurityShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiSetSecurityShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiSetCountry (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_country\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_country succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetCountryBehavior);
+        wifiSetCountryShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiSetCountryShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiSetEnvironement (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.set_environement\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.set_environement succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSetEnvironementBehavior);
+        wifiSetEnvironementShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiSetEnvironementShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiScannedItem (buffer, buffSize, &resSize, "Test string with spaces", -4200, (eARCOMMANDS_WIFI_BAND)0, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.scanned_item\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.scanned_item succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiScannedItemBehavior);
+        wifiScannedItemShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiScannedItemShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiAuthorizedChannel (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_BAND)0, 42, 42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.authorized_channel\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.authorized_channel succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiAuthorizedChannelBehavior);
+        wifiAuthorizedChannelShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiAuthorizedChannelShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiApChannelChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_SELECTION_TYPE)0, (eARCOMMANDS_WIFI_BAND)0, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.ap_channel_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.ap_channel_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiApChannelChangedBehavior);
+        wifiApChannelChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiApChannelChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiSecurityChanged (buffer, buffSize, &resSize, "Test string with spaces", (eARCOMMANDS_WIFI_SECURITY_TYPE)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.security_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.security_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiSecurityChangedBehavior);
+        wifiSecurityChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiSecurityChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiCountryChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_COUNTRY_SELECTION)0, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.country_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.country_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiCountryChangedBehavior);
+        wifiCountryChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiCountryChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiEnvironementChanged (buffer, buffSize, &resSize, (eARCOMMANDS_WIFI_ENVIRONEMENT)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.environement_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.environement_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiEnvironementChangedBehavior);
+        wifiEnvironementChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiEnvironementChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateWifiRssiChanged (buffer, buffSize, &resSize, -4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Wifi.rssi_changed\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Wifi.rssi_changed succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetWifiRssiChangedBehavior);
+        wifiRssiChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        wifiRssiChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
 
 
     if (errcount == 0)

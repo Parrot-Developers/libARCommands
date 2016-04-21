@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiScan</code> of class <code>Network</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkWifiScan</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkWifiScanListener {
 
     /**
-     * Called when a command <code>WifiScan</code> of class <code>Network</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkWifiScan</code> in feature <code>ARDrone3</code> is decoded
      * @param _band The band(s) : 2.4 Ghz, 5 Ghz, or both
      */
     void onARDrone3NetworkWifiScanUpdate (ARCOMMANDS_ARDRONE3_NETWORK_WIFISCAN_BAND_ENUM band);

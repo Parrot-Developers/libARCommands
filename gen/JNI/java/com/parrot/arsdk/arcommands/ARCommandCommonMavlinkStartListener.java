@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code> listener
+ * Interface for the command <code>MavlinkStart</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonMavlinkStartListener {
 
     /**
-     * Called when a command <code>Start</code> of class <code>Mavlink</code> in project <code>Common</code> is decoded
+     * Called when a command <code>MavlinkStart</code> in feature <code>Common</code> is decoded
      * @param _filepath flight plan file path from the mavlink ftp root
      * @param _type type of the played mavlink file
      */

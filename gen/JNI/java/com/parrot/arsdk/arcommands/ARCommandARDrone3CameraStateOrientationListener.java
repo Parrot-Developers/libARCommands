@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Orientation</code> of class <code>CameraState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>CameraStateOrientation</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3CameraStateOrientationListener {
 
     /**
-     * Called when a command <code>Orientation</code> of class <code>CameraState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>CameraStateOrientation</code> in feature <code>ARDrone3</code> is decoded
      * @param _tilt Tilt camera consign for the drone [-100;100]
      * @param _pan Pan camera consign for the drone [-100;100]
      */

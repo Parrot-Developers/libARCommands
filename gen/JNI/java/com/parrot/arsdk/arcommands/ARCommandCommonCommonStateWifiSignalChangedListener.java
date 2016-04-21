@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code> listener
+ * Interface for the command <code>CommonStateWifiSignalChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonCommonStateWifiSignalChangedListener {
 
     /**
-     * Called when a command <code>WifiSignalChanged</code> of class <code>CommonState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>CommonStateWifiSignalChanged</code> in feature <code>Common</code> is decoded
      * @param _rssi RSSI of the signal between controller and the product (in dbm)
      */
     void onCommonCommonStateWifiSignalChangedUpdate (short rssi);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaRecordPictureV2</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaRecordPictureV2Listener {
 
     /**
-     * Called when a command <code>PictureV2</code> of class <code>MediaRecord</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaRecordPictureV2</code> in feature <code>JumpingSumo</code> is decoded
      */
     void onJumpingSumoMediaRecordPictureV2Update ();
 }

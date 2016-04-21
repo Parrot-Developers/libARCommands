@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SpeedSettingsStateMaxRotationSpeedChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSpeedSettingsStateMaxRotationSpeedChangedListener {
 
     /**
-     * Called when a command <code>MaxRotationSpeedChanged</code> of class <code>SpeedSettingsState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SpeedSettingsStateMaxRotationSpeedChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _current Current max rotation speed in degree/s
      * @param _min Range min of rotation speed
      * @param _max Range max of rotation speed

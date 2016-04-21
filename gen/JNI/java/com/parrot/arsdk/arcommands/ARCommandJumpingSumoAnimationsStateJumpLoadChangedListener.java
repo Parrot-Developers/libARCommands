@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>JumpLoadChanged</code> of class <code>AnimationsState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>AnimationsStateJumpLoadChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoAnimationsStateJumpLoadChangedListener {
 
     /**
-     * Called when a command <code>JumpLoadChanged</code> of class <code>AnimationsState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>AnimationsStateJumpLoadChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _state State of jump load
      */
     void onJumpingSumoAnimationsStateJumpLoadChangedUpdate (ARCOMMANDS_JUMPINGSUMO_ANIMATIONSSTATE_JUMPLOADCHANGED_STATE_ENUM state);

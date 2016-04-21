@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SendControllerGPS</code> of class <code>GPSSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsSendControllerGPS</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsSendControllerGPSListener {
 
     /**
-     * Called when a command <code>SendControllerGPS</code> of class <code>GPSSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsSendControllerGPS</code> in feature <code>ARDrone3</code> is decoded
      * @param _latitude GPS latitude in decimal degrees
      * @param _longitude GPS longitude in decimal degrees
      * @param _altitude GPS altitude in meters

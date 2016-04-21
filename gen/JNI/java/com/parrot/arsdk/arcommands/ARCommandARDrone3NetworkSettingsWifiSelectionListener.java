@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSelection</code> of class <code>NetworkSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkSettingsWifiSelection</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkSettingsWifiSelectionListener {
 
     /**
-     * Called when a command <code>WifiSelection</code> of class <code>NetworkSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkSettingsWifiSelection</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of wifi selection (auto, manual)
      * @param _band The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
      * @param _channel The channel (not used in auto mode)

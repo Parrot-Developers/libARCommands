@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code> listener
+ * Interface for the command <code>AnimationsStopAnimation</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAnimationsStopAnimationListener {
 
     /**
-     * Called when a command <code>StopAnimation</code> of class <code>Animations</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AnimationsStopAnimation</code> in feature <code>Common</code> is decoded
      * @param _anim Animation to stop.
      */
     void onCommonAnimationsStopAnimationUpdate (ARCOMMANDS_COMMON_ANIMATIONS_STOPANIMATION_ANIM_ENUM anim);

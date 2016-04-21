@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AutoWhiteBalanceChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsStateAutoWhiteBalanceChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsStateAutoWhiteBalanceChangedListener {
 
     /**
-     * Called when a command <code>AutoWhiteBalanceChanged</code> of class <code>PictureSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsStateAutoWhiteBalanceChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type auto white balance
      */
     void onARDrone3PictureSettingsStateAutoWhiteBalanceChangedUpdate (ARCOMMANDS_ARDRONE3_PICTURESETTINGSSTATE_AUTOWHITEBALANCECHANGED_TYPE_ENUM type);

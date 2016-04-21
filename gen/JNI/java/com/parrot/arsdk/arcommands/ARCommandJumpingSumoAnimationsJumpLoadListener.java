@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>JumpLoad</code> of class <code>Animations</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>AnimationsJumpLoad</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoAnimationsJumpLoadListener {
 
     /**
-     * Called when a command <code>JumpLoad</code> of class <code>Animations</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>AnimationsJumpLoad</code> in feature <code>JumpingSumo</code> is decoded
      */
     void onJumpingSumoAnimationsJumpLoadUpdate ();
 }

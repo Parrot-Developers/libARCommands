@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>PictureFormatSelection</code> of class <code>PictureSettings</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PictureSettingsPictureFormatSelection</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PictureSettingsPictureFormatSelectionListener {
 
     /**
-     * Called when a command <code>PictureFormatSelection</code> of class <code>PictureSettings</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PictureSettingsPictureFormatSelection</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of photo format
      */
     void onARDrone3PictureSettingsPictureFormatSelectionUpdate (ARCOMMANDS_ARDRONE3_PICTURESETTINGS_PICTUREFORMATSELECTION_TYPE_ENUM type);

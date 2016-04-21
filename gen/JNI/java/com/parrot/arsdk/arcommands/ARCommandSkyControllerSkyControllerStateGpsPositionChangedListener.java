@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>SkyControllerStateGpsPositionChanged</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerSkyControllerStateGpsPositionChangedListener {
 
     /**
-     * Called when a command <code>GpsPositionChanged</code> of class <code>SkyControllerState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>SkyControllerStateGpsPositionChanged</code> in feature <code>SkyController</code> is decoded
      * @param _latitude SkyController latitude (500. if not available)
      * @param _longitude SkyController longiture (500. if not available)
      * @param _altitude Altitude (in meters) above sea level

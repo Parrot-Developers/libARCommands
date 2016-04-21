@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>PilotingStateAlertStateChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDronePilotingStateAlertStateChangedListener {
 
     /**
-     * Called when a command <code>AlertStateChanged</code> of class <code>PilotingState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>PilotingStateAlertStateChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _state Drone alert state
      */
     void onMiniDronePilotingStateAlertStateChangedUpdate (ARCOMMANDS_MINIDRONE_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM state);

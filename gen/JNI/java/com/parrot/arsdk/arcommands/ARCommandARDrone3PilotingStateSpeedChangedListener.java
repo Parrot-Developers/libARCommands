@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SpeedChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>PilotingStateSpeedChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3PilotingStateSpeedChangedListener {
 
     /**
-     * Called when a command <code>SpeedChanged</code> of class <code>PilotingState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>PilotingStateSpeedChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _speedX Speed on the x axis (when drone moves forward, speed is > 0) (in m/s)
      * @param _speedY Speed on the y axis (when drone moves to right, speed is > 0) (in m/s)
      * @param _speedZ Speed on the z axis (when drone moves down, speed is > 0) (in m/s)

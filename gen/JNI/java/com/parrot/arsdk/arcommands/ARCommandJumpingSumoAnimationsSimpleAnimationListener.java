@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SimpleAnimation</code> of class <code>Animations</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>AnimationsSimpleAnimation</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoAnimationsSimpleAnimationListener {
 
     /**
-     * Called when a command <code>SimpleAnimation</code> of class <code>Animations</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>AnimationsSimpleAnimation</code> in feature <code>JumpingSumo</code> is decoded
      * @param _id Animation ID.
      */
     void onJumpingSumoAnimationsSimpleAnimationUpdate (ARCOMMANDS_JUMPINGSUMO_ANIMATIONS_SIMPLEANIMATION_ID_ENUM id);

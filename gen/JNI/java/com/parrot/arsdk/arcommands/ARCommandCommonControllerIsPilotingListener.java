@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>IsPiloting</code> of class <code>Controller</code> in project <code>Common</code> listener
+ * Interface for the command <code>ControllerIsPiloting</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonControllerIsPilotingListener {
 
     /**
-     * Called when a command <code>IsPiloting</code> of class <code>Controller</code> in project <code>Common</code> is decoded
+     * Called when a command <code>ControllerIsPiloting</code> in feature <code>Common</code> is decoded
      * @param _piloting 0 when the application is not in the piloting HUD, 1 when it enters the HUD.
      */
     void onCommonControllerIsPilotingUpdate (byte piloting);

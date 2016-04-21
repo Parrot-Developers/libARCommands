@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ScriptUploaded</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>RoadPlanScriptUploaded</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoRoadPlanScriptUploadedListener {
 
     /**
-     * Called when a command <code>ScriptUploaded</code> of class <code>RoadPlan</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>RoadPlanScriptUploaded</code> in feature <code>JumpingSumo</code> is decoded
      * @param _uuid UUID of uploaded file.
      * @param _md5Hash MD5 hash code computed over file.
      */

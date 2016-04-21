@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>WifiSelectionChanged</code> of class <code>NetworkSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3NetworkSettingsStateWifiSelectionChangedListener {
 
     /**
-     * Called when a command <code>WifiSelectionChanged</code> of class <code>NetworkSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _type The type of wifi selection settings
      * @param _band The actual  wifi band state
      * @param _channel The channel (depends of the band)

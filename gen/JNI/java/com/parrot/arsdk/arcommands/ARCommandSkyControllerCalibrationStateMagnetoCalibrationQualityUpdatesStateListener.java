@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>CalibrationStateMagnetoCalibrationQualityUpdatesState</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerCalibrationStateMagnetoCalibrationQualityUpdatesStateListener {
 
     /**
-     * Called when a command <code>MagnetoCalibrationQualityUpdatesState</code> of class <code>CalibrationState</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>CalibrationStateMagnetoCalibrationQualityUpdatesState</code> in feature <code>SkyController</code> is decoded
      * @param _enabled Flag (is the feature enabled).
      * @param _enabled 1 = The skycontroller sends updated when quality is updated
      * @param _enabled 0 = The skycontroller only sent updated when state is updated

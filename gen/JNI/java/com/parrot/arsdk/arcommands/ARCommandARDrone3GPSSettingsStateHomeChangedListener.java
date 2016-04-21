@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>HomeChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsStateHomeChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsStateHomeChangedListener {
 
     /**
-     * Called when a command <code>HomeChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsStateHomeChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _latitude Home latitude in decimal degrees
      * @param _longitude Home longitude in decimal degrees
      * @param _altitude Home altitude in meters

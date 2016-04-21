@@ -71,12 +71,12 @@
  -->
 
 
-<project id="4">
+<project name="skyctrl" id="4">
     All SkyController-only commands
     
     <class name="WifiState" id="0">
         Wifi state
-        <cmd name="WifiList" listtype="MAP">
+        <cmd name="WifiList" id="0" type="MAP_ITEM">
             Return the available wifi list
             <arg name="bssid" type="string">
                 Wifi bssid
@@ -98,7 +98,7 @@
             </arg>
         </cmd>
         
-        <cmd name="ConnexionChanged">
+        <cmd name="ConnexionChanged" id="1">
             Return connexion status
             <arg name="ssid" type="string">
                 Wifi ssid
@@ -117,7 +117,7 @@
             </arg>
         </cmd>
 
-        <cmd name="WifiAuthChannelListChanged" listtype="LIST">
+        <cmd name="WifiAuthChannelListChanged" id="2" type="LIST_ITEM">
             Notify of an Authorized Channel
             <arg name="band" type="enum">
                 The band of this channel : 2.4 GHz or 5 GHz
@@ -136,10 +136,10 @@
             </arg>
         </cmd>
 
-        <cmd name="AllWifiAuthChannelChanged">
+        <cmd name="AllWifiAuthChannelChanged" id="3">
             Notify the end of the list of Authorized wifi Channel
         </cmd>
-        <cmd name="WifiSignalChanged">
+        <cmd name="WifiSignalChanged" id="4">
             State of the wifi signal
             <arg name="level" type="u8">
                 Level of the signal. Levels are from 0 to 5. 0 is an unknown value. 1 is a weak wifi signal, 5 is the best.
@@ -149,15 +149,15 @@
 
     <class name="Wifi" id="1">
         Wifi
-        <cmd name="RequestWifiList">
+        <cmd name="RequestWifiList" id="0">
             Request wifi list
         </cmd>
 
-        <cmd name="RequestCurrentWifi">
+        <cmd name="RequestCurrentWifi" id="1">
             Request current connected wifi
         </cmd>
         
-        <cmd name="ConnectToWifi">
+        <cmd name="ConnectToWifi" id="2">
             Connect to wifi
             <arg name="bssid" type="string">
                 Wifi bssid
@@ -170,14 +170,14 @@
             </arg>
         </cmd>
 
-        <cmd name="ForgetWifi">
+        <cmd name="ForgetWifi" id="3">
             Forget wifi
             <arg name="ssid" type="string">
                 Wifi ssid
             </arg>
         </cmd>
 
-        <cmd name="WifiAuthChannel">
+        <cmd name="WifiAuthChannel" id="4">
             Controller inquire the list of authorized wifi channels
         </cmd>
     </class>
@@ -185,15 +185,15 @@
     <class name="Device" id="2">
         Device Connection commands
         
-         <cmd name="RequestDeviceList">
+         <cmd name="RequestDeviceList" id="0">
             Request Device list
         </cmd>
 
-        <cmd name="RequestCurrentDevice">
+        <cmd name="RequestCurrentDevice" id="1">
             Request current connected Device
         </cmd>
         
-        <cmd name="ConnectToDevice">
+        <cmd name="ConnectToDevice" id="2">
             ask to connect to a device
             <arg name="deviceName" type="string">
                 Device name
@@ -204,14 +204,14 @@
     <class name="DeviceState" id="3">
         Device state
         
-        <cmd name="DeviceList" listtype="LIST">
+        <cmd name="DeviceList" id="0" type="LIST_ITEM">
             Return the available Device list
             <arg name="name" type="string">
                 Device name
             </arg>
         </cmd>
         
-        <cmd name="ConnexionChanged">
+        <cmd name="ConnexionChanged" id="1">
             Return device connexion status
             <arg name="status" type="enum">
                 Wifi status to Device
@@ -241,10 +241,10 @@
     
     <class name="Settings" id="4">
         Settings commands
-        <cmd name="AllSettings" timeout="RETRY">
+        <cmd name="AllSettings" id="0" timeout="RETRY">
             Get all product settings, the product must send all settings
         </cmd>
-        <cmd name="Reset">
+        <cmd name="Reset" id="1">
             Reset all settings
         </cmd>
         
@@ -252,22 +252,22 @@
     
     <class name="SettingsState" id="5">
         Settings state from product
-        <cmd name="AllSettingsChanged">
+        <cmd name="AllSettingsChanged" id="0">
             State sent when all settings has been sent
         </cmd>
         
-        <cmd name="ResetChanged">
+        <cmd name="ResetChanged" id="1">
             State sent when all settings has been resetting
         </cmd>
         
-        <cmd name="ProductSerialChanged">
+        <cmd name="ProductSerialChanged" id="2">
             Product serial number
             <arg name="serialNumber" type="string">
                 Serial number (hexadecimal value)
             </arg>
         </cmd>
 
-        <cmd name="ProductVariantChanged">
+        <cmd name="ProductVariantChanged" id="3">
           Product variant of SkyController
           <arg name="variant" type="enum">
             Variant of the product
@@ -285,35 +285,35 @@
     
     <class name="Common" id="6">
         Common commands
-        <cmd name="AllStates" timeout="RETRY">
+        <cmd name="AllStates" id="0" timeout="RETRY">
             Get all product states
         </cmd>
     </class>
     
     <class name="CommonState" id="7">
         Common state from product
-        <cmd name="AllStatesChanged">
+        <cmd name="AllStatesChanged" id="0">
             State sent when all product states has been sent
         </cmd>
     </class>
 
     <class name="SkyControllerState" id="8">
         Sky Controller states
-        <cmd name="BatteryChanged">
+        <cmd name="BatteryChanged" id="0">
             State sent when SkyController battery has changed
             <arg name="percent" type="u8">
                 SkyController battery
             </arg>
         </cmd>
 
-        <cmd name="GpsFixChanged">
+        <cmd name="GpsFixChanged" id="1">
             State sent when SkyController gps fix has changed
             <arg name="fixed" type="u8">
                 SkyController fixed
             </arg>
         </cmd>
     
-		<cmd name="GpsPositionChanged">
+		<cmd name="GpsPositionChanged" id="2">
 		  State sent when the SkyController gps position has changed
 		  <arg name="latitude" type="double">
 			SkyController latitude (500. if not available)
@@ -334,19 +334,19 @@
 
     <class name="AccessPointSettings" id="9">
         AccessPoint settings commands
-        <cmd name="AccessPointSSID">
+        <cmd name="AccessPointSSID" id="0">
             Set AccessPoint SSID
             <arg name="ssid" type="string">
                 AccessPoint SSID
             </arg>
         </cmd>
-        <cmd name="AccessPointChannel">
+        <cmd name="AccessPointChannel" id="1">
             Set AccessPoint Channel
             <arg name="channel" type="u8">
                 AccessPoint Channel
             </arg>
         </cmd>
-        <cmd name="WifiSelection">
+        <cmd name="WifiSelection" id="2">
             Set AccessPoint Band and Channel
             <arg name="type" type="enum">
                 The type of wifi selection (only manual at the moment)
@@ -371,19 +371,19 @@
     
     <class name="AccessPointSettingsState" id="10">
         AccessPoint settings state from product
-        <cmd name="AccessPointSSIDChanged">
+        <cmd name="AccessPointSSIDChanged" id="0">
             State sent when AccessPoint ssid has been sent
             <arg name="ssid" type="string">
                 AccessPoint SSID
             </arg>
         </cmd>
-        <cmd name="AccessPointChannelChanged">
+        <cmd name="AccessPointChannelChanged" id="1">
             State sent when AccessPoint channel has been sent
             <arg name="channel" type="u8">
                 AccessPoint Channel
             </arg>
         </cmd>
-        <cmd name="WifiSelectionChanged">
+        <cmd name="WifiSelectionChanged" id="2">
             Wifi selection from product
             <arg name="type" type="enum">
                 The type of wifi selection (only manual at the moment)
@@ -408,21 +408,21 @@
 
     <class name="Camera" id="11">
         Ask the drone to move camera
-        <cmd name="ResetOrientation">
+        <cmd name="ResetOrientation" id="0">
             Reset pan and tilt to center
         </cmd>
     </class>
 
 	<class name="GamepadInfos" id="18">
 	  Request infos about the gamepad of the SkyController
-	  <cmd name="getGamepadControls">
+	  <cmd name="getGamepadControls" id="0">
 		Asks the SkyController to send the button and axis list
 	  </cmd>
 	</class>
 
 	<class name="GamepadInfosState" id="19">
 	  Informations about the gamepad of the SkyController
-	  <cmd name="gamepadControl" listtype="LIST">
+	  <cmd name="gamepadControl" id="0" type="LIST_ITEM">
 		Describe an existing button or axis of the gamepad
 		<arg name="type" type="enum">
 		  The type (axis/button) of the control
@@ -442,7 +442,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allGamepadControlsSent">
+	  <cmd name="allGamepadControlsSent" id="1">
 		Sent by the SkyController after sending its last 'gamepadControl' command
 	  </cmd>
 	</class>
@@ -450,15 +450,15 @@
 	<class name="ButtonMappings" id="12">
 	  Controls the button mappings of the SkyController
 
-	  <cmd name="getCurrentButtonMappings">
+	  <cmd name="getCurrentButtonMappings" id="0">
 		Asks the SkyController to send its current button mapping
 	  </cmd>
 
-	  <cmd name="getAvailableButtonMappings">
+	  <cmd name="getAvailableButtonMappings" id="1">
 		Asks the SkyController to send the possible mappings for each button
 	  </cmd>
 
-	  <cmd name="setButtonMapping">
+	  <cmd name="setButtonMapping" id="2">
 		Set a button mapping to the SkyController
 		@note replaces previous mapping for the given key
 		<arg name="key_id" type="i32">
@@ -469,7 +469,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="defaultButtonMapping">
+	  <cmd name="defaultButtonMapping" id="3">
 		Asks the SkyController to reset the button mappings to the default value
 	  </cmd>
 	</class>
@@ -477,7 +477,7 @@
 	<class name="ButtonMappingsState" id="13">
 	  State of the button mappings of the SkyController
 
-	  <cmd name="currentButtonMappings" listtype="MAP">
+	  <cmd name="currentButtonMappings" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a mapping changes
 		<arg name="key_id" type="i32">
 		  The keycode mapped
@@ -487,11 +487,11 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allCurrentButtonMappingsSent">
+	  <cmd name="allCurrentButtonMappingsSent" id="1">
 		Sent by the SkyController after sending its last 'currentButtonMappings' command
 	  </cmd>
 
-	  <cmd name="availableButtonMappings" listtype="MAP">
+	  <cmd name="availableButtonMappings" id="2" type="MAP_ITEM">
 		Sent after a 'getAvailableButtonMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -501,7 +501,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allAvailableButtonsMappingsSent">
+	  <cmd name="allAvailableButtonsMappingsSent" id="3">
 		Sent by the SkyController after sending its last 'availableButtonMappings' command
 	  </cmd>
 
@@ -510,15 +510,15 @@
 	<class name="AxisMappings" id="14">
 	  Controls the axis mappings of the SkyController
 
-	  <cmd name="getCurrentAxisMappings">
+	  <cmd name="getCurrentAxisMappings" id="0">
 		Asks the SkyController to send its current axis mapping
 	  </cmd>
 
-	  <cmd name="getAvailableAxisMappings">
+	  <cmd name="getAvailableAxisMappings" id="1">
 		Asks the SkyController to send the possible mappings for each axis
 	  </cmd>
 
-	  <cmd name="setAxisMapping">
+	  <cmd name="setAxisMapping" id="2">
 		Set a axis mapping to the SkyController
 		@note replaces previous mapping for the given axis
 		<arg name="axis_id" type="i32">
@@ -529,7 +529,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="defaultAxisMapping">
+	  <cmd name="defaultAxisMapping" id="3">
 		Asks the SkyController to reset the axis mappings to the default value
 	  </cmd>
 	</class>
@@ -537,7 +537,7 @@
 	<class name="AxisMappingsState" id="15">
 	  State of the axis mappings of the SkyController
 
-	  <cmd name="currentAxisMappings" listtype="MAP">
+	  <cmd name="currentAxisMappings" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a mapping changes
 		<arg name="axis_id" type="i32">
 		  The axiscode mapped
@@ -547,11 +547,11 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allCurrentAxisMappingsSent">
+	  <cmd name="allCurrentAxisMappingsSent" id="1">
 		Sent by the SkyController after sending its last 'currentAxisMappings' command
 	  </cmd>
 
-	  <cmd name="availableAxisMappings" listtype="MAP">
+	  <cmd name="availableAxisMappings" id="2" type="MAP_ITEM">
 		Sent after a 'getAvailableAxisMappings' request
 		<arg name="mapping_uid" type="string">
 		  The mapping UID (used in communication with the SkyController)
@@ -561,7 +561,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allAvailableAxisMappingsSent">
+	  <cmd name="allAvailableAxisMappingsSent" id="3">
 		Sent by the SkyController after sending its last 'availableAxisMappings' command
 	  </cmd>
 
@@ -570,15 +570,15 @@
 	<class name="AxisFilters" id="16">
 	  Controls the axis filters of the SkyController
 
-	  <cmd name="getCurrentAxisFilters">
+	  <cmd name="getCurrentAxisFilters" id="0">
 		Asks the SkyController to send its current axis filters
 	  </cmd>
 
-	  <cmd name="getPresetAxisFilters">
+	  <cmd name="getPresetAxisFilters" id="1">
 		Asks the SkyController to send the preset filters
 	  </cmd>
 
-	  <cmd name="setAxisFilter">
+	  <cmd name="setAxisFilter" id="2">
 		Set an axis filter to the SkyController
 		@note replaces previous filter for the given axis
 		<arg name="axis_id" type="i32">
@@ -590,7 +590,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="defaultAxisFilters">
+	  <cmd name="defaultAxisFilters" id="3">
 		Asks the SkyController to reset the axis filters to the default value
 	  </cmd>
 	</class>
@@ -598,7 +598,7 @@
 	<class name="AxisFiltersState" id="17">
 	  State of the axis filters of the SkyController
 
-	  <cmd name="currentAxisFilters" listtype="MAP">
+	  <cmd name="currentAxisFilters" id="0" type="MAP_ITEM">
 		Sent by the SkyController each time a filter changes
 		<arg name="axis_id" type="i32">
 		  The axiscode filtered
@@ -608,11 +608,11 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allCurrentFiltersSent">
+	  <cmd name="allCurrentFiltersSent" id="1">
 		Sent by the SkyController after sending its last 'currentAxisFilters' command
 	  </cmd>
 
-	  <cmd name="presetAxisFilters" listtype="MAP">
+	  <cmd name="presetAxisFilters" id="2" type="MAP_ITEM">
 		Sent after a 'getPresetAxisFilters' request
 		<arg name="filter_uid" type="string">
 		  The filter UID (used in communication with the SkyController)
@@ -622,7 +622,7 @@
 		</arg>
 	  </cmd>
 
-	  <cmd name="allPresetFiltersSent">
+	  <cmd name="allPresetFiltersSent" id="3">
 		Sent by the SkyController after sending its last 'presetAxisFilters' command
 	  </cmd>
 
@@ -630,7 +630,7 @@
 
 	<class name="CoPiloting" id="20">
 	  Configuration of the co-piloting feature
-	  <cmd name="setPilotingSource">
+	  <cmd name="setPilotingSource" id="0">
 		Set the SkyController piloting source
 		<arg name="source" type="enum">
 		  The source
@@ -647,7 +647,7 @@
 
 	<class name="CoPilotingState" id="21">
 	  State of the co-piloting feature
-	  <cmd name="pilotingSource">
+	  <cmd name="pilotingSource" id="0">
 		Source of the piloting commands
 		<arg name="source" type="enum">
 		  The source
@@ -664,7 +664,7 @@
 
 	<class name="Calibration" id="22">
 	  Commands related to the SkyController sensors calibration
-	  <cmd name="enableMagnetoCalibrationQualityUpdates">
+	  <cmd name="enableMagnetoCalibrationQualityUpdates" id="0">
 		Asks the SkyController to send (or not) the magneto calibration quality updates.
 		The MagnetoCalibrationState will always be sent when the status parameters changes,
 		regardless of this setting.
@@ -678,7 +678,7 @@
 
 	<class name="CalibrationState" id="23">
 	  State of the SkyController calibration
-	  <cmd name="MagnetoCalibrationState">
+	  <cmd name="MagnetoCalibrationState" id="0">
 		The current state of the magnetometer calibration
 		<arg name="status" type="enum">
 		  The global status of the calibration
@@ -705,7 +705,7 @@
 		  0 is bad, 255 is perfect
 		</arg>
 	  </cmd>
-	  <cmd name="MagnetoCalibrationQualityUpdatesState">
+	  <cmd name="MagnetoCalibrationQualityUpdatesState" id="1">
 		State of the "send calibration state on quality change" setting.
 		<arg name="enabled" type="u8">
 		  Flag (is the feature enabled).
@@ -718,7 +718,7 @@
 	<class name="ButtonEvents" id="24">
 	  Events sent on SkyController button presses.
 	  These events are sent under certain conditions only.
-	  <cmd name="Settings">
+	  <cmd name="Settings" id="0">
 		Event sent when the settings button is pressed.
 		This event is sent only when the sky controller is connected
 		to a drone.

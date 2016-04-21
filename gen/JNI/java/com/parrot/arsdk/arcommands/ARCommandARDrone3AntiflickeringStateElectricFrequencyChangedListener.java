@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ElectricFrequencyChanged</code> of class <code>AntiflickeringState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>AntiflickeringStateElectricFrequencyChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3AntiflickeringStateElectricFrequencyChangedListener {
 
     /**
-     * Called when a command <code>ElectricFrequencyChanged</code> of class <code>AntiflickeringState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>AntiflickeringStateElectricFrequencyChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _frequency Type of the electric frequency
      */
     void onARDrone3AntiflickeringStateElectricFrequencyChangedUpdate (ARCOMMANDS_ARDRONE3_ANTIFLICKERINGSTATE_ELECTRICFREQUENCYCHANGED_FREQUENCY_ENUM frequency);

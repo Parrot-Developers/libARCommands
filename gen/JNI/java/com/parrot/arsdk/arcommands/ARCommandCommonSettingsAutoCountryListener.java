@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code> listener
+ * Interface for the command <code>SettingsAutoCountry</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonSettingsAutoCountryListener {
 
     /**
-     * Called when a command <code>AutoCountry</code> of class <code>Settings</code> in project <code>Common</code> is decoded
+     * Called when a command <code>SettingsAutoCountry</code> in feature <code>Common</code> is decoded
      * @param _automatic Boolean : 0 : Manual / 1 : Auto
      */
     void onCommonSettingsAutoCountryUpdate (byte automatic);

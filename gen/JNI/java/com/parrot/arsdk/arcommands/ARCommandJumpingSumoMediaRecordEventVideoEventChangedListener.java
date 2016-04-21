@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>VideoEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>MediaRecordEventVideoEventChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoMediaRecordEventVideoEventChangedListener {
 
     /**
-     * Called when a command <code>VideoEventChanged</code> of class <code>MediaRecordEvent</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>MediaRecordEventVideoEventChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _event Event of video recording
      * @param _error Error to explain the event
      */

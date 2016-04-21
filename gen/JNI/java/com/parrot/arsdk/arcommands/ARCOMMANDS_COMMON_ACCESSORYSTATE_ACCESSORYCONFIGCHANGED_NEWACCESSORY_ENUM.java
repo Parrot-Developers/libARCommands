@@ -1,20 +1,20 @@
 /*
     Copyright (C) 2014 Parrot SA
-
+    
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
     are met:
     * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
+    notice, this list of conditions and the following disclaimer.
     * Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in
-      the documentation and/or other materials provided with the 
-      distribution.
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
     * Neither the name of Parrot nor the names
-      of its contributors may be used to endorse or promote products
-      derived from this software without specific prior written
-      permission.
-
+    of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written
+    permission.
+    
     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
     "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
     LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -22,16 +22,12 @@
     COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
     BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+    OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
     AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
     OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     SUCH DAMAGE.
 */
-/*
- * GENERATED FILE
- *  Do not modify this file, it will be erased during the next configure run 
- */
 
 package com.parrot.arsdk.arcommands;
 
@@ -41,21 +37,22 @@ import java.util.HashMap;
  * Java copy of the eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY enum
  */
 public enum ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_ENUM {
-   /** Dummy value for all unknown cases */
+    /** Dummy value for all unknown cases */
     eARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-   /** No accessory configuration set. Controller needs to set one. */
+    /** No accessory configuration set. Controller needs to set one. */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_UNCONFIGURED (0, "No accessory configuration set. Controller needs to set one."),
-   /** No accessory. */
+    /** No accessory. */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_NO_ACCESSORY (1, "No accessory."),
-   /** Standard wheels */
+    /** Standard wheels */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_STD_WHEELS (2, "Standard wheels"),
-   /** Truck wheels */
+    /** Truck wheels */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_TRUCK_WHEELS (3, "Truck wheels"),
-   /** Hull */
+    /** Hull */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_HULL (4, "Hull"),
-   /** Hydrofoil */
+    /** Hydrofoil */
     ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_HYDROFOIL (5, "Hydrofoil"),
-   ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_MAX (6);
+    ARCOMMANDS_COMMON_ACCESSORYSTATE_ACCESSORYCONFIGCHANGED_NEWACCESSORY_MAX (6);
+
 
     private final int value;
     private final String comment;

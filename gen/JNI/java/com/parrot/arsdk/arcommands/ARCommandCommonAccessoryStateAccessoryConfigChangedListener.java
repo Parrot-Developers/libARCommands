@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code> listener
+ * Interface for the command <code>AccessoryStateAccessoryConfigChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAccessoryStateAccessoryConfigChangedListener {
 
     /**
-     * Called when a command <code>AccessoryConfigChanged</code> of class <code>AccessoryState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AccessoryStateAccessoryConfigChanged</code> in feature <code>Common</code> is decoded
      * @param _newAccessory Accessory configuration reported by firmware.
      * @param _error Error code.
      */

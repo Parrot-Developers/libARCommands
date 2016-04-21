@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code> listener
+ * Interface for the command <code>DeviceRequestDeviceList</code> in feature <code>SkyController</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandSkyControllerDeviceRequestDeviceListListener {
 
     /**
-     * Called when a command <code>RequestDeviceList</code> of class <code>Device</code> in project <code>SkyController</code> is decoded
+     * Called when a command <code>DeviceRequestDeviceList</code> in feature <code>SkyController</code> is decoded
      */
     void onSkyControllerDeviceRequestDeviceListUpdate ();
 }

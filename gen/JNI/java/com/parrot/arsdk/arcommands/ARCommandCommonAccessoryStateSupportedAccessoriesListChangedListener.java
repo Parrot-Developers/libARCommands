@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code> listener
+ * Interface for the command <code>AccessoryStateSupportedAccessoriesListChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAccessoryStateSupportedAccessoriesListChangedListener {
 
     /**
-     * Called when a command <code>SupportedAccessoriesListChanged</code> of class <code>AccessoryState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AccessoryStateSupportedAccessoriesListChanged</code> in feature <code>Common</code> is decoded
      * @param _accessory Accessory configurations supported by the product.
      */
     void onCommonAccessoryStateSupportedAccessoriesListChangedUpdate (ARCOMMANDS_COMMON_ACCESSORYSTATE_SUPPORTEDACCESSORIESLISTCHANGED_ACCESSORY_ENUM accessory);

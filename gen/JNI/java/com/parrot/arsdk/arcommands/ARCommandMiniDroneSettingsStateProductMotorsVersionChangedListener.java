@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code> listener
+ * Interface for the command <code>SettingsStateProductMotorsVersionChanged</code> in feature <code>MiniDrone</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandMiniDroneSettingsStateProductMotorsVersionChangedListener {
 
     /**
-     * Called when a command <code>ProductMotorsVersionChanged</code> of class <code>SettingsState</code> in project <code>MiniDrone</code> is decoded
+     * Called when a command <code>SettingsStateProductMotorsVersionChanged</code> in feature <code>MiniDrone</code> is decoded
      * @param _motor Product Motor number [1 - 4]
      * @param _type Product Motor type
      * @param _software Product Motors software version

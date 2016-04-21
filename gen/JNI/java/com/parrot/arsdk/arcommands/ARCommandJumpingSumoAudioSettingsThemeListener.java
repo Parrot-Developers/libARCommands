@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>Theme</code> of class <code>AudioSettings</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>AudioSettingsTheme</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoAudioSettingsThemeListener {
 
     /**
-     * Called when a command <code>Theme</code> of class <code>AudioSettings</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>AudioSettingsTheme</code> in feature <code>JumpingSumo</code> is decoded
      * @param _theme The audio theme to set.
      */
     void onJumpingSumoAudioSettingsThemeUpdate (ARCOMMANDS_JUMPINGSUMO_AUDIOSETTINGS_THEME_THEME_ENUM theme);

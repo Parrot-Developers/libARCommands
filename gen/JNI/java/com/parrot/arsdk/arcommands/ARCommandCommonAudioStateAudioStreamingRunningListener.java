@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code> listener
+ * Interface for the command <code>AudioStateAudioStreamingRunning</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandCommonAudioStateAudioStreamingRunningListener {
 
     /**
-     * Called when a command <code>AudioStreamingRunning</code> of class <code>AudioState</code> in project <code>Common</code> is decoded
+     * Called when a command <code>AudioStateAudioStreamingRunning</code> in feature <code>Common</code> is decoded
      * @param _running Bit field for TX and RX running
      * @param _running bit 0 is 1 if Drone TX is running
      * @param _running bit 1 is 1 if Drone RX is running

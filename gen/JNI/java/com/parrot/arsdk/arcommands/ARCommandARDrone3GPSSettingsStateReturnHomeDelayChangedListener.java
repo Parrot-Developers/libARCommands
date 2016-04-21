@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>ReturnHomeDelayChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> listener
+ * Interface for the command <code>GPSSettingsStateReturnHomeDelayChanged</code> in feature <code>ARDrone3</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandARDrone3GPSSettingsStateReturnHomeDelayChangedListener {
 
     /**
-     * Called when a command <code>ReturnHomeDelayChanged</code> of class <code>GPSSettingsState</code> in project <code>ARDrone3</code> is decoded
+     * Called when a command <code>GPSSettingsStateReturnHomeDelayChanged</code> in feature <code>ARDrone3</code> is decoded
      * @param _delay Delay in second
      */
     void onARDrone3GPSSettingsStateReturnHomeDelayChangedUpdate (short delay);

@@ -31,13 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>SpeedChanged</code> of class <code>PilotingState</code> in project <code>JumpingSumo</code> listener
+ * Interface for the command <code>PilotingStateSpeedChanged</code> in feature <code>JumpingSumo</code> listener
  * @author Parrot (c) 2013
  */
 public interface ARCommandJumpingSumoPilotingStateSpeedChangedListener {
 
     /**
-     * Called when a command <code>SpeedChanged</code> of class <code>PilotingState</code> in project <code>JumpingSumo</code> is decoded
+     * Called when a command <code>PilotingStateSpeedChanged</code> in feature <code>JumpingSumo</code> is decoded
      * @param _speed Speed command applied to motors in range [-100;100].
      * @param _realSpeed Actual real-world speed in cm/s. Value -32768 returned if not available.
      */
