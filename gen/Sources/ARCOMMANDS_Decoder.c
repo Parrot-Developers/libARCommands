@@ -2540,101 +2540,53 @@ void ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_Decode
     } // No else --> do nothing if library can not be initialized
 }
 
-// Feature commonDebug
+// Feature debug
 
-static ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_DebugGetAllSettingsCallback_t ARCOMMANDS_Decoder_DebugGetAllSettingsCb = NULL;
+static void *ARCOMMANDS_Decoder_DebugGetAllSettingsCustom = NULL;
+void ARCOMMANDS_Decoder_SetDebugGetAllSettingsCallback (ARCOMMANDS_Decoder_DebugGetAllSettingsCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom = custom;
+        ARCOMMANDS_Decoder_DebugGetAllSettingsCb = callback;
+        ARCOMMANDS_Decoder_DebugGetAllSettingsCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_DebugSetSettingCallback_t ARCOMMANDS_Decoder_DebugSetSettingCb = NULL;
+static void *ARCOMMANDS_Decoder_DebugSetSettingCustom = NULL;
+void ARCOMMANDS_Decoder_SetDebugSetSettingCallback (ARCOMMANDS_Decoder_DebugSetSettingCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom = custom;
+        ARCOMMANDS_Decoder_DebugSetSettingCb = callback;
+        ARCOMMANDS_Decoder_DebugSetSettingCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t ARCOMMANDS_Decoder_DebugSettingsInfoCb = NULL;
+static void *ARCOMMANDS_Decoder_DebugSettingsInfoCustom = NULL;
+void ARCOMMANDS_Decoder_SetDebugSettingsInfoCallback (ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom = custom;
+        ARCOMMANDS_Decoder_DebugSettingsInfoCb = callback;
+        ARCOMMANDS_Decoder_DebugSettingsInfoCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t callback, void *custom)
+static ARCOMMANDS_Decoder_DebugSettingsListCallback_t ARCOMMANDS_Decoder_DebugSettingsListCb = NULL;
+static void *ARCOMMANDS_Decoder_DebugSettingsListCustom = NULL;
+void ARCOMMANDS_Decoder_SetDebugSettingsListCallback (ARCOMMANDS_Decoder_DebugSettingsListCallback_t callback, void *custom)
 {
     if (ARCOMMANDS_Decoder_Init () == 1)
     {
         ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom = custom;
-        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-    } // No else --> do nothing if library can not be initialized
-}
-static ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = NULL;
-static void *ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = NULL;
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t callback, void *custom)
-{
-    if (ARCOMMANDS_Decoder_Init () == 1)
-    {
-        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb = callback;
-        ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom = custom;
+        ARCOMMANDS_Decoder_DebugSettingsListCb = callback;
+        ARCOMMANDS_Decoder_DebugSettingsListCustom = custom;
         ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
     } // No else --> do nothing if library can not be initialized
 }
@@ -12112,31 +12064,20 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_COMMON */
-        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
+        case ARCOMMANDS_ID_FEATURE_DEBUG:
         {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                case ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb != NULL)
+                    if (ARCOMMANDS_Decoder_DebugGetAllSettingsCb != NULL)
                     {
-                        char * _packet = NULL;
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCustom);
+                            ARCOMMANDS_Decoder_DebugGetAllSettingsCb (ARCOMMANDS_Decoder_DebugGetAllSettingsCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12145,135 +12086,11 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                break; /* ARCOMMANDS_ID_DEBUG_RUNSTATE_CMD_GET_ALL_SETTINGS */
+                case ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb != NULL)
-                    {
-                        uint8_t _frequency;
-                        uint8_t _packetSize;
-                        uint32_t _date;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _frequency = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _packetSize = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _date = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCb (_frequency, _packetSize, _date, ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCb (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb != NULL)
-                    {
-                        char * _packet = NULL;
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            _packet = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                            if (error == 1)
-                            {
-                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                            } // No else --> Do not modify retVal if read went fine
-                        } // No else --> Processing block
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCb (_packet, ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb != NULL)
-                    {
-                        if (retVal == ARCOMMANDS_DECODER_OK)
-                        {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCb (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCustom);
-                        } // No else --> Processing block
-                    }
-                    else
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
-                    }
-                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb != NULL)
+                    if (ARCOMMANDS_Decoder_DebugSetSettingCb != NULL)
                     {
                         uint16_t _id;
                         char * _value = NULL;
@@ -12295,7 +12112,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCustom);
+                            ARCOMMANDS_Decoder_DebugSetSettingCb (_id, _value, ARCOMMANDS_Decoder_DebugSetSettingCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12304,27 +12121,17 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
+                break; /* ARCOMMANDS_ID_DEBUG_RUNSTATE_CMD_SET_SETTING */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb != NULL)
+                    if (ARCOMMANDS_Decoder_DebugSettingsInfoCb != NULL)
                     {
                         uint8_t _listFlags;
                         uint16_t _id;
                         char * _label = NULL;
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type;
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode;
+                        eARCOMMANDS_DEBUG_SETTING_TYPE _type;
+                        eARCOMMANDS_DEBUG_SETTING_MODE _mode;
                         char * _range_min = NULL;
                         char * _range_max = NULL;
                         char * _range_step = NULL;
@@ -12355,7 +12162,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _type = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _type = (eARCOMMANDS_DEBUG_SETTING_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12363,7 +12170,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            _mode = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            _mode = (eARCOMMANDS_DEBUG_SETTING_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                             if (error == 1)
                             {
                                 retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
@@ -12403,7 +12210,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCb (_listFlags, _id, _label, _type, _mode, _range_min, _range_max, _range_step, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCustom);
+                            ARCOMMANDS_Decoder_DebugSettingsInfoCb (_listFlags, _id, _label, _type, _mode, _range_min, _range_max, _range_step, _value, ARCOMMANDS_Decoder_DebugSettingsInfoCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12412,11 +12219,11 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
+                break; /* ARCOMMANDS_ID_DEBUG_RUNSTATE_CMD_SETTINGS_INFO */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
-                    if (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb != NULL)
+                    if (ARCOMMANDS_Decoder_DebugSettingsListCb != NULL)
                     {
                         uint16_t _id;
                         char * _value = NULL;
@@ -12438,7 +12245,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                         } // No else --> Processing block
                         if (retVal == ARCOMMANDS_DECODER_OK)
                         {
-                            ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCb (_id, _value, ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCustom);
+                            ARCOMMANDS_Decoder_DebugSettingsListCb (_id, _value, ARCOMMANDS_Decoder_DebugSettingsListCustom);
                         } // No else --> Processing block
                     }
                     else
@@ -12447,19 +12254,19 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
+                break; /* ARCOMMANDS_ID_DEBUG_RUNSTATE_CMD_SETTINGS_LIST */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
+            else
+            {
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                 break;
             }
         }
-        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
+        break; /* ARCOMMANDS_ID_FEATURE_DEBUG */
         case ARCOMMANDS_ID_FEATURE_FOLLOW_ME:
         {
             if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
@@ -12545,7 +12352,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_GEOGRAPHIC_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_GEOGRAPHIC_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12625,7 +12432,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_RELATIVE_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_RELATIVE_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_LOOK_AT_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12651,7 +12458,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_LOOK_AT_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_LOOK_AT_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12731,7 +12538,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_SPIRAL_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_SPIRAL_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12793,7 +12600,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_SWING_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_SWING_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12855,7 +12662,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_BOOMERANG_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_BOOMERANG_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12917,7 +12724,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_CANDLE_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_CANDLE_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -12997,7 +12804,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_DOLLY_SLIDE_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_DOLLY_SLIDE_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13032,7 +12839,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_USER_FRAMING_POSITION */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_USER_FRAMING_POSITION */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_GPS_DATA:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13130,7 +12937,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_USER_GPS_DATA */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_USER_GPS_DATA */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_BARO_DATA:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13165,7 +12972,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_USER_BARO_DATA */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_USER_BARO_DATA */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_LYNX_DETECTION:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13236,7 +13043,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_LYNX_DETECTION */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_LYNX_DETECTION */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_AVAILABILITY:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13262,7 +13069,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_AVAILABILITY */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_AVAILABILITY */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13288,7 +13095,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_GEOGRAPHIC_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13359,7 +13166,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_GEOGRAPHIC_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_GEOGRAPHIC_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_RELATIVE_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13430,7 +13237,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_RELATIVE_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_RELATIVE_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_ANIM_RUN:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13456,7 +13263,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_ANIM_RUN */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_ANIM_RUN */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_SPIRAL_ANIM_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13527,7 +13334,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_SPIRAL_ANIM_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_SPIRAL_ANIM_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_SWING_ANIM_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13580,7 +13387,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_SWING_ANIM_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_SWING_ANIM_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_BOOMERANG_ANIM_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13633,7 +13440,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_BOOMERANG_ANIM_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_BOOMERANG_ANIM_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_CANDLE_ANIM_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13686,7 +13493,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_CANDLE_ANIM_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_CANDLE_ANIM_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_DOLLY_SLIDE_ANIM_CONFIG_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13757,7 +13564,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_DOLLY_SLIDE_ANIM_CONFIG_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_DOLLY_SLIDE_ANIM_CONFIG_CHANGED */
                 case ARCOMMANDS_ID_FOLLOW_ME_CMD_USER_FRAMING_POSITION_CHANGED:
                 {
                     ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
@@ -13792,7 +13599,7 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
                     }
                     ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
                 }
-                break; /* ARCOMMANDS_ID_FOLLOW_ME_DEBUGSETTINGSSTATE_CMD_USER_FRAMING_POSITION_CHANGED */
+                break; /* ARCOMMANDS_ID_FOLLOW_ME_RUNSTATE_CMD_USER_FRAMING_POSITION_CHANGED */
                 default:
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
@@ -26323,144 +26130,24 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_COMMON */
-        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
+        case ARCOMMANDS_ID_FEATURE_DEBUG:
         {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                case ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.SendPacket:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.get_all_settings:", resString, stringLen, strOffset) ;
                     if (strOffset < 0)
                     {
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS */
+                case ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StartSendingPacketFromDrone:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | frequency -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | packetSize -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset > 0)
-                    {
-                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | date -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.StopSendingPacketFromDrone:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.Stats.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.SendPacket:", resString, stringLen, strOffset) ;
-                    if (strOffset > 0)
-                    {
-                        char * arg = ARCOMMANDS_ReadWrite_ReadStringFromBuffer (buffer, buffLen, &offset, &error);
-                        if (error == 0)
-                        {
-                            strOffset = ARCOMMANDS_ReadWrite_PrintString (" | packet -> ", arg, resString, stringLen, strOffset);
-                        }
-                        else
-                        {
-                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
-                        }
-                    } // No else --> If first print failed, the next if will set the error code
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.StatsEvent.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.GetAll:", resString, stringLen, strOffset) ;
-                    if (strOffset < 0)
-                    {
-                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
-                    } // No else --> Do not modify retVal if no error occured
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.Set:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.set_setting:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
@@ -26490,21 +26177,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettings.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
-                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO:
                 {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
-                {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.Info:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.settings_info:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
@@ -26543,10 +26219,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_DEBUG_SETTING_TYPE arg = (eARCOMMANDS_DEBUG_SETTING_TYPE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_DEBUG_SETTING_TYPE)ARCOMMANDS_ReadWrite_PrintI32 (" | type -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26555,10 +26231,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                     } // No else --> If first print failed, the next if will set the error code
                     if (strOffset > 0)
                     {
-                        eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE arg = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        eARCOMMANDS_DEBUG_SETTING_MODE arg = (eARCOMMANDS_DEBUG_SETTING_MODE)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
                         if (error == 0)
                         {
-                            strOffset = (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
+                            strOffset = (eARCOMMANDS_DEBUG_SETTING_MODE)ARCOMMANDS_ReadWrite_PrintI32 (" | mode -> ", arg, resString, stringLen, strOffset);
                         }
                         else
                         {
@@ -26618,10 +26294,10 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST:
                 {
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.ListChanged:", resString, stringLen, strOffset) ;
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.settings_list:", resString, stringLen, strOffset) ;
                     if (strOffset > 0)
                     {
                         uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
@@ -26651,21 +26327,20 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
                         retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
                     } // No else --> Do not modify retVal if no error occured
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST */
                 default:
-                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.DebugSettingsState.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                     retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
-                strOffset = ARCOMMANDS_ReadWrite_WriteString ("commonDebug.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+            else
+            {
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("debug.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
                 retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
-                break;
             }
         }
-        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
+        break; /* ARCOMMANDS_ID_FEATURE_DEBUG */
         case ARCOMMANDS_ID_FEATURE_FOLLOW_ME:
         {
             if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)

@@ -34,30 +34,27 @@ package com.parrot.arsdk.arcommands;
 import java.util.HashMap;
 
 /**
- * Java copy of the eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE enum
+ * Java copy of the eARCOMMANDS_DEBUG_SETTING_MODE enum
  */
-public enum ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM {
+public enum ARCOMMANDS_DEBUG_SETTING_MODE_ENUM {
     /** Dummy value for all unknown cases */
-    eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_UNKNOWN_ENUM_VALUE (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-    /** Boolean Setting. (ex: 0, 1) */
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_BOOL (0, "Boolean Setting. (ex: 0, 1)"),
-    /** Decimal Setting. (ex: -3.5, 0, 2, 3.6, 6.5) */
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_DECIMAL (1, "Decimal Setting. (ex: -3.5, 0, 2, 3.6, 6.5)"),
-    /** Single line text Setting. */
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_TEXT (2, "Single line text Setting."),
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_MAX (3);
+    UNKNOWN (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
+    /** Controller can only read setting. */
+    READ_ONLY (0, "Controller can only read setting."),
+    /** Controller can read and write setting. */
+    READ_WRITE (1, "Controller can read and write setting.");
 
 
     private final int value;
     private final String comment;
-    static HashMap<Integer, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM> valuesList;
+    static HashMap<Integer, ARCOMMANDS_DEBUG_SETTING_MODE_ENUM> valuesList;
 
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM (int value) {
+    ARCOMMANDS_DEBUG_SETTING_MODE_ENUM (int value) {
         this.value = value;
         this.comment = null;
     }
 
-    ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM (int value, String comment) {
+    ARCOMMANDS_DEBUG_SETTING_MODE_ENUM (int value, String comment) {
         this.value = value;
         this.comment = comment;
     }
@@ -71,21 +68,21 @@ public enum ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM {
     }
 
     /**
-     * Gets the ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM instance from a C enum value
+     * Gets the ARCOMMANDS_DEBUG_SETTING_MODE_ENUM instance from a C enum value
      * @param value C value of the enum
-     * @return The ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM instance, or null if the C enum value was not valid
+     * @return The ARCOMMANDS_DEBUG_SETTING_MODE_ENUM instance, or null if the C enum value was not valid
      */
-    public static ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM getFromValue (int value) {
+    public static ARCOMMANDS_DEBUG_SETTING_MODE_ENUM getFromValue (int value) {
         if (null == valuesList) {
-            ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM [] valuesArray = ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM.values ();
-            valuesList = new HashMap<Integer, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM> (valuesArray.length);
-            for (ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM entry : valuesArray) {
+            ARCOMMANDS_DEBUG_SETTING_MODE_ENUM [] valuesArray = ARCOMMANDS_DEBUG_SETTING_MODE_ENUM.values ();
+            valuesList = new HashMap<Integer, ARCOMMANDS_DEBUG_SETTING_MODE_ENUM> (valuesArray.length);
+            for (ARCOMMANDS_DEBUG_SETTING_MODE_ENUM entry : valuesArray) {
                 valuesList.put (entry.getValue (), entry);
             }
         }
-        ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM retVal = valuesList.get (value);
+        ARCOMMANDS_DEBUG_SETTING_MODE_ENUM retVal = valuesList.get (value);
         if (retVal == null) {
-            retVal = eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_UNKNOWN_ENUM_VALUE;
+            retVal = UNKNOWN;
         }
         return retVal;    }
 

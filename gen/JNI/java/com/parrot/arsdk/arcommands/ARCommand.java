@@ -6251,28 +6251,24 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
+     * Set an ARCommand to hold the command <code>GetAllSettings</code> in feature <code>Debug</code><br>
      * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
+     * Feature Debug description:<br>
+     * All commands/events related to the Wifi<br>
      * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet to the drone<br>
+     * Command GetAllSettings description:<br>
+     * Cmd sent by controller to get all settings info (generate "settings_info" events).<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
      * new command created from the current params
-     * @param _packet Packet to send to the drone
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsSendPacket (String _packet) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDebugGetAllSettings () {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonDebugStatsSendPacket (pointer, capacity, _packet);
+        int errInt = nativeSetDebugGetAllSettings (pointer, capacity);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -6280,102 +6276,12 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * Set an ARCommand to hold the command <code>SetSetting</code> in feature <code>Debug</code><br>
      * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
+     * Feature Debug description:<br>
+     * All commands/events related to the Wifi<br>
      * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StartSendingPacketFromDrone description:<br>
-     * Ask drone to start sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _frequency Frequency of the packet
-     * @param _packetSize Size of the the packet
-     * @param _date time of day in sec
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDrone (byte _frequency, byte _packetSize, int _date) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStartSendingPacketFromDrone (pointer, capacity, _frequency, _packetSize, _date);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class Stats description:<br>
-     * Commands to make stats<br>
-     * <br>
-     * Command StopSendingPacketFromDrone description:<br>
-     * Ask drone to stop sending packets<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDrone () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsStopSendingPacketFromDrone (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettings description:<br>
-     * Debug custom commands sent to the drone<br>
-     * <br>
-     * Command GetAll description:<br>
-     * Cmd sent by controller to get all settings info (generate "SettingInfo" events).<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsGetAll () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugDebugSettingsGetAll (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettings description:<br>
-     * Debug custom commands sent to the drone<br>
-     * <br>
-     * Command Set description:<br>
+     * Command SetSetting description:<br>
      * Change setting value.<br>
      * Cmd sent by controller to change a writable setting.<br>
      * <br>
@@ -6385,12 +6291,12 @@ public class ARCommand extends ARNativeData {
      * @param _value New setting value (string encoded).
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsSet (short _id, String _value) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDebugSetSetting (short _id, String _value) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonDebugDebugSettingsSet (pointer, capacity, _id, _value);
+        int errInt = nativeSetDebugSetSetting (pointer, capacity, _id, _value);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -6398,45 +6304,13 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
+     * Set an ARCommand to hold the command <code>SettingsInfo</code> in feature <code>Debug</code><br>
      * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
+     * Feature Debug description:<br>
+     * All commands/events related to the Wifi<br>
      * <br>
-     * Class StatsEvent description:<br>
-     * Stats Event from drone<br>
-     * <br>
-     * Command SendPacket description:<br>
-     * Send a packet from drone<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _packet packet from drone
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugStatsEventSendPacket (String _packet) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetCommonDebugStatsEventSendPacket (pointer, capacity, _packet);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
-     * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
-     * <br>
-     * Class DebugSettingsState description:<br>
-     * Debug custom commands sent by the drone<br>
-     * <br>
-     * Command Info description:<br>
-     * Sent by the drone as answer to GetSettingsInfo<br>
+     * Command SettingsInfo description:<br>
+     * Sent by the drone as answer to get_settings_info<br>
      * Describe a debug setting and give the current value.<br>
      * <br>
      * This function reuses the current ARCommand, replacing its content with a
@@ -6444,20 +6318,20 @@ public class ARCommand extends ARNativeData {
      * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
      * @param _id Setting Id.
      * @param _label Setting displayed label (single line).
-     * @param _type Setting type.
-     * @param _mode Setting mode.
+     * @param _type Setting type.\nSetting type.
+     * @param _mode Setting mode.\nSetting mode.
      * @param _range_min Setting range minimal value for decimal type.
      * @param _range_max Setting range max value for decimal type.
      * @param _range_step Setting step value for decimal type
      * @param _value Current Setting value (string encoded).
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateInfo (byte _listFlags, short _id, String _label, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM _type, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_ENUM _mode, String _range_min, String _range_max, String _range_step, String _value) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDebugSettingsInfo (byte _listFlags, short _id, String _label, ARCOMMANDS_DEBUG_SETTING_TYPE_ENUM _type, ARCOMMANDS_DEBUG_SETTING_MODE_ENUM _mode, String _range_min, String _range_max, String _range_step, String _value) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonDebugDebugSettingsStateInfo (pointer, capacity, _listFlags, _id, _label, _type.getValue(), _mode.getValue(), _range_min, _range_max, _range_step, _value);
+        int errInt = nativeSetDebugSettingsInfo (pointer, capacity, _listFlags, _id, _label, _type.getValue(), _mode.getValue(), _range_min, _range_max, _range_step, _value);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -6465,15 +6339,12 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
+     * Set an ARCommand to hold the command <code>SettingsList</code> in feature <code>Debug</code><br>
      * <br>
-     * Feature CommonDebug description:<br>
-     * All debug commands shared between all projects<br>
+     * Feature Debug description:<br>
+     * All commands/events related to the Wifi<br>
      * <br>
-     * Class DebugSettingsState description:<br>
-     * Debug custom commands sent by the drone<br>
-     * <br>
-     * Command ListChanged description:<br>
+     * Command SettingsList description:<br>
      * Setting value changed.<br>
      * Cmd sent by drone when setting changed occurred.<br>
      * <br>
@@ -6483,12 +6354,12 @@ public class ARCommand extends ARNativeData {
      * @param _value New setting value (string encoded).
      * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
      */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonDebugDebugSettingsStateListChanged (short _id, String _value) {
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDebugSettingsList (short _id, String _value) {
         ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
         if (!valid) {
             return err;
         }
-        int errInt = nativeSetCommonDebugDebugSettingsStateListChanged (pointer, capacity, _id, _value);
+        int errInt = nativeSetDebugSettingsList (pointer, capacity, _id, _value);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15081,92 +14952,48 @@ public class ARCommand extends ARNativeData {
     }
 
 
-    private static ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener = null;
+    private static ARCommandDebugGetAllSettingsListener _ARCommandDebugGetAllSettingsListener = null;
 
     /**
-     * Set the listener for the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code><br>
+     * Set the listener for the command <code>GetAllSettings</code> in feature <code>Debug</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsSendPacketListener_PARAM New listener for the command
+     * @param _ARCommandDebugGetAllSettingsListener_PARAM New listener for the command
      */
-    public static void setCommonDebugStatsSendPacketListener (ARCommandCommonDebugStatsSendPacketListener _ARCommandCommonDebugStatsSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsSendPacketListener = _ARCommandCommonDebugStatsSendPacketListener_PARAM;
+    public static void setDebugGetAllSettingsListener (ARCommandDebugGetAllSettingsListener _ARCommandDebugGetAllSettingsListener_PARAM) {
+        _ARCommandDebugGetAllSettingsListener = _ARCommandDebugGetAllSettingsListener_PARAM;
     }
 
-    private static ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = null;
+    private static ARCommandDebugSetSettingListener _ARCommandDebugSetSettingListener = null;
 
     /**
-     * Set the listener for the command <code>StatsStartSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * Set the listener for the command <code>SetSetting</code> in feature <code>Debug</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM New listener for the command
+     * @param _ARCommandDebugSetSettingListener_PARAM New listener for the command
      */
-    public static void setCommonDebugStatsStartSendingPacketFromDroneListener (ARCommandCommonDebugStatsStartSendingPacketFromDroneListener _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStartSendingPacketFromDroneListener_PARAM;
+    public static void setDebugSetSettingListener (ARCommandDebugSetSettingListener _ARCommandDebugSetSettingListener_PARAM) {
+        _ARCommandDebugSetSettingListener = _ARCommandDebugSetSettingListener_PARAM;
     }
 
-    private static ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = null;
+    private static ARCommandDebugSettingsInfoListener _ARCommandDebugSettingsInfoListener = null;
 
     /**
-     * Set the listener for the command <code>StatsStopSendingPacketFromDrone</code> in feature <code>CommonDebug</code><br>
+     * Set the listener for the command <code>SettingsInfo</code> in feature <code>Debug</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM New listener for the command
+     * @param _ARCommandDebugSettingsInfoListener_PARAM New listener for the command
      */
-    public static void setCommonDebugStatsStopSendingPacketFromDroneListener (ARCommandCommonDebugStatsStopSendingPacketFromDroneListener _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM) {
-        _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener = _ARCommandCommonDebugStatsStopSendingPacketFromDroneListener_PARAM;
+    public static void setDebugSettingsInfoListener (ARCommandDebugSettingsInfoListener _ARCommandDebugSettingsInfoListener_PARAM) {
+        _ARCommandDebugSettingsInfoListener = _ARCommandDebugSettingsInfoListener_PARAM;
     }
 
-    private static ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener = null;
+    private static ARCommandDebugSettingsListListener _ARCommandDebugSettingsListListener = null;
 
     /**
-     * Set the listener for the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code><br>
+     * Set the listener for the command <code>SettingsList</code> in feature <code>Debug</code><br>
      * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM New listener for the command
+     * @param _ARCommandDebugSettingsListListener_PARAM New listener for the command
      */
-    public static void setCommonDebugDebugSettingsGetAllListener (ARCommandCommonDebugDebugSettingsGetAllListener _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsGetAllListener = _ARCommandCommonDebugDebugSettingsGetAllListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsSet</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsSetListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsSetListener (ARCommandCommonDebugDebugSettingsSetListener _ARCommandCommonDebugDebugSettingsSetListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsSetListener = _ARCommandCommonDebugDebugSettingsSetListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener = null;
-
-    /**
-     * Set the listener for the command <code>StatsEventSendPacket</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugStatsEventSendPacketListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugStatsEventSendPacketListener (ARCommandCommonDebugStatsEventSendPacketListener _ARCommandCommonDebugStatsEventSendPacketListener_PARAM) {
-        _ARCommandCommonDebugStatsEventSendPacketListener = _ARCommandCommonDebugStatsEventSendPacketListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsStateInfoListener (ARCommandCommonDebugDebugSettingsStateInfoListener _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsStateInfoListener = _ARCommandCommonDebugDebugSettingsStateInfoListener_PARAM;
-    }
-
-    private static ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>DebugSettingsStateListChanged</code> in feature <code>CommonDebug</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM New listener for the command
-     */
-    public static void setCommonDebugDebugSettingsStateListChangedListener (ARCommandCommonDebugDebugSettingsStateListChangedListener _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM) {
-        _ARCommandCommonDebugDebugSettingsStateListChangedListener = _ARCommandCommonDebugDebugSettingsStateListChangedListener_PARAM;
+    public static void setDebugSettingsListListener (ARCommandDebugSettingsListListener _ARCommandDebugSettingsListListener_PARAM) {
+        _ARCommandDebugSettingsListListener = _ARCommandDebugSettingsListListener_PARAM;
     }
 
 
@@ -17961,21 +17788,13 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetCommonRunStateRunIdChanged (long pdata, int dataTotalLength, String runId);
 
 
-    private native int     nativeSetCommonDebugStatsSendPacket (long pdata, int dataTotalLength, String packet);
+    private native int     nativeSetDebugGetAllSettings (long pdata, int dataTotalLength);
 
-    private native int     nativeSetCommonDebugStatsStartSendingPacketFromDrone (long pdata, int dataTotalLength, byte frequency, byte packetSize, int date);
+    private native int     nativeSetDebugSetSetting (long pdata, int dataTotalLength, short id, String value);
 
-    private native int     nativeSetCommonDebugStatsStopSendingPacketFromDrone (long pdata, int dataTotalLength);
+    private native int     nativeSetDebugSettingsInfo (long pdata, int dataTotalLength, byte listFlags, short id, String label, int type, int mode, String range_min, String range_max, String range_step, String value);
 
-    private native int     nativeSetCommonDebugDebugSettingsGetAll (long pdata, int dataTotalLength);
-
-    private native int     nativeSetCommonDebugDebugSettingsSet (long pdata, int dataTotalLength, short id, String value);
-
-    private native int     nativeSetCommonDebugStatsEventSendPacket (long pdata, int dataTotalLength, String packet);
-
-    private native int     nativeSetCommonDebugDebugSettingsStateInfo (long pdata, int dataTotalLength, byte listFlags, short id, String label, int type, int mode, String range_min, String range_max, String range_step, String value);
-
-    private native int     nativeSetCommonDebugDebugSettingsStateListChanged (long pdata, int dataTotalLength, short id, String value);
+    private native int     nativeSetDebugSettingsList (long pdata, int dataTotalLength, short id, String value);
 
 
     private native int     nativeSetFollowMeGeographicRun (long pdata, int dataTotalLength, byte start, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);

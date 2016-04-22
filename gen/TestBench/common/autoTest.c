@@ -253,14 +253,10 @@ int commonChargerStateCurrentChargeStateChangedShouldBeCalled = 0;
 int commonChargerStateLastChargeRateChangedShouldBeCalled = 0;
 int commonChargerStateChargingInfoShouldBeCalled = 0;
 int commonRunStateRunIdChangedShouldBeCalled = 0;
-int commonDebugStatsSendPacketShouldBeCalled = 0;
-int commonDebugStatsStartSendingPacketFromDroneShouldBeCalled = 0;
-int commonDebugStatsStopSendingPacketFromDroneShouldBeCalled = 0;
-int commonDebugDebugSettingsGetAllShouldBeCalled = 0;
-int commonDebugDebugSettingsSetShouldBeCalled = 0;
-int commonDebugStatsEventSendPacketShouldBeCalled = 0;
-int commonDebugDebugSettingsStateInfoShouldBeCalled = 0;
-int commonDebugDebugSettingsStateListChangedShouldBeCalled = 0;
+int debugGetAllSettingsShouldBeCalled = 0;
+int debugSetSettingShouldBeCalled = 0;
+int debugSettingsInfoShouldBeCalled = 0;
+int debugSettingsListShouldBeCalled = 0;
 int follow_meGeographicRunShouldBeCalled = 0;
 int follow_meRelativeRunShouldBeCalled = 0;
 int follow_meLookAtRunShouldBeCalled = 0;
@@ -4334,73 +4330,19 @@ void ARCOMMANDS_Testbench_CommonRunStateRunIdChangedCb (char * runId, void *cust
 }
 
 
-void ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb (char * packet, void *custom)
+void ARCOMMANDS_Testbench_DebugGetAllSettingsCb (void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.Stats.SendPacket --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "packet value : <%s>", packet);
-    if (strcmp ("Test string with spaces", packet) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonDebugStatsSendPacketShouldBeCalled == 0)
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command debug.get_all_settings --> Custom PTR = %p", custom);
+    if (debugGetAllSettingsShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
-void ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb (uint8_t frequency, uint8_t packetSize, uint32_t date, void *custom)
+void ARCOMMANDS_Testbench_DebugSetSettingCb (uint16_t id, char * value, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.Stats.StartSendingPacketFromDrone --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "frequency value : <%u>", frequency);
-    if (frequency != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "packetSize value : <%u>", packetSize);
-    if (packetSize != 42)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
-        errcount++ ;
-    }
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "date value : <%u>", date);
-    if (date != 420000)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
-        errcount++ ;
-    }
-    if (commonDebugStatsStartSendingPacketFromDroneShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonDebugStatsStopSendingPacketFromDroneCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.Stats.StopSendingPacketFromDrone --> Custom PTR = %p", custom);
-    if (commonDebugStatsStopSendingPacketFromDroneShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonDebugDebugSettingsGetAllCb (void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettings.GetAll --> Custom PTR = %p", custom);
-    if (commonDebugDebugSettingsGetAllShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb (uint16_t id, char * value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettings.Set --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command debug.set_setting --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
     if (id != 4200)
     {
@@ -4413,32 +4355,16 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb (uint16_t id, char * val
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (commonDebugDebugSettingsSetShouldBeCalled == 0)
+    if (debugSetSettingShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
-void ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb (char * packet, void *custom)
+void ARCOMMANDS_Testbench_DebugSettingsInfoCb (uint8_t listFlags, uint16_t id, char * label, eARCOMMANDS_DEBUG_SETTING_TYPE type, eARCOMMANDS_DEBUG_SETTING_MODE mode, char * range_min, char * range_max, char * range_step, char * value, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.StatsEvent.SendPacket --> Custom PTR = %p", custom);
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "packet value : <%s>", packet);
-    if (strcmp ("Test string with spaces", packet) != 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
-        errcount++ ;
-    }
-    if (commonDebugStatsEventSendPacketShouldBeCalled == 0)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
-        errcount++ ;
-    }
-}
-
-void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb (uint8_t listFlags, uint16_t id, char * label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE mode, char * range_min, char * range_max, char * range_step, char * value, void *custom)
-{
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettingsState.Info --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command debug.settings_info --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "listFlags value : <%u>", listFlags);
     if (listFlags != 42)
     {
@@ -4458,15 +4384,15 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb (uint8_t listFlags
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "type value : <%d>", type);
-    if (type != (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)0)
+    if (type != (eARCOMMANDS_DEBUG_SETTING_TYPE)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_DEBUG_SETTING_TYPE)0>");
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "mode value : <%d>", mode);
-    if (mode != (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)0)
+    if (mode != (eARCOMMANDS_DEBUG_SETTING_MODE)0)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)0>");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_DEBUG_SETTING_MODE)0>");
         errcount++ ;
     }
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "range_min value : <%s>", range_min);
@@ -4493,16 +4419,16 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb (uint8_t listFlags
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (commonDebugDebugSettingsStateInfoShouldBeCalled == 0)
+    if (debugSettingsInfoShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
     }
 }
 
-void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateListChangedCb (uint16_t id, char * value, void *custom)
+void ARCOMMANDS_Testbench_DebugSettingsListCb (uint16_t id, char * value, void *custom)
 {
-    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command commonDebug.DebugSettingsState.ListChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command debug.settings_list --> Custom PTR = %p", custom);
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "id value : <%u>", id);
     if (id != 4200)
     {
@@ -4515,7 +4441,7 @@ void ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateListChangedCb (uint16_t i
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
         errcount++ ;
     }
-    if (commonDebugDebugSettingsStateListChangedShouldBeCalled == 0)
+    if (debugSettingsListShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -9055,14 +8981,10 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetCommonChargerStateLastChargeRateChangedCallback ((ARCOMMANDS_Decoder_CommonChargerStateLastChargeRateChangedCallback_t) ARCOMMANDS_Testbench_CommonChargerStateLastChargeRateChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonChargerStateChargingInfoCallback ((ARCOMMANDS_Decoder_CommonChargerStateChargingInfoCallback_t) ARCOMMANDS_Testbench_CommonChargerStateChargingInfoCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback ((ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t) ARCOMMANDS_Testbench_CommonRunStateRunIdChangedCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsSendPacketCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStartSendingPacketFromDroneCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback ((ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsStopSendingPacketFromDroneCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsGetAllCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsSetCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback ((ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t) ARCOMMANDS_Testbench_CommonDebugStatsEventSendPacketCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateInfoCb, (void *)cbCustom++ );
-    ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback ((ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t) ARCOMMANDS_Testbench_CommonDebugDebugSettingsStateListChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDebugGetAllSettingsCallback ((ARCOMMANDS_Decoder_DebugGetAllSettingsCallback_t) ARCOMMANDS_Testbench_DebugGetAllSettingsCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDebugSetSettingCallback ((ARCOMMANDS_Decoder_DebugSetSettingCallback_t) ARCOMMANDS_Testbench_DebugSetSettingCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDebugSettingsInfoCallback ((ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t) ARCOMMANDS_Testbench_DebugSettingsInfoCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDebugSettingsListCallback ((ARCOMMANDS_Decoder_DebugSettingsListCallback_t) ARCOMMANDS_Testbench_DebugSettingsListCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetFollowMeGeographicRunCallback ((ARCOMMANDS_Decoder_FollowMeGeographicRunCallback_t) ARCOMMANDS_Testbench_FollowMeGeographicRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetFollowMeRelativeRunCallback ((ARCOMMANDS_Decoder_FollowMeRelativeRunCallback_t) ARCOMMANDS_Testbench_FollowMeRelativeRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetFollowMeLookAtRunCallback ((ARCOMMANDS_Decoder_FollowMeLookAtRunCallback_t) ARCOMMANDS_Testbench_FollowMeLookAtRunCb, (void *)cbCustom++ );
@@ -15760,16 +15682,16 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
-    // Feature commonDebug
-    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (buffer, buffSize, &resSize, "Test string with spaces");
+    // Feature debug
+    res = ARCOMMANDS_Generator_GenerateDebugGetAllSettings (buffer, buffSize, &resSize);
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.Stats.SendPacket\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Debug.get_all_settings\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.Stats.SendPacket succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Debug.get_all_settings succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15781,10 +15703,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior);
-        commonDebugStatsSendPacketShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDebugGetAllSettingsBehavior);
+        debugGetAllSettingsShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugStatsSendPacketShouldBeCalled = 0;
+        debugGetAllSettingsShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -15792,15 +15714,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone (buffer, buffSize, &resSize, 42, 42, 420000);
+    res = ARCOMMANDS_Generator_GenerateDebugSetSetting (buffer, buffSize, &resSize, 4200, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.Stats.StartSendingPacketFromDrone\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Debug.set_setting\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.Stats.StartSendingPacketFromDrone succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Debug.set_setting succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15812,10 +15734,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior);
-        commonDebugStatsStartSendingPacketFromDroneShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDebugSetSettingBehavior);
+        debugSetSettingShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugStatsStartSendingPacketFromDroneShouldBeCalled = 0;
+        debugSetSettingShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -15823,15 +15745,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone (buffer, buffSize, &resSize);
+    res = ARCOMMANDS_Generator_GenerateDebugSettingsInfo (buffer, buffSize, &resSize, 42, 4200, "Test string with spaces", (eARCOMMANDS_DEBUG_SETTING_TYPE)0, (eARCOMMANDS_DEBUG_SETTING_MODE)0, "Test string with spaces", "Test string with spaces", "Test string with spaces", "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.Stats.StopSendingPacketFromDrone\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Debug.settings_info\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.Stats.StopSendingPacketFromDrone succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Debug.settings_info succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15843,10 +15765,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior);
-        commonDebugStatsStopSendingPacketFromDroneShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDebugSettingsInfoBehavior);
+        debugSettingsInfoShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugStatsStopSendingPacketFromDroneShouldBeCalled = 0;
+        debugSettingsInfoShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
@@ -15854,15 +15776,15 @@ int ARCOMMANDS_Testbench_AutoTest ()
         }
     }
 
-    res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (buffer, buffSize, &resSize);
+    res = ARCOMMANDS_Generator_GenerateDebugSettingsList (buffer, buffSize, &resSize, 4200, "Test string with spaces");
     if (res != ARCOMMANDS_GENERATOR_OK)
     {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.DebugSettings.GetAll\n\n");
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Debug.settings_list\n\n");
         errcount++ ;
     }
     else
     {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.DebugSettings.GetAll succeded");
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Debug.settings_list succeded");
         eARCOMMANDS_DECODER_ERROR err;
         err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
         if (err != ARCOMMANDS_DECODER_OK)
@@ -15874,134 +15796,10 @@ int ARCOMMANDS_Testbench_AutoTest ()
         {
             ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
         }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior);
-        commonDebugDebugSettingsGetAllShouldBeCalled = 1;
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDebugSettingsListBehavior);
+        debugSettingsListShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugDebugSettingsGetAllShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsSet (buffer, buffSize, &resSize, 4200, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.DebugSettings.Set\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.DebugSettings.Set succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior);
-        commonDebugDebugSettingsSetShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugDebugSettingsSetShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (buffer, buffSize, &resSize, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.StatsEvent.SendPacket\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.StatsEvent.SendPacket succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior);
-        commonDebugStatsEventSendPacketShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugStatsEventSendPacketShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (buffer, buffSize, &resSize, 42, 4200, "Test string with spaces", (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE)0, (eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE)0, "Test string with spaces", "Test string with spaces", "Test string with spaces", "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.DebugSettingsState.Info\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.DebugSettingsState.Info succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior);
-        commonDebugDebugSettingsStateInfoShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugDebugSettingsStateInfoShouldBeCalled = 0;
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            errcount++ ;
-        }
-    }
-
-    res = ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateListChanged (buffer, buffSize, &resSize, 4200, "Test string with spaces");
-    if (res != ARCOMMANDS_GENERATOR_OK)
-    {
-        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command CommonDebug.DebugSettingsState.ListChanged\n\n");
-        errcount++ ;
-    }
-    else
-    {
-        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command CommonDebug.DebugSettingsState.ListChanged succeded");
-        eARCOMMANDS_DECODER_ERROR err;
-        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
-        if (err != ARCOMMANDS_DECODER_OK)
-        {
-            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
-            errcount++ ;
-        }
-        else
-        {
-            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
-        }
-        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior);
-        commonDebugDebugSettingsStateListChangedShouldBeCalled = 1;
-        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
-        commonDebugDebugSettingsStateListChangedShouldBeCalled = 0;
+        debugSettingsListShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
