@@ -31,13 +31,15 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code> listener
+ * Interface for the command <code>SettingsList</code> in feature <code>Debug</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandCommonDebugDebugSettingsGetAllListener {
+public interface ARCommandDebugSettingsListListener {
 
     /**
-     * Called when a command <code>DebugSettingsGetAll</code> in feature <code>CommonDebug</code> is decoded
+     * Called when a command <code>SettingsList</code> in feature <code>Debug</code> is decoded
+     * @param _id Setting Id.
+     * @param _value New setting value (string encoded).
      */
-    void onCommonDebugDebugSettingsGetAllUpdate ();
+    void onDebugSettingsListUpdate (short id, String value);
 }

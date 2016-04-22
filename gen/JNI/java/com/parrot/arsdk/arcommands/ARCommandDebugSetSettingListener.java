@@ -31,22 +31,15 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code> listener
+ * Interface for the command <code>SetSetting</code> in feature <code>Debug</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandCommonDebugDebugSettingsStateInfoListener {
+public interface ARCommandDebugSetSettingListener {
 
     /**
-     * Called when a command <code>DebugSettingsStateInfo</code> in feature <code>CommonDebug</code> is decoded
-     * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
+     * Called when a command <code>SetSetting</code> in feature <code>Debug</code> is decoded
      * @param _id Setting Id.
-     * @param _label Setting displayed label (single line).
-     * @param _type Setting type.
-     * @param _mode Setting mode.
-     * @param _range_min Setting range minimal value for decimal type.
-     * @param _range_max Setting range max value for decimal type.
-     * @param _range_step Setting step value for decimal type
-     * @param _value Current Setting value (string encoded).
+     * @param _value New setting value (string encoded).
      */
-    void onCommonDebugDebugSettingsStateInfoUpdate (byte listFlags, short id, String label, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE_ENUM type, ARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE_ENUM mode, String range_min, String range_max, String range_step, String value);
+    void onDebugSetSettingUpdate (short id, String value);
 }

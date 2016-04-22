@@ -2460,52 +2460,18 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonChargerStateCharg
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _runId);
 
 
-// Feature commonDebug
+// Feature debug
 
 
 /**
- * @brief Send a packet to the drone
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _packet Packet to send to the drone
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
-
-/**
- * @brief Ask drone to start sending packets
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _frequency Frequency of the packet
- * @param _packetSize Size of the the packet
- * @param _date time of day in sec
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _frequency, uint8_t _packetSize, uint32_t _date);
-
-/**
- * @brief Ask drone to stop sending packets
+ * @brief Cmd sent by controller to get all settings info (generate "settings_info" events).
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
  * @param buffLen Size of the buffer
  * @param cmdLen Pointer to an integer that will hold the actual size of the command
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
- * @brief Cmd sent by controller to get all settings info (generate "SettingInfo" events).
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugGetAllSettings (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
 
 /**
  * @brief Change setting value.
@@ -2518,21 +2484,10 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
  * @param _value New setting value (string encoded).
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsSet (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSetSetting (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
 
 /**
- * @brief Send a packet from drone
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _packet packet from drone
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet);
-
-/**
- * @brief Sent by the drone as answer to GetSettingsInfo
+ * @brief Sent by the drone as answer to get_settings_info
  * Describe a debug setting and give the current value.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -2541,15 +2496,15 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSe
  * @param _listFlags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.
  * @param _id Setting Id.
  * @param _label Setting displayed label (single line).
- * @param _type Setting type.
- * @param _mode Setting mode.
+ * @param _type Setting type.\nSetting type.
+ * @param _mode Setting mode.\nSetting mode.
  * @param _range_min Setting range minimal value for decimal type.
  * @param _range_max Setting range max value for decimal type.
  * @param _range_step Setting step value for decimal type
  * @param _value Current Setting value (string encoded).
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_DEBUG_SETTING_TYPE _type, eARCOMMANDS_DEBUG_SETTING_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value);
 
 /**
  * @brief Setting value changed.
@@ -2562,7 +2517,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
  * @param _value New setting value (string encoded).
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsList (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
 
 
 // Feature unknown_feature_1

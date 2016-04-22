@@ -11787,9 +11787,9 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonRunStateRunIdChan
 }
 
 
-// Feature commonDebug
+// Feature debug
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugGetAllSettings (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -11798,17 +11798,10 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPac
     {
         return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
     } // No else --> Args Check
-    // Test all String args (if any)
-    if ((_packet == NULL) ||
-       (0))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-
     // Write feature header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_DEBUG, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -11817,7 +11810,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPac
     // Write class header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_CLASS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -11826,16 +11819,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPac
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _packet
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddStringToBuffer (buffer, _packet, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -11848,163 +11832,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsSendPac
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStartSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _frequency, uint8_t _packetSize, uint32_t _date)
-{
-    int32_t currIndexInBuffer = 0;
-    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
-    if ((buffer == NULL) ||
-        (cmdLen == NULL))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-    // Write feature header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write class header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write id header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _frequency
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _frequency, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _packetSize
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, _packetSize, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _date
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU32ToBuffer (buffer, _date, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        *cmdLen = currIndexInBuffer;
-    } // No else --> Do not set cmdLen if an error occured
-    return retVal;
-}
-
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsStopSendingPacketFromDrone (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen)
-{
-    int32_t currIndexInBuffer = 0;
-    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
-    if ((buffer == NULL) ||
-        (cmdLen == NULL))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-    // Write feature header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write class header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write id header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        *cmdLen = currIndexInBuffer;
-    } // No else --> Do not set cmdLen if an error occured
-    return retVal;
-}
-
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsGetAll (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen)
-{
-    int32_t currIndexInBuffer = 0;
-    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
-    if ((buffer == NULL) ||
-        (cmdLen == NULL))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-    // Write feature header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write class header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write id header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        *cmdLen = currIndexInBuffer;
-    } // No else --> Do not set cmdLen if an error occured
-    return retVal;
-}
-
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsSet (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSetSetting (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -12023,7 +11851,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write feature header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_DEBUG, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12032,7 +11860,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write class header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_CLASS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12041,7 +11869,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12072,66 +11900,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugStatsEventSendPacket (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _packet)
-{
-    int32_t currIndexInBuffer = 0;
-    eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
-    if ((buffer == NULL) ||
-        (cmdLen == NULL))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-    // Test all String args (if any)
-    if ((_packet == NULL) ||
-       (0))
-    {
-        return ARCOMMANDS_GENERATOR_ERROR_BAD_ARGS;
-    } // No else --> Args Check
-
-    // Write feature header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write class header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write id header
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    // Write arg _packet
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddStringToBuffer (buffer, _packet, currIndexInBuffer, buffLen);
-        if (currIndexInBuffer == -1)
-        {
-            retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
-        } // No else --> Do not modify retVal if no issue was found
-    } // No else --> Processing block
-    if (retVal == ARCOMMANDS_GENERATOR_OK)
-    {
-        *cmdLen = currIndexInBuffer;
-    } // No else --> Do not set cmdLen if an error occured
-    return retVal;
-}
-
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE _type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsInfo (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _listFlags, uint16_t _id, const char * _label, eARCOMMANDS_DEBUG_SETTING_TYPE _type, eARCOMMANDS_DEBUG_SETTING_MODE _mode, const char * _range_min, const char * _range_max, const char * _range_step, const char * _value)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -12154,7 +11923,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write feature header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_DEBUG, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12163,7 +11932,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write class header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_CLASS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12172,7 +11941,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12266,7 +12035,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     return retVal;
 }
 
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSettingsStateListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value)
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsList (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value)
 {
     int32_t currIndexInBuffer = 0;
     eARCOMMANDS_GENERATOR_ERROR retVal = ARCOMMANDS_GENERATOR_OK;
@@ -12285,7 +12054,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write feature header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_COMMONDEBUG, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_DEBUG, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12294,7 +12063,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write class header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU8ToBuffer (buffer, ARCOMMANDS_ID_FEATURE_CLASS, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;
@@ -12303,7 +12072,7 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateCommonDebugDebugSetting
     // Write id header
     if (retVal == ARCOMMANDS_GENERATOR_OK)
     {
-        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED, currIndexInBuffer, buffLen);
+        currIndexInBuffer = ARCOMMANDS_ReadWrite_AddU16ToBuffer (buffer, ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST, currIndexInBuffer, buffLen);
         if (currIndexInBuffer == -1)
         {
             retVal = ARCOMMANDS_GENERATOR_ERROR_NOT_ENOUGH_SPACE;

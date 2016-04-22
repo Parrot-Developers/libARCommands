@@ -2349,96 +2349,52 @@ typedef void (*ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t) (char * 
  */
 void ARCOMMANDS_Decoder_SetCommonRunStateRunIdChangedCallback (ARCOMMANDS_Decoder_CommonRunStateRunIdChangedCallback_t callback, void *custom);
 
-// Feature commonDebug
+// Feature debug
 
 
 /**
- * @brief callback type for the command commonDebug.Stats.SendPacket
+ * @brief callback type for the command debug.get_all_settings
  */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t) (char * packet, void *custom);
+typedef void (*ARCOMMANDS_Decoder_DebugGetAllSettingsCallback_t) (void *custom);
 /**
- * @brief callback setter for the command commonDebug.Stats.SendPacket
- * @param callback new callback for the command commonDebug.Stats.SendPacket
+ * @brief callback setter for the command debug.get_all_settings
+ * @param callback new callback for the command debug.get_all_settings
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetCommonDebugStatsSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsSendPacketCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetDebugGetAllSettingsCallback (ARCOMMANDS_Decoder_DebugGetAllSettingsCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command commonDebug.Stats.StartSendingPacketFromDrone
+ * @brief callback type for the command debug.set_setting
  */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t) (uint8_t frequency, uint8_t packetSize, uint32_t date, void *custom);
+typedef void (*ARCOMMANDS_Decoder_DebugSetSettingCallback_t) (uint16_t id, char * value, void *custom);
 /**
- * @brief callback setter for the command commonDebug.Stats.StartSendingPacketFromDrone
- * @param callback new callback for the command commonDebug.Stats.StartSendingPacketFromDrone
+ * @brief callback setter for the command debug.set_setting
+ * @param callback new callback for the command debug.set_setting
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStartSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStartSendingPacketFromDroneCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetDebugSetSettingCallback (ARCOMMANDS_Decoder_DebugSetSettingCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command commonDebug.Stats.StopSendingPacketFromDrone
+ * @brief callback type for the command debug.settings_info
  */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t) (void *custom);
+typedef void (*ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t) (uint8_t listFlags, uint16_t id, char * label, eARCOMMANDS_DEBUG_SETTING_TYPE type, eARCOMMANDS_DEBUG_SETTING_MODE mode, char * range_min, char * range_max, char * range_step, char * value, void *custom);
 /**
- * @brief callback setter for the command commonDebug.Stats.StopSendingPacketFromDrone
- * @param callback new callback for the command commonDebug.Stats.StopSendingPacketFromDrone
+ * @brief callback setter for the command debug.settings_info
+ * @param callback new callback for the command debug.settings_info
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetCommonDebugStatsStopSendingPacketFromDroneCallback (ARCOMMANDS_Decoder_CommonDebugStatsStopSendingPacketFromDroneCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetDebugSettingsInfoCallback (ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command commonDebug.DebugSettings.GetAll
+ * @brief callback type for the command debug.settings_list
  */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t) (void *custom);
+typedef void (*ARCOMMANDS_Decoder_DebugSettingsListCallback_t) (uint16_t id, char * value, void *custom);
 /**
- * @brief callback setter for the command commonDebug.DebugSettings.GetAll
- * @param callback new callback for the command commonDebug.DebugSettings.GetAll
+ * @brief callback setter for the command debug.settings_list
+ * @param callback new callback for the command debug.settings_list
  * @param custom pointer that will be passed to all calls to the callback
  */
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsGetAllCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsGetAllCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command commonDebug.DebugSettings.Set
- */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t) (uint16_t id, char * value, void *custom);
-/**
- * @brief callback setter for the command commonDebug.DebugSettings.Set
- * @param callback new callback for the command commonDebug.DebugSettings.Set
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsSetCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsSetCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command commonDebug.StatsEvent.SendPacket
- */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t) (char * packet, void *custom);
-/**
- * @brief callback setter for the command commonDebug.StatsEvent.SendPacket
- * @param callback new callback for the command commonDebug.StatsEvent.SendPacket
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetCommonDebugStatsEventSendPacketCallback (ARCOMMANDS_Decoder_CommonDebugStatsEventSendPacketCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command commonDebug.DebugSettingsState.Info
- */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t) (uint8_t listFlags, uint16_t id, char * label, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_TYPE type, eARCOMMANDS_COMMONDEBUG_DEBUGSETTINGSSTATE_INFO_MODE mode, char * range_min, char * range_max, char * range_step, char * value, void *custom);
-/**
- * @brief callback setter for the command commonDebug.DebugSettingsState.Info
- * @param callback new callback for the command commonDebug.DebugSettingsState.Info
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateInfoCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateInfoCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command commonDebug.DebugSettingsState.ListChanged
- */
-typedef void (*ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t) (uint16_t id, char * value, void *custom);
-/**
- * @brief callback setter for the command commonDebug.DebugSettingsState.ListChanged
- * @param callback new callback for the command commonDebug.DebugSettingsState.ListChanged
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetCommonDebugDebugSettingsStateListChangedCallback (ARCOMMANDS_Decoder_CommonDebugDebugSettingsStateListChangedCallback_t callback, void *custom);
+void ARCOMMANDS_Decoder_SetDebugSettingsListCallback (ARCOMMANDS_Decoder_DebugSettingsListCallback_t callback, void *custom);
 
 // Feature unknown_feature_1
 

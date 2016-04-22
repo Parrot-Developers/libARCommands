@@ -3457,170 +3457,66 @@ public class ARCommandsFilter
 
 
 
-    // Feature commonDebug
-    private native int nativeSetCommonDebugBehavior (long cFilter, int behavior);
+    // Feature debug
+    private native int nativeSetDebugBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.XXX.XXX.
+     * Sets the behavior for all commands Debug.XXX.XXX.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setDebugBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetDebugBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    // - Class Stats
-    private native int nativeSetCommonDebugStatsBehavior (long cFilter, int behavior);
+    private native int nativeSetDebugGetAllSettingsBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for all commands CommonDebug.Stats.XXX.
+     * Sets the behavior for the command Debug.GetAllSettings.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setDebugGetAllSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetDebugGetAllSettingsBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsSendPacketBehavior (long cFilter, int behavior);
+    private native int nativeSetDebugSetSettingBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.SendPacket.
+     * Sets the behavior for the command Debug.SetSetting.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setDebugSetSettingBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsSendPacketBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetDebugSetSettingBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    private native int nativeSetDebugSettingsInfoBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.StartSendingPacketFromDrone.
+     * Sets the behavior for the command Debug.SettingsInfo.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setDebugSettingsInfoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsStartSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetDebugSettingsInfoBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
-    private native int nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (long cFilter, int behavior);
+    private native int nativeSetDebugSettingsListBehavior (long cFilter, int behavior);
     /**
-     * Sets the behavior for the command CommonDebug.Stats.StopSendingPacketFromDrone.
+     * Sets the behavior for the command Debug.SettingsList.
      * @param behavior The behavior to set.
      * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
      */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+    public ARCOMMANDS_FILTER_ERROR_ENUM setDebugSettingsListBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsStopSendingPacketFromDroneBehavior (this.cFilter, behavior.getValue());
+        int cErr = nativeSetDebugSettingsListBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
-
-
-    // - Class StatsEvent
-    private native int nativeSetCommonDebugStatsEventBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands CommonDebug.StatsEvent.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsEventBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetCommonDebugStatsEventSendPacketBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command CommonDebug.StatsEvent.SendPacket.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugStatsEventSendPacketBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class DebugSettings
-    private native int nativeSetCommonDebugDebugSettingsBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands CommonDebug.DebugSettings.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetCommonDebugDebugSettingsGetAllBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command CommonDebug.DebugSettings.GetAll.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsGetAllBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetCommonDebugDebugSettingsSetBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command CommonDebug.DebugSettings.Set.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsSetBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class DebugSettingsState
-    private native int nativeSetCommonDebugDebugSettingsStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands CommonDebug.DebugSettingsState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetCommonDebugDebugSettingsStateInfoBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command CommonDebug.DebugSettingsState.Info.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateInfoBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetCommonDebugDebugSettingsStateListChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command CommonDebug.DebugSettingsState.ListChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetCommonDebugDebugSettingsStateListChangedBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
 
 
     // Feature unknown_feature_1

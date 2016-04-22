@@ -260,15 +260,11 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonChargerStateChargingInfoBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonRunStateRunIdChangedBehavior;
 
-    // Feature commonDebug
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsSendPacketBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsGetAllBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsSetBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugStatsEventSendPacketBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateInfoBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdCommonDebugDebugSettingsStateListChangedBehavior;
+    // Feature debug
+    eARCOMMANDS_FILTER_STATUS CmdDebugGetAllSettingsBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDebugSetSettingBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDebugSettingsInfoBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDebugSettingsListBehavior;
 
     // Feature unknown_feature_1
     eARCOMMANDS_FILTER_STATUS CmdUnknownFeature_1GeographicRunBehavior;
@@ -732,15 +728,11 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonChargerStateLastChargeRateChangedBehavior = defaultBehavior;
         retFilter->CmdCommonChargerStateChargingInfoBehavior = defaultBehavior;
         retFilter->CmdCommonRunStateRunIdChangedBehavior = defaultBehavior;
-        // Feature commonDebug
-        retFilter->CmdCommonDebugStatsSendPacketBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsGetAllBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsSetBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugStatsEventSendPacketBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsStateInfoBehavior = defaultBehavior;
-        retFilter->CmdCommonDebugDebugSettingsStateListChangedBehavior = defaultBehavior;
+        // Feature debug
+        retFilter->CmdDebugGetAllSettingsBehavior = defaultBehavior;
+        retFilter->CmdDebugSetSettingBehavior = defaultBehavior;
+        retFilter->CmdDebugSettingsInfoBehavior = defaultBehavior;
+        retFilter->CmdDebugSettingsListBehavior = defaultBehavior;
         // Feature unknown_feature_1
         retFilter->CmdUnknownFeature_1GeographicRunBehavior = defaultBehavior;
         retFilter->CmdUnknownFeature_1RelativeRunBehavior = defaultBehavior;
@@ -2688,96 +2680,40 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_COMMON */
-        case ARCOMMANDS_ID_FEATURE_COMMONDEBUG:
+        case ARCOMMANDS_ID_FEATURE_DEBUG:
         {
-            switch (commandClass)
-            {
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS:
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
             {
                 switch (commandId)
                 {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET:
+                case ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS:
                 {
-                    retStatus = filter->CmdCommonDebugStatsSendPacketBehavior;
+                    retStatus = filter->CmdDebugGetAllSettingsBehavior;
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_SENDPACKET */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE:
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_GET_ALL_SETTINGS */
+                case ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING:
                 {
-                    retStatus = filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior;
+                    retStatus = filter->CmdDebugSetSettingBehavior;
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STARTSENDINGPACKETFROMDRONE */
-                case ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE:
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SET_SETTING */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO:
                 {
-                    retStatus = filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior;
+                    retStatus = filter->CmdDebugSettingsInfoBehavior;
                 }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATS_CMD_STOPSENDINGPACKETFROMDRONE */
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_INFO */
+                case ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST:
+                {
+                    retStatus = filter->CmdDebugSettingsListBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DEBUG_CMD_SETTINGS_LIST */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
                 }
             }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET:
-                {
-                    retStatus = filter->CmdCommonDebugStatsEventSendPacketBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_STATSEVENT_CMD_SENDPACKET */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_STATSEVENT */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsGetAllBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_GETALL */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsSetBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGS_CMD_SET */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGS */
-            case ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsStateInfoBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_INFO */
-                case ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED:
-                {
-                    retStatus = filter->CmdCommonDebugDebugSettingsStateListChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_COMMONDEBUG_DEBUGSETTINGSSTATE_CMD_LISTCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_COMMONDEBUG_CLASS_DEBUGSETTINGSSTATE */
-            default:
-                // Do nothing, the default answer is already UNKNOWN
-                break;
-            }
+            //Else Do nothing, the default answer is already UNKNOWN
         }
-        break; /* ARCOMMANDS_ID_FEATURE_COMMONDEBUG */
+        break; /* ARCOMMANDS_ID_FEATURE_DEBUG */
         case ARCOMMANDS_ID_FEATURE_FOLLOW_ME:
         {
             if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
@@ -11056,9 +10992,9 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonRunStateRunIdChangedBehavior
 }
 
 
-// Feature commonDebug
+// Feature debug
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
 
@@ -11075,25 +11011,18 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugBehavior (ARCOMMANDS_Fi
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
+        filter->CmdDebugGetAllSettingsBehavior = behavior;
+        filter->CmdDebugSetSettingBehavior = behavior;
+        filter->CmdDebugSettingsInfoBehavior = behavior;
+        filter->CmdDebugSettingsListBehavior = behavior;
     }
 
     return retError;
 }
 
-// Command class Stats
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugGetAllSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
     if (filter == NULL)
     {
         retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
@@ -11107,20 +11036,15 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsBehavior (ARCOMMAN
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
+        filter->CmdDebugGetAllSettingsBehavior = behavior;
     }
 
     return retError;
 }
 
-// Command class StatsEvent
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugSetSettingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
     if (filter == NULL)
     {
         retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
@@ -11134,18 +11058,15 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventBehavior (ARC
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
+        filter->CmdDebugSetSettingBehavior = behavior;
     }
 
     return retError;
 }
 
-// Command class DebugSettings
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugSettingsInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
     if (filter == NULL)
     {
         retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
@@ -11159,40 +11080,13 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsBehavior (
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
+        filter->CmdDebugSettingsInfoBehavior = behavior;
     }
 
     return retError;
 }
 
-// Command class DebugSettingsState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugSettingsListBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
     if (filter == NULL)
@@ -11208,161 +11102,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsSendPacketBehavior
 
     if (retError == ARCOMMANDS_FILTER_OK)
     {
-        filter->CmdCommonDebugStatsSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStartSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsStartSendingPacketFromDroneBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsStopSendingPacketFromDroneBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsStopSendingPacketFromDroneBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsGetAllBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsGetAllBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsSetBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugStatsEventSendPacketBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugStatsEventSendPacketBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateInfoBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateInfoBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonDebugDebugSettingsStateListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdCommonDebugDebugSettingsStateListChangedBehavior = behavior;
+        filter->CmdDebugSettingsListBehavior = behavior;
     }
 
     return retError;

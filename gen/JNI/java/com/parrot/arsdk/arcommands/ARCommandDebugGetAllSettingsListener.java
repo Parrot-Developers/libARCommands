@@ -31,14 +31,13 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>StatsSendPacket</code> in feature <code>CommonDebug</code> listener
+ * Interface for the command <code>GetAllSettings</code> in feature <code>Debug</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandCommonDebugStatsSendPacketListener {
+public interface ARCommandDebugGetAllSettingsListener {
 
     /**
-     * Called when a command <code>StatsSendPacket</code> in feature <code>CommonDebug</code> is decoded
-     * @param _packet Packet to send to the drone
+     * Called when a command <code>GetAllSettings</code> in feature <code>Debug</code> is decoded
      */
-    void onCommonDebugStatsSendPacketUpdate (String packet);
+    void onDebugGetAllSettingsUpdate ();
 }
