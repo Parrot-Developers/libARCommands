@@ -3941,7 +3941,7 @@ def generate_files(ctx, outdir, extra):
     # Generation
     generateCmds(ctx, paths)
     PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
-    os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR)
+    os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR+' --outdir '+outdir)
 
 #===============================================================================
 #===============================================================================
