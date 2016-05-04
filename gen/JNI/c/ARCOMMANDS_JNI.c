@@ -5059,6 +5059,33 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateCountryList
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonCommonStateMassStorageContentChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jbyte mass_storage_id, jshort nbPhotos, jshort nbVideos, jshort nbPuds, jshort nbCrashLogs)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateCommonCommonStateMassStorageContentChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)mass_storage_id, (uint16_t)nbPhotos, (uint16_t)nbVideos, (uint16_t)nbPuds, (uint16_t)nbCrashLogs);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetCommonOverHeatStateOverHeatChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
     int32_t c_dataSize = 0;
@@ -9758,33 +9785,6 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneUsbAccessoryStateGu
     }
 
     err = ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint8_t)id, (eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE)state, (uint8_t)list_flags);
-    if (err == ARCOMMANDS_GENERATOR_OK)
-    {
-        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
-    }
-    return err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort nb_photos)
-{
-    int32_t c_dataSize = 0;
-    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
-    if (g_dataSize_id == 0)
-    {
-        jclass clz = (*env)->GetObjectClass (env, thizz);
-        if (clz != 0)
-        {
-            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
-            (*env)->DeleteLocalRef (env, clz);
-        }
-        else
-        {
-            return err;
-        }
-    }
-
-    err = ARCOMMANDS_Generator_GenerateMiniDroneMassStorageMediaStateNbPhotosChanged ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)nb_photos);
     if (err == ARCOMMANDS_GENERATOR_OK)
     {
         (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
@@ -16229,6 +16229,27 @@ void ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb (uint8_t listFlags
     (*env)->DeleteLocalRef (env, delegate);
 }
 
+void ARCOMMANDS_JNI_CommonCommonStateMassStorageContentChangednativeCb (uint8_t mass_storage_id, uint16_t nbPhotos, uint16_t nbVideos, uint16_t nbPuds, uint16_t nbCrashLogs, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandCommonCommonStateMassStorageContentChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandCommonCommonStateMassStorageContentChangedListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onCommonCommonStateMassStorageContentChangedUpdate", "(BSSSS)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jbyte)mass_storage_id, (jshort)nbPhotos, (jshort)nbVideos, (jshort)nbPuds, (jshort)nbCrashLogs);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
 void ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb (void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -20135,27 +20156,6 @@ void ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb (uint8_t id, eARC
     (*env)->DeleteLocalRef (env, delegate);
 }
 
-void ARCOMMANDS_JNI_MiniDroneMassStorageMediaStateNbPhotosChangednativeCb (uint16_t nb_photos, void *custom)
-{
-    jclass clazz = (jclass)custom;
-    jint res;
-    JNIEnv *env = NULL;
-    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
-    if (res < 0) { return; }
-    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener", "Lcom/parrot/arsdk/arcommands/ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener;");
-    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
-    if (delegate == NULL) { return; }
-
-    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
-    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMiniDroneMassStorageMediaStateNbPhotosChangedUpdate", "(S)V");
-    (*env)->DeleteLocalRef (env, d_clazz);
-    if (d_methodid != NULL)
-    {
-        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)nb_photos);
-    }
-    (*env)->DeleteLocalRef (env, delegate);
-}
-
 
 void ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb (uint64_t features, void *custom)
 {
@@ -22475,6 +22475,8 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
 
     ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback (ARCOMMANDS_JNI_CommonCommonStateCountryListKnownnativeCb, (void *)g_class);
 
+    ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageContentChangedCallback (ARCOMMANDS_JNI_CommonCommonStateMassStorageContentChangednativeCb, (void *)g_class);
+
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetCommonOverHeatStateOverHeatRegulationChangedCallback (ARCOMMANDS_JNI_CommonOverHeatStateOverHeatRegulationChangednativeCb, (void *)g_class);
@@ -22823,8 +22825,6 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateClawStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateClawStatenativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_JNI_MiniDroneUsbAccessoryStateGunStatenativeCb, (void *)g_class);
-
-    ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback (ARCOMMANDS_JNI_MiniDroneMassStorageMediaStateNbPhotosChangednativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetProProBoughtFeaturesCallback (ARCOMMANDS_JNI_ProProBoughtFeaturesnativeCb, (void *)g_class);

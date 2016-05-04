@@ -2625,6 +2625,18 @@ public class ARCommandsFilter
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 
+    private native int nativeSetCommonCommonStateMassStorageContentChangedBehavior (long cFilter, int behavior);
+    /**
+     * Sets the behavior for the command Common.CommonState.MassStorageContentChanged.
+     * @param behavior The behavior to set.
+     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
+     */
+    public ARCOMMANDS_FILTER_ERROR_ENUM setCommonCommonStateMassStorageContentChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
+        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
+        int cErr = nativeSetCommonCommonStateMassStorageContentChangedBehavior (this.cFilter, behavior.getValue());
+        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
+    }
+
 
     // - Class OverHeat
     private native int nativeSetCommonOverHeatBehavior (long cFilter, int behavior);
@@ -5844,32 +5856,6 @@ public class ARCommandsFilter
     public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneUsbAccessoryGunControlBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
         if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
         int cErr = nativeSetMiniDroneUsbAccessoryGunControlBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-
-    // - Class MassStorageMediaState
-    private native int nativeSetMiniDroneMassStorageMediaStateBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for all commands MiniDrone.MassStorageMediaState.XXX.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneMassStorageMediaStateBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetMiniDroneMassStorageMediaStateBehavior (this.cFilter, behavior.getValue());
-        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
-    }
-
-    private native int nativeSetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (long cFilter, int behavior);
-    /**
-     * Sets the behavior for the command MiniDrone.MassStorageMediaState.NbPhotosChanged.
-     * @param behavior The behavior to set.
-     * @return An ARCOMMANDS_FILTER_ERROR_ENUM value.
-     */
-    public ARCOMMANDS_FILTER_ERROR_ENUM setMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (ARCOMMANDS_FILTER_STATUS_ENUM behavior) {
-        if (! valid) { return ARCOMMANDS_FILTER_ERROR_ENUM.ARCOMMANDS_FILTER_ERROR_BAD_FILTER; }
-        int cErr = nativeSetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (this.cFilter, behavior.getValue());
         return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);
     }
 

@@ -235,6 +235,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateSensorsStatesListChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateProductModelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateCountryListKnownBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdCommonCommonStateMassStorageContentChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonOverHeatStateOverHeatRegulationChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior;
@@ -417,7 +418,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateLightStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateClawStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateGunStateBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior;
 
     // Feature pro
     eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
@@ -721,6 +721,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdCommonCommonStateSensorsStatesListChangedBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateProductModelBehavior = defaultBehavior;
         retFilter->CmdCommonCommonStateCountryListKnownBehavior = defaultBehavior;
+        retFilter->CmdCommonCommonStateMassStorageContentChangedBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatChangedBehavior = defaultBehavior;
         retFilter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = defaultBehavior;
         retFilter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = defaultBehavior;
@@ -898,7 +899,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = defaultBehavior;
         retFilter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = defaultBehavior;
         retFilter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = defaultBehavior;
-        retFilter->CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior = defaultBehavior;
         // Feature pro
         retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
         retFilter->CmdProProResponseBehavior = defaultBehavior;
@@ -2251,6 +2251,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdCommonCommonStateCountryListKnownBehavior;
                 }
                 break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_COUNTRYLISTKNOWN */
+                case ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGECONTENTCHANGED:
+                {
+                    retStatus = filter->CmdCommonCommonStateMassStorageContentChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_COMMON_COMMONSTATE_CMD_MASSSTORAGECONTENTCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3899,21 +3904,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                 }
             }
             break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_USBACCESSORY */
-            case ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE:
-            {
-                switch (commandId)
-                {
-                case ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED:
-                {
-                    retStatus = filter->CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_MINIDRONE_MASSSTORAGEMEDIASTATE_CMD_NBPHOTOSCHANGED */
-                default:
-                    // Do nothing, the default answer is already UNKNOWN
-                    break;
-                }
-            }
-            break; /* ARCOMMANDS_ID_MINIDRONE_CLASS_MASSSTORAGEMEDIASTATE */
             default:
                 // Do nothing, the default answer is already UNKNOWN
                 break;
@@ -8730,6 +8720,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonBehavior (ARCOMMANDS_Filter_
         filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
         filter->CmdCommonCommonStateProductModelBehavior = behavior;
         filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageContentChangedBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatChangedBehavior = behavior;
         filter->CmdCommonOverHeatStateOverHeatRegulationChangedBehavior = behavior;
         filter->CmdCommonWifiSettingsStateOutdoorSettingsChangedBehavior = behavior;
@@ -8932,6 +8923,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateBehavior (ARCOMMA
         filter->CmdCommonCommonStateSensorsStatesListChangedBehavior = behavior;
         filter->CmdCommonCommonStateProductModelBehavior = behavior;
         filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+        filter->CmdCommonCommonStateMassStorageContentChangedBehavior = behavior;
     }
 
     return retError;
@@ -10588,6 +10580,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateCountryListKnownB
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdCommonCommonStateCountryListKnownBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetCommonCommonStateMassStorageContentChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdCommonCommonStateMassStorageContentChangedBehavior = behavior;
     }
 
     return retError;
@@ -14125,7 +14139,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneBehavior (ARCOMMANDS_Filt
         filter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = behavior;
         filter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = behavior;
         filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
-        filter->CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior = behavior;
     }
 
     return retError;
@@ -14584,31 +14597,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryBehavior (ARC
         filter->CmdMiniDroneUsbAccessoryLightControlBehavior = behavior;
         filter->CmdMiniDroneUsbAccessoryClawControlBehavior = behavior;
         filter->CmdMiniDroneUsbAccessoryGunControlBehavior = behavior;
-    }
-
-    return retError;
-}
-
-// Command class MassStorageMediaState
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior = behavior;
     }
 
     return retError;
@@ -15709,28 +15697,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateGunState
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdMiniDroneMassStorageMediaStateNbPhotosChangedBehavior = behavior;
     }
 
     return retError;

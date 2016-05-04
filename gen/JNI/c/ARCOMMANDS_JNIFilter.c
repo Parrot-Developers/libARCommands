@@ -2081,6 +2081,14 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonCommonStateCoun
 }
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonCommonStateMassStorageContentChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
+{
+    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
+    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetCommonCommonStateMassStorageContentChangedBehavior (filter, behavior);
+    return (jint)err;
+}
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetCommonOverHeatStateOverHeatChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
@@ -3457,15 +3465,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneUsbAccessory
     return (jint)err;
 }
 
-    // - Class MassStorageMediaState
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMassStorageMediaStateBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
 JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDronePilotingFlatTrimBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
 {
@@ -3863,14 +3862,6 @@ Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneUsbAccessory
 {
     ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
     eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateGunStateBehavior (filter, behavior);
-    return (jint)err;
-}
-
-JNIEXPORT jint JNICALL
-Java_com_parrot_arsdk_arcommands_ARCommandsFilter_nativeSetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (JNIEnv *env, jobject thizz, jlong cFilter, jint behavior)
-{
-    ARCOMMANDS_Filter_t *filter = (ARCOMMANDS_Filter_t *)(intptr_t)cFilter;
-    eARCOMMANDS_FILTER_ERROR err = ARCOMMANDS_Filter_SetMiniDroneMassStorageMediaStateNbPhotosChangedBehavior (filter, behavior);
     return (jint)err;
 }
 
