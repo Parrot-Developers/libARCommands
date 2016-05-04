@@ -8825,6 +8825,314 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>Grab</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command Grab description:<br>
+     * Grabbed buttons are sent to the app and are not handled by the mapper<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _buttons Buttons to grab/ungrab (bitfield)
+     * @param _axes Axes to grab/ungrab (bitfield)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperGrab (int _buttons, int _axes) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperGrab (pointer, capacity, _buttons, _axes);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MapButtonAction</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command MapButtonAction description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _product Product (see libARDiscovery for list)
+     * @param _action The action (mapped on a button)
+     * @param _buttons Buttons combination mapped to the action (bitfield). Set 0 (no button) to unmap an action
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperMapButtonAction (short _product, ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM _action, int _buttons) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperMapButtonAction (pointer, capacity, _product, _action.getValue(), _buttons);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MapAxisAction</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command MapAxisAction description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _product Product (see libARDiscovery for list)
+     * @param _action The action (mapped on an axis)
+     * @param _axis The axis number on which the action will be mapped. Set a negative value to unmap the action.
+     * @param _buttons Buttons combination mapped to the action (bitfield). Can be zero if no buttons are required.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperMapAxisAction (short _product, ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM _action, int _axis, int _buttons) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperMapAxisAction (pointer, capacity, _product, _action.getValue(), _axis, _buttons);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ResetMapping</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command ResetMapping description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _product The product to reset, or 0 to reset all products.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperResetMapping (short _product) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperResetMapping (pointer, capacity, _product);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GrabState</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command GrabState description:<br>
+     * Grabbed buttons are sent to the app and are not handled by the mapper<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _buttons Grabbed buttons (bitfield)
+     * @param _axes Grabbed axes (bitfield)
+     * @param _buttons_state For grabbed buttons only. State of the button when the grab starts (bitfield)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperGrabState (int _buttons, int _axes, int _buttons_state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperGrabState (pointer, capacity, _buttons, _axes, _buttons_state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GrabButtonEvent</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command GrabButtonEvent description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _button Button id
+     * @param _event Button event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperGrabButtonEvent (int _button, ARCOMMANDS_MAPPER_BUTTON_EVENT_ENUM _event) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperGrabButtonEvent (pointer, capacity, _button, _event.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>GrabAxisEvent</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command GrabAxisEvent description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _axis Axis id
+     * @param _value Value in range [-100; 100].
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperGrabAxisEvent (int _axis, byte _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperGrabAxisEvent (pointer, capacity, _axis, _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ButtonMappingItem</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command ButtonMappingItem description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uid Unique ID of the mapping.
+     * @param _product Product (see libARDiscovery for list)
+     * @param _action The action (mapped on a button)
+     * @param _buttons Buttons combination mapped to the action (bitfield).
+     * @param _list_flags Flags use by maps and lists
+     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperButtonMappingItem (int _uid, short _product, ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM _action, int _buttons, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperButtonMappingItem (pointer, capacity, _uid, _product, _action.getValue(), _buttons, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>AxisMappingItem</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command AxisMappingItem description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _uid Unique ID of the mapping.
+     * @param _product Product (see libARDiscovery for list)
+     * @param _action The action (mapped on an axis)
+     * @param _axis The axis number on which the action is mapped.
+     * @param _buttons Buttons combination mapped to the action (bitfield).
+     * @param _list_flags Flags use by maps and lists
+     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperAxisMappingItem (int _uid, short _product, ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM _action, int _axis, int _buttons, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperAxisMappingItem (pointer, capacity, _uid, _product, _action.getValue(), _axis, _buttons, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ApplicationAxisEvent</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command ApplicationAxisEvent description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _action The action (mapped on an axis)
+     * @param _value The current value of the axis.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperApplicationAxisEvent (ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM _action, byte _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperApplicationAxisEvent (pointer, capacity, _action.getValue(), _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ApplicationButtonEvent</code> in feature <code>Mapper</code><br>
+     * <br>
+     * Feature Mapper description:<br>
+     * Key mapper for remote controllers<br>
+     * <br>
+     * Command ApplicationButtonEvent description:<br>
+     * TODO<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _action The action (mapped on a button)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMapperApplicationButtonEvent (ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM _action) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetMapperApplicationButtonEvent (pointer, capacity, _action.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>PilotingFlatTrim</code> in feature <code>MiniDrone</code><br>
      * <br>
      * Feature MiniDrone description:<br>
@@ -16028,6 +16336,128 @@ public class ARCommand extends ARNativeData {
     }
 
 
+    private static ARCommandMapperGrabListener _ARCommandMapperGrabListener = null;
+
+    /**
+     * Set the listener for the command <code>Grab</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperGrabListener_PARAM New listener for the command
+     */
+    public static void setMapperGrabListener (ARCommandMapperGrabListener _ARCommandMapperGrabListener_PARAM) {
+        _ARCommandMapperGrabListener = _ARCommandMapperGrabListener_PARAM;
+    }
+
+    private static ARCommandMapperMapButtonActionListener _ARCommandMapperMapButtonActionListener = null;
+
+    /**
+     * Set the listener for the command <code>MapButtonAction</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperMapButtonActionListener_PARAM New listener for the command
+     */
+    public static void setMapperMapButtonActionListener (ARCommandMapperMapButtonActionListener _ARCommandMapperMapButtonActionListener_PARAM) {
+        _ARCommandMapperMapButtonActionListener = _ARCommandMapperMapButtonActionListener_PARAM;
+    }
+
+    private static ARCommandMapperMapAxisActionListener _ARCommandMapperMapAxisActionListener = null;
+
+    /**
+     * Set the listener for the command <code>MapAxisAction</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperMapAxisActionListener_PARAM New listener for the command
+     */
+    public static void setMapperMapAxisActionListener (ARCommandMapperMapAxisActionListener _ARCommandMapperMapAxisActionListener_PARAM) {
+        _ARCommandMapperMapAxisActionListener = _ARCommandMapperMapAxisActionListener_PARAM;
+    }
+
+    private static ARCommandMapperResetMappingListener _ARCommandMapperResetMappingListener = null;
+
+    /**
+     * Set the listener for the command <code>ResetMapping</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperResetMappingListener_PARAM New listener for the command
+     */
+    public static void setMapperResetMappingListener (ARCommandMapperResetMappingListener _ARCommandMapperResetMappingListener_PARAM) {
+        _ARCommandMapperResetMappingListener = _ARCommandMapperResetMappingListener_PARAM;
+    }
+
+    private static ARCommandMapperGrabStateListener _ARCommandMapperGrabStateListener = null;
+
+    /**
+     * Set the listener for the command <code>GrabState</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperGrabStateListener_PARAM New listener for the command
+     */
+    public static void setMapperGrabStateListener (ARCommandMapperGrabStateListener _ARCommandMapperGrabStateListener_PARAM) {
+        _ARCommandMapperGrabStateListener = _ARCommandMapperGrabStateListener_PARAM;
+    }
+
+    private static ARCommandMapperGrabButtonEventListener _ARCommandMapperGrabButtonEventListener = null;
+
+    /**
+     * Set the listener for the command <code>GrabButtonEvent</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperGrabButtonEventListener_PARAM New listener for the command
+     */
+    public static void setMapperGrabButtonEventListener (ARCommandMapperGrabButtonEventListener _ARCommandMapperGrabButtonEventListener_PARAM) {
+        _ARCommandMapperGrabButtonEventListener = _ARCommandMapperGrabButtonEventListener_PARAM;
+    }
+
+    private static ARCommandMapperGrabAxisEventListener _ARCommandMapperGrabAxisEventListener = null;
+
+    /**
+     * Set the listener for the command <code>GrabAxisEvent</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperGrabAxisEventListener_PARAM New listener for the command
+     */
+    public static void setMapperGrabAxisEventListener (ARCommandMapperGrabAxisEventListener _ARCommandMapperGrabAxisEventListener_PARAM) {
+        _ARCommandMapperGrabAxisEventListener = _ARCommandMapperGrabAxisEventListener_PARAM;
+    }
+
+    private static ARCommandMapperButtonMappingItemListener _ARCommandMapperButtonMappingItemListener = null;
+
+    /**
+     * Set the listener for the command <code>ButtonMappingItem</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperButtonMappingItemListener_PARAM New listener for the command
+     */
+    public static void setMapperButtonMappingItemListener (ARCommandMapperButtonMappingItemListener _ARCommandMapperButtonMappingItemListener_PARAM) {
+        _ARCommandMapperButtonMappingItemListener = _ARCommandMapperButtonMappingItemListener_PARAM;
+    }
+
+    private static ARCommandMapperAxisMappingItemListener _ARCommandMapperAxisMappingItemListener = null;
+
+    /**
+     * Set the listener for the command <code>AxisMappingItem</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperAxisMappingItemListener_PARAM New listener for the command
+     */
+    public static void setMapperAxisMappingItemListener (ARCommandMapperAxisMappingItemListener _ARCommandMapperAxisMappingItemListener_PARAM) {
+        _ARCommandMapperAxisMappingItemListener = _ARCommandMapperAxisMappingItemListener_PARAM;
+    }
+
+    private static ARCommandMapperApplicationAxisEventListener _ARCommandMapperApplicationAxisEventListener = null;
+
+    /**
+     * Set the listener for the command <code>ApplicationAxisEvent</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperApplicationAxisEventListener_PARAM New listener for the command
+     */
+    public static void setMapperApplicationAxisEventListener (ARCommandMapperApplicationAxisEventListener _ARCommandMapperApplicationAxisEventListener_PARAM) {
+        _ARCommandMapperApplicationAxisEventListener = _ARCommandMapperApplicationAxisEventListener_PARAM;
+    }
+
+    private static ARCommandMapperApplicationButtonEventListener _ARCommandMapperApplicationButtonEventListener = null;
+
+    /**
+     * Set the listener for the command <code>ApplicationButtonEvent</code> in feature <code>Mapper</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandMapperApplicationButtonEventListener_PARAM New listener for the command
+     */
+    public static void setMapperApplicationButtonEventListener (ARCommandMapperApplicationButtonEventListener _ARCommandMapperApplicationButtonEventListener_PARAM) {
+        _ARCommandMapperApplicationButtonEventListener = _ARCommandMapperApplicationButtonEventListener_PARAM;
+    }
+
+
     private static ARCommandMiniDronePilotingFlatTrimListener _ARCommandMiniDronePilotingFlatTrimListener = null;
 
     /**
@@ -18123,6 +18553,29 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetJumpingSumoMediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, int enabled);
 
     private native int     nativeSetJumpingSumoVideoSettingsStateAutorecordChanged (long pdata, int dataTotalLength, byte enabled);
+
+
+    private native int     nativeSetMapperGrab (long pdata, int dataTotalLength, int buttons, int axes);
+
+    private native int     nativeSetMapperMapButtonAction (long pdata, int dataTotalLength, short product, int action, int buttons);
+
+    private native int     nativeSetMapperMapAxisAction (long pdata, int dataTotalLength, short product, int action, int axis, int buttons);
+
+    private native int     nativeSetMapperResetMapping (long pdata, int dataTotalLength, short product);
+
+    private native int     nativeSetMapperGrabState (long pdata, int dataTotalLength, int buttons, int axes, int buttons_state);
+
+    private native int     nativeSetMapperGrabButtonEvent (long pdata, int dataTotalLength, int button, int event);
+
+    private native int     nativeSetMapperGrabAxisEvent (long pdata, int dataTotalLength, int axis, byte value);
+
+    private native int     nativeSetMapperButtonMappingItem (long pdata, int dataTotalLength, int uid, short product, int action, int buttons, byte list_flags);
+
+    private native int     nativeSetMapperAxisMappingItem (long pdata, int dataTotalLength, int uid, short product, int action, int axis, int buttons, byte list_flags);
+
+    private native int     nativeSetMapperApplicationAxisEvent (long pdata, int dataTotalLength, int action, byte value);
+
+    private native int     nativeSetMapperApplicationButtonEvent (long pdata, int dataTotalLength, int action);
 
 
     private native int     nativeSetMiniDronePilotingFlatTrim (long pdata, int dataTotalLength);

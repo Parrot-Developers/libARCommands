@@ -3561,6 +3561,153 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoMediaStreami
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoVideoSettingsStateAutorecordChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enabled);
 
 
+// Feature mapper
+
+
+/**
+ * @brief Grabbed buttons are sent to the app and are not handled by the mapper
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _buttons Buttons to grab/ungrab (bitfield)
+ * @param _axes Axes to grab/ungrab (bitfield)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperGrab (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _buttons, uint32_t _axes);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _product Product (see libARDiscovery for list)
+ * @param _action The action (mapped on a button)
+ * @param _buttons Buttons combination mapped to the action (bitfield). Set 0 (no button) to unmap an action
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperMapButtonAction (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _product, eARCOMMANDS_MAPPER_BUTTON_ACTION _action, uint32_t _buttons);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _product Product (see libARDiscovery for list)
+ * @param _action The action (mapped on an axis)
+ * @param _axis The axis number on which the action will be mapped. Set a negative value to unmap the action.
+ * @param _buttons Buttons combination mapped to the action (bitfield). Can be zero if no buttons are required.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperMapAxisAction (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _product, eARCOMMANDS_MAPPER_AXIS_ACTION _action, int32_t _axis, uint32_t _buttons);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _product The product to reset, or 0 to reset all products.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperResetMapping (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _product);
+
+/**
+ * @brief Grabbed buttons are sent to the app and are not handled by the mapper
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _buttons Grabbed buttons (bitfield)
+ * @param _axes Grabbed axes (bitfield)
+ * @param _buttons_state For grabbed buttons only. State of the button when the grab starts (bitfield)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperGrabState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _buttons, uint32_t _axes, uint32_t _buttons_state);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _button Button id
+ * @param _event Button event
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperGrabButtonEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _button, eARCOMMANDS_MAPPER_BUTTON_EVENT _event);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _axis Axis id
+ * @param _value Value in range [-100; 100].
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperGrabAxisEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _axis, int8_t _value);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _uid Unique ID of the mapping.
+ * @param _product Product (see libARDiscovery for list)
+ * @param _action The action (mapped on a button)
+ * @param _buttons Buttons combination mapped to the action (bitfield).
+ * @param _list_flags Flags use by maps and lists
+ * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperButtonMappingItem (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _uid, uint16_t _product, eARCOMMANDS_MAPPER_BUTTON_ACTION _action, uint32_t _buttons, uint8_t _list_flags);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _uid Unique ID of the mapping.
+ * @param _product Product (see libARDiscovery for list)
+ * @param _action The action (mapped on an axis)
+ * @param _axis The axis number on which the action is mapped.
+ * @param _buttons Buttons combination mapped to the action (bitfield).
+ * @param _list_flags Flags use by maps and lists
+ * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperAxisMappingItem (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint32_t _uid, uint16_t _product, eARCOMMANDS_MAPPER_AXIS_ACTION _action, int32_t _axis, uint32_t _buttons, uint8_t _list_flags);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _action The action (mapped on an axis)
+ * @param _value The current value of the axis.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperApplicationAxisEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MAPPER_AXIS_ACTION _action, int8_t _value);
+
+/**
+ * @brief TODO
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _action The action (mapped on a button)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMapperApplicationButtonEvent (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_MAPPER_BUTTON_ACTION _action);
+
+
 // Feature MiniDrone
 
 

@@ -3315,6 +3315,130 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoVideoSettingsStateAutorecordChanged
  */
 void ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallback (ARCOMMANDS_Decoder_JumpingSumoVideoSettingsStateAutorecordChangedCallback_t callback, void *custom);
 
+// Feature mapper
+
+
+/**
+ * @brief callback type for the command mapper.grab
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperGrabCallback_t) (uint32_t buttons, uint32_t axes, void *custom);
+/**
+ * @brief callback setter for the command mapper.grab
+ * @param callback new callback for the command mapper.grab
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperGrabCallback (ARCOMMANDS_Decoder_MapperGrabCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.map_button_action
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperMapButtonActionCallback_t) (uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, void *custom);
+/**
+ * @brief callback setter for the command mapper.map_button_action
+ * @param callback new callback for the command mapper.map_button_action
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperMapButtonActionCallback (ARCOMMANDS_Decoder_MapperMapButtonActionCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.map_axis_action
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperMapAxisActionCallback_t) (uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, void *custom);
+/**
+ * @brief callback setter for the command mapper.map_axis_action
+ * @param callback new callback for the command mapper.map_axis_action
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperMapAxisActionCallback (ARCOMMANDS_Decoder_MapperMapAxisActionCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.reset_mapping
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperResetMappingCallback_t) (uint16_t product, void *custom);
+/**
+ * @brief callback setter for the command mapper.reset_mapping
+ * @param callback new callback for the command mapper.reset_mapping
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperResetMappingCallback (ARCOMMANDS_Decoder_MapperResetMappingCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.grab_state
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperGrabStateCallback_t) (uint32_t buttons, uint32_t axes, uint32_t buttons_state, void *custom);
+/**
+ * @brief callback setter for the command mapper.grab_state
+ * @param callback new callback for the command mapper.grab_state
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperGrabStateCallback (ARCOMMANDS_Decoder_MapperGrabStateCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.grab_button_event
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperGrabButtonEventCallback_t) (uint32_t button, eARCOMMANDS_MAPPER_BUTTON_EVENT event, void *custom);
+/**
+ * @brief callback setter for the command mapper.grab_button_event
+ * @param callback new callback for the command mapper.grab_button_event
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperGrabButtonEventCallback (ARCOMMANDS_Decoder_MapperGrabButtonEventCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.grab_axis_event
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperGrabAxisEventCallback_t) (uint32_t axis, int8_t value, void *custom);
+/**
+ * @brief callback setter for the command mapper.grab_axis_event
+ * @param callback new callback for the command mapper.grab_axis_event
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperGrabAxisEventCallback (ARCOMMANDS_Decoder_MapperGrabAxisEventCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.button_mapping_item
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperButtonMappingItemCallback_t) (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command mapper.button_mapping_item
+ * @param callback new callback for the command mapper.button_mapping_item
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperButtonMappingItemCallback (ARCOMMANDS_Decoder_MapperButtonMappingItemCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.axis_mapping_item
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperAxisMappingItemCallback_t) (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command mapper.axis_mapping_item
+ * @param callback new callback for the command mapper.axis_mapping_item
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperAxisMappingItemCallback (ARCOMMANDS_Decoder_MapperAxisMappingItemCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.application_axis_event
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperApplicationAxisEventCallback_t) (eARCOMMANDS_MAPPER_AXIS_ACTION action, int8_t value, void *custom);
+/**
+ * @brief callback setter for the command mapper.application_axis_event
+ * @param callback new callback for the command mapper.application_axis_event
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperApplicationAxisEventCallback (ARCOMMANDS_Decoder_MapperApplicationAxisEventCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command mapper.application_button_event
+ */
+typedef void (*ARCOMMANDS_Decoder_MapperApplicationButtonEventCallback_t) (eARCOMMANDS_MAPPER_BUTTON_ACTION action, void *custom);
+/**
+ * @brief callback setter for the command mapper.application_button_event
+ * @param callback new callback for the command mapper.application_button_event
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetMapperApplicationButtonEventCallback (ARCOMMANDS_Decoder_MapperApplicationButtonEventCallback_t callback, void *custom);
+
 // Feature MiniDrone
 
 

@@ -353,6 +353,19 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoMediaStreamingStateVideoEnableChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior;
 
+    // Feature mapper
+    eARCOMMANDS_FILTER_STATUS CmdMapperGrabBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperMapButtonActionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperMapAxisActionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperResetMappingBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperGrabStateBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperGrabButtonEventBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperGrabAxisEventBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperButtonMappingItemBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperAxisMappingItemBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperApplicationAxisEventBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdMapperApplicationButtonEventBehavior;
+
     // Feature MiniDrone
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingFlatTrimBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDronePilotingTakeOffBehavior;
@@ -822,6 +835,18 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoSpeedSettingsStateOutdoorChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoMediaStreamingStateVideoEnableChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior = defaultBehavior;
+        // Feature mapper
+        retFilter->CmdMapperGrabBehavior = defaultBehavior;
+        retFilter->CmdMapperMapButtonActionBehavior = defaultBehavior;
+        retFilter->CmdMapperMapAxisActionBehavior = defaultBehavior;
+        retFilter->CmdMapperResetMappingBehavior = defaultBehavior;
+        retFilter->CmdMapperGrabStateBehavior = defaultBehavior;
+        retFilter->CmdMapperGrabButtonEventBehavior = defaultBehavior;
+        retFilter->CmdMapperGrabAxisEventBehavior = defaultBehavior;
+        retFilter->CmdMapperButtonMappingItemBehavior = defaultBehavior;
+        retFilter->CmdMapperAxisMappingItemBehavior = defaultBehavior;
+        retFilter->CmdMapperApplicationAxisEventBehavior = defaultBehavior;
+        retFilter->CmdMapperApplicationButtonEventBehavior = defaultBehavior;
         // Feature MiniDrone
         retFilter->CmdMiniDronePilotingFlatTrimBehavior = defaultBehavior;
         retFilter->CmdMiniDronePilotingTakeOffBehavior = defaultBehavior;
@@ -3381,6 +3406,75 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
+        case ARCOMMANDS_ID_FEATURE_MAPPER:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB:
+                {
+                    retStatus = filter->CmdMapperGrabBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_BUTTON_ACTION:
+                {
+                    retStatus = filter->CmdMapperMapButtonActionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_MAP_BUTTON_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_AXIS_ACTION:
+                {
+                    retStatus = filter->CmdMapperMapAxisActionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_MAP_AXIS_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_RESET_MAPPING:
+                {
+                    retStatus = filter->CmdMapperResetMappingBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_RESET_MAPPING */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_STATE:
+                {
+                    retStatus = filter->CmdMapperGrabStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_STATE */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_BUTTON_EVENT:
+                {
+                    retStatus = filter->CmdMapperGrabButtonEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_BUTTON_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_AXIS_EVENT:
+                {
+                    retStatus = filter->CmdMapperGrabAxisEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_BUTTON_MAPPING_ITEM:
+                {
+                    retStatus = filter->CmdMapperButtonMappingItemBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_BUTTON_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_AXIS_MAPPING_ITEM:
+                {
+                    retStatus = filter->CmdMapperAxisMappingItemBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_AXIS_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_AXIS_EVENT:
+                {
+                    retStatus = filter->CmdMapperApplicationAxisEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_BUTTON_EVENT:
+                {
+                    retStatus = filter->CmdMapperApplicationButtonEventBehavior;
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_BUTTON_EVENT */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            //Else Do nothing, the default answer is already UNKNOWN
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_MAPPER */
         case ARCOMMANDS_ID_FEATURE_MINIDRONE:
         {
             switch (commandClass)
@@ -13678,6 +13772,284 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoVideoSettingsStateAutor
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdJumpingSumoVideoSettingsStateAutorecordChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Feature mapper
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperGrabBehavior = behavior;
+        filter->CmdMapperMapButtonActionBehavior = behavior;
+        filter->CmdMapperMapAxisActionBehavior = behavior;
+        filter->CmdMapperResetMappingBehavior = behavior;
+        filter->CmdMapperGrabStateBehavior = behavior;
+        filter->CmdMapperGrabButtonEventBehavior = behavior;
+        filter->CmdMapperGrabAxisEventBehavior = behavior;
+        filter->CmdMapperButtonMappingItemBehavior = behavior;
+        filter->CmdMapperAxisMappingItemBehavior = behavior;
+        filter->CmdMapperApplicationAxisEventBehavior = behavior;
+        filter->CmdMapperApplicationButtonEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperGrabBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperGrabBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperMapButtonActionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperMapButtonActionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperMapAxisActionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperMapAxisActionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperResetMappingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperResetMappingBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperGrabStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperGrabStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperGrabButtonEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperGrabButtonEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperGrabAxisEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperGrabAxisEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperButtonMappingItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperButtonMappingItemBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperAxisMappingItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperAxisMappingItemBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperApplicationAxisEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperApplicationAxisEventBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMapperApplicationButtonEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdMapperApplicationButtonEventBehavior = behavior;
     }
 
     return retError;

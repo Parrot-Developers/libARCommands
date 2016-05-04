@@ -340,6 +340,17 @@ int JumpingSumoRoadPlanStatePlayScriptChangedShouldBeCalled = 0;
 int JumpingSumoSpeedSettingsStateOutdoorChangedShouldBeCalled = 0;
 int JumpingSumoMediaStreamingStateVideoEnableChangedShouldBeCalled = 0;
 int JumpingSumoVideoSettingsStateAutorecordChangedShouldBeCalled = 0;
+int mapperGrabShouldBeCalled = 0;
+int mapperMapButtonActionShouldBeCalled = 0;
+int mapperMapAxisActionShouldBeCalled = 0;
+int mapperResetMappingShouldBeCalled = 0;
+int mapperGrabStateShouldBeCalled = 0;
+int mapperGrabButtonEventShouldBeCalled = 0;
+int mapperGrabAxisEventShouldBeCalled = 0;
+int mapperButtonMappingItemShouldBeCalled = 0;
+int mapperAxisMappingItemShouldBeCalled = 0;
+int mapperApplicationAxisEventShouldBeCalled = 0;
+int mapperApplicationButtonEventShouldBeCalled = 0;
 int MiniDronePilotingFlatTrimShouldBeCalled = 0;
 int MiniDronePilotingTakeOffShouldBeCalled = 0;
 int MiniDronePilotingPCMDShouldBeCalled = 0;
@@ -6359,6 +6370,303 @@ void ARCOMMANDS_Testbench_JumpingSumoVideoSettingsStateAutorecordChangedCb (uint
 }
 
 
+void ARCOMMANDS_Testbench_MapperGrabCb (uint32_t buttons, uint32_t axes, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.grab --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axes value : <%u>", axes);
+    if (axes != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    if (mapperGrabShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperMapButtonActionCb (uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.map_button_action --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "product value : <%u>", product);
+    if (product != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_BUTTON_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_BUTTON_ACTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    if (mapperMapButtonActionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperMapAxisActionCb (uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.map_axis_action --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "product value : <%u>", product);
+    if (product != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_AXIS_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_AXIS_ACTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis value : <%d>", axis);
+    if (axis != -420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    if (mapperMapAxisActionShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperResetMappingCb (uint16_t product, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.reset_mapping --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "product value : <%u>", product);
+    if (product != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    if (mapperResetMappingShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperGrabStateCb (uint32_t buttons, uint32_t axes, uint32_t buttons_state, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.grab_state --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axes value : <%u>", axes);
+    if (axes != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons_state value : <%u>", buttons_state);
+    if (buttons_state != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    if (mapperGrabStateShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperGrabButtonEventCb (uint32_t button, eARCOMMANDS_MAPPER_BUTTON_EVENT event, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.grab_button_event --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "button value : <%u>", button);
+    if (button != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "event value : <%d>", event);
+    if (event != (eARCOMMANDS_MAPPER_BUTTON_EVENT)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_BUTTON_EVENT)0>");
+        errcount++ ;
+    }
+    if (mapperGrabButtonEventShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperGrabAxisEventCb (uint32_t axis, int8_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.grab_axis_event --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis value : <%u>", axis);
+    if (axis != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    if (mapperGrabAxisEventShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperButtonMappingItemCb (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.button_mapping_item --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uid value : <%u>", uid);
+    if (uid != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "product value : <%u>", product);
+    if (product != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_BUTTON_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_BUTTON_ACTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (mapperButtonMappingItemShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperAxisMappingItemCb (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.axis_mapping_item --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "uid value : <%u>", uid);
+    if (uid != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "product value : <%u>", product);
+    if (product != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_AXIS_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_AXIS_ACTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "axis value : <%d>", axis);
+    if (axis != -420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "buttons value : <%u>", buttons);
+    if (buttons != 420000)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <420000>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (mapperAxisMappingItemShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperApplicationAxisEventCb (eARCOMMANDS_MAPPER_AXIS_ACTION action, int8_t value, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.application_axis_event --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_AXIS_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_AXIS_ACTION)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "value value : <%d>", value);
+    if (value != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    if (mapperApplicationAxisEventShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_MapperApplicationButtonEventCb (eARCOMMANDS_MAPPER_BUTTON_ACTION action, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command mapper.application_button_event --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "action value : <%d>", action);
+    if (action != (eARCOMMANDS_MAPPER_BUTTON_ACTION)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_MAPPER_BUTTON_ACTION)0>");
+        errcount++ ;
+    }
+    if (mapperApplicationButtonEventShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+
 void ARCOMMANDS_Testbench_MiniDronePilotingFlatTrimCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command MiniDrone.Piloting.FlatTrim --> Custom PTR = %p", custom);
@@ -9136,6 +9444,17 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetJumpingSumoSpeedSettingsStateOutdoorChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoSpeedSettingsStateOutdoorChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoSpeedSettingsStateOutdoorChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoMediaStreamingStateVideoEnableChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoMediaStreamingStateVideoEnableChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoMediaStreamingStateVideoEnableChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallback ((ARCOMMANDS_Decoder_JumpingSumoVideoSettingsStateAutorecordChangedCallback_t) ARCOMMANDS_Testbench_JumpingSumoVideoSettingsStateAutorecordChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperGrabCallback ((ARCOMMANDS_Decoder_MapperGrabCallback_t) ARCOMMANDS_Testbench_MapperGrabCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperMapButtonActionCallback ((ARCOMMANDS_Decoder_MapperMapButtonActionCallback_t) ARCOMMANDS_Testbench_MapperMapButtonActionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperMapAxisActionCallback ((ARCOMMANDS_Decoder_MapperMapAxisActionCallback_t) ARCOMMANDS_Testbench_MapperMapAxisActionCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperResetMappingCallback ((ARCOMMANDS_Decoder_MapperResetMappingCallback_t) ARCOMMANDS_Testbench_MapperResetMappingCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperGrabStateCallback ((ARCOMMANDS_Decoder_MapperGrabStateCallback_t) ARCOMMANDS_Testbench_MapperGrabStateCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperGrabButtonEventCallback ((ARCOMMANDS_Decoder_MapperGrabButtonEventCallback_t) ARCOMMANDS_Testbench_MapperGrabButtonEventCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperGrabAxisEventCallback ((ARCOMMANDS_Decoder_MapperGrabAxisEventCallback_t) ARCOMMANDS_Testbench_MapperGrabAxisEventCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperButtonMappingItemCallback ((ARCOMMANDS_Decoder_MapperButtonMappingItemCallback_t) ARCOMMANDS_Testbench_MapperButtonMappingItemCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperAxisMappingItemCallback ((ARCOMMANDS_Decoder_MapperAxisMappingItemCallback_t) ARCOMMANDS_Testbench_MapperAxisMappingItemCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperApplicationAxisEventCallback ((ARCOMMANDS_Decoder_MapperApplicationAxisEventCallback_t) ARCOMMANDS_Testbench_MapperApplicationAxisEventCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetMapperApplicationButtonEventCallback ((ARCOMMANDS_Decoder_MapperApplicationButtonEventCallback_t) ARCOMMANDS_Testbench_MapperApplicationButtonEventCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback ((ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingFlatTrimCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingTakeOffCallback ((ARCOMMANDS_Decoder_MiniDronePilotingTakeOffCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingTakeOffCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetMiniDronePilotingPCMDCallback ((ARCOMMANDS_Decoder_MiniDronePilotingPCMDCallback_t) ARCOMMANDS_Testbench_MiniDronePilotingPCMDCb, (void *)cbCustom++ );
@@ -18449,6 +18768,349 @@ int ARCOMMANDS_Testbench_AutoTest ()
         JumpingSumoVideoSettingsStateAutorecordChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         JumpingSumoVideoSettingsStateAutorecordChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+
+    // Feature mapper
+    res = ARCOMMANDS_Generator_GenerateMapperGrab (buffer, buffSize, &resSize, 420000, 420000);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.grab\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.grab succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperGrabBehavior);
+        mapperGrabShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperGrabShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperMapButtonAction (buffer, buffSize, &resSize, 4200, (eARCOMMANDS_MAPPER_BUTTON_ACTION)0, 420000);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.map_button_action\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.map_button_action succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperMapButtonActionBehavior);
+        mapperMapButtonActionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperMapButtonActionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperMapAxisAction (buffer, buffSize, &resSize, 4200, (eARCOMMANDS_MAPPER_AXIS_ACTION)0, -420000, 420000);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.map_axis_action\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.map_axis_action succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperMapAxisActionBehavior);
+        mapperMapAxisActionShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperMapAxisActionShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperResetMapping (buffer, buffSize, &resSize, 4200);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.reset_mapping\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.reset_mapping succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperResetMappingBehavior);
+        mapperResetMappingShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperResetMappingShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperGrabState (buffer, buffSize, &resSize, 420000, 420000, 420000);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.grab_state\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.grab_state succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperGrabStateBehavior);
+        mapperGrabStateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperGrabStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperGrabButtonEvent (buffer, buffSize, &resSize, 420000, (eARCOMMANDS_MAPPER_BUTTON_EVENT)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.grab_button_event\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.grab_button_event succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperGrabButtonEventBehavior);
+        mapperGrabButtonEventShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperGrabButtonEventShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperGrabAxisEvent (buffer, buffSize, &resSize, 420000, -42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.grab_axis_event\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.grab_axis_event succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperGrabAxisEventBehavior);
+        mapperGrabAxisEventShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperGrabAxisEventShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperButtonMappingItem (buffer, buffSize, &resSize, 420000, 4200, (eARCOMMANDS_MAPPER_BUTTON_ACTION)0, 420000, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.button_mapping_item\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.button_mapping_item succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperButtonMappingItemBehavior);
+        mapperButtonMappingItemShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperButtonMappingItemShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperAxisMappingItem (buffer, buffSize, &resSize, 420000, 4200, (eARCOMMANDS_MAPPER_AXIS_ACTION)0, -420000, 420000, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.axis_mapping_item\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.axis_mapping_item succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperAxisMappingItemBehavior);
+        mapperAxisMappingItemShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperAxisMappingItemShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperApplicationAxisEvent (buffer, buffSize, &resSize, (eARCOMMANDS_MAPPER_AXIS_ACTION)0, -42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.application_axis_event\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.application_axis_event succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperApplicationAxisEventBehavior);
+        mapperApplicationAxisEventShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperApplicationAxisEventShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateMapperApplicationButtonEvent (buffer, buffSize, &resSize, (eARCOMMANDS_MAPPER_BUTTON_ACTION)0);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command Mapper.application_button_event\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command Mapper.application_button_event succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetMapperApplicationButtonEventBehavior);
+        mapperApplicationButtonEventShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        mapperApplicationButtonEventShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {
