@@ -300,8 +300,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPCMDBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingPostureBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingAddCapOffsetBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingUserTakeOffBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingLandBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpStopBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpCancelBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsJumpLoadBehavior;
@@ -326,7 +324,6 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStatePostureChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateAlertStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateSpeedChangedBehavior;
-    eARCOMMANDS_FILTER_STATUS CmdJumpingSumoPilotingStateFlyingStateChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior;
@@ -418,6 +415,41 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateLightStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateClawStateBehavior;
     eARCOMMANDS_FILTER_STATUS CmdMiniDroneUsbAccessoryStateGunStateBehavior;
+
+    // Feature powerup
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingPCMDBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingUserTakeOffBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingMotorModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingSettingsSetBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordPictureV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordVideoV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkSettingsWifiSelectionBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkWifiScanBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkWifiAuthChannelBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaStreamingVideoEnableBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupVideoSettingsAutorecordBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupVideoSettingsVideoModeBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupSoundsBuzzBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingStateAlertStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingStateFlyingStateChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingStateMotorModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingStateAttitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingStateAltitudeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupPilotingSettingsStateSettingChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordStatePictureStateChangedV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordStateVideoStateChangedV2Behavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordEventPictureEventChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaRecordEventVideoEventChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkStateWifiScanListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkStateAllWifiScanChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupNetworkStateLinkQualityChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupMediaStreamingStateVideoEnableChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupVideoSettingsStateAutorecordChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupVideoSettingsStateVideoModeChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdPowerupSoundsStateBuzzChangedBehavior;
 
     // Feature pro
     eARCOMMANDS_FILTER_STATUS CmdProProBoughtFeaturesBehavior;
@@ -783,8 +815,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoPilotingPCMDBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingPostureBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingAddCapOffsetBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoPilotingUserTakeOffBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoPilotingLandBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpStopBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpCancelBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsJumpLoadBehavior = defaultBehavior;
@@ -809,7 +839,6 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdJumpingSumoPilotingStatePostureChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = defaultBehavior;
-        retFilter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = defaultBehavior;
         retFilter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = defaultBehavior;
@@ -899,6 +928,40 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdMiniDroneUsbAccessoryStateLightStateBehavior = defaultBehavior;
         retFilter->CmdMiniDroneUsbAccessoryStateClawStateBehavior = defaultBehavior;
         retFilter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = defaultBehavior;
+        // Feature powerup
+        retFilter->CmdPowerupPilotingPCMDBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingUserTakeOffBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingMotorModeBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingSettingsSetBehavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordPictureV2Behavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordVideoV2Behavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkSettingsWifiSelectionBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkWifiScanBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkWifiAuthChannelBehavior = defaultBehavior;
+        retFilter->CmdPowerupMediaStreamingVideoEnableBehavior = defaultBehavior;
+        retFilter->CmdPowerupVideoSettingsAutorecordBehavior = defaultBehavior;
+        retFilter->CmdPowerupVideoSettingsVideoModeBehavior = defaultBehavior;
+        retFilter->CmdPowerupSoundsBuzzBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingStateAlertStateChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingStateFlyingStateChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingStateMotorModeChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingStateAttitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingStateAltitudeChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupPilotingSettingsStateSettingChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordStatePictureStateChangedV2Behavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordStateVideoStateChangedV2Behavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordEventPictureEventChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupMediaRecordEventVideoEventChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkStateWifiScanListChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkStateAllWifiScanChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupNetworkStateLinkQualityChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupMediaStreamingStateVideoEnableChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupVideoSettingsStateAutorecordChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupVideoSettingsStateVideoModeChangedBehavior = defaultBehavior;
+        retFilter->CmdPowerupSoundsStateBuzzChangedBehavior = defaultBehavior;
         // Feature pro
         retFilter->CmdProProBoughtFeaturesBehavior = defaultBehavior;
         retFilter->CmdProProResponseBehavior = defaultBehavior;
@@ -2924,16 +2987,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdJumpingSumoPilotingAddCapOffsetBehavior;
                 }
                 break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_ADDCAPOFFSET */
-                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_USERTAKEOFF:
-                {
-                    retStatus = filter->CmdJumpingSumoPilotingUserTakeOffBehavior;
-                }
-                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_USERTAKEOFF */
-                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_LAND:
-                {
-                    retStatus = filter->CmdJumpingSumoPilotingLandBehavior;
-                }
-                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTING_CMD_LAND */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -2959,11 +3012,6 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_SPEEDCHANGED */
-                case ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
-                {
-                    retStatus = filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior;
-                }
-                break; /* ARCOMMANDS_ID_JUMPINGSUMO_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -3910,6 +3958,351 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_MINIDRONE */
+        case ARCOMMANDS_ID_FEATURE_POWERUP:
+        {
+            switch (commandClass)
+            {
+            case ARCOMMANDS_ID_POWERUP_CLASS_PILOTING:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_PILOTING_CMD_PCMD:
+                {
+                    retStatus = filter->CmdPowerupPilotingPCMDBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTING_CMD_PCMD */
+                case ARCOMMANDS_ID_POWERUP_PILOTING_CMD_USERTAKEOFF:
+                {
+                    retStatus = filter->CmdPowerupPilotingUserTakeOffBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTING_CMD_USERTAKEOFF */
+                case ARCOMMANDS_ID_POWERUP_PILOTING_CMD_MOTORMODE:
+                {
+                    retStatus = filter->CmdPowerupPilotingMotorModeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTING_CMD_MOTORMODE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_PILOTING */
+            case ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ALERTSTATECHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingStateAlertStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ALERTSTATECHANGED */
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_FLYINGSTATECHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingStateFlyingStateChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_FLYINGSTATECHANGED */
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_MOTORMODECHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingStateMotorModeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_MOTORMODECHANGED */
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ATTITUDECHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingStateAttitudeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ATTITUDECHANGED */
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ALTITUDECHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingStateAltitudeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSTATE_CMD_ALTITUDECHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSETTINGS_CMD_SET:
+                {
+                    retStatus = filter->CmdPowerupPilotingSettingsSetBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSETTINGS_CMD_SET */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSETTINGS */
+            case ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_PILOTINGSETTINGSSTATE_CMD_SETTINGCHANGED:
+                {
+                    retStatus = filter->CmdPowerupPilotingSettingsStateSettingChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_PILOTINGSETTINGSSTATE_CMD_SETTINGCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_PILOTINGSETTINGSSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORD:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORD_CMD_PICTUREV2:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordPictureV2Behavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORD_CMD_PICTUREV2 */
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORD_CMD_VIDEOV2:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordVideoV2Behavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORD_CMD_VIDEOV2 */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORD */
+            case ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORDSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordStatePictureStateChangedV2Behavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORDSTATE_CMD_PICTURESTATECHANGEDV2 */
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORDSTATE_CMD_VIDEOSTATECHANGEDV2:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordStateVideoStateChangedV2Behavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORDSTATE_CMD_VIDEOSTATECHANGEDV2 */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORDSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORDEVENT:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordEventPictureEventChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORDEVENT_CMD_PICTUREEVENTCHANGED */
+                case ARCOMMANDS_ID_POWERUP_MEDIARECORDEVENT_CMD_VIDEOEVENTCHANGED:
+                {
+                    retStatus = filter->CmdPowerupMediaRecordEventVideoEventChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIARECORDEVENT_CMD_VIDEOEVENTCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_MEDIARECORDEVENT */
+            case ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_NETWORKSETTINGS_CMD_WIFISELECTION:
+                {
+                    retStatus = filter->CmdPowerupNetworkSettingsWifiSelectionBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSETTINGS_CMD_WIFISELECTION */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSETTINGS */
+            case ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSETTINGSSTATE_CMD_WIFISELECTIONCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSETTINGSSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_NETWORK:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_NETWORK_CMD_WIFISCAN:
+                {
+                    retStatus = filter->CmdPowerupNetworkWifiScanBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORK_CMD_WIFISCAN */
+                case ARCOMMANDS_ID_POWERUP_NETWORK_CMD_WIFIAUTHCHANNEL:
+                {
+                    retStatus = filter->CmdPowerupNetworkWifiAuthChannelBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORK_CMD_WIFIAUTHCHANNEL */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_NETWORK */
+            case ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_WIFISCANLISTCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkStateWifiScanListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_WIFISCANLISTCHANGED */
+                case ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_ALLWIFISCANCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkStateAllWifiScanChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_ALLWIFISCANCHANGED */
+                case ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_WIFIAUTHCHANNELLISTCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_WIFIAUTHCHANNELLISTCHANGED */
+                case ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_ALLWIFIAUTHCHANNELCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_ALLWIFIAUTHCHANNELCHANGED */
+                case ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_LINKQUALITYCHANGED:
+                {
+                    retStatus = filter->CmdPowerupNetworkStateLinkQualityChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_NETWORKSTATE_CMD_LINKQUALITYCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_NETWORKSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_MEDIASTREAMING:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_MEDIASTREAMING_CMD_VIDEOENABLE:
+                {
+                    retStatus = filter->CmdPowerupMediaStreamingVideoEnableBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIASTREAMING_CMD_VIDEOENABLE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_MEDIASTREAMING */
+            case ARCOMMANDS_ID_POWERUP_CLASS_MEDIASTREAMINGSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_MEDIASTREAMINGSTATE_CMD_VIDEOENABLECHANGED:
+                {
+                    retStatus = filter->CmdPowerupMediaStreamingStateVideoEnableChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_MEDIASTREAMINGSTATE_CMD_VIDEOENABLECHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_MEDIASTREAMINGSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_VIDEOSETTINGS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_VIDEOSETTINGS_CMD_AUTORECORD:
+                {
+                    retStatus = filter->CmdPowerupVideoSettingsAutorecordBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_VIDEOSETTINGS_CMD_AUTORECORD */
+                case ARCOMMANDS_ID_POWERUP_VIDEOSETTINGS_CMD_VIDEOMODE:
+                {
+                    retStatus = filter->CmdPowerupVideoSettingsVideoModeBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_VIDEOSETTINGS_CMD_VIDEOMODE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_VIDEOSETTINGS */
+            case ARCOMMANDS_ID_POWERUP_CLASS_VIDEOSETTINGSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_VIDEOSETTINGSSTATE_CMD_AUTORECORDCHANGED:
+                {
+                    retStatus = filter->CmdPowerupVideoSettingsStateAutorecordChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_VIDEOSETTINGSSTATE_CMD_AUTORECORDCHANGED */
+                case ARCOMMANDS_ID_POWERUP_VIDEOSETTINGSSTATE_CMD_VIDEOMODECHANGED:
+                {
+                    retStatus = filter->CmdPowerupVideoSettingsStateVideoModeChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_VIDEOSETTINGSSTATE_CMD_VIDEOMODECHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_VIDEOSETTINGSSTATE */
+            case ARCOMMANDS_ID_POWERUP_CLASS_SOUNDS:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_SOUNDS_CMD_BUZZ:
+                {
+                    retStatus = filter->CmdPowerupSoundsBuzzBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_SOUNDS_CMD_BUZZ */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_SOUNDS */
+            case ARCOMMANDS_ID_POWERUP_CLASS_SOUNDSSTATE:
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_POWERUP_SOUNDSSTATE_CMD_BUZZCHANGED:
+                {
+                    retStatus = filter->CmdPowerupSoundsStateBuzzChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_POWERUP_SOUNDSSTATE_CMD_BUZZCHANGED */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            break; /* ARCOMMANDS_ID_POWERUP_CLASS_SOUNDSSTATE */
+            default:
+                // Do nothing, the default answer is already UNKNOWN
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_POWERUP */
         case ARCOMMANDS_ID_FEATURE_PRO:
         {
             switch (commandClass)
@@ -11917,8 +12310,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Fi
         filter->CmdJumpingSumoPilotingPCMDBehavior = behavior;
         filter->CmdJumpingSumoPilotingPostureBehavior = behavior;
         filter->CmdJumpingSumoPilotingAddCapOffsetBehavior = behavior;
-        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
-        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpStopBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpCancelBehavior = behavior;
         filter->CmdJumpingSumoAnimationsJumpLoadBehavior = behavior;
@@ -11943,7 +12334,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoBehavior (ARCOMMANDS_Fi
         filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
-        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpLoadChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpTypeChangedBehavior = behavior;
         filter->CmdJumpingSumoAnimationsStateJumpMotorProblemChangedBehavior = behavior;
@@ -11997,8 +12387,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingBehavior (ARCOM
         filter->CmdJumpingSumoPilotingPCMDBehavior = behavior;
         filter->CmdJumpingSumoPilotingPostureBehavior = behavior;
         filter->CmdJumpingSumoPilotingAddCapOffsetBehavior = behavior;
-        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
-        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
     }
 
     return retError;
@@ -12026,7 +12414,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateBehavior (
         filter->CmdJumpingSumoPilotingStatePostureChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateAlertStateChangedBehavior = behavior;
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
-        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
     }
 
     return retError;
@@ -12625,50 +13012,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingAddCapOffsetBeh
     return retError;
 }
 
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingUserTakeOffBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingLandBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingLandBehavior = behavior;
-    }
-
-    return retError;
-}
-
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoAnimationsJumpStopBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
 {
     eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
@@ -13192,28 +13535,6 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateSpeedChang
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdJumpingSumoPilotingStateSpeedChangedBehavior = behavior;
-    }
-
-    return retError;
-}
-
-eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetJumpingSumoPilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
-{
-    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
-    if (filter == NULL)
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
-    } // No else : Args check
-
-    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
-        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
-    {
-        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
-    } // No else : Arg check
-
-    if (retError == ARCOMMANDS_FILTER_OK)
-    {
-        filter->CmdJumpingSumoPilotingStateFlyingStateChangedBehavior = behavior;
     }
 
     return retError;
@@ -15697,6 +16018,1231 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetMiniDroneUsbAccessoryStateGunState
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdMiniDroneUsbAccessoryStateGunStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
+// Feature powerup
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingPCMDBehavior = behavior;
+        filter->CmdPowerupPilotingUserTakeOffBehavior = behavior;
+        filter->CmdPowerupPilotingMotorModeBehavior = behavior;
+        filter->CmdPowerupPilotingSettingsSetBehavior = behavior;
+        filter->CmdPowerupMediaRecordPictureV2Behavior = behavior;
+        filter->CmdPowerupMediaRecordVideoV2Behavior = behavior;
+        filter->CmdPowerupNetworkSettingsWifiSelectionBehavior = behavior;
+        filter->CmdPowerupNetworkWifiScanBehavior = behavior;
+        filter->CmdPowerupNetworkWifiAuthChannelBehavior = behavior;
+        filter->CmdPowerupMediaStreamingVideoEnableBehavior = behavior;
+        filter->CmdPowerupVideoSettingsAutorecordBehavior = behavior;
+        filter->CmdPowerupVideoSettingsVideoModeBehavior = behavior;
+        filter->CmdPowerupSoundsBuzzBehavior = behavior;
+        filter->CmdPowerupPilotingStateAlertStateChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateFlyingStateChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateMotorModeChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateAttitudeChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateAltitudeChangedBehavior = behavior;
+        filter->CmdPowerupPilotingSettingsStateSettingChangedBehavior = behavior;
+        filter->CmdPowerupMediaRecordStatePictureStateChangedV2Behavior = behavior;
+        filter->CmdPowerupMediaRecordStateVideoStateChangedV2Behavior = behavior;
+        filter->CmdPowerupMediaRecordEventPictureEventChangedBehavior = behavior;
+        filter->CmdPowerupMediaRecordEventVideoEventChangedBehavior = behavior;
+        filter->CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateWifiScanListChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateAllWifiScanChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateLinkQualityChangedBehavior = behavior;
+        filter->CmdPowerupMediaStreamingStateVideoEnableChangedBehavior = behavior;
+        filter->CmdPowerupVideoSettingsStateAutorecordChangedBehavior = behavior;
+        filter->CmdPowerupVideoSettingsStateVideoModeChangedBehavior = behavior;
+        filter->CmdPowerupSoundsStateBuzzChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Piloting
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingPCMDBehavior = behavior;
+        filter->CmdPowerupPilotingUserTakeOffBehavior = behavior;
+        filter->CmdPowerupPilotingMotorModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class PilotingState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateAlertStateChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateFlyingStateChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateMotorModeChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateAttitudeChangedBehavior = behavior;
+        filter->CmdPowerupPilotingStateAltitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class PilotingSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingSettingsSetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class PilotingSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingSettingsStateSettingChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MediaRecord
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordPictureV2Behavior = behavior;
+        filter->CmdPowerupMediaRecordVideoV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MediaRecordState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordStatePictureStateChangedV2Behavior = behavior;
+        filter->CmdPowerupMediaRecordStateVideoStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MediaRecordEvent
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordEventBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordEventPictureEventChangedBehavior = behavior;
+        filter->CmdPowerupMediaRecordEventVideoEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class NetworkSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkSettingsWifiSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class NetworkSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Network
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkWifiScanBehavior = behavior;
+        filter->CmdPowerupNetworkWifiAuthChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class NetworkState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateWifiScanListChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateAllWifiScanChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior = behavior;
+        filter->CmdPowerupNetworkStateLinkQualityChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MediaStreaming
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaStreamingBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaStreamingVideoEnableBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class MediaStreamingState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaStreamingStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaStreamingStateVideoEnableChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class VideoSettings
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsAutorecordBehavior = behavior;
+        filter->CmdPowerupVideoSettingsVideoModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class VideoSettingsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsStateAutorecordChangedBehavior = behavior;
+        filter->CmdPowerupVideoSettingsStateVideoModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class Sounds
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupSoundsBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupSoundsBuzzBehavior = behavior;
+    }
+
+    return retError;
+}
+
+// Command class SoundsState
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupSoundsStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupSoundsStateBuzzChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingPCMDBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingPCMDBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingUserTakeOffBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingUserTakeOffBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingMotorModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingMotorModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingSettingsSetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingSettingsSetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordPictureV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordPictureV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordVideoV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordVideoV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkSettingsWifiSelectionBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkSettingsWifiSelectionBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkWifiScanBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkWifiScanBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkWifiAuthChannelBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkWifiAuthChannelBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaStreamingVideoEnableBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaStreamingVideoEnableBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsAutorecordBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsAutorecordBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsVideoModeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsVideoModeBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupSoundsBuzzBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupSoundsBuzzBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateAlertStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateAlertStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateFlyingStateChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateFlyingStateChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateMotorModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateMotorModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateAttitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateAttitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingStateAltitudeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingStateAltitudeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupPilotingSettingsStateSettingChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupPilotingSettingsStateSettingChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordStatePictureStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordStatePictureStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordStateVideoStateChangedV2Behavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordStateVideoStateChangedV2Behavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordEventPictureEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordEventPictureEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaRecordEventVideoEventChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaRecordEventVideoEventChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkSettingsStateWifiSelectionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkSettingsStateWifiSelectionChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateWifiScanListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateWifiScanListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateAllWifiScanChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateAllWifiScanChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateWifiAuthChannelListChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateWifiAuthChannelListChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateAllWifiAuthChannelChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateAllWifiAuthChannelChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupNetworkStateLinkQualityChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupNetworkStateLinkQualityChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupMediaStreamingStateVideoEnableChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupMediaStreamingStateVideoEnableChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsStateAutorecordChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsStateAutorecordChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupVideoSettingsStateVideoModeChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupVideoSettingsStateVideoModeChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetPowerupSoundsStateBuzzChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdPowerupSoundsStateBuzzChangedBehavior = behavior;
     }
 
     return retError;

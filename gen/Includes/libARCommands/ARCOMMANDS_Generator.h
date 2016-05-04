@@ -2971,28 +2971,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingPost
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingAddCapOffset (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _offset);
 
 /**
- * @brief Set drone in user take off state
- * Only used for PowerUp product
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingUserTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
-
-/**
- * @brief Ask the PowerUp to land
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingLand (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
-
-/**
  * @brief Stop jump, emergency jump stop, stop jump motor and stay there.
  * @warning A command is not NULL terminated and can contain NULL bytes.
  * @param buffer Pointer to the buffer in which the library should store the command
@@ -3257,18 +3235,6 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStat
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateSpeedChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, int8_t _speed, int16_t _realSpeed);
-
-/**
- * @brief Drone flying state changed
- * Only used for PowerUp
- * @warning A command is not NULL terminated and can contain NULL bytes.
- * @param buffer Pointer to the buffer in which the library should store the command
- * @param buffLen Size of the buffer
- * @param cmdLen Pointer to an integer that will hold the actual size of the command
- * @param _state Drone flying state
- * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
- */
-eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateJumpingSumoPilotingStateFlyingStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state);
 
 /**
  * @brief State of jump load changed
@@ -4311,6 +4277,391 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessorySt
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateMiniDroneUsbAccessoryStateGunState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _id, eARCOMMANDS_MINIDRONE_USBACCESSORYSTATE_GUNSTATE_STATE _state, uint8_t _list_flags);
+
+
+// Feature powerup
+
+
+/**
+ * @brief Ask the Power Up speed and turn ratio.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _flag Boolean for "touch screen".
+ * @param _throttle Throttle value [0:100].
+ * @param _roll Yaw-roll value. [-100:100]
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingPCMD (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _flag, uint8_t _throttle, int8_t _roll);
+
+/**
+ * @brief Set drone in user take off state
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingUserTakeOff (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _state);
+
+/**
+ * @brief Motor mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode 
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingMotorMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTING_MOTORMODE_MODE _mode);
+
+/**
+ * @brief Set the given setting
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _setting Variety of setting that can be customized
+ * @param _value value of the given setting
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingSettingsSet (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTINGSETTINGS_SET_SETTING _setting, float _value);
+
+/**
+ * @brief Take picture
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordPictureV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Video record
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _record Command to record video
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordVideoV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIARECORD_VIDEOV2_RECORD _record);
+
+/**
+ * @brief Auto-select channel of choosen band
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _type The type of wifi selection (auto, manual)
+ * @param _band The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+ * @param _channel The channel (not used in auto mode)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkSettingsWifiSelection (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_TYPE _type, eARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_BAND _band, uint8_t _channel);
+
+/**
+ * @brief Launches wifi network scan
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _band The band(s) : 2.4 Ghz, 5 Ghz, or both
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkWifiScan (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_NETWORK_WIFISCAN_BAND _band);
+
+/**
+ * @brief Controller inquire the list of authorized wifi channels.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkWifiAuthChannel (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Enable/disable video streaming.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enable 1 to enable, 0 to disable.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaStreamingVideoEnable (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
+
+/**
+ * @brief Set video automatic recording state.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enable 0: Disabled 1: Enabled.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupVideoSettingsAutorecord (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
+
+/**
+ * @brief Set video mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Video mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupVideoSettingsVideoMode (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_VIDEOSETTINGS_VIDEOMODE_MODE _mode);
+
+/**
+ * @brief Enable/disable the buzzer sound
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enable 0: Disabled 1: Enabled.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupSoundsBuzz (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enable);
+
+/**
+ * @brief JS alert state changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state JS alert state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingStateAlertStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTINGSTATE_ALERTSTATECHANGED_STATE _state);
+
+/**
+ * @brief Drone flying state changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state Drone flying state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingStateFlyingStateChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTINGSTATE_FLYINGSTATECHANGED_STATE _state);
+
+/**
+ * @brief Motor mode changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode 
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingStateMotorModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTINGSTATE_MOTORMODECHANGED_MODE _mode);
+
+/**
+ * @brief Drone attitude changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _roll roll value (in radian) (relative to horizontal)
+ * @param _pitch Pitch value (in radian) (relative to horizontal)
+ * @param _yaw Yaw value (in radian) (relative to North)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingStateAttitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _roll, float _pitch, float _yaw);
+
+/**
+ * @brief Drone altitude changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _altitude Altitude in meters relative to take off altitude
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingStateAltitudeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, float _altitude);
+
+/**
+ * @brief Fired when a setting has changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _setting Variety of setting that can be customized
+ * @param _current Current value of the given setting
+ * @param _min Minimal value of the given setting
+ * @param _max Max value of the given setting
+ * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupPilotingSettingsStateSettingChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_PILOTINGSETTINGSSTATE_SETTINGCHANGED_SETTING _setting, float _current, float _min, float _max, uint8_t _list_flags);
+
+/**
+ * @brief State of device picture recording changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of device picture recording
+ * @param _error Error to explain the state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordStatePictureStateChangedV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE _state, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR _error);
+
+/**
+ * @brief State of device video recording changed
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state State of device video recording
+ * @param _error Error to explain the state
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordStateVideoStateChangedV2 (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE _state, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR _error);
+
+/**
+ * @brief Event of picture recording
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _event Last event of picture recording
+ * @param _error Error to explain the event
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordEventPictureEventChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT _event, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR _error);
+
+/**
+ * @brief Event of video recording
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _event Event of video recording
+ * @param _error Error to explain the event
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaRecordEventVideoEventChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT _event, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR _error);
+
+/**
+ * @brief Wifi selection from product
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _type The type of wifi selection settings
+ * @param _band The actual  wifi band state
+ * @param _channel The channel (depends of the band)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkSettingsStateWifiSelectionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE _type, eARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND _band, uint8_t _channel);
+
+/**
+ * @brief One scanning result found
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _ssid SSID of the AP
+ * @param _rssi RSSI of the AP in dbm (negative value)
+ * @param _band The band : 2.4 GHz or 5 GHz
+ * @param _channel Channel of the AP
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkStateWifiScanListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _ssid, int16_t _rssi, eARCOMMANDS_POWERUP_NETWORKSTATE_WIFISCANLISTCHANGED_BAND _band, uint8_t _channel);
+
+/**
+ * @brief State sent when all scanning result sent
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkStateAllWifiScanChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Notify of an Authorized Channel.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _band The band of this channel : 2.4 GHz or 5 GHz
+ * @param _channel The authorized channel.
+ * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkStateWifiAuthChannelListChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND _band, uint8_t _channel, uint8_t _in_or_out);
+
+/**
+ * @brief Notify the end of the list of Authorized wifi Channel.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkStateAllWifiAuthChannelChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Notification sent by the firmware to give an indication of the WiFi link quality.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _quality The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupNetworkStateLinkQualityChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _quality);
+
+/**
+ * @brief Return video streaming status.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enabled Current video streaming status.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupMediaStreamingStateVideoEnableChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED _enabled);
+
+/**
+ * @brief Get video automatic recording status.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enabled 0: Disabled 1: Enabled.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupVideoSettingsStateAutorecordChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enabled);
+
+/**
+ * @brief Video mode
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _mode Video mode
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupVideoSettingsStateVideoModeChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_POWERUP_VIDEOSETTINGSSTATE_VIDEOMODECHANGED_MODE _mode);
+
+/**
+ * @brief State of the buzzer
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _enabled 0: Disabled 1: Enabled.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GeneratePowerupSoundsStateBuzzChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint8_t _enabled);
 
 
 // Feature pro

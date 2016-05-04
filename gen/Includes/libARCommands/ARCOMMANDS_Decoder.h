@@ -2744,28 +2744,6 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t) (fl
 void ARCOMMANDS_Decoder_SetJumpingSumoPilotingAddCapOffsetCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingAddCapOffsetCallback_t callback, void *custom);
 
 /**
- * @brief callback type for the command JumpingSumo.Piloting.UserTakeOff
- */
-typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingUserTakeOffCallback_t) (uint8_t state, void *custom);
-/**
- * @brief callback setter for the command JumpingSumo.Piloting.UserTakeOff
- * @param callback new callback for the command JumpingSumo.Piloting.UserTakeOff
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetJumpingSumoPilotingUserTakeOffCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingUserTakeOffCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command JumpingSumo.Piloting.Land
- */
-typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingLandCallback_t) (void *custom);
-/**
- * @brief callback setter for the command JumpingSumo.Piloting.Land
- * @param callback new callback for the command JumpingSumo.Piloting.Land
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetJumpingSumoPilotingLandCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingLandCallback_t callback, void *custom);
-
-/**
  * @brief callback type for the command JumpingSumo.Animations.JumpStop
  */
 typedef void (*ARCOMMANDS_Decoder_JumpingSumoAnimationsJumpStopCallback_t) (void *custom);
@@ -3028,17 +3006,6 @@ typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateSpeedChangedCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingStateSpeedChangedCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command JumpingSumo.PilotingState.FlyingStateChanged
- */
-typedef void (*ARCOMMANDS_Decoder_JumpingSumoPilotingStateFlyingStateChangedCallback_t) (eARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom);
-/**
- * @brief callback setter for the command JumpingSumo.PilotingState.FlyingStateChanged
- * @param callback new callback for the command JumpingSumo.PilotingState.FlyingStateChanged
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetJumpingSumoPilotingStateFlyingStateChangedCallback (ARCOMMANDS_Decoder_JumpingSumoPilotingStateFlyingStateChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command JumpingSumo.AnimationsState.JumpLoadChanged
@@ -4002,6 +3969,372 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) 
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t callback, void *custom);
+
+// Feature powerup
+
+
+/**
+ * @brief callback type for the command powerup.Piloting.PCMD
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingPCMDCallback_t) (uint8_t flag, uint8_t throttle, int8_t roll, void *custom);
+/**
+ * @brief callback setter for the command powerup.Piloting.PCMD
+ * @param callback new callback for the command powerup.Piloting.PCMD
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingPCMDCallback (ARCOMMANDS_Decoder_PowerupPilotingPCMDCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.Piloting.UserTakeOff
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingUserTakeOffCallback_t) (uint8_t state, void *custom);
+/**
+ * @brief callback setter for the command powerup.Piloting.UserTakeOff
+ * @param callback new callback for the command powerup.Piloting.UserTakeOff
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingUserTakeOffCallback (ARCOMMANDS_Decoder_PowerupPilotingUserTakeOffCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.Piloting.MotorMode
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingMotorModeCallback_t) (eARCOMMANDS_POWERUP_PILOTING_MOTORMODE_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command powerup.Piloting.MotorMode
+ * @param callback new callback for the command powerup.Piloting.MotorMode
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingMotorModeCallback (ARCOMMANDS_Decoder_PowerupPilotingMotorModeCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingSettings.set
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingSettingsSetCallback_t) (eARCOMMANDS_POWERUP_PILOTINGSETTINGS_SET_SETTING setting, float value, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingSettings.set
+ * @param callback new callback for the command powerup.PilotingSettings.set
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingSettingsSetCallback (ARCOMMANDS_Decoder_PowerupPilotingSettingsSetCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecord.PictureV2
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordPictureV2Callback_t) (void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecord.PictureV2
+ * @param callback new callback for the command powerup.MediaRecord.PictureV2
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordPictureV2Callback (ARCOMMANDS_Decoder_PowerupMediaRecordPictureV2Callback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecord.VideoV2
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordVideoV2Callback_t) (eARCOMMANDS_POWERUP_MEDIARECORD_VIDEOV2_RECORD record, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecord.VideoV2
+ * @param callback new callback for the command powerup.MediaRecord.VideoV2
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordVideoV2Callback (ARCOMMANDS_Decoder_PowerupMediaRecordVideoV2Callback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkSettings.WifiSelection
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkSettingsWifiSelectionCallback_t) (eARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_TYPE type, eARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_BAND band, uint8_t channel, void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkSettings.WifiSelection
+ * @param callback new callback for the command powerup.NetworkSettings.WifiSelection
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkSettingsWifiSelectionCallback (ARCOMMANDS_Decoder_PowerupNetworkSettingsWifiSelectionCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.Network.WifiScan
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkWifiScanCallback_t) (eARCOMMANDS_POWERUP_NETWORK_WIFISCAN_BAND band, void *custom);
+/**
+ * @brief callback setter for the command powerup.Network.WifiScan
+ * @param callback new callback for the command powerup.Network.WifiScan
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkWifiScanCallback (ARCOMMANDS_Decoder_PowerupNetworkWifiScanCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.Network.WifiAuthChannel
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkWifiAuthChannelCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command powerup.Network.WifiAuthChannel
+ * @param callback new callback for the command powerup.Network.WifiAuthChannel
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkWifiAuthChannelCallback (ARCOMMANDS_Decoder_PowerupNetworkWifiAuthChannelCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaStreaming.VideoEnable
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaStreamingVideoEnableCallback_t) (uint8_t enable, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaStreaming.VideoEnable
+ * @param callback new callback for the command powerup.MediaStreaming.VideoEnable
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaStreamingVideoEnableCallback (ARCOMMANDS_Decoder_PowerupMediaStreamingVideoEnableCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.VideoSettings.Autorecord
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupVideoSettingsAutorecordCallback_t) (uint8_t enable, void *custom);
+/**
+ * @brief callback setter for the command powerup.VideoSettings.Autorecord
+ * @param callback new callback for the command powerup.VideoSettings.Autorecord
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupVideoSettingsAutorecordCallback (ARCOMMANDS_Decoder_PowerupVideoSettingsAutorecordCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.VideoSettings.VideoMode
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupVideoSettingsVideoModeCallback_t) (eARCOMMANDS_POWERUP_VIDEOSETTINGS_VIDEOMODE_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command powerup.VideoSettings.VideoMode
+ * @param callback new callback for the command powerup.VideoSettings.VideoMode
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupVideoSettingsVideoModeCallback (ARCOMMANDS_Decoder_PowerupVideoSettingsVideoModeCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.Sounds.buzz
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupSoundsBuzzCallback_t) (uint8_t enable, void *custom);
+/**
+ * @brief callback setter for the command powerup.Sounds.buzz
+ * @param callback new callback for the command powerup.Sounds.buzz
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupSoundsBuzzCallback (ARCOMMANDS_Decoder_PowerupSoundsBuzzCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingState.AlertStateChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingStateAlertStateChangedCallback_t) (eARCOMMANDS_POWERUP_PILOTINGSTATE_ALERTSTATECHANGED_STATE state, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingState.AlertStateChanged
+ * @param callback new callback for the command powerup.PilotingState.AlertStateChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingStateAlertStateChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingStateAlertStateChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingState.FlyingStateChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingStateFlyingStateChangedCallback_t) (eARCOMMANDS_POWERUP_PILOTINGSTATE_FLYINGSTATECHANGED_STATE state, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingState.FlyingStateChanged
+ * @param callback new callback for the command powerup.PilotingState.FlyingStateChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingStateFlyingStateChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingStateFlyingStateChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingState.MotorModeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingStateMotorModeChangedCallback_t) (eARCOMMANDS_POWERUP_PILOTINGSTATE_MOTORMODECHANGED_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingState.MotorModeChanged
+ * @param callback new callback for the command powerup.PilotingState.MotorModeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingStateMotorModeChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingStateMotorModeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingState.AttitudeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingStateAttitudeChangedCallback_t) (float roll, float pitch, float yaw, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingState.AttitudeChanged
+ * @param callback new callback for the command powerup.PilotingState.AttitudeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingStateAttitudeChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingStateAttitudeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingState.AltitudeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingStateAltitudeChangedCallback_t) (float altitude, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingState.AltitudeChanged
+ * @param callback new callback for the command powerup.PilotingState.AltitudeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingStateAltitudeChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingStateAltitudeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.PilotingSettingsState.settingChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupPilotingSettingsStateSettingChangedCallback_t) (eARCOMMANDS_POWERUP_PILOTINGSETTINGSSTATE_SETTINGCHANGED_SETTING setting, float current, float min, float max, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command powerup.PilotingSettingsState.settingChanged
+ * @param callback new callback for the command powerup.PilotingSettingsState.settingChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupPilotingSettingsStateSettingChangedCallback (ARCOMMANDS_Decoder_PowerupPilotingSettingsStateSettingChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecordState.PictureStateChangedV2
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordStatePictureStateChangedV2Callback_t) (eARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE state, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR error, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecordState.PictureStateChangedV2
+ * @param callback new callback for the command powerup.MediaRecordState.PictureStateChangedV2
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordStatePictureStateChangedV2Callback (ARCOMMANDS_Decoder_PowerupMediaRecordStatePictureStateChangedV2Callback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecordState.VideoStateChangedV2
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordStateVideoStateChangedV2Callback_t) (eARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE state, eARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR error, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecordState.VideoStateChangedV2
+ * @param callback new callback for the command powerup.MediaRecordState.VideoStateChangedV2
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordStateVideoStateChangedV2Callback (ARCOMMANDS_Decoder_PowerupMediaRecordStateVideoStateChangedV2Callback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecordEvent.PictureEventChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordEventPictureEventChangedCallback_t) (eARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT event, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR error, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecordEvent.PictureEventChanged
+ * @param callback new callback for the command powerup.MediaRecordEvent.PictureEventChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordEventPictureEventChangedCallback (ARCOMMANDS_Decoder_PowerupMediaRecordEventPictureEventChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaRecordEvent.VideoEventChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaRecordEventVideoEventChangedCallback_t) (eARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT event, eARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR error, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaRecordEvent.VideoEventChanged
+ * @param callback new callback for the command powerup.MediaRecordEvent.VideoEventChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaRecordEventVideoEventChangedCallback (ARCOMMANDS_Decoder_PowerupMediaRecordEventVideoEventChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkSettingsState.WifiSelectionChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkSettingsStateWifiSelectionChangedCallback_t) (eARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE type, eARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND band, uint8_t channel, void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkSettingsState.WifiSelectionChanged
+ * @param callback new callback for the command powerup.NetworkSettingsState.WifiSelectionChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkSettingsStateWifiSelectionChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkSettingsStateWifiSelectionChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkState.WifiScanListChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkStateWifiScanListChangedCallback_t) (char * ssid, int16_t rssi, eARCOMMANDS_POWERUP_NETWORKSTATE_WIFISCANLISTCHANGED_BAND band, uint8_t channel, void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkState.WifiScanListChanged
+ * @param callback new callback for the command powerup.NetworkState.WifiScanListChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkStateWifiScanListChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkStateWifiScanListChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkState.AllWifiScanChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkStateAllWifiScanChangedCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkState.AllWifiScanChanged
+ * @param callback new callback for the command powerup.NetworkState.AllWifiScanChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkStateAllWifiScanChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkStateAllWifiScanChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkState.WifiAuthChannelListChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkStateWifiAuthChannelListChangedCallback_t) (eARCOMMANDS_POWERUP_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND band, uint8_t channel, uint8_t in_or_out, void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkState.WifiAuthChannelListChanged
+ * @param callback new callback for the command powerup.NetworkState.WifiAuthChannelListChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkStateWifiAuthChannelListChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkStateWifiAuthChannelListChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkState.AllWifiAuthChannelChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkStateAllWifiAuthChannelChangedCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkState.AllWifiAuthChannelChanged
+ * @param callback new callback for the command powerup.NetworkState.AllWifiAuthChannelChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkStateAllWifiAuthChannelChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkStateAllWifiAuthChannelChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.NetworkState.LinkQualityChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupNetworkStateLinkQualityChangedCallback_t) (uint8_t quality, void *custom);
+/**
+ * @brief callback setter for the command powerup.NetworkState.LinkQualityChanged
+ * @param callback new callback for the command powerup.NetworkState.LinkQualityChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupNetworkStateLinkQualityChangedCallback (ARCOMMANDS_Decoder_PowerupNetworkStateLinkQualityChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.MediaStreamingState.VideoEnableChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupMediaStreamingStateVideoEnableChangedCallback_t) (eARCOMMANDS_POWERUP_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED enabled, void *custom);
+/**
+ * @brief callback setter for the command powerup.MediaStreamingState.VideoEnableChanged
+ * @param callback new callback for the command powerup.MediaStreamingState.VideoEnableChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupMediaStreamingStateVideoEnableChangedCallback (ARCOMMANDS_Decoder_PowerupMediaStreamingStateVideoEnableChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.VideoSettingsState.AutorecordChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupVideoSettingsStateAutorecordChangedCallback_t) (uint8_t enabled, void *custom);
+/**
+ * @brief callback setter for the command powerup.VideoSettingsState.AutorecordChanged
+ * @param callback new callback for the command powerup.VideoSettingsState.AutorecordChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupVideoSettingsStateAutorecordChangedCallback (ARCOMMANDS_Decoder_PowerupVideoSettingsStateAutorecordChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.VideoSettingsState.VideoModeChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupVideoSettingsStateVideoModeChangedCallback_t) (eARCOMMANDS_POWERUP_VIDEOSETTINGSSTATE_VIDEOMODECHANGED_MODE mode, void *custom);
+/**
+ * @brief callback setter for the command powerup.VideoSettingsState.VideoModeChanged
+ * @param callback new callback for the command powerup.VideoSettingsState.VideoModeChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupVideoSettingsStateVideoModeChangedCallback (ARCOMMANDS_Decoder_PowerupVideoSettingsStateVideoModeChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command powerup.SoundsState.buzzChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_PowerupSoundsStateBuzzChangedCallback_t) (uint8_t enabled, void *custom);
+/**
+ * @brief callback setter for the command powerup.SoundsState.buzzChanged
+ * @param callback new callback for the command powerup.SoundsState.buzzChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetPowerupSoundsStateBuzzChangedCallback (ARCOMMANDS_Decoder_PowerupSoundsStateBuzzChangedCallback_t callback, void *custom);
 
 // Feature pro
 
