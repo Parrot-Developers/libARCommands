@@ -8104,6 +8104,304 @@ Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetJumpingSumoVideoSettingsStat
 
 
 JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperGrab (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint buttons, jint axes)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperGrab ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)buttons, (uint32_t)axes);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperMapButtonAction (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort product, jint action, jint buttons)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperMapButtonAction ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)product, (eARCOMMANDS_MAPPER_BUTTON_ACTION)action, (uint32_t)buttons);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperMapAxisAction (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort product, jint action, jint axis, jint buttons)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperMapAxisAction ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)product, (eARCOMMANDS_MAPPER_AXIS_ACTION)action, (int32_t)axis, (uint32_t)buttons);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperResetMapping (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jshort product)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperResetMapping ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint16_t)product);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperGrabState (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint buttons, jint axes, jint buttons_state)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperGrabState ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)buttons, (uint32_t)axes, (uint32_t)buttons_state);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperGrabButtonEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint button, jint event)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperGrabButtonEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)button, (eARCOMMANDS_MAPPER_BUTTON_EVENT)event);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperGrabAxisEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint axis, jbyte value)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperGrabAxisEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)axis, (int8_t)value);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperButtonMappingItem (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint uid, jshort product, jint action, jint buttons, jbyte list_flags)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperButtonMappingItem ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)uid, (uint16_t)product, (eARCOMMANDS_MAPPER_BUTTON_ACTION)action, (uint32_t)buttons, (uint8_t)list_flags);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperAxisMappingItem (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint uid, jshort product, jint action, jint axis, jint buttons, jbyte list_flags)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperAxisMappingItem ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (uint32_t)uid, (uint16_t)product, (eARCOMMANDS_MAPPER_AXIS_ACTION)action, (int32_t)axis, (uint32_t)buttons, (uint8_t)list_flags);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperApplicationAxisEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint action, jbyte value)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperApplicationAxisEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_MAPPER_AXIS_ACTION)action, (int8_t)value);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+JNIEXPORT jint JNICALL
+Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMapperApplicationButtonEvent (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen, jint action)
+{
+    int32_t c_dataSize = 0;
+    eARCOMMANDS_GENERATOR_ERROR err = ARCOMMANDS_GENERATOR_ERROR;
+    if (g_dataSize_id == 0)
+    {
+        jclass clz = (*env)->GetObjectClass (env, thizz);
+        if (clz != 0)
+        {
+            g_dataSize_id = (*env)->GetFieldID (env, clz, "used", "I");
+            (*env)->DeleteLocalRef (env, clz);
+        }
+        else
+        {
+            return err;
+        }
+    }
+
+    err = ARCOMMANDS_Generator_GenerateMapperApplicationButtonEvent ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize, (eARCOMMANDS_MAPPER_BUTTON_ACTION)action);
+    if (err == ARCOMMANDS_GENERATOR_OK)
+    {
+        (*env)->SetIntField (env, thizz, g_dataSize_id, (jint)c_dataSize);
+    }
+    return err;
+}
+
+
+JNIEXPORT jint JNICALL
 Java_com_parrot_arsdk_arcommands_ARCommand_nativeSetMiniDronePilotingFlatTrim (JNIEnv *env, jobject thizz, jlong c_pdata, jint dataLen)
 {
     int32_t c_dataSize = 0;
@@ -18475,6 +18773,259 @@ void ARCOMMANDS_JNI_JumpingSumoVideoSettingsStateAutorecordChangednativeCb (uint
 }
 
 
+void ARCOMMANDS_JNI_MapperGrabnativeCb (uint32_t buttons, uint32_t axes, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperGrabListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperGrabListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperGrabUpdate", "(II)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)buttons, (jint)axes);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperMapButtonActionnativeCb (uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperMapButtonActionListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperMapButtonActionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperMapButtonActionUpdate", "(SLcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;I)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)product, j_action_enum, (jint)buttons);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperMapAxisActionnativeCb (uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperMapAxisActionListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperMapAxisActionListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperMapAxisActionUpdate", "(SLcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;II)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)product, j_action_enum, axis, (jint)buttons);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperResetMappingnativeCb (uint16_t product, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperResetMappingListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperResetMappingListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperResetMappingUpdate", "(S)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jshort)product);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperGrabStatenativeCb (uint32_t buttons, uint32_t axes, uint32_t buttons_state, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperGrabStateListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperGrabStateListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperGrabStateUpdate", "(III)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)buttons, (jint)axes, (jint)buttons_state);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperGrabButtonEventnativeCb (uint32_t button, eARCOMMANDS_MAPPER_BUTTON_EVENT event, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperGrabButtonEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperGrabButtonEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperGrabButtonEventUpdate", "(ILcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_EVENT_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_event_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_EVENT_ENUM");
+        jmethodID j_event_mid = (*env)->GetStaticMethodID (env, j_event_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_EVENT_ENUM;");
+        jobject j_event_enum = (*env)->CallStaticObjectMethod (env, j_event_class, j_event_mid, event);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)button, j_event_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperGrabAxisEventnativeCb (uint32_t axis, int8_t value, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperGrabAxisEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperGrabAxisEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperGrabAxisEventUpdate", "(IB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)axis, value);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperButtonMappingItemnativeCb (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_BUTTON_ACTION action, uint32_t buttons, uint8_t list_flags, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperButtonMappingItemListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperButtonMappingItemListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperButtonMappingItemUpdate", "(ISLcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;IB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)uid, (jshort)product, j_action_enum, (jint)buttons, (jbyte)list_flags);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperAxisMappingItemnativeCb (uint32_t uid, uint16_t product, eARCOMMANDS_MAPPER_AXIS_ACTION action, int32_t axis, uint32_t buttons, uint8_t list_flags, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperAxisMappingItemListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperAxisMappingItemListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperAxisMappingItemUpdate", "(ISLcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;IIB)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, (jint)uid, (jshort)product, j_action_enum, axis, (jint)buttons, (jbyte)list_flags);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperApplicationAxisEventnativeCb (eARCOMMANDS_MAPPER_AXIS_ACTION action, int8_t value, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperApplicationAxisEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperApplicationAxisEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperApplicationAxisEventUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;B)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_AXIS_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_action_enum, value);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+void ARCOMMANDS_JNI_MapperApplicationButtonEventnativeCb (eARCOMMANDS_MAPPER_BUTTON_ACTION action, void *custom)
+{
+    jclass clazz = (jclass)custom;
+    jint res;
+    JNIEnv *env = NULL;
+    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);
+    if (res < 0) { return; }
+    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "_ARCommandMapperApplicationButtonEventListener", "Lcom/parrot/arsdk/arcommands/ARCommandMapperApplicationButtonEventListener;");
+    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);
+    if (delegate == NULL) { return; }
+
+    jclass d_clazz = (*env)->GetObjectClass (env, delegate);
+    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "onMapperApplicationButtonEventUpdate", "(Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;)V");
+    (*env)->DeleteLocalRef (env, d_clazz);
+    if (d_methodid != NULL)
+    {
+        jclass j_action_class = (*env)->FindClass (env, "com/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM");
+        jmethodID j_action_mid = (*env)->GetStaticMethodID (env, j_action_class, "getFromValue", "(I)Lcom/parrot/arsdk/arcommands/ARCOMMANDS_MAPPER_BUTTON_ACTION_ENUM;");
+        jobject j_action_enum = (*env)->CallStaticObjectMethod (env, j_action_class, j_action_mid, action);
+        (*env)->CallVoidMethod (env, delegate, d_methodid, j_action_enum);
+    }
+    (*env)->DeleteLocalRef (env, delegate);
+}
+
+
 void ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb (void *custom)
 {
     jclass clazz = (jclass)custom;
@@ -22148,6 +22699,29 @@ JNI_OnLoad (JavaVM *vm, void *reserved)
     ARCOMMANDS_Decoder_SetJumpingSumoMediaStreamingStateVideoEnableChangedCallback (ARCOMMANDS_JNI_JumpingSumoMediaStreamingStateVideoEnableChangednativeCb, (void *)g_class);
 
     ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallback (ARCOMMANDS_JNI_JumpingSumoVideoSettingsStateAutorecordChangednativeCb, (void *)g_class);
+
+
+    ARCOMMANDS_Decoder_SetMapperGrabCallback (ARCOMMANDS_JNI_MapperGrabnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperMapButtonActionCallback (ARCOMMANDS_JNI_MapperMapButtonActionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperMapAxisActionCallback (ARCOMMANDS_JNI_MapperMapAxisActionnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperResetMappingCallback (ARCOMMANDS_JNI_MapperResetMappingnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperGrabStateCallback (ARCOMMANDS_JNI_MapperGrabStatenativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperGrabButtonEventCallback (ARCOMMANDS_JNI_MapperGrabButtonEventnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperGrabAxisEventCallback (ARCOMMANDS_JNI_MapperGrabAxisEventnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperButtonMappingItemCallback (ARCOMMANDS_JNI_MapperButtonMappingItemnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperAxisMappingItemCallback (ARCOMMANDS_JNI_MapperAxisMappingItemnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperApplicationAxisEventCallback (ARCOMMANDS_JNI_MapperApplicationAxisEventnativeCb, (void *)g_class);
+
+    ARCOMMANDS_Decoder_SetMapperApplicationButtonEventCallback (ARCOMMANDS_JNI_MapperApplicationButtonEventnativeCb, (void *)g_class);
 
 
     ARCOMMANDS_Decoder_SetMiniDronePilotingFlatTrimCallback (ARCOMMANDS_JNI_MiniDronePilotingFlatTrimnativeCb, (void *)g_class);

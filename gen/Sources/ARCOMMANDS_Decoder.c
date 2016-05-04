@@ -3593,6 +3593,141 @@ void ARCOMMANDS_Decoder_SetJumpingSumoVideoSettingsStateAutorecordChangedCallbac
     } // No else --> do nothing if library can not be initialized
 }
 
+// Feature mapper
+
+static ARCOMMANDS_Decoder_MapperGrabCallback_t ARCOMMANDS_Decoder_MapperGrabCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperGrabCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperGrabCallback (ARCOMMANDS_Decoder_MapperGrabCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperGrabCb = callback;
+        ARCOMMANDS_Decoder_MapperGrabCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperMapButtonActionCallback_t ARCOMMANDS_Decoder_MapperMapButtonActionCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperMapButtonActionCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperMapButtonActionCallback (ARCOMMANDS_Decoder_MapperMapButtonActionCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperMapButtonActionCb = callback;
+        ARCOMMANDS_Decoder_MapperMapButtonActionCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperMapAxisActionCallback_t ARCOMMANDS_Decoder_MapperMapAxisActionCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperMapAxisActionCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperMapAxisActionCallback (ARCOMMANDS_Decoder_MapperMapAxisActionCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperMapAxisActionCb = callback;
+        ARCOMMANDS_Decoder_MapperMapAxisActionCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperResetMappingCallback_t ARCOMMANDS_Decoder_MapperResetMappingCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperResetMappingCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperResetMappingCallback (ARCOMMANDS_Decoder_MapperResetMappingCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperResetMappingCb = callback;
+        ARCOMMANDS_Decoder_MapperResetMappingCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperGrabStateCallback_t ARCOMMANDS_Decoder_MapperGrabStateCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperGrabStateCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperGrabStateCallback (ARCOMMANDS_Decoder_MapperGrabStateCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperGrabStateCb = callback;
+        ARCOMMANDS_Decoder_MapperGrabStateCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperGrabButtonEventCallback_t ARCOMMANDS_Decoder_MapperGrabButtonEventCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperGrabButtonEventCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperGrabButtonEventCallback (ARCOMMANDS_Decoder_MapperGrabButtonEventCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperGrabButtonEventCb = callback;
+        ARCOMMANDS_Decoder_MapperGrabButtonEventCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperGrabAxisEventCallback_t ARCOMMANDS_Decoder_MapperGrabAxisEventCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperGrabAxisEventCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperGrabAxisEventCallback (ARCOMMANDS_Decoder_MapperGrabAxisEventCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperGrabAxisEventCb = callback;
+        ARCOMMANDS_Decoder_MapperGrabAxisEventCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperButtonMappingItemCallback_t ARCOMMANDS_Decoder_MapperButtonMappingItemCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperButtonMappingItemCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperButtonMappingItemCallback (ARCOMMANDS_Decoder_MapperButtonMappingItemCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperButtonMappingItemCb = callback;
+        ARCOMMANDS_Decoder_MapperButtonMappingItemCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperAxisMappingItemCallback_t ARCOMMANDS_Decoder_MapperAxisMappingItemCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperAxisMappingItemCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperAxisMappingItemCallback (ARCOMMANDS_Decoder_MapperAxisMappingItemCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperAxisMappingItemCb = callback;
+        ARCOMMANDS_Decoder_MapperAxisMappingItemCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperApplicationAxisEventCallback_t ARCOMMANDS_Decoder_MapperApplicationAxisEventCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperApplicationAxisEventCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperApplicationAxisEventCallback (ARCOMMANDS_Decoder_MapperApplicationAxisEventCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperApplicationAxisEventCb = callback;
+        ARCOMMANDS_Decoder_MapperApplicationAxisEventCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+static ARCOMMANDS_Decoder_MapperApplicationButtonEventCallback_t ARCOMMANDS_Decoder_MapperApplicationButtonEventCb = NULL;
+static void *ARCOMMANDS_Decoder_MapperApplicationButtonEventCustom = NULL;
+void ARCOMMANDS_Decoder_SetMapperApplicationButtonEventCallback (ARCOMMANDS_Decoder_MapperApplicationButtonEventCallback_t callback, void *custom)
+{
+    if (ARCOMMANDS_Decoder_Init () == 1)
+    {
+        ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+        ARCOMMANDS_Decoder_MapperApplicationButtonEventCb = callback;
+        ARCOMMANDS_Decoder_MapperApplicationButtonEventCustom = custom;
+        ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+    } // No else --> do nothing if library can not be initialized
+}
+
 // Feature MiniDrone
 
 static ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCallback_t ARCOMMANDS_Decoder_MiniDronePilotingFlatTrimCb = NULL;
@@ -15585,6 +15720,490 @@ ARCOMMANDS_Decoder_DecodeBuffer (uint8_t *buffer, int32_t buffLen)
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
+        case ARCOMMANDS_ID_FEATURE_MAPPER:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperGrabCb != NULL)
+                    {
+                        uint32_t _buttons;
+                        uint32_t _axes;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _axes = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperGrabCb (_buttons, _axes, ARCOMMANDS_Decoder_MapperGrabCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_GRAB */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_BUTTON_ACTION:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperMapButtonActionCb != NULL)
+                    {
+                        uint16_t _product;
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION _action;
+                        uint32_t _buttons;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _product = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperMapButtonActionCb (_product, _action, _buttons, ARCOMMANDS_Decoder_MapperMapButtonActionCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_MAP_BUTTON_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_AXIS_ACTION:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperMapAxisActionCb != NULL)
+                    {
+                        uint16_t _product;
+                        eARCOMMANDS_MAPPER_AXIS_ACTION _action;
+                        int32_t _axis;
+                        uint32_t _buttons;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _product = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _axis =  (int32_t)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperMapAxisActionCb (_product, _action, _axis, _buttons, ARCOMMANDS_Decoder_MapperMapAxisActionCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_MAP_AXIS_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_RESET_MAPPING:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperResetMappingCb != NULL)
+                    {
+                        uint16_t _product;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _product = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperResetMappingCb (_product, ARCOMMANDS_Decoder_MapperResetMappingCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_RESET_MAPPING */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_STATE:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperGrabStateCb != NULL)
+                    {
+                        uint32_t _buttons;
+                        uint32_t _axes;
+                        uint32_t _buttons_state;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _axes = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons_state = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperGrabStateCb (_buttons, _axes, _buttons_state, ARCOMMANDS_Decoder_MapperGrabStateCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_GRAB_STATE */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_BUTTON_EVENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperGrabButtonEventCb != NULL)
+                    {
+                        uint32_t _button;
+                        eARCOMMANDS_MAPPER_BUTTON_EVENT _event;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _button = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _event = (eARCOMMANDS_MAPPER_BUTTON_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperGrabButtonEventCb (_button, _event, ARCOMMANDS_Decoder_MapperGrabButtonEventCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_GRAB_BUTTON_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_AXIS_EVENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperGrabAxisEventCb != NULL)
+                    {
+                        uint32_t _axis;
+                        int8_t _value;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _axis = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperGrabAxisEventCb (_axis, _value, ARCOMMANDS_Decoder_MapperGrabAxisEventCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_GRAB_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_BUTTON_MAPPING_ITEM:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperButtonMappingItemCb != NULL)
+                    {
+                        uint32_t _uid;
+                        uint16_t _product;
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION _action;
+                        uint32_t _buttons;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _uid = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _product = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperButtonMappingItemCb (_uid, _product, _action, _buttons, _list_flags, ARCOMMANDS_Decoder_MapperButtonMappingItemCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_BUTTON_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_AXIS_MAPPING_ITEM:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperAxisMappingItemCb != NULL)
+                    {
+                        uint32_t _uid;
+                        uint16_t _product;
+                        eARCOMMANDS_MAPPER_AXIS_ACTION _action;
+                        int32_t _axis;
+                        uint32_t _buttons;
+                        uint8_t _list_flags;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _uid = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _product = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _axis =  (int32_t)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _buttons = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _list_flags = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperAxisMappingItemCb (_uid, _product, _action, _axis, _buttons, _list_flags, ARCOMMANDS_Decoder_MapperAxisMappingItemCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_AXIS_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_AXIS_EVENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperApplicationAxisEventCb != NULL)
+                    {
+                        eARCOMMANDS_MAPPER_AXIS_ACTION _action;
+                        int8_t _value;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _value =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperApplicationAxisEventCb (_action, _value, ARCOMMANDS_Decoder_MapperApplicationAxisEventCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_APPLICATION_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_BUTTON_EVENT:
+                {
+                    ARSAL_Mutex_Lock (&ARCOMMANDS_Decoder_Mutex);
+                    if (ARCOMMANDS_Decoder_MapperApplicationButtonEventCb != NULL)
+                    {
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION _action;
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            _action = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                            if (error == 1)
+                            {
+                                retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                            } // No else --> Do not modify retVal if read went fine
+                        } // No else --> Processing block
+                        if (retVal == ARCOMMANDS_DECODER_OK)
+                        {
+                            ARCOMMANDS_Decoder_MapperApplicationButtonEventCb (_action, ARCOMMANDS_Decoder_MapperApplicationButtonEventCustom);
+                        } // No else --> Processing block
+                    }
+                    else
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NO_CALLBACK;
+                    }
+                    ARSAL_Mutex_Unlock (&ARCOMMANDS_Decoder_Mutex);
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_VIDEOSETTINGSSTATE_CMD_APPLICATION_BUTTON_EVENT */
+                default:
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            else
+            {
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                break;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_MAPPER */
         case ARCOMMANDS_ID_FEATURE_MINIDRONE:
         {
             switch (commandClass)
@@ -29660,6 +30279,496 @@ ARCOMMANDS_Decoder_DescribeBuffer (uint8_t *buffer, int32_t buffLen, char *resSt
             }
         }
         break; /* ARCOMMANDS_ID_FEATURE_JUMPINGSUMO */
+        case ARCOMMANDS_ID_FEATURE_MAPPER:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.grab:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | axes -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_BUTTON_ACTION:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.map_button_action:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | product -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION arg = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_MAP_BUTTON_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_MAP_AXIS_ACTION:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.map_axis_action:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | product -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_AXIS_ACTION arg = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int32_t arg =  (int32_t)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI32 (" | axis -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_MAP_AXIS_ACTION */
+                case ARCOMMANDS_ID_MAPPER_CMD_RESET_MAPPING:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.reset_mapping:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | product -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_RESET_MAPPING */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_STATE:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.grab_state:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | axes -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons_state -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_STATE */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_BUTTON_EVENT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.grab_button_event:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | button -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_BUTTON_EVENT arg = (eARCOMMANDS_MAPPER_BUTTON_EVENT)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_BUTTON_EVENT)ARCOMMANDS_ReadWrite_PrintI32 (" | event -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_BUTTON_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_GRAB_AXIS_EVENT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.grab_axis_event:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | axis -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_GRAB_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_BUTTON_MAPPING_ITEM:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.button_mapping_item:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | uid -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | product -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION arg = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_BUTTON_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_AXIS_MAPPING_ITEM:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.axis_mapping_item:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | uid -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint16_t arg = ARCOMMANDS_ReadWrite_Read16FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU16 (" | product -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_AXIS_ACTION arg = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int32_t arg =  (int32_t)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI32 (" | axis -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint32_t arg = ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU32 (" | buttons -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        uint8_t arg = ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintU8 (" | list_flags -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_AXIS_MAPPING_ITEM */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_AXIS_EVENT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.application_axis_event:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_AXIS_ACTION arg = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_AXIS_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset > 0)
+                    {
+                        int8_t arg =  (int8_t)ARCOMMANDS_ReadWrite_Read8FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = ARCOMMANDS_ReadWrite_PrintI8 (" | value -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_AXIS_EVENT */
+                case ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_BUTTON_EVENT:
+                {
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.application_button_event:", resString, stringLen, strOffset) ;
+                    if (strOffset > 0)
+                    {
+                        eARCOMMANDS_MAPPER_BUTTON_ACTION arg = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_Read32FromBuffer (buffer, buffLen, &offset, &error);
+                        if (error == 0)
+                        {
+                            strOffset = (eARCOMMANDS_MAPPER_BUTTON_ACTION)ARCOMMANDS_ReadWrite_PrintI32 (" | action -> ", arg, resString, stringLen, strOffset);
+                        }
+                        else
+                        {
+                            retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_DATA;
+                        }
+                    } // No else --> If first print failed, the next if will set the error code
+                    if (strOffset < 0)
+                    {
+                        retVal = ARCOMMANDS_DECODER_ERROR_NOT_ENOUGH_SPACE;
+                    } // No else --> Do not modify retVal if no error occured
+                }
+                break; /* ARCOMMANDS_ID_MAPPER_CMD_APPLICATION_BUTTON_EVENT */
+                default:
+                    strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                    retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+                    break;
+                }
+            }
+            else
+            {
+                strOffset = ARCOMMANDS_ReadWrite_WriteString ("mapper.UNKNOWN -> Unknown command", resString, stringLen, strOffset);
+                retVal = ARCOMMANDS_DECODER_ERROR_UNKNOWN_COMMAND;
+            }
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_MAPPER */
         case ARCOMMANDS_ID_FEATURE_MINIDRONE:
         {
             switch (commandClass)

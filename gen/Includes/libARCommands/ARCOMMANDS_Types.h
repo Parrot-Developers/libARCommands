@@ -1618,6 +1618,84 @@ typedef enum
     ARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_MAX
 } eARCOMMANDS_JUMPINGSUMO_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED;
 
+// Feature mapper
+
+/**
+ * @brief The action (mapped on a button)
+ */
+typedef enum
+{
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_0 = 0,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_1 = 1,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_2 = 2,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_3 = 3,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_4 = 4,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_5 = 5,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_6 = 6,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_7 = 7,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_8 = 8,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_9 = 9,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_10 = 10,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_11 = 11,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_12 = 12,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_13 = 13,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_14 = 14,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_APP_15 = 15,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_RETURN_HOME = 16,    ///< Return to home
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_TAKEOFF_LAND = 17,    ///< Take off or land
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_VIDEO_RECORD = 18,    ///< Start/stop video record
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_TAKE_PICTURE = 19,    ///< Take a picture
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_CAMERA_EXPOSITION_INC = 20,    ///< Increment camera exposition
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_CAMERA_EXPOSITION_DEC = 21,    ///< Decrement camera exposition
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_FLIP_LEFT = 22,    ///< Flip left
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_FLIP_RIGHT = 23,    ///< Flip right
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_FLIP_FRONT = 24,    ///< Flip front
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_FLIP_BACK = 25,    ///< Flip back
+    ARCOMMANDS_MAPPER_BUTTON_ACTION_MAX
+} eARCOMMANDS_MAPPER_BUTTON_ACTION;
+
+
+/**
+ * @brief The action (mapped on an axis)
+ */
+typedef enum
+{
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_0 = 0,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_1 = 1,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_2 = 2,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_3 = 3,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_4 = 4,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_5 = 5,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_6 = 6,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_7 = 7,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_8 = 8,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_9 = 9,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_10 = 10,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_11 = 11,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_12 = 12,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_13 = 13,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_14 = 14,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_APP_15 = 15,    ///< Action handled by the application
+    ARCOMMANDS_MAPPER_AXIS_ACTION_ROLL = 16,    ///< roll
+    ARCOMMANDS_MAPPER_AXIS_ACTION_PITCH = 17,    ///< pitch
+    ARCOMMANDS_MAPPER_AXIS_ACTION_YAW = 18,    ///< yaw
+    ARCOMMANDS_MAPPER_AXIS_ACTION_GAZ = 19,    ///< gaz
+    ARCOMMANDS_MAPPER_AXIS_ACTION_CAMERA_PAN = 20,    ///< camera pan
+    ARCOMMANDS_MAPPER_AXIS_ACTION_CAMERA_TILT = 21,    ///< camera tilt
+    ARCOMMANDS_MAPPER_AXIS_ACTION_MAX
+} eARCOMMANDS_MAPPER_AXIS_ACTION;
+
+
+/**
+ * @brief Button event
+ */
+typedef enum
+{
+    ARCOMMANDS_MAPPER_BUTTON_EVENT_PRESS = 0,    ///< button pressed
+    ARCOMMANDS_MAPPER_BUTTON_EVENT_RELEASE = 1,    ///< button released
+    ARCOMMANDS_MAPPER_BUTTON_EVENT_MAX
+} eARCOMMANDS_MAPPER_BUTTON_EVENT;
+
 // Feature MiniDrone
 
 /**
