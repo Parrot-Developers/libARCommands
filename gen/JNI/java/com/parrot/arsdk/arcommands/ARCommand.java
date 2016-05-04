@@ -7299,64 +7299,6 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command UserTakeOff description:<br>
-     * Set drone in user take off state<br>
-     * Only used for Unknown_Product_1 product<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingUserTakeOff (byte _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingUserTakeOff (pointer, capacity, _state);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class Piloting description:<br>
-     * All commands related to piloting the JumpingSumo<br>
-     * <br>
-     * Command Land description:<br>
-     * Ask the Unknown_Product_1 to land<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingLand () {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingLand (pointer, capacity);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
      * Set an ARCommand to hold the command <code>AnimationsJumpStop</code> in feature <code>JumpingSumo</code><br>
      * <br>
      * Feature JumpingSumo description:<br>
@@ -8048,36 +7990,6 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetJumpingSumoPilotingStateSpeedChanged (pointer, capacity, _speed, _realSpeed);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
-     * Set an ARCommand to hold the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * <br>
-     * Feature JumpingSumo description:<br>
-     * All commands specific to the Jumping Sumo.<br>
-     * <br>
-     * Class PilotingState description:<br>
-     * Animations state from JS.<br>
-     * <br>
-     * Command FlyingStateChanged description:<br>
-     * Drone flying state changed<br>
-     * Only used for Unknown_Product_1<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _state Drone flying state
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setJumpingSumoPilotingStateFlyingStateChanged (ARCOMMANDS_JUMPINGSUMO_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM _state) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetJumpingSumoPilotingStateFlyingStateChanged (pointer, capacity, _state.getValue());
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -10645,6 +10557,981 @@ public class ARCommand extends ARNativeData {
             return err;
         }
         int errInt = nativeSetMiniDroneUsbAccessoryStateGunState (pointer, capacity, _id, _state.getValue(), _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingPCMD</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the Unknown_Product_1<br>
+     * <br>
+     * Command PCMD description:<br>
+     * Ask the Unknown Product 1 speed and turn ratio.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _flag Boolean for "touch screen".
+     * @param _throttle Throttle value [0:100].
+     * @param _roll Yaw-roll value. [-100:100]
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingPCMD (byte _flag, byte _throttle, byte _roll) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingPCMD (pointer, capacity, _flag, _throttle, _roll);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingUserTakeOff</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the Unknown_Product_1<br>
+     * <br>
+     * Command UserTakeOff description:<br>
+     * Set drone in user take off state<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of user take off mode\n- 1 to enter in user take off.\n- 0 to exit from user take off.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingUserTakeOff (byte _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingUserTakeOff (pointer, capacity, _state);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingMotorMode</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Piloting description:<br>
+     * All commands related to piloting the Unknown_Product_1<br>
+     * <br>
+     * Command MotorMode description:<br>
+     * Motor mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode 
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingMotorMode (ARCOMMANDS_POWERUP_PILOTING_MOTORMODE_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingMotorMode (pointer, capacity, _mode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsSet</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingSettings description:<br>
+     * Piloting settings<br>
+     * <br>
+     * Command Set description:<br>
+     * Set the given setting<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _setting Variety of setting that can be customized
+     * @param _value value of the given setting
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingSettingsSet (ARCOMMANDS_POWERUP_PILOTINGSETTINGS_SET_SETTING_ENUM _setting, float _value) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingSettingsSet (pointer, capacity, _setting.getValue(), _value);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordPictureV2</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command PictureV2 description:<br>
+     * Take picture<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordPictureV2 () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordPictureV2 (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordVideoV2</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecord description:<br>
+     * Media recording management<br>
+     * <br>
+     * Command VideoV2 description:<br>
+     * Video record<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _record Command to record video
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordVideoV2 (ARCOMMANDS_POWERUP_MEDIARECORD_VIDEOV2_RECORD_ENUM _record) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordVideoV2 (pointer, capacity, _record.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkSettingsWifiSelection</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkSettings description:<br>
+     * Network settings commands<br>
+     * <br>
+     * Command WifiSelection description:<br>
+     * Auto-select channel of choosen band<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection (auto, manual)
+     * @param _band The allowed band(s) : 2.4 Ghz, 5 Ghz, or all
+     * @param _channel The channel (not used in auto mode)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkSettingsWifiSelection (ARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_TYPE_ENUM _type, ARCOMMANDS_POWERUP_NETWORKSETTINGS_WIFISELECTION_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkSettingsWifiSelection (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkWifiScan</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command WifiScan description:<br>
+     * Launches wifi network scan<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band(s) : 2.4 Ghz, 5 Ghz, or both
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkWifiScan (ARCOMMANDS_POWERUP_NETWORK_WIFISCAN_BAND_ENUM _band) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkWifiScan (pointer, capacity, _band.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkWifiAuthChannel</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Network description:<br>
+     * Network related commands<br>
+     * <br>
+     * Command WifiAuthChannel description:<br>
+     * Controller inquire the list of authorized wifi channels.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkWifiAuthChannel () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkWifiAuthChannel (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaStreamingVideoEnable</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaStreaming description:<br>
+     * Control media streaming behavior.<br>
+     * <br>
+     * Command VideoEnable description:<br>
+     * Enable/disable video streaming.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable 1 to enable, 0 to disable.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaStreamingVideoEnable (byte _enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaStreamingVideoEnable (pointer, capacity, _enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsAutorecord</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class VideoSettings description:<br>
+     * Video settings.<br>
+     * <br>
+     * Command Autorecord description:<br>
+     * Set video automatic recording state.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupVideoSettingsAutorecord (byte _enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupVideoSettingsAutorecord (pointer, capacity, _enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsVideoMode</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class VideoSettings description:<br>
+     * Video settings.<br>
+     * <br>
+     * Command VideoMode description:<br>
+     * Set video mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Video mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupVideoSettingsVideoMode (ARCOMMANDS_POWERUP_VIDEOSETTINGS_VIDEOMODE_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupVideoSettingsVideoMode (pointer, capacity, _mode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SoundsBuzz</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class Sounds description:<br>
+     * Sounds related commands.<br>
+     * <br>
+     * Command Buzz description:<br>
+     * Enable/disable the buzzer sound<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enable 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupSoundsBuzz (byte _enable) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupSoundsBuzz (pointer, capacity, _enable);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateAlertStateChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Piloting state from Unknown Product 1.<br>
+     * <br>
+     * Command AlertStateChanged description:<br>
+     * JS alert state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state JS alert state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingStateAlertStateChanged (ARCOMMANDS_POWERUP_PILOTINGSTATE_ALERTSTATECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingStateAlertStateChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateFlyingStateChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Piloting state from Unknown Product 1.<br>
+     * <br>
+     * Command FlyingStateChanged description:<br>
+     * Drone flying state changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state Drone flying state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingStateFlyingStateChanged (ARCOMMANDS_POWERUP_PILOTINGSTATE_FLYINGSTATECHANGED_STATE_ENUM _state) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingStateFlyingStateChanged (pointer, capacity, _state.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateMotorModeChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Piloting state from Unknown Product 1.<br>
+     * <br>
+     * Command MotorModeChanged description:<br>
+     * Motor mode changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode 
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingStateMotorModeChanged (ARCOMMANDS_POWERUP_PILOTINGSTATE_MOTORMODECHANGED_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingStateMotorModeChanged (pointer, capacity, _mode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateAttitudeChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Piloting state from Unknown Product 1.<br>
+     * <br>
+     * Command AttitudeChanged description:<br>
+     * Drone attitude changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _roll roll value (in radian) (relative to horizontal)
+     * @param _pitch Pitch value (in radian) (relative to horizontal)
+     * @param _yaw Yaw value (in radian) (relative to North)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingStateAttitudeChanged (float _roll, float _pitch, float _yaw) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingStateAttitudeChanged (pointer, capacity, _roll, _pitch, _yaw);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingStateAltitudeChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingState description:<br>
+     * Piloting state from Unknown Product 1.<br>
+     * <br>
+     * Command AltitudeChanged description:<br>
+     * Drone altitude changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _altitude Altitude in meters relative to take off altitude
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingStateAltitudeChanged (float _altitude) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingStateAltitudeChanged (pointer, capacity, _altitude);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>PilotingSettingsStateSettingChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class PilotingSettingsState description:<br>
+     * Piloting settings<br>
+     * <br>
+     * Command SettingChanged description:<br>
+     * Fired when a setting has changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _setting Variety of setting that can be customized
+     * @param _current Current value of the given setting
+     * @param _min Minimal value of the given setting
+     * @param _max Max value of the given setting
+     * @param _list_flags List entry attribute Bitfield.\n0x01: First: indicate it's the first element of the list.\n0x02: Last:  indicate it's the last element of the list.\n0x04: Empty: indicate the list is empty (implies First/Last). All other arguments should be ignored.\n0x08: Remove: This value should be removed from the existing list.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupPilotingSettingsStateSettingChanged (ARCOMMANDS_POWERUP_PILOTINGSETTINGSSTATE_SETTINGCHANGED_SETTING_ENUM _setting, float _current, float _min, float _max, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupPilotingSettingsStateSettingChanged (pointer, capacity, _setting.getValue(), _current, _min, _max, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command PictureStateChangedV2 description:<br>
+     * State of device picture recording changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of device picture recording
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordStatePictureStateChangedV2 (ARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_POWERUP_MEDIARECORDSTATE_PICTURESTATECHANGEDV2_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordStatePictureStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecordState description:<br>
+     * State of media recording<br>
+     * <br>
+     * Command VideoStateChangedV2 description:<br>
+     * State of device video recording changed<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state State of device video recording
+     * @param _error Error to explain the state
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordStateVideoStateChangedV2 (ARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_STATE_ENUM _state, ARCOMMANDS_POWERUP_MEDIARECORDSTATE_VIDEOSTATECHANGEDV2_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordStateVideoStateChangedV2 (pointer, capacity, _state.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecordEvent description:<br>
+     * Events of media recording<br>
+     * <br>
+     * Command PictureEventChanged description:<br>
+     * Event of picture recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _event Last event of picture recording
+     * @param _error Error to explain the event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordEventPictureEventChanged (ARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_POWERUP_MEDIARECORDEVENT_PICTUREEVENTCHANGED_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordEventPictureEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaRecordEventVideoEventChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaRecordEvent description:<br>
+     * Events of media recording<br>
+     * <br>
+     * Command VideoEventChanged description:<br>
+     * Event of video recording<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _event Event of video recording
+     * @param _error Error to explain the event
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaRecordEventVideoEventChanged (ARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_EVENT_ENUM _event, ARCOMMANDS_POWERUP_MEDIARECORDEVENT_VIDEOEVENTCHANGED_ERROR_ENUM _error) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaRecordEventVideoEventChanged (pointer, capacity, _event.getValue(), _error.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkSettingsState description:<br>
+     * Network settings state from product<br>
+     * <br>
+     * Command WifiSelectionChanged description:<br>
+     * Wifi selection from product<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _type The type of wifi selection settings
+     * @param _band The actual  wifi band state
+     * @param _channel The channel (depends of the band)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkSettingsStateWifiSelectionChanged (ARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_TYPE_ENUM _type, ARCOMMANDS_POWERUP_NETWORKSETTINGSSTATE_WIFISELECTIONCHANGED_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkSettingsStateWifiSelectionChanged (pointer, capacity, _type.getValue(), _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateWifiScanListChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command WifiScanListChanged description:<br>
+     * One scanning result found<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _ssid SSID of the AP
+     * @param _rssi RSSI of the AP in dbm (negative value)
+     * @param _band The band : 2.4 GHz or 5 GHz
+     * @param _channel Channel of the AP
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkStateWifiScanListChanged (String _ssid, short _rssi, ARCOMMANDS_POWERUP_NETWORKSTATE_WIFISCANLISTCHANGED_BAND_ENUM _band, byte _channel) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkStateWifiScanListChanged (pointer, capacity, _ssid, _rssi, _band.getValue(), _channel);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateAllWifiScanChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command AllWifiScanChanged description:<br>
+     * State sent when all scanning result sent<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkStateAllWifiScanChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkStateAllWifiScanChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command WifiAuthChannelListChanged description:<br>
+     * Notify of an Authorized Channel.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _band The band of this channel : 2.4 GHz or 5 GHz
+     * @param _channel The authorized channel.
+     * @param _in_or_out Bit 0 is 1 if channel is authorized outside (0 otherwise) ; Bit 1 is 1 if channel is authorized inside (0 otherwise)
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkStateWifiAuthChannelListChanged (ARCOMMANDS_POWERUP_NETWORKSTATE_WIFIAUTHCHANNELLISTCHANGED_BAND_ENUM _band, byte _channel, byte _in_or_out) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkStateWifiAuthChannelListChanged (pointer, capacity, _band.getValue(), _channel, _in_or_out);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateAllWifiAuthChannelChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command AllWifiAuthChannelChanged description:<br>
+     * Notify the end of the list of Authorized wifi Channel.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkStateAllWifiAuthChannelChanged () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkStateAllWifiAuthChannelChanged (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>NetworkStateLinkQualityChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class NetworkState description:<br>
+     * Network state from Product<br>
+     * <br>
+     * Command LinkQualityChanged description:<br>
+     * Notification sent by the firmware to give an indication of the WiFi link quality.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _quality The WiFi link quality in range 0-6, the higher the value, the higher the link quality.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupNetworkStateLinkQualityChanged (byte _quality) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupNetworkStateLinkQualityChanged (pointer, capacity, _quality);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class MediaStreamingState description:<br>
+     * Media streaming status.<br>
+     * <br>
+     * Command VideoEnableChanged description:<br>
+     * Return video streaming status.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled Current video streaming status.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupMediaStreamingStateVideoEnableChanged (ARCOMMANDS_POWERUP_MEDIASTREAMINGSTATE_VIDEOENABLECHANGED_ENABLED_ENUM _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupMediaStreamingStateVideoEnableChanged (pointer, capacity, _enabled.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsStateAutorecordChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class VideoSettingsState description:<br>
+     * Video settings state.<br>
+     * <br>
+     * Command AutorecordChanged description:<br>
+     * Get video automatic recording status.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupVideoSettingsStateAutorecordChanged (byte _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupVideoSettingsStateAutorecordChanged (pointer, capacity, _enabled);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>VideoSettingsStateVideoModeChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class VideoSettingsState description:<br>
+     * Video settings state.<br>
+     * <br>
+     * Command VideoModeChanged description:<br>
+     * Video mode<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mode Video mode
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupVideoSettingsStateVideoModeChanged (ARCOMMANDS_POWERUP_VIDEOSETTINGSSTATE_VIDEOMODECHANGED_MODE_ENUM _mode) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupVideoSettingsStateVideoModeChanged (pointer, capacity, _mode.getValue());
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>SoundsStateBuzzChanged</code> in feature <code>Powerup</code><br>
+     * <br>
+     * Feature Powerup description:<br>
+     * All commands specific to the Unknown Product 1.<br>
+     * <br>
+     * Class SoundsState description:<br>
+     * Sound related events.<br>
+     * <br>
+     * Command BuzzChanged description:<br>
+     * State of the buzzer<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _enabled 0: Disabled 1: Enabled.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setPowerupSoundsStateBuzzChanged (byte _enabled) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetPowerupSoundsStateBuzzChanged (pointer, capacity, _enabled);
         if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
             err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
         }
@@ -15767,28 +16654,6 @@ public class ARCommand extends ARNativeData {
         _ARCommandJumpingSumoPilotingAddCapOffsetListener = _ARCommandJumpingSumoPilotingAddCapOffsetListener_PARAM;
     }
 
-    private static ARCommandJumpingSumoPilotingUserTakeOffListener _ARCommandJumpingSumoPilotingUserTakeOffListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingUserTakeOff</code> in feature <code>JumpingSumo</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM New listener for the command
-     */
-    public static void setJumpingSumoPilotingUserTakeOffListener (ARCommandJumpingSumoPilotingUserTakeOffListener _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM) {
-        _ARCommandJumpingSumoPilotingUserTakeOffListener = _ARCommandJumpingSumoPilotingUserTakeOffListener_PARAM;
-    }
-
-    private static ARCommandJumpingSumoPilotingLandListener _ARCommandJumpingSumoPilotingLandListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingLand</code> in feature <code>JumpingSumo</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandJumpingSumoPilotingLandListener_PARAM New listener for the command
-     */
-    public static void setJumpingSumoPilotingLandListener (ARCommandJumpingSumoPilotingLandListener _ARCommandJumpingSumoPilotingLandListener_PARAM) {
-        _ARCommandJumpingSumoPilotingLandListener = _ARCommandJumpingSumoPilotingLandListener_PARAM;
-    }
-
     private static ARCommandJumpingSumoAnimationsJumpStopListener _ARCommandJumpingSumoAnimationsJumpStopListener = null;
 
     /**
@@ -16051,17 +16916,6 @@ public class ARCommand extends ARNativeData {
      */
     public static void setJumpingSumoPilotingStateSpeedChangedListener (ARCommandJumpingSumoPilotingStateSpeedChangedListener _ARCommandJumpingSumoPilotingStateSpeedChangedListener_PARAM) {
         _ARCommandJumpingSumoPilotingStateSpeedChangedListener = _ARCommandJumpingSumoPilotingStateSpeedChangedListener_PARAM;
-    }
-
-    private static ARCommandJumpingSumoPilotingStateFlyingStateChangedListener _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>PilotingStateFlyingStateChanged</code> in feature <code>JumpingSumo</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM New listener for the command
-     */
-    public static void setJumpingSumoPilotingStateFlyingStateChangedListener (ARCommandJumpingSumoPilotingStateFlyingStateChangedListener _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM) {
-        _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener = _ARCommandJumpingSumoPilotingStateFlyingStateChangedListener_PARAM;
     }
 
     private static ARCommandJumpingSumoAnimationsStateJumpLoadChangedListener _ARCommandJumpingSumoAnimationsStateJumpLoadChangedListener = null;
@@ -17021,6 +17875,370 @@ public class ARCommand extends ARNativeData {
      */
     public static void setMiniDroneUsbAccessoryStateGunStateListener (ARCommandMiniDroneUsbAccessoryStateGunStateListener _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM) {
         _ARCommandMiniDroneUsbAccessoryStateGunStateListener = _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM;
+    }
+
+
+    private static ARCommandPowerupPilotingPCMDListener _ARCommandPowerupPilotingPCMDListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingPCMD</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingPCMDListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingPCMDListener (ARCommandPowerupPilotingPCMDListener _ARCommandPowerupPilotingPCMDListener_PARAM) {
+        _ARCommandPowerupPilotingPCMDListener = _ARCommandPowerupPilotingPCMDListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingUserTakeOffListener _ARCommandPowerupPilotingUserTakeOffListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingUserTakeOff</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingUserTakeOffListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingUserTakeOffListener (ARCommandPowerupPilotingUserTakeOffListener _ARCommandPowerupPilotingUserTakeOffListener_PARAM) {
+        _ARCommandPowerupPilotingUserTakeOffListener = _ARCommandPowerupPilotingUserTakeOffListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingMotorModeListener _ARCommandPowerupPilotingMotorModeListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingMotorMode</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingMotorModeListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingMotorModeListener (ARCommandPowerupPilotingMotorModeListener _ARCommandPowerupPilotingMotorModeListener_PARAM) {
+        _ARCommandPowerupPilotingMotorModeListener = _ARCommandPowerupPilotingMotorModeListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingSettingsSetListener _ARCommandPowerupPilotingSettingsSetListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsSet</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingSettingsSetListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingSettingsSetListener (ARCommandPowerupPilotingSettingsSetListener _ARCommandPowerupPilotingSettingsSetListener_PARAM) {
+        _ARCommandPowerupPilotingSettingsSetListener = _ARCommandPowerupPilotingSettingsSetListener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordPictureV2Listener _ARCommandPowerupMediaRecordPictureV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordPictureV2</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordPictureV2Listener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordPictureV2Listener (ARCommandPowerupMediaRecordPictureV2Listener _ARCommandPowerupMediaRecordPictureV2Listener_PARAM) {
+        _ARCommandPowerupMediaRecordPictureV2Listener = _ARCommandPowerupMediaRecordPictureV2Listener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordVideoV2Listener _ARCommandPowerupMediaRecordVideoV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordVideoV2</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordVideoV2Listener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordVideoV2Listener (ARCommandPowerupMediaRecordVideoV2Listener _ARCommandPowerupMediaRecordVideoV2Listener_PARAM) {
+        _ARCommandPowerupMediaRecordVideoV2Listener = _ARCommandPowerupMediaRecordVideoV2Listener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkSettingsWifiSelectionListener _ARCommandPowerupNetworkSettingsWifiSelectionListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkSettingsWifiSelection</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkSettingsWifiSelectionListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkSettingsWifiSelectionListener (ARCommandPowerupNetworkSettingsWifiSelectionListener _ARCommandPowerupNetworkSettingsWifiSelectionListener_PARAM) {
+        _ARCommandPowerupNetworkSettingsWifiSelectionListener = _ARCommandPowerupNetworkSettingsWifiSelectionListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkWifiScanListener _ARCommandPowerupNetworkWifiScanListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkWifiScan</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkWifiScanListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkWifiScanListener (ARCommandPowerupNetworkWifiScanListener _ARCommandPowerupNetworkWifiScanListener_PARAM) {
+        _ARCommandPowerupNetworkWifiScanListener = _ARCommandPowerupNetworkWifiScanListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkWifiAuthChannelListener _ARCommandPowerupNetworkWifiAuthChannelListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkWifiAuthChannel</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkWifiAuthChannelListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkWifiAuthChannelListener (ARCommandPowerupNetworkWifiAuthChannelListener _ARCommandPowerupNetworkWifiAuthChannelListener_PARAM) {
+        _ARCommandPowerupNetworkWifiAuthChannelListener = _ARCommandPowerupNetworkWifiAuthChannelListener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaStreamingVideoEnableListener _ARCommandPowerupMediaStreamingVideoEnableListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaStreamingVideoEnable</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaStreamingVideoEnableListener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaStreamingVideoEnableListener (ARCommandPowerupMediaStreamingVideoEnableListener _ARCommandPowerupMediaStreamingVideoEnableListener_PARAM) {
+        _ARCommandPowerupMediaStreamingVideoEnableListener = _ARCommandPowerupMediaStreamingVideoEnableListener_PARAM;
+    }
+
+    private static ARCommandPowerupVideoSettingsAutorecordListener _ARCommandPowerupVideoSettingsAutorecordListener = null;
+
+    /**
+     * Set the listener for the command <code>VideoSettingsAutorecord</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupVideoSettingsAutorecordListener_PARAM New listener for the command
+     */
+    public static void setPowerupVideoSettingsAutorecordListener (ARCommandPowerupVideoSettingsAutorecordListener _ARCommandPowerupVideoSettingsAutorecordListener_PARAM) {
+        _ARCommandPowerupVideoSettingsAutorecordListener = _ARCommandPowerupVideoSettingsAutorecordListener_PARAM;
+    }
+
+    private static ARCommandPowerupVideoSettingsVideoModeListener _ARCommandPowerupVideoSettingsVideoModeListener = null;
+
+    /**
+     * Set the listener for the command <code>VideoSettingsVideoMode</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupVideoSettingsVideoModeListener_PARAM New listener for the command
+     */
+    public static void setPowerupVideoSettingsVideoModeListener (ARCommandPowerupVideoSettingsVideoModeListener _ARCommandPowerupVideoSettingsVideoModeListener_PARAM) {
+        _ARCommandPowerupVideoSettingsVideoModeListener = _ARCommandPowerupVideoSettingsVideoModeListener_PARAM;
+    }
+
+    private static ARCommandPowerupSoundsBuzzListener _ARCommandPowerupSoundsBuzzListener = null;
+
+    /**
+     * Set the listener for the command <code>SoundsBuzz</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupSoundsBuzzListener_PARAM New listener for the command
+     */
+    public static void setPowerupSoundsBuzzListener (ARCommandPowerupSoundsBuzzListener _ARCommandPowerupSoundsBuzzListener_PARAM) {
+        _ARCommandPowerupSoundsBuzzListener = _ARCommandPowerupSoundsBuzzListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingStateAlertStateChangedListener _ARCommandPowerupPilotingStateAlertStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateAlertStateChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingStateAlertStateChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingStateAlertStateChangedListener (ARCommandPowerupPilotingStateAlertStateChangedListener _ARCommandPowerupPilotingStateAlertStateChangedListener_PARAM) {
+        _ARCommandPowerupPilotingStateAlertStateChangedListener = _ARCommandPowerupPilotingStateAlertStateChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingStateFlyingStateChangedListener _ARCommandPowerupPilotingStateFlyingStateChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateFlyingStateChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingStateFlyingStateChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingStateFlyingStateChangedListener (ARCommandPowerupPilotingStateFlyingStateChangedListener _ARCommandPowerupPilotingStateFlyingStateChangedListener_PARAM) {
+        _ARCommandPowerupPilotingStateFlyingStateChangedListener = _ARCommandPowerupPilotingStateFlyingStateChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingStateMotorModeChangedListener _ARCommandPowerupPilotingStateMotorModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateMotorModeChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingStateMotorModeChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingStateMotorModeChangedListener (ARCommandPowerupPilotingStateMotorModeChangedListener _ARCommandPowerupPilotingStateMotorModeChangedListener_PARAM) {
+        _ARCommandPowerupPilotingStateMotorModeChangedListener = _ARCommandPowerupPilotingStateMotorModeChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingStateAttitudeChangedListener _ARCommandPowerupPilotingStateAttitudeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateAttitudeChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingStateAttitudeChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingStateAttitudeChangedListener (ARCommandPowerupPilotingStateAttitudeChangedListener _ARCommandPowerupPilotingStateAttitudeChangedListener_PARAM) {
+        _ARCommandPowerupPilotingStateAttitudeChangedListener = _ARCommandPowerupPilotingStateAttitudeChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingStateAltitudeChangedListener _ARCommandPowerupPilotingStateAltitudeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingStateAltitudeChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingStateAltitudeChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingStateAltitudeChangedListener (ARCommandPowerupPilotingStateAltitudeChangedListener _ARCommandPowerupPilotingStateAltitudeChangedListener_PARAM) {
+        _ARCommandPowerupPilotingStateAltitudeChangedListener = _ARCommandPowerupPilotingStateAltitudeChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupPilotingSettingsStateSettingChangedListener _ARCommandPowerupPilotingSettingsStateSettingChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>PilotingSettingsStateSettingChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupPilotingSettingsStateSettingChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupPilotingSettingsStateSettingChangedListener (ARCommandPowerupPilotingSettingsStateSettingChangedListener _ARCommandPowerupPilotingSettingsStateSettingChangedListener_PARAM) {
+        _ARCommandPowerupPilotingSettingsStateSettingChangedListener = _ARCommandPowerupPilotingSettingsStateSettingChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener _ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordStatePictureStateChangedV2</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordStatePictureStateChangedV2Listener (ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener _ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener_PARAM) {
+        _ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener = _ARCommandPowerupMediaRecordStatePictureStateChangedV2Listener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener _ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordStateVideoStateChangedV2</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordStateVideoStateChangedV2Listener (ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener _ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener_PARAM) {
+        _ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener = _ARCommandPowerupMediaRecordStateVideoStateChangedV2Listener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordEventPictureEventChangedListener _ARCommandPowerupMediaRecordEventPictureEventChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordEventPictureEventChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordEventPictureEventChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordEventPictureEventChangedListener (ARCommandPowerupMediaRecordEventPictureEventChangedListener _ARCommandPowerupMediaRecordEventPictureEventChangedListener_PARAM) {
+        _ARCommandPowerupMediaRecordEventPictureEventChangedListener = _ARCommandPowerupMediaRecordEventPictureEventChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaRecordEventVideoEventChangedListener _ARCommandPowerupMediaRecordEventVideoEventChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaRecordEventVideoEventChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaRecordEventVideoEventChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaRecordEventVideoEventChangedListener (ARCommandPowerupMediaRecordEventVideoEventChangedListener _ARCommandPowerupMediaRecordEventVideoEventChangedListener_PARAM) {
+        _ARCommandPowerupMediaRecordEventVideoEventChangedListener = _ARCommandPowerupMediaRecordEventVideoEventChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener _ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkSettingsStateWifiSelectionChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkSettingsStateWifiSelectionChangedListener (ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener _ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener_PARAM) {
+        _ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener = _ARCommandPowerupNetworkSettingsStateWifiSelectionChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkStateWifiScanListChangedListener _ARCommandPowerupNetworkStateWifiScanListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkStateWifiScanListChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkStateWifiScanListChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkStateWifiScanListChangedListener (ARCommandPowerupNetworkStateWifiScanListChangedListener _ARCommandPowerupNetworkStateWifiScanListChangedListener_PARAM) {
+        _ARCommandPowerupNetworkStateWifiScanListChangedListener = _ARCommandPowerupNetworkStateWifiScanListChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkStateAllWifiScanChangedListener _ARCommandPowerupNetworkStateAllWifiScanChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkStateAllWifiScanChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkStateAllWifiScanChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkStateAllWifiScanChangedListener (ARCommandPowerupNetworkStateAllWifiScanChangedListener _ARCommandPowerupNetworkStateAllWifiScanChangedListener_PARAM) {
+        _ARCommandPowerupNetworkStateAllWifiScanChangedListener = _ARCommandPowerupNetworkStateAllWifiScanChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener _ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkStateWifiAuthChannelListChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkStateWifiAuthChannelListChangedListener (ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener _ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener_PARAM) {
+        _ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener = _ARCommandPowerupNetworkStateWifiAuthChannelListChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener _ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkStateAllWifiAuthChannelChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkStateAllWifiAuthChannelChangedListener (ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener _ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener_PARAM) {
+        _ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener = _ARCommandPowerupNetworkStateAllWifiAuthChannelChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupNetworkStateLinkQualityChangedListener _ARCommandPowerupNetworkStateLinkQualityChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>NetworkStateLinkQualityChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupNetworkStateLinkQualityChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupNetworkStateLinkQualityChangedListener (ARCommandPowerupNetworkStateLinkQualityChangedListener _ARCommandPowerupNetworkStateLinkQualityChangedListener_PARAM) {
+        _ARCommandPowerupNetworkStateLinkQualityChangedListener = _ARCommandPowerupNetworkStateLinkQualityChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupMediaStreamingStateVideoEnableChangedListener _ARCommandPowerupMediaStreamingStateVideoEnableChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>MediaStreamingStateVideoEnableChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupMediaStreamingStateVideoEnableChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupMediaStreamingStateVideoEnableChangedListener (ARCommandPowerupMediaStreamingStateVideoEnableChangedListener _ARCommandPowerupMediaStreamingStateVideoEnableChangedListener_PARAM) {
+        _ARCommandPowerupMediaStreamingStateVideoEnableChangedListener = _ARCommandPowerupMediaStreamingStateVideoEnableChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupVideoSettingsStateAutorecordChangedListener _ARCommandPowerupVideoSettingsStateAutorecordChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>VideoSettingsStateAutorecordChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupVideoSettingsStateAutorecordChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupVideoSettingsStateAutorecordChangedListener (ARCommandPowerupVideoSettingsStateAutorecordChangedListener _ARCommandPowerupVideoSettingsStateAutorecordChangedListener_PARAM) {
+        _ARCommandPowerupVideoSettingsStateAutorecordChangedListener = _ARCommandPowerupVideoSettingsStateAutorecordChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupVideoSettingsStateVideoModeChangedListener _ARCommandPowerupVideoSettingsStateVideoModeChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>VideoSettingsStateVideoModeChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupVideoSettingsStateVideoModeChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupVideoSettingsStateVideoModeChangedListener (ARCommandPowerupVideoSettingsStateVideoModeChangedListener _ARCommandPowerupVideoSettingsStateVideoModeChangedListener_PARAM) {
+        _ARCommandPowerupVideoSettingsStateVideoModeChangedListener = _ARCommandPowerupVideoSettingsStateVideoModeChangedListener_PARAM;
+    }
+
+    private static ARCommandPowerupSoundsStateBuzzChangedListener _ARCommandPowerupSoundsStateBuzzChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SoundsStateBuzzChanged</code> in feature <code>Powerup</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandPowerupSoundsStateBuzzChangedListener_PARAM New listener for the command
+     */
+    public static void setPowerupSoundsStateBuzzChangedListener (ARCommandPowerupSoundsStateBuzzChangedListener _ARCommandPowerupSoundsStateBuzzChangedListener_PARAM) {
+        _ARCommandPowerupSoundsStateBuzzChangedListener = _ARCommandPowerupSoundsStateBuzzChangedListener_PARAM;
     }
 
 
@@ -18454,10 +19672,6 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetJumpingSumoPilotingAddCapOffset (long pdata, int dataTotalLength, float offset);
 
-    private native int     nativeSetJumpingSumoPilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
-
-    private native int     nativeSetJumpingSumoPilotingLand (long pdata, int dataTotalLength);
-
     private native int     nativeSetJumpingSumoAnimationsJumpStop (long pdata, int dataTotalLength);
 
     private native int     nativeSetJumpingSumoAnimationsJumpCancel (long pdata, int dataTotalLength);
@@ -18505,8 +19719,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetJumpingSumoPilotingStateAlertStateChanged (long pdata, int dataTotalLength, int state);
 
     private native int     nativeSetJumpingSumoPilotingStateSpeedChanged (long pdata, int dataTotalLength, byte speed, short realSpeed);
-
-    private native int     nativeSetJumpingSumoPilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
 
     private native int     nativeSetJumpingSumoAnimationsStateJumpLoadChanged (long pdata, int dataTotalLength, int state);
 
@@ -18683,6 +19895,73 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneUsbAccessoryStateClawState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
 
     private native int     nativeSetMiniDroneUsbAccessoryStateGunState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
+
+
+    private native int     nativeSetPowerupPilotingPCMD (long pdata, int dataTotalLength, byte flag, byte throttle, byte roll);
+
+    private native int     nativeSetPowerupPilotingUserTakeOff (long pdata, int dataTotalLength, byte state);
+
+    private native int     nativeSetPowerupPilotingMotorMode (long pdata, int dataTotalLength, int mode);
+
+    private native int     nativeSetPowerupPilotingSettingsSet (long pdata, int dataTotalLength, int setting, float value);
+
+    private native int     nativeSetPowerupMediaRecordPictureV2 (long pdata, int dataTotalLength);
+
+    private native int     nativeSetPowerupMediaRecordVideoV2 (long pdata, int dataTotalLength, int record);
+
+    private native int     nativeSetPowerupNetworkSettingsWifiSelection (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetPowerupNetworkWifiScan (long pdata, int dataTotalLength, int band);
+
+    private native int     nativeSetPowerupNetworkWifiAuthChannel (long pdata, int dataTotalLength);
+
+    private native int     nativeSetPowerupMediaStreamingVideoEnable (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetPowerupVideoSettingsAutorecord (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetPowerupVideoSettingsVideoMode (long pdata, int dataTotalLength, int mode);
+
+    private native int     nativeSetPowerupSoundsBuzz (long pdata, int dataTotalLength, byte enable);
+
+    private native int     nativeSetPowerupPilotingStateAlertStateChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetPowerupPilotingStateFlyingStateChanged (long pdata, int dataTotalLength, int state);
+
+    private native int     nativeSetPowerupPilotingStateMotorModeChanged (long pdata, int dataTotalLength, int mode);
+
+    private native int     nativeSetPowerupPilotingStateAttitudeChanged (long pdata, int dataTotalLength, float roll, float pitch, float yaw);
+
+    private native int     nativeSetPowerupPilotingStateAltitudeChanged (long pdata, int dataTotalLength, float altitude);
+
+    private native int     nativeSetPowerupPilotingSettingsStateSettingChanged (long pdata, int dataTotalLength, int setting, float current, float min, float max, byte list_flags);
+
+    private native int     nativeSetPowerupMediaRecordStatePictureStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
+
+    private native int     nativeSetPowerupMediaRecordStateVideoStateChangedV2 (long pdata, int dataTotalLength, int state, int error);
+
+    private native int     nativeSetPowerupMediaRecordEventPictureEventChanged (long pdata, int dataTotalLength, int event, int error);
+
+    private native int     nativeSetPowerupMediaRecordEventVideoEventChanged (long pdata, int dataTotalLength, int event, int error);
+
+    private native int     nativeSetPowerupNetworkSettingsStateWifiSelectionChanged (long pdata, int dataTotalLength, int type, int band, byte channel);
+
+    private native int     nativeSetPowerupNetworkStateWifiScanListChanged (long pdata, int dataTotalLength, String ssid, short rssi, int band, byte channel);
+
+    private native int     nativeSetPowerupNetworkStateAllWifiScanChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetPowerupNetworkStateWifiAuthChannelListChanged (long pdata, int dataTotalLength, int band, byte channel, byte in_or_out);
+
+    private native int     nativeSetPowerupNetworkStateAllWifiAuthChannelChanged (long pdata, int dataTotalLength);
+
+    private native int     nativeSetPowerupNetworkStateLinkQualityChanged (long pdata, int dataTotalLength, byte quality);
+
+    private native int     nativeSetPowerupMediaStreamingStateVideoEnableChanged (long pdata, int dataTotalLength, int enabled);
+
+    private native int     nativeSetPowerupVideoSettingsStateAutorecordChanged (long pdata, int dataTotalLength, byte enabled);
+
+    private native int     nativeSetPowerupVideoSettingsStateVideoModeChanged (long pdata, int dataTotalLength, int mode);
+
+    private native int     nativeSetPowerupSoundsStateBuzzChanged (long pdata, int dataTotalLength, byte enabled);
 
 
     private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);
