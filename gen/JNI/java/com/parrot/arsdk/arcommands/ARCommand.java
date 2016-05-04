@@ -5534,6 +5534,39 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>CommonStateMassStorageContentChanged</code> in feature <code>Common</code><br>
+     * <br>
+     * Feature Common description:<br>
+     * All common commands shared between all projects<br>
+     * <br>
+     * Class CommonState description:<br>
+     * Common state from product<br>
+     * <br>
+     * Command MassStorageContentChanged description:<br>
+     * Notify the device of a change in mass storage content<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _mass_storage_id Mass storage id (unique)
+     * @param _nbPhotos Number of photos
+     * @param _nbVideos Number of videos
+     * @param _nbPuds Number of puds
+     * @param _nbCrashLogs Number of crash logs
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setCommonCommonStateMassStorageContentChanged (byte _mass_storage_id, short _nbPhotos, short _nbVideos, short _nbPuds, short _nbCrashLogs) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetCommonCommonStateMassStorageContentChanged (pointer, capacity, _mass_storage_id, _nbPhotos, _nbVideos, _nbPuds, _nbCrashLogs);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>OverHeatStateOverHeatChanged</code> in feature <code>Common</code><br>
      * <br>
      * Feature Common description:<br>
@@ -10619,35 +10652,6 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
-     * Set an ARCommand to hold the command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code><br>
-     * <br>
-     * Feature MiniDrone description:<br>
-     * All MiniDrone-only commands<br>
-     * <br>
-     * Class MassStorageMediaState description:<br>
-     * Mass storage media related commands.<br>
-     * <br>
-     * Command NbPhotosChanged description:<br>
-     * Mass storage number of photos.<br>
-     * <br>
-     * This function reuses the current ARCommand, replacing its content with a
-     * new command created from the current params
-     * @param _nb_photos Number of photos
-     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
-     */
-    public ARCOMMANDS_GENERATOR_ERROR_ENUM setMiniDroneMassStorageMediaStateNbPhotosChanged (short _nb_photos) {
-        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
-        if (!valid) {
-            return err;
-        }
-        int errInt = nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (pointer, capacity, _nb_photos);
-        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
-            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
-        }
-        return err;
-    }
-
-    /**
      * Set an ARCommand to hold the command <code>ProBoughtFeatures</code> in feature <code>Pro</code><br>
      * <br>
      * Feature Pro description:<br>
@@ -15111,6 +15115,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandCommonCommonStateCountryListKnownListener = _ARCommandCommonCommonStateCountryListKnownListener_PARAM;
     }
 
+    private static ARCommandCommonCommonStateMassStorageContentChangedListener _ARCommandCommonCommonStateMassStorageContentChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>CommonStateMassStorageContentChanged</code> in feature <code>Common</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandCommonCommonStateMassStorageContentChangedListener_PARAM New listener for the command
+     */
+    public static void setCommonCommonStateMassStorageContentChangedListener (ARCommandCommonCommonStateMassStorageContentChangedListener _ARCommandCommonCommonStateMassStorageContentChangedListener_PARAM) {
+        _ARCommandCommonCommonStateMassStorageContentChangedListener = _ARCommandCommonCommonStateMassStorageContentChangedListener_PARAM;
+    }
+
     private static ARCommandCommonOverHeatStateOverHeatChangedListener _ARCommandCommonOverHeatStateOverHeatChangedListener = null;
 
     /**
@@ -17008,17 +17023,6 @@ public class ARCommand extends ARNativeData {
         _ARCommandMiniDroneUsbAccessoryStateGunStateListener = _ARCommandMiniDroneUsbAccessoryStateGunStateListener_PARAM;
     }
 
-    private static ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener = null;
-
-    /**
-     * Set the listener for the command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code><br>
-     * Listeners are static to the class, and are not to be set on every object
-     * @param _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM New listener for the command
-     */
-    public static void setMiniDroneMassStorageMediaStateNbPhotosChangedListener (ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM) {
-        _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener = _ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener_PARAM;
-    }
-
 
     private static ARCommandProProBoughtFeaturesListener _ARCommandProProBoughtFeaturesListener = null;
 
@@ -18329,6 +18333,8 @@ public class ARCommand extends ARNativeData {
 
     private native int     nativeSetCommonCommonStateCountryListKnown (long pdata, int dataTotalLength, byte listFlags, String countryCodes);
 
+    private native int     nativeSetCommonCommonStateMassStorageContentChanged (long pdata, int dataTotalLength, byte mass_storage_id, short nbPhotos, short nbVideos, short nbPuds, short nbCrashLogs);
+
     private native int     nativeSetCommonOverHeatStateOverHeatChanged (long pdata, int dataTotalLength);
 
     private native int     nativeSetCommonOverHeatStateOverHeatRegulationChanged (long pdata, int dataTotalLength, byte regulationType);
@@ -18677,8 +18683,6 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetMiniDroneUsbAccessoryStateClawState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
 
     private native int     nativeSetMiniDroneUsbAccessoryStateGunState (long pdata, int dataTotalLength, byte id, int state, byte list_flags);
-
-    private native int     nativeSetMiniDroneMassStorageMediaStateNbPhotosChanged (long pdata, int dataTotalLength, short nb_photos);
 
 
     private native int     nativeSetProProBoughtFeatures (long pdata, int dataTotalLength, long features);

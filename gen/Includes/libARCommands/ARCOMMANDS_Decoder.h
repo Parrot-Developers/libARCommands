@@ -2086,6 +2086,17 @@ typedef void (*ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t) (
 void ARCOMMANDS_Decoder_SetCommonCommonStateCountryListKnownCallback (ARCOMMANDS_Decoder_CommonCommonStateCountryListKnownCallback_t callback, void *custom);
 
 /**
+ * @brief callback type for the command common.CommonState.MassStorageContentChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_CommonCommonStateMassStorageContentChangedCallback_t) (uint8_t mass_storage_id, uint16_t nbPhotos, uint16_t nbVideos, uint16_t nbPuds, uint16_t nbCrashLogs, void *custom);
+/**
+ * @brief callback setter for the command common.CommonState.MassStorageContentChanged
+ * @param callback new callback for the command common.CommonState.MassStorageContentChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetCommonCommonStateMassStorageContentChangedCallback (ARCOMMANDS_Decoder_CommonCommonStateMassStorageContentChangedCallback_t callback, void *custom);
+
+/**
  * @brief callback type for the command common.OverHeatState.OverHeatChanged
  */
 typedef void (*ARCOMMANDS_Decoder_CommonOverHeatStateOverHeatChangedCallback_t) (void *custom);
@@ -3991,17 +4002,6 @@ typedef void (*ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t) 
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetMiniDroneUsbAccessoryStateGunStateCallback (ARCOMMANDS_Decoder_MiniDroneUsbAccessoryStateGunStateCallback_t callback, void *custom);
-
-/**
- * @brief callback type for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
- */
-typedef void (*ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t) (uint16_t nb_photos, void *custom);
-/**
- * @brief callback setter for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
- * @param callback new callback for the command MiniDrone.MassStorageMediaState.NbPhotosChanged
- * @param custom pointer that will be passed to all calls to the callback
- */
-void ARCOMMANDS_Decoder_SetMiniDroneMassStorageMediaStateNbPhotosChangedCallback (ARCOMMANDS_Decoder_MiniDroneMassStorageMediaStateNbPhotosChangedCallback_t callback, void *custom);
 
 // Feature pro
 

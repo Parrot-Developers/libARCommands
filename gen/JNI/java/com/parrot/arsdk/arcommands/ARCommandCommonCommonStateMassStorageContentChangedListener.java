@@ -31,14 +31,18 @@
 package com.parrot.arsdk.arcommands;
 
 /**
- * Interface for the command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code> listener
+ * Interface for the command <code>CommonStateMassStorageContentChanged</code> in feature <code>Common</code> listener
  * @author Parrot (c) 2013
  */
-public interface ARCommandMiniDroneMassStorageMediaStateNbPhotosChangedListener {
+public interface ARCommandCommonCommonStateMassStorageContentChangedListener {
 
     /**
-     * Called when a command <code>MassStorageMediaStateNbPhotosChanged</code> in feature <code>MiniDrone</code> is decoded
-     * @param _nb_photos Number of photos
+     * Called when a command <code>CommonStateMassStorageContentChanged</code> in feature <code>Common</code> is decoded
+     * @param _mass_storage_id Mass storage id (unique)
+     * @param _nbPhotos Number of photos
+     * @param _nbVideos Number of videos
+     * @param _nbPuds Number of puds
+     * @param _nbCrashLogs Number of crash logs
      */
-    void onMiniDroneMassStorageMediaStateNbPhotosChangedUpdate (short nb_photos);
+    void onCommonCommonStateMassStorageContentChangedUpdate (byte mass_storage_id, short nbPhotos, short nbVideos, short nbPuds, short nbCrashLogs);
 }
