@@ -39,10 +39,10 @@ import java.util.HashMap;
 public enum ARCOMMANDS_MAPPER_BUTTON_EVENT_ENUM {
     /** Dummy value for all unknown cases */
     UNKNOWN (Integer.MIN_VALUE, "Dummy value for all unknown cases"),
-    /** button pressed */
-    PRESS (0, "button pressed"),
     /** button released */
-    RELEASE (1, "button released");
+    RELEASE (0, "button released"),
+    /** button pressed */
+    PRESS (1, "button pressed");
 
 
     private final int value;

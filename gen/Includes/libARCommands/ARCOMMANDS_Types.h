@@ -1702,8 +1702,8 @@ typedef enum
  */
 typedef enum
 {
-    ARCOMMANDS_MAPPER_BUTTON_EVENT_PRESS = 0,    ///< button pressed
-    ARCOMMANDS_MAPPER_BUTTON_EVENT_RELEASE = 1,    ///< button released
+    ARCOMMANDS_MAPPER_BUTTON_EVENT_RELEASE = 0,    ///< button released
+    ARCOMMANDS_MAPPER_BUTTON_EVENT_PRESS = 1,    ///< button pressed
     ARCOMMANDS_MAPPER_BUTTON_EVENT_MAX
 } eARCOMMANDS_MAPPER_BUTTON_EVENT;
 
