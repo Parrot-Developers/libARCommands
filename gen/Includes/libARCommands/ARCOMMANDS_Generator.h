@@ -2579,6 +2579,78 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsInfo (uint
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDebugSettingsList (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, uint16_t _id, const char * _value);
 
 
+// Feature drone_manager
+
+
+/**
+ * @brief Request the drone list.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDroneManagerDiscoverDrones (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen);
+
+/**
+ * @brief Request connection to a specific drone. Override the auto-selected drone.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _serial Serial number of the drone.
+ * @param _key Security key to use. Ignored if drone security is none.\nIf the drone manager has a saved key for the drone, pass an empty string to use it
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDroneManagerConnect (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _serial, const char * _key);
+
+/**
+ * @brief Forget the given drone. If the drone is the selected one, the auto-selection will run again.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _serial Serial number to forget.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDroneManagerForget (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _serial);
+
+/**
+ * @brief Drone list element.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _serial Serial number of the drone.
+ * @param _model Model of the drone.
+ * @param _name Name (SSID) of the drone.
+ * @param _connection_order 0 if the drone is unknwon (never connected).\nElse, order of last connection (1 = most recent)
+ * @param _active 1 if the drone is active (the drone manager tries to connect or is connected to it)\n0 if the drone is not the active one.
+ * @param _visible 1 if the drone is currently visible, 0 otherwise.
+ * @param _security The security of the drone network.
+ * @param _has_saved_key 1 if the drone manager has a saved security key for the drone, 0 otherwise.\nIf security is not none, and this value is 0, then the controller should prompt the user for a passphrase when sending a connect.
+ * @param _rssi The drone rssi. The value is meaningless if the drone is not visible.
+ * @param _list_flags Flags use by maps and lists
+ * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDroneManagerDroneListItem (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _serial, uint16_t _model, const char * _name, uint8_t _connection_order, uint8_t _active, uint8_t _visible, eARCOMMANDS_DRONE_MANAGER_SECURITY _security, uint8_t _has_saved_key, int8_t _rssi, uint8_t _list_flags);
+
+/**
+ * @brief State of the connection.
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _state The state of the connection to a drone.
+ * @param _serial Serial number of the drone.
+ * @param _model Model of the drone.
+ * @param _name Name (SSID) of the drone.
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateDroneManagerConnectionState (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE _state, const char * _serial, uint16_t _model, const char * _name);
+
+
 // Feature follow_me
 
 
@@ -5191,6 +5263,18 @@ eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSettingsSt
  * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
  */
 eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVariantChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, eARCOMMANDS_SKYCONTROLLER_SETTINGSSTATE_PRODUCTVARIANTCHANGED_VARIANT _variant);
+
+/**
+ * @brief Product versions
+ * @warning A command is not NULL terminated and can contain NULL bytes.
+ * @param buffer Pointer to the buffer in which the library should store the command
+ * @param buffLen Size of the buffer
+ * @param cmdLen Pointer to an integer that will hold the actual size of the command
+ * @param _software Product software version
+ * @param _hardware Product hardware version
+ * @return Error code (see eARCOMMANDS_GENERATOR_ERROR)
+ */
+eARCOMMANDS_GENERATOR_ERROR ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVersionChanged (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen, const char * _software, const char * _hardware);
 
 /**
  * @brief State sent when all product states has been sent

@@ -271,6 +271,13 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdDebugSettingsInfoBehavior;
     eARCOMMANDS_FILTER_STATUS CmdDebugSettingsListBehavior;
 
+    // Feature drone_manager
+    eARCOMMANDS_FILTER_STATUS CmdDroneManagerDiscoverDronesBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDroneManagerConnectBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDroneManagerForgetBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDroneManagerDroneListItemBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdDroneManagerConnectionStateBehavior;
+
     // Feature follow_me
     eARCOMMANDS_FILTER_STATUS CmdFollowMeGeographicRunBehavior;
     eARCOMMANDS_FILTER_STATUS CmdFollowMeRelativeRunBehavior;
@@ -501,6 +508,7 @@ struct ARCOMMANDS_Filter_t
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateResetChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductSerialChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVariantChangedBehavior;
+    eARCOMMANDS_FILTER_STATUS CmdSkyControllerSettingsStateProductVersionChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerCommonStateAllStatesChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateBatteryChangedBehavior;
     eARCOMMANDS_FILTER_STATUS CmdSkyControllerSkyControllerStateGpsFixChangedBehavior;
@@ -787,6 +795,12 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdDebugSetSettingBehavior = defaultBehavior;
         retFilter->CmdDebugSettingsInfoBehavior = defaultBehavior;
         retFilter->CmdDebugSettingsListBehavior = defaultBehavior;
+        // Feature drone_manager
+        retFilter->CmdDroneManagerDiscoverDronesBehavior = defaultBehavior;
+        retFilter->CmdDroneManagerConnectBehavior = defaultBehavior;
+        retFilter->CmdDroneManagerForgetBehavior = defaultBehavior;
+        retFilter->CmdDroneManagerDroneListItemBehavior = defaultBehavior;
+        retFilter->CmdDroneManagerConnectionStateBehavior = defaultBehavior;
         // Feature follow_me
         retFilter->CmdFollowMeGeographicRunBehavior = defaultBehavior;
         retFilter->CmdFollowMeRelativeRunBehavior = defaultBehavior;
@@ -1011,6 +1025,7 @@ ARCOMMANDS_Filter_t* ARCOMMANDS_Filter_NewFilter (eARCOMMANDS_FILTER_STATUS defa
         retFilter->CmdSkyControllerSettingsStateResetChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = defaultBehavior;
+        retFilter->CmdSkyControllerSettingsStateProductVersionChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerCommonStateAllStatesChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = defaultBehavior;
         retFilter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = defaultBehavior;
@@ -2835,6 +2850,45 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
             //Else Do nothing, the default answer is already UNKNOWN
         }
         break; /* ARCOMMANDS_ID_FEATURE_DEBUG */
+        case ARCOMMANDS_ID_FEATURE_DRONE_MANAGER:
+        {
+            if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
+            {
+                switch (commandId)
+                {
+                case ARCOMMANDS_ID_DRONE_MANAGER_CMD_DISCOVER_DRONES:
+                {
+                    retStatus = filter->CmdDroneManagerDiscoverDronesBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DRONE_MANAGER_CMD_DISCOVER_DRONES */
+                case ARCOMMANDS_ID_DRONE_MANAGER_CMD_CONNECT:
+                {
+                    retStatus = filter->CmdDroneManagerConnectBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DRONE_MANAGER_CMD_CONNECT */
+                case ARCOMMANDS_ID_DRONE_MANAGER_CMD_FORGET:
+                {
+                    retStatus = filter->CmdDroneManagerForgetBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DRONE_MANAGER_CMD_FORGET */
+                case ARCOMMANDS_ID_DRONE_MANAGER_CMD_DRONE_LIST_ITEM:
+                {
+                    retStatus = filter->CmdDroneManagerDroneListItemBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DRONE_MANAGER_CMD_DRONE_LIST_ITEM */
+                case ARCOMMANDS_ID_DRONE_MANAGER_CMD_CONNECTION_STATE:
+                {
+                    retStatus = filter->CmdDroneManagerConnectionStateBehavior;
+                }
+                break; /* ARCOMMANDS_ID_DRONE_MANAGER_CMD_CONNECTION_STATE */
+                default:
+                    // Do nothing, the default answer is already UNKNOWN
+                    break;
+                }
+            }
+            //Else Do nothing, the default answer is already UNKNOWN
+        }
+        break; /* ARCOMMANDS_ID_FEATURE_DRONE_MANAGER */
         case ARCOMMANDS_ID_FEATURE_FOLLOW_ME:
         {
             if (commandClass == ARCOMMANDS_ID_FEATURE_CLASS)
@@ -4536,6 +4590,11 @@ eARCOMMANDS_FILTER_STATUS ARCOMMANDS_Filter_FilterCommand (ARCOMMANDS_Filter_t *
                     retStatus = filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior;
                 }
                 break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVARIANTCHANGED */
+                case ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED:
+                {
+                    retStatus = filter->CmdSkyControllerSettingsStateProductVersionChangedBehavior;
+                }
+                break; /* ARCOMMANDS_ID_SKYCONTROLLER_SETTINGSSTATE_CMD_PRODUCTVERSIONCHANGED */
                 default:
                     // Do nothing, the default answer is already UNKNOWN
                     break;
@@ -11734,6 +11793,146 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDebugSettingsListBehavior (ARCOMMA
 }
 
 
+// Feature drone_manager
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerDiscoverDronesBehavior = behavior;
+        filter->CmdDroneManagerConnectBehavior = behavior;
+        filter->CmdDroneManagerForgetBehavior = behavior;
+        filter->CmdDroneManagerDroneListItemBehavior = behavior;
+        filter->CmdDroneManagerConnectionStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerDiscoverDronesBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerDiscoverDronesBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerConnectBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerConnectBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerForgetBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerForgetBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerDroneListItemBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerDroneListItemBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetDroneManagerConnectionStateBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdDroneManagerConnectionStateBehavior = behavior;
+    }
+
+    return retError;
+}
+
+
 // Feature follow_me
 
 eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetFollowMeBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
@@ -17550,6 +17749,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerBehavior (ARCOMMANDS_
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVersionChangedBehavior = behavior;
         filter->CmdSkyControllerCommonStateAllStatesChangedBehavior = behavior;
         filter->CmdSkyControllerSkyControllerStateBatteryChangedBehavior = behavior;
         filter->CmdSkyControllerSkyControllerStateGpsFixChangedBehavior = behavior;
@@ -17740,6 +17940,7 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateBehavior
         filter->CmdSkyControllerSettingsStateResetChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductSerialChangedBehavior = behavior;
         filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
+        filter->CmdSkyControllerSettingsStateProductVersionChangedBehavior = behavior;
     }
 
     return retError;
@@ -19143,6 +19344,28 @@ eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductV
     if (retError == ARCOMMANDS_FILTER_OK)
     {
         filter->CmdSkyControllerSettingsStateProductVariantChangedBehavior = behavior;
+    }
+
+    return retError;
+}
+
+eARCOMMANDS_FILTER_ERROR ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVersionChangedBehavior (ARCOMMANDS_Filter_t *filter, eARCOMMANDS_FILTER_STATUS behavior)
+{
+    eARCOMMANDS_FILTER_ERROR retError = ARCOMMANDS_FILTER_OK;
+    if (filter == NULL)
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_FILTER;
+    } // No else : Args check
+
+    if ((behavior != ARCOMMANDS_FILTER_STATUS_ALLOWED) &&
+        (behavior != ARCOMMANDS_FILTER_STATUS_BLOCKED))
+    {
+        retError = ARCOMMANDS_FILTER_ERROR_BAD_STATUS;
+    } // No else : Arg check
+
+    if (retError == ARCOMMANDS_FILTER_OK)
+    {
+        filter->CmdSkyControllerSettingsStateProductVersionChangedBehavior = behavior;
     }
 
     return retError;
