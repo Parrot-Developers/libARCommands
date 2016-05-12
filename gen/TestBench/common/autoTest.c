@@ -262,6 +262,11 @@ int debugGetAllSettingsShouldBeCalled = 0;
 int debugSetSettingShouldBeCalled = 0;
 int debugSettingsInfoShouldBeCalled = 0;
 int debugSettingsListShouldBeCalled = 0;
+int drone_managerDiscoverDronesShouldBeCalled = 0;
+int drone_managerConnectShouldBeCalled = 0;
+int drone_managerForgetShouldBeCalled = 0;
+int drone_managerDroneListItemShouldBeCalled = 0;
+int drone_managerConnectionStateShouldBeCalled = 0;
 int unknown_feature_1GeographicRunShouldBeCalled = 0;
 int unknown_feature_1RelativeRunShouldBeCalled = 0;
 int unknown_feature_1LookAtRunShouldBeCalled = 0;
@@ -479,6 +484,7 @@ int SkyControllerSettingsStateAllSettingsChangedShouldBeCalled = 0;
 int SkyControllerSettingsStateResetChangedShouldBeCalled = 0;
 int SkyControllerSettingsStateProductSerialChangedShouldBeCalled = 0;
 int SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
+int SkyControllerSettingsStateProductVersionChangedShouldBeCalled = 0;
 int SkyControllerCommonStateAllStatesChangedShouldBeCalled = 0;
 int SkyControllerSkyControllerStateBatteryChangedShouldBeCalled = 0;
 int SkyControllerSkyControllerStateGpsFixChangedShouldBeCalled = 0;
@@ -4591,6 +4597,159 @@ void ARCOMMANDS_Testbench_DebugSettingsListCb (uint16_t id, char * value, void *
         errcount++ ;
     }
     if (debugSettingsListShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+
+void ARCOMMANDS_Testbench_DroneManagerDiscoverDronesCb (void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command drone_manager.discover_drones --> Custom PTR = %p", custom);
+    if (drone_managerDiscoverDronesShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_DroneManagerConnectCb (char * serial, char * key, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command drone_manager.connect --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "serial value : <%s>", serial);
+    if (strcmp ("Test string with spaces", serial) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "key value : <%s>", key);
+    if (strcmp ("Test string with spaces", key) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (drone_managerConnectShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_DroneManagerForgetCb (char * serial, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command drone_manager.forget --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "serial value : <%s>", serial);
+    if (strcmp ("Test string with spaces", serial) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (drone_managerForgetShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_DroneManagerDroneListItemCb (char * serial, uint16_t model, char * name, uint8_t connection_order, uint8_t active, uint8_t visible, eARCOMMANDS_DRONE_MANAGER_SECURITY security, uint8_t has_saved_key, int8_t rssi, uint8_t list_flags, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command drone_manager.drone_list_item --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "serial value : <%s>", serial);
+    if (strcmp ("Test string with spaces", serial) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "model value : <%u>", model);
+    if (model != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
+    if (strcmp ("Test string with spaces", name) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "connection_order value : <%u>", connection_order);
+    if (connection_order != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "active value : <%u>", active);
+    if (active != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "visible value : <%u>", visible);
+    if (visible != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "security value : <%d>", security);
+    if (security != (eARCOMMANDS_DRONE_MANAGER_SECURITY)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_DRONE_MANAGER_SECURITY)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "has_saved_key value : <%u>", has_saved_key);
+    if (has_saved_key != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "rssi value : <%d>", rssi);
+    if (rssi != -42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <-42>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "list_flags value : <%u>", list_flags);
+    if (list_flags != 42)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <42>");
+        errcount++ ;
+    }
+    if (drone_managerDroneListItemShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
+void ARCOMMANDS_Testbench_DroneManagerConnectionStateCb (eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE state, char * serial, uint16_t model, char * name, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command drone_manager.connection_state --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "state value : <%d>", state);
+    if (state != (eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE)0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <(eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE)0>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "serial value : <%s>", serial);
+    if (strcmp ("Test string with spaces", serial) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "model value : <%u>", model);
+    if (model != 4200)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <4200>");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "name value : <%s>", name);
+    if (strcmp ("Test string with spaces", name) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (drone_managerConnectionStateShouldBeCalled == 0)
     {
         ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
         errcount++ ;
@@ -9054,6 +9213,28 @@ void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb (eAR
     }
 }
 
+void ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVersionChangedCb (char * software, char * hardware, void *custom)
+{
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.SettingsState.ProductVersionChanged --> Custom PTR = %p", custom);
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "software value : <%s>", software);
+    if (strcmp ("Test string with spaces", software) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "hardware value : <%s>", hardware);
+    if (strcmp ("Test string with spaces", hardware) != 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD ARG VALUE !!! --> Expected <%s>", "Test string with spaces");
+        errcount++ ;
+    }
+    if (SkyControllerSettingsStateProductVersionChangedShouldBeCalled == 0)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "BAD CALLBACK !!! --> This callback should not have been called for this command");
+        errcount++ ;
+    }
+}
+
 void ARCOMMANDS_Testbench_SkyControllerCommonStateAllStatesChangedCb (void *custom)
 {
     ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Callback for command SkyController.CommonState.AllStatesChanged --> Custom PTR = %p", custom);
@@ -10015,6 +10196,11 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetDebugSetSettingCallback ((ARCOMMANDS_Decoder_DebugSetSettingCallback_t) ARCOMMANDS_Testbench_DebugSetSettingCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetDebugSettingsInfoCallback ((ARCOMMANDS_Decoder_DebugSettingsInfoCallback_t) ARCOMMANDS_Testbench_DebugSettingsInfoCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetDebugSettingsListCallback ((ARCOMMANDS_Decoder_DebugSettingsListCallback_t) ARCOMMANDS_Testbench_DebugSettingsListCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDroneManagerDiscoverDronesCallback ((ARCOMMANDS_Decoder_DroneManagerDiscoverDronesCallback_t) ARCOMMANDS_Testbench_DroneManagerDiscoverDronesCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDroneManagerConnectCallback ((ARCOMMANDS_Decoder_DroneManagerConnectCallback_t) ARCOMMANDS_Testbench_DroneManagerConnectCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDroneManagerForgetCallback ((ARCOMMANDS_Decoder_DroneManagerForgetCallback_t) ARCOMMANDS_Testbench_DroneManagerForgetCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDroneManagerDroneListItemCallback ((ARCOMMANDS_Decoder_DroneManagerDroneListItemCallback_t) ARCOMMANDS_Testbench_DroneManagerDroneListItemCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetDroneManagerConnectionStateCallback ((ARCOMMANDS_Decoder_DroneManagerConnectionStateCallback_t) ARCOMMANDS_Testbench_DroneManagerConnectionStateCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetUnknownFeature_1GeographicRunCallback ((ARCOMMANDS_Decoder_UnknownFeature_1GeographicRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature_1GeographicRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetUnknownFeature_1RelativeRunCallback ((ARCOMMANDS_Decoder_UnknownFeature_1RelativeRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature_1RelativeRunCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetUnknownFeature_1LookAtRunCallback ((ARCOMMANDS_Decoder_UnknownFeature_1LookAtRunCallback_t) ARCOMMANDS_Testbench_UnknownFeature_1LookAtRunCb, (void *)cbCustom++ );
@@ -10232,6 +10418,7 @@ void ARCOMMANDS_Testbench_InitCb (void)
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateResetChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateResetChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateResetChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductSerialChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductSerialChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductSerialChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVariantChangedCb, (void *)cbCustom++ );
+    ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVersionChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVersionChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSettingsStateProductVersionChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerCommonStateAllStatesChangedCallback ((ARCOMMANDS_Decoder_SkyControllerCommonStateAllStatesChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerCommonStateAllStatesChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateBatteryChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateBatteryChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateBatteryChangedCb, (void *)cbCustom++ );
     ARCOMMANDS_Decoder_SetSkyControllerSkyControllerStateGpsFixChangedCallback ((ARCOMMANDS_Decoder_SkyControllerSkyControllerStateGpsFixChangedCallback_t) ARCOMMANDS_Testbench_SkyControllerSkyControllerStateGpsFixChangedCb, (void *)cbCustom++ );
@@ -17033,6 +17220,163 @@ int ARCOMMANDS_Testbench_AutoTest ()
     }
 
 
+    // Feature drone_manager
+    res = ARCOMMANDS_Generator_GenerateDroneManagerDiscoverDrones (buffer, buffSize, &resSize);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command DroneManager.discover_drones\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command DroneManager.discover_drones succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDroneManagerDiscoverDronesBehavior);
+        drone_managerDiscoverDronesShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        drone_managerDiscoverDronesShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateDroneManagerConnect (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command DroneManager.connect\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command DroneManager.connect succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDroneManagerConnectBehavior);
+        drone_managerConnectShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        drone_managerConnectShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateDroneManagerForget (buffer, buffSize, &resSize, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command DroneManager.forget\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command DroneManager.forget succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDroneManagerForgetBehavior);
+        drone_managerForgetShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        drone_managerForgetShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateDroneManagerDroneListItem (buffer, buffSize, &resSize, "Test string with spaces", 4200, "Test string with spaces", 42, 42, 42, (eARCOMMANDS_DRONE_MANAGER_SECURITY)0, 42, -42, 42);
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command DroneManager.drone_list_item\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command DroneManager.drone_list_item succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDroneManagerDroneListItemBehavior);
+        drone_managerDroneListItemShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        drone_managerDroneListItemShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateDroneManagerConnectionState (buffer, buffSize, &resSize, (eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE)0, "Test string with spaces", 4200, "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command DroneManager.connection_state\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command DroneManager.connection_state succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetDroneManagerConnectionStateBehavior);
+        drone_managerConnectionStateShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        drone_managerConnectionStateShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+
     // Feature unknown_feature_1
     res = ARCOMMANDS_Generator_GenerateUnknownFeature_1GeographicRun (buffer, buffSize, &resSize, 42, 42, 42.125, 42, 42.125, 42, 42.125);
     if (res != ARCOMMANDS_GENERATOR_OK)
@@ -23766,6 +24110,37 @@ int ARCOMMANDS_Testbench_AutoTest ()
         SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 1;
         err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
         SkyControllerSettingsStateProductVariantChangedShouldBeCalled = 0;
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            errcount++ ;
+        }
+    }
+
+    res = ARCOMMANDS_Generator_GenerateSkyControllerSettingsStateProductVersionChanged (buffer, buffSize, &resSize, "Test string with spaces", "Test string with spaces");
+    if (res != ARCOMMANDS_GENERATOR_OK)
+    {
+        ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while generating command SkyController.SettingsState.ProductVersionChanged\n\n");
+        errcount++ ;
+    }
+    else
+    {
+        ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Generating command SkyController.SettingsState.ProductVersionChanged succeded");
+        eARCOMMANDS_DECODER_ERROR err;
+        err = ARCOMMANDS_Decoder_DescribeBuffer (buffer, resSize, describeBuffer, 1024);
+        if (err != ARCOMMANDS_DECODER_OK)
+        {
+            ARSAL_PRINT (ARSAL_PRINT_ERROR, "AutoTest", "Error while describing buffer: %d", err);
+            errcount++ ;
+        }
+        else
+        {
+            ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "%s", describeBuffer);
+        }
+        errcount += ARCOMMANDS_Testbench_FilterTest (buffer, resSize, ARCOMMANDS_Filter_SetSkyControllerSettingsStateProductVersionChangedBehavior);
+        SkyControllerSettingsStateProductVersionChangedShouldBeCalled = 1;
+        err = ARCOMMANDS_Decoder_DecodeBuffer (buffer, resSize);
+        SkyControllerSettingsStateProductVersionChangedShouldBeCalled = 0;
         ARSAL_PRINT (ARSAL_PRINT_WARNING, "AutoTest", "Decode return value : %d\n\n", err);
         if (err != ARCOMMANDS_DECODER_OK)
         {

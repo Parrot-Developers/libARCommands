@@ -1154,6 +1154,33 @@ typedef enum
     ARCOMMANDS_DEBUG_SETTING_MODE_MAX
 } eARCOMMANDS_DEBUG_SETTING_MODE;
 
+// Feature drone_manager
+
+/**
+ * @brief The security of the drone network.
+ */
+typedef enum
+{
+    ARCOMMANDS_DRONE_MANAGER_SECURITY_NONE = 0,    ///< No security.
+    ARCOMMANDS_DRONE_MANAGER_SECURITY_WPA2 = 1,    ///< wpa2 (passphrase) security
+    ARCOMMANDS_DRONE_MANAGER_SECURITY_MAX
+} eARCOMMANDS_DRONE_MANAGER_SECURITY;
+
+
+/**
+ * @brief The state of the connection to a drone.
+ */
+typedef enum
+{
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_IDLE = 0,    ///< The drone manager do nothing.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_SEARCHING = 1,    ///< The drone manager is searching for a drone.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_CONNECTING = 2,    ///< The drone manager is connecting to a drone.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_CONNECTED = 3,    ///< The drone manager is connected to a drone.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_DISCONNECTING = 4,    ///< The drone manager is finishing the connection with the drone before taking further action.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_AUTHENTICATION_FAILED = 5,    ///< The connection failed because of wrong wifi key. Waiting for user interaction.
+    ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_MAX
+} eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE;
+
 // Feature unknown_feature_1
 
 /**

@@ -2451,6 +2451,64 @@ typedef void (*ARCOMMANDS_Decoder_DebugSettingsListCallback_t) (uint16_t id, cha
  */
 void ARCOMMANDS_Decoder_SetDebugSettingsListCallback (ARCOMMANDS_Decoder_DebugSettingsListCallback_t callback, void *custom);
 
+// Feature drone_manager
+
+
+/**
+ * @brief callback type for the command drone_manager.discover_drones
+ */
+typedef void (*ARCOMMANDS_Decoder_DroneManagerDiscoverDronesCallback_t) (void *custom);
+/**
+ * @brief callback setter for the command drone_manager.discover_drones
+ * @param callback new callback for the command drone_manager.discover_drones
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetDroneManagerDiscoverDronesCallback (ARCOMMANDS_Decoder_DroneManagerDiscoverDronesCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command drone_manager.connect
+ */
+typedef void (*ARCOMMANDS_Decoder_DroneManagerConnectCallback_t) (char * serial, char * key, void *custom);
+/**
+ * @brief callback setter for the command drone_manager.connect
+ * @param callback new callback for the command drone_manager.connect
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetDroneManagerConnectCallback (ARCOMMANDS_Decoder_DroneManagerConnectCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command drone_manager.forget
+ */
+typedef void (*ARCOMMANDS_Decoder_DroneManagerForgetCallback_t) (char * serial, void *custom);
+/**
+ * @brief callback setter for the command drone_manager.forget
+ * @param callback new callback for the command drone_manager.forget
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetDroneManagerForgetCallback (ARCOMMANDS_Decoder_DroneManagerForgetCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command drone_manager.drone_list_item
+ */
+typedef void (*ARCOMMANDS_Decoder_DroneManagerDroneListItemCallback_t) (char * serial, uint16_t model, char * name, uint8_t connection_order, uint8_t active, uint8_t visible, eARCOMMANDS_DRONE_MANAGER_SECURITY security, uint8_t has_saved_key, int8_t rssi, uint8_t list_flags, void *custom);
+/**
+ * @brief callback setter for the command drone_manager.drone_list_item
+ * @param callback new callback for the command drone_manager.drone_list_item
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetDroneManagerDroneListItemCallback (ARCOMMANDS_Decoder_DroneManagerDroneListItemCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command drone_manager.connection_state
+ */
+typedef void (*ARCOMMANDS_Decoder_DroneManagerConnectionStateCallback_t) (eARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE state, char * serial, uint16_t model, char * name, void *custom);
+/**
+ * @brief callback setter for the command drone_manager.connection_state
+ * @param callback new callback for the command drone_manager.connection_state
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetDroneManagerConnectionStateCallback (ARCOMMANDS_Decoder_DroneManagerConnectionStateCallback_t callback, void *custom);
+
 // Feature unknown_feature_1
 
 
@@ -4858,6 +4916,17 @@ typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChange
  * @param custom pointer that will be passed to all calls to the callback
  */
 void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVariantChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVariantChangedCallback_t callback, void *custom);
+
+/**
+ * @brief callback type for the command SkyController.SettingsState.ProductVersionChanged
+ */
+typedef void (*ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVersionChangedCallback_t) (char * software, char * hardware, void *custom);
+/**
+ * @brief callback setter for the command SkyController.SettingsState.ProductVersionChanged
+ * @param callback new callback for the command SkyController.SettingsState.ProductVersionChanged
+ * @param custom pointer that will be passed to all calls to the callback
+ */
+void ARCOMMANDS_Decoder_SetSkyControllerSettingsStateProductVersionChangedCallback (ARCOMMANDS_Decoder_SkyControllerSettingsStateProductVersionChangedCallback_t callback, void *custom);
 
 /**
  * @brief callback type for the command SkyController.CommonState.AllStatesChanged

@@ -6516,6 +6516,149 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>DiscoverDrones</code> in feature <code>DroneManager</code><br>
+     * <br>
+     * Feature DroneManager description:<br>
+     * Commands related to the drone_manager feature<br>
+     * <br>
+     * Command DiscoverDrones description:<br>
+     * Request the drone list.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDroneManagerDiscoverDrones () {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetDroneManagerDiscoverDrones (pointer, capacity);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Connect</code> in feature <code>DroneManager</code><br>
+     * <br>
+     * Feature DroneManager description:<br>
+     * Commands related to the drone_manager feature<br>
+     * <br>
+     * Command Connect description:<br>
+     * Request connection to a specific drone. Override the auto-selected drone.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _serial Serial number of the drone.
+     * @param _key Security key to use. Ignored if drone security is none.\nIf the drone manager has a saved key for the drone, pass an empty string to use it
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDroneManagerConnect (String _serial, String _key) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetDroneManagerConnect (pointer, capacity, _serial, _key);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>Forget</code> in feature <code>DroneManager</code><br>
+     * <br>
+     * Feature DroneManager description:<br>
+     * Commands related to the drone_manager feature<br>
+     * <br>
+     * Command Forget description:<br>
+     * Forget the given drone. If the drone is the selected one, the auto-selection will run again.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _serial Serial number to forget.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDroneManagerForget (String _serial) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetDroneManagerForget (pointer, capacity, _serial);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>DroneListItem</code> in feature <code>DroneManager</code><br>
+     * <br>
+     * Feature DroneManager description:<br>
+     * Commands related to the drone_manager feature<br>
+     * <br>
+     * Command DroneListItem description:<br>
+     * Drone list element.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _serial Serial number of the drone.
+     * @param _model Model of the drone.
+     * @param _name Name (SSID) of the drone.
+     * @param _connection_order 0 if the drone is unknwon (never connected).\nElse, order of last connection (1 = most recent)
+     * @param _active 1 if the drone is active (the drone manager tries to connect or is connected to it)\n0 if the drone is not the active one.
+     * @param _visible 1 if the drone is currently visible, 0 otherwise.
+     * @param _security The security of the drone network.
+     * @param _has_saved_key 1 if the drone manager has a saved security key for the drone, 0 otherwise.\nIf security is not none, and this value is 0, then the controller should prompt the user for a passphrase when sending a connect.
+     * @param _rssi The drone rssi. The value is meaningless if the drone is not visible.
+     * @param _list_flags Flags use by maps and lists
+     * @param _list_flags a combination of ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_FIRST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_LAST ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_EMPTY ; ARCOMMANDS_FLAG_GENERIC_LIST_FLAGS_REMOVE
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDroneManagerDroneListItem (String _serial, short _model, String _name, byte _connection_order, byte _active, byte _visible, ARCOMMANDS_DRONE_MANAGER_SECURITY_ENUM _security, byte _has_saved_key, byte _rssi, byte _list_flags) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetDroneManagerDroneListItem (pointer, capacity, _serial, _model, _name, _connection_order, _active, _visible, _security.getValue(), _has_saved_key, _rssi, _list_flags);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
+     * Set an ARCommand to hold the command <code>ConnectionState</code> in feature <code>DroneManager</code><br>
+     * <br>
+     * Feature DroneManager description:<br>
+     * Commands related to the drone_manager feature<br>
+     * <br>
+     * Command ConnectionState description:<br>
+     * State of the connection.<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _state The state of the connection to a drone.
+     * @param _serial Serial number of the drone.
+     * @param _model Model of the drone.
+     * @param _name Name (SSID) of the drone.
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setDroneManagerConnectionState (ARCOMMANDS_DRONE_MANAGER_CONNECTION_STATE_ENUM _state, String _serial, short _model, String _name) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetDroneManagerConnectionState (pointer, capacity, _state.getValue(), _serial, _model, _name);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>GeographicRun</code> in feature <code>UnknownFeature_1</code><br>
      * <br>
      * Feature UnknownFeature_1 description:<br>
@@ -12906,6 +13049,36 @@ public class ARCommand extends ARNativeData {
     }
 
     /**
+     * Set an ARCommand to hold the command <code>SettingsStateProductVersionChanged</code> in feature <code>SkyController</code><br>
+     * <br>
+     * Feature SkyController description:<br>
+     * All SkyController-only commands<br>
+     * <br>
+     * Class SettingsState description:<br>
+     * Settings state from product<br>
+     * <br>
+     * Command ProductVersionChanged description:<br>
+     * Product versions<br>
+     * <br>
+     * This function reuses the current ARCommand, replacing its content with a
+     * new command created from the current params
+     * @param _software Product software version
+     * @param _hardware Product hardware version
+     * @return An ARCOMMANDS_GENERATOR_ERROR_ENUM error code.
+     */
+    public ARCOMMANDS_GENERATOR_ERROR_ENUM setSkyControllerSettingsStateProductVersionChanged (String _software, String _hardware) {
+        ARCOMMANDS_GENERATOR_ERROR_ENUM err = ARCOMMANDS_GENERATOR_ERROR_ENUM.ARCOMMANDS_GENERATOR_ERROR;
+        if (!valid) {
+            return err;
+        }
+        int errInt = nativeSetSkyControllerSettingsStateProductVersionChanged (pointer, capacity, _software, _hardware);
+        if (ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt) != null) {
+            err = ARCOMMANDS_GENERATOR_ERROR_ENUM.getFromValue (errInt);
+        }
+        return err;
+    }
+
+    /**
      * Set an ARCommand to hold the command <code>CommonStateAllStatesChanged</code> in feature <code>SkyController</code><br>
      * <br>
      * Feature SkyController description:<br>
@@ -16367,6 +16540,62 @@ public class ARCommand extends ARNativeData {
     }
 
 
+    private static ARCommandDroneManagerDiscoverDronesListener _ARCommandDroneManagerDiscoverDronesListener = null;
+
+    /**
+     * Set the listener for the command <code>DiscoverDrones</code> in feature <code>DroneManager</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandDroneManagerDiscoverDronesListener_PARAM New listener for the command
+     */
+    public static void setDroneManagerDiscoverDronesListener (ARCommandDroneManagerDiscoverDronesListener _ARCommandDroneManagerDiscoverDronesListener_PARAM) {
+        _ARCommandDroneManagerDiscoverDronesListener = _ARCommandDroneManagerDiscoverDronesListener_PARAM;
+    }
+
+    private static ARCommandDroneManagerConnectListener _ARCommandDroneManagerConnectListener = null;
+
+    /**
+     * Set the listener for the command <code>Connect</code> in feature <code>DroneManager</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandDroneManagerConnectListener_PARAM New listener for the command
+     */
+    public static void setDroneManagerConnectListener (ARCommandDroneManagerConnectListener _ARCommandDroneManagerConnectListener_PARAM) {
+        _ARCommandDroneManagerConnectListener = _ARCommandDroneManagerConnectListener_PARAM;
+    }
+
+    private static ARCommandDroneManagerForgetListener _ARCommandDroneManagerForgetListener = null;
+
+    /**
+     * Set the listener for the command <code>Forget</code> in feature <code>DroneManager</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandDroneManagerForgetListener_PARAM New listener for the command
+     */
+    public static void setDroneManagerForgetListener (ARCommandDroneManagerForgetListener _ARCommandDroneManagerForgetListener_PARAM) {
+        _ARCommandDroneManagerForgetListener = _ARCommandDroneManagerForgetListener_PARAM;
+    }
+
+    private static ARCommandDroneManagerDroneListItemListener _ARCommandDroneManagerDroneListItemListener = null;
+
+    /**
+     * Set the listener for the command <code>DroneListItem</code> in feature <code>DroneManager</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandDroneManagerDroneListItemListener_PARAM New listener for the command
+     */
+    public static void setDroneManagerDroneListItemListener (ARCommandDroneManagerDroneListItemListener _ARCommandDroneManagerDroneListItemListener_PARAM) {
+        _ARCommandDroneManagerDroneListItemListener = _ARCommandDroneManagerDroneListItemListener_PARAM;
+    }
+
+    private static ARCommandDroneManagerConnectionStateListener _ARCommandDroneManagerConnectionStateListener = null;
+
+    /**
+     * Set the listener for the command <code>ConnectionState</code> in feature <code>DroneManager</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandDroneManagerConnectionStateListener_PARAM New listener for the command
+     */
+    public static void setDroneManagerConnectionStateListener (ARCommandDroneManagerConnectionStateListener _ARCommandDroneManagerConnectionStateListener_PARAM) {
+        _ARCommandDroneManagerConnectionStateListener = _ARCommandDroneManagerConnectionStateListener_PARAM;
+    }
+
+
     private static ARCommandUnknownFeature_1GeographicRunListener _ARCommandUnknownFeature_1GeographicRunListener = null;
 
     /**
@@ -18760,6 +18989,17 @@ public class ARCommand extends ARNativeData {
         _ARCommandSkyControllerSettingsStateProductVariantChangedListener = _ARCommandSkyControllerSettingsStateProductVariantChangedListener_PARAM;
     }
 
+    private static ARCommandSkyControllerSettingsStateProductVersionChangedListener _ARCommandSkyControllerSettingsStateProductVersionChangedListener = null;
+
+    /**
+     * Set the listener for the command <code>SettingsStateProductVersionChanged</code> in feature <code>SkyController</code><br>
+     * Listeners are static to the class, and are not to be set on every object
+     * @param _ARCommandSkyControllerSettingsStateProductVersionChangedListener_PARAM New listener for the command
+     */
+    public static void setSkyControllerSettingsStateProductVersionChangedListener (ARCommandSkyControllerSettingsStateProductVersionChangedListener _ARCommandSkyControllerSettingsStateProductVersionChangedListener_PARAM) {
+        _ARCommandSkyControllerSettingsStateProductVersionChangedListener = _ARCommandSkyControllerSettingsStateProductVersionChangedListener_PARAM;
+    }
+
     private static ARCommandSkyControllerCommonStateAllStatesChangedListener _ARCommandSkyControllerCommonStateAllStatesChangedListener = null;
 
     /**
@@ -19619,6 +19859,17 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetDebugSettingsList (long pdata, int dataTotalLength, short id, String value);
 
 
+    private native int     nativeSetDroneManagerDiscoverDrones (long pdata, int dataTotalLength);
+
+    private native int     nativeSetDroneManagerConnect (long pdata, int dataTotalLength, String serial, String key);
+
+    private native int     nativeSetDroneManagerForget (long pdata, int dataTotalLength, String serial);
+
+    private native int     nativeSetDroneManagerDroneListItem (long pdata, int dataTotalLength, String serial, short model, String name, byte connection_order, byte active, byte visible, int security, byte has_saved_key, byte rssi, byte list_flags);
+
+    private native int     nativeSetDroneManagerConnectionState (long pdata, int dataTotalLength, int state, String serial, short model, String name);
+
+
     private native int     nativeSetUnknownFeature_1GeographicRun (long pdata, int dataTotalLength, byte start, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
 
     private native int     nativeSetUnknownFeature_1RelativeRun (long pdata, int dataTotalLength, byte start, byte distance_is_default, float distance, byte elevation_is_default, float elevation, byte azimuth_is_default, float azimuth);
@@ -20058,6 +20309,8 @@ public class ARCommand extends ARNativeData {
     private native int     nativeSetSkyControllerSettingsStateProductSerialChanged (long pdata, int dataTotalLength, String serialNumber);
 
     private native int     nativeSetSkyControllerSettingsStateProductVariantChanged (long pdata, int dataTotalLength, int variant);
+
+    private native int     nativeSetSkyControllerSettingsStateProductVersionChanged (long pdata, int dataTotalLength, String software, String hardware);
 
     private native int     nativeSetSkyControllerCommonStateAllStatesChanged (long pdata, int dataTotalLength);
 
