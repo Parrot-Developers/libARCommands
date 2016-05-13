@@ -65,7 +65,15 @@ public enum ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_ENUM {
     ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_SLALOM (11, "Slalom animation."),
     /** Boost animation. */
     ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_BOOST (12, "Boost animation."),
-    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_MAX (13);
+    /** Make a looping. (Only for UnknownProduct_3) */
+    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_LOOPING (13, "Make a looping. (Only for UnknownProduct_3)"),
+    /** Make a barrel roll of 180 degree turning on right. (Only for UnknownProduct_3) */
+    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_BARREL_ROLL_180_RIGHT (14, "Make a barrel roll of 180 degree turning on right. (Only for UnknownProduct_3)"),
+    /** Make a barrel roll of 180 degree turning on left. (Only for UnknownProduct_3) */
+    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_BARREL_ROLL_180_LEFT (15, "Make a barrel roll of 180 degree turning on left. (Only for UnknownProduct_3)"),
+    /** Put the drone upside down. (Only for UnknownProduct_3) */
+    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_BACKSWAP (16, "Put the drone upside down. (Only for UnknownProduct_3)"),
+    ARCOMMANDS_COMMON_ANIMATIONSSTATE_LIST_ANIM_MAX (17);
 
 
     private final int value;
