@@ -170,14 +170,18 @@ class Paths:
         self.GENERATED_FILES.append (self.TB_HFILE)
         self.TB_LIN_CFILE=self.LIN_TB_DIR + TB_LIN_CFILE_NAME
         self.GENERATED_FILES.append (self.TB_LIN_CFILE)
+        # Create array of generated JNI files (so we can cleanup only our files)
+        self.GENERATED_JNI_FILES = []
         self.JNI_CFILE=self.JNIC_DIR + JNI_CFILE_NAME
-        self.GENERATED_FILES.append (self.JNI_CFILE)
+        self.GENERATED_JNI_FILES.append (self.JNI_CFILE)
         self.JNI_FILTER_CFILE=self.JNIC_DIR + JNI_FILTER_CFILE_NAME
-        self.GENERATED_FILES.append (self.JNI_FILTER_CFILE)
+        self.GENERATED_JNI_FILES.append (self.JNI_FILTER_CFILE)
+        # Create array of generated JAVA files (so we can cleanup only our files)
+        self.GENERATED_JAVA_FILES = []
         self.JNI_JFILE=self.JNIJ_OUT_DIR + JNI_JFILE_NAME
-        self.GENERATED_FILES.append (self.JNI_JFILE)
+        self.GENERATED_JAVA_FILES.append (self.JNI_JFILE)
         self.JNI_FILTER_JFILE=self.JNIJ_OUT_DIR + JNI_FILTER_JFILE_NAME
-        self.GENERATED_FILES.append (self.JNI_FILTER_JFILE)
+        self.GENERATED_JAVA_FILES.append (self.JNI_FILTER_JFILE)
         self.JAVA_INTERFACES_FILES=self.JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
         self.JAVA_ENUM_FILES=self.JNIJ_OUT_DIR + JAVA_ENUM_FILES_NAME
 
@@ -466,10 +470,21 @@ LICENCE_HEADER='''/*
 */
 '''
 
+DEC_ERR_ENAME='ERROR'
+GEN_ERR_ENAME='ERROR'
+FIL_STATUS_ENAME='STATUS'
+FIL_ERROR_ENAME='ERROR'
+
 def interfaceName (ftr, cmd):
     return JNIClassName + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener'
 
-def generateCmds(ctx, paths):
+def interfaceVar (ftr, cmd):
+    return '_' + interfaceName (ftr, cmd)
+
+def javaCbName (ftr, cmd):
+    return 'on' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Update'
+
+def native_generateCmds(ctx, paths):
     genDebug = True
     genTreeFilename = None
     projects = [DEFAULTPROJECTNAME]
@@ -480,18 +495,6 @@ def generateCmds(ctx, paths):
         os.makedirs (paths.INC_DIR)
     if not os.path.exists (paths.INC_DIR + LIB_NAME):
         os.makedirs (paths.INC_DIR + LIB_NAME)
-    if not os.path.exists (paths.TB__DIR):
-        os.makedirs (paths.TB__DIR)
-    if not os.path.exists (paths.LIN_TB_DIR):
-        os.makedirs (paths.LIN_TB_DIR)
-    if not os.path.exists (paths.COM_TB_DIR):
-        os.makedirs (paths.COM_TB_DIR)
-    if not os.path.exists (paths.JNI_DIR):
-        os.makedirs (paths.JNI_DIR)
-    if not os.path.exists (paths.JNIC_DIR):
-        os.makedirs (paths.JNIC_DIR)
-    if not os.path.exists (paths.JNIJ_OUT_DIR):
-        os.makedirs (paths.JNIJ_OUT_DIR)
 
     #################################
     # 1ST PART :                    #
@@ -1519,7 +1522,6 @@ def generateCmds(ctx, paths):
     hfile.write ('/**\n')
     hfile.write (' * @brief Error codes for ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'GenerateCommand') + ' functions\n')
     hfile.write (' */\n')
-    GEN_ERR_ENAME='ERROR'
     hfile.write ('typedef enum {\n')
     hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
     hfile.write ('    ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ', ///< At least one of the arguments is invalid\n')
@@ -1709,7 +1711,6 @@ def generateCmds(ctx, paths):
     hfile.write ('/**\n')
     hfile.write (' * @brief Error codes for ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' function\n')
     hfile.write (' */\n')
-    DEC_ERR_ENAME='ERROR'
     hfile.write ('typedef enum {\n')
     hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' = 0, ///< No error occured\n')
     hfile.write ('    ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NO_CALLBACK') + ', ///< No error, but no callback was set (so the call had no effect)\n')
@@ -2191,9 +2192,6 @@ def generateCmds(ctx, paths):
     # Generate filter h file        #
     #################################
 
-    FIL_STATUS_ENAME='STATUS'
-    FIL_ERROR_ENAME='ERROR'
-
     hfile = open (paths.COMMANDSFIL_HFILE, 'w')
 
     hfile.write (LICENCE_HEADER)
@@ -2613,6 +2611,34 @@ def generateCmds(ctx, paths):
 
     cfile.close ()
 
+def tb_generateCmds(ctx, paths):
+    genDebug = True
+    genTreeFilename = None
+    projects = [DEFAULTPROJECTNAME]
+
+    if not os.path.exists (paths.TB__DIR):
+        os.makedirs (paths.TB__DIR)
+    if not os.path.exists (paths.LIN_TB_DIR):
+        os.makedirs (paths.LIN_TB_DIR)
+    if not os.path.exists (paths.COM_TB_DIR):
+        os.makedirs (paths.COM_TB_DIR)
+
+    allFeatures = ctx.features
+
+    # Check types used
+    for ftr in allFeatures:
+        for msg in ftr.getMsgs():
+            for arg in msg.args:
+                if isinstance(arg.argType, ArEnum):
+                    hasArgOfType[ArArgType.ENUM] = True
+                elif isinstance(arg.argType, ArBitfield):
+                    hasArgOfType[ArArgType.BITFIELD] = True
+                    hasArgOfType[arg.argType.btfType] = True
+                else:
+                    hasArgOfType[arg.argType] = True
+
+    cfile = open (paths.JNI_CFILE, 'w')
+
     #################################
     # 11TH PART :                   #
     #################################
@@ -2886,16 +2912,35 @@ def generateCmds(ctx, paths):
 
     cfile.close ()
 
+def java_generateCmds(ctx, paths):
+    genDebug = True
+    genTreeFilename = None
+    projects = [DEFAULTPROJECTNAME]
+
+    if not os.path.exists (paths.JNI_DIR):
+        os.makedirs (paths.JNI_DIR)
+    if not os.path.exists (paths.JNIJ_OUT_DIR):
+        os.makedirs (paths.JNIJ_OUT_DIR)
+
+    allFeatures = ctx.features
+
+    # Check types used
+    for ftr in allFeatures:
+        for msg in ftr.getMsgs():
+            for arg in msg.args:
+                if isinstance(arg.argType, ArEnum):
+                    hasArgOfType[ArArgType.ENUM] = True
+                elif isinstance(arg.argType, ArBitfield):
+                    hasArgOfType[ArArgType.BITFIELD] = True
+                    hasArgOfType[arg.argType.btfType] = True
+                else:
+                    hasArgOfType[arg.argType] = True
+
     #################################
     # 12TH PART :                   #
     #################################
     # Generate JNI C/Java code      #
     #################################
-
-    def interfaceVar (ftr, cmd):
-        return '_' + interfaceName (ftr, cmd)
-    def javaCbName (ftr, cmd):
-        return 'on' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Update'
 
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
@@ -3414,6 +3459,164 @@ def generateCmds(ctx, paths):
             jfile.write('}\n')
             jfile.close()
 
+    # Generate java enums
+
+    #enumDecErr = ArEnum(DEC_SUBMODULE+'_'+DEC_ERR_ENAME, 'Error codes for ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' function')
+    enumDecErr = ArEnum(DEC_ERR_ENAME, 'Error codes for ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' function')
+    enumDecErr.values.append(ArEnumValue('OK', 0, 'No error occured'))
+    enumDecErr.values.append(ArEnumValue('NO_CALLBACK', 1, 'No error, but no callback was set (so the call had no effect)'))
+    enumDecErr.values.append(ArEnumValue('UNKNOWN_COMMAND', 2, 'The command buffer contained an unknown command'))
+    enumDecErr.values.append(ArEnumValue('NOT_ENOUGH_DATA', 3, 'The command buffer did not contain enough data for the specified command'))
+    enumDecErr.values.append(ArEnumValue('NOT_ENOUGH_SPACE', 4, 'The string buffer was not big enough for the command description'))
+    enumDecErr.values.append(ArEnumValue('ERROR', 5, 'Any other error'))
+
+    #enumFilterErr = ArEnum(FIL_SUBMODULE+'_'+FIL_ERROR_ENAME, 'Error code for ARCOMMANDS_Filter functions.')
+    enumFilterErr = ArEnum(FIL_ERROR_ENAME, 'Error code for ARCOMMANDS_Filter functions.')
+    enumFilterErr.values.append(ArEnumValue('OK', 0,'No error.'))
+    enumFilterErr.values.append(ArEnumValue('ALLOC', 1,'Memory allocation error.'))
+    enumFilterErr.values.append(ArEnumValue('BAD_STATUS', 2,'The given status is not a valid status.'))
+    enumFilterErr.values.append(ArEnumValue('BAD_FILTER', 3,'The given filter is not a valid filter.'))
+    enumFilterErr.values.append(ArEnumValue('BAD_BUFFER', 4,'The given buffer is not a valid buffer.'))
+    enumFilterErr.values.append(ArEnumValue('OTHER', 5,'Any other error.'))
+    
+    #enumFilterStatus = ArEnum(FIL_SUBMODULE+'_'+FIL_STATUS_ENAME,'Status code for ' + ARFunctionName (LIB_MODULE, FIL_SUBMODULE, 'FilterCommand') + ' function')
+    enumFilterStatus = ArEnum(FIL_STATUS_ENAME,'Status code for ' + ARFunctionName (LIB_MODULE, FIL_SUBMODULE, 'FilterCommand') + ' function')
+    enumFilterStatus.values.append(ArEnumValue('ALLOWED', 0,'The command should pass the filter'))
+    enumFilterStatus.values.append(ArEnumValue('BLOCKED', 1,'The command should not pass the filter'))
+    enumFilterStatus.values.append(ArEnumValue('UNKNOWN', 2,'Unknown command. The command was possibly added in a newer version of libARCommands, or is an invalid command.'))
+    enumFilterStatus.values.append(ArEnumValue('ERROR', 3, 'The filtering of the command failed.'))
+
+    #enumGenErr = ArEnum(GEN_SUBMODULE+'_'+GEN_ERR_ENAME,'Error codes for ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'GenerateCommand') + ' functions')
+    enumGenErr = ArEnum(GEN_ERR_ENAME,'Error codes for ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'GenerateCommand') + ' functions')
+    enumGenErr.values.append(ArEnumValue( 'OK', 0,'No error occured'))
+    enumGenErr.values.append(ArEnumValue('BAD_ARGS', 1, 'At least one of the arguments is invalid'))
+    enumGenErr.values.append(ArEnumValue('NOT_ENOUGH_SPACE', 2, 'The given output buffer was not large enough for the command'))
+    enumGenErr.values.append(ArEnumValue('ERROR', 3, 'Any other error'))
+
+    enums = [enumDecErr, enumFilterErr, enumFilterStatus, enumGenErr]
+    subModules = [DEC_SUBMODULE, FIL_SUBMODULE, FIL_SUBMODULE, GEN_SUBMODULE]
+
+    for enum in enums:
+        submodule = subModules[enums.index(enum)]
+        #CLASS_NAME =  LIB_MODULE.upper () +  submodule.upper() + '_' + enum.name.upper () + '_ENUM'
+        CLASS_NAME = ARJavaEnumType (LIB_MODULE, submodule, enum.name)
+        JFILE_NAME =  paths.JNIJ_OUT_DIR + CLASS_NAME + '.java'
+        UNKNOWN_VALUE = 'e'+ARJavaEnumValDef(LIB_MODULE, submodule, enum.name, 'UNKNOWN_ENUM_VALUE', True)
+
+        jfile = open(JFILE_NAME, 'w')
+
+        jfile.write(LICENCE_HEADER)
+        jfile.write('\n')
+        jfile.write('package ' + JNI_PACKAGE_NAME + ';\n')
+        jfile.write('\n')
+        jfile.write('import java.util.HashMap;\n')
+        jfile.write('\n')
+        jfile.write('/**\n')
+        jfile.write(' * Java copy of the ' + AREnumName (LIB_MODULE, submodule, enum.name) + ' enum\n')
+        jfile.write(' */\n')
+        jfile.write('public enum ' + CLASS_NAME + ' {\n')
+        jfile.write('    /** Dummy value for all unknown cases */\n')
+        jfile.write('    ' + UNKNOWN_VALUE + ' (Integer.MIN_VALUE, "Dummy value for all unknown cases"),\n')
+
+        previousVal = -1
+        for eVal in enum.values:
+            val = eVal.value if eVal.value is not None else previousVal +1
+            previousVal = int(val)
+
+            jfile.write('    ')
+            if eVal.doc:
+                jfile.write('/** '+eVal.doc.replace('\n', ' ')+' */\n    ')
+            if eVal.doc:
+                jfile.write(ARJavaEnumValDef(LIB_MODULE, submodule, enum.name, eVal.name, True)+ ' (' + str(val)+ ', "'+eVal.doc.replace('\n', ' ')+'")')
+            else:
+                jfile.write(ARJavaEnumValDef(LIB_MODULE, submodule, enum.name, eVal.name, True) + ' (' + str(val) + ')')
+
+            #If it is the last value of the enum.
+            if eVal ==  enum.values[-1]:
+                jfile.write(';\n')
+            else:
+                jfile.write(',\n')
+
+        jfile.write('\n')
+        jfile.write('    private final int value;\n')
+        jfile.write('    private final String comment;\n');
+        jfile.write('    static HashMap<Integer, ' + CLASS_NAME + '> valuesList;\n')
+        jfile.write('\n')
+        jfile.write('    ' + CLASS_NAME + ' (int value) {\n')
+        jfile.write('        this.value = value;\n')
+        jfile.write('        this.comment = null;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    ' + CLASS_NAME + ' (int value, String comment) {\n')
+        jfile.write('        this.value = value;\n')
+        jfile.write('        this.comment = comment;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Gets the int value of the enum\n')
+        jfile.write('     * @return int value of the enum\n')
+        jfile.write('     */\n')
+        jfile.write('    public int getValue () {\n')
+        jfile.write('        return value;\n')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Gets the ' + CLASS_NAME + ' instance from a C enum value\n')
+        jfile.write('     * @param value C value of the enum\n')
+        jfile.write('     * @return The ' + CLASS_NAME + ' instance, or null if the C enum value was not valid\n')
+        jfile.write('     */\n')
+        jfile.write('    public static ' + CLASS_NAME + ' getFromValue (int value) {\n')
+        jfile.write('        if (null == valuesList) {\n')
+        jfile.write('            ' + CLASS_NAME + ' [] valuesArray = ' + CLASS_NAME + '.values ();\n')
+        jfile.write('            valuesList = new HashMap<Integer, ' + CLASS_NAME + '> (valuesArray.length);\n')
+        jfile.write('            for (' + CLASS_NAME + ' entry : valuesArray) {\n')
+        jfile.write('                valuesList.put (entry.getValue (), entry);\n')
+        jfile.write('            }\n')
+        jfile.write('        }\n')
+        jfile.write('        ' + CLASS_NAME + ' retVal = valuesList.get (value);\n')
+        jfile.write('        if (retVal == null) {\n')
+        jfile.write('            retVal = ' + UNKNOWN_VALUE + ';\n')
+        jfile.write('        }\n')
+        jfile.write('        return retVal;')
+        jfile.write('    }\n')
+        jfile.write('\n')
+        jfile.write('    /**\n')
+        jfile.write('     * Returns the enum comment as a description string\n')
+        jfile.write('     * @return The enum description\n')
+        jfile.write('     */\n')
+        jfile.write('    public String toString () {\n')
+        jfile.write('        if (this.comment != null) {\n')
+        jfile.write('            return this.comment;\n')
+        jfile.write('        }\n')
+        jfile.write('        return super.toString ();\n')
+        jfile.write('    }\n')
+        jfile.write('}\n')
+        jfile.close()
+
+def jni_generateCmds(ctx, paths):
+    genDebug = True
+    genTreeFilename = None
+    projects = [DEFAULTPROJECTNAME]
+
+    if not os.path.exists (paths.JNI_DIR):
+        os.makedirs (paths.JNI_DIR)
+    if not os.path.exists (paths.JNIC_DIR):
+        os.makedirs (paths.JNIC_DIR)
+
+    allFeatures = ctx.features
+
+    # Check types used
+    for ftr in allFeatures:
+        for msg in ftr.getMsgs():
+            for arg in msg.args:
+                if isinstance(arg.argType, ArEnum):
+                    hasArgOfType[ArArgType.ENUM] = True
+                elif isinstance(arg.argType, ArBitfield):
+                    hasArgOfType[ArArgType.BITFIELD] = True
+                    hasArgOfType[arg.argType.btfType] = True
+                else:
+                    hasArgOfType[arg.argType] = True
+
     cfile = open (paths.JNI_CFILE, 'w')
 
     JNI_FUNC_PREFIX='Java_' + JNI_PACKAGE_NAME.replace ('.', '_') + '_'
@@ -3910,12 +4113,14 @@ def generateCmds(ctx, paths):
 
 #===============================================================================
 #===============================================================================
-def list_files(ctx, outdir, extra):
-    paths = Paths(outdir)
-
+def native_list_files(ctx, outdir, paths):
     # print c generated files
     for f in paths.GENERATED_FILES:
         print os.path.join(outdir, f)
+
+#===============================================================================
+#===============================================================================
+def android_list_files(ctx, paths):
 
     # print java enum class files
     for ftr in ctx.features:
@@ -3927,21 +4132,50 @@ def list_files(ctx, outdir, extra):
         for cmd in ftr.cmds + ftr.evts:
             print paths.JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
 
-    # print java enum files generated from enums C
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, 'ERROR') + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'ERROR') + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, 'STATUS') + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, 'ERROR') + '.java'
+    # print java generated files
+    for f in paths.GENERATED_JAVA_FILES:
+        print os.path.join(outdir, f)
 
+    # print java enum files generated from enums C
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + '.java'
+    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + '.java'
+
+#===============================================================================
+#===============================================================================
+def jni_list_files(ctx, paths):
+    # print c generated files
+    for f in paths.GENERATED_JNI_FILES:
+        print os.path.join(outdir, f)
+
+#===============================================================================
+#===============================================================================
+def list_files(ctx, outdir, extra):
+    paths = Paths(outdir)
+
+    if extra == "native":
+        native_list_files(ctx, outdir, paths)
+    elif extra == "android":
+        android_list_files(ctx, paths)
+    elif extra == "jni":
+        jni_list_files(ctx, paths)
 #===============================================================================
 #===============================================================================
 def generate_files(ctx, outdir, extra):
     paths = Paths(outdir)
 
-    # Generation
-    generateCmds(ctx, paths)
-    PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
-    os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR+' --outdir '+outdir)
+    if extra == "native":
+        # Generation
+        native_generateCmds(ctx, paths)
+        PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
+        os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR+' --outdir '+outdir + ' --disable-java')
+    elif extra == "java":
+        # Generation
+        java_generateCmds(ctx, paths)
+    elif extra == "jni":
+        # Generation
+        jni_generateCmds(ctx, paths)
 
 #===============================================================================
 #===============================================================================
