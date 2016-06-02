@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 GEN_OUT = $(NDK_OUT)/libarcommand-jni-gen/
 
 LOCAL_CFLAGS := -g
-LOCAL_SHARED_LIBRARIES := libARCommands-prebuilt
+LOCAL_SHARED_LIBRARIES := libARCommands
 LOCAL_MODULE := libarcommands_android
 
 LOCAL_GEN_FILES := \
