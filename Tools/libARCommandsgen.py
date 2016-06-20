@@ -3890,226 +3890,243 @@ def jni_generateCmds(ctx, paths):
         cfile.write ('\n')
     cfile.write ('/* END OF GENERAED CODE */\n')
 
-    ##################################
-    # 13TH PART :                    #
-    ##################################
-    # Dump command tree as C structs #
-    ##################################
 
-    def dump_enum_table(ftr, cl, cmd, arg):
-        table = 'static struct arsdk_enum %s_%s_%s_%s_enum_tab[] = {\n' % (get_ftr_old_name(ftr), cl.name, cmd.name, arg.name)
-        value = 0
-        for enum in arg.enums:
-            comment = enum.doc.replace('\n', '\\n')
-            table += '  {\n'
-            table += '    .name = "%s",\n' % enum.name
-            table += '    .value = %s,\n' % AREnumValue(LIB_MODULE,
-                                                        get_ftr_old_name(ftr).upper() + '_' +
-                                                        cl.name.upper(),
-                                                        cmd.name.upper() + '_' +
-                                                        arg.name.upper(), enum.name)
-            table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
-            table += '  },\n'
-            value += 1
-        table = table + '};\n'
-        return table if len(arg.enums) > 0 else ''
 
-    def dump_arg_table(ftr, cl, cmd):
-        table = 'static struct arsdk_arg %s_%s_%s_arg_tab[] = {\n' % (get_ftr_old_name(ftr),
-                                                                      cl.name,
-                                                                      cmd.name)
-        for arg in cmd.args:
-            comment = get_arg_doc(arg).doc.replace('\n', '\\n')
-            if len(arg.enums) > 0:
-                enums = '%s_%s_%s_%s_enum_tab' % (get_ftr_old_name(ftr),
-                                                  cl.name,
-                                                  cmd.name,
-                                                  arg.name)
-                nenums = 'ARRAY_SIZE(%s)' % enums
-            else:
-                enums = 'NULL'
-                nenums = '0'
-            table += '  {\n'
-            table += '    .name = "%s",\n' % arg.name
-            table += '    .type = ARSDK_ARG_TYPE_%s,\n' % arg.argType.upper()
-            table += '    .enums = %s,\n' % enums
-            table += '    .nenums = %s,\n' % nenums
-            table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
-            table += '  },\n'
-        table = table + '};\n'
-        return table if len(cmd.args) > 0 else ''
+# Functions for tree file generation
+# (Wireshark Plugin)
+def dump_enum_table(ftr, cl, cmd, arg):
+    table = 'static struct arsdk_enum %s_%s_%s_%s_enum_tab[] = {\n' % (get_ftr_old_name(ftr), cl.name, cmd.name, arg.name)
+    value = 0
+    for enum in arg.enums:
+        comment = enum.doc.replace('\n', '\\n')
+        table += '  {\n'
+        table += '    .name = "%s",\n' % enum.name
+        table += '    .value = %s,\n' % AREnumValue(LIB_MODULE,
+                                                    get_ftr_old_name(ftr).upper() + '_' +
+                                                    cl.name.upper(),
+                                                    cmd.name.upper() + '_' +
+                                                    arg.name.upper(), enum.name)
+        table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
+        table += '  },\n'
+        value += 1
+    table = table + '};\n'
+    return table if arg.enums else ''
 
-    def dump_cmd_table(ftr, cl):
-        table = 'static struct arsdk_cmd %s_%s_cmd_tab[] = {\n' % (get_ftr_old_name(ftr),
-                                                                   cl.name)
-        for cmd in cl.cmds:
-            comment = cmd.doc.replace('\n', '\\n')
-            if len(cmd.args) > 0:
-                args = '%s_%s_%s_arg_tab' % (get_ftr_old_name(ftr), cl.name, cmd.name)
-                nargs = 'ARRAY_SIZE(%s)' % args
-            else:
-                args = 'NULL'
-                nargs = '0'
-            table += '  {\n'
-            table += '    .name = "%s",\n' % cmd.name
-            table += '    .id = %s,\n' % AREnumValue(LIB_MODULE,
-                                                     ID_SUBMODULE,
-                                                     get_ftr_old_name(ftr) + '_' + cl.name +
-                                                     '_CMD', cmd.name)
-            # ignore fields, .buf, .timeout, .listtype (are they used at all ?)
-            table += '    .args = %s,\n' % args
-            table += '    .nargs = %s,\n' % nargs
-            table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
-            table += '  },\n'
-        table = table + '};\n'
-        return table if len(cl.cmds) > 0 else ''
+def dump_arg_table(ftr, cl, cmd):
+    table = 'static struct arsdk_arg %s_%s_%s_arg_tab[] = {\n' % (get_ftr_old_name(ftr),
+                                                                  cl.name,
+                                                                  cmd.name)
+    for arg in cmd.args:
+        comment = get_arg_doc(arg).replace('\n', '\\n')
+        if len(arg.enums) > 0:
+            enums = '%s_%s_%s_%s_enum_tab' % (get_ftr_old_name(ftr),
+                                              cl.name,
+                                              cmd.name,
+                                              arg.name)
+            nenums = 'ARRAY_SIZE(%s)' % enums
+        else:
+            enums = 'NULL'
+            nenums = '0'
+        table += '  {\n'
+        table += '    .name = "%s",\n' % arg.name
+        if isinstance(arg.argType, ArEnum):
+            table += '    .type = ARSDK_ARG_TYPE_ENUM,\n'
+        elif isinstance(arg.argType, ArBitfield):
+            table += '    .type = ARSDK_ARG_TYPE_%s,\n' % ArArgType.TO_STRING[arg.argType.btfType].upper()
+        else:
+            table += '    .type = ARSDK_ARG_TYPE_%s,\n' % ArArgType.TO_STRING[arg.argType].upper()
+        table += '    .enums = %s,\n' % enums
+        table += '    .nenums = %s,\n' % nenums
+        table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
+        table += '  },\n'
+    table = table + '};\n'
+    return table if cmd.args else ''
 
-    def dump_class_table(ftr):
-        table = 'static struct arsdk_class %s_class_tab[] = {\n' % get_ftr_old_name(ftr)
-        for cl in ftr.classes:
-            comment = cl.doc.replace('\n', '\\n')
-            if len(cl.cmds) > 0:
-                cmds = get_ftr_old_name(ftr) + '_' + cl.name + '_cmd_tab'
-                ncmds = 'ARRAY_SIZE(%s)' % cmds
-            else:
-                cmds = 'NULL'
-                ncmds = '0'
-            table += '  {\n'
-            table += '    .name = "%s",\n' % cl.name
+def dump_cmd_table(ftr, cl):
+    table = 'static struct arsdk_cmd %s_%s_cmd_tab[] = {\n' % (get_ftr_old_name(ftr),
+                                                              cl.name)
+    for cmd in cl.cmds:
+        comment = cmd.doc.replace('\n', '\\n')
+        if len(cmd.args) > 0:
+            args = '%s_%s_%s_arg_tab' % (get_ftr_old_name(ftr), cl.name, cmd.name)
+            nargs = 'ARRAY_SIZE(%s)' % args
+        else:
+            args = 'NULL'
+            nargs = '0'
+        table += '  {\n'
+        table += '    .name = "%s",\n' % cmd.name
+        if cl.name == 'defaultCls':
+            enum_val = AREnumValue(LIB_MODULE,
+                                   ID_SUBMODULE,
+                                   get_ftr_old_name(ftr) +
+                                   '_CMD', cmd.name)
+        else:
+            enum_val = AREnumValue(LIB_MODULE,
+                                   ID_SUBMODULE,
+                                   get_ftr_old_name(ftr) + '_' + cl.name +
+                                   '_CMD', cmd.name)
+        table += '    .id = %s,\n' % enum_val
+        # ignore fields, .buf, .timeout, .listtype (are they used at all ?)
+        table += '    .args = %s,\n' % args
+        table += '    .nargs = %s,\n' % nargs
+        table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
+        table += '  },\n'
+    table = table + '};\n'
+    return table if cl.cmds else ''
+
+def dump_class_table(ftr):
+    table = 'static struct arsdk_class %s_class_tab[] = {\n' % get_ftr_old_name(ftr)
+    for cl in ftr.classes:
+        comment = cl.doc.replace('\n', '\\n')
+        if len(cl.cmds) > 0:
+            cmds = get_ftr_old_name(ftr) + '_' + cl.name + '_cmd_tab'
+            ncmds = 'ARRAY_SIZE(%s)' % cmds
+        else:
+            cmds = 'NULL'
+            ncmds = '0'
+        table += '  {\n'
+        table += '    .name = "%s",\n' % cl.name
+        if cl.name != 'defaultCls':
             table += '    .ident = %s,\n' % AREnumValue(LIB_MODULE,
                                                         ID_SUBMODULE,
                                                         get_ftr_old_name(ftr) + '_CLASS',
                                                         cl.name)
-            table += '    .cmds = %s,\n' % cmds
-            table += '    .ncmds = %s,\n' % ncmds
-            table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
-            table += '  },\n'
-        table = table + '};\n'
-        return table if len(ftr.classes) > 0 else ''
+        else:
+            table += '    .ident = 0,\n'
+        table += '    .cmds = %s,\n' % cmds
+        table += '    .ncmds = %s,\n' % ncmds
+        table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
+        table += '  },\n'
+    table = table + '};\n'
+    return table if len(ftr.classes) > 0 else ''
 
-    def dump_project_table(projects):
-        table = 'static struct arsdk_project arsdk_projects[] = {\n'
-        for proj in projects:
-            comment = proj.doc.replace('\n', '\\n')
-            if len(proj.classes) > 0:
-                classes = proj.name + '_class_tab'
-                nclasses = 'ARRAY_SIZE(%s)' % classes
-            else:
-                classes = 'NULL'
-                nclasses = '0'
-            table += '  {\n'
-            table += '    .name = "%s",\n' % proj.name
-            table += '    .ident = %s,\n' % AREnumValue(LIB_MODULE,
-                                                        ID_SUBMODULE,
-                                                        'FEATURE',
-                                                        proj.name)
-            table += '    .classes = %s,\n' % classes
-            table += '    .nclasses = %s,\n' % nclasses
-            table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
-            table += '  },\n'
-        table = table + '};\n'
-        table += 'static const unsigned int arsdk_nprojects = '
-        table += 'ARRAY_SIZE(arsdk_projects);\n'
-        return table if len(projects) > 0 else ''
+def dump_project_table(projects):
+    table = 'static struct arsdk_project arsdk_projects[] = {\n'
+    for proj in projects:
+        comment = proj.doc.replace('\n', '\\n')
+        if proj.classes and len(proj.classes) > 0:
+            classes = get_ftr_old_name(proj) + '_class_tab'
+            nclasses = 'ARRAY_SIZE(%s)' % classes
+        else:
+            classes = 'NULL'
+            nclasses = '0'
+        table += '  {\n'
+        table += '    .name = "%s",\n' % get_ftr_old_name(proj)
+        table += '    .ident = %s,\n' % AREnumValue(LIB_MODULE,
+                                                    ID_SUBMODULE,
+                                                    'FEATURE',
+                                                    get_ftr_old_name(proj))
+        table += '    .classes = %s,\n' % classes
+        table += '    .nclasses = %s,\n' % nclasses
+        table += '    .comment = "%s"\n' % comment.replace('"', '\\"')
+        table += '  },\n'
+    table = table + '};\n'
+    table += 'static const unsigned int arsdk_nprojects = '
+    table += 'ARRAY_SIZE(arsdk_projects);\n'
+    return table if len(projects) > 0 else ''
 
-    def dump_tree_header(filename):
-        hfile = open (filename, 'w')
-        hfile.write (LICENCE_HEADER)
-        hfile.write ('/********************************************\n')
-        hfile.write (' *            AUTOGENERATED FILE            *\n')
-        hfile.write (' *             DO NOT MODIFY                *\n')
-        hfile.write (' ********************************************/\n')
-        hfile.write ('\n')
-        hfile.write ('#define ARRAY_SIZE(_t) (sizeof(_t)/sizeof((_t)[0]))\n')
-        hfile.write ('\n')
-        hfile.write ('/**\n')
-        hfile.write (' * @brief libARCommands Tree dump.\n')
-        hfile.write (' * @note Autogenerated file\n')
-        hfile.write (' **/\n')
-        hfile.write ('#ifndef _ARSDK_ARCOMMANDS_TREE_H\n')
-        hfile.write ('#define _ARSDK_ARCOMMANDS_TREE_H\n')
-        hfile.write ('#include <inttypes.h>\n')
-        hfile.write ('#include <stdlib.h>\n')
-        hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
-        hfile.write ('#include <' + COMMANDSID_HFILE_NAME + '>\n')
-        hfile.write ('\n')
-        hfile.write ('\n')
-        hfile.write('enum arsdk_arg_type {\n')
-        hfile.write('    ARSDK_ARG_TYPE_ENUM,\n')
-        hfile.write('    ARSDK_ARG_TYPE_U8,\n')
-        hfile.write('    ARSDK_ARG_TYPE_I8,\n')
-        hfile.write('    ARSDK_ARG_TYPE_U16,\n')
-        hfile.write('    ARSDK_ARG_TYPE_I16,\n')
-        hfile.write('    ARSDK_ARG_TYPE_U32,\n')
-        hfile.write('    ARSDK_ARG_TYPE_I32,\n')
-        hfile.write('    ARSDK_ARG_TYPE_U64,\n')
-        hfile.write('    ARSDK_ARG_TYPE_I64,\n')
-        hfile.write('    ARSDK_ARG_TYPE_FLOAT,\n')
-        hfile.write('    ARSDK_ARG_TYPE_DOUBLE,\n')
-        hfile.write('    ARSDK_ARG_TYPE_STRING,\n')
-        hfile.write('};\n')
-        hfile.write ('\n')
-        hfile.write ('struct arsdk_enum {\n')
-        hfile.write ('    const char               *name;\n')
-        hfile.write ('    unsigned int              value;\n')
-        hfile.write ('    const char               *comment;\n')
-        hfile.write ('};\n')
-        hfile.write ('\n')
-        hfile.write ('struct arsdk_arg {\n')
-        hfile.write ('    const char               *name;\n')
-        hfile.write ('    enum arsdk_arg_type       type;\n')
-        hfile.write ('    struct arsdk_enum        *enums;\n')
-        hfile.write ('    unsigned int              nenums;\n')
-        hfile.write ('    const char               *comment;\n')
-        hfile.write ('    void                     *priv;\n')
-        hfile.write ('};\n')
-        hfile.write ('\n')
-        hfile.write ('struct arsdk_cmd {\n')
-        hfile.write ('    const char               *name;\n')
-        hfile.write ('    unsigned int              id;\n')
-        hfile.write ('    struct arsdk_arg         *args;\n')
-        hfile.write ('    unsigned int              nargs;\n')
-        hfile.write ('    const char               *comment;\n')
-        hfile.write ('    void                     *priv;\n')
-        hfile.write ('};\n')
-        hfile.write ('\n')
-        hfile.write ('struct arsdk_class {\n')
-        hfile.write ('    const char               *name;\n')
-        hfile.write ('    unsigned int              ident;\n')
-        hfile.write ('    struct arsdk_cmd         *cmds;\n')
-        hfile.write ('    unsigned int              ncmds;\n')
-        hfile.write ('    const char               *comment;\n')
-        hfile.write ('    void                     *priv;\n')
-        hfile.write ('};\n')
-        hfile.write ('\n')
-        hfile.write ('struct arsdk_project {\n')
-        hfile.write ('    const char               *name;\n')
-        hfile.write ('    eARCOMMANDS_ID_PROJECT    ident;\n')
-        hfile.write ('    struct arsdk_class       *classes;\n')
-        hfile.write ('    unsigned int              nclasses;\n')
-        hfile.write ('    const char               *comment;\n')
-        hfile.write ('    void                     *priv;\n')
-        hfile.write ('};\n')
-        hfile.write ('\n')
+def dump_tree_header(ctx, filename):
 
-        # walk XML tree and dump C structures
-        for ftr in allFeatures:
-            defaultCls = ARClass('defaultCls', 0)
-            for cmd in ftr.cmds + ftr.evts:
-                cl = defaultCls if cmd.cls is None else cmd.cls.name
-                for arg in cmd.args:
-                    hfile.write(dump_enum_table(ftr, cl, cmd, arg))
-                hfile.write(dump_arg_table(ftr, cl, cmd))
-                hfile.write(dump_cmd_table(ftr, cl))
-            if ftr.classes:
-                hfile.write(dump_class_table(ftr))
-        hfile.write(dump_project_table(allFeatures))
+    allFeatures = ctx.features
 
-        hfile.write ('#endif /* _ARSDK_ARCOMMANDS_TREE_H */\n')
-        hfile.close ()
+    hfile = open (filename, 'w')
+    hfile.write (LICENCE_HEADER)
+    hfile.write ('/********************************************\n')
+    hfile.write (' *            AUTOGENERATED FILE            *\n')
+    hfile.write (' *             DO NOT MODIFY                *\n')
+    hfile.write (' ********************************************/\n')
+    hfile.write ('\n')
+    hfile.write ('#define ARRAY_SIZE(_t) (sizeof(_t)/sizeof((_t)[0]))\n')
+    hfile.write ('\n')
+    hfile.write ('/**\n')
+    hfile.write (' * @brief libARCommands Tree dump.\n')
+    hfile.write (' * @note Autogenerated file\n')
+    hfile.write (' **/\n')
+    hfile.write ('#ifndef _ARSDK_ARCOMMANDS_TREE_H\n')
+    hfile.write ('#define _ARSDK_ARCOMMANDS_TREE_H\n')
+    hfile.write ('#include <inttypes.h>\n')
+    hfile.write ('#include <stdlib.h>\n')
+    hfile.write ('#include <' + COMMANDSTYPES_HFILE_NAME + '>\n')
+    hfile.write ('#include <' + COMMANDSID_HFILE_NAME + '>\n')
+    hfile.write ('\n')
+    hfile.write ('\n')
+    hfile.write('enum arsdk_arg_type {\n')
+    hfile.write('    ARSDK_ARG_TYPE_ENUM,\n')
+    hfile.write('    ARSDK_ARG_TYPE_U8,\n')
+    hfile.write('    ARSDK_ARG_TYPE_I8,\n')
+    hfile.write('    ARSDK_ARG_TYPE_U16,\n')
+    hfile.write('    ARSDK_ARG_TYPE_I16,\n')
+    hfile.write('    ARSDK_ARG_TYPE_U32,\n')
+    hfile.write('    ARSDK_ARG_TYPE_I32,\n')
+    hfile.write('    ARSDK_ARG_TYPE_U64,\n')
+    hfile.write('    ARSDK_ARG_TYPE_I64,\n')
+    hfile.write('    ARSDK_ARG_TYPE_FLOAT,\n')
+    hfile.write('    ARSDK_ARG_TYPE_DOUBLE,\n')
+    hfile.write('    ARSDK_ARG_TYPE_STRING,\n')
+    hfile.write('};\n')
+    hfile.write ('\n')
+    hfile.write ('struct arsdk_enum {\n')
+    hfile.write ('    const char               *name;\n')
+    hfile.write ('    unsigned int              value;\n')
+    hfile.write ('    const char               *comment;\n')
+    hfile.write ('};\n')
+    hfile.write ('\n')
+    hfile.write ('struct arsdk_arg {\n')
+    hfile.write ('    const char               *name;\n')
+    hfile.write ('    enum arsdk_arg_type       type;\n')
+    hfile.write ('    struct arsdk_enum        *enums;\n')
+    hfile.write ('    unsigned int              nenums;\n')
+    hfile.write ('    const char               *comment;\n')
+    hfile.write ('    void                     *priv;\n')
+    hfile.write ('};\n')
+    hfile.write ('\n')
+    hfile.write ('struct arsdk_cmd {\n')
+    hfile.write ('    const char               *name;\n')
+    hfile.write ('    unsigned int              id;\n')
+    hfile.write ('    struct arsdk_arg         *args;\n')
+    hfile.write ('    unsigned int              nargs;\n')
+    hfile.write ('    const char               *comment;\n')
+    hfile.write ('    void                     *priv;\n')
+    hfile.write ('};\n')
+    hfile.write ('\n')
+    hfile.write ('struct arsdk_class {\n')
+    hfile.write ('    const char               *name;\n')
+    hfile.write ('    unsigned int              ident;\n')
+    hfile.write ('    struct arsdk_cmd         *cmds;\n')
+    hfile.write ('    unsigned int              ncmds;\n')
+    hfile.write ('    const char               *comment;\n')
+    hfile.write ('    void                     *priv;\n')
+    hfile.write ('};\n')
+    hfile.write ('\n')
+    hfile.write ('struct arsdk_project {\n')
+    hfile.write ('    const char               *name;\n')
+    hfile.write ('    eARCOMMANDS_ID_FEATURE    ident;\n')
+    hfile.write ('    struct arsdk_class       *classes;\n')
+    hfile.write ('    unsigned int              nclasses;\n')
+    hfile.write ('    const char               *comment;\n')
+    hfile.write ('    void                     *priv;\n')
+    hfile.write ('};\n')
+    hfile.write ('\n')
 
-    if genTreeFilename:
-        dump_tree_header(genTreeFilename)
+    # walk XML tree and dump C structures
+    for ftr in allFeatures:
+        defaultCls = ArClass('defaultCls', 0, '')
+        for cmd in ftr.cmds + ftr.evts:
+            cl = defaultCls if cmd.cls is None else cmd.cls
+            for arg in cmd.args:
+                hfile.write(dump_enum_table(ftr, cl, cmd, arg))
+            hfile.write(dump_arg_table(ftr, cl, cmd))
+        defaultCls.cmds = [cmd for cmd in (ftr.cmds + ftr.evts) if cmd.cls is None]
+        if ftr.classes is None:
+            ftr.classes = []
+        ftr.classes.append(defaultCls)
+        for cl in ftr.classes:
+            hfile.write(dump_cmd_table(ftr, cl))
+        hfile.write(dump_class_table(ftr))
+    hfile.write(dump_project_table(allFeatures))
+
+    hfile.write('#endif /* _ARSDK_ARCOMMANDS_TREE_H */\n')
+    hfile.close()
 
 #===============================================================================
 #===============================================================================
@@ -4176,6 +4193,8 @@ def generate_files(ctx, outdir, extra):
     elif extra == "jni":
         # Generation
         jni_generateCmds(ctx, paths)
+    elif extra == "tree":
+        dump_tree_header(ctx, './tree.h')
 
 #===============================================================================
 #===============================================================================
