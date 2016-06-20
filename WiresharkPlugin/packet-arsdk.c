@@ -80,7 +80,7 @@ static unsigned int hf_arsdk_allocated;
 /* Global sample port preference - real port preferences should generally
  * default to 0 unless there is an IANA-registered (or equivalent) port for your
  * protocol. */
-#define ARSDK_DEFAULT_PORTS "54321,43210,34512,34521"
+#define ARSDK_DEFAULT_PORTS "54321,43210,34512,34521,9988"
 static range_t *global_arsdk_port_range;
 
 /* Initialize the subtree pointers */

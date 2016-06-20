@@ -3,8 +3,9 @@ PLUGIN	:= arsdk.so
 OBJS	:= packet-arsdk.o
 
 TREE	:= tree.h
-GEN	:= ../Xml/generateLibARCommands.py
-INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes -I ../gen/Includes
+GEN	:= ../../../out/arsdk-native/staging-host/usr/lib/arsdkgen/arsdkgen.py
+ARC_GEN := ../Tools/libARCommandsgen.py
+INC	:= -I ../Includes -I ../Sources -I ../../libARNetworkAL/Includes -I ../gen/Includes -I ../../../out/arsdk-native/staging/usr/include/
 
 WARN	:= -Wall -W -Wextra -Wdeclaration-after-statement -Wendif-labels \
 	-Wpointer-arith -Wno-pointer-sign -Warray-bounds -Wformat-security \
@@ -36,7 +37,7 @@ all: $(PLUGIN)
 .PHONY: .FORCE
 
 $(TREE): .FORCE
-	python $(GEN) -debug-cmds yes -projects all -gen-tree $(TREE)
+	python $(GEN) $(ARC_GEN) tree
 
 %.o: %.c $(TREE) .FORCE
 	@echo "CC $@"
