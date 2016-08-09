@@ -1541,7 +1541,9 @@ def native_generateCmds(ctx, paths):
         hfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n\n')
         for cmd in ftr.cmds + ftr.evts:
             hfile.write ('\n/**\n')
-            hfile.write (' * @brief ' + cmd.doc.replace('\n', '\n * ') + '\n')
+            hfile.write (' * @brief ' + cmd.doc.desc.replace('\n', '\n * ') + '\n')
+            if cmd.isDeprecated:
+                hfile.write (' * @deprecated\n')
             hfile.write (' * @warning A command is not NULL terminated and can contain NULL bytes.\n')
             hfile.write (' * @param buffer Pointer to the buffer in which the library should store the command\n')
             hfile.write (' * @param buffLen Size of the buffer\n')
@@ -3257,7 +3259,9 @@ def java_generateCmds(ctx, paths):
                 jfile.write ('     * ' + cmd.cls.doc.replace('\n', '\\n') + '<br>\n')
                 jfile.write ('     * <br>\n')
             jfile.write ('     * Command ' + ARCapitalize (cmd.name) + ' description:<br>\n')
-            jfile.write ('     * ' + cmd.doc.replace('\n', '<br>\n     * ') + '<br>\n')
+            if cmd.isDeprecated:
+                jfile.write ('     * @deprecated\n')
+            jfile.write ('     * ' + cmd.doc.desc.replace('\n', '<br>\n     * ') + '<br>\n')
             jfile.write ('     * <br>\n')
             jfile.write ('     * This function reuses the current ' + JNIClassName + ', replacing its content with a\n')
             jfile.write ('     * new command created from the current params\n')
