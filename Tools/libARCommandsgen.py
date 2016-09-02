@@ -10,7 +10,7 @@
       notice, this list of conditions and the following disclaimer.
     * Redistributions in binary form must reproduce the above copyright
       notice, this list of conditions and the following disclaimer in
-      the documentation and/or other materials provided with the 
+      the documentation and/or other materials provided with the
       distribution.
     * Neither the name of Parrot nor the names
       of its contributors may be used to endorse or promote products
@@ -24,7 +24,7 @@
     COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
     BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
-    OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+    OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
     AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
     OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
@@ -103,11 +103,14 @@ TB_LIN_CFILE_NAME='autoTest_linux.c'
 
 #Name of the JNI C File
 JNI_CFILE_NAME='ARCOMMANDS_JNI.c'
+JNI_DECODER_CFILE_NAME='ARCOMMANDS_JNIDecoder.c'
 JNI_FILTER_CFILE_NAME='ARCOMMANDS_JNIFilter.c'
 
 #Name of the JNI JAVA File
 JNI_JFILE_NAME='ARCommand.java'
+JNI_DECODER_JFILE_NAME='ARCommandsDecoder.java'
 JNIClassName, _ = os.path.splitext (JNI_JFILE_NAME)
+JNIDecoderClassName, _ = os.path.splitext (JNI_DECODER_JFILE_NAME)
 JNI_FILTER_JFILE_NAME='ARCommandsFilter.java'
 JNIFilterClassName, _ = os.path.splitext (JNI_FILTER_JFILE_NAME)
 
@@ -174,12 +177,16 @@ class Paths:
         self.GENERATED_JNI_FILES = []
         self.JNI_CFILE=self.JNIC_DIR + JNI_CFILE_NAME
         self.GENERATED_JNI_FILES.append (self.JNI_CFILE)
+        self.JNI_DECODER_CFILE=self.JNIC_DIR + JNI_DECODER_CFILE_NAME
+        self.GENERATED_JNI_FILES.append (self.JNI_DECODER_CFILE)
         self.JNI_FILTER_CFILE=self.JNIC_DIR + JNI_FILTER_CFILE_NAME
         self.GENERATED_JNI_FILES.append (self.JNI_FILTER_CFILE)
         # Create array of generated JAVA files (so we can cleanup only our files)
         self.GENERATED_JAVA_FILES = []
         self.JNI_JFILE=self.JNIJ_OUT_DIR + JNI_JFILE_NAME
         self.GENERATED_JAVA_FILES.append (self.JNI_JFILE)
+        self.JNI_DECODER_JFILE=self.JNIJ_OUT_DIR + JNI_DECODER_JFILE_NAME
+        self.GENERATED_JAVA_FILES.append (self.JNI_DECODER_JFILE)
         self.JNI_FILTER_JFILE=self.JNIJ_OUT_DIR + JNI_FILTER_JFILE_NAME
         self.GENERATED_JAVA_FILES.append (self.JNI_FILTER_JFILE)
         self.JAVA_INTERFACES_FILES=self.JNIJ_OUT_DIR + JAVA_INTERFACES_FILES_NAME
@@ -374,7 +381,7 @@ def xmlToJniCast (ftr, cmd, arg):
     else:
         xmlIndex = XMLTYPES.index (arg.argType)
     return JNIUTSCASTS [xmlIndex]
-    
+
 def format_cmd_name(msg, underscore=False):#projetc only
     if underscore:
         return ARCapitalize(msg.name) if msg.cls is None else ARCapitalize(msg.cls.name) + '_'+  ARCapitalize(msg.name)
@@ -440,7 +447,7 @@ def xmlToPrintf (ftr, cmd, arg):
 
 LICENCE_HEADER='''/*
     Copyright (C) 2014 Parrot SA
-    
+
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
     are met:
@@ -454,7 +461,7 @@ LICENCE_HEADER='''/*
     of its contributors may be used to endorse or promote products
     derived from this software without specific prior written
     permission.
-    
+
     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
     "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
     LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -760,7 +767,7 @@ def native_generateCmds(ctx, paths):
         hfile.write ('// On error, return -1, else return offset in string\n')
         hfile.write ('int ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'PrintString') + ' (const char *name, char *arg, char *output, int outputLen, int outputOffset);\n')
         hfile.write ('\n')
-      
+
 
     hfile.write ('\n')
     hfile.write ('#endif /* ' + COMMANDSRW_DEFINE + ' */\n')
@@ -1475,24 +1482,24 @@ def native_generateCmds(ctx, paths):
             first = True
             for eVal in enum.values:
                 hfile.write ('    ' + AREnumValue (LIB_MODULE, submodules, macro_name, eVal.name))
-                
+
                 if eVal.value:
                     hfile.write (' = ' + str(eVal.value))
                 elif first:
                     hfile.write (' = 0')
                 hfile.write (',    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
                 first = False
-                
+
             hfile.write ('    ' + AREnumValue (LIB_MODULE, submodules, macro_name, 'MAX') + '\n')
             hfile.write ('} ' + AREnumName (LIB_MODULE, submodules, macro_name) + ';\n\n')
-            
+
             #If the enum is used as bit field
             if enum.usedLikeBitfield:
                 #Generate bit field flags
                 for eVal in enum.values:
                     hfile.write ('#define ' + ARFlagValue (LIB_MODULE, submodules, macro_name, eVal.name) + ' (1 << '+AREnumValue (LIB_MODULE, submodules, macro_name, eVal.name)+ ')    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
                 hfile.write ('\n')
-                    
+
     hfile.write ('\n')
     hfile.write ('#endif /* ' + COMMANDSTYPES_DEFINE + ' */\n')
 
@@ -1544,7 +1551,7 @@ def native_generateCmds(ctx, paths):
                 #If the argument is a bitfield
                 if isinstance(arg.argType, ArBitfield):
                     hfile.write (' * @param _' + arg.name + ' a combination of')
-                    
+
                     #Find the feature owning the enum
                     for bitFieldFtr in allFeatures:
                         for enum2 in bitFieldFtr.enums:
@@ -1553,7 +1560,7 @@ def native_generateCmds(ctx, paths):
                         else:
                             continue
                         break
-                        
+
                     for eVal in arg.argType.enum.values:
                         hfile.write (' ; ' + ARFlagValue(LIB_MODULE, bitFieldFtr.name , arg.argType.enum.name, eVal.name))
                     hfile.write ('\n')
@@ -1564,7 +1571,7 @@ def native_generateCmds(ctx, paths):
                 hfile.write (', ' + xmlToCwithConst (ftr, cmd, arg) + ' _' + arg.name)
             hfile.write (');\n')
         hfile.write ('\n')
-            
+
         hfile.write ('\n')
 
     hfile.write ('\n')
@@ -1655,9 +1662,9 @@ def native_generateCmds(ctx, paths):
             cfile.write ('    // Write id header\n')
             cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
-            
+
             cmdIdName = AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(ftr) + '_CMD', cmd.name) if cmd.cls is None else AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(ftr) + '_' + cmd.cls.name + '_CMD', cmd.name)
-            
+
             cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, ' + cmdIdName + ', currIndexInBuffer, buffLen);\n')
             cfile.write ('        if (currIndexInBuffer == -1)\n')
             cfile.write ('        {\n')
@@ -2227,7 +2234,7 @@ def native_generateCmds(ctx, paths):
     for ftr in allFeatures:
         cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ':\n')
         cfile.write ('        {\n')
-        
+
         if ftr.classes: #project only
             cfile.write ('            switch (commandClass)\n')
             cfile.write ('            {\n')
@@ -2271,7 +2278,7 @@ def native_generateCmds(ctx, paths):
             cfile.write ('                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
             cfile.write ('                break;\n')
             cfile.write ('            }\n')
-            
+
         else:
             cfile.write ('            if (commandClass == ' + ARMacroName (LIB_MODULE, ID_SUBMODULE, 'FEATURE_CLASS') + ')\n')
             cfile.write ('            {\n')
@@ -2311,7 +2318,7 @@ def native_generateCmds(ctx, paths):
             cfile.write ('                strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("' + get_ftr_old_name(ftr) + '.UNKNOWN -> Unknown command", resString, stringLen, strOffset);\n')
             cfile.write ('                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'UNKNOWN_COMMAND') + ';\n')
             cfile.write ('            }\n')
-            
+
         cfile.write ('        }\n')
         cfile.write ('        break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ' */\n')
 
@@ -2409,7 +2416,7 @@ def native_generateCmds(ctx, paths):
     for ftr in allFeatures:
         hfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n')
         hfile.write ('\n')
-        
+
         hfile.write ('/**\n')
         hfile.write (' * @brief Sets the filter behavior for all commands ' + get_ftr_old_name(ftr) + '.XXX.XXX.\n')
         hfile.write (' * @param filter The filter to be modified.\n')
@@ -2418,12 +2425,12 @@ def native_generateCmds(ctx, paths):
         hfile.write (' */\n')
         hfile.write (AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + ' ARCOMMANDS_Filter_Set' + ARCapitalize (get_ftr_old_name(ftr)) + 'Behavior (ARCOMMANDS_Filter_t *filter, ' + AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + ' behavior);\n')
         hfile.write ('\n')
-            
+
         if ftr.classes: #project only
             for cl in ftr.classes:
                 hfile.write ('// Command class ' + cl.name + '\n')
                 hfile.write ('\n')
-                
+
                 hfile.write ('/**\n')
                 hfile.write (' * @brief Sets the filter behavior for all commands ' + get_ftr_old_name(ftr) + '.' + cl.name + '.XXX.\n')
                 hfile.write (' * @param filter The filter to be modified.\n')
@@ -2432,7 +2439,7 @@ def native_generateCmds(ctx, paths):
                 hfile.write (' */\n')
                 hfile.write (AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + ' ARCOMMANDS_Filter_Set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (cl.name) + 'Behavior (ARCOMMANDS_Filter_t *filter, ' + AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + ' behavior);\n')
                 hfile.write ('\n')
-                
+
                 for cmd in cl.cmds:
                     hfile.write ('/**\n')
                     hfile.write (' * @brief Sets the filter behavior for the command ' + get_ftr_old_name(ftr) + '.' + cl.name + '.' + cmd.name + '.\n')
@@ -2600,7 +2607,7 @@ def native_generateCmds(ctx, paths):
     for ftr in allFeatures:
         cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ':\n')
         cfile.write ('        {\n')
-        
+
         if ftr.classes:
             cfile.write ('            switch (commandClass)\n')
             cfile.write ('            {\n')
@@ -2642,7 +2649,7 @@ def native_generateCmds(ctx, paths):
             cfile.write ('                }\n')
             cfile.write ('            }\n')
             cfile.write ('            //Else Do nothing, the default answer is already UNKNOWN\n')
-        
+
         cfile.write ('        }\n')
         cfile.write ('        break; /* ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ' */\n')
 
@@ -2696,7 +2703,7 @@ def native_generateCmds(ctx, paths):
         cfile.write ('    return retError;\n')
         cfile.write ('}\n')
         cfile.write ('\n')
-        
+
         if ftr.classes:#project only
             for cl in ftr.classes:
                 cfile.write ('// Command class ' + cl.name + '\n')
@@ -2725,7 +2732,7 @@ def native_generateCmds(ctx, paths):
                 cfile.write ('    return retError;\n')
                 cfile.write ('}\n')
                 cfile.write ('\n')
-        
+
         for cmd in ftr.cmds + ftr.evts:
             cfile.write (AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + ' ARCOMMANDS_Filter_Set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Behavior (ARCOMMANDS_Filter_t *filter, ' + AREnumName (LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + ' behavior)\n')
             cfile.write ('{\n')
@@ -2780,8 +2787,6 @@ def tb_generateCmds(ctx, paths):
                     hasArgOfType[arg.argType.btfType] = True
                 else:
                     hasArgOfType[arg.argType] = True
-
-    cfile = open (paths.JNI_CFILE, 'w')
 
     #################################
     # 11TH PART :                   #
@@ -3133,14 +3138,14 @@ def java_generateCmds(ctx, paths):
     jfile.write ('\n')
     jfile.write ('    public static final int ' + ARMacroName (LIB_MODULE, JNIClassName, 'HEADER_SIZE') + ' = 4;\n')
     jfile.write ('    public static final boolean ' + ARMacroName (LIB_MODULE, JNIClassName, 'HAS_DEBUG_COMMANDS') + ' = ')
-
     if genDebug:
         jfile.write ('true;\n')
     else:
         jfile.write ('false;\n')
+    jfile.write ('    private static final ' + JNIDecoderClassName + '  _decoder = new '+JNIDecoderClassName+'();\n')
     jfile.write ('\n')
 
-    # Generate bit field flags 
+    # Generate bit field flags
     for ftr in allFeatures:
         oldEnumValFrm = False if ftr.classes == None else True
         for enum in ftr.enums:
@@ -3225,6 +3230,7 @@ def java_generateCmds(ctx, paths):
     jfile.write ('    }\n')
     jfile.write ('\n')
     jfile.write ('    /**\n')
+    jfile.write ('     * @deprecated\n')
     jfile.write ('     * Decodes the current ' + JNIClassName + ', calling commands listeners<br>\n')
     jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIClassName + ',\n')
     jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
@@ -3235,11 +3241,7 @@ def java_generateCmds(ctx, paths):
     jfile.write ('        if (!valid) {\n')
     jfile.write ('            return err;\n')
     jfile.write ('        }\n')
-    jfile.write ('        int errInt = nativeDecode (pointer, used);\n')
-    jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
-    jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
-    jfile.write ('        }\n')
-    jfile.write ('        return err;\n')
+    jfile.write ('        return _decoder.decode (this);\n')
     jfile.write ('    }\n')
     jfile.write ('\n')
     for ftr in allFeatures:
@@ -3264,7 +3266,7 @@ def java_generateCmds(ctx, paths):
                 #If the argument is a bitfield
                 if isinstance(arg.argType, ArBitfield):
                     jfile.write ('     * @param _' + arg.name + ' a combination of')
-                    
+
                     #find the feature owning the enum
                     for bitFieldFtr in allFeatures:
                         for enum2 in bitFieldFtr.enums:
@@ -3273,11 +3275,11 @@ def java_generateCmds(ctx, paths):
                         else:
                             continue
                         break
-                        
+
                     for eVal in arg.argType.enum.values:
                         jfile.write (' ; ' + ARFlagValue(LIB_MODULE, bitFieldFtr.name , arg.argType.enum.name, eVal.name))
                     jfile.write ('\n')
-                    
+
             jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' error code.\n')
             jfile.write ('     */\n')
             jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + ' (')
@@ -3309,22 +3311,20 @@ def java_generateCmds(ctx, paths):
 
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
-            jfile.write ('    private static ' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + ' = null;\n')
-            jfile.write ('\n')
             jfile.write ('    /**\n')
+            jfile.write ('     * @deprecated\n')
             jfile.write ('     * Set the listener for the command <code>' + ARCapitalize (format_cmd_name(cmd)) + '</code> in feature <code>' + ARCapitalize (get_ftr_old_name(ftr)) + '</code><br>\n')
             jfile.write ('     * Listeners are static to the class, and are not to be set on every object\n')
             jfile.write ('     * @param ' + interfaceVar (ftr, cmd) + '_PARAM New listener for the command\n')
             jfile.write ('     */\n')
             jfile.write ('    public static void set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener (' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + '_PARAM) {\n')
-            jfile.write ('        ' + interfaceVar (ftr, cmd) + ' = ' + interfaceVar (ftr, cmd) + '_PARAM;\n')
+            jfile.write ('        _decoder.set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener(' + interfaceVar (ftr, cmd) + '_PARAM);\n')
             jfile.write ('    }\n')
             jfile.write ('\n')
         jfile.write ('\n')
     jfile.write ('\n')
     jfile.write ('    private native String  nativeToString (long jpdata, int jdataSize);\n')
     jfile.write ('    private static native String  nativeStaticToString (long jpdata, int jdataSize);\n')
-    jfile.write ('    private native int     nativeDecode (long jpdata, int jdataSize);\n')
     jfile.write ('\n')
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
@@ -3338,6 +3338,191 @@ def java_generateCmds(ctx, paths):
             jfile.write ('\n')
         jfile.write ('\n')
     jfile.write ('}\n')
+
+    jfile.close ()
+
+    jfile = open (paths.JNI_DECODER_JFILE, 'w')
+
+    jfile.write (LICENCE_HEADER)
+    jfile.write ('package ' + JNI_PACKAGE_NAME + ';\n')
+    jfile.write ('import com.parrot.arsdk.arsal.ARSALPrint;\n')
+    jfile.write ('\n')
+    jfile.write ('/**\n')
+    jfile.write (' * Java representation of a C ' + JNIDecoderClassName + ' object.<br>\n')
+    jfile.write (' * This class allow to decode ARCommands.\n')
+    jfile.write (' * @author Parrot (c) 2016\n')
+    jfile.write (' */\n')
+    jfile.write ('public class ' + JNIDecoderClassName + ' {\n')
+    jfile.write ('\n')
+    jfile.write ('    /**\n')
+    jfile.write ('     * Storage of the C Pointer\n')
+    jfile.write ('     */\n')
+    jfile.write ('    protected long pointer;\n')
+    jfile.write ('\n')
+    jfile.write ('    /**\n')
+    jfile.write ('     * Check validity before all native calls\n')
+    jfile.write ('     */\n')
+    jfile.write ('    protected boolean valid;\n')
+    jfile.write ('\n')
+    jfile.write ('/**\n')
+    jfile.write (' * Dummy throwable to keep the constructors call stack\n')
+    jfile.write (' */\n')
+    jfile.write ('\n')
+    jfile.write ('    private Throwable constructorCallStack;\n')
+    jfile.write ('\n')
+    jfile.write ('    protected static final String TAG = "'+JNIDecoderClassName+'";\n')
+    jfile.write ('\n')
+
+    jfile.write ('    private static native void nativeStaticInit ();\n')
+    jfile.write ('    static\n')
+    jfile.write ('    {\n')
+    jfile.write ('        nativeStaticInit();\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+    jfile.write ('    /**\n')
+    jfile.write ('     * Creates a new, ' + JNIDecoderClassName + '\n')
+    jfile.write ('     */\n')
+    jfile.write ('    public ' + JNIDecoderClassName + ' () {\n')
+    jfile.write ('\n')
+    jfile.write ('        this.pointer = nativeNewDecoder ();\n')
+    jfile.write ('        this.valid = false;\n')
+    jfile.write ('        if (this.pointer != 0) {\n')
+    jfile.write ('            this.valid = true;\n')
+    jfile.write ('        }\n')
+    jfile.write ('        this.constructorCallStack = new Throwable();\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+
+    jfile.write ('    /* ********** */\n')
+    jfile.write ('    /* DESTRUCTOR */\n')
+    jfile.write ('    /* ********** */\n')
+
+    jfile.write ('    protected void finalize () throws Throwable {\n')
+    jfile.write ('        try {\n')
+    jfile.write ('            if (valid) {\n')
+    jfile.write ('                ARSALPrint.w (TAG, this + ": Finalize error -> dispose () was not called !", this.constructorCallStack);\n')
+    jfile.write ('                dispose ();\n')
+    jfile.write ('            }\n')
+    jfile.write ('        }\n')
+    jfile.write ('        finally {\n')
+    jfile.write ('            super.finalize ();\n')
+    jfile.write ('        }\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+    jfile.write ('    /* ************** */\n')
+    jfile.write ('    /* IMPLEMENTATION */\n')
+    jfile.write ('    /* ************** */\n')
+    jfile.write ('\n')
+    jfile.write ('    /**\n')
+    jfile.write ('    * Checks the object validity\n')
+    jfile.write ('    * @return <code>true</code> if the object is valid (buffer properly alloc and usable)<br><code>false</code> if the object is invalid (alloc error, disposed object)\n')
+    jfile.write ('    */\n')
+    jfile.write ('    public boolean isValid () {\n')
+    jfile.write ('        return valid;\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+    jfile.write ('    /**\n')
+    jfile.write ('    * Marks a native data as unused (so C-allocated memory can be freed)<br>\n')
+    jfile.write ('    * A disposed data is marked as invalid\n')
+    jfile.write ('    */\n')
+    jfile.write ('    public void dispose () {\n')
+    jfile.write ('        if (valid)\n')
+    jfile.write ('            nativeDeleteDecoder (pointer);\n')
+    jfile.write ('        this.valid = false;\n')
+    jfile.write ('        this.pointer = 0;\n')
+    jfile.write ('    }\n')
+
+    jfile.write ('    /**\n')
+    jfile.write ('     * Decodes a ' + JNIClassName + ', calling commands listeners<br>\n')
+    jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIDecoderClassName + ',\n')
+    jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
+    jfile.write ('     * @param command command to decode.\n')
+    jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
+    jfile.write ('     */\n')
+    jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode ('+JNIClassName+' command) {\n')
+    jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR', True) + ';\n')
+    jfile.write ('        if ((!valid) || (command == null) || (!command.isValid())) {\n')
+    jfile.write ('            return err;\n')
+    jfile.write ('        }\n')
+    jfile.write ('        int errInt = nativeDecode (pointer, command.getData(), command.getDataSize());\n')
+    jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+    jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
+    jfile.write ('        }\n')
+    jfile.write ('        return err;\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+    for ftr in allFeatures:
+        for cmd in ftr.cmds + ftr.evts:
+            jfile.write ('    private ' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + ';\n')
+            jfile.write ('\n')
+            jfile.write ('    /**\n')
+            jfile.write ('     * Set the listener for the command <code>' + ARCapitalize (format_cmd_name(cmd)) + '</code> in feature <code>' + ARCapitalize (get_ftr_old_name(ftr)) + '</code><br>\n')
+            jfile.write ('     * Listeners are static to the class, and are not to be set on every object\n')
+            #~ jfile.write ('     * @param ' + interfaceVar (ftr, cmd) + '_PARAM New listener for the command\n')nativeDecode
+            jfile.write ('     */\n')
+            jfile.write ('    public void set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Listener (' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + '_PARAM) {\n')
+            jfile.write ('        ' + interfaceVar (ftr, cmd) + ' = ' + interfaceVar (ftr, cmd) + '_PARAM;\n')
+            jfile.write ('    }\n')
+            jfile.write ('\n')
+        jfile.write ('\n')
+
+    for ftr in allFeatures:
+        for cmd in ftr.cmds + ftr.evts:
+            jfile.write ('    void ' + javaCbName (ftr, cmd) + ' (')
+            first = True
+            for arg in cmd.args:
+                if first:
+                    first = False
+                else:
+                    jfile.write (', ')
+                jfile.write (xmlToJava (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name)
+            jfile.write (') {\n')
+            jfile.write ('        if(' + interfaceVar (ftr, cmd) + ' != null) {\n')
+            jfile.write ('            ' + interfaceVar (ftr, cmd) + '.' + javaCbName (ftr, cmd) + ' (')
+            first = True
+            for arg in cmd.args:
+                if first:
+                    first = False
+                else:
+                    jfile.write (', ')
+                jfile.write (arg.name)
+            jfile.write (');\n')
+            jfile.write ('        }\n')
+            jfile.write ('    }\n')
+            jfile.write ('\n')
+
+    jfile.write ('    /* **************** */\n')
+    jfile.write ('    /* NATIVE FUNCTIONS */\n')
+    jfile.write ('    /* **************** */\n')
+    jfile.write ('\n')
+
+    jfile.write ('    /**\n')
+    jfile.write ('     * Memory allocation in native memory space<br>\n')
+    jfile.write ('     * Allocates a decoder and return its C-Pointer\n')
+    jfile.write ('     * @return C-Pointer on the decoder, or 0 (C-NULL) if the alloc failed\n')
+    jfile.write ('     */\n')
+    jfile.write ('    private native long nativeNewDecoder ();\n')
+    jfile.write ('\n')
+
+    jfile.write ('    /**\n')
+    jfile.write ('     * Memory release in native memory space<br>\n')
+    jfile.write ('     * Frees a decoder from its C-Pointer<br>\n')
+    jfile.write ('     * This call is needed because JVM do not know about native memory allocs\n')
+    jfile.write ('     * @param decoder C-Pointer on the decoder to free\n')
+    jfile.write ('     */\n')
+    jfile.write ('    private native void nativeDeleteDecoder (long decoder);\n')
+    jfile.write ('\n')
+
+    jfile.write ('    private native int     nativeDecode (long jdecoder, long jpdata, int jdataSize);\n')
+    jfile.write ('\n')
+
+    jfile.write ('}\n')
+    jfile.write ('\n')
 
     jfile.close ()
 
@@ -3447,7 +3632,7 @@ def java_generateCmds(ctx, paths):
         jfile.write ('        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);\n')
         jfile.write ('    }\n')
         jfile.write ('\n')
-        
+
         if ftr.classes: # projetc only
             for cl in ftr.classes:
                 jfile.write ('    // - Class ' + cl.name + '\n')
@@ -3463,7 +3648,7 @@ def java_generateCmds(ctx, paths):
                 jfile.write ('        return ARCOMMANDS_FILTER_ERROR_ENUM.getFromValue(cErr);\n')
                 jfile.write ('    }\n')
                 jfile.write ('\n')
-                    
+
                 for cmd in cl.cmds:
                     jfile.write ('    private native int nativeSet' + ARCapitalize(get_ftr_old_name(ftr)) + ARCapitalize(cl.name) + ARCapitalize(cmd.name) + 'Behavior (long cFilter, int behavior);\n')
                     jfile.write ('    /**\n')
@@ -3520,33 +3705,33 @@ def java_generateCmds(ctx, paths):
             jfile.write('public enum ' + CLASS_NAME + ' {\n')
             jfile.write('    /** Dummy value for all unknown cases */\n')
             jfile.write('    ' + UNKNOWN_VALUE + ' (Integer.MIN_VALUE, "Dummy value for all unknown cases"),\n')
-            
+
             previousVal = -1
             for eVal in enum.values:
                 val = eVal.value if eVal.value is not None else previousVal +1
                 previousVal = int(val)
-                
+
                 jfile.write('    ')
                 if eVal.doc:
                     jfile.write('/** '+eVal.doc.replace('\n', ' ')+' */\n    ')
                 if eVal.doc:
                     jfile.write(ARJavaEnumValDef(LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name, oldEnumValFrm)+ ' (' + str(val)+ ', "'+eVal.doc.replace('\n', ' ')+'")')
-                    
+
                 else:
                     jfile.write(ARJavaEnumValDef(LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name, oldEnumValFrm) + ' (' + str(val) + ')')
-                    
+
                 #If it is the last value of a feature enum.
                 if ftr.classes == None and eVal ==  enum.values[-1]:
                     jfile.write(';\n')
                 else:
                     jfile.write(',\n')
-            
+
             # Add MAX value only if it is an old enum.
-            if ftr.classes: 
+            if ftr.classes:
                 MAX_VALUE = ARJavaEnumValDef(LIB_MODULE, get_ftr_old_name(ftr), enum.name, 'MAX', oldEnumValFrm)
                 jfile.write('    ' + MAX_VALUE + ' ('+ str(previousVal + 1) +');\n')
             jfile.write('\n')
-                
+
             jfile.write('\n')
             jfile.write('    private final int value;\n')
             jfile.write('    private final String comment;\n');
@@ -3622,7 +3807,7 @@ def java_generateCmds(ctx, paths):
     enumFilterErr.values.append(ArEnumValue('BAD_FILTER', 3,'The given filter is not a valid filter.'))
     enumFilterErr.values.append(ArEnumValue('BAD_BUFFER', 4,'The given buffer is not a valid buffer.'))
     enumFilterErr.values.append(ArEnumValue('OTHER', 5,'Any other error.'))
-    
+
     #enumFilterStatus = ArEnum(FIL_SUBMODULE+'_'+FIL_STATUS_ENAME,'Status code for ' + ARFunctionName (LIB_MODULE, FIL_SUBMODULE, 'FilterCommand') + ' function')
     enumFilterStatus = ArEnum(FIL_STATUS_ENAME,'Status code for ' + ARFunctionName (LIB_MODULE, FIL_SUBMODULE, 'FilterCommand') + ' function')
     enumFilterStatus.values.append(ArEnumValue('ALLOWED', 0,'The command should pass the filter'))
@@ -3761,6 +3946,7 @@ def jni_generateCmds(ctx, paths):
                 else:
                     hasArgOfType[arg.argType] = True
 
+
     cfile = open (paths.JNI_CFILE, 'w')
 
     JNI_FUNC_PREFIX='Java_' + JNI_PACKAGE_NAME.replace ('.', '_') + '_'
@@ -3784,9 +3970,7 @@ def jni_generateCmds(ctx, paths):
     cfile.write ('\n')
     cfile.write ('#define TOSTRING_STRING_SIZE (1024)\n')
     cfile.write ('\n')
-    cfile.write ('static jfieldID g_dataSize_id = 0;\n')
-    cfile.write ('static JavaVM *g_vm = NULL;\n')
-    cfile.write ('\n')
+
     cfile.write ('JNIEXPORT jstring JNICALL\n')
     cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeToString (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
     cfile.write ('{\n')
@@ -3824,11 +4008,90 @@ def jni_generateCmds(ctx, paths):
     cfile.write ('    return ret;\n')
     cfile.write ('}\n')
     cfile.write ('\n')
-    cfile.write ('JNIEXPORT jint JNICALL\n')
-    cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeDecode (' + JNI_FIRST_ARGS + ', jlong jpdata, jint jdataSize)\n')
+
+    cfile.write ('/* END OF GENERAED CODE */\n')
+
+    cfile.close ()
+
+    def cCallbackName (ftr, cmd):
+        return ARFunctionName (LIB_MODULE, JNI_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'nativeCallback')
+
+    def jmethodeCbName (ftr, cmd):
+        return LIB_MODULE+ '_'+JNI_SUBMODULE+ '_'+get_ftr_old_name(ftr).upper()+ '_'+format_cmd_name(cmd).upper() + '_CB'
+
+    cfile = open (paths.JNI_DECODER_CFILE, 'w')
+
+    cfile.write (LICENCE_HEADER)
+    cfile.write ('/********************************************\n')
+    cfile.write (' *            AUTOGENERATED FILE            *\n')
+    cfile.write (' *             DO NOT MODIFY IT             *\n')
+    cfile.write (' *                                          *\n')
+    cfile.write (' * To add new commands :                    *\n')
+    cfile.write (' *  - Modify ../../Xml/commands.xml file    *\n')
+    cfile.write (' *  - Re-run generateCommandsList.py script *\n')
+    cfile.write (' *                                          *\n')
+    cfile.write (' ********************************************/\n')
+    cfile.write ('#include <' + COMMANDSGEN_HFILE_NAME + '>\n')
+    cfile.write ('#include <' + COMMANDSDEC_HFILE_NAME + '>\n')
+    cfile.write ('#include <jni.h>\n')
+    cfile.write ('#include <stdlib.h>\n')
+    cfile.write ('\n')
+
+    cfile.write ('typedef struct\n')
     cfile.write ('{\n')
+    cfile.write ('    jobject javaDecoder; /**< java decoder */\n')
+    cfile.write ('    ARCOMMANDS_Decoder_t *nativeDecoder; /**< native decoder*/\n')
+    cfile.write ('} ARCOMMANDS_JNI_Decoder_t;\n')
+    cfile.write ('\n')
+
+    cfile.write ('static JavaVM *g_vm = NULL;\n')
+    cfile.write ('static jfieldID g_dataSize_id = 0;\n')
+    cfile.write ('\n')
+    for ftr in allFeatures:
+        for cmd in ftr.cmds + ftr.evts:
+            cfile.write ('static jmethodID ' +jmethodeCbName(ftr, cmd)+ ';\n')
+    cfile.write ('\n')
+
+    cfile.write ('JNIEXPORT jint JNICALL\n')
+    cfile.write ('JNI_OnLoad (JavaVM *vm, void *reserved)\n')
+    cfile.write ('{\n')
+    cfile.write ('    g_vm = vm;\n')
+    cfile.write ('    JNIEnv *env = NULL;\n')
+    cfile.write ('    if ((*vm)->GetEnv (vm, (void **)&env, JNI_VERSION_1_6) != JNI_OK)\n')
+    cfile.write ('    {\n')
+    cfile.write ('        return -1;\n')
+    cfile.write ('    }\n')
+    cfile.write ('\n')
+
+    cfile.write ('    return JNI_VERSION_1_6;\n')
+    cfile.write ('}\n')
+
+    cfile.write ('JNIEXPORT void JNICALL\n')
+    cfile.write (JNI_FUNC_PREFIX + JNIDecoderClassName + '_nativeStaticInit (' + JNI_FIRST_ARGS_STATIC + ')\n')
+    cfile.write ('{\n')
+
+    cfile.write ('    jclass decoder_clazz = (*env)->FindClass (env, "' + JNI_PACKAGE_NAME.replace ('.', '/') + '/' + JNIDecoderClassName + '");\n')
+    cfile.write ('\n')
+
+    for ftr in allFeatures:
+        for cmd in ftr.cmds + ftr.evts:
+            cfile.write ('    '+jmethodeCbName(ftr, cmd)+ ' = (*env)->GetMethodID (env, decoder_clazz, "' + javaCbName (ftr, cmd) + '", "(')
+            for arg in cmd.args:
+                cfile.write ('' + xmlToJavaSig (ftr, cmd, arg))
+            cfile.write (')V");\n')
+    cfile.write ('\n')
+
+    cfile.write ('    /* cleanup */\n')
+    cfile.write ('    (*env)->DeleteLocalRef (env, decoder_clazz);\n')
+
+    cfile.write ('}\n')
+
+    cfile.write ('JNIEXPORT jint JNICALL\n')
+    cfile.write (JNI_FUNC_PREFIX + JNIDecoderClassName + '_nativeDecode (' + JNI_FIRST_ARGS + ', jlong jdecoder,  jlong jpdata, jint jdataSize)\n')
+    cfile.write ('{\n')
+    cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *) (intptr_t)jdecoder;\n')
     cfile.write ('    uint8_t *pdata = (uint8_t *) (intptr_t)jpdata;\n')
-    cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (pdata, jdataSize);\n')
+    cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (decoder->nativeDecoder, pdata, jdataSize);\n')
     cfile.write ('    return err;\n')
     cfile.write ('}\n')
     cfile.write ('\n')
@@ -3878,9 +4141,6 @@ def jni_generateCmds(ctx, paths):
             cfile.write ('\n')
         cfile.write ('\n')
 
-    def cCallbackName (ftr, cmd):
-        return ARFunctionName (LIB_MODULE, JNI_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'nativeCb')
-
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
             cfile.write ('void ' + cCallbackName (ftr, cmd) + ' (')
@@ -3888,31 +4148,21 @@ def jni_generateCmds(ctx, paths):
                 cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name + ', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
-            cfile.write ('    jclass clazz = (jclass)custom;\n')
+            cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *)custom;\n')
             cfile.write ('    jint res;\n')
             cfile.write ('    JNIEnv *env = NULL;\n')
             cfile.write ('    res = (*g_vm)->GetEnv (g_vm, (void **)&env, JNI_VERSION_1_6);\n')
             cfile.write ('    if (res < 0) { return; }\n')
-            cfile.write ('    jfieldID delegate_fid = (*env)->GetStaticFieldID (env, clazz, "' + interfaceVar (ftr, cmd) + '", "L' + JNI_PACKAGE_NAME.replace ('.', '/') + '/' + interfaceName (ftr, cmd) + ';");\n')
-            cfile.write ('    jobject delegate = (*env)->GetStaticObjectField (env, clazz, delegate_fid);\n')
-            cfile.write ('    if (delegate == NULL) { return; }\n')
             cfile.write ('\n')
-            cfile.write ('    jclass d_clazz = (*env)->GetObjectClass (env, delegate);\n')
-            cfile.write ('    jmethodID d_methodid = (*env)->GetMethodID (env, d_clazz, "' + javaCbName (ftr, cmd) + '", "(')
-            for arg in cmd.args:
-                cfile.write ('' + xmlToJavaSig (ftr, cmd, arg))
-            cfile.write (')V");\n')
-            cfile.write ('    (*env)->DeleteLocalRef (env, d_clazz);\n')
-            cfile.write ('    if (d_methodid != NULL)\n')
-            cfile.write ('    {\n')
+
             for arg in cmd.args:
                 if ArArgType.STRING == arg.argType:
-                    cfile.write ('        jstring j_' + arg.name + ' = (*env)->NewStringUTF (env, ' + arg.name + ');\n')
+                    cfile.write ('    jstring j_' + arg.name + ' = (*env)->NewStringUTF (env, ' + arg.name + ');\n')
                 elif isinstance(arg.argType, ArEnum):
-                    cfile.write ('        jclass j_' + arg.name + '_class = (*env)->FindClass (env, "' + jniEnumClassName (ftr, cmd, arg) + '");\n')
-                    cfile.write ('        jmethodID j_' + arg.name + '_mid = (*env)->GetStaticMethodID (env, j_' + arg.name + '_class, "getFromValue", "(I)' + xmlToJavaSig(ftr, cmd, arg) + '");\n')
-                    cfile.write ('        jobject j_' + arg.name + '_enum = (*env)->CallStaticObjectMethod (env, j_' + arg.name + '_class, j_' + arg.name + '_mid, ' + arg.name + ');\n')
-            cfile.write ('        (*env)->CallVoidMethod (env, delegate, d_methodid')
+                    cfile.write ('    jclass j_' + arg.name + '_class = (*env)->FindClass (env, "' + jniEnumClassName (ftr, cmd, arg) + '");\n')
+                    cfile.write ('    jmethodID j_' + arg.name + '_mid = (*env)->GetStaticMethodID (env, j_' + arg.name + '_class, "getFromValue", "(I)' + xmlToJavaSig(ftr, cmd, arg) + '");\n')
+                    cfile.write ('    jobject j_' + arg.name + '_enum = (*env)->CallStaticObjectMethod (env, j_' + arg.name + '_class, j_' + arg.name + '_mid, ' + arg.name + ');\n')
+            cfile.write ('    (*env)->CallVoidMethod (env, decoder->javaDecoder, '+jmethodeCbName (ftr, cmd))
             for arg in cmd.args:
                 if ArArgType.STRING == arg.argType:
                     cfile.write (', j_' + arg.name)
@@ -3923,43 +4173,85 @@ def jni_generateCmds(ctx, paths):
             cfile.write (');\n')
             for arg in cmd.args:
                 if ArArgType.STRING == arg.argType:
-                    cfile.write ('        (*env)->DeleteLocalRef (env, j_' + arg.name + ');\n')
-            cfile.write ('    }\n')
-            cfile.write ('    (*env)->DeleteLocalRef (env, delegate);\n')
+                    cfile.write ('    (*env)->DeleteLocalRef (env, j_' + arg.name + ');\n')
             cfile.write ('}\n')
             cfile.write ('\n')
         cfile.write ('\n')
 
-    cfile.write ('JNIEXPORT jint JNICALL\n')
-    cfile.write ('JNI_OnLoad (JavaVM *vm, void *reserved)\n')
+    cfile.write ('JNIEXPORT jlong JNICALL\n')
+    cfile.write (JNI_FUNC_PREFIX + JNIDecoderClassName + '_nativeNewDecoder (' + JNI_FIRST_ARGS + ')\n')
     cfile.write ('{\n')
-    cfile.write ('    g_vm = vm;\n')
-    cfile.write ('    JNIEnv *env = NULL;\n')
-    cfile.write ('    if ((*vm)->GetEnv (vm, (void **)&env, JNI_VERSION_1_6) != JNI_OK)\n')
+    cfile.write ('    int failed = 0;\n')
+    cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = calloc(1, sizeof(ARCOMMANDS_JNI_Decoder_t));\n')
+    cfile.write ('    if (decoder == NULL)\n')
     cfile.write ('    {\n')
-    cfile.write ('        return -1;\n')
+    cfile.write ('        failed = 1;\n')
     cfile.write ('    }\n')
-    cfile.write ('    jclass clazz = (*env)->FindClass (env, "' + JNI_PACKAGE_NAME.replace ('.', '/') + '/' + JNIClassName + '");\n')
-    cfile.write ('    if (clazz == NULL)\n')
+    cfile.write ('    \n')
+
+    cfile.write ('    if (!failed)\n')
     cfile.write ('    {\n')
-    cfile.write ('        return -1;\n')
+    cfile.write ('        decoder->nativeDecoder = ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'NewDecoder') + ' (NULL);\n')
+    cfile.write ('        if (decoder->nativeDecoder == NULL)\n')
+    cfile.write ('        {\n')
+    cfile.write ('            failed = 1;\n')
+    cfile.write ('        }\n')
     cfile.write ('    }\n')
-    cfile.write ('    jclass g_class = (*env)->NewGlobalRef (env, clazz);\n')
-    cfile.write ('    if (g_class == NULL)\n')
+    cfile.write ('    \n')
+
+    cfile.write ('    if (!failed)\n')
     cfile.write ('    {\n')
-    cfile.write ('        return -1;\n')
+    cfile.write ('        decoder->javaDecoder = (*env)->NewGlobalRef(env, thizz);\n')
+    cfile.write ('        if (decoder->javaDecoder == NULL)\n')
+    cfile.write ('        {\n')
+    cfile.write ('            failed = 1;\n')
+    cfile.write ('        }\n')
     cfile.write ('    }\n')
-    cfile.write ('\n')
+    cfile.write ('    \n')
+
+    cfile.write ('    if (!failed)\n')
+    cfile.write ('    {\n')
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
-            cfile.write ('    ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Callback') + ' (' + cCallbackName (ftr, cmd) + ', (void *)g_class);\n')
+            cfile.write ('        ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Cb') + ' (decoder->nativeDecoder, ' + cCallbackName (ftr, cmd) + ', decoder);\n')
             cfile.write ('\n')
-        cfile.write ('\n')
+    cfile.write ('    }\n')
     cfile.write ('\n')
-    cfile.write ('    return JNI_VERSION_1_6;\n')
-    cfile.write ('}\n')
-    cfile.write ('/* END OF GENERAED CODE */\n')
 
+    cfile.write ('    if ((failed) && (decoder != NULL))\n')
+    cfile.write ('    {\n')
+    cfile.write ('        ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DeleteDecoder') + ' (&decoder->nativeDecoder);\n')
+    cfile.write ('        if (decoder->javaDecoder != NULL)\n')
+    cfile.write ('        {\n')
+    cfile.write ('            (*env)->DeleteGlobalRef(env, decoder->javaDecoder);\n')
+    cfile.write ('        }\n')
+    cfile.write ('        free(decoder);\n')
+    cfile.write ('        decoder = NULL;\n')
+    cfile.write ('    }\n')
+    cfile.write ('\n')
+
+    cfile.write ('    return (jlong) (intptr_t) decoder;\n')
+    cfile.write ('}\n')
+    cfile.write ('\n')
+
+    cfile.write ('JNIEXPORT void JNICALL\n')
+    cfile.write (JNI_FUNC_PREFIX + JNIDecoderClassName + '_nativeDeleteDecoder (' + JNI_FIRST_ARGS + ', jlong jdecoder)\n')
+    cfile.write ('{\n')
+    cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *) (intptr_t)jdecoder;\n')
+    cfile.write ('\n')
+    cfile.write ('    if (decoder != NULL)\n')
+    cfile.write ('    {\n')
+    cfile.write ('        ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DeleteDecoder') + ' (&decoder->nativeDecoder);\n')
+    cfile.write ('        if (decoder->javaDecoder != NULL)\n')
+    cfile.write ('        {\n')
+    cfile.write ('            (*env)->DeleteGlobalRef(env, decoder->javaDecoder);\n')
+    cfile.write ('        }\n')
+    cfile.write ('        free(decoder);\n')
+    cfile.write ('    }\n')
+    cfile.write ('}\n')
+    cfile.write ('\n')
+
+    cfile.write ('/* END OF GENERAED CODE */\n')
     cfile.close ()
 
     cfile = open (paths.JNI_FILTER_CFILE, 'w')
