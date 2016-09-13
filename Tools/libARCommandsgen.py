@@ -118,6 +118,16 @@ JNIFilterClassName, _ = os.path.splitext (JNI_FILTER_JFILE_NAME)
 JAVA_INTERFACES_FILES_NAME=JNIClassName + '*Listener.java'
 JAVA_ENUM_FILES_NAME=JNIClassName.upper() + '*_ENUM.java'
 
+def _get_args_without_multiset(args):
+    for arg in args:
+        if not isinstance(arg.argType, arsdkparser.ArMultiSetting):
+            yield arg
+
+def _get_args_multiset(args):
+    for arg in args:
+        if isinstance(arg.argType, arsdkparser.ArMultiSetting):
+            yield arg
+
 class Paths:
     def __init__(self, outdir):
         #Relative path of SOURCE dir
@@ -219,7 +229,7 @@ hasArgOfType = {ArArgType.U8 : True,        ArArgType.I8 : False,
                 ArArgType.U64 : False,      ArArgType.I64 : False,
                 ArArgType.FLOAT : False,    ArArgType.DOUBLE : False,
                 ArArgType.STRING : False,   ArArgType.ENUM : False,
-                ArArgType.BITFIELD : False}
+                ArArgType.BITFIELD : False, ArArgType.MULTISETTING : False}
 
 #Type conversion from XML Defined types to many other types
 # XML Defined types
@@ -227,7 +237,7 @@ XMLTYPES = [ArArgType.U8,     ArArgType.I8,
             ArArgType.U16,    ArArgType.I16,
             ArArgType.U32,    ArArgType.I32,
             ArArgType.U64,    ArArgType.I64,
-            ArArgType.FLOAT,    ArArgType.DOUBLE,
+            ArArgType.FLOAT,  ArArgType.DOUBLE,
             ArArgType.STRING]
 # Equivalent C types
 CTYPES   = ['uint8_t',  'int8_t',
@@ -296,18 +306,28 @@ JNIUTSCASTS = ['(jbyte)', '',
                '', '',
                '']
 
-def xmlToC (module, ftr, cmd, arg):
+def xmlToC (module, ftr, cmd, arg, is_arg=False):
     if isinstance(arg.argType, ArEnum):
         return AREnumName (module, get_ftr_old_name(ftr), arg.argType.name)
+    if isinstance(arg.argType, ArMultiSetting):
+        ctype = ARTypeName (module, get_ftr_old_name(ftr), arg.argType.name)
+        if (is_arg):
+            return ctype + ' *'
+        return ctype
     if isinstance(arg.argType, ArBitfield):
         xmlIndex = XMLTYPES.index (arg.argType.btfType)
     else:
         xmlIndex = XMLTYPES.index (arg.argType)
     return CTYPES [xmlIndex]
 
-def xmlToCwithConst (ftr, cmd, arg):
+def xmlToCwithConst (module, ftr, cmd, arg, is_arg=False):
     if isinstance(arg.argType, ArEnum):
-        return AREnumName (LIB_MODULE, get_ftr_old_name(ftr), arg.argType.name)
+        return AREnumName (module, get_ftr_old_name(ftr), arg.argType.name)
+    if isinstance(arg.argType, ArMultiSetting):
+        ctype = 'const ' + ARTypeName (module, get_ftr_old_name(ftr), arg.argType.name)
+        if is_arg:
+            return ctype + ' *'
+        return ctype
     if isinstance(arg.argType, ArBitfield):
         xmlIndex = XMLTYPES.index (arg.argType.btfType)
     else:
@@ -344,6 +364,8 @@ def xmlToPrinter (ftr, cmd, arg):
 def xmlToJava (module, ftr, cmd, arg):
     if isinstance(arg.argType, ArEnum):
         return ARJavaEnumType (module, get_ftr_old_name(ftr), arg.argType.name)
+    if isinstance(arg.argType, ArMultiSetting):
+        return ARJavaMultiSetType (module, get_ftr_old_name(ftr), arg.argType.name)
     if isinstance(arg.argType, ArBitfield):
         xmlIndex = XMLTYPES.index (arg.argType.btfType)
     else:
@@ -355,9 +377,14 @@ def jniEnumClassName (ftr, cmd, arg):
         return ''
     return JNI_PACKAGE_DIR + '/' + ARJavaEnumType (LIB_MODULE, get_ftr_old_name(ftr), arg.argType.name)
 
+def jniClassName (ftr, cmd, arg):
+    return JNI_PACKAGE_DIR + '/' + ARJavaMultiSetType (LIB_MODULE, get_ftr_old_name(ftr), arg.argType.name)
+
 def xmlToJavaSig (ftr, cmd, arg):
     if isinstance(arg.argType, ArEnum):
         return 'L' + jniEnumClassName (ftr, cmd, arg) + ';'
+    if isinstance(arg.argType, ArMultiSetting):
+        return 'L' + jniClassName (ftr, cmd, arg) + ';'
     if isinstance(arg.argType, ArBitfield):
         xmlIndex = XMLTYPES.index (arg.argType.btfType)
     else:
@@ -400,6 +427,8 @@ def get_arg_doc(arg):
             doc = doc + arg.argType.doc
         elif isinstance(arg.argType, ArBitfield):
             doc = doc + arg.argType.enum.doc
+        elif isinstance(arg.argType, ArMultiSetting):
+            doc = doc + arg.argType.doc
 
     return doc
 
@@ -521,6 +550,8 @@ def native_generateCmds(ctx, paths):
                 elif isinstance(arg.argType, ArBitfield):
                     hasArgOfType[ArArgType.BITFIELD] = True
                     hasArgOfType[arg.argType.btfType] = True
+                elif isinstance(arg.argType, ArMultiSetting):
+                    hasArgOfType[ArArgType.MULTISETTING] = True
                 else:
                     hasArgOfType[arg.argType] = True
 
@@ -1499,7 +1530,25 @@ def native_generateCmds(ctx, paths):
                 for eVal in enum.values:
                     hfile.write ('#define ' + ARFlagValue (LIB_MODULE, submodules, macro_name, eVal.name) + ' (1 << '+AREnumValue (LIB_MODULE, submodules, macro_name, eVal.name)+ ')    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
                 hfile.write ('\n')
+    for ftr in allFeatures:
+        hfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n')
+        for multiset in ftr.multisets:
+            submodules=get_ftr_old_name(ftr)
+            hfile.write ('\n/**\n')
+            hfile.write (' * @brief ' + multiset.doc.replace('\n', '\\n') + '\n')
+            hfile.write (' */\n')
+            hfile.write ('typedef struct\n')
+            hfile.write ('{\n')
+            for msg in multiset.msgs:
+                hfile.write ('    struct\n')
+                hfile.write ('    {\n')
+                hfile.write ('        uint8_t isSet;\n')
+                for arg in msg.args:
+                    hfile.write ('        '+xmlToC (LIB_MODULE, msg.ftr, msg, arg) +' '+arg.name+';\n')
+                hfile.write ('    } '+msg.name+';\n')
+                hfile.write ('\n')
 
+            hfile.write ('} ' + ARTypeName (LIB_MODULE, submodules, multiset.name) + ';\n\n')
     hfile.write ('\n')
     hfile.write ('#endif /* ' + COMMANDSTYPES_DEFINE + ' */\n')
 
@@ -1570,7 +1619,7 @@ def native_generateCmds(ctx, paths):
             hfile.write (' */\n')
             hfile.write (AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd))) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                hfile.write (', ' + xmlToCwithConst (ftr, cmd, arg) + ' _' + arg.name)
+                hfile.write (', ' + xmlToCwithConst (LIB_MODULE, ftr, cmd, arg, True) + ' _' + arg.name)
             hfile.write (');\n')
         hfile.write ('\n')
 
@@ -1611,12 +1660,24 @@ def native_generateCmds(ctx, paths):
         for cmd in ftr.cmds + ftr.evts:
             cfile.write (AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' +  ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd))) + ' (uint8_t *buffer, int32_t buffLen, int32_t *cmdLen')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToCwithConst (ftr, cmd, arg) + ' _' + arg.name)
+                cfile.write (', ' + xmlToCwithConst (LIB_MODULE, ftr, cmd, arg, True) + ' _' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t currIndexInBuffer = 0;\n')
+
+            if [arg for arg in cmd.args if isinstance(arg.argType, ArMultiSetting)]:
+                    cfile.write ('    int32_t currFreeSizeInBuffer = 0;\n')
+                    cfile.write ('    int32_t multisetSize = 0;\n')
+                    cfile.write ('    int32_t multisetSizeIndex = 0;\n')
+                    cfile.write ('    int32_t cmdSize = 0;\n')
+                    cfile.write ('    int32_t cmdSizeIndex = 0;\n')
+                    cfile.write ('    int32_t cmdIndex = 0;\n')
+
             cfile.write ('    ' + AREnumName (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ';\n')
             cfile.write ('    if ((buffer == NULL) ||\n')
+            for arg in cmd.args:
+                if isinstance(arg.argType, ArMultiSetting):
+                    cfile.write ('        (_' + arg.name + ' == NULL) ||\n')
             cfile.write ('        (cmdLen == NULL))\n')
             cfile.write ('    {\n')
             cfile.write ('        return ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'BAD_ARGS') + ';\n')
@@ -1674,15 +1735,51 @@ def native_generateCmds(ctx, paths):
             cfile.write ('        } // No else --> Do not modify retVal if no issue was found\n')
             cfile.write ('    } // No else --> Processing block\n')
             for arg in cmd.args:
-                cfile.write ('    // Write arg _' + arg.name + '\n')
-                cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
-                cfile.write ('    {\n')
-                cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Add' + xmlToSize (ftr, cmd, arg) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
-                cfile.write ('        if (currIndexInBuffer == -1)\n')
-                cfile.write ('        {\n')
-                cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
-                cfile.write ('        } // No else --> Do not modify retVal if no issue was found\n')
-                cfile.write ('    } // No else --> Processing block\n')
+                if isinstance(arg.argType, ArMultiSetting):
+                    cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        multisetSizeIndex = currIndexInBuffer;\n')
+                    cfile.write ('        currIndexInBuffer += sizeof(uint16_t);\n')
+                    cfile.write ('    }\n')
+                    cfile.write ('\n')
+                    for multiset_msg in arg.argType.msgs:
+                        cfile.write ('    if ((retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ') && (_'+arg.name+'->'+multiset_msg.name+'.isSet))\n')
+                        cfile.write ('    {\n')
+                        cfile.write ('        cmdSizeIndex = currIndexInBuffer;\n')
+                        cfile.write ('        cmdIndex = cmdSizeIndex + sizeof(uint16_t);\n')
+                        cfile.write ('        currFreeSizeInBuffer = buffLen - cmdIndex;\n')
+                        cfile.write ('        // Write the command\n')
+                        cfile.write ('        retVal = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' +  ARCapitalize (get_ftr_old_name(multiset_msg.ftr)) + ARCapitalize (format_cmd_name(multiset_msg))) + ' (buffer + cmdIndex, currFreeSizeInBuffer, &cmdSize')
+                        for multiset_msg_arg in multiset_msg.args:
+                            cfile.write (', _' + arg.name+'->'+multiset_msg.name+'.'+multiset_msg_arg.name)
+                        cfile.write (');\n')
+                        cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') +')\n')
+                        cfile.write ('        {\n')
+                        cfile.write ('            // Write command size before the command\n')
+                        cfile.write ('            ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, cmdSize, cmdSizeIndex, cmdSizeIndex + sizeof(uint16_t));\n')
+                        cfile.write ('            // Update current Index\n')
+                        cfile.write ('            currIndexInBuffer += sizeof(uint16_t) + cmdSize;\n')
+                        cfile.write ('            // Update Multiset Size\n')
+                        cfile.write ('            multisetSize += sizeof(uint16_t) + cmdSize;\n')
+                        cfile.write ('        }\n')
+                        cfile.write ('    } // No else --> Processing block\n')
+                        cfile.write ('\n')
+                    cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        // Write multiset size before all commands\n')
+                    cfile.write ('        ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'AddU16ToBuffer') + ' (buffer, multisetSize, multisetSizeIndex, multisetSizeIndex + sizeof(uint16_t));\n')
+                    cfile.write ('    }\n')
+                    cfile.write ('\n')
+                else:
+                    cfile.write ('    // Write arg _' + arg.name + '\n')
+                    cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        currIndexInBuffer = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Add' + xmlToSize (ftr, cmd, arg) + 'ToBuffer') + ' (buffer, _' + arg.name + ', currIndexInBuffer, buffLen);\n')
+                    cfile.write ('        if (currIndexInBuffer == -1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if no issue was found\n')
+                    cfile.write ('    } // No else --> Processing block\n')
             cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME, 'OK') + ')\n')
             cfile.write ('    {\n')
             cfile.write ('        *cmdLen = currIndexInBuffer;\n')
@@ -1790,6 +1887,18 @@ def native_generateCmds(ctx, paths):
     for ftr in allFeatures:
         hfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n\n')
         for cmd in ftr.cmds + ftr.evts:
+            for  multiset_arg in [arg for arg in cmd.args if isinstance(arg.argType, ArMultiSetting)]:
+                hfile.write ('/**\n')
+                hfile.write (' * @brief Decode a '+ARTypeName (LIB_MODULE, get_ftr_old_name(ftr), multiset_arg.argType.name)+'\n')
+                hfile.write (' * On success, the callback set for each commands of the multisetting will be called in the current thread.\n')
+                hfile.write (' * @param decoder the decoder instance\n')
+                hfile.write (' * @param multisetting the multisetting to decode\n')
+                hfile.write (' * @return ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
+                hfile.write (' */\n')
+                hfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+                hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Decode'+ARCapitalize(ftr.name)+ARCapitalize(cmd.name)) + ' (ARCOMMANDS_Decoder_t *decoder, '+xmlToC(LIB_MODULE, ftr, cmd, multiset_arg, True)+' multisetting);\n')
+                hfile.write ('\n')
+
             brefCmdName = cmd.name if cmd.cls is None else cmd.cls.name + '.' + cmd.name
             hfile.write ('\n/**\n')
             hfile.write (' * @brief callback type for the command ' + get_ftr_old_name(ftr) + '.' + brefCmdName + '\n')
@@ -1801,7 +1910,7 @@ def native_generateCmds(ctx, paths):
                     first = False
                 else:
                     hfile.write (', ')
-                hfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name)
+                hfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name)
             if not first:
                 hfile.write (', ')
             hfile.write ('void *custom);\n')
@@ -1873,7 +1982,7 @@ def native_generateCmds(ctx, paths):
     cfile.write ('        ARSAL_Mutex_Init (&decoder->mutex);\n')
     cfile.write ('\n')
     cfile.write ('    if (error)\n')
-    cfile.write ('        *error = decoder ? ARCOMMANDS_DECODER_OK : ARCOMMANDS_DECODER_ERROR;\n')
+    cfile.write ('        *error = decoder ? ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' : ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
     cfile.write ('\n');
     cfile.write ('    return decoder;\n')
     cfile.write ('}\n\n')
@@ -1903,6 +2012,45 @@ def native_generateCmds(ctx, paths):
     for ftr in allFeatures:
         cfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n\n')
         for cmd in ftr.cmds + ftr.evts:
+            for  multiset_arg in [arg for arg in cmd.args if isinstance(arg.argType, ArMultiSetting)]:
+                cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
+                cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Decode'+ARCapitalize(ftr.name)+ARCapitalize(cmd.name)) + ' (ARCOMMANDS_Decoder_t *decoder, '+xmlToC(LIB_MODULE, ftr, cmd, multiset_arg, True)+' multisetting)\n')
+                cfile.write ('{\n')
+                cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+                cfile.write ('    if ((NULL == decoder) ||\n')
+                cfile.write ('        (NULL == multisetting))\n')
+                cfile.write ('    {\n')
+                cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+                cfile.write ('    } // No else --> Arg check\n')
+                cfile.write ('    \n')
+                cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                cfile.write ('    {\n')
+                for multiset_msg in multiset_arg.argType.msgs:
+                    if multiset_msg.cls:
+                        DECODER_CBNAME = ARCapitalize (get_ftr_old_name(multiset_msg.ftr)) + ARCapitalize (multiset_msg.cls.name) + ARCapitalize (multiset_msg.name) + 'Callback'
+                        DECODER_CBCUSTOMNAME = ARCapitalize (get_ftr_old_name(multiset_msg.ftr)) + ARCapitalize (multiset_msg.cls.name) + ARCapitalize (multiset_msg.name) + 'Custom'
+                    else:
+                        DECODER_CBNAME = ARCapitalize (get_ftr_old_name(multiset_msg.ftr)) + ARCapitalize (multiset_msg.name) + 'Callback'
+                        DECODER_CBCUSTOMNAME = ARCapitalize (get_ftr_old_name(multiset_msg.ftr)) + ARCapitalize (multiset_msg.name) + 'Custom'
+
+                    cfile.write ('        if ((multisetting->'+multiset_msg.name+'.isSet) && (decoder->' + DECODER_CBNAME + ')) {\n')
+                    cfile.write ('            decoder->' + DECODER_CBNAME + ' (')
+                    first = True
+                    for arg in multiset_msg.args:
+                        if first:
+                            first = False
+                        else:
+                            cfile.write (', ')
+                        cfile.write ('multisetting->'+multiset_msg.name+'.' + arg.name)
+                    if not first:
+                        cfile.write (', ')
+                    cfile.write ('decoder->' + DECODER_CBCUSTOMNAME + ');\n')
+                    cfile.write ('        }\n')
+                cfile.write ('    }\n')
+                cfile.write ('    return retVal;\n')
+                cfile.write ('}\n')
+                cfile.write ('\n')
+
             cfile.write ('void ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'Set' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Cb') + ' (ARCOMMANDS_Decoder_t *decoder, ' + ARTypeName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'Callback') + ' callback, void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    if (!decoder)\n')
@@ -1927,6 +2075,363 @@ def native_generateCmds(ctx, paths):
             cfile.write ('}\n')
         cfile.write ('\n')
 
+    for ftr in allFeatures:
+        for cmd in [cmdx for cmdx in ftr.cmds + ftr.evts if cmdx.args]:
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset')
+            for arg in cmd.args:
+                cfile.write (', '+ xmlToC (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
+            cfile.write (');\n')
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DescribeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset, char *resString, int32_t strLen, int32_t *strOffset);\n')
+
+    cfile.write ('\n')
+    for ftr in allFeatures:
+        for cmd in [cmdx for cmdx in ftr.cmds + ftr.evts if cmdx.args]:
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset')
+            for arg in cmd.args:
+                cfile.write (', '+ xmlToC (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
+            cfile.write (')\n')
+            cfile.write ('{\n')
+
+            cfile.write ('    ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+            cfile.write ('    int32_t error = 0;\n')
+            hasMutiSet = bool([arg for arg in cmd.args if isinstance(arg.argType, ArMultiSetting)])
+            if hasMutiSet:
+                cfile.write ('    eARCOMMANDS_ID_FEATURE commandFeature = -1;\n')
+                cfile.write ('    int commandClass = -1;\n')
+                cfile.write ('    int commandId = -1;\n')
+                cfile.write ('    uint16_t multisetSize = 0;\n')
+                cfile.write ('    int32_t multisetEnd = 0;\n')
+                cfile.write ('    uint16_t cmdSize = 0;\n')
+            cfile.write ('\n')
+            cfile.write ('    if ((NULL == buffer)')
+            for arg in cmd.args:
+                cfile.write (' ||\n        (NULL == _' + arg.name+')')
+            cfile.write (')\n')
+            cfile.write ('    {\n')
+            cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+            cfile.write ('    } // No else --> Arg check\n')
+            cfile.write ('\n')
+
+            for arg in cmd.args:
+                if isinstance(arg.argType, ArMultiSetting):
+                    cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        memset(_' + arg.name+', 0, sizeof(*_' + arg.name+'));\n')
+                    cfile.write ('        multisetSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        multisetEnd = *offset + multisetSize;\n')
+                    cfile.write ('        cmdSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('    while ((retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ') &&\n')
+                    cfile.write ('           (*offset < multisetEnd))\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandFeature = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandClass = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandId = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            switch (commandFeature)\n')
+                    cfile.write ('            {\n')
+
+                    #regroup multisetting msgs by feature and by class
+                    multiset_sorted = {}
+                    for multiset_msg in arg.argType.msgs:
+                        multiset_cl = multiset_msg.cls if multiset_msg.cls else ArClass('defaultCls', 0, '')
+                        if not multiset_msg.ftr in multiset_sorted:
+                            multiset_sorted[multiset_msg.ftr] = {}
+                        if not multiset_cl in multiset_sorted[multiset_msg.ftr]:
+                            multiset_sorted[multiset_msg.ftr][multiset_cl] = []
+                        multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
+
+                    for multiset_ftr in multiset_sorted:
+                        cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
+                        cfile.write ('                switch (commandClass)\n')
+                        cfile.write ('                {\n')
+                        for multiset_cl in multiset_sorted[multiset_ftr]:
+                            cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
+                            cfile.write ('                    switch (commandId)\n')
+                            cfile.write ('                    {\n')
+                            for multiset_msg in multiset_sorted[multiset_ftr][multiset_cl]:
+                                cfile.write ('                    case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_' + multiset_cl.name + '_CMD', multiset_msg.name) + ':\n')
+                                cfile.write ('                        retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(multiset_ftr)) + ARCapitalize (format_cmd_name(multiset_msg)) + 'DecodeArgs') + '(buffer, buffLen, offset')
+                                for multiset_msg_arg in multiset_msg.args:
+                                    cfile.write (', &_' + arg.name+'->'+multiset_msg.name+'.' + multiset_msg_arg.name)
+                                cfile.write (');\n')
+                                cfile.write ('                        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                                cfile.write ('                        {\n')
+                                cfile.write ('                            _' + arg.name+'->'+multiset_msg.name+'.isSet = 1;\n')
+                                cfile.write ('                        }\n')
+                                cfile.write ('                        break;\n')
+                            cfile.write ('                    default:\n')
+                            cfile.write ('                        // Command unknown\n')
+                            cfile.write ('                        *offset += cmdSize;\n')
+                            cfile.write ('                       break;\n')
+                            cfile.write ('                    }\n')
+                            cfile.write ('                    break;\n')
+                        cfile.write ('                default:\n')
+                        cfile.write ('                    // Command unknown\n')
+                        cfile.write ('                    *offset += cmdSize;\n')
+                        cfile.write ('                    break;\n')
+                        cfile.write ('                }\n')
+                        cfile.write ('                break;\n')
+
+                    cfile.write ('            default:\n')
+                    cfile.write ('                // Command unknown\n')
+                    cfile.write ('                *offset += cmdSize;\n')
+                    cfile.write ('                break;\n')
+                    cfile.write ('            }\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('\n')
+
+                    cfile.write ('        if ((retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ') &&\n')
+                    cfile.write ('           (*offset < multisetEnd))\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            cmdSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('    }\n')
+                else:
+                    cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        *_' + arg.name + ' = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+
+            cfile.write ('    return retVal;\n')
+            cfile.write ('}\n')
+            cfile.write ('\n')
+
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DescribeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset, char *resString, int32_t strLen, int32_t *strOffset)\n')
+            cfile.write ('{\n')
+            cfile.write ('    int32_t error = 0;\n')
+            hasMutiSet = bool([arg for arg in cmd.args if isinstance(arg.argType, ArMultiSetting)])
+            if hasMutiSet:
+                cfile.write ('    eARCOMMANDS_ID_FEATURE commandFeature = -1;\n')
+                cfile.write ('    int commandClass = -1;\n')
+                cfile.write ('    int commandId = -1;\n')
+                cfile.write ('    uint16_t multisetSize = 0;\n')
+                cfile.write ('    int32_t multisetEnd = 0;\n')
+                cfile.write ('    uint16_t cmdSize = 0;\n')
+            cfile.write ('    ' + AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ';\n')
+            cfile.write ('\n')
+            cfile.write ('    if ((NULL == buffer) || (NULL == resString))\n')
+            cfile.write ('    {\n')
+            cfile.write ('        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR') + ';\n')
+            cfile.write ('    } // No else --> Arg check\n')
+            cfile.write ('\n')
+            for arg in cmd.args:
+                if isinstance(arg.argType, ArMultiSetting):
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        multisetSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        multisetEnd = *offset + multisetSize;\n')
+                    cfile.write ('        cmdSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 1)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        *strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("{", resString, strLen, *strOffset) ;\n')
+                    cfile.write ('        if (*strOffset < 0)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if no error occured\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('    while ((retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ') &&\n')
+                    cfile.write ('           (*offset < multisetEnd))\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandFeature = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandClass = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            commandId = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                retVal = '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        } // No else --> Processing block\n')
+                    cfile.write ('\n')
+                    cfile.write ('        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            switch (commandFeature)\n')
+                    cfile.write ('            {\n')
+
+                    #regroup multisetting msgs by feature and by class
+                    multiset_sorted = {}
+                    for multiset_msg in arg.argType.msgs:
+                        multiset_cl = multiset_msg.cls if multiset_msg.cls else ArClass('defaultCls', 0, '')
+                        if not multiset_msg.ftr in multiset_sorted:
+                            multiset_sorted[multiset_msg.ftr] = {}
+                        if not multiset_cl in multiset_sorted[multiset_msg.ftr]:
+                            multiset_sorted[multiset_msg.ftr][multiset_cl] = []
+                        multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
+
+                    for multiset_ftr in multiset_sorted.keys():
+                        cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
+                        cfile.write ('                switch (commandClass)\n')
+                        cfile.write ('                {\n')
+                        for multiset_cl in multiset_sorted[multiset_ftr].keys():
+                            cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
+                            cfile.write ('                    switch (commandId)\n')
+                            cfile.write ('                    {\n')
+                            for multiset_msg in multiset_sorted[multiset_ftr][multiset_cl]:
+                                cfile.write ('                    case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_' + multiset_cl.name + '_CMD', multiset_msg.name) + ':\n')
+                                if multiset_msg.cls:
+                                    cfile.write ('                        *strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("{' + get_ftr_old_name(multiset_ftr) + '.' + multiset_cl.name +'.' + multiset_msg.name + ':", resString, strLen, *strOffset) ;\n')
+                                else:
+                                    cfile.write ('                        *strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("{' + get_ftr_old_name(multiset_ftr) + '.' + multiset_msg.name + ':", resString, strLen, *strOffset) ;\n')
+                                cfile.write ('                        if (*strOffset < 0)\n')
+                                cfile.write ('                        {\n')
+                                cfile.write ('                            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                                cfile.write ('                        } // No else --> Do not modify retVal if no error occured\n')
+                                cfile.write ('\n')
+                                cfile.write ('                        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                                cfile.write ('                        {\n')
+                                cfile.write ('                            retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(multiset_ftr)) + ARCapitalize (format_cmd_name(multiset_msg)) + 'DescribeArgs') + '(buffer, buffLen, offset, resString, strLen, strOffset);\n')
+                                cfile.write ('                        }\n')
+                                cfile.write ('\n')
+                                cfile.write ('                        if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                                cfile.write ('                        {\n')
+                                cfile.write ('                            *strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("}", resString, strLen, *strOffset) ;\n')
+                                cfile.write ('                            if (*strOffset < 0)\n')
+                                cfile.write ('                            {\n')
+                                cfile.write ('                                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                                cfile.write ('                            } // No else --> Do not modify retVal if no error occured\n')
+                                cfile.write ('                        }\n')
+                                cfile.write ('                        break;\n')
+                            cfile.write ('                    default:\n')
+                            cfile.write ('                        // Command unknown\n')
+                            cfile.write ('                        *offset += cmdSize;\n')
+                            cfile.write ('                       break;\n')
+                            cfile.write ('                    }\n')
+                            cfile.write ('                    break;\n')
+                        cfile.write ('                default:\n')
+                        cfile.write ('                    // Command unknown\n')
+                        cfile.write ('                    *offset += cmdSize;\n')
+                        cfile.write ('                    break;\n')
+                        cfile.write ('                }\n')
+                        cfile.write ('                break;\n')
+
+                    cfile.write ('            default:\n')
+                    cfile.write ('                // Command unknown\n')
+                    cfile.write ('                *offset += cmdSize;\n')
+                    cfile.write ('                break;\n')
+                    cfile.write ('            }\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('\n')
+
+                    cfile.write ('        if ((retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ') &&\n')
+                    cfile.write ('           (*offset < multisetEnd))\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            cmdSize = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('            if (error == 1)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('                /* buffer end */\n')
+                    cfile.write ('                break;\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if read went fine\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('    }\n')
+                    cfile.write ('\n')
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        *strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("}", resString, strLen, *strOffset) ;\n')
+                    cfile.write ('        if (*strOffset < 0)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                    cfile.write ('        } // No else --> Do not modify retVal if no error occured\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+                else:
+                    cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
+                    cfile.write ('    {\n')
+                    cfile.write ('        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' arg = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        if (error == 0)\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            *strOffset = ' + xmlToPrinter (ftr, cmd, arg) + ' (" | ' + arg.name + ' -> ", arg, resString, strLen, *strOffset);\n')
+                    cfile.write ('            if (*strOffset < 0)\n')
+                    cfile.write ('            {\n')
+                    cfile.write ('               retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
+                    cfile.write ('            } // No else --> Do not modify retVal if no error occured\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('        else\n')
+                    cfile.write ('        {\n')
+                    cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
+                    cfile.write ('        }\n')
+                    cfile.write ('    } // No else --> Processing block\n')
+            cfile.write ('\n')
+            cfile.write ('    return retVal;\n')
+            cfile.write ('}\n')
+            cfile.write ('\n')
+
     cfile.write ('// DECODER ENTRY POINT\n')
     cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
     cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen)\n')
@@ -1936,7 +2441,7 @@ def native_generateCmds(ctx, paths):
     cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
     cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (ARCOMMANDS_Decoder_t *decoder, uint8_t *buffer, int32_t buffLen)\n')
     cfile.write ('{\n')
-    cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'FEATURE') + ' commandFetaure = -1;\n')
+    cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'FEATURE') + ' commandFeature = -1;\n')
     cfile.write ('    int commandClass = -1;\n')
     cfile.write ('    int commandId = -1;\n')
     cfile.write ('    int32_t error = 0;\n')
@@ -1957,7 +2462,7 @@ def native_generateCmds(ctx, paths):
     cfile.write ('\n')
     cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
     cfile.write ('    {\n')
-    cfile.write ('        commandFetaure = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+    cfile.write ('        commandFeature = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
     cfile.write ('        if (error == 1)\n')
     cfile.write ('        {\n')
     cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
@@ -1984,7 +2489,7 @@ def native_generateCmds(ctx, paths):
     cfile.write ('\n')
     cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
     cfile.write ('    {\n')
-    cfile.write ('        switch (commandFetaure)\n')
+    cfile.write ('        switch (commandFeature)\n')
     cfile.write ('        {\n')
     for ftr in allFeatures:
         cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ':\n')
@@ -2017,15 +2522,12 @@ def native_generateCmds(ctx, paths):
                             cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
                         else:
                             cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ';\n')
-                    for arg in cmd.args:
-                        cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
-                        cfile.write ('                        {\n')
-                        cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
-                        cfile.write ('                            if (error == 1)\n')
-                        cfile.write ('                            {\n')
-                        cfile.write ('                                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
-                        cfile.write ('                            } // No else --> Do not modify retVal if read went fine\n')
-                        cfile.write ('                        } // No else --> Processing block\n')
+
+                    if cmd.args:
+                        cfile.write ('                        retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize(cl.name) + ARCapitalize (cmd.name) + 'DecodeArgs') + '(buffer, buffLen, &offset')
+                        for arg in cmd.args:
+                            cfile.write (', &_' + arg.name)
+                        cfile.write (');\n')
                     cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                     cfile.write ('                        {\n')
                     cfile.write ('                            if (decoder && decoder->' + DECODER_CBNAME + ') {\n')
@@ -2036,7 +2538,10 @@ def native_generateCmds(ctx, paths):
                             first = False
                         else:
                             cfile.write (', ')
-                        cfile.write ('_' + arg.name)
+                        if isinstance(arg.argType, ArMultiSetting):
+                            cfile.write ('&_' + arg.name)
+                        else:
+                            cfile.write ('_' + arg.name)
                     if not first:
                         cfile.write (', ')
                     cfile.write ('decoder->' + DECODER_CBCUSTOMNAME + ');\n')
@@ -2048,7 +2553,10 @@ def native_generateCmds(ctx, paths):
                             first = False
                         else:
                             cfile.write (', ')
-                        cfile.write ('_' + arg.name)
+                        if isinstance(arg.argType, ArMultiSetting):
+                            cfile.write ('&_' + arg.name)
+                        else:
+                            cfile.write ('_' + arg.name)
                     if not first:
                         cfile.write (', ')
                     cfile.write (CBCUSTOMNAME + ');\n')
@@ -2100,15 +2608,13 @@ def native_generateCmds(ctx, paths):
                         cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
                     else:
                         cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ';\n')
-                for arg in cmd.args:
-                    cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
-                    cfile.write ('                        {\n')
-                    cfile.write ('                            _' + arg.name + ' = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
-                    cfile.write ('                            if (error == 1)\n')
-                    cfile.write ('                            {\n')
-                    cfile.write ('                                retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
-                    cfile.write ('                            } // No else --> Do not modify retVal if read went fine\n')
-                    cfile.write ('                        } // No else --> Processing block\n')
+
+                if cmd.args:
+                    cfile.write ('                        retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + '(buffer, buffLen, &offset')
+                    for arg in cmd.args:
+                        cfile.write (', &_' + arg.name)
+                    cfile.write (');\n')
+
                 cfile.write ('                        if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                 cfile.write ('                        {\n')
                 cfile.write ('                            if (decoder && decoder->' + DECODER_CBNAME + ') {\n')
@@ -2119,7 +2625,10 @@ def native_generateCmds(ctx, paths):
                         first = False
                     else:
                         cfile.write (', ')
-                    cfile.write ('_' + arg.name)
+                    if isinstance(arg.argType, ArMultiSetting):
+                        cfile.write ('&_' + arg.name)
+                    else:
+                        cfile.write ('_' + arg.name)
                 if not first:
                     cfile.write (', ')
                 cfile.write ('decoder->' + DECODER_CBCUSTOMNAME + ');\n')
@@ -2131,7 +2640,10 @@ def native_generateCmds(ctx, paths):
                         first = False
                     else:
                         cfile.write (', ')
-                    cfile.write ('_' + arg.name)
+                    if isinstance(arg.argType, ArMultiSetting):
+                        cfile.write ('&_' + arg.name)
+                    else:
+                        cfile.write ('_' + arg.name)
                 if not first:
                     cfile.write (', ')
                 cfile.write (CBCUSTOMNAME + ');\n')
@@ -2173,7 +2685,7 @@ def native_generateCmds(ctx, paths):
     cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
     cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DescribeBuffer') + ' (uint8_t *buffer, int32_t buffLen, char *resString, int32_t stringLen)\n')
     cfile.write ('{\n')
-    cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'FEATURE') + ' commandFetaure = -1;\n')
+    cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'FEATURE') + ' commandFeature = -1;\n')
     cfile.write ('    int commandClass = -1;\n')
     cfile.write ('    int commandId = -1;\n')
     cfile.write ('    int32_t offset = 0;\n')
@@ -2195,7 +2707,7 @@ def native_generateCmds(ctx, paths):
     cfile.write ('\n')
     cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
     cfile.write ('    {\n')
-    cfile.write ('        commandFetaure = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
+    cfile.write ('        commandFeature = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (buffer, buffLen, &offset, &error);\n')
     cfile.write ('        if (error == 1)\n')
     cfile.write ('        {\n')
     cfile.write ('            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
@@ -2231,7 +2743,7 @@ def native_generateCmds(ctx, paths):
     cfile.write ('\n')
     cfile.write ('    if (retVal == ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
     cfile.write ('    {\n')
-    cfile.write ('        switch (commandFetaure)\n')
+    cfile.write ('        switch (commandFeature)\n')
     cfile.write ('        {\n')
     for ftr in allFeatures:
         cfile.write ('        case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(ftr)) + ':\n')
@@ -2249,19 +2761,12 @@ def native_generateCmds(ctx, paths):
                     cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(ftr) + '_' + cl.name + '_CMD', cmd.name) + ':\n')
                     cfile.write ('                {\n')
                     cfile.write ('                    strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("' + get_ftr_old_name(ftr) + '.' + cl.name + '.' + cmd.name + ':", resString, stringLen, strOffset) ;\n')
-                    for arg in cmd.args:
+                    if cmd.args:
                         cfile.write ('                    if (strOffset > 0)\n')
                         cfile.write ('                    {\n')
-                        cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' arg = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
-                        cfile.write ('                        if (error == 0)\n')
-                        cfile.write ('                        {\n')
-                        cfile.write ('                            strOffset = ' + xmlToPrinter (ftr, cmd, arg) + ' (" | ' + arg.name + ' -> ", arg, resString, stringLen, strOffset);\n')
-                        cfile.write ('                        }\n')
-                        cfile.write ('                        else\n')
-                        cfile.write ('                        {\n')
-                        cfile.write ('                            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
-                        cfile.write ('                        }\n')
+                        cfile.write ('                        retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DescribeArgs') + '(buffer, buffLen, &offset, resString, stringLen, &strOffset);\n')
                         cfile.write ('                    } // No else --> If first print failed, the next if will set the error code\n')
+                        cfile.write ('\n')
                     cfile.write ('                    if (strOffset < 0)\n')
                     cfile.write ('                    {\n')
                     cfile.write ('                        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -2290,19 +2795,12 @@ def native_generateCmds(ctx, paths):
                 cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(ftr) + '_CMD', cmd.name) + ':\n')
                 cfile.write ('                {\n')
                 cfile.write ('                    strOffset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' ("' + get_ftr_old_name(ftr) + '.' + cmd.name + ':", resString, stringLen, strOffset) ;\n')
-                for arg in cmd.args:
+                if cmd.args:
                     cfile.write ('                    if (strOffset > 0)\n')
                     cfile.write ('                    {\n')
-                    cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' arg = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, &offset, &error);\n')
-                    cfile.write ('                        if (error == 0)\n')
-                    cfile.write ('                        {\n')
-                    cfile.write ('                            strOffset = ' + xmlToPrinter (ftr, cmd, arg) + ' (" | ' + arg.name + ' -> ", arg, resString, stringLen, strOffset);\n')
-                    cfile.write ('                        }\n')
-                    cfile.write ('                        else\n')
-                    cfile.write ('                        {\n')
-                    cfile.write ('                            retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_DATA') + ';\n')
-                    cfile.write ('                        }\n')
+                    cfile.write ('                        retVal = '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DescribeArgs') + '(buffer, buffLen, &offset, resString, stringLen, &strOffset);\n')
                     cfile.write ('                    } // No else --> If first print failed, the next if will set the error code\n')
+                    cfile.write ('\n')
                 cfile.write ('                    if (strOffset < 0)\n')
                 cfile.write ('                    {\n')
                 cfile.write ('                        retVal = ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'NOT_ENOUGH_SPACE') + ';\n')
@@ -2838,7 +3336,7 @@ def tb_generateCmds(ctx, paths):
                     first = False
                 else:
                     cfile.write (', ')
-                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name)
+                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name)
             if not first:
                 cfile.write (', ')
             cfile.write ('void *custom)\n')
@@ -3303,6 +3801,11 @@ def java_generateCmds(ctx, paths):
             for arg in cmd.args:
                 if isinstance(arg.argType, ArEnum):
                     jfile.write (', _' + arg.name + '.getValue()')
+                elif isinstance(arg.argType, ArMultiSetting):
+                    for multiset_msg in arg.argType.msgs:
+                        jfile.write (', _' + arg.name + '.get'+ARCapitalize(multiset_msg.ftr.name)+ARCapitalize(multiset_msg.name)+'IsSet()')
+                        for multiset_msg_arg in multiset_msg.args:
+                            jfile.write (', _' + arg.name + '.get'+ARCapitalize(multiset_msg.ftr.name)+ARCapitalize(multiset_msg.name)+ARCapitalize(multiset_msg_arg.name)+'()')
                 else:
                     jfile.write (', _' + arg.name)
             jfile.write (');\n')
@@ -3336,6 +3839,11 @@ def java_generateCmds(ctx, paths):
             for arg in cmd.args:
                 if isinstance (arg.argType, ArEnum):
                     jfile.write (', int ' + arg.name)
+                elif isinstance(arg.argType, ArMultiSetting):
+                    for multiset_msg in arg.argType.msgs:
+                        jfile.write (', int '+ARCapitalize(multiset_msg.ftr.name)+ARCapitalize(multiset_msg.name)+'IsSet')
+                        for multiset_msg_arg in multiset_msg.args:
+                            jfile.write (', ' + xmlToJava (LIB_MODULE, multiset_msg.ftr, multiset_msg, multiset_msg_arg) + ' '+ARUncapitalize(multiset_msg.ftr.name)+ARCapitalize(multiset_msg.name)+ARCapitalize(multiset_msg_arg.name)+'')
                 else:
                     jfile.write (', ' + xmlToJava (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name)
             jfile.write (');\n')
@@ -3792,6 +4300,62 @@ def java_generateCmds(ctx, paths):
             jfile.write('}\n')
             jfile.close()
 
+        for multiset in ftr.multisets:
+            oldEnumValFrm = False if ftr.classes == None else True
+            CLASS_NAME = ARJavaMultiSetType (LIB_MODULE, get_ftr_old_name(ftr), multiset.name)
+            JFILE_NAME = paths.JNIJ_OUT_DIR + CLASS_NAME + '.java'
+
+            jfile = open(JFILE_NAME, 'w')
+
+            jfile.write(LICENCE_HEADER)
+            jfile.write('\n')
+            jfile.write('package ' + JNI_PACKAGE_NAME + ';\n')
+            jfile.write('\n')
+            jfile.write('/**\n')
+            jfile.write(' * Java copy of the ' + ARJavaMultiSetType (LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '\n')
+            jfile.write(' */\n')
+            jfile.write('public class ' + CLASS_NAME + ' {\n')
+            jfile.write('\n')
+            for multiset_msg in multiset.msgs:
+                jfile.write('    private static class ' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + ' {\n')
+                jfile.write('        public int isSet;\n')
+                for multiset_msg_arg in multiset_msg.args:
+                    jfile.write('        public '+ xmlToJava(LIB_MODULE, multiset_msg.ftr, multiset_msg, multiset_msg_arg) +' ' + multiset_msg_arg.name + ';\n')
+                jfile.write('    }\n')
+                jfile.write('\n')
+            jfile.write('    public ' + CLASS_NAME + ' () {\n')
+            jfile.write('    }\n')
+            jfile.write('\n')
+            for multiset_msg in multiset.msgs:
+                jfile.write('    private final ' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + ' _' + ARUncapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + ' = new ' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + '();\n')
+            jfile.write('\n')
+            for multiset_msg in multiset.msgs:
+                jfile.write('    public void set' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + ' (')
+                isFirst = True
+                for multiset_msg_arg in multiset_msg.args:
+                    if not isFirst:
+                        jfile.write(', ')
+                    isFirst = False
+                    jfile.write( xmlToJava(LIB_MODULE, multiset_msg.ftr, multiset_msg, multiset_msg_arg) +' ' + multiset_msg_arg.name )
+                jfile.write(') {\n')
+                jfile.write( '        _' + ARUncapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + '.isSet = 1;\n')
+                for multiset_msg_arg in multiset_msg.args:
+                    jfile.write( '        _' + ARUncapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + '.'+multiset_msg_arg.name+' = ' + multiset_msg_arg.name+';\n' )
+                jfile.write('    }\n')
+                jfile.write('\n')
+            for multiset_msg in multiset.msgs:
+                jfile.write('    public int get' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + 'IsSet () {\n')
+                jfile.write( '        return _' + ARUncapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + '.isSet;\n')
+                jfile.write('    }\n')
+                jfile.write('\n')
+                for multiset_msg_arg in multiset_msg.args:
+                    jfile.write('    public '+ xmlToJava(LIB_MODULE, multiset_msg.ftr, multiset_msg, multiset_msg_arg) +' get' + ARCapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + ARCapitalize(multiset_msg_arg.name) +' () {\n')
+                    jfile.write( '        return _' + ARUncapitalize(multiset_msg.ftr.name) + ARCapitalize(multiset_msg.name) + '.'+multiset_msg_arg.name+';\n')
+                    jfile.write('    }\n')
+                    jfile.write('\n')
+            jfile.write('}\n')
+            jfile.close()
+
     # Generate java enums
 
     #enumDecErr = ArEnum(DEC_SUBMODULE+'_'+DEC_ERR_ENAME, 'Error codes for ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' function')
@@ -3947,6 +4511,8 @@ def jni_generateCmds(ctx, paths):
                 elif isinstance(arg.argType, ArBitfield):
                     hasArgOfType[ArArgType.BITFIELD] = True
                     hasArgOfType[arg.argType.btfType] = True
+                elif isinstance(arg.argType, ArMultiSetting):
+                    hasArgOfType[ArArgType.MULTISETTING] = True
                 else:
                     hasArgOfType[arg.argType] = True
 
@@ -4104,7 +4670,13 @@ def jni_generateCmds(ctx, paths):
             cfile.write ('JNIEXPORT jint JNICALL\n')
             cfile.write (JNI_FUNC_PREFIX + JNIClassName + '_nativeSet' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + ' (' + JNI_FIRST_ARGS + ', jlong c_pdata, jint dataLen')
             for arg in cmd.args:
-                cfile.write (', ' + xmlToJni (ftr, cmd, arg) + ' ' + arg.name)
+                if isinstance(arg.argType, ArMultiSetting):
+                    for multiset_msg in arg.argType.msgs:
+                        cfile.write (', jint '+multiset_msg.ftr.name+ multiset_msg.name+'IsSet')
+                        for multiset_msg_arg in multiset_msg.args:
+                            cfile.write (', ' + xmlToJni (multiset_msg.ftr, multiset_msg, multiset_msg_arg) + ' ' +multiset_msg.ftr.name+ multiset_msg.name+ multiset_msg_arg.name)
+                else:
+                    cfile.write (', ' + xmlToJni (ftr, cmd, arg) + ' ' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
             cfile.write ('    int32_t c_dataSize = 0;\n')
@@ -4126,10 +4698,19 @@ def jni_generateCmds(ctx, paths):
             for arg in cmd.args:
                 if ArArgType.STRING == arg.argType:
                     cfile.write ('    const char *c_' + arg.name + ' = (*env)->GetStringUTFChars (env, ' + arg.name + ', NULL);\n')
+                elif isinstance(arg.argType, ArMultiSetting):
+                    cfile.write ('    ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' c_' + arg.name + ' = {\n')
+                    for multiset_msg in arg.argType.msgs:
+                        cfile.write ('        .'+multiset_msg.name+'.isSet = '+multiset_msg.ftr.name+ multiset_msg.name+'IsSet,\n')
+                        for multiset_msg_arg in multiset_msg.args:
+                            cfile.write ('        .'+multiset_msg.name+'.'+multiset_msg_arg.name+' = ' +multiset_msg.ftr.name+ multiset_msg.name+ multiset_msg_arg.name+',\n')
+                    cfile.write ('};\n')
             cfile.write ('    err = ' + ARFunctionName (LIB_MODULE, GEN_SUBMODULE, 'Generate' + ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd))) + ' ((uint8_t *) (intptr_t) c_pdata, dataLen, &c_dataSize')
             for arg in cmd.args:
                 if ArArgType.STRING == arg.argType:
                     cfile.write (', c_' + arg.name)
+                elif isinstance(arg.argType, ArMultiSetting):
+                    cfile.write (', &c_' + arg.name)
                 else:
                     cfile.write (', (' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ')' + arg.name)
             cfile.write (');\n')
@@ -4149,7 +4730,7 @@ def jni_generateCmds(ctx, paths):
         for cmd in ftr.cmds + ftr.evts:
             cfile.write ('void ' + cCallbackName (ftr, cmd) + ' (')
             for arg in cmd.args:
-                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg) + ' ' + arg.name + ', ')
+                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name + ', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *)custom;\n')
@@ -4159,23 +4740,26 @@ def jni_generateCmds(ctx, paths):
             cfile.write ('    if (res < 0) { return; }\n')
             cfile.write ('\n')
 
-            for arg in cmd.args:
+            for arg in _get_args_multiset(cmd.args):
+                cfile.write ('    ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE,'Decode'+ARCapitalize(ftr.name)+ARCapitalize(cmd.name))+' (decoder->nativeDecoder, '+arg.name+');\n')
+            for arg in _get_args_without_multiset(cmd.args):
                 if ArArgType.STRING == arg.argType:
                     cfile.write ('    jstring j_' + arg.name + ' = (*env)->NewStringUTF (env, ' + arg.name + ');\n')
                 elif isinstance(arg.argType, ArEnum):
                     cfile.write ('    jclass j_' + arg.name + '_class = (*env)->FindClass (env, "' + jniEnumClassName (ftr, cmd, arg) + '");\n')
                     cfile.write ('    jmethodID j_' + arg.name + '_mid = (*env)->GetStaticMethodID (env, j_' + arg.name + '_class, "getFromValue", "(I)' + xmlToJavaSig(ftr, cmd, arg) + '");\n')
                     cfile.write ('    jobject j_' + arg.name + '_enum = (*env)->CallStaticObjectMethod (env, j_' + arg.name + '_class, j_' + arg.name + '_mid, ' + arg.name + ');\n')
-            cfile.write ('    (*env)->CallVoidMethod (env, decoder->javaDecoder, '+jmethodeCbName (ftr, cmd))
-            for arg in cmd.args:
-                if ArArgType.STRING == arg.argType:
-                    cfile.write (', j_' + arg.name)
-                elif isinstance(arg.argType, ArEnum):
-                    cfile.write (', j_' + arg.name + '_enum')
-                else:
-                    cfile.write (', ' + xmlToJniCast(ftr, cmd, arg) + arg.name)
-            cfile.write (');\n')
-            for arg in cmd.args:
+            if not list(_get_args_multiset(cmd.args)):
+                cfile.write ('    (*env)->CallVoidMethod (env, decoder->javaDecoder, '+jmethodeCbName (ftr, cmd))
+                for arg in _get_args_without_multiset(cmd.args):
+                    if ArArgType.STRING == arg.argType:
+                        cfile.write (', j_' + arg.name)
+                    elif isinstance(arg.argType, ArEnum):
+                        cfile.write (', j_' + arg.name + '_enum')
+                    else:
+                        cfile.write (', ' + xmlToJniCast(ftr, cmd, arg) + arg.name)
+                cfile.write (');\n')
+            for arg in _get_args_without_multiset(cmd.args):
                 if ArArgType.STRING == arg.argType:
                     cfile.write ('    (*env)->DeleteLocalRef (env, j_' + arg.name + ');\n')
             cfile.write ('}\n')
@@ -4583,6 +5167,8 @@ def android_list_files(ctx, paths):
     for ftr in ctx.features:
         for enum in ftr.enums:
             print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java'
+        for multiset in ftr.multisets:
+            print paths.JNIJ_OUT_DIR + ARJavaMultiSetType(LIB_MODULE, get_ftr_old_name(ftr), multiset.name) + '.java'
 
     # print java listener class files
     for ftr in ctx.features:
