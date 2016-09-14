@@ -12,6 +12,7 @@ LOCAL_MODULE := libarcommands_android
 
 LOCAL_GEN_FILES := \
 	$(GEN_OUT)/JNI/c/ARCOMMANDS_JNIFilter.c \
+	$(GEN_OUT)/JNI/c/ARCOMMANDS_JNIDecoder.c \
 	$(GEN_OUT)/JNI/c/ARCOMMANDS_JNI.c
 
 LOCAL_SRC_FILES := \
