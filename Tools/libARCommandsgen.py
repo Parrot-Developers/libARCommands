@@ -4386,7 +4386,7 @@ def dump_cmd_table(ftr, cl):
     table = 'static struct arsdk_cmd %s_%s_cmd_tab[] = {\n' % (get_ftr_old_name(ftr),
                                                               cl.name)
     for cmd in cl.cmds:
-        comment = cmd.doc.replace('\n', '\\n')
+        comment = cmd.doc.title.replace('\n', '\\n')
         if len(cmd.args) > 0:
             args = '%s_%s_%s_arg_tab' % (get_ftr_old_name(ftr), cl.name, cmd.name)
             nargs = 'ARRAY_SIZE(%s)' % args
