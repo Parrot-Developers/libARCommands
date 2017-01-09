@@ -4756,7 +4756,7 @@ def jni_generateCmds(ctx, paths):
         for cmd in ftr.cmds + ftr.evts:
             cfile.write ('void ' + cCallbackName (ftr, cmd) + ' (')
             for arg in cmd.args:
-                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name + ', ')
+                cfile.write (xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name + ', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *)custom;\n')
