@@ -3994,6 +3994,27 @@ def java_generateCmds(ctx, paths):
     jfile.write ('    }\n')
     jfile.write ('\n')
 
+    jfile.write ('    /**\n')
+    jfile.write ('     * Decodes a command calling commands listeners<br>\n')
+    jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIDecoderClassName + ',\n')
+    jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
+    jfile.write ('     * @param command command to decode.\n')
+    jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
+    jfile.write ('     */\n')
+    jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode (long data, int size) {\n')
+    jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR', True) + ';\n')
+    jfile.write ('        if (!valid) {\n')
+    jfile.write ('            return err;\n')
+    jfile.write ('        }\n')
+    jfile.write ('        int errInt = nativeDecode (pointer, data, size);\n')
+    jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+    jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
+    jfile.write ('        }\n')
+    jfile.write ('        return err;\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
             jfile.write ('    private ' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + ';\n')
