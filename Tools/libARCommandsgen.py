@@ -2205,11 +2205,13 @@ def native_generateCmds(ctx, paths):
                             multiset_sorted[multiset_msg.ftr][multiset_cl] = []
                         multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
 
-                    for multiset_ftr in multiset_sorted:
+                    get_name = lambda x: x.name
+
+                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in multiset_sorted[multiset_ftr]:
+                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
@@ -2362,11 +2364,13 @@ def native_generateCmds(ctx, paths):
                             multiset_sorted[multiset_msg.ftr][multiset_cl] = []
                         multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
 
-                    for multiset_ftr in multiset_sorted.keys():
+                    get_name = lambda x: x.name
+
+                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in multiset_sorted[multiset_ftr].keys():
+                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
