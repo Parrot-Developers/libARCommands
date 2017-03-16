@@ -320,6 +320,20 @@ def xmlToC (module, ftr, cmd, arg, is_arg=False):
         xmlIndex = XMLTYPES.index (arg.argType)
     return CTYPES [xmlIndex]
 
+def xmlToCcharAreConst (module, ftr, cmd, arg, is_arg=False):
+    if isinstance(arg.argType, ArEnum):
+        return AREnumName (module, get_ftr_old_name(ftr), arg.argType.name)
+    if isinstance(arg.argType, ArMultiSetting):
+        ctype = ARTypeName (module, get_ftr_old_name(ftr), arg.argType.name)
+        if (is_arg):
+            return ctype + ' *'
+        return ctype
+    if isinstance(arg.argType, ArBitfield):
+        xmlIndex = XMLTYPES.index (arg.argType.btfType)
+    else:
+        xmlIndex = XMLTYPES.index (arg.argType)
+    return CTYPES_WC [xmlIndex]
+
 def xmlToCwithConst (module, ftr, cmd, arg, is_arg=False):
     if isinstance(arg.argType, ArEnum):
         return AREnumName (module, get_ftr_old_name(ftr), arg.argType.name)
@@ -697,37 +711,37 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.U8] or hasArgOfType[ArArgType.I8]:
         hfile.write ('// Read an 8 bit value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('uint8_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('uint8_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.U16] or hasArgOfType[ArArgType.I16]:
         hfile.write ('// Read a 16 bit value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('uint16_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('uint16_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.U32] or hasArgOfType[ArArgType.I32] or hasArgOfType[ArArgType.ENUM]:
         hfile.write ('// Read a 32 bit value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('uint32_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read32FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('uint32_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read32FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.U64] or hasArgOfType[ArArgType.I64]:
         hfile.write ('// Read a 64 bit value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('uint64_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read64FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('uint64_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read64FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.FLOAT]:
         hfile.write ('// Read a float value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('float ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadFloatFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('float ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadFloatFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.DOUBLE]:
         hfile.write ('// Read a double value from the buffer\n')
         hfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        hfile.write ('double ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadDoubleFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('double ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadDoubleFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     if hasArgOfType[ArArgType.STRING]:
         hfile.write ('// Read a string value from the buffer\n')
         hfile.write ('// On error, return NULL and set *error to 1, else set *error to 0\n')
-        hfile.write ('char* ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadStringFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
+        hfile.write ('const char* ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadStringFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error);\n')
         hfile.write ('\n')
     hfile.write ('// -------- //\n')
     hfile.write ('// TOSTRING //\n')
@@ -796,7 +810,7 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.STRING]:
         hfile.write ('// Write a string in a buffer from a string arg\n')
         hfile.write ('// On error, return -1, else return offset in string\n')
-        hfile.write ('int ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'PrintString') + ' (const char *name, char *arg, char *output, int outputLen, int outputOffset);\n')
+        hfile.write ('int ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'PrintString') + ' (const char *name, const char *arg, char *output, int outputLen, int outputOffset);\n')
         hfile.write ('\n')
 
 
@@ -981,7 +995,7 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.U8] or hasArgOfType[ArArgType.I8]:
         cfile.write ('// Read an 8 bit value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('uint8_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('uint8_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read8FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    uint8_t retVal = 0;\n')
@@ -1002,11 +1016,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.U16] or hasArgOfType[ArArgType.I16]:
         cfile.write ('// Read a 16 bit value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('uint16_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('uint16_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read16FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    uint16_t retVal = 0;\n')
-        cfile.write ('    uint8_t *buffAddr = &buffer[*offset];\n')
+        cfile.write ('    const uint8_t *buffAddr = &buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset + sizeof (uint16_t);\n')
         cfile.write ('    if (newOffset > capacity)\n')
         cfile.write ('    {\n')
@@ -1025,11 +1039,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.U32] or hasArgOfType[ArArgType.I32] or hasArgOfType[ArArgType.ENUM]:
         cfile.write ('// Read a 32 bit value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('uint32_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read32FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('uint32_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read32FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    uint32_t retVal = 0;\n')
-        cfile.write ('    uint8_t *buffAddr = &buffer[*offset];\n')
+        cfile.write ('    const uint8_t *buffAddr = &buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset + sizeof (uint32_t);\n')
         cfile.write ('    if (newOffset > capacity)\n')
         cfile.write ('    {\n')
@@ -1048,11 +1062,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.U64] or hasArgOfType[ArArgType.I64]:
         cfile.write ('// Read a 64 bit value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('uint64_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read64FromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('uint64_t ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'Read64FromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    uint64_t retVal = 0;\n')
-        cfile.write ('    uint8_t *buffAddr = &buffer[*offset];\n')
+        cfile.write ('    const uint8_t *buffAddr = &buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset + sizeof (uint64_t);\n')
         cfile.write ('    if (newOffset > capacity)\n')
         cfile.write ('    {\n')
@@ -1071,11 +1085,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.FLOAT]:
         cfile.write ('// Read a float value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('float ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadFloatFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('float ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadFloatFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    float retVal = 0;\n')
-        cfile.write ('    uint8_t *buffAddr = &buffer[*offset];\n')
+        cfile.write ('    const uint8_t *buffAddr = &buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset + sizeof (float);\n')
         cfile.write ('    if (newOffset > capacity)\n')
         cfile.write ('    {\n')
@@ -1094,11 +1108,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.DOUBLE]:
         cfile.write ('// Read a double value from the buffer\n')
         cfile.write ('// On error, return zero and set *error to 1, else set *error to 0\n')
-        cfile.write ('double ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadDoubleFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('double ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadDoubleFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    double retVal = 0;\n')
-        cfile.write ('    uint8_t *buffAddr = &buffer[*offset];\n')
+        cfile.write ('    const uint8_t *buffAddr = &buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset + sizeof (double);\n')
         cfile.write ('    if (newOffset > capacity)\n')
         cfile.write ('    {\n')
@@ -1117,11 +1131,11 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.STRING]:
         cfile.write ('// Read a string value from the buffer\n')
         cfile.write ('// On error, return NULL and set *error to 1, else set *error to 0\n')
-        cfile.write ('char* ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadStringFromBuffer') + ' (uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
+        cfile.write ('const char* ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'ReadStringFromBuffer') + ' (const uint8_t *buffer, int32_t capacity, int32_t *offset, int32_t *error)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
-        cfile.write ('    char *retVal = NULL;\n')
-        cfile.write ('    char *buffAddr = (char *)&buffer[*offset];\n')
+        cfile.write ('    const char *retVal = NULL;\n')
+        cfile.write ('    const char *buffAddr = (char *)&buffer[*offset];\n')
         cfile.write ('    int newOffset = *offset;\n')
         cfile.write ('    while ((newOffset < capacity) && (\'\\0\' != (char) buffer [newOffset]))\n')
         cfile.write ('    {\n')
@@ -1451,7 +1465,7 @@ def native_generateCmds(ctx, paths):
     if hasArgOfType[ArArgType.STRING]:
         cfile.write ('// Write a string in a buffer from a string arg\n')
         cfile.write ('// On error, return -1, else return offset in string\n')
-        cfile.write ('int ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'PrintString') + ' (const char *name, char *arg, char *output, int outputLen, int outputOffset)\n')
+        cfile.write ('int ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'PrintString') + ' (const char *name, const char *arg, char *output, int outputLen, int outputOffset)\n')
         cfile.write ('{\n')
         cfile.write ('    // We don\'t check args because this function is only called by autogenerated code\n')
         cfile.write ('    int offset = ' + ARFunctionName (LIB_MODULE, RW_SUBMODULE, 'WriteString') + ' (name, output, outputLen, outputOffset);\n')
@@ -1865,7 +1879,7 @@ def native_generateCmds(ctx, paths):
     hfile.write (' * @return ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
     hfile.write (' */\n')
     hfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-    hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (ARCOMMANDS_Decoder_t *decoder, uint8_t *buffer, int32_t buffLen);\n')
+    hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (ARCOMMANDS_Decoder_t *decoder, const uint8_t *buffer, int32_t buffLen);\n')
     hfile.write ('\n')
     hfile.write ('/**\n')
     hfile.write (' * @brief Decode a comand buffer\n')
@@ -1875,7 +1889,7 @@ def native_generateCmds(ctx, paths):
     hfile.write (' * @return ' + AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ' on success, any error code otherwise\n')
     hfile.write (' */\n')
     hfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-    hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen) DEPRECATED;\n')
+    hfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (const uint8_t *buffer, int32_t buffLen) DEPRECATED;\n')
     hfile.write ('\n')
     hfile.write ('\n/**\n')
     hfile.write (' * @brief Describe a comand buffer\n')
@@ -1914,7 +1928,7 @@ def native_generateCmds(ctx, paths):
                     first = False
                 else:
                     hfile.write (', ')
-                hfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name)
+                hfile.write (xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name)
             if not first:
                 hfile.write (', ')
             hfile.write ('void *custom);\n')
@@ -2089,18 +2103,18 @@ def native_generateCmds(ctx, paths):
 
     for ftr in allFeatures:
         for cmd in [cmdx for cmdx in ftr.cmds + ftr.evts if cmdx.args]:
-            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset')
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (const uint8_t *buffer, int32_t buffLen, int32_t *offset')
             for arg in cmd.args:
-                cfile.write (', '+ xmlToC (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
+                cfile.write (', '+ xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
             cfile.write (');\n')
             cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DescribeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset, char *resString, int32_t strLen, int32_t *strOffset);\n')
 
     cfile.write ('\n')
     for ftr in allFeatures:
         for cmd in [cmdx for cmdx in ftr.cmds + ftr.evts if cmdx.args]:
-            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (uint8_t *buffer, int32_t buffLen, int32_t *offset')
+            cfile.write ('static ' +AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) +' '+ ARFunctionName (LIB_MODULE, DEC_SUBMODULE, ARCapitalize (get_ftr_old_name(ftr)) + ARCapitalize (format_cmd_name(cmd)) + 'DecodeArgs') + ' (const uint8_t *buffer, int32_t buffLen, int32_t *offset')
             for arg in cmd.args:
-                cfile.write (', '+ xmlToC (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
+                cfile.write (', '+ xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg) +' *_' + arg.name)
             cfile.write (')\n')
             cfile.write ('{\n')
 
@@ -2191,11 +2205,13 @@ def native_generateCmds(ctx, paths):
                             multiset_sorted[multiset_msg.ftr][multiset_cl] = []
                         multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
 
-                    for multiset_ftr in multiset_sorted:
+                    get_name = lambda x: x.name
+
+                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in multiset_sorted[multiset_ftr]:
+                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
@@ -2348,11 +2364,13 @@ def native_generateCmds(ctx, paths):
                             multiset_sorted[multiset_msg.ftr][multiset_cl] = []
                         multiset_sorted[multiset_msg.ftr][multiset_cl].append(multiset_msg)
 
-                    for multiset_ftr in multiset_sorted.keys():
+                    get_name = lambda x: x.name
+
+                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in multiset_sorted[multiset_ftr].keys():
+                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
@@ -2425,7 +2443,7 @@ def native_generateCmds(ctx, paths):
                 else:
                     cfile.write ('    if (retVal == '+ AREnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'OK') + ')\n')
                     cfile.write ('    {\n')
-                    cfile.write ('        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' arg = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, offset, &error);\n')
+                    cfile.write ('        ' + xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg) + ' arg = ' + xmlToReader (ftr, cmd, arg) + ' (buffer, buffLen, offset, &error);\n')
                     cfile.write ('        if (error == 0)\n')
                     cfile.write ('        {\n')
                     cfile.write ('            *strOffset = ' + xmlToPrinter (ftr, cmd, arg) + ' (" | ' + arg.name + ' -> ", arg, resString, strLen, *strOffset);\n')
@@ -2446,12 +2464,12 @@ def native_generateCmds(ctx, paths):
 
     cfile.write ('// DECODER ENTRY POINT\n')
     cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-    cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (uint8_t *buffer, int32_t buffLen)\n')
+    cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeBuffer') + ' (const uint8_t *buffer, int32_t buffLen)\n')
     cfile.write ('{\n')
     cfile.write ('    return ' + ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (NULL, buffer, buffLen);\n');
     cfile.write ('}\n\n')
     cfile.write (AREnumName (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '\n')
-    cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (ARCOMMANDS_Decoder_t *decoder, uint8_t *buffer, int32_t buffLen)\n')
+    cfile.write (ARFunctionName (LIB_MODULE, DEC_SUBMODULE, 'DecodeCommand') + ' (ARCOMMANDS_Decoder_t *decoder, const uint8_t *buffer, int32_t buffLen)\n')
     cfile.write ('{\n')
     cfile.write ('    ' + AREnumName (LIB_MODULE, ID_SUBMODULE, 'FEATURE') + ' commandFeature = -1;\n')
     cfile.write ('    int commandClass = -1;\n')
@@ -2531,7 +2549,7 @@ def native_generateCmds(ctx, paths):
                     cfile.write ('                    {\n')
                     for arg in cmd.args:
                         if ArArgType.STRING == arg.argType:
-                            cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
+                            cfile.write ('                        ' + xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
                         else:
                             cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ';\n')
 
@@ -2617,7 +2635,7 @@ def native_generateCmds(ctx, paths):
                 cfile.write ('                    {\n')
                 for arg in cmd.args:
                     if ArArgType.STRING == arg.argType:
-                        cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
+                        cfile.write ('                        ' + xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ' = NULL;\n')
                     else:
                         cfile.write ('                        ' + xmlToC (LIB_MODULE, ftr, cmd, arg) + ' _' + arg.name + ';\n')
 
@@ -3980,6 +3998,27 @@ def java_generateCmds(ctx, paths):
     jfile.write ('    }\n')
     jfile.write ('\n')
 
+    jfile.write ('    /**\n')
+    jfile.write ('     * Decodes a command calling commands listeners<br>\n')
+    jfile.write ('     * If a listener was set for the Class/Command contained within the ' + JNIDecoderClassName + ',\n')
+    jfile.write ('     * its <code>onClassCommandUpdate(...)</code> function will be called in the current thread.\n')
+    jfile.write ('     * @param command command to decode.\n')
+    jfile.write ('     * @return An ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' error code\n')
+    jfile.write ('     */\n')
+    jfile.write ('    public ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' decode (long data, int size) {\n')
+    jfile.write ('        ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + ' err = ' + ARJavaEnumValue (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME, 'ERROR', True) + ';\n')
+    jfile.write ('        if (!valid) {\n')
+    jfile.write ('            return err;\n')
+    jfile.write ('        }\n')
+    jfile.write ('        int errInt = nativeDecode (pointer, data, size);\n')
+    jfile.write ('        if (' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt) != null) {\n')
+    jfile.write ('            err = ' + ARJavaEnumType (LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.getFromValue (errInt);\n')
+    jfile.write ('        }\n')
+    jfile.write ('        return err;\n')
+    jfile.write ('    }\n')
+    jfile.write ('\n')
+
+
     for ftr in allFeatures:
         for cmd in ftr.cmds + ftr.evts:
             jfile.write ('    private ' + interfaceName (ftr, cmd) + ' ' + interfaceVar (ftr, cmd) + ';\n')
@@ -4742,7 +4781,7 @@ def jni_generateCmds(ctx, paths):
         for cmd in ftr.cmds + ftr.evts:
             cfile.write ('void ' + cCallbackName (ftr, cmd) + ' (')
             for arg in cmd.args:
-                cfile.write (xmlToC (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name + ', ')
+                cfile.write (xmlToCcharAreConst (LIB_MODULE, ftr, cmd, arg, True) + ' ' + arg.name + ', ')
             cfile.write ('void *custom)\n')
             cfile.write ('{\n')
             cfile.write ('    ARCOMMANDS_JNI_Decoder_t *decoder = (ARCOMMANDS_JNI_Decoder_t *)custom;\n')
