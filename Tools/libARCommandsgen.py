@@ -1542,7 +1542,8 @@ def native_generateCmds(ctx, paths):
             if enum.usedLikeBitfield:
                 #Generate bit field flags
                 for eVal in enum.values:
-                    hfile.write ('#define ' + ARFlagValue (LIB_MODULE, submodules, macro_name, eVal.name) + ' (1 << '+AREnumValue (LIB_MODULE, submodules, macro_name, eVal.name)+ ')    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
+                    base = 'UINT32_C(1)' if len(enum.values) <= 32 else 'UINT64_C(1)'
+                    hfile.write ('#define ' + ARFlagValue (LIB_MODULE, submodules, macro_name, eVal.name) + ' ('+base+' << '+AREnumValue (LIB_MODULE, submodules, macro_name, eVal.name)+ ')    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
                 hfile.write ('\n')
     for ftr in allFeatures:
         hfile.write ('// Feature ' + get_ftr_old_name(ftr) + '\n')
@@ -3681,7 +3682,8 @@ def java_generateCmds(ctx, paths):
         for enum in ftr.enums:
             if enum.usedLikeBitfield:
                 for eVal in enum.values:
-                    jfile.write ('    public static final int ' + ARFlagValue (LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name) + ' = (1 << '+ARJavaEnumValue (LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name, oldEnumValFrm)+ '.getValue());    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
+                    type_, base = ('int', '1') if len(enum.values) <= 32 else ('long', '1L')
+                    jfile.write ('    public static final '+type_+' ' + ARFlagValue (LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name) + ' = ('+base+' << '+ARJavaEnumValue (LIB_MODULE, get_ftr_old_name(ftr), enum.name, eVal.name, oldEnumValFrm)+ '.getValue());    ///< ' + eVal.doc.replace('\n', '\\n') + '\n')
                 jfile.write ('\n')
 
     jfile.write ('    /**\n')
