@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 '''
     Copyright (C) 2014 Parrot SA
 
@@ -2208,11 +2206,11 @@ def native_generateCmds(ctx, paths):
 
                     get_name = lambda x: x.name
 
-                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
+                    for multiset_ftr in sorted(list(multiset_sorted.keys()), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
+                        for multiset_cl in sorted(list(multiset_sorted[multiset_ftr].keys()), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
@@ -2367,11 +2365,11 @@ def native_generateCmds(ctx, paths):
 
                     get_name = lambda x: x.name
 
-                    for multiset_ftr in sorted(multiset_sorted.keys(), key=get_name):
+                    for multiset_ftr in sorted(list(multiset_sorted.keys()), key=get_name):
                         cfile.write ('            case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, 'FEATURE', get_ftr_old_name(multiset_ftr)) + ':\n')
                         cfile.write ('                switch (commandClass)\n')
                         cfile.write ('                {\n')
-                        for multiset_cl in sorted(multiset_sorted[multiset_ftr].keys(), key=get_name):
+                        for multiset_cl in sorted(list(multiset_sorted[multiset_ftr].keys()), key=get_name):
                             cfile.write ('                case ' + AREnumValue (LIB_MODULE, ID_SUBMODULE, get_ftr_old_name(multiset_ftr) + '_CLASS', multiset_cl.name) + ':\n')
                             cfile.write ('                    switch (commandId)\n')
                             cfile.write ('                    {\n')
@@ -5210,7 +5208,7 @@ def dump_tree_header(ctx, filename):
 def native_list_files(ctx, outdir, paths):
     # print c generated files
     for f in paths.GENERATED_FILES:
-        print os.path.join(outdir, f)
+        print(os.path.join(outdir, f))
 
 #===============================================================================
 #===============================================================================
@@ -5219,31 +5217,31 @@ def android_list_files(ctx, paths):
     # print java enum class files
     for ftr in ctx.features:
         for enum in ftr.enums:
-            print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java'
+            print(paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, get_ftr_old_name(ftr), enum.name) + '.java')
         for multiset in ftr.multisets:
-            print paths.JNIJ_OUT_DIR + ARJavaMultiSetType(LIB_MODULE, get_ftr_old_name(ftr), multiset.name) + '.java'
+            print(paths.JNIJ_OUT_DIR + ARJavaMultiSetType(LIB_MODULE, get_ftr_old_name(ftr), multiset.name) + '.java')
 
     # print java listener class files
     for ftr in ctx.features:
         for cmd in ftr.cmds + ftr.evts:
-            print paths.JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java'
+            print(paths.JNIJ_OUT_DIR + interfaceName(ftr, cmd) + '.java')
 
     # print java generated files
     for f in paths.GENERATED_JAVA_FILES:
-        print os.path.join(outdir, f)
+        print(os.path.join(outdir, f))
 
     # print java enum files generated from enums C
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + '.java'
-    print paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + '.java'
+    print(paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, DEC_SUBMODULE, DEC_ERR_ENAME) + '.java')
+    print(paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_ERROR_ENAME) + '.java')
+    print(paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, FIL_SUBMODULE, FIL_STATUS_ENAME) + '.java')
+    print(paths.JNIJ_OUT_DIR + ARJavaEnumType(LIB_MODULE, GEN_SUBMODULE, GEN_ERR_ENAME) + '.java')
 
 #===============================================================================
 #===============================================================================
 def jni_list_files(ctx, paths):
     # print c generated files
     for f in paths.GENERATED_JNI_FILES:
-        print os.path.join(outdir, f)
+        print(os.path.join(outdir, f))
 
 #===============================================================================
 #===============================================================================
