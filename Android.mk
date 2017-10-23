@@ -34,7 +34,7 @@ LIBARCMDS_DIR := $(PACKAGES_DIR)/libARCommands/
 
 # LOCAL_GEN_FILES depend on parser, generator, and all xml files
 $(LOCAL_GEN_FILES): $(ARSDK_XML_ROOT)/arsdkparser.py $(LIBARCMDS_DIR)/Tools/libARCommandsgen.py $(wildcard $(ARSDK_XML_ROOT)/xml/*.xml)
-	python $(ARSDK_XML_ROOT)/arsdkgen.py $(LIBARCMDS_DIR)/Tools/libARCommandsgen.py -o $(GEN_OUT) jni
+	$(ARSDK_XML_ROOT)/arsdkgen.py $(LIBARCMDS_DIR)/Tools/libARCommandsgen.py -o $(GEN_OUT) jni
 
 clean-arsdk-jni-$(TARGET_ARCH_ABI):: clean-arsdk-generated
 

@@ -5263,7 +5263,7 @@ def generate_files(ctx, outdir, extra):
         # Generation
         native_generateCmds(ctx, paths)
         PREBUILD_ACTION = PACKAGES_DIR+'/ARSDKBuildUtils/Utils/Python/ARSDK_PrebuildActions.py'
-        os.system('python '+PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR+' --outdir '+outdir + ' --disable-java')
+        os.system(PREBUILD_ACTION+' --lib libARCommands --root '+LIBARCOMMANDS_DIR+' --outdir '+outdir + ' --disable-java')
     elif extra == "java":
         # Generation
         java_generateCmds(ctx, paths)
